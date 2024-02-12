@@ -1,7 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://b3yo3dem2wtkt"]
+[gd_scene load_steps=4 format=3 uid="uid://b3yo3dem2wtkt"]
 
 [ext_resource type="Script" path="res://Entities/Player/player.gd" id="1_qh1c4"]
-[ext_resource type="Script" path="res://Entities/Player/camera_pivot.gd" id="2_ga1ag"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gusvb"]
 
@@ -23,11 +22,6 @@ skeleton = NodePath("../..")
 
 [node name="CameraPivot" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-script = ExtResource("2_ga1ag")
 
-[node name="CameraRayCast" type="RayCast3D" parent="CameraPivot"]
-target_position = Vector3(0, 0, 10)
-hit_back_faces = false
-
-[node name="PlayerCamera" type="Camera3D" parent="CameraPivot"]
+[node name="Camera3D" type="Camera3D" parent="CameraPivot"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5)
