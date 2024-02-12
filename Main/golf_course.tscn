@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://dixhhv1bgajy0"]
+
+[ext_resource type="PackedScene" uid="uid://b3yo3dem2wtkt" path="res://Entities/Player/player.tscn" id="1_24cwy"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_en4cg"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_dt2yq"]
+sky_material = SubResource("ProceduralSkyMaterial_en4cg")
+
+[sub_resource type="Environment" id="Environment_7gkud"]
+background_mode = 2
+sky = SubResource("Sky_dt2yq")
+tonemap_mode = 2
+glow_enabled = true
+
+[node name="GolfCourse" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_7gkud")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Player" parent="." instance=ExtResource("1_24cwy")]
