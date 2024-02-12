@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://nyc2v4h74vvu"]
+
+[ext_resource type="Script" path="res://Entities/GolfAction/GolfAction.gd" id="1_duecu"]
+
+[node name="GolfAction" type="Node3D"]
+script = ExtResource("1_duecu")

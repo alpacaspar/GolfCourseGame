@@ -1,0 +1,24 @@
+extends Node3D
+
+
+var hitDirection = new()
+var wasHit = false
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	
+	
+	pass
+
+
+func _on_ball_hit(givenHitDirection : Vector3):
+	hitDirection = givenHitDirection
+	wasHit = true;
+	
+	pass
