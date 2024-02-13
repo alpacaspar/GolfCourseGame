@@ -1,6 +1,26 @@
-[gd_scene load_steps=2 format=3 uid="uid://nyc2v4h74vvu"]
+[gd_scene load_steps=6 format=3 uid="uid://nyc2v4h74vvu"]
 
 [ext_resource type="Script" path="res://Entities/GolfAction/GolfAction.gd" id="1_duecu"]
+[ext_resource type="PackedScene" uid="uid://sot5r3oobocd" path="res://Entities/GolfBall/GolfBall.tscn" id="2_ck5ch"]
+[ext_resource type="PackedScene" uid="uid://b5nrgn7e06prv" path="res://Entities/GolfClub/club.tscn" id="3_h05or"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_7cpj8"]
+top_radius = 3.47
+bottom_radius = 5.45
+height = 0.2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eefa2"]
+albedo_color = Color(0.243137, 0.407843, 0.105882, 1)
 
 [node name="GolfAction" type="Node3D"]
 script = ExtResource("1_duecu")
+
+[node name="GolfBall" parent="." instance=ExtResource("2_ck5ch")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1035, 0)
+
+[node name="Ground" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
+mesh = SubResource("CylinderMesh_7cpj8")
+surface_material_override/0 = SubResource("StandardMaterial3D_eefa2")
+
+[node name="Club" parent="." instance=ExtResource("3_h05or")]
