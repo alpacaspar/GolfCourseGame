@@ -4,11 +4,11 @@ extends State
 @export var player : CharacterBody3D
 
 
-func _on_enter(owner : FSM, _args = {}):
+func _on_enter(_owner : FSM, _args = {}):
 	pass
 
 
-func _on_input(event, owner : FSM):
+func _on_input(event, _owner : FSM):
 	if event is InputEventMouseMotion:
 		player.rotate_y(deg_to_rad(-event.relative.x) * player.SENSITIVITY) 
 		player.camera_pivot.rotate_x(deg_to_rad(-event.relative.y) * player.SENSITIVITY)
@@ -16,11 +16,11 @@ func _on_input(event, owner : FSM):
 		player.camera_pivot.rotation_degrees.x = clamp(player.camera_pivot.rotation_degrees.x, -70, 30)
 
 
-func _on_process(delta, owner : FSM):
+func _on_process(_delta, _owner : FSM):
 	pass
 
 
-func _on_physics_process(delta, owner : FSM):
+func _on_physics_process(delta, _owner : FSM):
 	player.velocity.y = -1 if player.is_on_floor() else player.velocity.y - player.gravity * delta
 	
 	var input_dir = Input.get_vector("move_left", "move_right", "move_up", "move_down")
