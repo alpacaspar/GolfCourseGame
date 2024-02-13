@@ -2,8 +2,6 @@ extends State
 
 
 @export var player : CharacterBody3D
-@export var camera_pivot : Marker3D
-@export var visuals : Node3D
 
 
 func _on_enter(owner : FSM, _args = {}):
@@ -13,9 +11,9 @@ func _on_enter(owner : FSM, _args = {}):
 func _on_input(event, owner : FSM):
 	if event is InputEventMouseMotion:
 		player.rotate_y(deg_to_rad(-event.relative.x) * player.SENSITIVITY) 
-		camera_pivot.rotate_x(deg_to_rad(-event.relative.y) * player.SENSITIVITY)
+		player.camera_pivot.rotate_x(deg_to_rad(-event.relative.y) * player.SENSITIVITY)
 		
-		camera_pivot.rotation_degrees.x = clamp(camera_pivot.rotation_degrees.x, -70, 30)
+		player.camera_pivot.rotation_degrees.x = clamp(player.camera_pivot.rotation_degrees.x, -70, 30)
 
 
 func _on_process(delta, owner : FSM):
