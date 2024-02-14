@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://dixhhv1bgajy0"]
 
 [ext_resource type="PackedScene" uid="uid://b3yo3dem2wtkt" path="res://Entities/Player/player.tscn" id="1_24cwy"]
-[ext_resource type="PackedScene" uid="uid://jv31ak0i6kdc" path="res://Entities/Terrain/golf_terrain.glb" id="2_etm8w"]
+[ext_resource type="PackedScene" uid="uid://dtfsyek8wj8np" path="res://Entities/Terrain/golf_terrain.blend" id="2_to8bt"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_en4cg"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -28,4 +28,4 @@ shadow_enabled = true
 [node name="Player" parent="." instance=ExtResource("1_24cwy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
-[node name="Terrain" parent="." instance=ExtResource("2_etm8w")]
+[node name="golf_terrain" parent="." instance=ExtResource("2_to8bt")]
