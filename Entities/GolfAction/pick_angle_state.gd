@@ -4,6 +4,7 @@ extends State
 var currentAngle : float = 0
 
 @export var angleVisuals : Node3D
+@export var angle_camera : Node3D
 @export var golf_action : Node3D
 
 
@@ -20,6 +21,7 @@ func _on_process(_delta, _owner : FSM):
 
 func _on_physics_process(_delta, _owner : FSM):
 	angleVisuals.rotate(Vector3.UP, currentAngle)
+	angle_camera.rotate(Vector3.UP, currentAngle)
 	currentAngle = 0
 
 

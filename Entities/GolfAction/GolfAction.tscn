@@ -70,7 +70,9 @@ script = ExtResource("1_rnhgy")
 ballScene = ExtResource("2_ck5ch")
 fsm = NodePath("FSM")
 
-[node name="Camera3D" type="Camera3D" parent="."]
+[node name="Marker3D" type="Marker3D" parent="."]
+
+[node name="Camera3D" type="Camera3D" parent="Marker3D"]
 transform = Transform3D(1, 0, 0, 0, 0.864652, 0.502371, 0, -0.502371, 0.864652, -4.76837e-07, 5.23019, 7.0045)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
@@ -116,9 +118,10 @@ script = ExtResource("4_77trv")
 [node name="NoGame" type="Node" parent="FSM"]
 script = ExtResource("4_4frt3")
 
-[node name="PickAngle" type="Node" parent="FSM" node_paths=PackedStringArray("angleVisuals", "golf_action")]
+[node name="PickAngle" type="Node" parent="FSM" node_paths=PackedStringArray("angleVisuals", "angle_camera", "golf_action")]
 script = ExtResource("5_wtp4i")
 angleVisuals = NodePath("../../AngleVisual")
+angle_camera = NodePath("../../Marker3D")
 golf_action = NodePath("../..")
 
 [node name="Swing" type="Node" parent="FSM" node_paths=PackedStringArray("golf_manager")]
