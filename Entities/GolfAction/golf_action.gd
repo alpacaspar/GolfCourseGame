@@ -4,6 +4,7 @@ extends Node3D
 
 @export var ballScene : PackedScene
 @export var fsm : FSM
+@export var club : Node3D
 
 var spawnedBall
 var currentAngle : Vector3
@@ -11,6 +12,7 @@ var currentAngle : Vector3
 
 func _ready():
 	spawn_ball()
+	club.visible = true
 
 
 func _process(delta):

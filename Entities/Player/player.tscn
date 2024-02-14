@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://b3yo3dem2wtkt"]
+[gd_scene load_steps=9 format=3 uid="uid://b3yo3dem2wtkt"]
 
 [ext_resource type="Script" path="res://Entities/Player/player.gd" id="1_qh1c4"]
+[ext_resource type="PackedScene" uid="uid://nyc2v4h74vvu" path="res://Entities/GolfAction/GolfAction.tscn" id="2_l7nj2"]
 [ext_resource type="Script" path="res://Common/FSM/finite_state_machine.gd" id="3_ox5tx"]
 [ext_resource type="Script" path="res://Entities/Player/movement_state.gd" id="4_8jdu4"]
 [ext_resource type="Script" path="res://Entities/Player/idle_state.gd" id="5_fmu0s"]
@@ -37,6 +38,11 @@ margin = 0.5
 [node name="PlayerCamera" type="Camera3D" parent="CameraPivot/SpringArm3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5)
 
+[node name="GolfAction" parent="." instance=ExtResource("2_l7nj2")]
+
+[node name="Club" parent="GolfAction" index="2"]
+visible = false
+
 [node name="FiniteStateMachine" type="Node" parent="."]
 script = ExtResource("3_ox5tx")
 
@@ -47,3 +53,5 @@ player = NodePath("../..")
 [node name="IdleState" type="Node" parent="FiniteStateMachine" node_paths=PackedStringArray("player")]
 script = ExtResource("5_fmu0s")
 player = NodePath("../..")
+
+[editable path="GolfAction"]
