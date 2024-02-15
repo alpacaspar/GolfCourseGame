@@ -7,6 +7,8 @@ const SENSITIVITY = .5
 @onready var camera_pivot : Marker3D = $CameraPivot
 @onready var visuals : Node3D = $Visuals
 
+@export var state_machine : FSM
+
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 
@@ -17,3 +19,9 @@ func _input(_event):
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 		else:
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	
+	if Input.is_action_just_pressed("TestKey"):
+		state_machine._transition_state($FiniteStateMachine/GolfState)
+	
+	if Input.is_action_just_pressed("TestKey2"):
+		state_machine._transition_state($FiniteStateMachine/MovementState)

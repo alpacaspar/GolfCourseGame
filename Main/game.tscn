@@ -1,14 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://83poh1snbn7l"]
+[gd_scene load_steps=3 format=3 uid="uid://83poh1snbn7l"]
 
 [ext_resource type="PackedScene" uid="uid://dixhhv1bgajy0" path="res://Main/golf_course.tscn" id="1_0paj6"]
 [ext_resource type="PackedScene" uid="uid://bgmv6a1ocv8qx" path="res://Main/user_interface.tscn" id="2_6u3u6"]
-[ext_resource type="PackedScene" uid="uid://sot5r3oobocd" path="res://Entities/GolfBall/GolfBall.tscn" id="3_5571i"]
 
 [node name="Game" type="Node"]
 
 [node name="GolfCourse" parent="." instance=ExtResource("1_0paj6")]
 
 [node name="UserInterface" parent="." instance=ExtResource("2_6u3u6")]
-
-[node name="GolfBall" parent="." instance=ExtResource("3_5571i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.409818, 0, 0)

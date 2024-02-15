@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://b3yo3dem2wtkt"]
+[gd_scene load_steps=10 format=3 uid="uid://b3yo3dem2wtkt"]
 
 [ext_resource type="Script" path="res://Entities/Player/player.gd" id="1_qh1c4"]
 [ext_resource type="PackedScene" uid="uid://nyc2v4h74vvu" path="res://Entities/GolfAction/GolfAction.tscn" id="2_l7nj2"]
 [ext_resource type="Script" path="res://Common/FSM/finite_state_machine.gd" id="3_ox5tx"]
 [ext_resource type="Script" path="res://Entities/Player/movement_state.gd" id="4_8jdu4"]
+[ext_resource type="Script" path="res://Entities/Player/golf_state.gd" id="4_gscel"]
 [ext_resource type="Script" path="res://Entities/Player/idle_state.gd" id="5_fmu0s"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gusvb"]
@@ -13,11 +14,12 @@
 [sub_resource type="SphereShape3D" id="SphereShape3D_nquyv"]
 radius = 0.1
 
-[node name="Player" type="CharacterBody3D"]
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("state_machine")]
 script = ExtResource("1_qh1c4")
+state_machine = NodePath("FiniteStateMachine")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00101805, 1, -0.00166342)
 shape = SubResource("CapsuleShape3D_gusvb")
 
 [node name="Visuals" type="Node3D" parent="."]
@@ -39,8 +41,7 @@ margin = 0.5
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5)
 
 [node name="GolfAction" parent="." instance=ExtResource("2_l7nj2")]
-
-[node name="Club" parent="GolfAction" index="2"]
+transform = Transform3D(0.999998, -4.65661e-10, 0.00174533, 0, 1, 0, -0.00174533, 8.12732e-13, 0.999998, 0, 1, 0.755)
 visible = false
 
 [node name="FiniteStateMachine" type="Node" parent="."]
@@ -54,4 +55,6 @@ player = NodePath("../..")
 script = ExtResource("5_fmu0s")
 player = NodePath("../..")
 
-[editable path="GolfAction"]
+[node name="GolfState" type="Node" parent="FiniteStateMachine" node_paths=PackedStringArray("golf_action")]
+script = ExtResource("4_gscel")
+golf_action = NodePath("../../GolfAction")

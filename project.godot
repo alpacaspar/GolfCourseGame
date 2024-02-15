@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="GolfCourseGame"
-run/main_scene="res://Entities/GolfAction/GolfAction.tscn"
+run/main_scene="res://Main/game.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
