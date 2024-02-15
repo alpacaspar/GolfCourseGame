@@ -10,12 +10,16 @@ var spawnedBall
 var currentAngle : Vector3
 
 
-func _ready():
-	spawn_ball()
+func _initialize():
+	get_ball()
+	spawnedBall._on_enter(self)
 	club.visible = true
+	
+	await get_tree().create_timer(1.0).timeout
+	position = spawnedBall.position
 
 
-func _process(delta):
+func _on_process(delta):
 	cycle_states();
 
 
@@ -33,11 +37,13 @@ func cycle_states():
 			fsm._transition_state($FSM/PickAngle)
 
 
-func spawn_ball():
-	var ball = ballScene.instantiate()
-	add_child(ball);
+func get_ball():
+	if spawnedBall != null:
+		return
 	
-	spawnedBall = ball
+	spawnedBall = ballScene.instantiate()
+	spawnedBall.position = position
+	get_tree().root.add_child(spawnedBall)
 
 
 func hit_ball(speed : float):
