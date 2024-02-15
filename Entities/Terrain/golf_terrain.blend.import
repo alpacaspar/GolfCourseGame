@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dtfsyek8wj8np"
-path="res://.godot/imported/golf_terrain.blend-5aadf8878910c810a0fdbb2d83558078.scn"
+path="res://.godot/imported/golf_terrain.blend-ab5daa2fe1f0928f91a334b664adfa78.scn"
 
 [deps]
 
-source_file="res://Entities/Terrain/golf_terrain.blend"
-dest_files=["res://.godot/imported/golf_terrain.blend-5aadf8878910c810a0fdbb2d83558078.scn"]
+source_file="res://entities/terrain/golf_terrain.blend"
+dest_files=["res://.godot/imported/golf_terrain.blend-ab5daa2fe1f0928f91a334b664adfa78.scn"]
 
 [params]
 
@@ -31,7 +31,11 @@ animation/remove_immutable_tracks=true
 import_script/path=""
 _subresources={
 "nodes": {
-"PATH:Terrain00": {
+"PATH:Hole 01": {
+"generate/physics": true,
+"physics/shape_type": 2
+},
+"PATH:Plane": {
 "generate/physics": true,
 "physics/shape_type": 2
 }
