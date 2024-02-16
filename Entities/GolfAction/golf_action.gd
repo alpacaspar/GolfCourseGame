@@ -73,7 +73,7 @@ func on_ball_stop():
 
 func get_ball_spawn_pos() -> Vector3:
 	var space_state = get_world_3d().direct_space_state
-	var origin = global_position
+	var origin = global_position + Vector3(0, 1, 0)
 	var end = origin + Vector3.DOWN * 2
 	var query = PhysicsRayQueryParameters3D.create(origin, end)
 	query.collide_with_areas = true
@@ -90,7 +90,7 @@ func get_can_play() -> bool:
 	if spawned_ball == null:
 		return true
 	
-	if spawned_ball.global_position.distance_to(global_position) < 1:
+	if spawned_ball.global_position.distance_to($"..".global_position) < 2:
 		return true
 	
 	return false

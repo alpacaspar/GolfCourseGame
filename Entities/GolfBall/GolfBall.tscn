@@ -16,7 +16,8 @@ height = 0.2
 
 [node name="GolfBall" type="RigidBody3D"]
 physics_material_override = SubResource("PhysicsMaterial_ikmli")
-linear_damp = 0.5
+continuous_cd = true
+angular_damp = 3.0
 script = ExtResource("1_624px")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
