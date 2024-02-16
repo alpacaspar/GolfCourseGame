@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bucergm05hkhq"
-path.s3tc="res://.godot/imported/cup_green.png-c2366c7194159c935a731a3c9cee4943.s3tc.ctex"
+path.s3tc="res://.godot/imported/cup_green.png-9c73a21dc238f2445da6876f4011bb8d.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ generator_parameters={}
 
 [deps]
 
-source_file="res://entities/hole/cup_green.png"
-dest_files=["res://.godot/imported/cup_green.png-c2366c7194159c935a731a3c9cee4943.s3tc.ctex"]
+source_file="res://Entities/hole/cup_green.png"
+dest_files=["res://.godot/imported/cup_green.png-9c73a21dc238f2445da6876f4011bb8d.s3tc.ctex"]
 
 [params]
 
