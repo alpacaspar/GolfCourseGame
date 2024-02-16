@@ -13,11 +13,12 @@ sky_material = SubResource("ProceduralSkyMaterial_en4cg")
 [sub_resource type="Environment" id="Environment_7gkud"]
 background_mode = 2
 sky = SubResource("Sky_dt2yq")
+tonemap_mode = 2
 glow_enabled = true
 fog_enabled = true
 fog_light_color = Color(0.447059, 0.564706, 0.662745, 1)
 fog_light_energy = 2.0
-fog_density = 0.0005
+fog_density = 0.0002
 fog_sky_affect = 0.0
 
 [node name="GolfCourse" type="Node3D"]
