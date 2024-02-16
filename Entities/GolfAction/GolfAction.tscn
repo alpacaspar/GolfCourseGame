@@ -68,6 +68,9 @@ camera = NodePath("CameraRotate/Camera3D")
 [node name="Camera3D" type="Camera3D" parent="CameraRotate"]
 transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 5, 7)
 
+[node name="Node3D" type="Node3D" parent="CameraRotate"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
+
 [node name="Club" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.07, 0.248106)
 visible = false
