@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dfyfubpegolkx"
-path.s3tc="res://.godot/imported/rough.png-de45584f186ebe41165af6fb106f1b6b.s3tc.ctex"
+path.s3tc="res://.godot/imported/rough.png-e7b9e8f85498f11c888d201d20a8f5d3.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Entities/terrain/rough.png"
-dest_files=["res://.godot/imported/rough.png-de45584f186ebe41165af6fb106f1b6b.s3tc.ctex"]
+source_file="res://Entities/Terrain/rough.png"
+dest_files=["res://.godot/imported/rough.png-e7b9e8f85498f11c888d201d20a8f5d3.s3tc.ctex"]
 
 [params]
 
