@@ -2,6 +2,7 @@ extends State
 
 
 @export var ball_cam : Camera3D
+@export var golf_cam : Camera3D
 
 var spawned_ball
 var sequence_over
@@ -10,6 +11,10 @@ var sequence_over
 func _on_enter(_owner : FSM, _args = {}):
 	sequence_over = false
 	spawned_ball = _args["SpawnedBall"]
+	
+	ball_cam.global_position = golf_cam.global_position
+	ball_cam.current = true
+	
 	look_at_sequence()
 
 

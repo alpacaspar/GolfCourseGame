@@ -1,6 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://sot5r3oobocd"]
+[gd_scene load_steps=6 format=3 uid="uid://sot5r3oobocd"]
 
 [ext_resource type="Script" path="res://Entities/GolfBall/golf_ball_movement.gd" id="1_624px"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ikmli"]
+bounce = 0.5
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_fcui1"]
 radius = 0.1
@@ -12,6 +15,8 @@ height = 0.2
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gt7h4"]
 
 [node name="GolfBall" type="RigidBody3D"]
+physics_material_override = SubResource("PhysicsMaterial_ikmli")
+linear_damp = 0.5
 script = ExtResource("1_624px")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

@@ -7,7 +7,7 @@ var was_hit
 
 func _on_enter(_golf_action):
 	golf_action = _golf_action
-	was_hit = true
+	sleeping = true
 
 
 func _physics_process(_delta):

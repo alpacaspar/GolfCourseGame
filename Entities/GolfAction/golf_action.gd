@@ -21,7 +21,7 @@ func _initialize(_callback):
 	get_ball(get_ball_spawn_pos())
 	spawned_ball._on_enter(self)
 	
-	await get_tree().create_timer(1.0).timeout
+	await get_tree().create_timer(.1).timeout
 	
 	global_position = spawned_ball.position
 	camera.current = true
@@ -64,8 +64,11 @@ func on_ball_stop():
 	if !initialized:
 		return
 	
+	await get_tree().create_timer(1.0).timeout
+	
 	fsm._transition_state($FSM/NoGame)
 	callback.call()
+	initialized = false
 
 
 func get_ball_spawn_pos() -> Vector3:
@@ -78,3 +81,16 @@ func get_ball_spawn_pos() -> Vector3:
 	var result = space_state.intersect_ray(query)
 	
 	return result.position + Vector3(0, .1, 0)
+
+
+func get_can_play() -> bool:
+	if initialized:
+		return false
+	
+	if spawned_ball == null:
+		return true
+	
+	if spawned_ball.global_position.distance_to(global_position) < 1:
+		return true
+	
+	return false
