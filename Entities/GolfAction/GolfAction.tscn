@@ -1,8 +1,7 @@
-[gd_scene load_steps=15 format=3 uid="uid://nyc2v4h74vvu"]
+[gd_scene load_steps=14 format=3 uid="uid://nyc2v4h74vvu"]
 
 [ext_resource type="Script" path="res://Entities/GolfAction/golf_action.gd" id="1_rnhgy"]
 [ext_resource type="PackedScene" uid="uid://sot5r3oobocd" path="res://Entities/GolfBall/GolfBall.tscn" id="2_ck5ch"]
-[ext_resource type="Script" path="res://Entities/GolfAction/no_game_state.gd" id="4_4frt3"]
 [ext_resource type="Script" path="res://Common/FSM/finite_state_machine.gd" id="4_77trv"]
 [ext_resource type="Script" path="res://Entities/GolfAction/golf_swing_state.gd" id="5_b77hr"]
 [ext_resource type="Script" path="res://Entities/GolfAction/pick_angle_state.gd" id="5_wtp4i"]
@@ -103,9 +102,6 @@ transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 5, 7)
 
 [node name="FSM" type="Node" parent="."]
 script = ExtResource("4_77trv")
-
-[node name="NoGame" type="Node" parent="FSM"]
-script = ExtResource("4_4frt3")
 
 [node name="PickAngle" type="Node" parent="FSM" node_paths=PackedStringArray("angle_visuals", "angle_camera_holder", "golf_action")]
 script = ExtResource("5_wtp4i")

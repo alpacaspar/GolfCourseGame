@@ -27,6 +27,8 @@ func _initialize(_callback):
 	camera.current = true
 	club.visible = true
 	initialized = true
+	
+	fsm._transition_state($FSM/PickAngle)
 
 
 func _on_process(_delta):
@@ -34,14 +36,12 @@ func _on_process(_delta):
 		return
 	
 	if Input.is_action_just_pressed("Mouse0"):
-		if fsm.current_state == $FSM/NoGame:
-			fsm._transition_state($FSM/PickAngle)
-		else: if fsm.current_state == $FSM/PickAngle:
+		if fsm.current_state == $FSM/PickAngle:
 			fsm._transition_state($FSM/Swing)
 	
 	if Input.is_action_just_pressed("Mouse1"):
 		if fsm.current_state == $FSM/PickAngle:
-			fsm._transition_state($FSM/NoGame)
+			callback.call()
 		else: if fsm.current_state == $FSM/Swing:
 			fsm._transition_state($FSM/PickAngle)
 
@@ -66,7 +66,7 @@ func on_ball_stop():
 	
 	await get_tree().create_timer(1.0).timeout
 	
-	fsm._transition_state($FSM/NoGame)
+	fsm._transition_state($FSM/PickAngle)
 	callback.call()
 	initialized = false
 

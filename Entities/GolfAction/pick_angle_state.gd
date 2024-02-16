@@ -9,6 +9,8 @@ var current_angle : float = 0
 
 
 func _on_enter(_owner : FSM, _args = {}):
+	angle_visuals.rotation = Vector3.ZERO
+	angle_camera_holder.rotation = Vector3.ZERO
 	angle_visuals.visible = true
 
 
