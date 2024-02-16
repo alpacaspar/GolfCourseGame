@@ -27,4 +27,4 @@ func _on_physics_process(_delta, _owner : FSM):
 
 func _on_exit(_args = {}):
 	angleVisuals.visible = false
-	golf_action.currentAngle = -angleVisuals.basis.z
+	golf_action.currentAngle = -angleVisuals.global_basis.z
