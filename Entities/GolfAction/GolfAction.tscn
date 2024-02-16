@@ -1,7 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://nyc2v4h74vvu"]
+[gd_scene load_steps=16 format=3 uid="uid://nyc2v4h74vvu"]
 
 [ext_resource type="Script" path="res://Entities/GolfAction/golf_action.gd" id="1_rnhgy"]
 [ext_resource type="PackedScene" uid="uid://sot5r3oobocd" path="res://Entities/GolfBall/GolfBall.tscn" id="2_ck5ch"]
+[ext_resource type="PackedScene" uid="uid://s558cguboghi" path="res://Entities/GolfTee/tee.tscn" id="3_8afye"]
 [ext_resource type="Script" path="res://Entities/GolfAction/no_game_state.gd" id="4_4frt3"]
 [ext_resource type="Script" path="res://Common/FSM/finite_state_machine.gd" id="4_77trv"]
 [ext_resource type="Script" path="res://Entities/GolfAction/golf_swing_state.gd" id="5_b77hr"]
@@ -59,7 +60,8 @@ outer_radius = 0.411
 
 [node name="GolfAction" type="Node3D" node_paths=PackedStringArray("fsm", "club")]
 script = ExtResource("1_rnhgy")
-ballScene = ExtResource("2_ck5ch")
+ball_scene = ExtResource("2_ck5ch")
+tee_scene = ExtResource("3_8afye")
 fsm = NodePath("FSM")
 club = NodePath("Club")
 

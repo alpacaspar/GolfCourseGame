@@ -2,7 +2,8 @@ class_name GolfManager
 extends Node3D
 
 
-@export var ballScene : PackedScene
+@export var ball_scene : PackedScene
+@export var tee_scene : PackedScene
 @export var fsm : FSM
 @export var club : Node3D
 
@@ -15,11 +16,13 @@ var callback
 
 func _initialize(_callback):
 	initialized = false
-	get_ball()
-	spawnedBall._on_enter(self)
 	callback = _callback
 	
+	get_ball(get_ball_spawn_pos())
+	spawnedBall._on_enter(self)
+	
 	await get_tree().create_timer(1.0).timeout
+	
 	global_position = spawnedBall.position
 	club.visible = true
 	initialized = true
@@ -42,12 +45,12 @@ func _on_process(_delta):
 			fsm._transition_state($FSM/PickAngle)
 
 
-func get_ball():
+func get_ball(_position):
 	if spawnedBall != null:
 		return
 	
-	spawnedBall = ballScene.instantiate()
-	spawnedBall.position = global_position
+	spawnedBall = ball_scene.instantiate()
+	spawnedBall.position = _position
 	get_tree().root.add_child(spawnedBall)
 
 
@@ -59,6 +62,17 @@ func on_ball_stop():
 	if !initialized:
 		return
 	
-	prints("stopped")
 	fsm._transition_state($FSM/NoGame)
 	callback.call()
+
+
+func get_ball_spawn_pos() -> Vector3:
+	var space_state = get_world_3d().direct_space_state
+	var origin = global_position
+	var end = origin + Vector3.DOWN * 2
+	var query = PhysicsRayQueryParameters3D.create(origin, end)
+	query.collide_with_areas = true
+
+	var result = space_state.intersect_ray(query)
+	
+	return result.position + Vector3(0, .1, 0)
