@@ -27,7 +27,6 @@ func _on_process(_delta, _owner : FSM):
 	if Input.is_action_pressed("Mouse0"):
 		if speed > 50 && current_position < 0:
 			golf_manager.hit_ball(speed)
-			_owner._transition_state($"../BallFly")
 
 
 func _on_physics_process(_delta, _owner : FSM):

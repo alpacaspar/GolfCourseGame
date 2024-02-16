@@ -1,8 +1,7 @@
-[gd_scene load_steps=16 format=3 uid="uid://nyc2v4h74vvu"]
+[gd_scene load_steps=15 format=3 uid="uid://nyc2v4h74vvu"]
 
 [ext_resource type="Script" path="res://Entities/GolfAction/golf_action.gd" id="1_rnhgy"]
 [ext_resource type="PackedScene" uid="uid://sot5r3oobocd" path="res://Entities/GolfBall/GolfBall.tscn" id="2_ck5ch"]
-[ext_resource type="PackedScene" uid="uid://s558cguboghi" path="res://Entities/GolfTee/tee.tscn" id="3_8afye"]
 [ext_resource type="Script" path="res://Entities/GolfAction/no_game_state.gd" id="4_4frt3"]
 [ext_resource type="Script" path="res://Common/FSM/finite_state_machine.gd" id="4_77trv"]
 [ext_resource type="Script" path="res://Entities/GolfAction/golf_swing_state.gd" id="5_b77hr"]
@@ -58,17 +57,17 @@ size = Vector3(0.1, 0.1, 0.1)
 inner_radius = 0.49
 outer_radius = 0.411
 
-[node name="GolfAction" type="Node3D" node_paths=PackedStringArray("fsm", "club")]
+[node name="GolfAction" type="Node3D" node_paths=PackedStringArray("fsm", "club", "camera")]
 script = ExtResource("1_rnhgy")
 ball_scene = ExtResource("2_ck5ch")
-tee_scene = ExtResource("3_8afye")
 fsm = NodePath("FSM")
 club = NodePath("Club")
+camera = NodePath("CameraRotate/Camera3D")
 
 [node name="CameraRotate" type="Marker3D" parent="."]
 
 [node name="Camera3D" type="Camera3D" parent="CameraRotate"]
-transform = Transform3D(1, 0, 0, 0, 0.864652, 0.502371, 0, -0.502371, 0.864652, -4.76837e-07, 5.23019, 7.0045)
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 5, 7)
 
 [node name="Club" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.07, 0.248106)
@@ -105,15 +104,16 @@ script = ExtResource("4_77trv")
 [node name="NoGame" type="Node" parent="FSM"]
 script = ExtResource("4_4frt3")
 
-[node name="PickAngle" type="Node" parent="FSM" node_paths=PackedStringArray("angleVisuals", "angle_camera", "golf_action")]
+[node name="PickAngle" type="Node" parent="FSM" node_paths=PackedStringArray("angle_visuals", "angle_camera_holder", "golf_action")]
 script = ExtResource("5_wtp4i")
-angleVisuals = NodePath("../../AngleVisual")
-angle_camera = NodePath("../../CameraRotate")
+angle_visuals = NodePath("../../AngleVisual")
+angle_camera_holder = NodePath("../../CameraRotate")
 golf_action = NodePath("../..")
 
 [node name="Swing" type="Node" parent="FSM" node_paths=PackedStringArray("golf_manager")]
 script = ExtResource("5_b77hr")
 golf_manager = NodePath("../..")
 
-[node name="BallFly" type="Node" parent="FSM"]
+[node name="BallFly" type="Node" parent="FSM" node_paths=PackedStringArray("ball_cam")]
 script = ExtResource("7_alkrn")
+ball_cam = NodePath("../../CameraRotate/Camera3D")

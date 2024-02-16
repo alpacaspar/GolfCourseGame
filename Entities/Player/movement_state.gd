@@ -2,10 +2,11 @@ extends State
 
 
 @export var player : CharacterBody3D
+@export var main_camera : Camera3D
 
 
 func _on_enter(_owner : FSM, _args = {}):
-	pass
+	main_camera.current = true
 
 
 func _on_input(event, _owner : FSM):

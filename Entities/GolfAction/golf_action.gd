@@ -3,12 +3,12 @@ extends Node3D
 
 
 @export var ball_scene : PackedScene
-@export var tee_scene : PackedScene
 @export var fsm : FSM
 @export var club : Node3D
+@export var camera : Camera3D
 
-var spawnedBall
-var currentAngle : Vector3
+var spawned_ball
+var current_angle : Vector3
 
 var initialized : bool
 var callback
@@ -19,11 +19,12 @@ func _initialize(_callback):
 	callback = _callback
 	
 	get_ball(get_ball_spawn_pos())
-	spawnedBall._on_enter(self)
+	spawned_ball._on_enter(self)
 	
 	await get_tree().create_timer(1.0).timeout
 	
-	global_position = spawnedBall.position
+	global_position = spawned_ball.position
+	camera.current = true
 	club.visible = true
 	initialized = true
 
@@ -46,16 +47,17 @@ func _on_process(_delta):
 
 
 func get_ball(_position):
-	if spawnedBall != null:
+	if spawned_ball != null:
 		return
 	
-	spawnedBall = ball_scene.instantiate()
-	spawnedBall.position = _position
-	get_tree().root.add_child(spawnedBall)
+	spawned_ball = ball_scene.instantiate()
+	spawned_ball.position = _position
+	get_tree().root.add_child(spawned_ball)
 
 
 func hit_ball(speed : float):
-	spawnedBall._on_ball_hit((currentAngle * 10) + Vector3(0, 1, 0) * (speed / 10))
+	spawned_ball._on_ball_hit((current_angle * 10) + Vector3(0, 1, 0) * (speed / 10))
+	fsm._transition_state($FSM/BallFly, { "SpawnedBall" : spawned_ball })
 
 
 func on_ball_stop():

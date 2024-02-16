@@ -28,6 +28,7 @@ func _on_physics_process(_delta, _owner : FSM):
 
 func _on_exit(_args = {}):
 	golf_action.visible = false
+	
 
 
 func done():

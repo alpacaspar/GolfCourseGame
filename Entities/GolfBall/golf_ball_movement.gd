@@ -2,18 +2,18 @@ extends RigidBody3D
 
 
 var golf_action
-var wasHit
+var was_hit
 
 
 func _on_enter(_golf_action):
 	golf_action = _golf_action
-	wasHit = true
+	was_hit = true
 
 
 func _physics_process(_delta):
-	if wasHit:
+	if was_hit:
 		await get_tree().create_timer(.2).timeout
-		wasHit = false
+		was_hit = false
 	
 	if sleeping:
 		return
@@ -24,6 +24,6 @@ func _physics_process(_delta):
 
 
 func _on_ball_hit(givenHitDirection : Vector3):
-	wasHit = true
+	was_hit = true
 	
 	apply_impulse(givenHitDirection)

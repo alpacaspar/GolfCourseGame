@@ -1,30 +1,30 @@
 extends State
 
 
-var currentAngle : float = 0
+var current_angle : float = 0
 
-@export var angleVisuals : Node3D
-@export var angle_camera : Node3D
+@export var angle_visuals : Node3D
+@export var angle_camera_holder : Node3D
 @export var golf_action : Node3D
 
 
 func _on_enter(_owner : FSM, _args = {}):
-	angleVisuals.visible = true
+	angle_visuals.visible = true
 
 
 func _on_process(_delta, _owner : FSM):
 	if Input.is_action_pressed("move_left"):
-		currentAngle += .01
+		current_angle += .01
 	if Input.is_action_pressed("move_right"):
-		currentAngle -= .01
+		current_angle -= .01
 
 
 func _on_physics_process(_delta, _owner : FSM):
-	angleVisuals.rotate(Vector3.UP, currentAngle)
-	angle_camera.rotate(Vector3.UP, currentAngle)
-	currentAngle = 0
+	angle_visuals.rotate(Vector3.UP, current_angle)
+	angle_camera_holder.rotate(Vector3.UP, current_angle)
+	current_angle = 0
 
 
 func _on_exit(_args = {}):
-	angleVisuals.visible = false
-	golf_action.currentAngle = -angleVisuals.global_basis.z
+	angle_visuals.visible = false
+	golf_action.current_angle = -angle_visuals.global_basis.z
