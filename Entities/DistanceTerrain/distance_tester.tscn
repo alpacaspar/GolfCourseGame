@@ -9,10 +9,10 @@ albedo_color = Color(0.364706, 0.364706, 0.364706, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_e87ly"]
 material = SubResource("StandardMaterial3D_nrpax")
-size = Vector3(250, 0.1, 16)
+size = Vector3(400, 0.1, 16)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_bj0nf"]
-size = Vector3(250, 0.1, 16)
+size = Vector3(400.646, 0.1, 16)
 
 [node name="DistanceTester" type="Node3D"]
 script = ExtResource("1_fjr47")
@@ -26,13 +26,13 @@ collision_layer = 3
 collision_mask = 3
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 116.927, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 192.379, 0, 0)
 layers = 3
 mesh = SubResource("BoxMesh_e87ly")
 skeleton = NodePath("../..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 116.927, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 192.25, 0, 0)
 shape = SubResource("BoxShape3D_bj0nf")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]

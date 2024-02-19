@@ -5,7 +5,7 @@ albedo_color = Color(0, 0, 0, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_vakw2"]
 material = SubResource("StandardMaterial3D_m61m1")
-size = Vector3(0.2, 0.2, 15)
+size = Vector3(0.01, 0.11, 15)
 
 [node name="DistanceBlock" type="MeshInstance3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
