@@ -56,7 +56,11 @@ func get_ball(_position):
 
 
 func hit_ball(speed : float):
-	spawned_ball._on_ball_hit((current_angle * 10) + Vector3(0, 1, 0) * (speed / 10))
+	current_angle += Vector3(0, .5, 0)
+	
+	print_debug(speed)
+	
+	spawned_ball._on_ball_hit((current_angle * 10) * speed)
 	fsm._transition_state($FSM/BallFly, { "SpawnedBall" : spawned_ball })
 
 

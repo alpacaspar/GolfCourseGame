@@ -8,6 +8,7 @@ var last_position : float
 
 var largest_negative : float
 var speed : float
+var highest_speed : float
 
 
 func _on_enter(_owner : FSM, _args = {}):
@@ -21,17 +22,11 @@ func _on_input(_event, _owner : FSM):
 
 func _on_process(_delta, _owner : FSM):
 	largest_negative = current_position if current_position > largest_negative else largest_negative
-	speed = abs(current_position - last_position)
-	last_position = current_position
+	
+	if current_position != last_position:
+		speed = abs(current_position - last_position) * _delta
+		last_position = current_position
 	
 	if Input.is_action_pressed("Mouse0"):
-		if speed > 50 && current_position < 0:
+		if speed > 50 * _delta && current_position < 0:
 			golf_manager.hit_ball(speed)
-
-
-func _on_physics_process(_delta, _owner : FSM):
-	pass
-
-
-func _on_exit(_args = {}):
-	pass
