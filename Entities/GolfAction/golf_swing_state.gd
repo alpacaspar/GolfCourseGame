@@ -26,7 +26,11 @@ func _on_process(_delta, _owner : FSM):
 	if current_position != last_position:
 		speed = abs(current_position - last_position) * _delta
 		last_position = current_position
+		
+		if speed > 6:
+			speed = 6
 	
-	if Input.is_action_pressed("Mouse0"):
-		if speed > 50 * _delta && current_position < 0:
-			golf_manager.hit_ball(speed)
+	var normalized_speed = speed / 6.0
+	
+	if Input.is_action_pressed("Mouse0") and current_position < 0:
+		golf_manager.hit_ball(normalized_speed)

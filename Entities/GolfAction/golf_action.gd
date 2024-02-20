@@ -2,6 +2,8 @@ class_name GolfManager
 extends Node3D
 
 
+@export var golf_club_resource : Resource
+
 @export var ball_scene : PackedScene
 @export var fsm : FSM
 @export var club : Node3D
@@ -55,12 +57,19 @@ func get_ball(_position):
 	get_tree().root.add_child(spawned_ball)
 
 
+func remove_ball():
+	if spawned_ball != null:
+		spawned_ball.queue_free()
+		spawned_ball = null
+
+
 func hit_ball(speed : float):
-	current_angle += Vector3(0, .5, 0)
+	var remapped_speed = (golf_club_resource.max_speed - golf_club_resource.min_speed) * speed + golf_club_resource.min_speed
+	if remapped_speed < golf_club_resource.speed_threshold:
+		return
 	
-	print_debug(speed)
-	
-	spawned_ball._on_ball_hit((current_angle * 10) * speed)
+	current_angle += Vector3(0, golf_club_resource.vertical_amount, 0)
+	spawned_ball._on_ball_hit(current_angle * remapped_speed)
 	fsm._transition_state($FSM/BallFly, { "SpawnedBall" : spawned_ball })
 
 

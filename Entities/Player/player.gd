@@ -24,3 +24,6 @@ func _input(_event):
 	if golf_manager.get_can_play():
 		if Input.is_action_just_pressed("TestKey"):
 			state_machine._transition_state($FiniteStateMachine/GolfState)
+	
+	if Input.is_action_just_pressed("TestKey2"):
+		golf_manager.remove_ball()
