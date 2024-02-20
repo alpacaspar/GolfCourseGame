@@ -1,0 +1,103 @@
+[gd_scene load_steps=7 format=3 uid="uid://dkxoy6eab4ceu"]
+
+[ext_resource type="Script" path="res://entities/golf_car/golf_car.gd" id="1_e1dhi"]
+[ext_resource type="Script" path="res://entities/golf_car/car_input_provider.gd" id="2_6muvw"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_1cp5m"]
+size = Vector3(1, 1.2, 2.4)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nb7by"]
+size = Vector3(1, 1.2, 2.4)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_b8rg3"]
+top_radius = 0.3
+bottom_radius = 0.3
+height = 0.2
+radial_segments = 16
+rings = 1
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_botw6"]
+radius = 0.1
+
+[node name="GolfCar" type="VehicleBody3D"]
+mass = 450.0
+center_of_mass_mode = 1
+script = ExtResource("1_e1dhi")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
+mesh = SubResource("BoxMesh_1cp5m")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
+shape = SubResource("BoxShape3D_nb7by")
+
+[node name="BackLeft" type="VehicleWheel3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6, 0, 1)
+use_as_traction = true
+wheel_roll_influence = 0.0
+wheel_radius = 0.3
+wheel_rest_length = 0.3
+suspension_stiffness = 50.0
+damping_compression = 1.9
+damping_relaxation = 2.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="BackLeft"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("CylinderMesh_b8rg3")
+
+[node name="BackRight" type="VehicleWheel3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, 0, 1)
+use_as_traction = true
+wheel_roll_influence = 0.0
+wheel_radius = 0.3
+wheel_rest_length = 0.3
+suspension_stiffness = 50.0
+damping_compression = 1.9
+damping_relaxation = 2.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="BackRight"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("CylinderMesh_b8rg3")
+
+[node name="FrontLeft" type="VehicleWheel3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6, 0, -1)
+use_as_steering = true
+wheel_roll_influence = 0.0
+wheel_radius = 0.3
+wheel_rest_length = 0.3
+suspension_stiffness = 50.0
+damping_compression = 1.9
+damping_relaxation = 2.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="FrontLeft"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("CylinderMesh_b8rg3")
+
+[node name="FrontRight" type="VehicleWheel3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, 0, -1)
+use_as_steering = true
+wheel_roll_influence = 0.0
+wheel_radius = 0.3
+wheel_rest_length = 0.3
+suspension_stiffness = 50.0
+damping_compression = 1.9
+damping_relaxation = 2.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="FrontRight"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("CylinderMesh_b8rg3")
+
+[node name="CameraPivot" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+
+[node name="SpringArm3D" type="SpringArm3D" parent="CameraPivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+shape = SubResource("SphereShape3D_botw6")
+spring_length = 10.0
+
+[node name="Camera3D" type="Camera3D" parent="CameraPivot/SpringArm3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10)
+
+[node name="InputProvider" type="Node" parent="."]
+script = ExtResource("2_6muvw")
