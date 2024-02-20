@@ -1,0 +1,124 @@
+[gd_scene load_steps=15 format=3 uid="uid://nyc2v4h74vvu"]
+
+[ext_resource type="Script" path="res://entities/golf_action/golf_action.gd" id="1_rnhgy"]
+[ext_resource type="Resource" uid="uid://dsatdmwqma2gq" path="res://common/clubs/putter_club_resource.tres" id="2_cblap"]
+[ext_resource type="PackedScene" uid="uid://sot5r3oobocd" path="res://entities/golf_ball/GolfBall.tscn" id="2_ck5ch"]
+[ext_resource type="Script" path="res://common/finite_state_machine/finite_state_machine.gd" id="4_77trv"]
+[ext_resource type="Script" path="res://entities/golf_action/golf_swing_state.gd" id="5_b77hr"]
+[ext_resource type="Script" path="res://entities/golf_action/pick_angle_state.gd" id="5_wtp4i"]
+[ext_resource type="Script" path="res://entities/golf_action/ball_movement_state.gd" id="7_alkrn"]
+
+[sub_resource type="Animation" id="Animation_uj0g1"]
+resource_name = "club_idle"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Club/Node3D")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 1, 0, 0.1, 0, 2, 1, 0, 0, 0)
+
+[sub_resource type="Animation" id="Animation_v2f08"]
+resource_name = "club_swing"
+length = 1.5
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Club/Node3D")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 1.1, 1, -0.949, 0, 0, 0.315, 1.3, 1, 0, 0, 0, 1, 1.5, 1, 0.302, 0, 0, 0.953)
+tracks/1/type = "position_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Club/Node3D")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1.1, 1, 0, 3, 2, 1.2, 1, 0, 1.5, 2.5, 1.3, 1, 0, 0, 0, 1.5, 1, 0, 0, -0.5)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hdn8x"]
+_data = {
+"club_idle": SubResource("Animation_uj0g1"),
+"club_swing": SubResource("Animation_v2f08")
+}
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_qltwx"]
+top_radius = 0.05
+bottom_radius = 0.05
+
+[sub_resource type="BoxMesh" id="BoxMesh_rc1t6"]
+size = Vector3(0.1, 0.1, 0.1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_00q8s"]
+
+[sub_resource type="TorusMesh" id="TorusMesh_q1gqp"]
+inner_radius = 0.49
+outer_radius = 0.411
+
+[node name="GolfAction" type="Node3D" node_paths=PackedStringArray("fsm", "club", "camera")]
+script = ExtResource("1_rnhgy")
+golf_club_resource = ExtResource("2_cblap")
+ball_scene = ExtResource("2_ck5ch")
+fsm = NodePath("FSM")
+club = NodePath("Club")
+camera = NodePath("CameraRotate/Camera3D")
+
+[node name="CameraRotate" type="Marker3D" parent="."]
+
+[node name="Camera3D" type="Camera3D" parent="CameraRotate"]
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 5, 7)
+
+[node name="Node3D" type="Node3D" parent="CameraRotate"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
+
+[node name="Club" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.07, 0.248106)
+visible = false
+
+[node name="Club" type="AnimationPlayer" parent="Club"]
+libraries = {
+"": SubResource("AnimationLibrary_hdn8x")
+}
+
+[node name="Stokje" type="MeshInstance3D" parent="Club"]
+transform = Transform3D(0.964879, 0.262694, 0, -0.262694, 0.964879, 0, 0, 0, 1, 0.426, 1.075, 0)
+mesh = SubResource("CylinderMesh_qltwx")
+
+[node name="Plokje" type="MeshInstance3D" parent="Club"]
+transform = Transform3D(2.87418, 0.0917268, 0, -0.152138, 1.73289, 0, 0, 0, 1, 0.042, 0.176, 0)
+mesh = SubResource("BoxMesh_rc1t6")
+skeleton = NodePath("../Stokje")
+
+[node name="AngleVisual" type="Node3D" parent="."]
+visible = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="AngleVisual"]
+transform = Transform3D(0.668902, 0, 0, 0, 0.249883, 0, 0, 0, 0.895025, 0, 0.289774, -2.01614)
+mesh = SubResource("BoxMesh_00q8s")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="AngleVisual"]
+transform = Transform3D(3.54826, 0, 0, 0, 3.54826, 0, 0, 0, 3.54826, 0, 0.28, 0)
+mesh = SubResource("TorusMesh_q1gqp")
+
+[node name="BallCam" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 5, 7)
+
+[node name="FSM" type="Node" parent="."]
+script = ExtResource("4_77trv")
+
+[node name="PickAngle" type="Node" parent="FSM" node_paths=PackedStringArray("angle_visuals", "angle_camera_holder", "golf_action")]
+script = ExtResource("5_wtp4i")
+angle_visuals = NodePath("../../AngleVisual")
+angle_camera_holder = NodePath("../../CameraRotate")
+golf_action = NodePath("../..")
+
+[node name="Swing" type="Node" parent="FSM" node_paths=PackedStringArray("golf_manager")]
+script = ExtResource("5_b77hr")
+golf_manager = NodePath("../..")
+
+[node name="BallFly" type="Node" parent="FSM" node_paths=PackedStringArray("ball_cam", "golf_cam")]
+script = ExtResource("7_alkrn")
+ball_cam = NodePath("../../BallCam")
+golf_cam = NodePath("../../CameraRotate/Camera3D")

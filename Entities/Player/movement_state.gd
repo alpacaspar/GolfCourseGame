@@ -6,7 +6,7 @@ extends State
 
 
 func _on_enter(_owner : FSM, _args = {}):
-	main_camera.current = true
+	main_camera.make_current()
 
 
 func _on_input(event, _owner : FSM):

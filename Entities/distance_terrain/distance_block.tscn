@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://cyh3he0g1p6rc"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m61m1"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_vakw2"]
+material = SubResource("StandardMaterial3D_m61m1")
+size = Vector3(0.01, 0.11, 15)
+
+[node name="DistanceBlock" type="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
+mesh = SubResource("BoxMesh_vakw2")
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.614251, -7.69697)
+pixel_size = 0.01
+text = "200m"

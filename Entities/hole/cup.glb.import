@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://bknw3rgmsvj8u"
-path="res://.godot/imported/cup.glb-85ad06af3a0bdd6623ccd37b3ea4107a.scn"
+path="res://.godot/imported/cup.glb-4fdc140c4365b46f36e68c784f82edc2.scn"
 
 [deps]
 
-source_file="res://Entities/hole/cup.glb"
-dest_files=["res://.godot/imported/cup.glb-85ad06af3a0bdd6623ccd37b3ea4107a.scn"]
+source_file="res://entities/hole/cup.glb"
+dest_files=["res://.godot/imported/cup.glb-4fdc140c4365b46f36e68c784f82edc2.scn"]
 
 [params]
 
