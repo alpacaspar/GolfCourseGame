@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://ccufwe7w7q3u4"]
 
 [ext_resource type="Script" path="res://entities/DistanceTerrain/distance_tester.gd" id="1_fjr47"]
-[ext_resource type="PackedScene" path="res://Entities/player/player.tscn" id="2_4fiqs"]
-[ext_resource type="PackedScene" uid="uid://cyh3he0g1p6rc" path="res://Entities/distance_terrain/distance_block.tscn" id="2_guek4"]
+[ext_resource type="PackedScene" uid="uid://b3yo3dem2wtkt" path="res://entities/player/player.tscn" id="2_4fiqs"]
+[ext_resource type="PackedScene" uid="uid://cyh3he0g1p6rc" path="res://entities/distance_terrain/distance_block.tscn" id="2_guek4"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nrpax"]
 albedo_color = Color(0.364706, 0.364706, 0.364706, 1)

@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://blpc24it64q8a"
-path.s3tc="res://.godot/imported/fairway.png-bcf91fb54c348694978c7b142275c98b.s3tc.ctex"
+path.s3tc="res://.godot/imported/fairway.png-beedde7d573d9767c3e03e492bc09e49.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Entities/terrain/fairway.png"
-dest_files=["res://.godot/imported/fairway.png-bcf91fb54c348694978c7b142275c98b.s3tc.ctex"]
+source_file="res://entities/terrain/fairway.png"
+dest_files=["res://.godot/imported/fairway.png-beedde7d573d9767c3e03e492bc09e49.s3tc.ctex"]
 
 [params]
 

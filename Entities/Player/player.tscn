@@ -1,11 +1,11 @@
 [gd_scene load_steps=10 format=3 uid="uid://b3yo3dem2wtkt"]
 
-[ext_resource type="Script" path="res://Entities/Player/player.gd" id="1_qh1c4"]
+[ext_resource type="Script" path="res://entities/player/player.gd" id="1_qh1c4"]
 [ext_resource type="PackedScene" uid="uid://nyc2v4h74vvu" path="res://entities/golf_action/golf_action.tscn" id="2_l7nj2"]
 [ext_resource type="Script" path="res://common/finite_state_machine/finite_state_machine.gd" id="3_ox5tx"]
-[ext_resource type="Script" path="res://Entities/Player/movement_state.gd" id="4_8jdu4"]
-[ext_resource type="Script" path="res://Entities/Player/golf_state.gd" id="4_gscel"]
-[ext_resource type="Script" path="res://Entities/Player/idle_state.gd" id="5_fmu0s"]
+[ext_resource type="Script" path="res://entities/player/movement_state.gd" id="4_8jdu4"]
+[ext_resource type="Script" path="res://entities/player/golf_state.gd" id="4_gscel"]
+[ext_resource type="Script" path="res://entities/player/idle_state.gd" id="5_fmu0s"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gusvb"]
 

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://entities/golf_action/golf_action.gd" id="1_rnhgy"]
 [ext_resource type="Resource" uid="uid://dsatdmwqma2gq" path="res://common/clubs/putter_club_resource.tres" id="2_cblap"]
-[ext_resource type="PackedScene" uid="uid://sot5r3oobocd" path="res://entities/golf_ball/GolfBall.tscn" id="2_ck5ch"]
+[ext_resource type="PackedScene" uid="uid://sot5r3oobocd" path="res://entities/golf_ball/golf_ball.tscn" id="2_ck5ch"]
 [ext_resource type="Script" path="res://common/finite_state_machine/finite_state_machine.gd" id="4_77trv"]
 [ext_resource type="Script" path="res://entities/golf_action/golf_swing_state.gd" id="5_b77hr"]
 [ext_resource type="Script" path="res://entities/golf_action/pick_angle_state.gd" id="5_wtp4i"]
