@@ -11,6 +11,7 @@
 storage = ExtResource("1_s3qnw")
 material = ExtResource("2_1gyq7")
 texture_list = ExtResource("3_fkt6k")
+collision_layer = 3
 
 [node name="cup" parent="." instance=ExtResource("4_fs7uy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 240.983, 5.09922, 882.857)
