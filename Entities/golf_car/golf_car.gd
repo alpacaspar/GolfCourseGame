@@ -31,20 +31,26 @@ func _on_look(input_delta: Vector2):
 	rot_x += input_delta.x * SENSITIVITY
 	rot_y += input_delta.y * SENSITIVITY
 
+	rot_y = clamp(rot_y, -30, 70)
+	
 	camera_pivot.transform.basis = Basis()
 	camera_pivot.rotate_object_local(Vector3.UP, -deg_to_rad(rot_x))
 	camera_pivot.rotate_object_local(Vector3.RIGHT, -deg_to_rad(rot_y))
 
 
 func _on_interact():
-	controller.set_visible(true)
+	controller.process_mode = Node.PROCESS_MODE_INHERIT
+	
 	controller.global_position = global_position
+	controller.set_visible(true)
 
 	InputManager.set_active_provider(controller.input_provider)
 
 
 func _on_interactable_interacted(_interactor: Interactor):
 	InputManager.set_active_provider(input_provider)
-
+	
 	controller = _interactor.controller
+	
+	controller.process_mode = Node.PROCESS_MODE_DISABLED
 	controller.set_visible(false)
