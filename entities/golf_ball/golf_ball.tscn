@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://sot5r3oobocd"]
+[gd_scene load_steps=7 format=3 uid="uid://sot5r3oobocd"]
 
 [ext_resource type="Script" path="res://entities/golf_ball/golf_ball_movement.gd" id="1_624px"]
+[ext_resource type="PackedScene" uid="uid://d0fu1nmyhsupe" path="res://common/interaction/interactable.tscn" id="2_2on7t"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ikmli"]
 bounce = 0.5
@@ -15,6 +16,7 @@ height = 0.2
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gt7h4"]
 
 [node name="GolfBall" type="RigidBody3D"]
+collision_layer = 4
 physics_material_override = SubResource("PhysicsMaterial_ikmli")
 angular_damp = 3.0
 script = ExtResource("1_624px")
@@ -25,3 +27,5 @@ shape = SubResource("SphereShape3D_fcui1")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("SphereMesh_5llar")
 surface_material_override/0 = SubResource("ShaderMaterial_gt7h4")
+
+[node name="Interactable" parent="." instance=ExtResource("2_2on7t")]

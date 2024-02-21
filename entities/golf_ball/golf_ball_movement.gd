@@ -1,8 +1,8 @@
 extends RigidBody3D
 
 
-var golf_action
-var was_hit
+var golf_action : Node3D
+var was_hit : bool
 
 
 func _on_enter(_golf_action):
@@ -18,7 +18,7 @@ func _physics_process(_delta):
 	if sleeping:
 		return
 	
-	if linear_velocity.length() < .3:
+	if linear_velocity.length_squared() < .3 * .3:
 		golf_action.on_ball_stop()
 		sleeping = true
 

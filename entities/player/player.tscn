@@ -17,6 +17,7 @@
 radius = 0.1
 
 [node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("camera", "input_provider", "state_machine", "golf_manager")]
+collision_layer = 2
 script = ExtResource("1_qh1c4")
 camera = NodePath("CameraPivot/SpringArm3D/PlayerCamera")
 input_provider = NodePath("InputProvider")

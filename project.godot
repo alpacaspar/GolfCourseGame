@@ -88,7 +88,8 @@ TestKey3={
 
 [layer_names]
 
-3d_physics/layer_2="interactable"
+3d_physics/layer_2="character"
+3d_physics/layer_3="interactable"
 
 [physics]
 

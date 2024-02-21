@@ -105,7 +105,7 @@ func get_can_play() -> bool:
 	if spawned_ball == null:
 		return true
 	
-	if spawned_ball.global_position.distance_squared_to(global_position) < 2 * 2:
+	if spawned_ball.global_position.distance_squared_to($"..".global_position) < 2 * 2:
 		return true
 	
 	return false
