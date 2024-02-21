@@ -37,11 +37,11 @@ func _on_process(_delta):
 	if !initialized:
 		return
 	
-	if Input.is_action_just_pressed("Mouse0"):
+	if Input.is_action_just_pressed("interact"):
 		if fsm.current_state == $FSM/PickAngle:
 			fsm._transition_state($FSM/Swing)
 	
-	if Input.is_action_just_pressed("Mouse1"):
+	if Input.is_action_just_pressed("cancel"):
 		if fsm.current_state == $FSM/PickAngle:
 			callback.call()
 		else: if fsm.current_state == $FSM/Swing:
