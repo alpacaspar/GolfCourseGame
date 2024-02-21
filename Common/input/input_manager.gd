@@ -16,8 +16,7 @@ func _input(event: InputEvent):
 		if Input.mouse_mode == Input.MOUSE_MODE_VISIBLE:
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 		else:
-			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-	
+			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)	
 
 
 func _process(_delta: float):
@@ -25,9 +24,12 @@ func _process(_delta: float):
 		active_provider._on_process()
 
 
+## Change the active input provider.
+## Can be set to `null` to disable input.
 func set_active_provider(new_provider: InputProvider):
 	if active_provider:
 		active_provider._on_exit()
 	
 	active_provider = new_provider
-	active_provider._on_enter()
+	if active_provider:
+		active_provider._on_enter()
