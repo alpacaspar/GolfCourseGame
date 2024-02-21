@@ -32,5 +32,5 @@ func _on_process(_delta, _owner : FSM):
 	
 	var normalized_speed = speed / 6.0
 	
-	if Input.is_action_pressed("Mouse0") and current_position < 0:
+	if Input.is_action_pressed("interact") and current_position < 0:
 		golf_manager.hit_ball(normalized_speed)

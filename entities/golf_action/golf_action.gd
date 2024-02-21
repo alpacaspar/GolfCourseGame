@@ -43,6 +43,7 @@ func _on_process(_delta):
 	
 	if Input.is_action_just_pressed("cancel"):
 		if fsm.current_state == $FSM/PickAngle:
+			camera.clear_current()
 			callback.call()
 		else: if fsm.current_state == $FSM/Swing:
 			fsm._transition_state($FSM/PickAngle)
@@ -80,6 +81,7 @@ func on_ball_stop():
 	await get_tree().create_timer(1.0).timeout
 	
 	fsm._transition_state($FSM/PickAngle)
+	camera.clear_current()
 	callback.call()
 	initialized = false
 
@@ -103,7 +105,7 @@ func get_can_play() -> bool:
 	if spawned_ball == null:
 		return true
 	
-	if spawned_ball.global_position.distance_to($"..".global_position) < 2:
+	if spawned_ball.global_position.distance_squared_to(global_position) < 2 * 2:
 		return true
 	
 	return false
