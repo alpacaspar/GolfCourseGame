@@ -7,6 +7,7 @@ const SENSITIVITY = .5
 @onready var camera_pivot: Marker3D = $CameraPivot
 @onready var visuals: Node3D = $Visuals
 
+@export var camera: Camera3D
 @export var input_provider: InputProvider
 @export var state_machine : FSM
 @export var golf_manager : GolfManager
@@ -22,3 +23,7 @@ func _input(_event: InputEvent):
 	
 	if Input.is_action_just_pressed("TestKey2"):
 		golf_manager.remove_ball()
+
+
+func make_camera_current(value: bool):
+	camera.current = value

@@ -16,8 +16,9 @@
 [sub_resource type="SphereShape3D" id="SphereShape3D_nquyv"]
 radius = 0.1
 
-[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("input_provider", "state_machine", "golf_manager")]
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("camera", "input_provider", "state_machine", "golf_manager")]
 script = ExtResource("1_qh1c4")
+camera = NodePath("CameraPivot/SpringArm3D/PlayerCamera")
 input_provider = NodePath("InputProvider")
 state_machine = NodePath("FiniteStateMachine")
 golf_manager = NodePath("GolfAction")
@@ -63,9 +64,9 @@ player = NodePath("../..")
 script = ExtResource("4_gscel")
 golf_action = NodePath("../../GolfAction")
 
-[node name="InputProvider" type="Node" parent="." node_paths=PackedStringArray("camera")]
+[node name="InputProvider" type="Node" parent="." node_paths=PackedStringArray("player")]
 script = ExtResource("7_832ik")
-camera = NodePath("../CameraPivot/SpringArm3D/PlayerCamera")
+player = NodePath("..")
 
 [node name="PlayerInteractor" parent="." node_paths=PackedStringArray("player") instance=ExtResource("8_qcnlv")]
 monitorable = true

@@ -6,6 +6,7 @@ extends State
 
 func _on_enter(_owner: FSM, _args = {}):	
 	player.input_provider.on_look.connect(_on_look)
+	player.make_camera_current(true)
 
 
 func _on_process(_delta, _owner: FSM):
