@@ -6,28 +6,28 @@ var controller: Node3D
 
 
 func interact(interactable: Interactable):
-    interactable.on_interacted.emit(self)
+	interactable.interacted.emit(self)
 
 
 func focus(interactable: Interactable):
-    interactable.on_focused.emit(self)
+	interactable.on_focus.emit(self)
 
 
 func unfocus(interactable: Interactable):
-    interactable.on_unfocused.emit(self)
+	interactable.on_unfocus.emit(self)
 
 
 func get_closest_interactable() -> Interactable:
-    var interactables := get_overlapping_bodies()
-    var distance: float
-    var closest_distance := INF
-    var closest: Interactable
+	var interactables := get_overlapping_areas()
+	var distance: float
+	var closest_distance := INF
+	var closest: Interactable
 
-    for interactable: Interactable in interactables:
-        distance = interactable.global_position.distance_to(global_position)
-        
-        if distance < closest_distance:
-            closest_distance = distance
-            closest = interactable
+	for interactable: Interactable in interactables:
+		distance = interactable.global_position.distance_to(global_position)
+		
+		if distance < closest_distance:
+			closest_distance = distance
+			closest = interactable
 
-    return closest
+	return closest
