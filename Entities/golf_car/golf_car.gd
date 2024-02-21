@@ -12,9 +12,12 @@ const SENSITIVITY = 0.3
 var rot_x := 0.0
 var rot_y := 0.0
 
+var controller: Node3D
+
 
 func _ready():
 	input_provider.on_look.connect(_on_look)
+	input_provider.on_interact.connect(_on_interact)
 
 
 func _physics_process(delta):
@@ -31,3 +34,17 @@ func _on_look(input_delta: Vector2):
 	camera_pivot.transform.basis = Basis()
 	camera_pivot.rotate_object_local(Vector3.UP, -deg_to_rad(rot_x))
 	camera_pivot.rotate_object_local(Vector3.RIGHT, -deg_to_rad(rot_y))
+
+
+func _on_interact():
+	controller.set_visible(true)
+	controller.global_position = global_position
+
+	InputManager.set_active_provider(controller.input_provider)
+
+
+func _on_interactable_interacted(_interactor: Interactor):
+	InputManager.set_active_provider(input_provider)
+
+	controller = _interactor.controller
+	controller.set_visible(false)

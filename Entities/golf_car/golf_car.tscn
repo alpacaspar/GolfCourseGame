@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://dkxoy6eab4ceu"]
+[gd_scene load_steps=8 format=3 uid="uid://dkxoy6eab4ceu"]
 
 [ext_resource type="Script" path="res://entities/golf_car/golf_car.gd" id="1_e1dhi"]
 [ext_resource type="Script" path="res://entities/golf_car/car_input_provider.gd" id="2_6muvw"]
+[ext_resource type="PackedScene" uid="uid://d0fu1nmyhsupe" path="res://common/interaction/interactable.tscn" id="2_rc7lm"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_1cp5m"]
 size = Vector3(1, 1.2, 2.4)
@@ -99,5 +100,11 @@ spring_length = 10.0
 [node name="Camera3D" type="Camera3D" parent="CameraPivot/SpringArm3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10)
 
-[node name="InputProvider" type="Node" parent="."]
+[node name="Interactable" parent="." instance=ExtResource("2_rc7lm")]
+collision_mask = 2
+
+[node name="InputProvider" type="Node" parent="." node_paths=PackedStringArray("camera")]
 script = ExtResource("2_6muvw")
+camera = NodePath("../CameraPivot/SpringArm3D/Camera3D")
+
+[connection signal="interacted" from="Interactable" to="." method="_on_interactable_interacted"]
