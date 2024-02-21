@@ -3,7 +3,7 @@ extends Node
 
 
 func _ready():
-	if !InputManager.active_provider:
+	if not InputManager.is_provider_active:
 		InputManager.set_active_provider(self)
 
 
