@@ -23,7 +23,7 @@ func _physics_process(_delta: float):
 
 
 func _input(event: InputEvent):
-    if event.is_action_pressed("interact"):
+    if event.is_action_released("interact"):
         if cached_closest:
             interact(cached_closest)
 

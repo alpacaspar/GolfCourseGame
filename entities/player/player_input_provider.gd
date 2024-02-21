@@ -11,11 +11,11 @@ var look: Vector2
 
 
 func _on_enter():
-	camera.make_current()
+	camera.current = true
 
 
 func _on_exit():
-	pass
+	camera.current = false
 
 
 func _on_input(event: InputEvent):
