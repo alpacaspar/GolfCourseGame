@@ -4,12 +4,12 @@ extends State
 @export var player: CharacterBody3D
 
 
-func _on_enter(_owner: FSM, _args = {}):	
+func _on_enter(_owner: FSM, _args := {}):	
 	player.input_provider.on_look.connect(_on_look)
 	player.make_camera_current(true)
 
 
-func _on_process(_delta, _owner: FSM):
+func _on_process(_delta: float, _owner: FSM):
 	pass
 
 
@@ -20,7 +20,7 @@ func _on_look(input_delta: Vector2):
 	player.camera_pivot.rotation_degrees.x = clamp(player.camera_pivot.rotation_degrees.x, -70, 30)
 
 
-func _on_physics_process(delta, _owner: FSM):
+func _on_physics_process(delta: float, _owner: FSM):
 	var move_input = player.input_provider.move
 	
 	player.velocity.y = -1 if player.is_on_floor() else player.velocity.y - player.gravity * delta
@@ -34,5 +34,5 @@ func _on_physics_process(delta, _owner: FSM):
 	player.move_and_slide()
 
 
-func _on_exit(_args = {}):
+func _on_exit(_args := {}):
 	player.input_provider.on_look.disconnect(_on_look)

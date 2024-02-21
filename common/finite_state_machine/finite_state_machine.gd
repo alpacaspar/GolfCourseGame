@@ -2,7 +2,7 @@ class_name FSM
 extends Node
 
 
-var states = {}
+var states := {}
 
 var current_state: State
 
@@ -35,7 +35,7 @@ func _physics_process(delta):
 		current_state._on_physics_process(delta, self)
 
 
-func _transition_state(new_state: State, _args = {}):
+func _transition_state(new_state: State, _args := {}):
 	if current_state:
 		current_state._on_exit(_args)
 	

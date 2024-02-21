@@ -9,10 +9,10 @@ const SENSITIVITY = .5
 
 @export var camera: Camera3D
 @export var input_provider: InputProvider
-@export var state_machine : FSM
-@export var golf_manager : GolfManager
+@export var state_machine: FSM
+@export var golf_manager: GolfManager
 
-var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
+var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 
 # For debugging purposes.

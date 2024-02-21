@@ -2,21 +2,21 @@ class_name GolfManager
 extends Node3D
 
 
-@export var golf_club_resource : Resource
+@export var golf_club_resource: Resource
 
-@export var ball_scene : PackedScene
-@export var fsm : FSM
-@export var club : Node3D
-@export var camera : Camera3D
+@export var ball_scene: PackedScene
+@export var fsm: FSM
+@export var club: Node3D
+@export var camera: Camera3D
 
 var spawned_ball: Node3D
-var current_angle : Vector3
+var current_angle: Vector3
 
-var initialized : bool
+var initialized: bool
 var callback: Callable
 
 
-func _initialize(_callback):
+func _initialize(_callback: Callable):
 	initialized = false
 	callback = _callback
 	
@@ -33,7 +33,7 @@ func _initialize(_callback):
 	fsm._transition_state($FSM/PickAngle)
 
 
-func _on_process(_delta):
+func _on_process(_delta: float):
 	if !initialized:
 		return
 	
@@ -49,7 +49,7 @@ func _on_process(_delta):
 			fsm._transition_state($FSM/PickAngle)
 
 
-func get_ball(_position):
+func get_ball(_position: Vector3):
 	if spawned_ball != null:
 		return
 	

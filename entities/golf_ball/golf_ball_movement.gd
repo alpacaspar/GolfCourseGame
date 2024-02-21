@@ -1,16 +1,16 @@
 extends RigidBody3D
 
 
-var golf_action : Node3D
-var was_hit : bool
+var golf_action: Node3D
+var was_hit: bool
 
 
-func _on_enter(_golf_action):
+func _on_enter(_golf_action: Node3D):
 	golf_action = _golf_action
 	sleeping = true
 
 
-func _physics_process(_delta):
+func _physics_process(_delta: float):
 	if was_hit:
 		await get_tree().create_timer(.2).timeout
 		was_hit = false
@@ -23,7 +23,7 @@ func _physics_process(_delta):
 		sleeping = true
 
 
-func _on_ball_hit(givenHitDirection : Vector3):
+func _on_ball_hit(givenHitDirection: Vector3):
 	was_hit = true
 	
 	apply_impulse(givenHitDirection)
