@@ -12,7 +12,7 @@ func _ready():
 		states[state.name] = state
 	
 	current_state = get_child(0) as State
-	current_state._on_enter(self, null)
+	current_state._on_enter(self)
 
 
 func _input(event):
