@@ -1,14 +1,14 @@
 extends State
 
 
-@export var ball_cam : Camera3D
-@export var golf_cam : Camera3D
+@export var ball_cam: Camera3D
+@export var golf_cam: Camera3D
 
-var spawned_ball
-var sequence_over
+var spawned_ball: Node3D
+var sequence_over: bool
 
 
-func _on_enter(_owner : FSM, _args = {}):
+func _on_enter(_owner: FSM, _args: Dictionary = {}):
 	sequence_over = false
 	spawned_ball = _args["SpawnedBall"]
 	
@@ -18,15 +18,15 @@ func _on_enter(_owner : FSM, _args = {}):
 	look_at_sequence()
 
 
-func _on_input(_event, _owner : FSM):
+func _on_input(_event: InputEvent, _owner: FSM):
 	pass
 
 
-func _on_process(_delta, _owner : FSM):
+func _on_process(_delta: float, _owner: FSM):
 	pass
 
 
-func _on_physics_process(_delta, _owner : FSM):
+func _on_physics_process(_delta: float, _owner : FSM):
 	ball_cam.look_at(spawned_ball.global_position)
 	
 	if !sequence_over:
@@ -36,7 +36,7 @@ func _on_physics_process(_delta, _owner : FSM):
 		ball_cam.global_position = spawned_ball.global_position + Vector3(0, 3, 0)
 
 
-func _on_exit(_args = {}):
+func _on_exit(_args: Dictionary = {}):
 	pass
 
 
@@ -56,6 +56,6 @@ func get_camera_pos() -> Vector3:
 	var query = PhysicsRayQueryParameters3D.create(origin, end)
 	query.collide_with_areas = true
 
-	var result = space_state.intersect_ray(query)
-	
-	return result.position + Vector3(0, .3, 0)
+	var result := space_state.intersect_ray(query)
+
+	return result.position + Vector3(0, .3, 0) if result else spawned_ball.global_position + Vector3(0, 3, 0)

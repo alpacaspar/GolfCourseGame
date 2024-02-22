@@ -9,7 +9,7 @@ extends Resource
 @export var club_visuals: PackedScene
 
 
-func _init(_min_speed = 0, _max_speed = 50, _vertical_amount = .5, _speed_threshold = 0, _club_visuals = null):
+func _init(_min_speed := 0, _max_speed := 50, _vertical_amount := .5, _speed_threshold := 0, _club_visuals = null):
 	min_speed = _min_speed
 	max_speed = _max_speed
 	vertical_amount = _vertical_amount

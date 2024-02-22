@@ -2,21 +2,21 @@ class_name GolfManager
 extends Node3D
 
 
-@export var golf_club_resource : Resource
+@export var golf_club_resource: Resource
 
-@export var ball_scene : PackedScene
-@export var fsm : FSM
-@export var club : Node3D
-@export var camera : Camera3D
+@export var ball_scene: PackedScene
+@export var fsm: FSM
+@export var club: Node3D
+@export var camera: Camera3D
 
 var spawned_ball: Node3D
-var current_angle : Vector3
+var current_angle: Vector3
 
-var initialized : bool
+var initialized: bool
 var callback: Callable
 
 
-func _initialize(_callback):
+func _initialize(_callback: Callable):
 	initialized = false
 	callback = _callback
 	
@@ -33,22 +33,23 @@ func _initialize(_callback):
 	fsm._transition_state($FSM/PickAngle)
 
 
-func _on_process(_delta):
+func _on_process(_delta: float):
 	if !initialized:
 		return
 	
-	if Input.is_action_just_pressed("Mouse0"):
+	if Input.is_action_just_pressed("interact"):
 		if fsm.current_state == $FSM/PickAngle:
 			fsm._transition_state($FSM/Swing)
 	
-	if Input.is_action_just_pressed("Mouse1"):
+	if Input.is_action_just_pressed("cancel"):
 		if fsm.current_state == $FSM/PickAngle:
+			camera.clear_current()
 			callback.call()
 		else: if fsm.current_state == $FSM/Swing:
 			fsm._transition_state($FSM/PickAngle)
 
 
-func get_ball(_position):
+func get_ball(_position: Vector3):
 	if spawned_ball != null:
 		return
 	
@@ -80,6 +81,7 @@ func on_ball_stop():
 	await get_tree().create_timer(1.0).timeout
 	
 	fsm._transition_state($FSM/PickAngle)
+	camera.clear_current()
 	callback.call()
 	initialized = false
 
@@ -103,7 +105,7 @@ func get_can_play() -> bool:
 	if spawned_ball == null:
 		return true
 	
-	if spawned_ball.global_position.distance_to($"..".global_position) < 2:
+	if spawned_ball.global_position.distance_squared_to($"..".global_position) < 2 * 2:
 		return true
 	
 	return false
