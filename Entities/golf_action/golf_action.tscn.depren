@@ -1,13 +1,12 @@
-[gd_scene load_steps=16 format=3 uid="uid://nyc2v4h74vvu"]
+[gd_scene load_steps=15 format=3 uid="uid://nyc2v4h74vvu"]
 
 [ext_resource type="Script" path="res://entities/golf_action/golf_action.gd" id="1_rnhgy"]
-[ext_resource type="Resource" uid="uid://dt2x2jioaqbbf" path="res://common/clubs/driver_club_resource.tres" id="2_1htux"]
-[ext_resource type="PackedScene" uid="uid://sot5r3oobocd" path="res://entities/golf_ball/golf_ball.tscn" id="2_ck5ch"]
+[ext_resource type="Resource" uid="uid://bkq51846o1sfd" path="res://common/clubs/putter_club_resource.tres" id="2_cblap"]
+[ext_resource type="PackedScene" path="res://Entities/golf_ball/golf_ball.tscn" id="2_ck5ch"]
 [ext_resource type="Script" path="res://common/finite_state_machine/finite_state_machine.gd" id="4_77trv"]
 [ext_resource type="Script" path="res://entities/golf_action/golf_swing_state.gd" id="5_b77hr"]
 [ext_resource type="Script" path="res://entities/golf_action/pick_angle_state.gd" id="5_wtp4i"]
 [ext_resource type="Script" path="res://entities/golf_action/ball_movement_state.gd" id="7_alkrn"]
-[ext_resource type="Resource" uid="uid://1ad1xr8febym" path="res://common/event_system/golf_events.tres" id="7_anviv"]
 
 [sub_resource type="Animation" id="Animation_uj0g1"]
 resource_name = "club_idle"
@@ -60,12 +59,11 @@ outer_radius = 0.411
 
 [node name="GolfAction" type="Node3D" node_paths=PackedStringArray("fsm", "club", "camera")]
 script = ExtResource("1_rnhgy")
-event_resource = ExtResource("7_anviv")
-golf_club_resource = ExtResource("2_1htux")
+golf_club_resource = ExtResource("2_cblap")
 ball_scene = ExtResource("2_ck5ch")
-fsm = NodePath("FSM")
-club = NodePath("Club")
-camera = NodePath("CameraRotate/Camera3D")
+fsm = NodePath("")
+club = NodePath("")
+camera = NodePath("")
 
 [node name="CameraRotate" type="Marker3D" parent="."]
 
@@ -106,7 +104,6 @@ mesh = SubResource("TorusMesh_q1gqp")
 
 [node name="BallCam" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 5, 7)
-visible = false
 
 [node name="FSM" type="Node" parent="."]
 script = ExtResource("4_77trv")
@@ -119,7 +116,6 @@ golf_action = NodePath("../..")
 
 [node name="Swing" type="Node" parent="FSM" node_paths=PackedStringArray("golf_manager")]
 script = ExtResource("5_b77hr")
-event_resource = ExtResource("7_anviv")
 golf_manager = NodePath("../..")
 
 [node name="BallFly" type="Node" parent="FSM" node_paths=PackedStringArray("ball_cam", "golf_cam")]

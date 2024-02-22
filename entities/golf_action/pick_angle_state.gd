@@ -14,8 +14,8 @@ func _on_enter(_owner: FSM, _args := {}):
 	angle_visuals.visible = true
 
 
-func _on_process(_delta: float, _owner: FSM):
-	current_angle += Input.get_axis("move_left", "move_right") * 0.01
+func _on_process(_delta, _owner : FSM):
+	current_angle += Input.get_axis("move_right", "move_left") * 0.01
 
 
 func _on_physics_process(_delta: float, _owner: FSM):
