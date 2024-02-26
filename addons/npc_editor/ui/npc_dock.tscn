@@ -1,94 +1,880 @@
-[gd_scene format=3 uid="uid://dywmn4tambxpc"]
+[gd_scene load_steps=13 format=3 uid="uid://dywmn4tambxpc"]
 
-[node name="NpcDock" type="Control"]
+[ext_resource type="ButtonGroup" uid="uid://l5gir5351irf" path="res://addons/npc_editor/button_groups/eye_group.tres" id="1_gulxh"]
+[ext_resource type="Script" path="res://addons/npc_editor/ui/npc_dock.gd" id="1_mwd3g"]
+[ext_resource type="Texture2D" uid="uid://dfspa0f55imyc" path="res://icon.svg" id="1_qkgog"]
+[ext_resource type="PackedScene" uid="uid://5q7b6g71i8sm" path="res://addons/npc_editor/ui/resource_loader.tscn" id="2_1rawp"]
+[ext_resource type="ButtonGroup" uid="uid://cmy4dvuvwsmxp" path="res://addons/npc_editor/button_groups/nose_group.tres" id="3_u22ul"]
+[ext_resource type="ButtonGroup" uid="uid://cjbgjthhucyh4" path="res://addons/npc_editor/button_groups/mouth_group.tres" id="4_n1fok"]
+[ext_resource type="ButtonGroup" uid="uid://i5g7pvbaaytj" path="res://addons/npc_editor/button_groups/hair_group.tres" id="5_j2yxv"]
+[ext_resource type="ButtonGroup" uid="uid://cs1engfbu44j" path="res://addons/npc_editor/button_groups/accessory_group.tres" id="6_4v3tu"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_dt0a8"]
+font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_kpiix"]
+font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_kktro"]
+font_size = 24
+
+[sub_resource type="LabelSettings" id="LabelSettings_hs2uv"]
+font_color = Color(0.611765, 0.611765, 0.611765, 1)
+
+[node name="NpcDock" type="Control" node_paths=PackedStringArray("npc_resource", "golfer_resource")]
 layout_mode = 3
 anchors_preset = 9
 anchor_bottom = 1.0
 offset_right = 361.0
 grow_vertical = 2
+script = ExtResource("1_mwd3g")
+npc_resource = NodePath("ScrollContainer/VBoxContainer/Panel/VBoxContainer/VBoxContainer")
+golfer_resource = NodePath("ScrollContainer/VBoxContainer/Panel2/VBoxContainer/VBoxContainer")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+
+[node name="Panel" type="Panel" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 1000)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/VBoxContainer/Panel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/Panel/VBoxContainer"]
+layout_mode = 2
+text = "NPC Visual Editor"
+label_settings = SubResource("LabelSettings_dt0a8")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Seperator2" type="HSeparator" parent="ScrollContainer/VBoxContainer/Panel/VBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" parent="ScrollContainer/VBoxContainer/Panel/VBoxContainer" instance=ExtResource("2_1rawp")]
+layout_mode = 2
+
+[node name="Seperator5" type="HSeparator" parent="ScrollContainer/VBoxContainer/Panel/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_stretch_ratio = 1.25
 alignment = 1
 
-[node name="VSplitContainer" type="VSplitContainer" parent="VBoxContainer"]
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/Panel/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(85, 0)
 layout_mode = 2
+text = " Name"
+
+[node name="TextField" type="LineEdit" parent="ScrollContainer/VBoxContainer/Panel/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="ReferenceRect" type="ReferenceRect" parent="ScrollContainer/VBoxContainer/Panel/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+border_color = Color(1, 0, 0, 0)
+
+[node name="Seperator7" type="HSeparator" parent="ScrollContainer/VBoxContainer/Panel/VBoxContainer"]
+layout_mode = 2
+
+[node name="EyesPicker" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+size_flags_stretch_ratio = 1.25
+alignment = 1
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/Panel/VBoxContainer/EyesPicker"]
+custom_minimum_size = Vector2(85, 0)
+layout_mode = 2
+text = " Eyes     "
+
+[node name="ScrollContainer" type="ScrollContainer" parent="ScrollContainer/VBoxContainer/Panel/VBoxContainer/EyesPicker"]
+layout_mode = 2
+size_flags_horizontal = 3
+horizontal_scroll_mode = 2
+vertical_scroll_mode = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/Panel/VBoxContainer/EyesPicker/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
 size_flags_vertical = 3
-split_offset = 500
 
-[node name="Panel" type="Panel" parent="VBoxContainer/VSplitContainer"]
+[node name="Control" type="Control" parent="ScrollContainer/VBoxContainer/Panel/VBoxContainer/EyesPicker/ScrollContainer/HBoxContainer"]
+custom_minimum_size = Vector2(72, 0)
 layout_mode = 2
 
-[node name="Label" type="Label" parent="VBoxContainer/VSplitContainer/Panel"]
+[node name="TextureButton" type="TextureButton" parent="ScrollContainer/VBoxContainer/Panel/VBoxContainer/EyesPicker/ScrollContainer/HBoxContainer/Control"]
 layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_right = 1.0
-offset_bottom = 39.0
-grow_horizontal = 2
-text = "NPC Visual Editor"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Label2" type="Label" parent="VBoxContainer/VSplitContainer/Panel"]
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 1.0
-offset_left = -1.0
-offset_top = 34.0
-offset_bottom = 57.0
-grow_horizontal = 2
-text = "---------------------------------------------------------------------"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/VSplitContainer/Panel"]
-layout_mode = 1
-anchors_preset = -1
-anchor_top = 0.124
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 1.0
+offset_right = 56.0
+offset_bottom = 56.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.55, 0.55)
+toggle_mode = true
+button_group = ExtResource("1_gulxh")
+texture_normal = ExtResource("1_qkgog")
 
-[node name="Panel2" type="Panel" parent="VBoxContainer/VSplitContainer"]
+[node name="Control2" type="Control" parent="ScrollContainer/VBoxContainer/Panel/VBoxContainer/EyesPicker/ScrollContainer/HBoxContainer"]
+custom_minimum_size = Vector2(72, 0)
 layout_mode = 2
 
-[node name="Label" type="Label" parent="VBoxContainer/VSplitContainer/Panel2"]
+[node name="TextureButton" type="TextureButton" parent="ScrollContainer/VBoxContainer/Panel/VBoxContainer/EyesPicker/ScrollContainer/HBoxContainer/Control2"]
 layout_mode = 1
-anchors_preset = 10
+anchors_preset = 15
 anchor_right = 1.0
-offset_right = 1.0
-offset_bottom = 39.0
+anchor_bottom = 1.0
+offset_right = 56.0
+offset_bottom = 56.0
 grow_horizontal = 2
-text = "NPC Stat Editor"
-horizontal_alignment = 1
-vertical_alignment = 1
+grow_vertical = 2
+scale = Vector2(0.55, 0.55)
+toggle_mode = true
+button_group = ExtResource("1_gulxh")
+texture_normal = ExtResource("1_qkgog")
 
-[node name="Label2" type="Label" parent="VBoxContainer/VSplitContainer/Panel2"]
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 1.0
-offset_left = -1.0
-offset_top = 34.0
-offset_bottom = 57.0
-grow_horizontal = 2
-text = "---------------------------------------------------------------------"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer"]
-custom_minimum_size = Vector2(0, 50)
+[node name="Control3" type="Control" parent="ScrollContainer/VBoxContainer/Panel/VBoxContainer/EyesPicker/ScrollContainer/HBoxContainer"]
+custom_minimum_size = Vector2(72, 0)
 layout_mode = 2
 
-[node name="Button" type="Button" parent="VBoxContainer/PanelContainer"]
+[node name="TextureButton" type="TextureButton" parent="ScrollContainer/VBoxContainer/Panel/VBoxContainer/EyesPicker/ScrollContainer/HBoxContainer/Control3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 56.0
+offset_bottom = 56.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.55, 0.55)
+toggle_mode = true
+button_group = ExtResource("1_gulxh")
+texture_normal = ExtResource("1_qkgog")
+
+[node name="Control4" type="Control" parent="ScrollContainer/VBoxContainer/Panel/VBoxContainer/EyesPicker/ScrollContainer/HBoxContainer"]
+custom_minimum_size = Vector2(72, 0)
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="ScrollContainer/VBoxContainer/Panel/VBoxContainer/EyesPicker/ScrollContainer/HBoxContainer/Control4"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 56.0
+offset_bottom = 56.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.55, 0.55)
+toggle_mode = true
+button_group = ExtResource("1_gulxh")
+texture_normal = ExtResource("1_qkgog")
+
+[node name="Control5" type="Control" parent="ScrollContainer/VBoxContainer/Panel/VBoxContainer/EyesPicker/ScrollContainer/HBoxContainer"]
+custom_minimum_size = Vector2(72, 0)
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="ScrollContainer/VBoxContainer/Panel/VBoxContainer/EyesPicker/ScrollContainer/HBoxContainer/Control5"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 56.0
+offset_bottom = 56.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.55, 0.55)
+toggle_mode = true
+button_group = ExtResource("1_gulxh")
+texture_normal = ExtResource("1_qkgog")
+
+[node name="NosePicker" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+size_flags_stretch_ratio = 1.25
+alignment = 1
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/Panel/VBoxContainer/NosePicker"]
+custom_minimum_size = Vector2(85, 0)
+layout_mode = 2
+text = " Nose    "
+
+[node name="ScrollContainer" type="ScrollContainer" parent="ScrollContainer/VBoxContainer/Panel/VBoxContainer/NosePicker"]
+layout_mode = 2
+size_flags_horizontal = 3
+horizontal_scroll_mode = 2
+vertical_scroll_mode = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/Panel/VBoxContainer/NosePicker/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Control" type="Control" parent="ScrollContainer/VBoxContainer/Panel/VBoxContainer/NosePicker/ScrollContainer/HBoxContainer"]
+custom_minimum_size = Vector2(72, 0)
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="ScrollContainer/VBoxContainer/Panel/VBoxContainer/NosePicker/ScrollContainer/HBoxContainer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 56.0
+offset_bottom = 56.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.55, 0.55)
+toggle_mode = true
+button_group = ExtResource("3_u22ul")
+texture_normal = ExtResource("1_qkgog")
+
+[node name="Control2" type="Control" parent="ScrollContainer/VBoxContainer/Panel/VBoxContainer/NosePicker/ScrollContainer/HBoxContainer"]
+custom_minimum_size = Vector2(72, 0)
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="ScrollContainer/VBoxContainer/Panel/VBoxContainer/NosePicker/ScrollContainer/HBoxContainer/Control2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 56.0
+offset_bottom = 56.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.55, 0.55)
+toggle_mode = true
+button_group = ExtResource("3_u22ul")
+texture_normal = ExtResource("1_qkgog")
+
+[node name="Control3" type="Control" parent="ScrollContainer/VBoxContainer/Panel/VBoxContainer/NosePicker/ScrollContainer/HBoxContainer"]
+custom_minimum_size = Vector2(72, 0)
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="ScrollContainer/VBoxContainer/Panel/VBoxContainer/NosePicker/ScrollContainer/HBoxContainer/Control3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 56.0
+offset_bottom = 56.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.55, 0.55)
+toggle_mode = true
+button_group = ExtResource("3_u22ul")
+texture_normal = ExtResource("1_qkgog")
+
+[node name="Control4" type="Control" parent="ScrollContainer/VBoxContainer/Panel/VBoxContainer/NosePicker/ScrollContainer/HBoxContainer"]
+custom_minimum_size = Vector2(72, 0)
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="ScrollContainer/VBoxContainer/Panel/VBoxContainer/NosePicker/ScrollContainer/HBoxContainer/Control4"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 56.0
+offset_bottom = 56.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.55, 0.55)
+toggle_mode = true
+button_group = ExtResource("3_u22ul")
+texture_normal = ExtResource("1_qkgog")
+
+[node name="Control5" type="Control" parent="ScrollContainer/VBoxContainer/Panel/VBoxContainer/NosePicker/ScrollContainer/HBoxContainer"]
+custom_minimum_size = Vector2(72, 0)
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="ScrollContainer/VBoxContainer/Panel/VBoxContainer/NosePicker/ScrollContainer/HBoxContainer/Control5"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 56.0
+offset_bottom = 56.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.55, 0.55)
+toggle_mode = true
+button_group = ExtResource("3_u22ul")
+texture_normal = ExtResource("1_qkgog")
+
+[node name="MouthPicker" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+size_flags_stretch_ratio = 1.25
+alignment = 1
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/Panel/VBoxContainer/MouthPicker"]
+custom_minimum_size = Vector2(85, 0)
+layout_mode = 2
+text = " Mouth
+"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="ScrollContainer/VBoxContainer/Panel/VBoxContainer/MouthPicker"]
+layout_mode = 2
+size_flags_horizontal = 3
+horizontal_scroll_mode = 2
+vertical_scroll_mode = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/Panel/VBoxContainer/MouthPicker/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Control" type="Control" parent="ScrollContainer/VBoxContainer/Panel/VBoxContainer/MouthPicker/ScrollContainer/HBoxContainer"]
+custom_minimum_size = Vector2(72, 0)
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="ScrollContainer/VBoxContainer/Panel/VBoxContainer/MouthPicker/ScrollContainer/HBoxContainer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 56.0
+offset_bottom = 56.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.55, 0.55)
+toggle_mode = true
+button_group = ExtResource("4_n1fok")
+texture_normal = ExtResource("1_qkgog")
+
+[node name="Control2" type="Control" parent="ScrollContainer/VBoxContainer/Panel/VBoxContainer/MouthPicker/ScrollContainer/HBoxContainer"]
+custom_minimum_size = Vector2(72, 0)
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="ScrollContainer/VBoxContainer/Panel/VBoxContainer/MouthPicker/ScrollContainer/HBoxContainer/Control2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 56.0
+offset_bottom = 56.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.55, 0.55)
+toggle_mode = true
+button_group = ExtResource("4_n1fok")
+texture_normal = ExtResource("1_qkgog")
+
+[node name="Control3" type="Control" parent="ScrollContainer/VBoxContainer/Panel/VBoxContainer/MouthPicker/ScrollContainer/HBoxContainer"]
+custom_minimum_size = Vector2(72, 0)
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="ScrollContainer/VBoxContainer/Panel/VBoxContainer/MouthPicker/ScrollContainer/HBoxContainer/Control3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 56.0
+offset_bottom = 56.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.55, 0.55)
+toggle_mode = true
+button_group = ExtResource("4_n1fok")
+texture_normal = ExtResource("1_qkgog")
+
+[node name="Control4" type="Control" parent="ScrollContainer/VBoxContainer/Panel/VBoxContainer/MouthPicker/ScrollContainer/HBoxContainer"]
+custom_minimum_size = Vector2(72, 0)
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="ScrollContainer/VBoxContainer/Panel/VBoxContainer/MouthPicker/ScrollContainer/HBoxContainer/Control4"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 56.0
+offset_bottom = 56.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.55, 0.55)
+toggle_mode = true
+button_group = ExtResource("4_n1fok")
+texture_normal = ExtResource("1_qkgog")
+
+[node name="Control5" type="Control" parent="ScrollContainer/VBoxContainer/Panel/VBoxContainer/MouthPicker/ScrollContainer/HBoxContainer"]
+custom_minimum_size = Vector2(72, 0)
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="ScrollContainer/VBoxContainer/Panel/VBoxContainer/MouthPicker/ScrollContainer/HBoxContainer/Control5"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 56.0
+offset_bottom = 56.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.55, 0.55)
+toggle_mode = true
+button_group = ExtResource("4_n1fok")
+texture_normal = ExtResource("1_qkgog")
+
+[node name="HairPicker" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+size_flags_stretch_ratio = 1.25
+alignment = 1
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/Panel/VBoxContainer/HairPicker"]
+custom_minimum_size = Vector2(85, 0)
+layout_mode = 2
+text = " Hair      "
+
+[node name="ScrollContainer" type="ScrollContainer" parent="ScrollContainer/VBoxContainer/Panel/VBoxContainer/HairPicker"]
+layout_mode = 2
+size_flags_horizontal = 3
+horizontal_scroll_mode = 2
+vertical_scroll_mode = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/Panel/VBoxContainer/HairPicker/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Control" type="Control" parent="ScrollContainer/VBoxContainer/Panel/VBoxContainer/HairPicker/ScrollContainer/HBoxContainer"]
+custom_minimum_size = Vector2(72, 0)
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="ScrollContainer/VBoxContainer/Panel/VBoxContainer/HairPicker/ScrollContainer/HBoxContainer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 56.0
+offset_bottom = 56.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.55, 0.55)
+toggle_mode = true
+button_group = ExtResource("5_j2yxv")
+texture_normal = ExtResource("1_qkgog")
+
+[node name="Control2" type="Control" parent="ScrollContainer/VBoxContainer/Panel/VBoxContainer/HairPicker/ScrollContainer/HBoxContainer"]
+custom_minimum_size = Vector2(72, 0)
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="ScrollContainer/VBoxContainer/Panel/VBoxContainer/HairPicker/ScrollContainer/HBoxContainer/Control2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 56.0
+offset_bottom = 56.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.55, 0.55)
+toggle_mode = true
+button_group = ExtResource("5_j2yxv")
+texture_normal = ExtResource("1_qkgog")
+
+[node name="Control3" type="Control" parent="ScrollContainer/VBoxContainer/Panel/VBoxContainer/HairPicker/ScrollContainer/HBoxContainer"]
+custom_minimum_size = Vector2(72, 0)
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="ScrollContainer/VBoxContainer/Panel/VBoxContainer/HairPicker/ScrollContainer/HBoxContainer/Control3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 56.0
+offset_bottom = 56.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.55, 0.55)
+toggle_mode = true
+button_group = ExtResource("5_j2yxv")
+texture_normal = ExtResource("1_qkgog")
+
+[node name="Control4" type="Control" parent="ScrollContainer/VBoxContainer/Panel/VBoxContainer/HairPicker/ScrollContainer/HBoxContainer"]
+custom_minimum_size = Vector2(72, 0)
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="ScrollContainer/VBoxContainer/Panel/VBoxContainer/HairPicker/ScrollContainer/HBoxContainer/Control4"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 56.0
+offset_bottom = 56.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.55, 0.55)
+toggle_mode = true
+button_group = ExtResource("5_j2yxv")
+texture_normal = ExtResource("1_qkgog")
+
+[node name="Control5" type="Control" parent="ScrollContainer/VBoxContainer/Panel/VBoxContainer/HairPicker/ScrollContainer/HBoxContainer"]
+custom_minimum_size = Vector2(72, 0)
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="ScrollContainer/VBoxContainer/Panel/VBoxContainer/HairPicker/ScrollContainer/HBoxContainer/Control5"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 56.0
+offset_bottom = 56.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.55, 0.55)
+toggle_mode = true
+button_group = ExtResource("5_j2yxv")
+texture_normal = ExtResource("1_qkgog")
+
+[node name="AccessoryPicker" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+size_flags_stretch_ratio = 1.25
+alignment = 1
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/Panel/VBoxContainer/AccessoryPicker"]
+custom_minimum_size = Vector2(85, 0)
+layout_mode = 2
+text = " Accessory "
+
+[node name="ScrollContainer" type="ScrollContainer" parent="ScrollContainer/VBoxContainer/Panel/VBoxContainer/AccessoryPicker"]
+layout_mode = 2
+size_flags_horizontal = 3
+horizontal_scroll_mode = 2
+vertical_scroll_mode = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/Panel/VBoxContainer/AccessoryPicker/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Control" type="Control" parent="ScrollContainer/VBoxContainer/Panel/VBoxContainer/AccessoryPicker/ScrollContainer/HBoxContainer"]
+custom_minimum_size = Vector2(72, 0)
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="ScrollContainer/VBoxContainer/Panel/VBoxContainer/AccessoryPicker/ScrollContainer/HBoxContainer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 56.0
+offset_bottom = 56.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.55, 0.55)
+toggle_mode = true
+button_group = ExtResource("6_4v3tu")
+texture_normal = ExtResource("1_qkgog")
+
+[node name="Control2" type="Control" parent="ScrollContainer/VBoxContainer/Panel/VBoxContainer/AccessoryPicker/ScrollContainer/HBoxContainer"]
+custom_minimum_size = Vector2(72, 0)
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="ScrollContainer/VBoxContainer/Panel/VBoxContainer/AccessoryPicker/ScrollContainer/HBoxContainer/Control2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 56.0
+offset_bottom = 56.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.55, 0.55)
+toggle_mode = true
+button_group = ExtResource("6_4v3tu")
+texture_normal = ExtResource("1_qkgog")
+
+[node name="Control3" type="Control" parent="ScrollContainer/VBoxContainer/Panel/VBoxContainer/AccessoryPicker/ScrollContainer/HBoxContainer"]
+custom_minimum_size = Vector2(72, 0)
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="ScrollContainer/VBoxContainer/Panel/VBoxContainer/AccessoryPicker/ScrollContainer/HBoxContainer/Control3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 56.0
+offset_bottom = 56.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.55, 0.55)
+toggle_mode = true
+button_group = ExtResource("6_4v3tu")
+texture_normal = ExtResource("1_qkgog")
+
+[node name="Control4" type="Control" parent="ScrollContainer/VBoxContainer/Panel/VBoxContainer/AccessoryPicker/ScrollContainer/HBoxContainer"]
+custom_minimum_size = Vector2(72, 0)
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="ScrollContainer/VBoxContainer/Panel/VBoxContainer/AccessoryPicker/ScrollContainer/HBoxContainer/Control4"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 56.0
+offset_bottom = 56.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.55, 0.55)
+toggle_mode = true
+button_group = ExtResource("6_4v3tu")
+texture_normal = ExtResource("1_qkgog")
+
+[node name="Control5" type="Control" parent="ScrollContainer/VBoxContainer/Panel/VBoxContainer/AccessoryPicker/ScrollContainer/HBoxContainer"]
+custom_minimum_size = Vector2(72, 0)
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="ScrollContainer/VBoxContainer/Panel/VBoxContainer/AccessoryPicker/ScrollContainer/HBoxContainer/Control5"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 56.0
+offset_bottom = 56.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.55, 0.55)
+toggle_mode = true
+button_group = ExtResource("6_4v3tu")
+texture_normal = ExtResource("1_qkgog")
+
+[node name="Seperator" type="HSeparator" parent="ScrollContainer/VBoxContainer/Panel/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_stretch_ratio = 1.25
+alignment = 1
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/Panel/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(85, 0)
+layout_mode = 2
+text = " Chin"
+
+[node name="HSlider" type="HSlider" parent="ScrollContainer/VBoxContainer/Panel/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+value = 35.0
+
+[node name="Seperator3" type="HSeparator" parent="ScrollContainer/VBoxContainer/Panel/VBoxContainer"]
+layout_mode = 2
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="ScrollContainer/VBoxContainer/Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="ScrollContainer/VBoxContainer/Panel/VBoxContainer/AspectRatioContainer"]
+layout_mode = 2
+texture = ExtResource("1_qkgog")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Seperator6" type="HSeparator" parent="ScrollContainer/VBoxContainer/Panel/VBoxContainer"]
+layout_mode = 2
+
+[node name="Panel5" type="ReferenceRect" parent="ScrollContainer/VBoxContainer/Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+border_color = Color(1, 0, 0, 0)
+
+[node name="Button" type="Button" parent="ScrollContainer/VBoxContainer/Panel/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-text = "Generate Resource"
+text = "Generate NPC Resource"
+
+[node name="Panel4" type="ReferenceRect" parent="ScrollContainer/VBoxContainer/Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+border_color = Color(1, 0, 0, 0)
+
+[node name="Panel4" type="ReferenceRect" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+border_color = Color(1, 0, 0, 0)
+
+[node name="Panel2" type="Panel" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 440)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/VBoxContainer/Panel2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/Panel2/VBoxContainer"]
+layout_mode = 2
+text = "NPC Stat Editor"
+label_settings = SubResource("LabelSettings_kpiix")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Seperator3" type="HSeparator" parent="ScrollContainer/VBoxContainer/Panel2/VBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" parent="ScrollContainer/VBoxContainer/Panel2/VBoxContainer" instance=ExtResource("2_1rawp")]
+layout_mode = 2
+
+[node name="Seperator5" type="HSeparator" parent="ScrollContainer/VBoxContainer/Panel2/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/Panel2/VBoxContainer"]
+layout_mode = 2
+size_flags_stretch_ratio = 1.25
+alignment = 1
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/Panel2/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(85, 0)
+layout_mode = 2
+text = " Name"
+
+[node name="TextField" type="LineEdit" parent="ScrollContainer/VBoxContainer/Panel2/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="ReferenceRect" type="ReferenceRect" parent="ScrollContainer/VBoxContainer/Panel2/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+border_color = Color(1, 0, 0, 0)
+
+[node name="Seperator7" type="HSeparator" parent="ScrollContainer/VBoxContainer/Panel2/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/Panel2/VBoxContainer"]
+layout_mode = 2
+size_flags_stretch_ratio = 1.25
+alignment = 1
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/Panel2/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(85, 0)
+layout_mode = 2
+text = " Level"
+
+[node name="ValueField" type="SpinBox" parent="ScrollContainer/VBoxContainer/Panel2/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+min_value = 1.0
+max_value = 10.0
+value = 1.0
+custom_arrow_step = 1.0
+select_all_on_focus = true
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/Panel2/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/Panel2/VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(85, 0)
+layout_mode = 2
+text = " Class"
+
+[node name="OptionButton" type="OptionButton" parent="ScrollContainer/VBoxContainer/Panel2/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+item_count = 5
+selected = 0
+allow_reselect = true
+popup/item_0/text = "Iron"
+popup/item_0/id = 0
+popup/item_1/text = "Driver"
+popup/item_1/id = 1
+popup/item_2/text = "Golf Cart Rider"
+popup/item_2/id = 2
+popup/item_3/text = "Caddy"
+popup/item_3/id = 3
+popup/item_4/text = "Putter"
+popup/item_4/id = 4
+
+[node name="Seperator" type="HSeparator" parent="ScrollContainer/VBoxContainer/Panel2/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label3" type="Label" parent="ScrollContainer/VBoxContainer/Panel2/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Stat Preview"
+label_settings = SubResource("LabelSettings_kktro")
+horizontal_alignment = 1
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/Panel2/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/Panel2/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Power"
+label_settings = SubResource("LabelSettings_hs2uv")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="ScrollContainer/VBoxContainer/Panel2/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Stamina"
+label_settings = SubResource("LabelSettings_hs2uv")
+horizontal_alignment = 1
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/Panel2/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/Panel2/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "0"
+label_settings = SubResource("LabelSettings_hs2uv")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="ScrollContainer/VBoxContainer/Panel2/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "0"
+label_settings = SubResource("LabelSettings_hs2uv")
+horizontal_alignment = 1
+
+[node name="Seperator2" type="HSeparator" parent="ScrollContainer/VBoxContainer/Panel2/VBoxContainer"]
+layout_mode = 2
+
+[node name="Panel5" type="ReferenceRect" parent="ScrollContainer/VBoxContainer/Panel2/VBoxContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+border_color = Color(1, 0, 0, 0)
+
+[node name="Button" type="Button" parent="ScrollContainer/VBoxContainer/Panel2/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Generate Golfer Resource"
+
+[node name="Panel6" type="ReferenceRect" parent="ScrollContainer/VBoxContainer/Panel2/VBoxContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+border_color = Color(1, 0, 0, 0)
