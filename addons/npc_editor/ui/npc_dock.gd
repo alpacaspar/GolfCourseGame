@@ -3,22 +3,16 @@ class_name NPCDock
 extends Control
 
 
-@export var npc_resource: ResourceLoadingHandler
-@export var golfer_resource: ResourceLoadingHandler
+@export var npc_customizer: NPCCustomizer
 
 
-func _ready():
-	npc_resource._set_value()
-	golfer_resource._set_value()
+func _get_preview_callback() -> Callable:
+	return Callable(npc_customizer._set_preview)
 
 
-func _process(delta):
-	pass
+func _set_preview_update_callback(_callback: Callable):
+	npc_customizer.update_preview_callback = _callback
 
 
-func _save_npc_resource():
-	pass
-
-	
-func _load_npc_resource():
-	pass
+func _set_rotation_slider(value):
+	npc_customizer.rotation_slider.value_changed.connect(value)

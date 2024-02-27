@@ -7,8 +7,10 @@ extends VBoxContainer
 @export var save_button: Button
 @export var load_button: Button
 
-var value: Resource
-var node
+var node: EditorResourcePicker
+var value: Resource:
+	get:
+		return node.edited_resource
 
 
 func _set_value():
@@ -19,10 +21,16 @@ func _set_value():
 	save_button.pressed.connect(self._save)
 	load_button.pressed.connect(self._load)
 
+	node.resource_changed.connect(self.test)
+
 
 func _save():
-	pass
+	node.save()
 
 	
 func _load():
 	pass
+
+
+func test(_value = 0):
+	print(node.edited_resource)
