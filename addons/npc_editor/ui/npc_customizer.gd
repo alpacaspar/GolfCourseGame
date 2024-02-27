@@ -3,9 +3,10 @@ class_name NPCCustomizer
 extends Panel
 
 
+var active: bool = false
+
 @export var npc_resource: ResourceLoadingHandler
 
-@export var generate_button: Button
 @export var name_field: LineEdit
 @export var chin_slider: Slider
 @export var preview: TextureRect
@@ -16,8 +17,13 @@ extends Panel
 @export var hair_button_group: ButtonGroup
 @export var accessories_button_group: ButtonGroup
 
+@export var zoom_slider: Slider
 @export var rotation_slider: Slider
 @export var rotation_box: SpinBox
+
+@export var load_button: Button
+@export var save_button: Button
+@export var save_as_button: Button
 
 var update_preview_callback: Callable
 
@@ -37,7 +43,26 @@ func _ready():
 	rotation_slider.value_changed.connect(set_rotation_value)
 	rotation_box.value_changed.connect(set_rotation_value)
 
+	load_button.pressed.connect(_load)
+	save_as_button.pressed.connect(_save_as)
+
 	edited_resource = NPCResource.new()
+	active = true
+
+
+func _process(delta):
+	if not Engine.is_editor_hint():
+		return
+
+	if not active:
+		return
+
+	if npc_resource.value == null:
+		save_button.disabled = true
+		load_button.disabled = true
+	else:
+		save_button.disabled = false
+		load_button.disabled = false
 
 
 func _update_character(_value = 0):
@@ -54,13 +79,34 @@ func _update_character(_value = 0):
 	update_preview_callback.call(edited_resource)
 
 
-func _set_preview(_texture):
-	preview.texture = _texture
+func _load():
+	var _resource = npc_resource.value
+	edited_resource = _resource
+
+	name_field.text = _resource.name
+
+	set_button_index(eyes_button_group, _resource.eye_index)
+	set_button_index(noses_button_group, _resource.nose_index)
+	set_button_index(mouths_button_group, _resource.mouth_index)
+	set_button_index(hair_button_group, _resource.hair_index)
+	set_button_index(accessories_button_group, _resource.accessory_index)
+
+	chin_slider.value = _resource.chin_value
+
+	print(chin_slider.value - _resource.chin_value)
 
 
-func set_button_connections(button_group: ButtonGroup):
-	for button in button_group.get_buttons():
-		button.pressed.connect(_update_character)
+func _save_as():
+	edited_resource.resource_name = edited_resource.name
+	if FileAccess.file_exists("res://common/npc_resources/{str}.tres".format({"str": edited_resource.name.to_snake_case()})):
+		print("FILE ALREADY EXISTS")
+		return
+
+	var result = ResourceSaver.save(edited_resource, "res://common/npc_resources/{str}.tres".format({"str": edited_resource.name.to_snake_case()}))
+	if result != OK:
+		print(result)
+	else:
+		print("Successfully saved")
 
 
 func get_current_index(button_group: ButtonGroup) -> int:
@@ -71,6 +117,27 @@ func get_current_index(button_group: ButtonGroup) -> int:
 	return 0
 
 
+func set_button_index(button_group: ButtonGroup, index: int):
+	for button in button_group.get_buttons():
+		if button_group.get_buttons().find(button) == index:
+			button.button_pressed = true
+		else:
+			button.button_pressed = false
+
+
+func _set_preview(_texture):
+	preview.texture = _texture
+
+
+func set_button_connections(button_group: ButtonGroup):
+	for button in button_group.get_buttons():
+		button.pressed.connect(_update_character)
+
+
 func set_rotation_value(_value):
 	rotation_slider.value = _value
 	rotation_box.value = _value
+
+
+func _cleanup():
+	active = false

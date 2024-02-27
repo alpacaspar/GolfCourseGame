@@ -1,0 +1,226 @@
+[gd_scene load_steps=6 format=3 uid="uid://dh2wlsoywp0aq"]
+
+[ext_resource type="Script" path="res://addons/npc_editor/ui/golfer_customizer.gd" id="1_3i5b6"]
+[ext_resource type="PackedScene" uid="uid://5q7b6g71i8sm" path="res://addons/npc_editor/ui/resource_loader.tscn" id="2_a7ttx"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_sbb8n"]
+font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_2tcfa"]
+font_size = 24
+
+[sub_resource type="LabelSettings" id="LabelSettings_niuyy"]
+font_color = Color(0.611765, 0.611765, 0.611765, 1)
+
+[node name="Golfer_dock" type="Control"]
+layout_mode = 3
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 311.0
+grow_vertical = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel2" type="Panel" parent="ScrollContainer" node_paths=PackedStringArray("golfer_resource", "generate_golfer_button", "golfer_name_field", "level_field", "class_dropdown", "power_label", "stamina_label")]
+custom_minimum_size = Vector2(0, 440)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_3i5b6")
+golfer_resource = NodePath("")
+generate_golfer_button = NodePath("")
+golfer_name_field = NodePath("")
+level_field = NodePath("")
+class_dropdown = NodePath("")
+power_label = NodePath("")
+stamina_label = NodePath("")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/Panel2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="ScrollContainer/Panel2/VBoxContainer"]
+layout_mode = 2
+text = "NPC Stat Editor"
+label_settings = SubResource("LabelSettings_sbb8n")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Seperator3" type="HSeparator" parent="ScrollContainer/Panel2/VBoxContainer"]
+layout_mode = 2
+
+[node name="ResourceLoader" parent="ScrollContainer/Panel2/VBoxContainer" node_paths=PackedStringArray("thing_parent", "load_button") instance=ExtResource("2_a7ttx")]
+layout_mode = 2
+thing_parent = NodePath("")
+load_button = NodePath("")
+
+[node name="Seperator5" type="HSeparator" parent="ScrollContainer/Panel2/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="ScrollContainer/Panel2/VBoxContainer"]
+layout_mode = 2
+size_flags_stretch_ratio = 1.25
+alignment = 1
+
+[node name="ReferenceRect2" type="ReferenceRect" parent="ScrollContainer/Panel2/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+border_color = Color(1, 0, 0, 0)
+
+[node name="Label" type="Label" parent="ScrollContainer/Panel2/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(85, 0)
+layout_mode = 2
+text = "Name"
+
+[node name="NameField" type="LineEdit" parent="ScrollContainer/Panel2/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="ReferenceRect" type="ReferenceRect" parent="ScrollContainer/Panel2/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+border_color = Color(1, 0, 0, 0)
+
+[node name="Seperator7" type="HSeparator" parent="ScrollContainer/Panel2/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer/Panel2/VBoxContainer"]
+layout_mode = 2
+size_flags_stretch_ratio = 1.25
+alignment = 1
+
+[node name="ReferenceRect2" type="ReferenceRect" parent="ScrollContainer/Panel2/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+border_color = Color(1, 0, 0, 0)
+
+[node name="Label" type="Label" parent="ScrollContainer/Panel2/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(85, 0)
+layout_mode = 2
+text = "Level"
+
+[node name="LevelSelector" type="SpinBox" parent="ScrollContainer/Panel2/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+min_value = 1.0
+max_value = 10.0
+value = 1.0
+custom_arrow_step = 1.0
+select_all_on_focus = true
+
+[node name="ReferenceRect" type="ReferenceRect" parent="ScrollContainer/Panel2/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+border_color = Color(1, 0, 0, 0)
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="ScrollContainer/Panel2/VBoxContainer"]
+layout_mode = 2
+
+[node name="ReferenceRect2" type="ReferenceRect" parent="ScrollContainer/Panel2/VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+border_color = Color(1, 0, 0, 0)
+
+[node name="Label" type="Label" parent="ScrollContainer/Panel2/VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(85, 0)
+layout_mode = 2
+text = "Class"
+
+[node name="ClassDropdown" type="OptionButton" parent="ScrollContainer/Panel2/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+item_count = 5
+selected = 0
+allow_reselect = true
+popup/item_0/text = "Iron"
+popup/item_0/id = 0
+popup/item_1/text = "Driver"
+popup/item_1/id = 1
+popup/item_2/text = "Golf Cart Rider"
+popup/item_2/id = 2
+popup/item_3/text = "Caddy"
+popup/item_3/id = 3
+popup/item_4/text = "Putter"
+popup/item_4/id = 4
+
+[node name="ReferenceRect" type="ReferenceRect" parent="ScrollContainer/Panel2/VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+border_color = Color(1, 0, 0, 0)
+
+[node name="Seperator" type="HSeparator" parent="ScrollContainer/Panel2/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label3" type="Label" parent="ScrollContainer/Panel2/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Stat Preview"
+label_settings = SubResource("LabelSettings_2tcfa")
+horizontal_alignment = 1
+
+[node name="StatNameHolder" type="HBoxContainer" parent="ScrollContainer/Panel2/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Power" type="Label" parent="ScrollContainer/Panel2/VBoxContainer/StatNameHolder"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Power"
+label_settings = SubResource("LabelSettings_niuyy")
+horizontal_alignment = 1
+
+[node name="Stamina" type="Label" parent="ScrollContainer/Panel2/VBoxContainer/StatNameHolder"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Stamina"
+label_settings = SubResource("LabelSettings_niuyy")
+horizontal_alignment = 1
+
+[node name="StatValueHolder" type="HBoxContainer" parent="ScrollContainer/Panel2/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="PowerLabel" type="Label" parent="ScrollContainer/Panel2/VBoxContainer/StatValueHolder"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "0"
+label_settings = SubResource("LabelSettings_niuyy")
+horizontal_alignment = 1
+
+[node name="StaminaLabel" type="Label" parent="ScrollContainer/Panel2/VBoxContainer/StatValueHolder"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "0"
+label_settings = SubResource("LabelSettings_niuyy")
+horizontal_alignment = 1
+
+[node name="Seperator2" type="HSeparator" parent="ScrollContainer/Panel2/VBoxContainer"]
+layout_mode = 2
+
+[node name="Panel5" type="ReferenceRect" parent="ScrollContainer/Panel2/VBoxContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+border_color = Color(1, 0, 0, 0)
+
+[node name="GenerateGolferButton" type="Button" parent="ScrollContainer/Panel2/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Generate Golfer Resource"
+
+[node name="Panel6" type="ReferenceRect" parent="ScrollContainer/Panel2/VBoxContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+border_color = Color(1, 0, 0, 0)

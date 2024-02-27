@@ -6,21 +6,26 @@
 [sub_resource type="Environment" id="Environment_pbqkr"]
 ambient_light_color = Color(0, 0, 0, 0)
 
-[node name="PreviewScene" type="Node3D" node_paths=PackedStringArray("viewport", "preview_cam", "cam_holder")]
+[node name="PreviewScene" type="Node3D" node_paths=PackedStringArray("viewport", "preview_cam", "zoom_holder", "unzoom_holder")]
 script = ExtResource("1_yw5ff")
 character_base = ExtResource("2_xrhhw")
-viewport = NodePath("Marker3D/SubViewport")
-preview_cam = NodePath("Marker3D/SubViewport/Camera3D")
-cam_holder = NodePath("Marker3D")
+viewport = NodePath("SubViewport")
+preview_cam = NodePath("SubViewport/Camera3D")
+zoom_holder = NodePath("ZoomedPosition")
+unzoom_holder = NodePath("UnzoomedPosition")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.650721, 0.759317, 0, -0.759317, 0.650721, 0, 1.68537, 1.16289)
 
-[node name="Marker3D" type="Marker3D" parent="."]
+[node name="SubViewport" type="SubViewport" parent="."]
 
-[node name="SubViewport" type="SubViewport" parent="Marker3D"]
-
-[node name="Camera3D" type="Camera3D" parent="Marker3D/SubViewport"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.61224, 2.54572)
+[node name="Camera3D" type="Camera3D" parent="SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 2.5)
 environment = SubResource("Environment_pbqkr")
 fov = 32.6
+
+[node name="ZoomedPosition" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 2.5)
+
+[node name="UnzoomedPosition" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 4.5)

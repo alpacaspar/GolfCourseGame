@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dywmn4tambxpc"]
+[gd_scene load_steps=11 format=3 uid="uid://dywmn4tambxpc"]
 
 [ext_resource type="ButtonGroup" uid="uid://l5gir5351irf" path="res://addons/npc_editor/button_groups/eye_group.tres" id="1_gulxh"]
 [ext_resource type="Script" path="res://addons/npc_editor/ui/npc_dock.gd" id="1_mwd3g"]
@@ -9,19 +9,9 @@
 [ext_resource type="ButtonGroup" uid="uid://cjbgjthhucyh4" path="res://addons/npc_editor/button_groups/mouth_group.tres" id="4_n1fok"]
 [ext_resource type="ButtonGroup" uid="uid://i5g7pvbaaytj" path="res://addons/npc_editor/button_groups/hair_group.tres" id="5_j2yxv"]
 [ext_resource type="ButtonGroup" uid="uid://cs1engfbu44j" path="res://addons/npc_editor/button_groups/accessory_group.tres" id="6_4v3tu"]
-[ext_resource type="Script" path="res://addons/npc_editor/ui/golfer_customizer.gd" id="10_7b3ac"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_dt0a8"]
 font_size = 32
-
-[sub_resource type="LabelSettings" id="LabelSettings_kpiix"]
-font_size = 32
-
-[sub_resource type="LabelSettings" id="LabelSettings_kktro"]
-font_size = 24
-
-[sub_resource type="LabelSettings" id="LabelSettings_hs2uv"]
-font_color = Color(0.611765, 0.611765, 0.611765, 1)
 
 [node name="NpcDock" type="Control" node_paths=PackedStringArray("npc_customizer")]
 layout_mode = 3
@@ -30,44 +20,40 @@ anchor_bottom = 1.0
 offset_right = 361.0
 grow_vertical = 2
 script = ExtResource("1_mwd3g")
-npc_customizer = NodePath("ScrollContainer/VBoxContainer/NPCEditor")
+npc_customizer = NodePath("VBoxContainer/NPCEditor")
 
-[node name="ScrollContainer" type="ScrollContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_bottom = 372.0
 grow_horizontal = 2
 grow_vertical = 2
-horizontal_scroll_mode = 0
-vertical_scroll_mode = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
-layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 alignment = 1
 
-[node name="NPCEditor" type="Panel" parent="ScrollContainer/VBoxContainer" node_paths=PackedStringArray("npc_resource", "generate_button", "name_field", "chin_slider", "preview", "rotation_slider", "rotation_box")]
-custom_minimum_size = Vector2(0, 1000)
+[node name="NPCEditor" type="Panel" parent="VBoxContainer" node_paths=PackedStringArray("npc_resource", "name_field", "chin_slider", "preview", "zoom_slider", "rotation_slider", "rotation_box", "load_button", "save_button", "save_as_button")]
 layout_mode = 2
 size_flags_vertical = 3
 script = ExtResource("2_nrfom")
 npc_resource = NodePath("VBoxContainer/ResourceLoader")
-generate_button = NodePath("VBoxContainer/GenerateNPCButton")
 name_field = NodePath("VBoxContainer/NameHolder/NameField")
 chin_slider = NodePath("VBoxContainer/ChinHolder/HSlider")
-preview = NodePath("VBoxContainer/AspectRatioContainer/PreviewTexture")
+preview = NodePath("VBoxContainer/VBoxContainer/PreviewTexture")
 eyes_button_group = ExtResource("1_gulxh")
 noses_button_group = ExtResource("3_u22ul")
 mouths_button_group = ExtResource("4_n1fok")
 hair_button_group = ExtResource("5_j2yxv")
 accessories_button_group = ExtResource("6_4v3tu")
+zoom_slider = NodePath("VBoxContainer/VBoxContainer/VSlider")
 rotation_slider = NodePath("VBoxContainer/HBoxContainer/HSlider")
 rotation_box = NodePath("VBoxContainer/HBoxContainer/SpinBox")
+load_button = NodePath("VBoxContainer/HBoxContainer5/LoadButton")
+save_button = NodePath("../VBoxContainer/HBoxContainer5/SaveButton")
+save_as_button = NodePath("../VBoxContainer/HBoxContainer5/SaveAsButton")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/VBoxContainer/NPCEditor"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/NPCEditor"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -75,83 +61,103 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Title" type="Label" parent="ScrollContainer/VBoxContainer/NPCEditor/VBoxContainer"]
+[node name="Title" type="Label" parent="VBoxContainer/NPCEditor/VBoxContainer"]
 layout_mode = 2
 text = "NPC Visual Editor"
 label_settings = SubResource("LabelSettings_dt0a8")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Seperator2" type="HSeparator" parent="ScrollContainer/VBoxContainer/NPCEditor/VBoxContainer"]
+[node name="Seperator2" type="HSeparator" parent="VBoxContainer/NPCEditor/VBoxContainer"]
 layout_mode = 2
 
-[node name="ResourceLoader" parent="ScrollContainer/VBoxContainer/NPCEditor/VBoxContainer" instance=ExtResource("2_1rawp")]
+[node name="ResourceLoader" parent="VBoxContainer/NPCEditor/VBoxContainer" instance=ExtResource("2_1rawp")]
 layout_mode = 2
 
-[node name="Seperator5" type="HSeparator" parent="ScrollContainer/VBoxContainer/NPCEditor/VBoxContainer"]
+[node name="HBoxContainer5" type="HBoxContainer" parent="VBoxContainer/NPCEditor/VBoxContainer"]
 layout_mode = 2
-
-[node name="NameHolder" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/NPCEditor/VBoxContainer"]
-layout_mode = 2
-size_flags_stretch_ratio = 1.25
 alignment = 1
 
-[node name="ReferenceRect2" type="ReferenceRect" parent="ScrollContainer/VBoxContainer/NPCEditor/VBoxContainer/NameHolder"]
+[node name="ReferenceRect2" type="ReferenceRect" parent="VBoxContainer/NPCEditor/VBoxContainer/HBoxContainer5"]
+custom_minimum_size = Vector2(5, 0)
+layout_mode = 2
+border_color = Color(1, 0, 0, 0)
+
+[node name="LoadButton" type="Button" parent="VBoxContainer/NPCEditor/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+size_flags_horizontal = 3
+disabled = true
+text = "Load"
+
+[node name="ReferenceRect" type="ReferenceRect" parent="VBoxContainer/NPCEditor/VBoxContainer/HBoxContainer5"]
 custom_minimum_size = Vector2(10, 0)
 layout_mode = 2
 border_color = Color(1, 0, 0, 0)
 
-[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/NPCEditor/VBoxContainer/NameHolder"]
+[node name="Seperator5" type="HSeparator" parent="VBoxContainer/NPCEditor/VBoxContainer"]
+layout_mode = 2
+
+[node name="NameHolder" type="HBoxContainer" parent="VBoxContainer/NPCEditor/VBoxContainer"]
+layout_mode = 2
+size_flags_stretch_ratio = 1.25
+alignment = 1
+
+[node name="ReferenceRect2" type="ReferenceRect" parent="VBoxContainer/NPCEditor/VBoxContainer/NameHolder"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+border_color = Color(1, 0, 0, 0)
+
+[node name="Label" type="Label" parent="VBoxContainer/NPCEditor/VBoxContainer/NameHolder"]
 custom_minimum_size = Vector2(85, 0)
 layout_mode = 2
 text = "Name"
 
-[node name="NameField" type="LineEdit" parent="ScrollContainer/VBoxContainer/NPCEditor/VBoxContainer/NameHolder"]
+[node name="NameField" type="LineEdit" parent="VBoxContainer/NPCEditor/VBoxContainer/NameHolder"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
 placeholder_text = "Insert Name Here..."
 
-[node name="ReferenceRect" type="ReferenceRect" parent="ScrollContainer/VBoxContainer/NPCEditor/VBoxContainer/NameHolder"]
+[node name="ReferenceRect" type="ReferenceRect" parent="VBoxContainer/NPCEditor/VBoxContainer/NameHolder"]
 custom_minimum_size = Vector2(10, 0)
 layout_mode = 2
 border_color = Color(1, 0, 0, 0)
 
-[node name="Seperator7" type="HSeparator" parent="ScrollContainer/VBoxContainer/NPCEditor/VBoxContainer"]
+[node name="Seperator7" type="HSeparator" parent="VBoxContainer/NPCEditor/VBoxContainer"]
 layout_mode = 2
 
-[node name="EyesPicker" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/NPCEditor/VBoxContainer"]
+[node name="EyesPicker" type="HBoxContainer" parent="VBoxContainer/NPCEditor/VBoxContainer"]
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
 size_flags_stretch_ratio = 1.25
 alignment = 1
 
-[node name="ReferenceRect" type="ReferenceRect" parent="ScrollContainer/VBoxContainer/NPCEditor/VBoxContainer/EyesPicker"]
+[node name="ReferenceRect" type="ReferenceRect" parent="VBoxContainer/NPCEditor/VBoxContainer/EyesPicker"]
 custom_minimum_size = Vector2(10, 0)
 layout_mode = 2
 border_color = Color(1, 0, 0, 0)
 
-[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/NPCEditor/VBoxContainer/EyesPicker"]
+[node name="Label" type="Label" parent="VBoxContainer/NPCEditor/VBoxContainer/EyesPicker"]
 custom_minimum_size = Vector2(85, 0)
 layout_mode = 2
 text = "Eyes     "
 
-[node name="ScrollContainer" type="ScrollContainer" parent="ScrollContainer/VBoxContainer/NPCEditor/VBoxContainer/EyesPicker"]
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/NPCEditor/VBoxContainer/EyesPicker"]
 layout_mode = 2
 size_flags_horizontal = 3
 horizontal_scroll_mode = 2
 vertical_scroll_mode = 0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/NPCEditor/VBoxContainer/EyesPicker/ScrollContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/NPCEditor/VBoxContainer/EyesPicker/ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Control" type="Control" parent="ScrollContainer/VBoxContainer/NPCEditor/VBoxContainer/EyesPicker/ScrollContainer/HBoxContainer"]
+[node name="Control" type="Control" parent="VBoxContainer/NPCEditor/VBoxContainer/EyesPicker/ScrollContainer/HBoxContainer"]
 custom_minimum_size = Vector2(72, 0)
 layout_mode = 2
 
-[node name="TextureButton" type="TextureButton" parent="ScrollContainer/VBoxContainer/NPCEditor/VBoxContainer/EyesPicker/ScrollContainer/HBoxContainer/Control"]
+[node name="TextureButton" type="TextureButton" parent="VBoxContainer/NPCEditor/VBoxContainer/EyesPicker/ScrollContainer/HBoxContainer/Control"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -165,11 +171,11 @@ toggle_mode = true
 button_group = ExtResource("1_gulxh")
 texture_normal = ExtResource("1_qkgog")
 
-[node name="Control2" type="Control" parent="ScrollContainer/VBoxContainer/NPCEditor/VBoxContainer/EyesPicker/ScrollContainer/HBoxContainer"]
+[node name="Control2" type="Control" parent="VBoxContainer/NPCEditor/VBoxContainer/EyesPicker/ScrollContainer/HBoxContainer"]
 custom_minimum_size = Vector2(72, 0)
 layout_mode = 2
 
-[node name="TextureButton" type="TextureButton" parent="ScrollContainer/VBoxContainer/NPCEditor/VBoxContainer/EyesPicker/ScrollContainer/HBoxContainer/Control2"]
+[node name="TextureButton" type="TextureButton" parent="VBoxContainer/NPCEditor/VBoxContainer/EyesPicker/ScrollContainer/HBoxContainer/Control2"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -183,11 +189,11 @@ toggle_mode = true
 button_group = ExtResource("1_gulxh")
 texture_normal = ExtResource("1_qkgog")
 
-[node name="Control3" type="Control" parent="ScrollContainer/VBoxContainer/NPCEditor/VBoxContainer/EyesPicker/ScrollContainer/HBoxContainer"]
+[node name="Control3" type="Control" parent="VBoxContainer/NPCEditor/VBoxContainer/EyesPicker/ScrollContainer/HBoxContainer"]
 custom_minimum_size = Vector2(72, 0)
 layout_mode = 2
 
-[node name="TextureButton" type="TextureButton" parent="ScrollContainer/VBoxContainer/NPCEditor/VBoxContainer/EyesPicker/ScrollContainer/HBoxContainer/Control3"]
+[node name="TextureButton" type="TextureButton" parent="VBoxContainer/NPCEditor/VBoxContainer/EyesPicker/ScrollContainer/HBoxContainer/Control3"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -201,11 +207,11 @@ toggle_mode = true
 button_group = ExtResource("1_gulxh")
 texture_normal = ExtResource("1_qkgog")
 
-[node name="Control4" type="Control" parent="ScrollContainer/VBoxContainer/NPCEditor/VBoxContainer/EyesPicker/ScrollContainer/HBoxContainer"]
+[node name="Control4" type="Control" parent="VBoxContainer/NPCEditor/VBoxContainer/EyesPicker/ScrollContainer/HBoxContainer"]
 custom_minimum_size = Vector2(72, 0)
 layout_mode = 2
 
-[node name="TextureButton" type="TextureButton" parent="ScrollContainer/VBoxContainer/NPCEditor/VBoxContainer/EyesPicker/ScrollContainer/HBoxContainer/Control4"]
+[node name="TextureButton" type="TextureButton" parent="VBoxContainer/NPCEditor/VBoxContainer/EyesPicker/ScrollContainer/HBoxContainer/Control4"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -219,11 +225,11 @@ toggle_mode = true
 button_group = ExtResource("1_gulxh")
 texture_normal = ExtResource("1_qkgog")
 
-[node name="Control5" type="Control" parent="ScrollContainer/VBoxContainer/NPCEditor/VBoxContainer/EyesPicker/ScrollContainer/HBoxContainer"]
+[node name="Control5" type="Control" parent="VBoxContainer/NPCEditor/VBoxContainer/EyesPicker/ScrollContainer/HBoxContainer"]
 custom_minimum_size = Vector2(72, 0)
 layout_mode = 2
 
-[node name="TextureButton" type="TextureButton" parent="ScrollContainer/VBoxContainer/NPCEditor/VBoxContainer/EyesPicker/ScrollContainer/HBoxContainer/Control5"]
+[node name="TextureButton" type="TextureButton" parent="VBoxContainer/NPCEditor/VBoxContainer/EyesPicker/ScrollContainer/HBoxContainer/Control5"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -237,43 +243,43 @@ toggle_mode = true
 button_group = ExtResource("1_gulxh")
 texture_normal = ExtResource("1_qkgog")
 
-[node name="ReferenceRect2" type="ReferenceRect" parent="ScrollContainer/VBoxContainer/NPCEditor/VBoxContainer/EyesPicker"]
+[node name="ReferenceRect2" type="ReferenceRect" parent="VBoxContainer/NPCEditor/VBoxContainer/EyesPicker"]
 custom_minimum_size = Vector2(10, 0)
 layout_mode = 2
 border_color = Color(1, 0, 0, 0)
 
-[node name="NosePicker" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/NPCEditor/VBoxContainer"]
+[node name="NosePicker" type="HBoxContainer" parent="VBoxContainer/NPCEditor/VBoxContainer"]
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
 size_flags_stretch_ratio = 1.25
 alignment = 1
 
-[node name="ReferenceRect2" type="ReferenceRect" parent="ScrollContainer/VBoxContainer/NPCEditor/VBoxContainer/NosePicker"]
+[node name="ReferenceRect2" type="ReferenceRect" parent="VBoxContainer/NPCEditor/VBoxContainer/NosePicker"]
 custom_minimum_size = Vector2(10, 0)
 layout_mode = 2
 border_color = Color(1, 0, 0, 0)
 
-[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/NPCEditor/VBoxContainer/NosePicker"]
+[node name="Label" type="Label" parent="VBoxContainer/NPCEditor/VBoxContainer/NosePicker"]
 custom_minimum_size = Vector2(85, 0)
 layout_mode = 2
 text = "Nose    "
 
-[node name="ScrollContainer" type="ScrollContainer" parent="ScrollContainer/VBoxContainer/NPCEditor/VBoxContainer/NosePicker"]
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/NPCEditor/VBoxContainer/NosePicker"]
 layout_mode = 2
 size_flags_horizontal = 3
 horizontal_scroll_mode = 2
 vertical_scroll_mode = 0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/NPCEditor/VBoxContainer/NosePicker/ScrollContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/NPCEditor/VBoxContainer/NosePicker/ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Control" type="Control" parent="ScrollContainer/VBoxContainer/NPCEditor/VBoxContainer/NosePicker/ScrollContainer/HBoxContainer"]
+[node name="Control" type="Control" parent="VBoxContainer/NPCEditor/VBoxContainer/NosePicker/ScrollContainer/HBoxContainer"]
 custom_minimum_size = Vector2(72, 0)
 layout_mode = 2
 
-[node name="TextureButton" type="TextureButton" parent="ScrollContainer/VBoxContainer/NPCEditor/VBoxContainer/NosePicker/ScrollContainer/HBoxContainer/Control"]
+[node name="TextureButton" type="TextureButton" parent="VBoxContainer/NPCEditor/VBoxContainer/NosePicker/ScrollContainer/HBoxContainer/Control"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -287,11 +293,11 @@ toggle_mode = true
 button_group = ExtResource("3_u22ul")
 texture_normal = ExtResource("1_qkgog")
 
-[node name="Control2" type="Control" parent="ScrollContainer/VBoxContainer/NPCEditor/VBoxContainer/NosePicker/ScrollContainer/HBoxContainer"]
+[node name="Control2" type="Control" parent="VBoxContainer/NPCEditor/VBoxContainer/NosePicker/ScrollContainer/HBoxContainer"]
 custom_minimum_size = Vector2(72, 0)
 layout_mode = 2
 
-[node name="TextureButton" type="TextureButton" parent="ScrollContainer/VBoxContainer/NPCEditor/VBoxContainer/NosePicker/ScrollContainer/HBoxContainer/Control2"]
+[node name="TextureButton" type="TextureButton" parent="VBoxContainer/NPCEditor/VBoxContainer/NosePicker/ScrollContainer/HBoxContainer/Control2"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -305,11 +311,11 @@ toggle_mode = true
 button_group = ExtResource("3_u22ul")
 texture_normal = ExtResource("1_qkgog")
 
-[node name="Control3" type="Control" parent="ScrollContainer/VBoxContainer/NPCEditor/VBoxContainer/NosePicker/ScrollContainer/HBoxContainer"]
+[node name="Control3" type="Control" parent="VBoxContainer/NPCEditor/VBoxContainer/NosePicker/ScrollContainer/HBoxContainer"]
 custom_minimum_size = Vector2(72, 0)
 layout_mode = 2
 
-[node name="TextureButton" type="TextureButton" parent="ScrollContainer/VBoxContainer/NPCEditor/VBoxContainer/NosePicker/ScrollContainer/HBoxContainer/Control3"]
+[node name="TextureButton" type="TextureButton" parent="VBoxContainer/NPCEditor/VBoxContainer/NosePicker/ScrollContainer/HBoxContainer/Control3"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -323,11 +329,11 @@ toggle_mode = true
 button_group = ExtResource("3_u22ul")
 texture_normal = ExtResource("1_qkgog")
 
-[node name="Control4" type="Control" parent="ScrollContainer/VBoxContainer/NPCEditor/VBoxContainer/NosePicker/ScrollContainer/HBoxContainer"]
+[node name="Control4" type="Control" parent="VBoxContainer/NPCEditor/VBoxContainer/NosePicker/ScrollContainer/HBoxContainer"]
 custom_minimum_size = Vector2(72, 0)
 layout_mode = 2
 
-[node name="TextureButton" type="TextureButton" parent="ScrollContainer/VBoxContainer/NPCEditor/VBoxContainer/NosePicker/ScrollContainer/HBoxContainer/Control4"]
+[node name="TextureButton" type="TextureButton" parent="VBoxContainer/NPCEditor/VBoxContainer/NosePicker/ScrollContainer/HBoxContainer/Control4"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -341,11 +347,11 @@ toggle_mode = true
 button_group = ExtResource("3_u22ul")
 texture_normal = ExtResource("1_qkgog")
 
-[node name="Control5" type="Control" parent="ScrollContainer/VBoxContainer/NPCEditor/VBoxContainer/NosePicker/ScrollContainer/HBoxContainer"]
+[node name="Control5" type="Control" parent="VBoxContainer/NPCEditor/VBoxContainer/NosePicker/ScrollContainer/HBoxContainer"]
 custom_minimum_size = Vector2(72, 0)
 layout_mode = 2
 
-[node name="TextureButton" type="TextureButton" parent="ScrollContainer/VBoxContainer/NPCEditor/VBoxContainer/NosePicker/ScrollContainer/HBoxContainer/Control5"]
+[node name="TextureButton" type="TextureButton" parent="VBoxContainer/NPCEditor/VBoxContainer/NosePicker/ScrollContainer/HBoxContainer/Control5"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -359,44 +365,44 @@ toggle_mode = true
 button_group = ExtResource("3_u22ul")
 texture_normal = ExtResource("1_qkgog")
 
-[node name="ReferenceRect" type="ReferenceRect" parent="ScrollContainer/VBoxContainer/NPCEditor/VBoxContainer/NosePicker"]
+[node name="ReferenceRect" type="ReferenceRect" parent="VBoxContainer/NPCEditor/VBoxContainer/NosePicker"]
 custom_minimum_size = Vector2(10, 0)
 layout_mode = 2
 border_color = Color(1, 0, 0, 0)
 
-[node name="MouthPicker" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/NPCEditor/VBoxContainer"]
+[node name="MouthPicker" type="HBoxContainer" parent="VBoxContainer/NPCEditor/VBoxContainer"]
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
 size_flags_stretch_ratio = 1.25
 alignment = 1
 
-[node name="ReferenceRect2" type="ReferenceRect" parent="ScrollContainer/VBoxContainer/NPCEditor/VBoxContainer/MouthPicker"]
+[node name="ReferenceRect2" type="ReferenceRect" parent="VBoxContainer/NPCEditor/VBoxContainer/MouthPicker"]
 custom_minimum_size = Vector2(10, 0)
 layout_mode = 2
 border_color = Color(1, 0, 0, 0)
 
-[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/NPCEditor/VBoxContainer/MouthPicker"]
+[node name="Label" type="Label" parent="VBoxContainer/NPCEditor/VBoxContainer/MouthPicker"]
 custom_minimum_size = Vector2(85, 0)
 layout_mode = 2
 text = "Mouth
 "
 
-[node name="ScrollContainer" type="ScrollContainer" parent="ScrollContainer/VBoxContainer/NPCEditor/VBoxContainer/MouthPicker"]
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/NPCEditor/VBoxContainer/MouthPicker"]
 layout_mode = 2
 size_flags_horizontal = 3
 horizontal_scroll_mode = 2
 vertical_scroll_mode = 0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/NPCEditor/VBoxContainer/MouthPicker/ScrollContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/NPCEditor/VBoxContainer/MouthPicker/ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Control" type="Control" parent="ScrollContainer/VBoxContainer/NPCEditor/VBoxContainer/MouthPicker/ScrollContainer/HBoxContainer"]
+[node name="Control" type="Control" parent="VBoxContainer/NPCEditor/VBoxContainer/MouthPicker/ScrollContainer/HBoxContainer"]
 custom_minimum_size = Vector2(72, 0)
 layout_mode = 2
 
-[node name="TextureButton" type="TextureButton" parent="ScrollContainer/VBoxContainer/NPCEditor/VBoxContainer/MouthPicker/ScrollContainer/HBoxContainer/Control"]
+[node name="TextureButton" type="TextureButton" parent="VBoxContainer/NPCEditor/VBoxContainer/MouthPicker/ScrollContainer/HBoxContainer/Control"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -410,11 +416,11 @@ toggle_mode = true
 button_group = ExtResource("4_n1fok")
 texture_normal = ExtResource("1_qkgog")
 
-[node name="Control2" type="Control" parent="ScrollContainer/VBoxContainer/NPCEditor/VBoxContainer/MouthPicker/ScrollContainer/HBoxContainer"]
+[node name="Control2" type="Control" parent="VBoxContainer/NPCEditor/VBoxContainer/MouthPicker/ScrollContainer/HBoxContainer"]
 custom_minimum_size = Vector2(72, 0)
 layout_mode = 2
 
-[node name="TextureButton" type="TextureButton" parent="ScrollContainer/VBoxContainer/NPCEditor/VBoxContainer/MouthPicker/ScrollContainer/HBoxContainer/Control2"]
+[node name="TextureButton" type="TextureButton" parent="VBoxContainer/NPCEditor/VBoxContainer/MouthPicker/ScrollContainer/HBoxContainer/Control2"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -428,11 +434,11 @@ toggle_mode = true
 button_group = ExtResource("4_n1fok")
 texture_normal = ExtResource("1_qkgog")
 
-[node name="Control3" type="Control" parent="ScrollContainer/VBoxContainer/NPCEditor/VBoxContainer/MouthPicker/ScrollContainer/HBoxContainer"]
+[node name="Control3" type="Control" parent="VBoxContainer/NPCEditor/VBoxContainer/MouthPicker/ScrollContainer/HBoxContainer"]
 custom_minimum_size = Vector2(72, 0)
 layout_mode = 2
 
-[node name="TextureButton" type="TextureButton" parent="ScrollContainer/VBoxContainer/NPCEditor/VBoxContainer/MouthPicker/ScrollContainer/HBoxContainer/Control3"]
+[node name="TextureButton" type="TextureButton" parent="VBoxContainer/NPCEditor/VBoxContainer/MouthPicker/ScrollContainer/HBoxContainer/Control3"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -446,11 +452,11 @@ toggle_mode = true
 button_group = ExtResource("4_n1fok")
 texture_normal = ExtResource("1_qkgog")
 
-[node name="Control4" type="Control" parent="ScrollContainer/VBoxContainer/NPCEditor/VBoxContainer/MouthPicker/ScrollContainer/HBoxContainer"]
+[node name="Control4" type="Control" parent="VBoxContainer/NPCEditor/VBoxContainer/MouthPicker/ScrollContainer/HBoxContainer"]
 custom_minimum_size = Vector2(72, 0)
 layout_mode = 2
 
-[node name="TextureButton" type="TextureButton" parent="ScrollContainer/VBoxContainer/NPCEditor/VBoxContainer/MouthPicker/ScrollContainer/HBoxContainer/Control4"]
+[node name="TextureButton" type="TextureButton" parent="VBoxContainer/NPCEditor/VBoxContainer/MouthPicker/ScrollContainer/HBoxContainer/Control4"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -464,11 +470,11 @@ toggle_mode = true
 button_group = ExtResource("4_n1fok")
 texture_normal = ExtResource("1_qkgog")
 
-[node name="Control5" type="Control" parent="ScrollContainer/VBoxContainer/NPCEditor/VBoxContainer/MouthPicker/ScrollContainer/HBoxContainer"]
+[node name="Control5" type="Control" parent="VBoxContainer/NPCEditor/VBoxContainer/MouthPicker/ScrollContainer/HBoxContainer"]
 custom_minimum_size = Vector2(72, 0)
 layout_mode = 2
 
-[node name="TextureButton" type="TextureButton" parent="ScrollContainer/VBoxContainer/NPCEditor/VBoxContainer/MouthPicker/ScrollContainer/HBoxContainer/Control5"]
+[node name="TextureButton" type="TextureButton" parent="VBoxContainer/NPCEditor/VBoxContainer/MouthPicker/ScrollContainer/HBoxContainer/Control5"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -482,43 +488,43 @@ toggle_mode = true
 button_group = ExtResource("4_n1fok")
 texture_normal = ExtResource("1_qkgog")
 
-[node name="ReferenceRect" type="ReferenceRect" parent="ScrollContainer/VBoxContainer/NPCEditor/VBoxContainer/MouthPicker"]
+[node name="ReferenceRect" type="ReferenceRect" parent="VBoxContainer/NPCEditor/VBoxContainer/MouthPicker"]
 custom_minimum_size = Vector2(10, 0)
 layout_mode = 2
 border_color = Color(1, 0, 0, 0)
 
-[node name="HairPicker" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/NPCEditor/VBoxContainer"]
+[node name="HairPicker" type="HBoxContainer" parent="VBoxContainer/NPCEditor/VBoxContainer"]
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
 size_flags_stretch_ratio = 1.25
 alignment = 1
 
-[node name="ReferenceRect2" type="ReferenceRect" parent="ScrollContainer/VBoxContainer/NPCEditor/VBoxContainer/HairPicker"]
+[node name="ReferenceRect2" type="ReferenceRect" parent="VBoxContainer/NPCEditor/VBoxContainer/HairPicker"]
 custom_minimum_size = Vector2(10, 0)
 layout_mode = 2
 border_color = Color(1, 0, 0, 0)
 
-[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/NPCEditor/VBoxContainer/HairPicker"]
+[node name="Label" type="Label" parent="VBoxContainer/NPCEditor/VBoxContainer/HairPicker"]
 custom_minimum_size = Vector2(85, 0)
 layout_mode = 2
 text = "Hair      "
 
-[node name="ScrollContainer" type="ScrollContainer" parent="ScrollContainer/VBoxContainer/NPCEditor/VBoxContainer/HairPicker"]
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/NPCEditor/VBoxContainer/HairPicker"]
 layout_mode = 2
 size_flags_horizontal = 3
 horizontal_scroll_mode = 2
 vertical_scroll_mode = 0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/NPCEditor/VBoxContainer/HairPicker/ScrollContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/NPCEditor/VBoxContainer/HairPicker/ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Control" type="Control" parent="ScrollContainer/VBoxContainer/NPCEditor/VBoxContainer/HairPicker/ScrollContainer/HBoxContainer"]
+[node name="Control" type="Control" parent="VBoxContainer/NPCEditor/VBoxContainer/HairPicker/ScrollContainer/HBoxContainer"]
 custom_minimum_size = Vector2(72, 0)
 layout_mode = 2
 
-[node name="TextureButton" type="TextureButton" parent="ScrollContainer/VBoxContainer/NPCEditor/VBoxContainer/HairPicker/ScrollContainer/HBoxContainer/Control"]
+[node name="TextureButton" type="TextureButton" parent="VBoxContainer/NPCEditor/VBoxContainer/HairPicker/ScrollContainer/HBoxContainer/Control"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -532,11 +538,11 @@ toggle_mode = true
 button_group = ExtResource("5_j2yxv")
 texture_normal = ExtResource("1_qkgog")
 
-[node name="Control2" type="Control" parent="ScrollContainer/VBoxContainer/NPCEditor/VBoxContainer/HairPicker/ScrollContainer/HBoxContainer"]
+[node name="Control2" type="Control" parent="VBoxContainer/NPCEditor/VBoxContainer/HairPicker/ScrollContainer/HBoxContainer"]
 custom_minimum_size = Vector2(72, 0)
 layout_mode = 2
 
-[node name="TextureButton" type="TextureButton" parent="ScrollContainer/VBoxContainer/NPCEditor/VBoxContainer/HairPicker/ScrollContainer/HBoxContainer/Control2"]
+[node name="TextureButton" type="TextureButton" parent="VBoxContainer/NPCEditor/VBoxContainer/HairPicker/ScrollContainer/HBoxContainer/Control2"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -550,11 +556,11 @@ toggle_mode = true
 button_group = ExtResource("5_j2yxv")
 texture_normal = ExtResource("1_qkgog")
 
-[node name="Control3" type="Control" parent="ScrollContainer/VBoxContainer/NPCEditor/VBoxContainer/HairPicker/ScrollContainer/HBoxContainer"]
+[node name="Control3" type="Control" parent="VBoxContainer/NPCEditor/VBoxContainer/HairPicker/ScrollContainer/HBoxContainer"]
 custom_minimum_size = Vector2(72, 0)
 layout_mode = 2
 
-[node name="TextureButton" type="TextureButton" parent="ScrollContainer/VBoxContainer/NPCEditor/VBoxContainer/HairPicker/ScrollContainer/HBoxContainer/Control3"]
+[node name="TextureButton" type="TextureButton" parent="VBoxContainer/NPCEditor/VBoxContainer/HairPicker/ScrollContainer/HBoxContainer/Control3"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -568,11 +574,11 @@ toggle_mode = true
 button_group = ExtResource("5_j2yxv")
 texture_normal = ExtResource("1_qkgog")
 
-[node name="Control4" type="Control" parent="ScrollContainer/VBoxContainer/NPCEditor/VBoxContainer/HairPicker/ScrollContainer/HBoxContainer"]
+[node name="Control4" type="Control" parent="VBoxContainer/NPCEditor/VBoxContainer/HairPicker/ScrollContainer/HBoxContainer"]
 custom_minimum_size = Vector2(72, 0)
 layout_mode = 2
 
-[node name="TextureButton" type="TextureButton" parent="ScrollContainer/VBoxContainer/NPCEditor/VBoxContainer/HairPicker/ScrollContainer/HBoxContainer/Control4"]
+[node name="TextureButton" type="TextureButton" parent="VBoxContainer/NPCEditor/VBoxContainer/HairPicker/ScrollContainer/HBoxContainer/Control4"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -586,11 +592,11 @@ toggle_mode = true
 button_group = ExtResource("5_j2yxv")
 texture_normal = ExtResource("1_qkgog")
 
-[node name="Control5" type="Control" parent="ScrollContainer/VBoxContainer/NPCEditor/VBoxContainer/HairPicker/ScrollContainer/HBoxContainer"]
+[node name="Control5" type="Control" parent="VBoxContainer/NPCEditor/VBoxContainer/HairPicker/ScrollContainer/HBoxContainer"]
 custom_minimum_size = Vector2(72, 0)
 layout_mode = 2
 
-[node name="TextureButton" type="TextureButton" parent="ScrollContainer/VBoxContainer/NPCEditor/VBoxContainer/HairPicker/ScrollContainer/HBoxContainer/Control5"]
+[node name="TextureButton" type="TextureButton" parent="VBoxContainer/NPCEditor/VBoxContainer/HairPicker/ScrollContainer/HBoxContainer/Control5"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -604,43 +610,43 @@ toggle_mode = true
 button_group = ExtResource("5_j2yxv")
 texture_normal = ExtResource("1_qkgog")
 
-[node name="ReferenceRect" type="ReferenceRect" parent="ScrollContainer/VBoxContainer/NPCEditor/VBoxContainer/HairPicker"]
+[node name="ReferenceRect" type="ReferenceRect" parent="VBoxContainer/NPCEditor/VBoxContainer/HairPicker"]
 custom_minimum_size = Vector2(10, 0)
 layout_mode = 2
 border_color = Color(1, 0, 0, 0)
 
-[node name="AccessoryPicker" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/NPCEditor/VBoxContainer"]
+[node name="AccessoryPicker" type="HBoxContainer" parent="VBoxContainer/NPCEditor/VBoxContainer"]
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
 size_flags_stretch_ratio = 1.25
 alignment = 1
 
-[node name="ReferenceRect2" type="ReferenceRect" parent="ScrollContainer/VBoxContainer/NPCEditor/VBoxContainer/AccessoryPicker"]
+[node name="ReferenceRect2" type="ReferenceRect" parent="VBoxContainer/NPCEditor/VBoxContainer/AccessoryPicker"]
 custom_minimum_size = Vector2(10, 0)
 layout_mode = 2
 border_color = Color(1, 0, 0, 0)
 
-[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/NPCEditor/VBoxContainer/AccessoryPicker"]
+[node name="Label" type="Label" parent="VBoxContainer/NPCEditor/VBoxContainer/AccessoryPicker"]
 custom_minimum_size = Vector2(85, 0)
 layout_mode = 2
 text = "Accessory "
 
-[node name="ScrollContainer" type="ScrollContainer" parent="ScrollContainer/VBoxContainer/NPCEditor/VBoxContainer/AccessoryPicker"]
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/NPCEditor/VBoxContainer/AccessoryPicker"]
 layout_mode = 2
 size_flags_horizontal = 3
 horizontal_scroll_mode = 2
 vertical_scroll_mode = 0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/NPCEditor/VBoxContainer/AccessoryPicker/ScrollContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/NPCEditor/VBoxContainer/AccessoryPicker/ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Control" type="Control" parent="ScrollContainer/VBoxContainer/NPCEditor/VBoxContainer/AccessoryPicker/ScrollContainer/HBoxContainer"]
+[node name="Control" type="Control" parent="VBoxContainer/NPCEditor/VBoxContainer/AccessoryPicker/ScrollContainer/HBoxContainer"]
 custom_minimum_size = Vector2(72, 0)
 layout_mode = 2
 
-[node name="TextureButton" type="TextureButton" parent="ScrollContainer/VBoxContainer/NPCEditor/VBoxContainer/AccessoryPicker/ScrollContainer/HBoxContainer/Control"]
+[node name="TextureButton" type="TextureButton" parent="VBoxContainer/NPCEditor/VBoxContainer/AccessoryPicker/ScrollContainer/HBoxContainer/Control"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -654,11 +660,11 @@ toggle_mode = true
 button_group = ExtResource("6_4v3tu")
 texture_normal = ExtResource("1_qkgog")
 
-[node name="Control2" type="Control" parent="ScrollContainer/VBoxContainer/NPCEditor/VBoxContainer/AccessoryPicker/ScrollContainer/HBoxContainer"]
+[node name="Control2" type="Control" parent="VBoxContainer/NPCEditor/VBoxContainer/AccessoryPicker/ScrollContainer/HBoxContainer"]
 custom_minimum_size = Vector2(72, 0)
 layout_mode = 2
 
-[node name="TextureButton" type="TextureButton" parent="ScrollContainer/VBoxContainer/NPCEditor/VBoxContainer/AccessoryPicker/ScrollContainer/HBoxContainer/Control2"]
+[node name="TextureButton" type="TextureButton" parent="VBoxContainer/NPCEditor/VBoxContainer/AccessoryPicker/ScrollContainer/HBoxContainer/Control2"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -672,11 +678,11 @@ toggle_mode = true
 button_group = ExtResource("6_4v3tu")
 texture_normal = ExtResource("1_qkgog")
 
-[node name="Control3" type="Control" parent="ScrollContainer/VBoxContainer/NPCEditor/VBoxContainer/AccessoryPicker/ScrollContainer/HBoxContainer"]
+[node name="Control3" type="Control" parent="VBoxContainer/NPCEditor/VBoxContainer/AccessoryPicker/ScrollContainer/HBoxContainer"]
 custom_minimum_size = Vector2(72, 0)
 layout_mode = 2
 
-[node name="TextureButton" type="TextureButton" parent="ScrollContainer/VBoxContainer/NPCEditor/VBoxContainer/AccessoryPicker/ScrollContainer/HBoxContainer/Control3"]
+[node name="TextureButton" type="TextureButton" parent="VBoxContainer/NPCEditor/VBoxContainer/AccessoryPicker/ScrollContainer/HBoxContainer/Control3"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -690,11 +696,11 @@ toggle_mode = true
 button_group = ExtResource("6_4v3tu")
 texture_normal = ExtResource("1_qkgog")
 
-[node name="Control4" type="Control" parent="ScrollContainer/VBoxContainer/NPCEditor/VBoxContainer/AccessoryPicker/ScrollContainer/HBoxContainer"]
+[node name="Control4" type="Control" parent="VBoxContainer/NPCEditor/VBoxContainer/AccessoryPicker/ScrollContainer/HBoxContainer"]
 custom_minimum_size = Vector2(72, 0)
 layout_mode = 2
 
-[node name="TextureButton" type="TextureButton" parent="ScrollContainer/VBoxContainer/NPCEditor/VBoxContainer/AccessoryPicker/ScrollContainer/HBoxContainer/Control4"]
+[node name="TextureButton" type="TextureButton" parent="VBoxContainer/NPCEditor/VBoxContainer/AccessoryPicker/ScrollContainer/HBoxContainer/Control4"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -708,11 +714,11 @@ toggle_mode = true
 button_group = ExtResource("6_4v3tu")
 texture_normal = ExtResource("1_qkgog")
 
-[node name="Control5" type="Control" parent="ScrollContainer/VBoxContainer/NPCEditor/VBoxContainer/AccessoryPicker/ScrollContainer/HBoxContainer"]
+[node name="Control5" type="Control" parent="VBoxContainer/NPCEditor/VBoxContainer/AccessoryPicker/ScrollContainer/HBoxContainer"]
 custom_minimum_size = Vector2(72, 0)
 layout_mode = 2
 
-[node name="TextureButton" type="TextureButton" parent="ScrollContainer/VBoxContainer/NPCEditor/VBoxContainer/AccessoryPicker/ScrollContainer/HBoxContainer/Control5"]
+[node name="TextureButton" type="TextureButton" parent="VBoxContainer/NPCEditor/VBoxContainer/AccessoryPicker/ScrollContainer/HBoxContainer/Control5"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -726,62 +732,89 @@ toggle_mode = true
 button_group = ExtResource("6_4v3tu")
 texture_normal = ExtResource("1_qkgog")
 
-[node name="ReferenceRect" type="ReferenceRect" parent="ScrollContainer/VBoxContainer/NPCEditor/VBoxContainer/AccessoryPicker"]
+[node name="ReferenceRect" type="ReferenceRect" parent="VBoxContainer/NPCEditor/VBoxContainer/AccessoryPicker"]
 custom_minimum_size = Vector2(10, 0)
 layout_mode = 2
 border_color = Color(1, 0, 0, 0)
 
-[node name="Seperator" type="HSeparator" parent="ScrollContainer/VBoxContainer/NPCEditor/VBoxContainer"]
+[node name="Seperator" type="HSeparator" parent="VBoxContainer/NPCEditor/VBoxContainer"]
 layout_mode = 2
 
-[node name="ChinHolder" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/NPCEditor/VBoxContainer"]
+[node name="ChinHolder" type="HBoxContainer" parent="VBoxContainer/NPCEditor/VBoxContainer"]
 layout_mode = 2
 size_flags_stretch_ratio = 1.25
 alignment = 1
 
-[node name="ReferenceRect2" type="ReferenceRect" parent="ScrollContainer/VBoxContainer/NPCEditor/VBoxContainer/ChinHolder"]
+[node name="ReferenceRect2" type="ReferenceRect" parent="VBoxContainer/NPCEditor/VBoxContainer/ChinHolder"]
 custom_minimum_size = Vector2(10, 0)
 layout_mode = 2
 border_color = Color(1, 0, 0, 0)
 
-[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/NPCEditor/VBoxContainer/ChinHolder"]
+[node name="Label" type="Label" parent="VBoxContainer/NPCEditor/VBoxContainer/ChinHolder"]
 custom_minimum_size = Vector2(85, 0)
 layout_mode = 2
 text = "Chin"
 
-[node name="HSlider" type="HSlider" parent="ScrollContainer/VBoxContainer/NPCEditor/VBoxContainer/ChinHolder"]
+[node name="HSlider" type="HSlider" parent="VBoxContainer/NPCEditor/VBoxContainer/ChinHolder"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
 value = 35.0
 
-[node name="ReferenceRect" type="ReferenceRect" parent="ScrollContainer/VBoxContainer/NPCEditor/VBoxContainer/ChinHolder"]
+[node name="ReferenceRect" type="ReferenceRect" parent="VBoxContainer/NPCEditor/VBoxContainer/ChinHolder"]
 custom_minimum_size = Vector2(10, 0)
 layout_mode = 2
 border_color = Color(1, 0, 0, 0)
 
-[node name="Seperator3" type="HSeparator" parent="ScrollContainer/VBoxContainer/NPCEditor/VBoxContainer"]
+[node name="Seperator3" type="HSeparator" parent="VBoxContainer/NPCEditor/VBoxContainer"]
 layout_mode = 2
 
-[node name="AspectRatioContainer" type="AspectRatioContainer" parent="ScrollContainer/VBoxContainer/NPCEditor/VBoxContainer"]
+[node name="ReferenceRect4" type="ReferenceRect" parent="VBoxContainer/NPCEditor/VBoxContainer"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+border_color = Color(1, 0, 0, 0)
+
+[node name="VBoxContainer" type="HBoxContainer" parent="VBoxContainer/NPCEditor/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="PreviewTexture" type="TextureRect" parent="ScrollContainer/VBoxContainer/NPCEditor/VBoxContainer/AspectRatioContainer"]
+[node name="ReferenceRect4" type="ReferenceRect" parent="VBoxContainer/NPCEditor/VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(10, 0)
 layout_mode = 2
+border_color = Color(1, 0, 0, 0)
+
+[node name="VSlider" type="VSlider" parent="VBoxContainer/NPCEditor/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+max_value = 1.0
+step = 0.001
+value = 1.0
+
+[node name="ReferenceRect5" type="ReferenceRect" parent="VBoxContainer/NPCEditor/VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+border_color = Color(1, 0, 0, 0)
+
+[node name="PreviewTexture" type="TextureRect" parent="VBoxContainer/NPCEditor/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
 texture = ExtResource("1_qkgog")
 expand_mode = 1
 stretch_mode = 4
 
-[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/NPCEditor/VBoxContainer"]
-layout_mode = 2
-
-[node name="ReferenceRect3" type="ReferenceRect" parent="ScrollContainer/VBoxContainer/NPCEditor/VBoxContainer/HBoxContainer"]
+[node name="ReferenceRect3" type="ReferenceRect" parent="VBoxContainer/NPCEditor/VBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(10, 0)
 layout_mode = 2
 border_color = Color(1, 0, 0, 0)
 
-[node name="HSlider" type="HSlider" parent="ScrollContainer/VBoxContainer/NPCEditor/VBoxContainer/HBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/NPCEditor/VBoxContainer"]
+layout_mode = 2
+
+[node name="ReferenceRect3" type="ReferenceRect" parent="VBoxContainer/NPCEditor/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(35, 0)
+layout_mode = 2
+border_color = Color(1, 0, 0, 0)
+
+[node name="HSlider" type="HSlider" parent="VBoxContainer/NPCEditor/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
@@ -789,232 +822,57 @@ min_value = 45.0
 max_value = 315.0
 value = 180.0
 
-[node name="ReferenceRect2" type="ReferenceRect" parent="ScrollContainer/VBoxContainer/NPCEditor/VBoxContainer/HBoxContainer"]
+[node name="ReferenceRect2" type="ReferenceRect" parent="VBoxContainer/NPCEditor/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(10, 0)
 layout_mode = 2
 border_color = Color(1, 0, 0, 0)
 
-[node name="SpinBox" type="SpinBox" parent="ScrollContainer/VBoxContainer/NPCEditor/VBoxContainer/HBoxContainer"]
+[node name="SpinBox" type="SpinBox" parent="VBoxContainer/NPCEditor/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 min_value = 45.0
 max_value = 315.0
 value = 180.0
-
-[node name="ReferenceRect4" type="ReferenceRect" parent="ScrollContainer/VBoxContainer/NPCEditor/VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(10, 0)
-layout_mode = 2
-border_color = Color(1, 0, 0, 0)
-
-[node name="Seperator6" type="HSeparator" parent="ScrollContainer/VBoxContainer/NPCEditor/VBoxContainer"]
-layout_mode = 2
-
-[node name="Panel5" type="ReferenceRect" parent="ScrollContainer/VBoxContainer/NPCEditor/VBoxContainer"]
-custom_minimum_size = Vector2(0, 10)
-layout_mode = 2
-border_color = Color(1, 0, 0, 0)
-
-[node name="GenerateNPCButton" type="Button" parent="ScrollContainer/VBoxContainer/NPCEditor/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-text = "Generate NPC Resource"
-
-[node name="Panel4" type="ReferenceRect" parent="ScrollContainer/VBoxContainer/NPCEditor/VBoxContainer"]
-custom_minimum_size = Vector2(0, 10)
-layout_mode = 2
-border_color = Color(1, 0, 0, 0)
-
-[node name="Panel2" type="Panel" parent="ScrollContainer/VBoxContainer" node_paths=PackedStringArray("golfer_resource", "generate_golfer_button", "golfer_name_field", "level_field", "class_dropdown", "power_label", "stamina_label")]
-custom_minimum_size = Vector2(0, 440)
-layout_mode = 2
-size_flags_vertical = 3
-script = ExtResource("10_7b3ac")
-golfer_resource = NodePath("VBoxContainer/ResourceLoader")
-generate_golfer_button = NodePath("VBoxContainer/GenerateGolferButton")
-golfer_name_field = NodePath("VBoxContainer/HBoxContainer2/NameField")
-level_field = NodePath("VBoxContainer/HBoxContainer/LevelSelector")
-class_dropdown = NodePath("VBoxContainer/HBoxContainer3/ClassDropdown")
-power_label = NodePath("VBoxContainer/StatValueHolder/PowerLabel")
-stamina_label = NodePath("VBoxContainer/StatValueHolder/StaminaLabel")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/VBoxContainer/Panel2"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Title" type="Label" parent="ScrollContainer/VBoxContainer/Panel2/VBoxContainer"]
-layout_mode = 2
-text = "NPC Stat Editor"
-label_settings = SubResource("LabelSettings_kpiix")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Seperator3" type="HSeparator" parent="ScrollContainer/VBoxContainer/Panel2/VBoxContainer"]
-layout_mode = 2
-
-[node name="ResourceLoader" parent="ScrollContainer/VBoxContainer/Panel2/VBoxContainer" instance=ExtResource("2_1rawp")]
-layout_mode = 2
-
-[node name="Seperator5" type="HSeparator" parent="ScrollContainer/VBoxContainer/Panel2/VBoxContainer"]
-layout_mode = 2
-
-[node name="HBoxContainer2" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/Panel2/VBoxContainer"]
-layout_mode = 2
-size_flags_stretch_ratio = 1.25
-alignment = 1
-
-[node name="ReferenceRect2" type="ReferenceRect" parent="ScrollContainer/VBoxContainer/Panel2/VBoxContainer/HBoxContainer2"]
-custom_minimum_size = Vector2(10, 0)
-layout_mode = 2
-border_color = Color(1, 0, 0, 0)
-
-[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/Panel2/VBoxContainer/HBoxContainer2"]
-custom_minimum_size = Vector2(85, 0)
-layout_mode = 2
-text = "Name"
-
-[node name="NameField" type="LineEdit" parent="ScrollContainer/VBoxContainer/Panel2/VBoxContainer/HBoxContainer2"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 4
-
-[node name="ReferenceRect" type="ReferenceRect" parent="ScrollContainer/VBoxContainer/Panel2/VBoxContainer/HBoxContainer2"]
-custom_minimum_size = Vector2(10, 0)
-layout_mode = 2
-border_color = Color(1, 0, 0, 0)
-
-[node name="Seperator7" type="HSeparator" parent="ScrollContainer/VBoxContainer/Panel2/VBoxContainer"]
-layout_mode = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/Panel2/VBoxContainer"]
-layout_mode = 2
-size_flags_stretch_ratio = 1.25
-alignment = 1
-
-[node name="ReferenceRect2" type="ReferenceRect" parent="ScrollContainer/VBoxContainer/Panel2/VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(10, 0)
-layout_mode = 2
-border_color = Color(1, 0, 0, 0)
-
-[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/Panel2/VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(85, 0)
-layout_mode = 2
-text = "Level"
-
-[node name="LevelSelector" type="SpinBox" parent="ScrollContainer/VBoxContainer/Panel2/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 4
-min_value = 1.0
-max_value = 10.0
-value = 1.0
-custom_arrow_step = 1.0
 select_all_on_focus = true
 
-[node name="ReferenceRect" type="ReferenceRect" parent="ScrollContainer/VBoxContainer/Panel2/VBoxContainer/HBoxContainer"]
+[node name="ReferenceRect4" type="ReferenceRect" parent="VBoxContainer/NPCEditor/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(10, 0)
 layout_mode = 2
 border_color = Color(1, 0, 0, 0)
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/Panel2/VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
 
-[node name="ReferenceRect2" type="ReferenceRect" parent="ScrollContainer/VBoxContainer/Panel2/VBoxContainer/HBoxContainer3"]
-custom_minimum_size = Vector2(10, 0)
-layout_mode = 2
-border_color = Color(1, 0, 0, 0)
-
-[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/Panel2/VBoxContainer/HBoxContainer3"]
-custom_minimum_size = Vector2(85, 0)
-layout_mode = 2
-text = "Class"
-
-[node name="ClassDropdown" type="OptionButton" parent="ScrollContainer/VBoxContainer/Panel2/VBoxContainer/HBoxContainer3"]
-layout_mode = 2
-size_flags_horizontal = 3
-item_count = 5
-selected = 0
-allow_reselect = true
-popup/item_0/text = "Iron"
-popup/item_0/id = 0
-popup/item_1/text = "Driver"
-popup/item_1/id = 1
-popup/item_2/text = "Golf Cart Rider"
-popup/item_2/id = 2
-popup/item_3/text = "Caddy"
-popup/item_3/id = 3
-popup/item_4/text = "Putter"
-popup/item_4/id = 4
-
-[node name="ReferenceRect" type="ReferenceRect" parent="ScrollContainer/VBoxContainer/Panel2/VBoxContainer/HBoxContainer3"]
-custom_minimum_size = Vector2(10, 0)
-layout_mode = 2
-border_color = Color(1, 0, 0, 0)
-
-[node name="Seperator" type="HSeparator" parent="ScrollContainer/VBoxContainer/Panel2/VBoxContainer"]
-layout_mode = 2
-
-[node name="Label3" type="Label" parent="ScrollContainer/VBoxContainer/Panel2/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Stat Preview"
-label_settings = SubResource("LabelSettings_kktro")
-horizontal_alignment = 1
-
-[node name="StatNameHolder" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/Panel2/VBoxContainer"]
-layout_mode = 2
-alignment = 1
-
-[node name="Power" type="Label" parent="ScrollContainer/VBoxContainer/Panel2/VBoxContainer/StatNameHolder"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Power"
-label_settings = SubResource("LabelSettings_hs2uv")
-horizontal_alignment = 1
-
-[node name="Stamina" type="Label" parent="ScrollContainer/VBoxContainer/Panel2/VBoxContainer/StatNameHolder"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Stamina"
-label_settings = SubResource("LabelSettings_hs2uv")
-horizontal_alignment = 1
-
-[node name="StatValueHolder" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/Panel2/VBoxContainer"]
-layout_mode = 2
-alignment = 1
-
-[node name="PowerLabel" type="Label" parent="ScrollContainer/VBoxContainer/Panel2/VBoxContainer/StatValueHolder"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "0"
-label_settings = SubResource("LabelSettings_hs2uv")
-horizontal_alignment = 1
-
-[node name="StaminaLabel" type="Label" parent="ScrollContainer/VBoxContainer/Panel2/VBoxContainer/StatValueHolder"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "0"
-label_settings = SubResource("LabelSettings_hs2uv")
-horizontal_alignment = 1
-
-[node name="Seperator2" type="HSeparator" parent="ScrollContainer/VBoxContainer/Panel2/VBoxContainer"]
-layout_mode = 2
-
-[node name="Panel5" type="ReferenceRect" parent="ScrollContainer/VBoxContainer/Panel2/VBoxContainer"]
+[node name="Panel5" type="ReferenceRect" parent="VBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
 border_color = Color(1, 0, 0, 0)
 
-[node name="GenerateGolferButton" type="Button" parent="ScrollContainer/VBoxContainer/Panel2/VBoxContainer"]
+[node name="HBoxContainer5" type="HBoxContainer" parent="VBoxContainer/VBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-text = "Generate Golfer Resource"
+alignment = 1
 
-[node name="Panel6" type="ReferenceRect" parent="ScrollContainer/VBoxContainer/Panel2/VBoxContainer"]
+[node name="ReferenceRect2" type="ReferenceRect" parent="VBoxContainer/VBoxContainer/HBoxContainer5"]
+custom_minimum_size = Vector2(5, 0)
+layout_mode = 2
+border_color = Color(1, 0, 0, 0)
+
+[node name="SaveButton" type="Button" parent="VBoxContainer/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+size_flags_horizontal = 3
+disabled = true
+text = "Save"
+
+[node name="SaveAsButton" type="Button" parent="VBoxContainer/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Save As..."
+
+[node name="ReferenceRect" type="ReferenceRect" parent="VBoxContainer/VBoxContainer/HBoxContainer5"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+border_color = Color(1, 0, 0, 0)
+
+[node name="Panel4" type="ReferenceRect" parent="VBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
 border_color = Color(1, 0, 0, 0)
