@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Rival" load_steps=2 format=3 uid="uid://dm01uu1l6m7hb"]
+
+[ext_resource type="Script" path="res://entities/characters/golfers/rivals/rival.gd" id="1_qpoj0"]
+
+[resource]
+script = ExtResource("1_qpoj0")
+team_members = Array[Resource("res://entities/characters/golfers/golfer.gd")]([])
+name = "Tiger Woods"
+level = 1
