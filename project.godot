@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 InputManager="*res://common/input/input_manager.gd"
+BattleManager="*res://common/battle/battle_manager.gd"
 
 [dotnet]
 
@@ -31,6 +32,13 @@ version_control/autoload_on_startup=true
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/terrain_3d/plugin.cfg")
+
+[file_customization]
+
+folder_colors={
+"res://common/": "blue",
+"res://entities/": "orange"
+}
 
 [importer_defaults]
 
