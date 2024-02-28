@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://dixhhv1bgajy0"]
 
 [ext_resource type="PackedScene" uid="uid://b3yo3dem2wtkt" path="res://entities/player/player.tscn" id="1_24cwy"]
-[ext_resource type="PackedScene" uid="uid://dbssg6p52li32" path="res://entities/terrain/golf_terrain.tscn" id="2_ucwcg"]
+[ext_resource type="PackedScene" uid="uid://dbssg6p52li32" path="res://entities/terrain/terrain.tscn" id="2_ucwcg"]
 [ext_resource type="PackedScene" uid="uid://dkxoy6eab4ceu" path="res://entities/golf_car/golf_car.tscn" id="3_5s7p7"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_en4cg"]
