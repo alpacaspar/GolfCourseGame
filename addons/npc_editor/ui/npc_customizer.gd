@@ -39,14 +39,14 @@ func _ready():
 	npc_resource._set_value()
 
 	chin_slider.value_changed.connect(_update_character)
-	set_button_connections(eyes_button_group)
-	set_button_connections(noses_button_group)
-	set_button_connections(mouths_button_group)
-	set_button_connections(hair_button_group)
-	set_button_connections(accessories_button_group)
+	_set_button_connections(eyes_button_group)
+	_set_button_connections(noses_button_group)
+	_set_button_connections(mouths_button_group)
+	_set_button_connections(hair_button_group)
+	_set_button_connections(accessories_button_group)
 
-	rotation_slider.value_changed.connect(set_rotation_value)
-	rotation_box.value_changed.connect(set_rotation_value)
+	rotation_slider.value_changed.connect(_set_rotation_value)
+	rotation_box.value_changed.connect(_set_rotation_value)
 
 	load_button.pressed.connect(_load)
 	save_button.pressed.connect(_save)
@@ -81,11 +81,11 @@ func _process(delta):
 func _update_character(_value = 0):
 	edited_resource.name = name_field.text
 	
-	edited_resource.eye_index = get_current_index(eyes_button_group)
-	edited_resource.nose_index = get_current_index(noses_button_group)
-	edited_resource.mouth_index = get_current_index(mouths_button_group)
-	edited_resource.hair_index = get_current_index(hair_button_group)
-	edited_resource.accessory_index = get_current_index(accessories_button_group)
+	edited_resource.eye_index = _get_current_index(eyes_button_group)
+	edited_resource.nose_index = _get_current_index(noses_button_group)
+	edited_resource.mouth_index = _get_current_index(mouths_button_group)
+	edited_resource.hair_index = _get_current_index(hair_button_group)
+	edited_resource.accessory_index = _get_current_index(accessories_button_group)
 
 	edited_resource.chin_value = chin_slider.value
 
@@ -95,11 +95,11 @@ func _update_character(_value = 0):
 func _load():
 	var _resource = npc_resource.value
 
-	set_button_index(eyes_button_group, _resource.eye_index)
-	set_button_index(noses_button_group, _resource.nose_index)
-	set_button_index(mouths_button_group, _resource.mouth_index)
-	set_button_index(hair_button_group, _resource.hair_index)
-	set_button_index(accessories_button_group, _resource.accessory_index)
+	_set_button_index(eyes_button_group, _resource.eye_index)
+	_set_button_index(noses_button_group, _resource.nose_index)
+	_set_button_index(mouths_button_group, _resource.mouth_index)
+	_set_button_index(hair_button_group, _resource.hair_index)
+	_set_button_index(accessories_button_group, _resource.accessory_index)
 
 	name_field.text = _resource.name
 	chin_slider.value = _resource.chin_value
@@ -148,7 +148,7 @@ func _check_for_errors():
 	error_display.text = result
 
 
-func get_current_index(button_group: ButtonGroup) -> int:
+func _get_current_index(button_group: ButtonGroup) -> int:
 	for button in button_group.get_buttons():
 		if button.button_pressed:
 			return button_group.get_buttons().find(button)
@@ -156,7 +156,7 @@ func get_current_index(button_group: ButtonGroup) -> int:
 	return 0
 
 
-func set_button_index(button_group: ButtonGroup, index: int):
+func _set_button_index(button_group: ButtonGroup, index: int):
 	for button in button_group.get_buttons():
 		if button_group.get_buttons().find(button) == index:
 			button.button_pressed = true
@@ -168,12 +168,12 @@ func _set_preview(_texture):
 	preview.texture = _texture
 
 
-func set_button_connections(button_group: ButtonGroup):
+func _set_button_connections(button_group: ButtonGroup):
 	for button in button_group.get_buttons():
 		button.pressed.connect(_update_character)
 
 
-func set_rotation_value(_value):
+func _set_rotation_value(_value):
 	rotation_slider.value = _value
 	rotation_box.value = _value
 

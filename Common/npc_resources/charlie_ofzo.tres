@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="NPCResource" load_steps=2 format=3 uid="uid://exfdy455d72r"]
+
+[ext_resource type="Script" path="res://addons/npc_editor/resources/npc_resource.gd" id="1_v8mem"]
+
+[resource]
+resource_name = "Charlie ofzo"
+script = ExtResource("1_v8mem")
+name = "Charlie ofzo"
+eye_index = 0
+nose_index = 0
+mouth_index = 2
+hair_index = 1
+accessory_index = 4
+chin_value = 61.0
