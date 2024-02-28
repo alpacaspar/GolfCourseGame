@@ -8,7 +8,8 @@ extends Control
 
 
 func _ready():
-	event_resource.add_callable("UpdateGolfUI", Callable(set_golf_swing_ui))
+	#event_resource.add_callable("UpdateGolfUI", Callable(set_golf_swing_ui))
+	pass
 
 
 func _process(_delta):

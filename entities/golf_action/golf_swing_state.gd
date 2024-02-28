@@ -43,4 +43,5 @@ func _on_process(_delta: float, _owner: FSM):
 
 
 func set_ui_values(_speed_val: float):
-	event_resource.call_callable_two_args("UpdateGolfUI", current_negative / (get_window().size.y / 2.0), _speed_val)
+	#event_resource.call_callable_two_args("UpdateGolfUI", current_negative / (get_window().size.y / 2.0), _speed_val)
+	pass

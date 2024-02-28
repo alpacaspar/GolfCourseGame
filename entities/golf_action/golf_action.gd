@@ -49,7 +49,7 @@ func _on_process(_delta: float):
 			initialized = false
 		else: if fsm.current_state == $FSM/Swing:
 			fsm._transition_state($FSM/PickAngle)
-			event_resource.call_callable_two_args("UpdateGolfUI", 0.0, 0.0)
+			#event_resource.call_callable_two_args("UpdateGolfUI", 0.0, 0.0)
 
 
 func get_ball(_position: Vector3):
@@ -86,7 +86,7 @@ func on_ball_stop():
 	fsm._transition_state($FSM/PickAngle)
 	camera.clear_current()
 	callback.call()
-	event_resource.call_callable_two_args("UpdateGolfUI", 0.0, 0.0)
+	#event_resource.call_callable_two_args("UpdateGolfUI", 0.0, 0.0)
 	initialized = false
 
 
