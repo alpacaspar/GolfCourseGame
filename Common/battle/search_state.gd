@@ -4,51 +4,61 @@ extends State
 
 @export var body: GolferBody
 @export var search_target: SearchTarget
-
-var preferred_distance: float = 10.0
-
-
-func _on_enter(fsm: FSM, _msg := {}):
-	var target = _find_target()
-
-	fsm.transition_to("AttackState", {"target": target})
+@export var preferred_distance: float = 10.0
 
 
-func _on_input(_event: InputEvent, _fsm: FSM):
-	pass
+func _on_enter(_msg := {}):
+	BattleManager.on_battle_started.connect(_on_battle_started)
 
 
-func _on_unhandled_input(_event: InputEvent, _fsm: FSM):
-	pass
+func _on_exit():
+	BattleManager.on_battle_started.disconnect(_on_battle_started)
 
 
-func _on_process(_delta: float, _fsm: FSM):
-	pass
+func _on_battle_started():
+	body.target = _find_target()
+
+	if body.target == null:
+		print("%s of team %s has no target" % [body.golfer.name, body.leader.name])
+	else:
+		print("%s of team %s has found target %s" % [body.golfer.name, body.leader.name, body.target.golfer.name])
+
+	# TODO: Implement alternative behavior if no target is found.
+
+	fsm_owner.transition_to("AttackState")
 
 
-func _on_physics_process(_delta: float, _fsm: FSM):
-	pass
+func _find_target() -> GolferBody:
+	var opponents := BattleManager.get_opponents(body.leader)
+	var teammates := BattleManager.get_teammates(body.leader)
 
-
-func _on_exit(_msg := {}):
-	pass
-
-
-func _find_target() -> Node3D:
-	var targets: Array
 	match search_target:
 		SearchTarget.OPPONENT:
-			targets = BattleManager.get_opponents(body.leader)
+			return _find_free_target(opponents, teammates)
 		SearchTarget.TEAMMATE:
-			targets = BattleManager.get_teammates(body.leader)
+			return _find_free_target(teammates, opponents)
+	
+	return null
 
-	if targets.is_empty():
+
+func _find_free_target(target_array: Array, filter_array: Array) -> GolferBody:
+	if target_array.is_empty():
 		return null
 
-	var cached_target: Node3D
+	var is_not_already_targeted := func(target_entry: GolferBody) -> bool:
+		return filter_array.all(func(filter_entry: GolferBody) -> bool: return filter_entry.target != target_entry)
+
+	if target_array.any(is_not_already_targeted):
+		return _find_closest_at_distance(target_array.filter(is_not_already_targeted))
+
+	return _find_closest_at_distance(target_array)
+
+
+func _find_closest_at_distance(target_array: Array) -> GolferBody:
+	var cached_target: GolferBody
 	var distance := INF
 
-	for target: Node3D in targets:
+	for target: GolferBody in target_array:
 		var d := body.global_position.distance_to(target.global_position)
 
 		# Find closest distance to preferred_distance
@@ -61,5 +71,5 @@ func _find_target() -> Node3D:
 
 enum SearchTarget {
 	OPPONENT,
-	TEAMMATE
+	TEAMMATE,
 }

@@ -6,13 +6,13 @@
 
 [sub_resource type="Resource" id="Resource_2c3cl"]
 script = ExtResource("3_4412d")
-name = "Joe Schmoe"
+name = "Grimwal Fingletown"
 level = 1
 role = ExtResource("1_ey3m4")
 
 [sub_resource type="Resource" id="Resource_agrq0"]
 script = ExtResource("3_4412d")
-name = "Joe Schmoe"
+name = "Jolf Walkib"
 level = 1
 role = ExtResource("1_ey3m4")
 

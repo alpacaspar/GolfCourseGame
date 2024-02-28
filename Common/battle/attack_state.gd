@@ -4,32 +4,29 @@ extends State
 
 @export var body: GolferBody
 
-var target: Node3D
 
+func _on_enter(_msg := {}):
+	pass
 
-func _on_enter(_owner: FSM, msg := {}):
-	target = msg.target
-
-
-func _on_input(_event: InputEvent, _owner: FSM):
+func _on_input(_event: InputEvent):
 	pass
 
 
-func _on_unhandled_input(_event: InputEvent, _owner: FSM):
+func _on_unhandled_input(_event: InputEvent):
 	pass
 
 
-func _on_process(_delta: float, _owner: FSM):
+func _on_process(_delta: float):
 	pass
 
 
-func _on_physics_process(_delta: float, _owner: FSM):
-	if not target:
-		_owner.transition_to("SearchState")
+func _on_physics_process(_delta: float):
+	if not body.target:
+		fsm_owner.transition_to("SearchState")
 		return
 
-	body.set_movement_target(target.global_transform.origin)
+	body.set_movement_target(body.target.global_transform.origin)
 
 
-func _on_exit(_args := {}):
+func _on_exit(_msg := {}):
 	pass

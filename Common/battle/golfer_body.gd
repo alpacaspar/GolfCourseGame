@@ -41,16 +41,10 @@ func _on_velocity_computed(safe_velocity: Vector3):
     move_and_slide()
 
 
-func _on_battle_started():
-    pass
-
-
 func setup(new_golfer: Golfer, new_leader: Rival, spawn_position: Vector3):
     golfer = new_golfer
     leader = new_leader
     transform.origin = spawn_position
-
-    BattleManager.on_battle_started.connect(_on_battle_started)
 
 
 func is_exhausted() -> bool:

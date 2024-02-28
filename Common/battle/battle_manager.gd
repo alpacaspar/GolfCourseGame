@@ -18,7 +18,6 @@ var _is_instance_not_exhausted := func(instance: GolferBody) -> bool:
 
 var _is_instance_exhausted := func(instance: GolferBody) -> bool:
 	return instance.is_exhausted()
-
 #endregion
 
 func _process(_delta: float):
@@ -67,7 +66,7 @@ func get_teammates(leader: Rival) -> Array:
 func _instantiate_golfers(leader: Rival, origin: Node3D):
 	var instances := []
 
-	var spawnpoints := _get_triangular_points(leader.team.size(), origin.global_position, origin.global_basis.z, 2)
+	var spawnpoints := _get_triangular_points(leader.team.size(), origin.global_position, origin.global_basis.z, 5)
 
 	for i in leader.team.size():
 		var instance = leader.team[i].role.golfer_body_scene.instantiate()
