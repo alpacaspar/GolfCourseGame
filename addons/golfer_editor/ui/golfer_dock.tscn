@@ -1,0 +1,297 @@
+[gd_scene load_steps=8 format=3 uid="uid://dh2wlsoywp0aq"]
+
+[ext_resource type="Script" path="res://addons/golfer_editor/ui/golfer_customizer.gd" id="1_5c6wr"]
+[ext_resource type="PackedScene" uid="uid://5q7b6g71i8sm" path="res://addons/npc_editor/ui/resource_loader.tscn" id="2_a7ttx"]
+[ext_resource type="Texture2D" uid="uid://bdjhfe33ao7mi" path="res://addons/npc_editor/ui/Info_icon.png" id="3_xu1wx"]
+[ext_resource type="LabelSettings" uid="uid://y18aqn0x2wop" path="res://addons/npc_editor/ui/error_label.tres" id="4_qhm2w"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_sbb8n"]
+font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_2tcfa"]
+font_size = 24
+
+[sub_resource type="LabelSettings" id="LabelSettings_niuyy"]
+font_color = Color(0.611765, 0.611765, 0.611765, 1)
+
+[node name="Golfer_dock" type="Control"]
+layout_mode = 3
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 311.0
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel2" type="Panel" parent="VBoxContainer" node_paths=PackedStringArray("golfer_resource", "npc_resource")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_5c6wr")
+golfer_resource = NodePath("VBoxContainer/ResourceLoader")
+npc_resource = NodePath("VBoxContainer/ResourceLoader2")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Panel2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="VBoxContainer/Panel2/VBoxContainer"]
+layout_mode = 2
+text = "NPC Stat Editor"
+label_settings = SubResource("LabelSettings_sbb8n")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Seperator3" type="HSeparator" parent="VBoxContainer/Panel2/VBoxContainer"]
+layout_mode = 2
+
+[node name="ResourceLoader" parent="VBoxContainer/Panel2/VBoxContainer" instance=ExtResource("2_a7ttx")]
+layout_mode = 2
+
+[node name="Seperator5" type="HSeparator" parent="VBoxContainer/Panel2/VBoxContainer"]
+layout_mode = 2
+
+[node name="ResourceLoader2" parent="VBoxContainer/Panel2/VBoxContainer" instance=ExtResource("2_a7ttx")]
+layout_mode = 2
+
+[node name="Label" parent="VBoxContainer/Panel2/VBoxContainer/ResourceLoader2/HBoxContainer6" index="0"]
+text = "NPC visuals "
+
+[node name="Seperator6" type="HSeparator" parent="VBoxContainer/Panel2/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Panel2/VBoxContainer"]
+layout_mode = 2
+size_flags_stretch_ratio = 1.25
+alignment = 1
+
+[node name="ReferenceRect2" type="ReferenceRect" parent="VBoxContainer/Panel2/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+border_color = Color(1, 0, 0, 0)
+
+[node name="Label" type="Label" parent="VBoxContainer/Panel2/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(85, 0)
+layout_mode = 2
+text = "Level"
+
+[node name="LevelSelector" type="SpinBox" parent="VBoxContainer/Panel2/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+min_value = 1.0
+max_value = 10.0
+value = 1.0
+custom_arrow_step = 1.0
+select_all_on_focus = true
+
+[node name="ReferenceRect" type="ReferenceRect" parent="VBoxContainer/Panel2/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+border_color = Color(1, 0, 0, 0)
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer/Panel2/VBoxContainer"]
+layout_mode = 2
+
+[node name="ReferenceRect2" type="ReferenceRect" parent="VBoxContainer/Panel2/VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+border_color = Color(1, 0, 0, 0)
+
+[node name="Label" type="Label" parent="VBoxContainer/Panel2/VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(85, 0)
+layout_mode = 2
+text = "Class"
+
+[node name="ClassDropdown" type="OptionButton" parent="VBoxContainer/Panel2/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+item_count = 5
+selected = 0
+allow_reselect = true
+popup/item_0/text = "Iron"
+popup/item_0/id = 0
+popup/item_1/text = "Driver"
+popup/item_1/id = 1
+popup/item_2/text = "Golf Cart Rider"
+popup/item_2/id = 2
+popup/item_3/text = "Caddy"
+popup/item_3/id = 3
+popup/item_4/text = "Putter"
+popup/item_4/id = 4
+
+[node name="ReferenceRect" type="ReferenceRect" parent="VBoxContainer/Panel2/VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+border_color = Color(1, 0, 0, 0)
+
+[node name="Seperator" type="HSeparator" parent="VBoxContainer/Panel2/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label3" type="Label" parent="VBoxContainer/Panel2/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Stat Preview"
+label_settings = SubResource("LabelSettings_2tcfa")
+horizontal_alignment = 1
+
+[node name="StatNameHolder" type="HBoxContainer" parent="VBoxContainer/Panel2/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Power" type="Label" parent="VBoxContainer/Panel2/VBoxContainer/StatNameHolder"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Power"
+label_settings = SubResource("LabelSettings_niuyy")
+horizontal_alignment = 1
+
+[node name="Stamina" type="Label" parent="VBoxContainer/Panel2/VBoxContainer/StatNameHolder"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Stamina"
+label_settings = SubResource("LabelSettings_niuyy")
+horizontal_alignment = 1
+
+[node name="StatValueHolder" type="HBoxContainer" parent="VBoxContainer/Panel2/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="PowerLabel" type="Label" parent="VBoxContainer/Panel2/VBoxContainer/StatValueHolder"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "0"
+label_settings = SubResource("LabelSettings_niuyy")
+horizontal_alignment = 1
+
+[node name="StaminaLabel" type="Label" parent="VBoxContainer/Panel2/VBoxContainer/StatValueHolder"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "0"
+label_settings = SubResource("LabelSettings_niuyy")
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Panel6" type="ReferenceRect" parent="VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+border_color = Color(1, 0, 0, 0)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="ReferenceRect6" type="ReferenceRect" parent="VBoxContainer/VBoxContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+border_color = Color(1, 0, 0, 0)
+
+[node name="Panel" type="PanelContainer" parent="VBoxContainer/VBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Panel" type="Panel" parent="VBoxContainer/VBoxContainer/VBoxContainer/HBoxContainer/Panel"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/VBoxContainer/VBoxContainer/HBoxContainer/Panel"]
+layout_mode = 2
+
+[node name="Panel6" type="ReferenceRect" parent="VBoxContainer/VBoxContainer/VBoxContainer/HBoxContainer/Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 2
+border_color = Color(1, 0, 0, 0)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/VBoxContainer/VBoxContainer/HBoxContainer/Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ReferenceRect7" type="ReferenceRect" parent="VBoxContainer/VBoxContainer/VBoxContainer/HBoxContainer/Panel/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+border_color = Color(1, 0, 0, 0)
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/VBoxContainer/VBoxContainer/HBoxContainer/Panel/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("3_xu1wx")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="ReferenceRect8" type="ReferenceRect" parent="VBoxContainer/VBoxContainer/VBoxContainer/HBoxContainer/Panel/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+border_color = Color(1, 0, 0, 0)
+
+[node name="Label" type="Label" parent="VBoxContainer/VBoxContainer/VBoxContainer/HBoxContainer/Panel/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Info Box"
+label_settings = ExtResource("4_qhm2w")
+
+[node name="ReferenceRect6" type="ReferenceRect" parent="VBoxContainer/VBoxContainer/VBoxContainer/HBoxContainer/Panel/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+border_color = Color(1, 0, 0, 0)
+
+[node name="Panel5" type="ReferenceRect" parent="VBoxContainer/VBoxContainer/VBoxContainer/HBoxContainer/Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 2
+border_color = Color(1, 0, 0, 0)
+
+[node name="ReferenceRect4" type="ReferenceRect" parent="VBoxContainer/VBoxContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+border_color = Color(1, 0, 0, 0)
+
+[node name="Panel5" type="ReferenceRect" parent="VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+border_color = Color(1, 0, 0, 0)
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="VBoxContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="ReferenceRect2" type="ReferenceRect" parent="VBoxContainer/VBoxContainer/HBoxContainer5"]
+custom_minimum_size = Vector2(5, 0)
+layout_mode = 2
+border_color = Color(1, 0, 0, 0)
+
+[node name="SaveButton" type="Button" parent="VBoxContainer/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+size_flags_horizontal = 3
+disabled = true
+text = "Save"
+
+[node name="SaveAsButton" type="Button" parent="VBoxContainer/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Save As..."
+
+[node name="ReferenceRect" type="ReferenceRect" parent="VBoxContainer/VBoxContainer/HBoxContainer5"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+border_color = Color(1, 0, 0, 0)
+
+[node name="Panel4" type="ReferenceRect" parent="VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+border_color = Color(1, 0, 0, 0)
+
+[editable path="VBoxContainer/Panel2/VBoxContainer/ResourceLoader2"]
