@@ -74,6 +74,8 @@ func _process(delta):
 	if has_error:
 		save_button.disabled = true
 		save_as_button.disabled = true
+	else:
+		save_as_button.disabled = false
 
 
 func _update_character(_value = 0):
@@ -131,7 +133,7 @@ func _check_for_errors():
 	var result := ""
 
 	if name_field.text == "":
-		result += "[Naming]: name cannot be empty"
+		result += "Name cannot be empty"
 
 	if result == "":
 		result = "No Errors Found."
