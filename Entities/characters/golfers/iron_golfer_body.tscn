@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://qfuwtswf2e4k"]
+[gd_scene load_steps=2 format=3 uid="uid://c8tdm8g3flne5"]
 
 [ext_resource type="PackedScene" uid="uid://s18mlviu254u" path="res://common/battle/golfer_body.tscn" id="1_q0ba6"]
-[ext_resource type="Script" path="res://entities/characters/golfers/iron_golfer_body.gd" id="2_unbk0"]
 
-[node name="BattleCharacter" instance=ExtResource("1_q0ba6")]
-script = ExtResource("2_unbk0")
+[node name="GolferBody" instance=ExtResource("1_q0ba6")]
+
+[node name="NavigationAgent3D" parent="." index="2"]
+path_height_offset = 0.2

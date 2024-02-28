@@ -35,9 +35,9 @@ func _physics_process(delta):
 		current_state._on_physics_process(delta, self)
 
 
-func _transition_state(new_state: State, _args := {}):
+func transition_to(new_state: String, msg := {}):
 	if current_state:
-		current_state._on_exit(_args)
+		current_state._on_exit(msg)
 	
-	current_state = new_state
-	current_state._on_enter(self, _args)
+	current_state = states[new_state]
+	current_state._on_enter(self, msg)

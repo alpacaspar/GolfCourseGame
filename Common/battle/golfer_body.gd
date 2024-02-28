@@ -13,6 +13,8 @@ const MOVEMENT_SPEED = 5.0
 var golfer: Golfer
 var leader: Rival
 
+var target: GolferBody
+
 
 func _ready():
     navigation_agent.velocity_computed.connect(_on_velocity_computed)
@@ -49,3 +51,7 @@ func setup(new_golfer: Golfer, new_leader: Rival, spawn_position: Vector3):
     transform.origin = spawn_position
 
     BattleManager.on_battle_started.connect(_on_battle_started)
+
+
+func is_exhausted() -> bool:
+    return golfer.stamina <= 0

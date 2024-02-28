@@ -3,4 +3,9 @@ extends Resource
 
 
 @export var display_name: String
-@export var character_scene: PackedScene
+@export var golfer_body_scene: PackedScene
+
+
+func _init(name: String = "", body_scene: PackedScene = null):
+    display_name = name
+    golfer_body_scene = body_scene

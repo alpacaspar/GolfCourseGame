@@ -4,21 +4,35 @@ extends Node
 signal on_battle_started
 signal on_battle_ended(winningRival: Rival)
 
-var battle_data: Dictionary = {}
+## A dictionary containing all instances in an [Array] currently in battle per [Rival].
+var team_instances: Dictionary = {}
 
+#region Callables
+var _is_team_standing := func(rival: Rival) -> bool:
+	return !team_instances[rival].any(_is_instance_exhausted)
+
+
+var _is_instance_not_exhausted := func(instance: GolferBody) -> bool:
+	return !instance.is_exhausted()
+
+
+var _is_instance_exhausted := func(instance: GolferBody) -> bool:
+	return instance.is_exhausted()
+
+#endregion
 
 func _process(_delta: float):
-	if battle_data.size() == 0:
+	if team_instances.size() == 0:
 		return
 	
 	# end the battle as soon as there is only one team standing.
-	var standing_teams := battle_data.keys().filter(_is_team_standing)
+	var standing_teams := team_instances.keys().filter(_is_team_standing)
 	if standing_teams.size() == 1:
 		end_battle(standing_teams.front())
 
 
 func start_battle(hole: Hole, player: Rival, rival: Rival):
-	battle_data.clear()
+	team_instances.clear()
 
 	_instantiate_golfers(player, hole.tee_area)
 	_instantiate_golfers(rival, hole.green)
@@ -30,48 +44,43 @@ func end_battle(winning_rival: Rival):
 	# TODO: Perform post battle stuff.
 	# TODO: Cleanup battle characters from the scene.
 
-	battle_data.clear()
+	team_instances.clear()
 	on_battle_ended.emit(winning_rival)
 
 
+## Returns [Array] containing all instances of opponents that are not exhausted.
 func get_opponents(leader: Rival) -> Array:
 	var opponents := []
 
-	for rival in battle_data.keys():
+	for rival in team_instances.keys():
 		if rival != leader:
-			opponents += rival.team
+			opponents += team_instances[rival].filter(_is_instance_not_exhausted)
 
 	return opponents
 
 
+## Returns [Array] containing all instances of teammates that are not exhausted.
 func get_teammates(leader: Rival) -> Array:
-	return battle_data[leader]
+	return team_instances[leader].filter(_is_instance_not_exhausted)
 
 
 func _instantiate_golfers(leader: Rival, origin: Node3D):
 	var instances := []
 
-	var spawnpoints := _get_spawnpoints(leader.team.size(), origin.global_position, origin.global_basis.z, 2)
+	var spawnpoints := _get_triangular_points(leader.team.size(), origin.global_position, origin.global_basis.z, 2)
 
 	for i in leader.team.size():
-		var instance = leader.team[i].role.character_scene.instantiate()
+		var instance = leader.team[i].role.golfer_body_scene.instantiate()
 		instance.setup(leader.team[i], leader, spawnpoints[i])
 		instances.append(instance)
 
 		add_child(instance)
 	
-	battle_data[leader] = instances
+	team_instances[leader] = instances
 
 
-func _is_team_standing(rival: Rival) -> bool:
-	return !rival.team.any(_is_exhausted)
-
-
-func _is_exhausted(golfer: Golfer) -> bool:
-	return golfer.stamina == 0
-
-
-func _get_spawnpoints(amount: int, offset: Vector3, direction: Vector3, spacing: float) -> Array[Vector3]:
+## Return an array of points in a triangular pattern (bowling pin formation).
+func _get_triangular_points(amount: int, offset: Vector3, direction: Vector3, spacing: float) -> Array[Vector3]:
 	var rows: int = ceil((sqrt(8 * amount + 1) - 1) * 0.5)
 
 	var vectors: Array[Vector3] = []

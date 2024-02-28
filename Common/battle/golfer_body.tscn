@@ -9,7 +9,7 @@
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_y5eue"]
 
-[node name="BattleCharacter" type="CharacterBody3D"]
+[node name="GolferBody" type="CharacterBody3D"]
 script = ExtResource("1_efpds")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -26,8 +26,10 @@ skeleton = NodePath("../CollisionShape3D")
 [node name="FSM" type="Node" parent="."]
 script = ExtResource("2_hqs62")
 
-[node name="SearchState" type="Node" parent="FSM"]
+[node name="SearchState" type="Node" parent="FSM" node_paths=PackedStringArray("body")]
 script = ExtResource("3_nydhv")
+body = NodePath("../..")
 
-[node name="AttackState" type="Node" parent="FSM"]
+[node name="AttackState" type="Node" parent="FSM" node_paths=PackedStringArray("body")]
 script = ExtResource("4_sel5c")
+body = NodePath("../..")

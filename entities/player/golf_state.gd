@@ -30,4 +30,4 @@ func _on_exit(_args := {}):
 
 
 func done():
-	fsm_owner._transition_state($"../MovementState")
+	fsm_owner.transition_state($"../MovementState")
