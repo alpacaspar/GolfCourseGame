@@ -2,6 +2,7 @@ class_name GolfManager
 extends Node3D
 
 
+@export var event_resource: Resource
 @export var golf_club_resource: Resource
 
 @export var ball_scene: PackedScene
@@ -45,8 +46,10 @@ func _on_process(_delta: float):
 		if fsm.current_state == $FSM/PickAngle:
 			camera.clear_current()
 			callback.call()
+			initialized = false
 		else: if fsm.current_state == $FSM/Swing:
 			fsm._transition_state($FSM/PickAngle)
+			#event_resource.call_callable_two_args("UpdateGolfUI", 0.0, 0.0)
 
 
 func get_ball(_position: Vector3):
@@ -83,6 +86,7 @@ func on_ball_stop():
 	fsm._transition_state($FSM/PickAngle)
 	camera.clear_current()
 	callback.call()
+	#event_resource.call_callable_two_args("UpdateGolfUI", 0.0, 0.0)
 	initialized = false
 
 

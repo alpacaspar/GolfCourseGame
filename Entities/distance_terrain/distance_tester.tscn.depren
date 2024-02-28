@@ -1,0 +1,39 @@
+[gd_scene load_steps=7 format=3 uid="uid://ccufwe7w7q3u4"]
+
+[ext_resource type="Script" path="res://entities/distance_terrain/distance_tester.gd" id="1_fjr47"]
+[ext_resource type="PackedScene" uid="uid://b3yo3dem2wtkt" path="res://Entities/player/player.tscn" id="2_4fiqs"]
+[ext_resource type="PackedScene" uid="uid://cyh3he0g1p6rc" path="res://Entities/distance_terrain/distance_block.tscn" id="2_guek4"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nrpax"]
+albedo_color = Color(0.364706, 0.364706, 0.364706, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_e87ly"]
+material = SubResource("StandardMaterial3D_nrpax")
+size = Vector3(400, 0.1, 16)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bj0nf"]
+size = Vector3(400.646, 0.1, 16)
+
+[node name="DistanceTester" type="Node3D"]
+script = ExtResource("1_fjr47")
+block = ExtResource("2_guek4")
+
+[node name="Player" parent="." instance=ExtResource("2_4fiqs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.195528, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+collision_layer = 3
+collision_mask = 3
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 192.379, 0, 0)
+layers = 3
+mesh = SubResource("BoxMesh_e87ly")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 192.25, 0, 0)
+shape = SubResource("BoxShape3D_bj0nf")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.153986, 0.988073, 0, -0.988073, 0.153986, 0, 0, 0)

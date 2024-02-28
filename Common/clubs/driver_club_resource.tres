@@ -1,0 +1,10 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://dt2x2jioaqbbf"]
+
+[ext_resource type="Script" path="res://common/clubs/golf_club_resource.gd" id="1_b7ey7"]
+
+[resource]
+script = ExtResource("1_b7ey7")
+min_speed = 10
+max_speed = 50
+vertical_amount = 0.5
+speed_threshold = 20.0

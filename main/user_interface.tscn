@@ -1,4 +1,17 @@
-[gd_scene format=3 uid="uid://bgmv6a1ocv8qx"]
+[gd_scene load_steps=7 format=3 uid="uid://ca8onp5rc6dj7"]
+
+[ext_resource type="Script" path="res://main/golf_ui.gd" id="1_galxs"]
+[ext_resource type="Resource" uid="uid://1ad1xr8febym" path="res://common/event_system/golf_events.tres" id="2_vpgxk"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rpyvk"]
+bg_color = Color(0.243137, 0.243137, 0.243137, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dy8mp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3r4ia"]
+bg_color = Color(0.172549, 0.172549, 0.172549, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jfylj"]
 
 [node name="UserInterface" type="Control"]
 layout_mode = 3
@@ -7,3 +20,52 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Control" type="Control" parent="." node_paths=PackedStringArray("back_swing", "front_swing")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_galxs")
+event_resource = ExtResource("2_vpgxk")
+back_swing = NodePath("ProgressBar2")
+front_swing = NodePath("ProgressBar")
+
+[node name="ProgressBar" type="ProgressBar" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 0.722
+offset_left = -69.0
+offset_top = 19.0
+offset_right = -17.0
+offset_bottom = 0.143951
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_rpyvk")
+theme_override_styles/fill = SubResource("StyleBoxFlat_dy8mp")
+max_value = 1.0
+fill_mode = 3
+show_percentage = false
+
+[node name="ProgressBar2" type="ProgressBar" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 0.722
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -69.0
+offset_top = 0.143951
+offset_right = -17.0
+offset_bottom = -14.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_3r4ia")
+theme_override_styles/fill = SubResource("StyleBoxFlat_jfylj")
+max_value = 1.0
+fill_mode = 2
+show_percentage = false
