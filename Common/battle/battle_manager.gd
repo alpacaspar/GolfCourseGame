@@ -5,7 +5,7 @@ signal on_battle_started
 signal on_battle_ended(winningRival: Rival)
 
 ## A dictionary containing all instances in an [Array] currently in battle per [Rival].
-var team_instances: Dictionary = {}
+var team_instances := {}
 
 #region Callables
 var _is_team_standing := func(rival: Rival) -> bool:
@@ -21,7 +21,7 @@ var _is_instance_exhausted := func(instance: GolferBody) -> bool:
 #endregion
 
 func _process(_delta: float):
-	if team_instances.size() == 0:
+	if team_instances.is_empty():
 		return
 	
 	# end the battle as soon as there is only one team standing.
