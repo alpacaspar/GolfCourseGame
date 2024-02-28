@@ -181,6 +181,9 @@ text = "0"
 label_settings = SubResource("LabelSettings_niuyy")
 horizontal_alignment = 1
 
+[node name="Seperator2" type="HSeparator" parent="VBoxContainer/Panel2/VBoxContainer"]
+layout_mode = 2
+
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
 
