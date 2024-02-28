@@ -58,7 +58,6 @@ func _process(delta):
 		save_as_button.disabled = false
 
 
-
 func _update_resource():
 	edited_resource.golf_class = class_dropdown.get_item_text(class_dropdown.get_selected_id())
 	

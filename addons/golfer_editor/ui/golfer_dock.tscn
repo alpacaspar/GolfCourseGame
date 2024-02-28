@@ -29,13 +29,22 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Panel2" type="Panel" parent="VBoxContainer" node_paths=PackedStringArray("golfer_resource", "npc_resource")]
+[node name="Panel2" type="Panel" parent="VBoxContainer" node_paths=PackedStringArray("golfer_resource", "npc_resource", "level_field", "class_dropdown", "power_label", "stamina_label", "error_display", "error_icon", "load_button", "save_button", "save_as_button")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_5c6wr")
 golfer_resource = NodePath("VBoxContainer/ResourceLoader")
 npc_resource = NodePath("VBoxContainer/ResourceLoader2")
+level_field = NodePath("VBoxContainer/HBoxContainer/LevelSelector")
+class_dropdown = NodePath("VBoxContainer/HBoxContainer3/ClassDropdown")
+power_label = NodePath("VBoxContainer/StatValueHolder/PowerLabel")
+stamina_label = NodePath("VBoxContainer/StatValueHolder/StaminaLabel")
+error_display = NodePath("../VBoxContainer/VBoxContainer/HBoxContainer/Panel/VBoxContainer/HBoxContainer/Label")
+error_icon = NodePath("../VBoxContainer/VBoxContainer/HBoxContainer/Panel/VBoxContainer/HBoxContainer/TextureRect")
+load_button = NodePath("VBoxContainer/HBoxContainer5/LoadButton")
+save_button = NodePath("../VBoxContainer/HBoxContainer5/SaveButton")
+save_as_button = NodePath("../VBoxContainer/HBoxContainer5/SaveAsButton")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Panel2"]
 layout_mode = 1
@@ -57,6 +66,26 @@ layout_mode = 2
 
 [node name="ResourceLoader" parent="VBoxContainer/Panel2/VBoxContainer" instance=ExtResource("2_a7ttx")]
 layout_mode = 2
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="VBoxContainer/Panel2/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="ReferenceRect2" type="ReferenceRect" parent="VBoxContainer/Panel2/VBoxContainer/HBoxContainer5"]
+custom_minimum_size = Vector2(5, 0)
+layout_mode = 2
+border_color = Color(1, 0, 0, 0)
+
+[node name="LoadButton" type="Button" parent="VBoxContainer/Panel2/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+size_flags_horizontal = 3
+disabled = true
+text = "Load"
+
+[node name="ReferenceRect" type="ReferenceRect" parent="VBoxContainer/Panel2/VBoxContainer/HBoxContainer5"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+border_color = Color(1, 0, 0, 0)
 
 [node name="Seperator5" type="HSeparator" parent="VBoxContainer/Panel2/VBoxContainer"]
 layout_mode = 2
