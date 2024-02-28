@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Role" load_steps=3 format=3 uid="uid://3odoff5r71oh"]
+
+[ext_resource type="Script" path="res://common/roles/role.gd" id="1_a5bv5"]
+[ext_resource type="PackedScene" uid="uid://qfuwtswf2e4k" path="res://entities/characters/golfers/iron_golfer_body.tscn" id="1_afeuc"]
+
+[resource]
+script = ExtResource("1_a5bv5")
+display_name = "Ironnaut"
+character_scene = ExtResource("1_afeuc")
