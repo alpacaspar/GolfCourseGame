@@ -10,6 +10,8 @@ var active: bool = false
 @export var name_field: LineEdit
 @export var chin_slider: Slider
 @export var preview: TextureRect
+@export var error_display: Label
+@export var error_icon: TextureRect
 
 @export var eyes_button_group: ButtonGroup
 @export var noses_button_group: ButtonGroup
@@ -28,6 +30,9 @@ var active: bool = false
 var update_preview_callback: Callable
 
 var edited_resource: NPCResource
+var current_path: String
+
+var has_error: bool = false
 
 
 func _ready():
@@ -44,6 +49,7 @@ func _ready():
 	rotation_box.value_changed.connect(set_rotation_value)
 
 	load_button.pressed.connect(_load)
+	save_button.pressed.connect(_save)
 	save_as_button.pressed.connect(_save_as)
 
 	edited_resource = NPCResource.new()
@@ -64,6 +70,11 @@ func _process(delta):
 		save_button.disabled = false
 		load_button.disabled = false
 
+	_check_for_errors()
+	if has_error:
+		save_button.disabled = true
+		save_as_button.disabled = true
+
 
 func _update_character(_value = 0):
 	edited_resource.name = name_field.text
@@ -81,9 +92,6 @@ func _update_character(_value = 0):
 
 func _load():
 	var _resource = npc_resource.value
-	edited_resource = _resource
-
-	name_field.text = _resource.name
 
 	set_button_index(eyes_button_group, _resource.eye_index)
 	set_button_index(noses_button_group, _resource.nose_index)
@@ -91,9 +99,19 @@ func _load():
 	set_button_index(hair_button_group, _resource.hair_index)
 	set_button_index(accessories_button_group, _resource.accessory_index)
 
+	name_field.text = _resource.name
 	chin_slider.value = _resource.chin_value
+	current_path = _resource.resource_path
+	edited_resource = _resource.duplicate()
 
-	print(chin_slider.value - _resource.chin_value)
+
+func _save():
+	edited_resource.resource_name = edited_resource.name
+	var result = ResourceSaver.save(edited_resource, current_path)
+	if result != OK:
+		print(result)
+	else:
+		print("Successfully saved")
 
 
 func _save_as():
@@ -107,6 +125,25 @@ func _save_as():
 		print(result)
 	else:
 		print("Successfully saved")
+
+
+func _check_for_errors():
+	var result := ""
+
+	if name_field.text == "":
+		result += "[Naming]: name cannot be empty"
+
+	if result == "":
+		result = "No Errors Found."
+		error_display.label_settings.font_color = Color(1.0, 1.0, 1.0, 1.0)
+		error_icon.texture = load("res://addons/npc_editor/ui/Info_icon.png")
+		has_error = false
+	else:
+		error_display.label_settings.font_color = Color(1.0, 0.3, 0.3, 1.0)
+		error_icon.texture = load("res://addons/npc_editor/ui/Error_icon.png")
+		has_error = true
+
+	error_display.text = result
 
 
 func get_current_index(button_group: ButtonGroup) -> int:

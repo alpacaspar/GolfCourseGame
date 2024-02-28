@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dywmn4tambxpc"]
+[gd_scene load_steps=14 format=3 uid="uid://dywmn4tambxpc"]
 
 [ext_resource type="ButtonGroup" uid="uid://l5gir5351irf" path="res://addons/npc_editor/button_groups/eye_group.tres" id="1_gulxh"]
 [ext_resource type="Script" path="res://addons/npc_editor/ui/npc_dock.gd" id="1_mwd3g"]
@@ -9,9 +9,14 @@
 [ext_resource type="ButtonGroup" uid="uid://cjbgjthhucyh4" path="res://addons/npc_editor/button_groups/mouth_group.tres" id="4_n1fok"]
 [ext_resource type="ButtonGroup" uid="uid://i5g7pvbaaytj" path="res://addons/npc_editor/button_groups/hair_group.tres" id="5_j2yxv"]
 [ext_resource type="ButtonGroup" uid="uid://cs1engfbu44j" path="res://addons/npc_editor/button_groups/accessory_group.tres" id="6_4v3tu"]
+[ext_resource type="LabelSettings" uid="uid://y18aqn0x2wop" path="res://addons/npc_editor/ui/error_label.tres" id="10_3kivo"]
+[ext_resource type="Texture2D" uid="uid://bdjhfe33ao7mi" path="res://addons/npc_editor/ui/Info_icon.png" id="10_tpc21"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_dt0a8"]
 font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_ka5pb"]
+font_size = 24
 
 [node name="NpcDock" type="Control" node_paths=PackedStringArray("npc_customizer")]
 layout_mode = 3
@@ -33,7 +38,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 alignment = 1
 
-[node name="NPCEditor" type="Panel" parent="VBoxContainer" node_paths=PackedStringArray("npc_resource", "name_field", "chin_slider", "preview", "zoom_slider", "rotation_slider", "rotation_box", "load_button", "save_button", "save_as_button")]
+[node name="NPCEditor" type="Panel" parent="VBoxContainer" node_paths=PackedStringArray("npc_resource", "name_field", "chin_slider", "preview", "error_display", "error_icon", "zoom_slider", "rotation_slider", "rotation_box", "load_button", "save_button", "save_as_button")]
 layout_mode = 2
 size_flags_vertical = 3
 script = ExtResource("2_nrfom")
@@ -41,6 +46,8 @@ npc_resource = NodePath("VBoxContainer/ResourceLoader")
 name_field = NodePath("VBoxContainer/NameHolder/NameField")
 chin_slider = NodePath("VBoxContainer/ChinHolder/HSlider")
 preview = NodePath("VBoxContainer/VBoxContainer/PreviewTexture")
+error_display = NodePath("../VBoxContainer/VBoxContainer/HBoxContainer/Panel/VBoxContainer/HBoxContainer/Label")
+error_icon = NodePath("../VBoxContainer/VBoxContainer/HBoxContainer/Panel/VBoxContainer/HBoxContainer/TextureRect")
 eyes_button_group = ExtResource("1_gulxh")
 noses_button_group = ExtResource("3_u22ul")
 mouths_button_group = ExtResource("4_n1fok")
@@ -774,6 +781,26 @@ custom_minimum_size = Vector2(10, 0)
 layout_mode = 2
 border_color = Color(1, 0, 0, 0)
 
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/NPCEditor/VBoxContainer"]
+layout_mode = 2
+
+[node name="ReferenceRect3" type="ReferenceRect" parent="VBoxContainer/NPCEditor/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+border_color = Color(1, 0, 0, 0)
+
+[node name="Label" type="Label" parent="VBoxContainer/NPCEditor/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Preview"
+label_settings = SubResource("LabelSettings_ka5pb")
+horizontal_alignment = 1
+
+[node name="ReferenceRect4" type="ReferenceRect" parent="VBoxContainer/NPCEditor/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+border_color = Color(1, 0, 0, 0)
+
 [node name="VBoxContainer" type="HBoxContainer" parent="VBoxContainer/NPCEditor/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
@@ -810,7 +837,7 @@ border_color = Color(1, 0, 0, 0)
 layout_mode = 2
 
 [node name="ReferenceRect3" type="ReferenceRect" parent="VBoxContainer/NPCEditor/VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(35, 0)
+custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 border_color = Color(1, 0, 0, 0)
 
@@ -841,6 +868,81 @@ border_color = Color(1, 0, 0, 0)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
+
+[node name="Panel6" type="ReferenceRect" parent="VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+border_color = Color(1, 0, 0, 0)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="ReferenceRect6" type="ReferenceRect" parent="VBoxContainer/VBoxContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+border_color = Color(1, 0, 0, 0)
+
+[node name="Panel" type="PanelContainer" parent="VBoxContainer/VBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Panel" type="Panel" parent="VBoxContainer/VBoxContainer/VBoxContainer/HBoxContainer/Panel"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/VBoxContainer/VBoxContainer/HBoxContainer/Panel"]
+layout_mode = 2
+
+[node name="Panel6" type="ReferenceRect" parent="VBoxContainer/VBoxContainer/VBoxContainer/HBoxContainer/Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 2
+border_color = Color(1, 0, 0, 0)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/VBoxContainer/VBoxContainer/HBoxContainer/Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ReferenceRect7" type="ReferenceRect" parent="VBoxContainer/VBoxContainer/VBoxContainer/HBoxContainer/Panel/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+border_color = Color(1, 0, 0, 0)
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/VBoxContainer/VBoxContainer/HBoxContainer/Panel/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("10_tpc21")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="ReferenceRect8" type="ReferenceRect" parent="VBoxContainer/VBoxContainer/VBoxContainer/HBoxContainer/Panel/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+border_color = Color(1, 0, 0, 0)
+
+[node name="Label" type="Label" parent="VBoxContainer/VBoxContainer/VBoxContainer/HBoxContainer/Panel/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Info Box"
+label_settings = ExtResource("10_3kivo")
+
+[node name="ReferenceRect6" type="ReferenceRect" parent="VBoxContainer/VBoxContainer/VBoxContainer/HBoxContainer/Panel/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+border_color = Color(1, 0, 0, 0)
+
+[node name="Panel5" type="ReferenceRect" parent="VBoxContainer/VBoxContainer/VBoxContainer/HBoxContainer/Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 2
+border_color = Color(1, 0, 0, 0)
+
+[node name="ReferenceRect4" type="ReferenceRect" parent="VBoxContainer/VBoxContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+border_color = Color(1, 0, 0, 0)
 
 [node name="Panel5" type="ReferenceRect" parent="VBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 10)
