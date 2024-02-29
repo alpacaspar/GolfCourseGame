@@ -2,11 +2,12 @@ class_name AttackState
 extends State
 
 
-@export var body: GolferBody
+@export var body: Golfer
 
 
 func _on_enter(_msg := {}):
 	pass
+
 
 func _on_input(_event: InputEvent):
 	pass

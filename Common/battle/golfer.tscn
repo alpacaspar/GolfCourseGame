@@ -1,0 +1,36 @@
+[gd_scene load_steps=7 format=3 uid="uid://s18mlviu254u"]
+
+[ext_resource type="Script" path="res://common/battle/golfer.gd" id="1_faox5"]
+[ext_resource type="Script" path="res://common/finite_state_machine/finite_state_machine.gd" id="2_fpcei"]
+[ext_resource type="Script" path="res://common/battle/search_state.gd" id="3_j8p4v"]
+[ext_resource type="Script" path="res://common/battle/attack_state.gd" id="4_0tsas"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_yo62r"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_y5eue"]
+
+[node name="Golfer" type="CharacterBody3D"]
+script = ExtResource("1_faox5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_yo62r")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_y5eue")
+skeleton = NodePath("../CollisionShape3D")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+
+[node name="FSM" type="Node" parent="."]
+script = ExtResource("2_fpcei")
+
+[node name="SearchState" type="Node" parent="FSM" node_paths=PackedStringArray("body")]
+script = ExtResource("3_j8p4v")
+body = NodePath("../..")
+
+[node name="AttackState" type="Node" parent="FSM"]
+script = ExtResource("4_0tsas")
+body = Object(CharacterBody3D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","transform":Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0),"rotation_edit_mode":0,"rotation_order":2,"top_level":false,"visible":true,"visibility_parent":NodePath(""),"disable_mode":0,"collision_layer":1,"collision_mask":1,"collision_priority":1.0,"input_ray_pickable":true,"input_capture_on_drag":false,"axis_lock_linear_x":false,"axis_lock_linear_y":false,"axis_lock_linear_z":false,"axis_lock_angular_x":false,"axis_lock_angular_y":false,"axis_lock_angular_z":false,"motion_mode":0,"up_direction":Vector3(0, 1, 0),"slide_on_ceiling":true,"velocity":Vector3(0, 0, 0),"max_slides":6,"wall_min_slide_angle":0.261799,"floor_stop_on_slope":true,"floor_constant_speed":false,"floor_block_on_wall":true,"floor_max_angle":0.785398,"floor_snap_length":0.1,"platform_on_leave":0,"platform_floor_layers":4294967295,"platform_wall_layers":0,"safe_margin":0.001,"script":ExtResource("1_faox5"))
+

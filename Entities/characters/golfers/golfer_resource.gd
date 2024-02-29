@@ -1,4 +1,4 @@
-class_name Golfer
+class_name GolferResource
 extends Resource
 
 

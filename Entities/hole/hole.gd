@@ -5,8 +5,8 @@ extends Node
 @onready var tee_area: Node3D = $TeeArea
 @onready var green: Node3D = $GreenArea
 
-@export var test_player: Rival
-@export var test_rival: Rival
+@export var test_player: RivalResource
+@export var test_rival: RivalResource
 
 
 # TODO: Remove this.

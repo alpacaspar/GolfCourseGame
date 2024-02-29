@@ -6,9 +6,9 @@
 [ext_resource type="Terrain3DTextureList" uid="uid://dsih680v02hr7" path="res://entities/terrain/terrain_3d_texture_list.tres" id="4_3ux7o"]
 [ext_resource type="PackedScene" uid="uid://bknw3rgmsvj8u" path="res://entities/hole/cup.glb" id="5_0024e"]
 [ext_resource type="Script" path="res://entities/hole/hole.gd" id="6_5b83j"]
-[ext_resource type="Script" path="res://entities/characters/golfers/rivals/rival.gd" id="7_jrtnd"]
+[ext_resource type="Script" path="res://entities/characters/golfers/rivals/rival_resource.gd" id="7_jrtnd"]
 [ext_resource type="Resource" uid="uid://3odoff5r71oh" path="res://common/roles/iron.tres" id="7_rynqb"]
-[ext_resource type="Script" path="res://entities/characters/golfers/golfer.gd" id="9_q0npb"]
+[ext_resource type="Script" path="res://entities/characters/golfers/golfer_resource.gd" id="9_q0npb"]
 [ext_resource type="Resource" uid="uid://dm01uu1l6m7hb" path="res://entities/characters/golfers/rivals/tiger_woods.tres" id="10_am8ht"]
 
 [sub_resource type="Resource" id="Resource_8ypns"]

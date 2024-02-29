@@ -2,23 +2,24 @@ extends Node
 
 
 signal on_battle_started
-signal on_battle_ended(winningRival: Rival)
+signal on_battle_ended(winningRival: RivalResource)
 
-## A dictionary containing all instances in an [Array] currently in battle per [Rival].
+## A dictionary containing all instances in an [Array] currently in battle per [RivalResource].
 var team_instances := {}
 
 #region Callables
-var _is_team_standing := func(rival: Rival) -> bool:
+var _is_team_standing := func(rival: RivalResource) -> bool:
 	return !team_instances[rival].any(_is_instance_exhausted)
 
 
-var _is_instance_not_exhausted := func(instance: GolferBody) -> bool:
+var _is_instance_not_exhausted := func(instance: Golfer) -> bool:
 	return !instance.is_exhausted()
 
 
-var _is_instance_exhausted := func(instance: GolferBody) -> bool:
+var _is_instance_exhausted := func(instance: Golfer) -> bool:
 	return instance.is_exhausted()
 #endregion
+
 
 func _process(_delta: float):
 	if team_instances.is_empty():
@@ -30,7 +31,7 @@ func _process(_delta: float):
 		end_battle(standing_teams.front())
 
 
-func start_battle(hole: Hole, player: Rival, rival: Rival):
+func start_battle(hole: Hole, player: RivalResource, rival: RivalResource):
 	team_instances.clear()
 
 	_instantiate_golfers(player, hole.tee_area)
@@ -39,7 +40,7 @@ func start_battle(hole: Hole, player: Rival, rival: Rival):
 	on_battle_started.emit()
 
 
-func end_battle(winning_rival: Rival):
+func end_battle(winning_rival: RivalResource):
 	# TODO: Perform post battle stuff.
 	# TODO: Cleanup battle characters from the scene.
 
@@ -48,7 +49,7 @@ func end_battle(winning_rival: Rival):
 
 
 ## Returns [Array] containing all instances of opponents that are not exhausted.
-func get_opponents(leader: Rival) -> Array:
+func get_opponents(leader: RivalResource) -> Array:
 	var opponents := []
 
 	for rival in team_instances.keys():
@@ -59,11 +60,11 @@ func get_opponents(leader: Rival) -> Array:
 
 
 ## Returns [Array] containing all instances of teammates that are not exhausted.
-func get_teammates(leader: Rival) -> Array:
+func get_teammates(leader: RivalResource) -> Array:
 	return team_instances[leader].filter(_is_instance_not_exhausted)
 
 
-func _instantiate_golfers(leader: Rival, origin: Node3D):
+func _instantiate_golfers(leader: RivalResource, origin: Node3D):
 	var instances := []
 
 	var spawnpoints := _get_triangular_points(leader.team.size(), origin.global_position, origin.global_basis.z, 5)
