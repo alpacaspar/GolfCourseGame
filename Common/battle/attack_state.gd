@@ -1,8 +1,8 @@
-class_name State
-extends Node
+class_name AttackState
+extends State
 
 
-var fsm_owner: FSM
+@export var body: Golfer
 
 
 func _on_enter(_msg := {}):
@@ -22,8 +22,12 @@ func _on_process(_delta: float):
 
 
 func _on_physics_process(_delta: float):
-	pass
+	if not body.target:
+		fsm_owner.transition_to("SearchState")
+		return
+
+	body.set_movement_target(body.target.global_transform.origin)
 
 
-func _on_exit():
+func _on_exit(_msg := {}):
 	pass

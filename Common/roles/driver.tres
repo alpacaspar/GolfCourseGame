@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="Role" load_steps=2 format=3 uid="uid://n2wwvf3uab1k"]
+
+[ext_resource type="Script" path="res://common/roles/role.gd" id="1_epsvo"]
+
+[resource]
+script = ExtResource("1_epsvo")
+display_name = "Power Driver"

@@ -31,5 +31,6 @@ func set_active_provider(new_provider: InputProvider):
 		active_provider._on_exit()
 	
 	active_provider = new_provider
+	
 	if active_provider:
 		active_provider._on_enter()

@@ -1,0 +1,62 @@
+[gd_scene load_steps=15 format=3 uid="uid://dbssg6p52li32"]
+
+[ext_resource type="NavigationMesh" uid="uid://dt7ww3h1lgjrv" path="res://entities/terrain/golf_terrain_navigation_mesh.tres" id="1_ymkyg"]
+[ext_resource type="Terrain3DStorage" uid="uid://d2cg7f8to0uep" path="res://entities/terrain/terrain_3d_storage.res" id="2_tsmfm"]
+[ext_resource type="Terrain3DMaterial" uid="uid://dgr21mcsa4ek8" path="res://entities/terrain/terrain_3d_material.tres" id="3_65hou"]
+[ext_resource type="Terrain3DTextureList" uid="uid://dsih680v02hr7" path="res://entities/terrain/terrain_3d_texture_list.tres" id="4_3ux7o"]
+[ext_resource type="PackedScene" uid="uid://bknw3rgmsvj8u" path="res://entities/hole/cup.glb" id="5_0024e"]
+[ext_resource type="Script" path="res://entities/hole/hole.gd" id="6_5b83j"]
+[ext_resource type="Script" path="res://entities/characters/golfers/rivals/rival_resource.gd" id="7_jrtnd"]
+[ext_resource type="Resource" uid="uid://3odoff5r71oh" path="res://common/roles/iron.tres" id="7_rynqb"]
+[ext_resource type="Script" path="res://entities/characters/golfers/golfer_resource.gd" id="9_q0npb"]
+[ext_resource type="Resource" uid="uid://dm01uu1l6m7hb" path="res://entities/characters/golfers/rivals/tiger_woods.tres" id="10_am8ht"]
+
+[sub_resource type="Resource" id="Resource_8ypns"]
+script = ExtResource("9_q0npb")
+name = "Globbert Colberson"
+level = 1
+role = ExtResource("7_rynqb")
+
+[sub_resource type="Resource" id="Resource_0dq3h"]
+script = ExtResource("9_q0npb")
+name = "Nathaniel Jornes"
+level = 1
+role = ExtResource("7_rynqb")
+
+[sub_resource type="Resource" id="Resource_dilu3"]
+script = ExtResource("9_q0npb")
+name = "Borglan Flimbledon"
+level = 1
+role = ExtResource("7_rynqb")
+
+[sub_resource type="Resource" id="Resource_6txhn"]
+script = ExtResource("7_jrtnd")
+team_members = Array[ExtResource("9_q0npb")]([SubResource("Resource_8ypns"), SubResource("Resource_0dq3h"), SubResource("Resource_dilu3")])
+name = "Joe Schmoe"
+level = 1
+role = ExtResource("7_rynqb")
+
+[node name="golf_terrain" type="Node3D"]
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+navigation_mesh = ExtResource("1_ymkyg")
+
+[node name="Terrain3D" type="Terrain3D" parent="NavigationRegion3D"]
+storage = ExtResource("2_tsmfm")
+material = ExtResource("3_65hou")
+texture_list = ExtResource("4_3ux7o")
+
+[node name="cup" parent="." instance=ExtResource("5_0024e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 240.983, 5.09922, 882.857)
+
+[node name="Hole01" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 211.49, -1.90735e-06, 624.689)
+script = ExtResource("6_5b83j")
+test_player = SubResource("Resource_6txhn")
+test_rival = ExtResource("10_am8ht")
+
+[node name="TeeArea" type="Marker3D" parent="Hole01"]
+transform = Transform3D(0.550758, 0, -0.834665, 0, 1, 0, 0.834665, 0, 0.550758, 106.035, 4, -64.3419)
+
+[node name="GreenArea" type="Marker3D" parent="Hole01"]
+transform = Transform3D(0.970658, 0, 0.240465, 0, 1, 0, -0.240465, 0, 0.970658, -112.265, 4.12066, 38.7378)

@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="Role" load_steps=2 format=3 uid="uid://djj0fkyow7k6u"]
+
+[ext_resource type="Script" path="res://common/roles/role.gd" id="1_0t72d"]
+
+[resource]
+script = ExtResource("1_0t72d")
+display_name = "Caddy"
