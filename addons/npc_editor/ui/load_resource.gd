@@ -22,6 +22,9 @@ func set_value():
 
 
 func _process(_delta):
+	if node == null:
+		return
+
 	if value != last_value:
 		value_changed.emit(value)
 		last_value = value

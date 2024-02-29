@@ -63,6 +63,8 @@ func _process(delta):
 	if not active:
 		return
 
+	active = false
+
 	if npc_resource.value == null:
 		save_button.disabled = true
 		load_button.disabled = true

@@ -33,7 +33,7 @@ func _ready():
 
 	npc_resource.value_changed.connect(_update_resource)
 	level_field.value_changed.connect(_update_resource)
-	class_dropdown.value_changed.connect(_update_resource)
+	#class_dropdown.value_changed.connect(_update_resource)
 
 	save_button.pressed.connect(_save)
 	load_button.pressed.connect(_load)
@@ -75,7 +75,7 @@ func _update_resource(_value):
 func _load():
 	var _resource = golfer_resource.value
 	
-	class_dropdown.select(class_dropdown.get_item_id(()))
+	#class_dropdown.select(class_dropdown.get_item_id(()))
 	
 	current_path = _resource.resource_path
 	edited_resource = _resource.duplicate()
