@@ -13,7 +13,7 @@
 
 [sub_resource type="Resource" id="Resource_8ypns"]
 script = ExtResource("9_q0npb")
-name = "Globbert"
+name = "Globbert Colberson"
 level = 1
 role = ExtResource("7_rynqb")
 

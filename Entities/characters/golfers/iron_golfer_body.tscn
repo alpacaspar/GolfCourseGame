@@ -1,8 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://c8tdm8g3flne5"]
-
-[ext_resource type="PackedScene" uid="uid://s18mlviu254u" path="res://common/battle/golfer.tscn" id="1_q0ba6"]
-
-[node name="GolferBody" instance=ExtResource("1_q0ba6")]
-
-[node name="NavigationAgent3D" parent="." index="2"]
-path_height_offset = 0.2
