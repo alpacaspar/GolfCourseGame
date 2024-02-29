@@ -28,10 +28,16 @@ var has_error: bool = false
 
 
 func _ready():
-	golfer_resource._set_value()
-	npc_resource._set_value()
+	golfer_resource.set_value()
+	npc_resource.set_value()
 
+	npc_resource.value_changed.connect(_update_resource)
+	level_field.value_changed.connect(_update_resource)
+	class_dropdown.value_changed.connect(_update_resource)
 
+	save_button.pressed.connect(_save)
+	load_button.pressed.connect(_load)
+	save_as_button.pressed.connect(_save_as)
 
 	active = true
 
@@ -58,14 +64,18 @@ func _process(delta):
 		save_as_button.disabled = false
 
 
-func _update_resource():
-	edited_resource.golf_class = class_dropdown.get_item_text(class_dropdown.get_selected_id())
+func _update_resource(_value):
+	print("AAAAAAAAAAAA")
 	
-	pass
+	edited_resource.set_resource(class_dropdown.get_item_text(class_dropdown.get_selected_id()),
+		level_field.value,
+		npc_resource.value)
 
 
 func _load():
-	var _resource = npc_resource.value
+	var _resource = golfer_resource.value
+	
+	class_dropdown.select(class_dropdown.get_item_id(()))
 	
 	current_path = _resource.resource_path
 	edited_resource = _resource.duplicate()

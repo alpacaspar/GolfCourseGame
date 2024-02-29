@@ -36,7 +36,7 @@ var has_error: bool = false
 
 
 func _ready():
-	npc_resource._set_value()
+	npc_resource.set_value()
 
 	chin_slider.value_changed.connect(_update_character)
 	_set_button_connections(eyes_button_group)

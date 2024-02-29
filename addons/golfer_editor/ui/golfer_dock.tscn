@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://addons/golfer_editor/ui/golfer_customizer.gd" id="1_5c6wr"]
 [ext_resource type="PackedScene" uid="uid://5q7b6g71i8sm" path="res://addons/npc_editor/ui/resource_loader.tscn" id="2_a7ttx"]
-[ext_resource type="Texture2D" uid="uid://bdjhfe33ao7mi" path="res://addons/npc_editor/ui/Info_icon.png" id="3_xu1wx"]
+[ext_resource type="Texture2D" uid="uid://c3hcdbvgeihu3" path="res://addons/npc_editor/ui/Error_icon.png" id="3_8wnmi"]
 [ext_resource type="LabelSettings" uid="uid://y18aqn0x2wop" path="res://addons/npc_editor/ui/error_label.tres" id="4_qhm2w"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_sbb8n"]
@@ -261,7 +261,7 @@ border_color = Color(1, 0, 0, 0)
 
 [node name="TextureRect" type="TextureRect" parent="VBoxContainer/VBoxContainer/VBoxContainer/HBoxContainer/Panel/VBoxContainer/HBoxContainer"]
 layout_mode = 2
-texture = ExtResource("3_xu1wx")
+texture = ExtResource("3_8wnmi")
 expand_mode = 3
 stretch_mode = 4
 
@@ -273,7 +273,7 @@ border_color = Color(1, 0, 0, 0)
 [node name="Label" type="Label" parent="VBoxContainer/VBoxContainer/VBoxContainer/HBoxContainer/Panel/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "Info Box"
+text = "NPC Resource cannot be empty"
 label_settings = ExtResource("4_qhm2w")
 
 [node name="ReferenceRect6" type="ReferenceRect" parent="VBoxContainer/VBoxContainer/VBoxContainer/HBoxContainer/Panel/VBoxContainer/HBoxContainer"]
@@ -314,6 +314,7 @@ text = "Save"
 [node name="SaveAsButton" type="Button" parent="VBoxContainer/VBoxContainer/HBoxContainer5"]
 layout_mode = 2
 size_flags_horizontal = 3
+disabled = true
 text = "Save As..."
 
 [node name="ReferenceRect" type="ReferenceRect" parent="VBoxContainer/VBoxContainer/HBoxContainer5"]
