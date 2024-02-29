@@ -11,6 +11,7 @@ var active: bool = false
 @export var level_field: SpinBox
 @export var class_dropdown: OptionButton
 
+@export var name_label: Label
 @export var power_label: Label
 @export var stamina_label: Label
 
@@ -21,6 +22,8 @@ var active: bool = false
 @export var save_button: Button
 @export var save_as_button: Button
 
+@export var roles: Array[Role] = []
+
 var edited_resource: GolferResource
 var current_path: String
 
@@ -30,15 +33,19 @@ var has_error: bool = false
 func _ready():
 	golfer_resource.set_value()
 	npc_resource.set_value()
+	
+	for role in roles:
+		class_dropdown.add_item(role.display_name)
 
 	npc_resource.value_changed.connect(_update_resource)
 	level_field.value_changed.connect(_update_resource)
-	#class_dropdown.value_changed.connect(_update_resource)
+	class_dropdown.item_selected.connect(_update_resource)
 
 	save_button.pressed.connect(_save)
 	load_button.pressed.connect(_load)
 	save_as_button.pressed.connect(_save_as)
 
+	edited_resource = GolferResource.new()
 	active = true
 
 
@@ -65,17 +72,23 @@ func _process(delta):
 
 
 func _update_resource(_value):
-	print("AAAAAAAAAAAA")
+	name_label.text = npc_resource.value.name
+	power_label.text = str(level_field.value * 10)
+	stamina_label.text = str(level_field.value * 10)
+
+	edited_resource.name = npc_resource.value.name
+	edited_resource.level = level_field.value
+	edited_resource.role = roles[class_dropdown.selected]
 	
-	edited_resource.set_resource(class_dropdown.get_item_text(class_dropdown.get_selected_id()),
-		level_field.value,
-		npc_resource.value)
+	edited_resource.npc_resource = npc_resource.value
 
 
 func _load():
 	var _resource = golfer_resource.value
-	
-	#class_dropdown.select(class_dropdown.get_item_id(()))
+
+	npc_resource.value = _resource.npc_resource
+	level_field.value = _resource.level	
+	class_dropdown.select(roles.find(_resource.role))
 	
 	current_path = _resource.resource_path
 	edited_resource = _resource.duplicate()
@@ -92,11 +105,11 @@ func _save():
 
 func _save_as():
 	edited_resource.resource_name = edited_resource.name
-	if FileAccess.file_exists("res://common/npc_resources/{str}.tres".format({"str": edited_resource.name.to_snake_case()})):
+	if FileAccess.file_exists("res://common/golfer_resources/{str}.tres".format({"str": edited_resource.name.to_snake_case()})):
 		print("FILE ALREADY EXISTS")
 		return
 
-	var result = ResourceSaver.save(edited_resource, "res://common/npc_resources/{str}.tres".format({"str": edited_resource.name.to_snake_case()}))
+	var result = ResourceSaver.save(edited_resource, "res://common/golfer_resources/{str}_golfer.tres".format({"str": edited_resource.name.to_snake_case()}))
 	if result != OK:
 		print(result)
 	else:
