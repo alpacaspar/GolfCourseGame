@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://1hc16ueaxw85"]
+
+[node name="OptionButton" type="Button"]
+size_flags_vertical = 3
+text = "Button Placeholder Text"

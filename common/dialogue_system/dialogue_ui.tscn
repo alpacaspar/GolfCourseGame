@@ -1,12 +1,21 @@
-[gd_scene format=3 uid="uid://y2as3mdg8erj"]
+[gd_scene load_steps=3 format=3 uid="uid://y2as3mdg8erj"]
 
-[node name="DialogueUI" type="Control"]
+[ext_resource type="Script" path="res://common/dialogue_system/display_dialog_ui.gd" id="1_s2sv7"]
+[ext_resource type="PackedScene" uid="uid://1hc16ueaxw85" path="res://common/dialogue_system/option_button.tscn" id="2_mc47x"]
+
+[node name="DialogueUI" type="Control" node_paths=PackedStringArray("main_text", "name_text", "button_panel", "button_holder")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_s2sv7")
+main_text = NodePath("Panel/DialogueLabel")
+name_text = NodePath("Panel/NameLabel")
+button_panel = NodePath("ButtonPanel")
+button_holder = NodePath("ButtonPanel/VBoxContainer")
+button_prefab = ExtResource("2_mc47x")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
@@ -14,6 +23,51 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -128.0
+offset_left = 291.0
+offset_top = -141.0
+offset_right = -261.0
+offset_bottom = -41.0
 grow_horizontal = 2
 grow_vertical = 0
+pivot_offset = Vector2(300, 50)
+
+[node name="NameLabel" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 10.0
+offset_right = 376.0
+offset_bottom = 33.0
+
+[node name="DialogueLabel" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 37.0
+offset_right = 578.0
+offset_bottom = 91.0
+
+[node name="ButtonPanel" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -104.0
+offset_right = 150.0
+offset_bottom = 104.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ButtonPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 8.0
+offset_right = -10.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
