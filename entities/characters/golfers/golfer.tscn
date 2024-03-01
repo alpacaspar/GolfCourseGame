@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://s18mlviu254u"]
+[gd_scene load_steps=10 format=3 uid="uid://s18mlviu254u"]
 
 [ext_resource type="Script" path="res://entities/characters/golfers/golfer.gd" id="1_343oq"]
 [ext_resource type="Script" path="res://common/finite_state_machine/finite_state_machine.gd" id="2_6l2gt"]
 [ext_resource type="Script" path="res://entities/characters/golfers/search_state.gd" id="3_fqh05"]
 [ext_resource type="Script" path="res://entities/characters/golfers/attack_state.gd" id="4_8o072"]
+[ext_resource type="Script" path="res://entities/characters/golfers/goto_state.gd" id="4_u8bmi"]
 [ext_resource type="Script" path="res://entities/characters/golfers/detection_area_3d.gd" id="5_v1goe"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_yo62r"]
@@ -35,6 +36,9 @@ script = ExtResource("2_6l2gt")
 [node name="SearchState" type="Node" parent="FSM" node_paths=PackedStringArray("body")]
 script = ExtResource("3_fqh05")
 body = NodePath("../..")
+
+[node name="GotoState" type="Node" parent="FSM"]
+script = ExtResource("4_u8bmi")
 
 [node name="AttackState" type="Node" parent="FSM" node_paths=PackedStringArray("body")]
 script = ExtResource("4_8o072")
