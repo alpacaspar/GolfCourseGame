@@ -21,6 +21,8 @@ rings = 1
 radius = 0.1
 
 [node name="GolfCar" type="VehicleBody3D"]
+collision_layer = 2
+collision_mask = 3
 mass = 450.0
 center_of_mass_mode = 1
 script = ExtResource("1_e1dhi")

@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://entities/player/player.gd" id="1_qh1c4"]
 [ext_resource type="Script" path="res://common/finite_state_machine/finite_state_machine.gd" id="3_ox5tx"]
 [ext_resource type="Script" path="res://entities/player/movement_state.gd" id="4_8jdu4"]
-[ext_resource type="Script" path="res://entities/player/idle_state.gd" id="5_fmu0s"]
+[ext_resource type="Script" path="res://entities/idle_state.gd" id="5_fmu0s"]
 [ext_resource type="Script" path="res://entities/player/player_input_provider.gd" id="7_832ik"]
 [ext_resource type="PackedScene" uid="uid://kkl735rs4naf" path="res://entities/player/player_interactor.tscn" id="8_qcnlv"]
 
@@ -16,6 +16,7 @@ radius = 0.1
 
 [node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("camera", "input_provider", "state_machine")]
 collision_layer = 2
+collision_mask = 3
 script = ExtResource("1_qh1c4")
 camera = NodePath("CameraPivot/SpringArm3D/PlayerCamera")
 input_provider = NodePath("InputProvider")
