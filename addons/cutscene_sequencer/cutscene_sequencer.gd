@@ -14,5 +14,7 @@ func _enter_tree():
 
 
 func _exit_tree():
+	dock.cleanup()
+	
 	remove_control_from_bottom_panel(dock)
 	
