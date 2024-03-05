@@ -4,18 +4,18 @@ extends InputProvider
 
 signal on_look(input_delta: Vector2)
 
-@export var player: CharacterBody3D
+@export var controller: Node3D
 
 var move: Vector2
 var look: Vector2
 
 
 func _on_enter():
-	player.make_camera_current(true)
+	controller.make_camera_current(true)
 
 
 func _on_exit():
-	player.make_camera_current(false)
+	controller.make_camera_current(false)
 
 
 func _on_input(event: InputEvent):

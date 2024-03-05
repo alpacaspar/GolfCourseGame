@@ -5,3 +5,4 @@
 [resource]
 script = ExtResource("1_epsvo")
 display_name = "Power Driver"
+desired_distance = 3.0

@@ -4,6 +4,10 @@ extends Node
 signal on_battle_started
 signal on_battle_ended(winningRival: RivalResource)
 
+const UNIT_SCENE: PackedScene = preload("res://entities/unit/unit.tscn")
+const UNIT_AI_CONTROLLER: PackedScene = preload("res://entities/unit/unit_ai_controller.tscn")
+const UNIT_PLAYER_CONTROLLER: PackedScene = preload("res://entities/unit/unit_player_controller.tscn")
+
 ## A dictionary containing all instances in an [Array] currently in battle per [RivalResource].
 var team_instances := {}
 
@@ -11,12 +15,10 @@ var team_instances := {}
 var _is_team_standing := func(rival: RivalResource) -> bool:
 	return !team_instances[rival].any(_is_instance_exhausted)
 
-
-var _is_instance_not_exhausted := func(instance: Golfer) -> bool:
+var _is_instance_not_exhausted := func(instance: Unit) -> bool:
 	return !instance.is_exhausted()
 
-
-var _is_instance_exhausted := func(instance: Golfer) -> bool:
+var _is_instance_exhausted := func(instance: Unit) -> bool:
 	return instance.is_exhausted()
 #endregion
 
@@ -70,8 +72,16 @@ func _instantiate_golfers(leader: RivalResource, origin: Node3D):
 	var spawnpoints := _get_triangular_points(leader.team.size(), origin.global_position, origin.global_basis.z, 5)
 
 	for i in leader.team.size():
-		var instance = leader.team[i].role.golfer_body_scene.instantiate()
-		instance.setup(leader.team[i], leader, spawnpoints[i])
+		var instance = UNIT_SCENE.instantiate()
+		instance.transform.origin = spawnpoints[i]
+
+		if leader.team[i] is PlayerRivalResource:
+			instance.add_child(UNIT_PLAYER_CONTROLLER.instantiate())
+		else:
+			instance.add_child(UNIT_AI_CONTROLLER.instantiate())
+		
+		instance.setup(leader.team[i], leader)
+		
 		instances.append(instance)
 
 		add_child(instance)

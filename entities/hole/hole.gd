@@ -5,6 +5,7 @@ extends Node
 @onready var tee_area: Node3D = $TeeArea
 @onready var green: Node3D = $GreenArea
 
+## TODO: Use interaction through rival instead.
 @export var test_player: RivalResource
 @export var test_rival: RivalResource
 

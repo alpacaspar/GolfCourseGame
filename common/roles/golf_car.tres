@@ -5,3 +5,4 @@
 [resource]
 script = ExtResource("1_16xm8")
 display_name = "Golf Karter"
+desired_distance = 3.0

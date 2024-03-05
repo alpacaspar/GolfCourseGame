@@ -1,0 +1,51 @@
+[gd_scene load_steps=9 format=3 uid="uid://bmbpmw618ddnf"]
+
+[ext_resource type="Script" path="res://entities/unit/unit_ai_controller.gd" id="1_vqycx"]
+[ext_resource type="Script" path="res://entities/unit/detection_area_3d.gd" id="2_nwyxe"]
+[ext_resource type="Script" path="res://common/finite_state_machine/finite_state_machine.gd" id="3_k8ad3"]
+[ext_resource type="Script" path="res://entities/unit/idle_state.gd" id="4_1xvua"]
+[ext_resource type="Script" path="res://entities/unit/search_state.gd" id="4_6um3d"]
+[ext_resource type="Script" path="res://entities/unit/goto_state.gd" id="6_41l2t"]
+[ext_resource type="Script" path="res://entities/unit/attack_state.gd" id="7_smha7"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_t7kot"]
+radius = 1.0
+
+[node name="Controller" type="Node3D"]
+script = ExtResource("1_vqycx")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+
+[node name="DetectionArea3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("2_nwyxe")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DetectionArea3D"]
+shape = SubResource("SphereShape3D_t7kot")
+
+[node name="FSM" type="Node" parent="."]
+script = ExtResource("3_k8ad3")
+
+[node name="IdleState" type="Node" parent="FSM"]
+script = ExtResource("4_1xvua")
+
+[node name="SearchState" type="Node" parent="FSM" node_paths=PackedStringArray("ai_controller")]
+script = ExtResource("4_6um3d")
+ai_controller = NodePath("../..")
+
+[node name="GotoState" type="Node" parent="FSM" node_paths=PackedStringArray("ai_controller")]
+script = ExtResource("6_41l2t")
+ai_controller = NodePath("../..")
+
+[node name="PathfindingIntervalTimer" type="Timer" parent="FSM/GotoState"]
+process_callback = 0
+wait_time = 5.0
+
+[node name="AttackState" type="Node" parent="FSM" node_paths=PackedStringArray("ai_controller")]
+script = ExtResource("7_smha7")
+ai_controller = NodePath("../..")
+
+[connection signal="body_entered" from="DetectionArea3D" to="DetectionArea3D" method="_on_body_entered"]
+[connection signal="body_exited" from="DetectionArea3D" to="DetectionArea3D" method="_on_body_exited"]

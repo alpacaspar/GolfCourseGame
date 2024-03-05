@@ -9,4 +9,4 @@ extends GolferResource
 ## The RivalResource's team, [b]including[/b] the RivalResource themselves.
 var team : Array:
 	get:
-		return team_members + [self]
+		return [self] + team_members

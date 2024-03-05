@@ -58,9 +58,9 @@ player = NodePath("../..")
 script = ExtResource("5_fmu0s")
 player = NodePath("../..")
 
-[node name="InputProvider" type="Node" parent="." node_paths=PackedStringArray("player")]
+[node name="InputProvider" type="Node" parent="." node_paths=PackedStringArray("controller")]
 script = ExtResource("7_832ik")
-player = NodePath("..")
+controller = NodePath("..")
 
 [node name="PlayerInteractor" parent="." node_paths=PackedStringArray("player") instance=ExtResource("8_qcnlv")]
 monitorable = true
