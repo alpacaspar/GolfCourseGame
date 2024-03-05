@@ -7,6 +7,8 @@ var active: bool = false
 @export var sequence_resource: ResourceLoadingHandler
 @export var extended_visuals: Control
 
+@export var sequencer_functionality: SequencerFunctionality
+
 var size_threshhold = 300.0
 
 
@@ -27,6 +29,9 @@ func _process(delta):
 	else:
 		extended_visuals.visible = false
 
+	#print(get_local_mouse_position())
+
 
 func cleanup():
+	sequencer_functionality.cleanup()
 	active = false

@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://mul03t3vjpxt"]
+
+[ext_resource type="Script" path="res://addons/cutscene_sequencer/ui/option_button.gd" id="1_in2j6"]
+
+[node name="Option" type="HBoxContainer" node_paths=PackedStringArray("move_button", "remove_button")]
+script = ExtResource("1_in2j6")
+move_button = NodePath("TextureRect")
+remove_button = NodePath("TextureRect2")
+
+[node name="ItemList" type="LineEdit" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect" type="Button" parent="."]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="TextureRect2" type="Button" parent="."]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+text = "X"

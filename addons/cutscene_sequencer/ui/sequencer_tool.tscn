@@ -1,10 +1,24 @@
-[gd_scene load_steps=6 format=3 uid="uid://1i06d8cxpb6h"]
+[gd_scene load_steps=15 format=3 uid="uid://1i06d8cxpb6h"]
 
 [ext_resource type="Script" path="res://addons/cutscene_sequencer/ui/sequencer_tool_ui.gd" id="1_lpnir"]
 [ext_resource type="Script" path="res://addons/cutscene_sequencer/ui/resource_holder.gd" id="2_xayej"]
+[ext_resource type="Script" path="res://addons/cutscene_sequencer/ui/option_list.gd" id="3_mckfe"]
+[ext_resource type="Texture2D" uid="uid://dfspa0f55imyc" path="res://icon.svg" id="3_omx0k"]
+[ext_resource type="PackedScene" uid="uid://mul03t3vjpxt" path="res://addons/cutscene_sequencer/ui/option.tscn" id="4_0d4t2"]
+[ext_resource type="Script" path="res://addons/cutscene_sequencer/ui/sequencer_functionality.gd" id="5_ox6dj"]
+[ext_resource type="Script" path="res://addons/cutscene_sequencer/ui/timeline_functionality.gd" id="7_8vutc"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_yqrvg"]
 font_size = 12
+
+[sub_resource type="LabelSettings" id="LabelSettings_7ixq0"]
+font_size = 18
+
+[sub_resource type="LabelSettings" id="LabelSettings_yshds"]
+font_size = 24
+
+[sub_resource type="LabelSettings" id="LabelSettings_m6l17"]
+font_size = 8
 
 [sub_resource type="LabelSettings" id="LabelSettings_oq6gv"]
 font_size = 12
@@ -14,7 +28,10 @@ bg_color = Color(1, 0.0117647, 0.137255, 1)
 border_width_left = 1
 border_color = Color(1, 0.0117647, 0.137255, 1)
 
-[node name="SequencerTool" type="Control" node_paths=PackedStringArray("sequence_resource", "extended_visuals")]
+[sub_resource type="LabelSettings" id="LabelSettings_nmv6j"]
+font_size = 32
+
+[node name="SequencerTool" type="Control" node_paths=PackedStringArray("sequence_resource", "extended_visuals", "sequencer_functionality")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -22,8 +39,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_lpnir")
-sequence_resource = NodePath("FullView/SequencerUI/HBoxContainer/Panel/VBoxContainer/Resource Holder")
+sequence_resource = NodePath("FullView/VBoxContainer/UpperPortion/Panel/PanelContainer/VBoxContainer/Resource Holder")
 extended_visuals = NodePath("FullView/VBoxContainer/UpperPortion")
+sequencer_functionality = NodePath("FullView/SequencerUI")
 
 [node name="FullView" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -45,9 +63,20 @@ size_flags_vertical = 3
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Panel" type="Panel" parent="FullView/VBoxContainer/UpperPortion/Panel"]
+[node name="Panel" type="VBoxContainer" parent="FullView/VBoxContainer/UpperPortion/Panel"]
 layout_mode = 2
 size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="FullView/VBoxContainer/UpperPortion/Panel/Panel"]
+layout_mode = 2
+text = "Node Editing"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="FullView/VBoxContainer/UpperPortion/Panel/Panel"]
+layout_mode = 2
+
+[node name="HSeparator" type="HSeparator" parent="FullView/VBoxContainer/UpperPortion/Panel"]
+layout_mode = 2
 
 [node name="PanelContainer" type="PanelContainer" parent="FullView/VBoxContainer/UpperPortion/Panel"]
 layout_mode = 2
@@ -59,6 +88,21 @@ layout_mode = 2
 layout_mode = 2
 text = "Resource Control"
 horizontal_alignment = 1
+
+[node name="HSeparator3" type="HSeparator" parent="FullView/VBoxContainer/UpperPortion/Panel/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="FullView/VBoxContainer/UpperPortion/Panel/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="FullView/VBoxContainer/UpperPortion/Panel/PanelContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "Name"
+
+[node name="LineEdit" type="LineEdit" parent="FullView/VBoxContainer/UpperPortion/Panel/PanelContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "Sequence Name..."
 
 [node name="HSeparator" type="HSeparator" parent="FullView/VBoxContainer/UpperPortion/Panel/PanelContainer/VBoxContainer"]
 layout_mode = 2
@@ -98,7 +142,7 @@ text = "Save as..."
 [node name="VBoxContainer" type="VBoxContainer" parent="FullView/VBoxContainer/UpperPortion"]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_stretch_ratio = 5.8
+size_flags_stretch_ratio = 4.78
 
 [node name="Panel" type="Panel" parent="FullView/VBoxContainer/UpperPortion/VBoxContainer"]
 custom_minimum_size = Vector2(0, 30)
@@ -109,20 +153,98 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 5.8
-scroll_offset = Vector2(0, -30)
+scroll_offset = Vector2(-129, -394)
+
+[node name="GraphNode" type="GraphNode" parent="FullView/VBoxContainer/UpperPortion/VBoxContainer/Panel2"]
+layout_mode = 0
+offset_left = 330.0
+offset_top = 137.0
+offset_right = 468.0
+offset_bottom = 335.0
+mouse_filter = 1
+position_offset = Vector2(201, -257)
+title = "This Node"
+
+[node name="Panel2" type="VBoxContainer" parent="FullView/VBoxContainer/UpperPortion"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Panel" type="Panel" parent="FullView/VBoxContainer/UpperPortion/Panel2"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Panel" type="VBoxContainer" parent="FullView/VBoxContainer/UpperPortion/Panel2/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="FullView/VBoxContainer/UpperPortion/Panel2/Panel/Panel"]
+layout_mode = 2
+text = "Node Editing"
+label_settings = SubResource("LabelSettings_7ixq0")
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="FullView/VBoxContainer/UpperPortion/Panel2/Panel/Panel"]
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="FullView/VBoxContainer/UpperPortion/Panel2/Panel/Panel"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="FullView/VBoxContainer/UpperPortion/Panel2/Panel/Panel/HBoxContainer2"]
+layout_mode = 2
+text = "Name"
+
+[node name="LineEdit" type="LineEdit" parent="FullView/VBoxContainer/UpperPortion/Panel2/Panel/Panel/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "Note Name..."
+
+[node name="HSeparator2" type="HSeparator" parent="FullView/VBoxContainer/UpperPortion/Panel2/Panel/Panel"]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="FullView/VBoxContainer/UpperPortion/Panel2"]
+layout_mode = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="FullView/VBoxContainer/UpperPortion/Panel2"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="OptionWindow" type="VBoxContainer" parent="FullView/VBoxContainer/UpperPortion/Panel2/VBoxContainer2" node_paths=PackedStringArray("option_holder", "add_option_button")]
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("3_mckfe")
+option_scene = ExtResource("4_0d4t2")
+option_holder = NodePath(".")
+add_option_button = NodePath("../AddOptionButton")
+
+[node name="Label2" type="Label" parent="FullView/VBoxContainer/UpperPortion/Panel2/VBoxContainer2/OptionWindow"]
+layout_mode = 2
+text = " Options"
+
+[node name="AddOptionButton" type="Button" parent="FullView/VBoxContainer/UpperPortion/Panel2/VBoxContainer2"]
+layout_mode = 2
+text = "+ Add New Option"
 
 [node name="HSeparator" type="HSeparator" parent="FullView/VBoxContainer"]
 layout_mode = 2
 
-[node name="SequencerUI" type="VBoxContainer" parent="FullView"]
+[node name="SequencerUI" type="VBoxContainer" parent="FullView" node_paths=PackedStringArray("timeline_slider", "timeline_line")]
 custom_minimum_size = Vector2(0, 208)
 layout_mode = 2
+script = ExtResource("5_ox6dj")
+timeline_slider = NodePath("HBoxContainer/VBoxContainer/VBoxContainer/HBoxContainer/Panel2")
+timeline_line = NodePath("../../Timeline")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="FullView/SequencerUI"]
 layout_mode = 2
 size_flags_vertical = 3
 
 [node name="Panel" type="PanelContainer" parent="FullView/SequencerUI/HBoxContainer"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 
@@ -131,7 +253,7 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="FullView/SequencerUI/HBoxContainer/Panel/VBoxContainer"]
 layout_mode = 2
-text = "Resource Control"
+text = "Node Settings"
 horizontal_alignment = 1
 
 [node name="HSeparator" type="HSeparator" parent="FullView/SequencerUI/HBoxContainer/Panel/VBoxContainer"]
@@ -148,7 +270,7 @@ text = "Load
 
 [node name="Label2" type="Label" parent="FullView/SequencerUI/HBoxContainer/Panel/VBoxContainer"]
 layout_mode = 2
-text = "Loading will remove all current data."
+text = "Loading will remove all unsaved data."
 label_settings = SubResource("LabelSettings_yqrvg")
 horizontal_alignment = 1
 autowrap_mode = 3
@@ -180,32 +302,121 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 4.0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="FullView/SequencerUI/HBoxContainer/VBoxContainer/Panel3"]
-layout_mode = 2
-alignment = 1
-
-[node name="Button" type="Button" parent="FullView/SequencerUI/HBoxContainer/VBoxContainer/Panel3/HBoxContainer"]
+[node name="Button" type="Button" parent="FullView/SequencerUI/HBoxContainer/VBoxContainer/Panel3"]
 custom_minimum_size = Vector2(30, 0)
 layout_mode = 2
 
-[node name="Button2" type="Button" parent="FullView/SequencerUI/HBoxContainer/VBoxContainer/Panel3/HBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="FullView/SequencerUI/HBoxContainer/VBoxContainer/Panel3/Button"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_omx0k")
+expand_mode = 2
+
+[node name="Button2" type="Button" parent="FullView/SequencerUI/HBoxContainer/VBoxContainer/Panel3"]
 custom_minimum_size = Vector2(30, 0)
 layout_mode = 2
 
-[node name="Button3" type="Button" parent="FullView/SequencerUI/HBoxContainer/VBoxContainer/Panel3/HBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="FullView/SequencerUI/HBoxContainer/VBoxContainer/Panel3/Button2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_omx0k")
+expand_mode = 2
+
+[node name="Button5" type="Button" parent="FullView/SequencerUI/HBoxContainer/VBoxContainer/Panel3"]
 custom_minimum_size = Vector2(30, 0)
 layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="FullView/SequencerUI/HBoxContainer/VBoxContainer/Panel3/Button5"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_omx0k")
+expand_mode = 2
+
+[node name="Button6" type="Button" parent="FullView/SequencerUI/HBoxContainer/VBoxContainer/Panel3"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="FullView/SequencerUI/HBoxContainer/VBoxContainer/Panel3/Button6"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_omx0k")
+expand_mode = 2
+
+[node name="Button3" type="Button" parent="FullView/SequencerUI/HBoxContainer/VBoxContainer/Panel3"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="FullView/SequencerUI/HBoxContainer/VBoxContainer/Panel3/Button3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_omx0k")
+expand_mode = 2
 
 [node name="VSeparator" type="VSeparator" parent="FullView/SequencerUI/HBoxContainer/VBoxContainer/Panel3"]
 layout_mode = 2
 
-[node name="Panel2" type="Panel" parent="FullView/SequencerUI/HBoxContainer/VBoxContainer/Panel3"]
+[node name="Label" type="Label" parent="FullView/SequencerUI/HBoxContainer/VBoxContainer/Panel3"]
+layout_mode = 2
+text = "Sequence"
+
+[node name="Panel2" type="OptionButton" parent="FullView/SequencerUI/HBoxContainer/VBoxContainer/Panel3"]
 layout_mode = 2
 size_flags_horizontal = 3
+
+[node name="VSeparator2" type="VSeparator" parent="FullView/SequencerUI/HBoxContainer/VBoxContainer/Panel3"]
+layout_mode = 2
+
+[node name="Button4" type="Button" parent="FullView/SequencerUI/HBoxContainer/VBoxContainer/Panel3"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="FullView/SequencerUI/HBoxContainer/VBoxContainer/Panel3/Button4"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_omx0k")
+expand_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="FullView/SequencerUI/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="FullView/SequencerUI/HBoxContainer/VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 15)
+layout_mode = 2
+
+[node name="Panel" type="PanelContainer" parent="FullView/SequencerUI/HBoxContainer/VBoxContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(104, 0)
+layout_mode = 2
+
+[node name="Panel2" type="HSlider" parent="FullView/SequencerUI/HBoxContainer/VBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 841.0
+value = 1.0
 
 [node name="Panel3" type="HBoxContainer" parent="FullView/SequencerUI/HBoxContainer/VBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 20)
@@ -213,6 +424,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 4.0
+script = ExtResource("7_8vutc")
 
 [node name="Panel" type="Panel" parent="FullView/SequencerUI/HBoxContainer/VBoxContainer/VBoxContainer/Panel3"]
 custom_minimum_size = Vector2(85, 0)
@@ -232,6 +444,22 @@ vertical_alignment = 1
 [node name="HideCamera" type="Button" parent="FullView/SequencerUI/HBoxContainer/VBoxContainer/VBoxContainer/Panel3"]
 custom_minimum_size = Vector2(15, 0)
 layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="FullView/SequencerUI/HBoxContainer/VBoxContainer/VBoxContainer/Panel3/HideCamera"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -7.5
+offset_top = -6.5
+offset_right = 7.5
+offset_bottom = 8.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_omx0k")
+expand_mode = 2
 
 [node name="Panel2" type="Panel" parent="FullView/SequencerUI/HBoxContainer/VBoxContainer/VBoxContainer/Panel3"]
 layout_mode = 2
@@ -263,6 +491,22 @@ vertical_alignment = 1
 custom_minimum_size = Vector2(15, 0)
 layout_mode = 2
 
+[node name="TextureRect" type="TextureRect" parent="FullView/SequencerUI/HBoxContainer/VBoxContainer/VBoxContainer/Panel4/HideDialogueButton"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -7.5
+offset_top = -6.5
+offset_right = 7.5
+offset_bottom = 8.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_omx0k")
+expand_mode = 2
+
 [node name="Panel2" type="Panel" parent="FullView/SequencerUI/HBoxContainer/VBoxContainer/VBoxContainer/Panel4"]
 layout_mode = 2
 size_flags_horizontal = 3
@@ -293,6 +537,22 @@ vertical_alignment = 1
 custom_minimum_size = Vector2(15, 0)
 layout_mode = 2
 
+[node name="TextureRect" type="TextureRect" parent="FullView/SequencerUI/HBoxContainer/VBoxContainer/VBoxContainer/Panel5/HideEventsButton"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -7.5
+offset_top = -6.5
+offset_right = 7.5
+offset_bottom = 8.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_omx0k")
+expand_mode = 2
+
 [node name="Panel2" type="Panel" parent="FullView/SequencerUI/HBoxContainer/VBoxContainer/VBoxContainer/Panel5"]
 layout_mode = 2
 size_flags_horizontal = 3
@@ -301,21 +561,139 @@ size_flags_horizontal = 3
 layout_mode = 2
 size_flags_horizontal = 3
 
+[node name="CameraContainer" type="VBoxContainer" parent="FullView/SequencerUI/HBoxContainer/Panel3"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="FullView/SequencerUI/HBoxContainer/Panel3/CameraContainer"]
+layout_mode = 2
+text = "Camera"
+label_settings = SubResource("LabelSettings_yshds")
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="FullView/SequencerUI/HBoxContainer/Panel3/CameraContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="FullView/SequencerUI/HBoxContainer/Panel3/CameraContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="FullView/SequencerUI/HBoxContainer/Panel3/CameraContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Duration: 34s"
+label_settings = SubResource("LabelSettings_m6l17")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="FullView/SequencerUI/HBoxContainer/Panel3/CameraContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "A"
+label_settings = SubResource("LabelSettings_m6l17")
+horizontal_alignment = 1
+
+[node name="HSeparator2" type="HSeparator" parent="FullView/SequencerUI/HBoxContainer/Panel3/CameraContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="FullView/SequencerUI/HBoxContainer/Panel3/CameraContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="FullView/SequencerUI/HBoxContainer/Panel3/CameraContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Start Zoom"
+
+[node name="SpinBox" type="SpinBox" parent="FullView/SequencerUI/HBoxContainer/Panel3/CameraContainer/HBoxContainer3"]
+layout_mode = 2
+min_value = 1.0
+value = 1.0
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="FullView/SequencerUI/HBoxContainer/Panel3/CameraContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="FullView/SequencerUI/HBoxContainer/Panel3/CameraContainer/HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "End Zoom"
+
+[node name="SpinBox" type="SpinBox" parent="FullView/SequencerUI/HBoxContainer/Panel3/CameraContainer/HBoxContainer4"]
+layout_mode = 2
+min_value = 1.0
+value = 1.0
+
+[node name="HSeparator3" type="HSeparator" parent="FullView/SequencerUI/HBoxContainer/Panel3/CameraContainer"]
+layout_mode = 2
+
+[node name="OptionButton" type="OptionButton" parent="FullView/SequencerUI/HBoxContainer/Panel3/CameraContainer"]
+layout_mode = 2
+item_count = 2
+selected = 0
+popup/item_0/text = "Single Postion"
+popup/item_0/id = 0
+popup/item_1/text = "Path"
+popup/item_1/id = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="FullView/SequencerUI/HBoxContainer/Panel3/CameraContainer"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="FullView/SequencerUI/HBoxContainer/Panel3/CameraContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Edit"
+
+[node name="Button2" type="Button" parent="FullView/SequencerUI/HBoxContainer/Panel3/CameraContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Save as..."
+
 [node name="DialogueContainer" type="VBoxContainer" parent="FullView/SequencerUI/HBoxContainer/Panel3"]
+visible = false
 layout_mode = 2
 
 [node name="Label" type="Label" parent="FullView/SequencerUI/HBoxContainer/Panel3/DialogueContainer"]
 layout_mode = 2
 text = "Dialogue"
+label_settings = SubResource("LabelSettings_yshds")
 horizontal_alignment = 1
 
 [node name="HSeparator" type="HSeparator" parent="FullView/SequencerUI/HBoxContainer/Panel3/DialogueContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="FullView/SequencerUI/HBoxContainer/Panel3/DialogueContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="FullView/SequencerUI/HBoxContainer/Panel3/DialogueContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Duration: 34s"
+label_settings = SubResource("LabelSettings_m6l17")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="FullView/SequencerUI/HBoxContainer/Panel3/DialogueContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "A"
+label_settings = SubResource("LabelSettings_m6l17")
+horizontal_alignment = 1
+
+[node name="HSeparator2" type="HSeparator" parent="FullView/SequencerUI/HBoxContainer/Panel3/DialogueContainer"]
 layout_mode = 2
 
 [node name="TextEdit" type="TextEdit" parent="FullView/SequencerUI/HBoxContainer/Panel3/DialogueContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 wrap_mode = 1
+
+[node name="EventContainer" type="VBoxContainer" parent="FullView/SequencerUI/HBoxContainer/Panel3"]
+visible = false
+layout_mode = 2
+
+[node name="Label" type="Label" parent="FullView/SequencerUI/HBoxContainer/Panel3/EventContainer"]
+layout_mode = 2
+text = "Event"
+label_settings = SubResource("LabelSettings_yshds")
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="FullView/SequencerUI/HBoxContainer/Panel3/EventContainer"]
+layout_mode = 2
 
 [node name="Panel" type="Panel" parent="FullView/SequencerUI"]
 visible = false
@@ -340,15 +718,27 @@ label_settings = SubResource("LabelSettings_oq6gv")
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="VSeparator" type="VSeparator" parent="."]
+[node name="Timeline" type="VSeparator" parent="."]
 layout_mode = 2
-anchor_left = 0.5
 anchor_top = 1.0
-anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -304.0
-offset_top = -209.0
-offset_right = -284.0
-offset_bottom = -20.0
+offset_left = 100.0
+offset_top = -182.0
+offset_right = 120.0
 theme_override_constants/separation = 20
 theme_override_styles/separator = SubResource("StyleBoxFlat_nbcg7")
+
+[node name="Error" type="Label" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -175.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Select a node to start editing"
+label_settings = SubResource("LabelSettings_nmv6j")
+horizontal_alignment = 1
+vertical_alignment = 1
