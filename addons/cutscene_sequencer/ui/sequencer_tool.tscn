@@ -245,55 +245,8 @@ timeline_line = NodePath("../../Timeline")
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Panel" type="PanelContainer" parent="FullView/SequencerUI/HBoxContainer"]
-visible = false
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="VBoxContainer" type="VBoxContainer" parent="FullView/SequencerUI/HBoxContainer/Panel"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="FullView/SequencerUI/HBoxContainer/Panel/VBoxContainer"]
-layout_mode = 2
-text = "Node Settings"
-horizontal_alignment = 1
-
-[node name="HSeparator" type="HSeparator" parent="FullView/SequencerUI/HBoxContainer/Panel/VBoxContainer"]
-layout_mode = 2
-
-[node name="Resource Holder" type="PanelContainer" parent="FullView/SequencerUI/HBoxContainer/Panel/VBoxContainer"]
-layout_mode = 2
-script = ExtResource("2_xayej")
-
-[node name="Button" type="Button" parent="FullView/SequencerUI/HBoxContainer/Panel/VBoxContainer"]
-layout_mode = 2
-text = "Load
-"
-
-[node name="Label2" type="Label" parent="FullView/SequencerUI/HBoxContainer/Panel/VBoxContainer"]
-layout_mode = 2
-text = "Loading will remove all unsaved data."
-label_settings = SubResource("LabelSettings_yqrvg")
-horizontal_alignment = 1
-autowrap_mode = 3
-
-[node name="HSeparator2" type="HSeparator" parent="FullView/SequencerUI/HBoxContainer/Panel/VBoxContainer"]
-layout_mode = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="FullView/SequencerUI/HBoxContainer/Panel/VBoxContainer"]
-layout_mode = 2
-
-[node name="Button" type="Button" parent="FullView/SequencerUI/HBoxContainer/Panel/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Save"
-
-[node name="Button2" type="Button" parent="FullView/SequencerUI/HBoxContainer/Panel/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Save as..."
-
 [node name="VBoxContainer" type="VBoxContainer" parent="FullView/SequencerUI/HBoxContainer"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 4.78
@@ -564,6 +517,13 @@ expand_mode = 2
 layout_mode = 2
 size_flags_horizontal = 3
 
+[node name="GraphEdit" type="GraphEdit" parent="FullView/SequencerUI/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 4.78
+minimap_enabled = false
+show_menu = false
+
 [node name="Panel3" type="PanelContainer" parent="FullView/SequencerUI/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
@@ -726,6 +686,7 @@ horizontal_alignment = 2
 vertical_alignment = 1
 
 [node name="Timeline" type="VSeparator" parent="."]
+visible = false
 layout_mode = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
