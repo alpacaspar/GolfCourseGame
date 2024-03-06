@@ -246,7 +246,6 @@ layout_mode = 2
 size_flags_vertical = 3
 
 [node name="VBoxContainer" type="VBoxContainer" parent="FullView/SequencerUI/HBoxContainer"]
-visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 4.78
@@ -518,9 +517,11 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="GraphEdit" type="GraphEdit" parent="FullView/SequencerUI/HBoxContainer"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 4.78
+scroll_offset = Vector2(0, -19)
 minimap_enabled = false
 show_menu = false
 
