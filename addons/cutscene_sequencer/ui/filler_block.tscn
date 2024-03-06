@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://sepd5fnrdl8h"]
+
+[ext_resource type="Script" path="res://addons/cutscene_sequencer/ui/sequence_block.gd" id="1_tgnnp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4qjsy"]
+bg_color = Color(0.117647, 0.117647, 0.117647, 1)
+
+[node name="FillerBlock" type="Button" node_paths=PackedStringArray("left_grabber", "right_grabber", "dialog_label")]
+offset_right = 300.0
+offset_bottom = 50.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_colors/icon_normal_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_4qjsy")
+script = ExtResource("1_tgnnp")
+left_grabber = NodePath("")
+right_grabber = NodePath("")
+dialog_label = NodePath("")

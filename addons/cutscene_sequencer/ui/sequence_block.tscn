@@ -1,0 +1,48 @@
+[gd_scene load_steps=4 format=3 uid="uid://bc82sewgbqu3q"]
+
+[ext_resource type="Script" path="res://addons/cutscene_sequencer/ui/sequence_block.gd" id="1_i1njx"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4qjsy"]
+bg_color = Color(0.117647, 0.368627, 0.247059, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_mdepb"]
+font_size = 8
+
+[node name="SequenceBlock" type="Button" node_paths=PackedStringArray("left_grabber", "right_grabber", "dialog_label")]
+offset_right = 300.0
+offset_bottom = 50.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_colors/icon_normal_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_4qjsy")
+script = ExtResource("1_i1njx")
+left_grabber = NodePath("HBoxContainer/LeftGrabber")
+right_grabber = NodePath("HBoxContainer/RightGrabber")
+dialog_label = NodePath("HBoxContainer/MarginContainer/Label")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LeftGrabber" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="HBoxContainer/MarginContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+text = "This is placeholder text for the dialog system"
+label_settings = SubResource("LabelSettings_mdepb")
+autowrap_mode = 2
+
+[node name="RightGrabber" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2

@@ -29,8 +29,6 @@ func _process(delta):
 	else:
 		extended_visuals.visible = false
 
-	#print(get_local_mouse_position())
-
 
 func cleanup():
 	sequencer_functionality.cleanup()

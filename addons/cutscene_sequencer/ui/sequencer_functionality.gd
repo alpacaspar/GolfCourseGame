@@ -3,6 +3,7 @@ class_name SequencerFunctionality
 extends Control
 
 
+
 var active: bool = false
 
 @export var camera_window: Control
@@ -32,9 +33,20 @@ func _process(delta):
 	if not active:
 		return
 
+	_check_size_changed()
+
 	timeline_line.position.x = (timeline_slider.value * .99) + 104
 	slider_value = timeline_slider.value / timeline_slider.max_value
 
+
+@onready var last_size: Vector2 = size
+func _check_size_changed():
+	if size != last_size:
+		timeline_slider.min_value = 0
+		timeline_slider.step = timeline_slider.size.x / 60
+		timeline_slider.max_value = timeline_slider.size.x
+		last_size = size
+	
 
 func cleanup():
 	active = false

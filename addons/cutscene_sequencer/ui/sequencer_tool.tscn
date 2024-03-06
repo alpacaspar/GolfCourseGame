@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://1i06d8cxpb6h"]
+[gd_scene load_steps=17 format=3 uid="uid://1i06d8cxpb6h"]
 
 [ext_resource type="Script" path="res://addons/cutscene_sequencer/ui/sequencer_tool_ui.gd" id="1_lpnir"]
 [ext_resource type="Script" path="res://addons/cutscene_sequencer/ui/resource_holder.gd" id="2_xayej"]
@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://mul03t3vjpxt" path="res://addons/cutscene_sequencer/ui/option.tscn" id="4_0d4t2"]
 [ext_resource type="Script" path="res://addons/cutscene_sequencer/ui/sequencer_functionality.gd" id="5_ox6dj"]
 [ext_resource type="Script" path="res://addons/cutscene_sequencer/ui/timeline_functionality.gd" id="7_8vutc"]
+[ext_resource type="PackedScene" uid="uid://bc82sewgbqu3q" path="res://addons/cutscene_sequencer/ui/sequence_block.tscn" id="8_ylqfd"]
+[ext_resource type="PackedScene" uid="uid://sepd5fnrdl8h" path="res://addons/cutscene_sequencer/ui/filler_block.tscn" id="9_f3q4f"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_yqrvg"]
 font_size = 12
@@ -153,14 +155,14 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 5.8
-scroll_offset = Vector2(-129, -394)
+scroll_offset = Vector2(0, -549)
 
 [node name="GraphNode" type="GraphNode" parent="FullView/VBoxContainer/UpperPortion/VBoxContainer/Panel2"]
 layout_mode = 0
-offset_left = 330.0
-offset_top = 137.0
-offset_right = 468.0
-offset_bottom = 335.0
+offset_left = 201.0
+offset_top = 292.0
+offset_right = 339.0
+offset_bottom = 490.0
 mouse_filter = 1
 position_offset = Vector2(201, -257)
 title = "This Node"
@@ -416,15 +418,19 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 3
 max_value = 841.0
+step = 14.0167
 value = 1.0
 
-[node name="Panel3" type="HBoxContainer" parent="FullView/SequencerUI/HBoxContainer/VBoxContainer/VBoxContainer"]
+[node name="Panel3" type="HBoxContainer" parent="FullView/SequencerUI/HBoxContainer/VBoxContainer/VBoxContainer" node_paths=PackedStringArray("block_parent")]
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 4.0
 script = ExtResource("7_8vutc")
+block_parent = NodePath("HBoxContainer")
+sequence_block_prefab = ExtResource("8_ylqfd")
+filler_block_prefab = ExtResource("9_f3q4f")
 
 [node name="Panel" type="Panel" parent="FullView/SequencerUI/HBoxContainer/VBoxContainer/VBoxContainer/Panel3"]
 custom_minimum_size = Vector2(85, 0)
@@ -461,9 +467,10 @@ grow_vertical = 2
 texture = ExtResource("3_omx0k")
 expand_mode = 2
 
-[node name="Panel2" type="Panel" parent="FullView/SequencerUI/HBoxContainer/VBoxContainer/VBoxContainer/Panel3"]
+[node name="HBoxContainer" type="HBoxContainer" parent="FullView/SequencerUI/HBoxContainer/VBoxContainer/VBoxContainer/Panel3"]
 layout_mode = 2
 size_flags_horizontal = 3
+alignment = 1
 
 [node name="Panel4" type="HBoxContainer" parent="FullView/SequencerUI/HBoxContainer/VBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 20)
@@ -722,9 +729,9 @@ vertical_alignment = 1
 layout_mode = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 100.0
+offset_left = 104.99
 offset_top = -182.0
-offset_right = 120.0
+offset_right = 124.99
 theme_override_constants/separation = 20
 theme_override_styles/separator = SubResource("StyleBoxFlat_nbcg7")
 
