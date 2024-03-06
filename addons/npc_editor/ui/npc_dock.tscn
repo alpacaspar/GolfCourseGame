@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dywmn4tambxpc"]
+[gd_scene load_steps=15 format=3 uid="uid://dywmn4tambxpc"]
 
 [ext_resource type="ButtonGroup" uid="uid://l5gir5351irf" path="res://addons/npc_editor/button_groups/eye_group.tres" id="1_gulxh"]
 [ext_resource type="Script" path="res://addons/npc_editor/ui/npc_dock.gd" id="1_mwd3g"]
@@ -10,6 +10,7 @@
 [ext_resource type="ButtonGroup" uid="uid://i5g7pvbaaytj" path="res://addons/npc_editor/button_groups/hair_group.tres" id="5_j2yxv"]
 [ext_resource type="ButtonGroup" uid="uid://cs1engfbu44j" path="res://addons/npc_editor/button_groups/accessory_group.tres" id="6_4v3tu"]
 [ext_resource type="LabelSettings" uid="uid://y18aqn0x2wop" path="res://addons/npc_editor/ui/error_label.tres" id="10_3kivo"]
+[ext_resource type="ButtonGroup" uid="uid://dkcjbcgbwp8bm" path="res://addons/npc_editor/button_groups/ear_group.tres" id="10_t6pqv"]
 [ext_resource type="Texture2D" uid="uid://c3hcdbvgeihu3" path="res://addons/npc_editor/ui/Error_icon.png" id="10_umshq"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_dt0a8"]
@@ -50,6 +51,7 @@ error_display = NodePath("../VBoxContainer/VBoxContainer/HBoxContainer/Panel/VBo
 error_icon = NodePath("../VBoxContainer/VBoxContainer/HBoxContainer/Panel/VBoxContainer/HBoxContainer/TextureRect")
 eyes_button_group = ExtResource("1_gulxh")
 noses_button_group = ExtResource("3_u22ul")
+ears_button_group = ExtResource("10_t6pqv")
 mouths_button_group = ExtResource("4_n1fok")
 hair_button_group = ExtResource("5_j2yxv")
 accessories_button_group = ExtResource("6_4v3tu")
@@ -373,6 +375,128 @@ button_group = ExtResource("3_u22ul")
 texture_normal = ExtResource("1_qkgog")
 
 [node name="ReferenceRect" type="ReferenceRect" parent="VBoxContainer/NPCEditor/VBoxContainer/NosePicker"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+border_color = Color(1, 0, 0, 0)
+
+[node name="EarPicker" type="HBoxContainer" parent="VBoxContainer/NPCEditor/VBoxContainer"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+size_flags_stretch_ratio = 1.25
+alignment = 1
+
+[node name="ReferenceRect2" type="ReferenceRect" parent="VBoxContainer/NPCEditor/VBoxContainer/EarPicker"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+border_color = Color(1, 0, 0, 0)
+
+[node name="Label" type="Label" parent="VBoxContainer/NPCEditor/VBoxContainer/EarPicker"]
+custom_minimum_size = Vector2(85, 0)
+layout_mode = 2
+text = "Ear"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/NPCEditor/VBoxContainer/EarPicker"]
+layout_mode = 2
+size_flags_horizontal = 3
+horizontal_scroll_mode = 2
+vertical_scroll_mode = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/NPCEditor/VBoxContainer/EarPicker/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Control" type="Control" parent="VBoxContainer/NPCEditor/VBoxContainer/EarPicker/ScrollContainer/HBoxContainer"]
+custom_minimum_size = Vector2(72, 0)
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="VBoxContainer/NPCEditor/VBoxContainer/EarPicker/ScrollContainer/HBoxContainer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 56.0
+offset_bottom = 56.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.55, 0.55)
+toggle_mode = true
+button_group = ExtResource("10_t6pqv")
+texture_normal = ExtResource("1_qkgog")
+
+[node name="Control2" type="Control" parent="VBoxContainer/NPCEditor/VBoxContainer/EarPicker/ScrollContainer/HBoxContainer"]
+custom_minimum_size = Vector2(72, 0)
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="VBoxContainer/NPCEditor/VBoxContainer/EarPicker/ScrollContainer/HBoxContainer/Control2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 56.0
+offset_bottom = 56.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.55, 0.55)
+toggle_mode = true
+button_group = ExtResource("10_t6pqv")
+texture_normal = ExtResource("1_qkgog")
+
+[node name="Control3" type="Control" parent="VBoxContainer/NPCEditor/VBoxContainer/EarPicker/ScrollContainer/HBoxContainer"]
+custom_minimum_size = Vector2(72, 0)
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="VBoxContainer/NPCEditor/VBoxContainer/EarPicker/ScrollContainer/HBoxContainer/Control3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 56.0
+offset_bottom = 56.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.55, 0.55)
+toggle_mode = true
+button_group = ExtResource("10_t6pqv")
+texture_normal = ExtResource("1_qkgog")
+
+[node name="Control4" type="Control" parent="VBoxContainer/NPCEditor/VBoxContainer/EarPicker/ScrollContainer/HBoxContainer"]
+custom_minimum_size = Vector2(72, 0)
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="VBoxContainer/NPCEditor/VBoxContainer/EarPicker/ScrollContainer/HBoxContainer/Control4"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 56.0
+offset_bottom = 56.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.55, 0.55)
+toggle_mode = true
+button_group = ExtResource("10_t6pqv")
+texture_normal = ExtResource("1_qkgog")
+
+[node name="Control5" type="Control" parent="VBoxContainer/NPCEditor/VBoxContainer/EarPicker/ScrollContainer/HBoxContainer"]
+custom_minimum_size = Vector2(72, 0)
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="VBoxContainer/NPCEditor/VBoxContainer/EarPicker/ScrollContainer/HBoxContainer/Control5"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 56.0
+offset_bottom = 56.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.55, 0.55)
+toggle_mode = true
+button_group = ExtResource("10_t6pqv")
+texture_normal = ExtResource("1_qkgog")
+
+[node name="ReferenceRect" type="ReferenceRect" parent="VBoxContainer/NPCEditor/VBoxContainer/EarPicker"]
 custom_minimum_size = Vector2(10, 0)
 layout_mode = 2
 border_color = Color(1, 0, 0, 0)

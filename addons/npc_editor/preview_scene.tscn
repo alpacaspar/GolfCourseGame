@@ -1,18 +1,20 @@
 [gd_scene load_steps=4 format=3 uid="uid://drbf0w6m221vm"]
 
 [ext_resource type="Script" path="res://addons/npc_editor/preview_spawner.gd" id="1_yw5ff"]
-[ext_resource type="PackedScene" uid="uid://c41is6oaogfuw" path="res://addons/npc_editor/playerholder_npc.tscn" id="2_xrhhw"]
+[ext_resource type="PackedScene" uid="uid://cdh3hkt0sfd8y" path="res://common/character_factory/character_factory.tscn" id="2_6ccju"]
 
 [sub_resource type="Environment" id="Environment_pbqkr"]
 ambient_light_color = Color(0, 0, 0, 0)
 
-[node name="PreviewScene" type="Node3D" node_paths=PackedStringArray("viewport", "preview_cam", "zoom_holder", "unzoom_holder")]
+[node name="PreviewScene" type="Node3D" node_paths=PackedStringArray("character_factory", "viewport", "preview_cam", "zoom_holder", "unzoom_holder")]
 script = ExtResource("1_yw5ff")
-character_base = ExtResource("2_xrhhw")
+character_factory = NodePath("CharacterFactory")
 viewport = NodePath("SubViewport")
 preview_cam = NodePath("SubViewport/Camera3D")
 zoom_holder = NodePath("ZoomedPosition")
 unzoom_holder = NodePath("UnzoomedPosition")
+
+[node name="CharacterFactory" parent="." instance=ExtResource("2_6ccju")]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.650721, 0.759317, 0, -0.759317, 0.650721, 0, 1.68537, 1.16289)

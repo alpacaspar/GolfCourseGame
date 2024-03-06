@@ -5,7 +5,7 @@ extends Node
 
 var active: bool = false
 
-@export var character_base: PackedScene
+@export var character_factory: CharacterFactory
 
 @export var viewport: SubViewport
 @export var preview_cam: Camera3D
@@ -25,7 +25,7 @@ func _make_ready(_callback: Callable):
 	callback = _callback
 	active = true
 
-	_spawn_character(null)
+	_spawn_character(NPCResource.new())
 
 
 func _process(_delta):
@@ -50,8 +50,8 @@ func _set_zoom(_value := 0.0):
 	preview_cam.position = zoom_holder.position.lerp(unzoom_holder.position, 1 - _value)
 
 
-func _spawn_character(_character_resource: NPCResource):
-	spawned_character = character_base.instantiate()
+func _spawn_character(character_resource: NPCResource):
+	spawned_character = character_factory.spawn_character(character_resource)
 	add_child(spawned_character)
 
 

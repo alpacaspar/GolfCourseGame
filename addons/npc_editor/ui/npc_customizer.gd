@@ -15,6 +15,7 @@ var active: bool = false
 
 @export var eyes_button_group: ButtonGroup
 @export var noses_button_group: ButtonGroup
+@export var ears_button_group: ButtonGroup
 @export var mouths_button_group: ButtonGroup
 @export var hair_button_group: ButtonGroup
 @export var accessories_button_group: ButtonGroup
@@ -41,6 +42,7 @@ func _ready():
 	chin_slider.value_changed.connect(_update_character)
 	_set_button_connections(eyes_button_group)
 	_set_button_connections(noses_button_group)
+	_set_button_connections(ears_button_group)
 	_set_button_connections(mouths_button_group)
 	_set_button_connections(hair_button_group)
 	_set_button_connections(accessories_button_group)
@@ -85,6 +87,7 @@ func _update_character(_value = 0):
 	
 	edited_resource.eye_index = _get_current_index(eyes_button_group)
 	edited_resource.nose_index = _get_current_index(noses_button_group)
+	edited_resource.ear_index = _get_current_index(ears_button_group)
 	edited_resource.mouth_index = _get_current_index(mouths_button_group)
 	edited_resource.hair_index = _get_current_index(hair_button_group)
 	edited_resource.accessory_index = _get_current_index(accessories_button_group)
@@ -99,6 +102,7 @@ func _load():
 
 	_set_button_index(eyes_button_group, _resource.eye_index)
 	_set_button_index(noses_button_group, _resource.nose_index)
+	_set_button_index(ears_button_group, _resource.ear_index)
 	_set_button_index(mouths_button_group, _resource.mouth_index)
 	_set_button_index(hair_button_group, _resource.hair_index)
 	_set_button_index(accessories_button_group, _resource.accessory_index)
