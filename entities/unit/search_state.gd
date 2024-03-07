@@ -16,22 +16,23 @@ func _perform_search():
 	# Safeguard to avoid searching before all nodes are ready.
 	await get_tree().physics_frame
 
-	var target := _find_target()
+	#var target = _find_target()
 
-	if target:
-		print("%s of team %s has found target %s" % [ai_controller.body.golfer_resource.name, ai_controller.body.leader_resource.name, target.golfer_resource.name])
-	else:
-		print("%s of team %s has no target" % [ai_controller.body.golfer_resource.name, ai_controller.body.leader_resource.name])
+	# if target:
+	# 	print("%s of team %s has found target %s" % [ai_controller.body.golfer_resource.name, ai_controller.body.leader_resource.name, target.golfer_resource.name])
+	# else:
+	# 	print("%s of team %s has no target" % [ai_controller.body.golfer_resource.name, ai_controller.body.leader_resource.name])
 
-	if target:
-		fsm_owner.transition_to("GotoState", { "target": target })
+	# if target:
+	# 	fsm_owner.transition_to("GotoState", { "target": target })
 
 
-func _find_target() -> Unit:
-	var opponents := BattleManager.get_opponents(ai_controller.body.leader_resource)
+func _find_target():
+	pass
+	#var opponents := BattleManager.get_opponents(ai_controller.body.leader_resource)
 	#var teammates := BattleManager.get_teammates(ai_controller.body.leader_resource)
 
-	return _find_random_target(opponents)
+	#return _find_random_target(opponents)
 
 	# match body.search_type:
 	# 	body.SearchType.OPPONENT:

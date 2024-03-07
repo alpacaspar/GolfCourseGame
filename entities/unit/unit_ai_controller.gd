@@ -1,8 +1,6 @@
 extends Node3D
 
 
-
-
 @onready var navigation_agent: NavigationAgent3D = $NavigationAgent3D
 @onready var detection_area: DetectionArea3D = $DetectionArea3D
 

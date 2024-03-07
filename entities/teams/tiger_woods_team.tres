@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="TeamResource" load_steps=2 format=3 uid="uid://bqfynn7xbjh4x"]
+
+[ext_resource type="Script" path="res://entities/teams/team_resource.gd" id="1_sadap"]
+
+[resource]
+script = ExtResource("1_sadap")
+members = Array[Resource("res://entities/golfers/golfer_resource.gd")]([])

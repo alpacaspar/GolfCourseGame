@@ -6,8 +6,8 @@
 [ext_resource type="Terrain3DTextureList" uid="uid://dsih680v02hr7" path="res://entities/terrain/terrain_3d_texture_list.tres" id="4_3ux7o"]
 [ext_resource type="PackedScene" uid="uid://bknw3rgmsvj8u" path="res://entities/hole/cup.glb" id="5_0024e"]
 [ext_resource type="Script" path="res://entities/hole/hole.gd" id="6_5b83j"]
-[ext_resource type="Resource" uid="uid://dl31ic8xbffso" path="res://entities/golfers/rivals/player_rival_resource.tres" id="7_hq1nq"]
-[ext_resource type="Resource" uid="uid://dm01uu1l6m7hb" path="res://entities/golfers/rivals/tiger_woods.tres" id="8_66ixb"]
+[ext_resource type="Resource" uid="uid://6a541a10r4sh" path="res://entities/teams/player_team.tres" id="7_xouit"]
+[ext_resource type="Resource" uid="uid://bqfynn7xbjh4x" path="res://entities/teams/tiger_woods_team.tres" id="8_t61lj"]
 
 [node name="golf_terrain" type="Node3D"]
 
@@ -25,8 +25,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 240.983, 5.09922, 882.857)
 [node name="Hole01" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 211.49, -1.90735e-06, 624.689)
 script = ExtResource("6_5b83j")
-test_player = ExtResource("7_hq1nq")
-test_rival = ExtResource("8_66ixb")
+test_player = ExtResource("7_xouit")
+test_rival = ExtResource("8_t61lj")
 
 [node name="TeeArea" type="Marker3D" parent="Hole01"]
 transform = Transform3D(0.550758, 0, -0.834665, 0, 1, 0, 0.834665, 0, 0.550758, 106.035, 4, -64.3419)
