@@ -13,12 +13,12 @@ var active: bool = false
 @export var error_display: Label
 @export var error_icon: TextureRect
 
-@export var eyes_button_group: ButtonGroup
-@export var noses_button_group: ButtonGroup
-@export var ears_button_group: ButtonGroup
-@export var mouths_button_group: ButtonGroup
-@export var hair_button_group: ButtonGroup
-@export var accessories_button_group: ButtonGroup
+@export var eyes_option_picker: NPCCustomizerPicker
+@export var noses_option_picker: NPCCustomizerPicker
+@export var ears_option_picker: NPCCustomizerPicker
+@export var mouths_option_picker: NPCCustomizerPicker
+@export var hair_option_picker: NPCCustomizerPicker
+@export var accessories_option_picker: NPCCustomizerPicker
 
 @export var zoom_slider: Slider
 @export var rotation_slider: Slider
@@ -40,12 +40,6 @@ func _ready():
 	npc_resource.set_value()
 
 	chin_slider.value_changed.connect(_update_character)
-	_set_button_connections(eyes_button_group)
-	_set_button_connections(noses_button_group)
-	_set_button_connections(ears_button_group)
-	_set_button_connections(mouths_button_group)
-	_set_button_connections(hair_button_group)
-	_set_button_connections(accessories_button_group)
 
 	rotation_slider.value_changed.connect(_set_rotation_value)
 	rotation_box.value_changed.connect(_set_rotation_value)
@@ -85,12 +79,12 @@ func _process(delta):
 func _update_character(_value = 0):
 	edited_resource.name = name_field.text
 	
-	edited_resource.eye_index = _get_current_index(eyes_button_group)
-	edited_resource.nose_index = _get_current_index(noses_button_group)
-	edited_resource.ear_index = _get_current_index(ears_button_group)
-	edited_resource.mouth_index = _get_current_index(mouths_button_group)
-	edited_resource.hair_index = _get_current_index(hair_button_group)
-	edited_resource.accessory_index = _get_current_index(accessories_button_group)
+	edited_resource.eye_index = eyes_option_picker.get_current_index()
+	edited_resource.nose_index = noses_option_picker.get_current_index()
+	edited_resource.ear_index = ears_option_picker.get_current_index()
+	edited_resource.mouth_index = mouths_option_picker.get_current_index()
+	edited_resource.hair_index = hair_option_picker.get_current_index()
+	edited_resource.accessory_index = accessories_option_picker.get_current_index()
 
 	edited_resource.chin_value = chin_slider.value
 
@@ -100,12 +94,12 @@ func _update_character(_value = 0):
 func _load():
 	var _resource = npc_resource.value
 
-	_set_button_index(eyes_button_group, _resource.eye_index)
-	_set_button_index(noses_button_group, _resource.nose_index)
-	_set_button_index(ears_button_group, _resource.ear_index)
-	_set_button_index(mouths_button_group, _resource.mouth_index)
-	_set_button_index(hair_button_group, _resource.hair_index)
-	_set_button_index(accessories_button_group, _resource.accessory_index)
+	eyes_option_picker.set_button_index(_resource.eye_index)
+	noses_option_picker.set_button_index(_resource.nose_index)
+	ears_option_picker.set_button_index(_resource.ear_index)
+	mouths_option_picker.set_button_index(_resource.mouth_index)
+	hair_option_picker.set_button_index(_resource.hair_index)
+	accessories_option_picker.set_button_index(_resource.accessory_index)
 
 	name_field.text = _resource.name
 	chin_slider.value = _resource.chin_value
@@ -154,29 +148,23 @@ func _check_for_errors():
 	error_display.text = result
 
 
-func _get_current_index(button_group: ButtonGroup) -> int:
-	for button in button_group.get_buttons():
-		if button.button_pressed:
-			return button_group.get_buttons().find(button)
-	
-	return 0
-
-
-func _set_button_index(button_group: ButtonGroup, index: int):
-	for button in button_group.get_buttons():
-		if button_group.get_buttons().find(button) == index:
-			button.button_pressed = true
-		else:
-			button.button_pressed = false
-
-
 func _set_preview(_texture):
 	preview.texture = _texture
 
 
-func _set_button_connections(button_group: ButtonGroup):
-	for button in button_group.get_buttons():
-		button.pressed.connect(_update_character)
+func set_pickers(preview_scene):
+	await _set_button_connections(preview_scene, preview_scene.character_factory.eye_meshes, false, eyes_option_picker)
+	await _set_button_connections(preview_scene, preview_scene.character_factory.nose_meshes, false, noses_option_picker)
+	await _set_button_connections(preview_scene, preview_scene.character_factory.ear_meshes, false, ears_option_picker)
+	await _set_button_connections(preview_scene, preview_scene.character_factory.mouth_meshes, false, mouths_option_picker)
+	await _set_button_connections(preview_scene, preview_scene.character_factory.hair_meshes, true, hair_option_picker)
+	await _set_button_connections(preview_scene, preview_scene.character_factory.accessory_meshes, false, accessories_option_picker)
+
+
+func _set_button_connections(preview_scene, collection, rotate, picker: NPCCustomizerPicker):
+	for option in collection:
+		var texture = await preview_scene.create_button_icon(option, rotate)
+		picker.add_button(texture, _update_character)
 
 
 func _set_rotation_value(_value):
@@ -184,5 +172,5 @@ func _set_rotation_value(_value):
 	rotation_box.value = _value
 
 
-func _cleanup():
+func _exit_tree():
 	active = false

@@ -1,0 +1,39 @@
+[gd_scene load_steps=3 format=3 uid="uid://bscnygsgtcj41"]
+
+[ext_resource type="Script" path="res://addons/npc_editor/ui/npc_customizer_picker.gd" id="1_5a5ry"]
+[ext_resource type="PackedScene" uid="uid://5fowc4q08ld3" path="res://addons/npc_editor/ui/npc_customizer_option.tscn" id="2_osv0d"]
+
+[node name="OptionPicker" type="HBoxContainer" node_paths=PackedStringArray("label", "button_holder")]
+custom_minimum_size = Vector2(0, 80)
+size_flags_stretch_ratio = 1.25
+alignment = 1
+script = ExtResource("1_5a5ry")
+npc_customizer_button_prefab = ExtResource("2_osv0d")
+label = NodePath("Label")
+button_holder = NodePath("ScrollContainer/HBoxContainer")
+
+[node name="ReferenceRect" type="ReferenceRect" parent="."]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+border_color = Color(1, 0, 0, 0)
+
+[node name="Label" type="Label" parent="."]
+custom_minimum_size = Vector2(85, 0)
+layout_mode = 2
+text = "Option"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+horizontal_scroll_mode = 2
+vertical_scroll_mode = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ReferenceRect2" type="ReferenceRect" parent="."]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+border_color = Color(1, 0, 0, 0)

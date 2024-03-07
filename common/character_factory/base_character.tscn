@@ -3,9 +3,9 @@
 [ext_resource type="ArrayMesh" uid="uid://ci3vnn7d616gq" path="res://common/character_factory/noses/nose_v1.tres" id="1_7r6ns"]
 [ext_resource type="Script" path="res://common/character_factory/character_references.gd" id="1_losqe"]
 [ext_resource type="ArrayMesh" uid="uid://jmpv6ia3rh7q" path="res://common/character_factory/hair/charlie_hair.tres" id="2_c63mt"]
-[ext_resource type="ArrayMesh" uid="uid://ckj70h25e1524" path="res://common/character_factory/ears/ears_v1.tres" id="3_smoal"]
 [ext_resource type="ArrayMesh" uid="uid://hl8f6l3yjxtc" path="res://common/character_factory/expression_planes/eyes_plane.tres" id="4_hucay"]
 [ext_resource type="ArrayMesh" uid="uid://bq21kk1dik7yk" path="res://common/character_factory/expression_planes/mouth_plane.tres" id="5_1lfkg"]
+[ext_resource type="ArrayMesh" uid="uid://dbotanwftp4a6" path="res://common/character_factory/noses/nose_v3.tres" id="5_r1rt3"]
 [ext_resource type="ArrayMesh" uid="uid://bmrtfl1xto65y" path="res://common/character_factory/expression_planes/eyebrow_plane.tres" id="6_anfwk"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7riir"]
@@ -384,14 +384,18 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[node name="BaseCharacter" type="Node3D" node_paths=PackedStringArray("ear_mesh", "nose_mesh", "hair_mesh")]
-transform = Transform3D(0.01, 0, 0, 0, 0, -0.01, 0, 0.01, 0, 0, 0, 0)
+[node name="BaseCharacter" type="Node3D" node_paths=PackedStringArray("ear_mesh", "nose_mesh", "hair_mesh", "mouth_mesh", "eye_mesh", "eyebrow_mesh", "preview_mesh")]
 script = ExtResource("1_losqe")
 ear_mesh = NodePath("Skeleton3D/BoneAttachment3D/Ears")
 nose_mesh = NodePath("Skeleton3D/BoneAttachment3D/Nose")
 hair_mesh = NodePath("Skeleton3D/BoneAttachment3D/Hair")
+mouth_mesh = NodePath("Skeleton3D/BoneAttachment3D/MouthPlane")
+eye_mesh = NodePath("Skeleton3D/BoneAttachment3D/EyesPlane")
+eyebrow_mesh = NodePath("Skeleton3D/BoneAttachment3D/EyebrowPlane")
+preview_mesh = NodePath("Skeleton3D/BoneAttachment3D/PreviewMesh")
 
 [node name="Skeleton3D" type="Skeleton3D" parent="."]
+transform = Transform3D(0.01, 0, 0, 0, -4.37114e-10, -0.01, 0, 0.01, -4.37114e-10, 0, 0, 0)
 bones/0/name = "BaseJoint"
 bones/0/parent = -1
 bones/0/rest = Transform3D(1, 0, 0, 0, -0.0297931, 0.999556, 0, -0.999556, -0.0297931, 0, 0, 0)
@@ -608,9 +612,13 @@ mesh = SubResource("ArrayMesh_847vj")
 skin = SubResource("Skin_rjg6d")
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="Skeleton3D"]
-transform = Transform3D(-0.000981142, 0.000917447, -0.999999, 0.998865, 0.047614, -0.00093633, 0.047613, -0.998865, -0.000963121, -4.62038e-06, -1.6049, -111.193)
+transform = Transform3D(-0.000981143, 0.000917448, -0.999999, 0.998865, 0.0476139, -0.000936331, 0.047613, -0.998865, -0.000963122, -4.62038e-06, -1.6049, -111.193)
 bone_name = "Head_Jnt"
 bone_idx = 5
+
+[node name="PreviewMesh" type="MeshInstance3D" parent="Skeleton3D/BoneAttachment3D"]
+transform = Transform3D(-5.25615e-08, 0.998875, 0.0474291, -9.05857e-08, 0.0474291, -0.998875, -1, -7.3167e-08, 8.75258e-08, 6.87689, -110.992, 5.00679e-06)
+skeleton = NodePath("../../..")
 
 [node name="Nose" type="MeshInstance3D" parent="Skeleton3D/BoneAttachment3D"]
 transform = Transform3D(-5.26124e-08, 0.998875, 0.0474291, -9.06658e-08, 0.0474291, -0.998875, -1, -7.34893e-08, 8.75855e-08, 6.87689, -110.992, 5.00059e-06)
@@ -624,7 +632,7 @@ skeleton = NodePath("../../..")
 
 [node name="Ears" type="MeshInstance3D" parent="Skeleton3D/BoneAttachment3D"]
 transform = Transform3D(-5.26124e-08, 0.998875, 0.0474291, -9.06658e-08, 0.0474291, -0.998875, -1, -7.34893e-08, 8.75854e-08, 6.87689, -110.992, 5.00059e-06)
-mesh = ExtResource("3_smoal")
+mesh = ExtResource("5_r1rt3")
 skeleton = NodePath("../../..")
 
 [node name="EyesPlane" type="MeshInstance3D" parent="Skeleton3D/BoneAttachment3D"]
