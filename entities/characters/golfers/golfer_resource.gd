@@ -6,14 +6,18 @@ extends Resource
 @export var level := 1
 @export var role := Role.new()
 
+@export var npc_resource: NPCResource
+
 var power: int
 var stamina: int
 var experience: int
 
 
-func _init(golfer_name := "", golfer_level := 1):
+func _init(golfer_name := "", golfer_level := 1, golfer_role: Role = Role.new(), golfer_npc_resource: NPCResource = null):
 	name = golfer_name
 	level = golfer_level
-	role = Role.new()
+	role = golfer_role
+	npc_resource = golfer_npc_resource
+
 	power = 10 * golfer_level
 	stamina = 10 * golfer_level

@@ -1,0 +1,434 @@
+[gd_scene load_steps=15 format=3 uid="uid://dywmn4tambxpc"]
+
+[ext_resource type="Script" path="res://addons/npc_editor/ui/npc_dock.gd" id="1_mwd3g"]
+[ext_resource type="Texture2D" uid="uid://dfspa0f55imyc" path="res://icon.svg" id="1_qkgog"]
+[ext_resource type="PackedScene" uid="uid://5q7b6g71i8sm" path="res://addons/npc_editor/ui/resource_loader.tscn" id="2_1rawp"]
+[ext_resource type="PackedScene" uid="uid://bscnygsgtcj41" path="res://addons/npc_editor/ui/npc_customizer_option_picker.tscn" id="4_4dyc0"]
+[ext_resource type="LabelSettings" uid="uid://y18aqn0x2wop" path="res://addons/npc_editor/ui/error_label.tres" id="10_3kivo"]
+[ext_resource type="Texture2D" uid="uid://c3hcdbvgeihu3" path="res://addons/npc_editor/ui/Error_icon.png" id="10_umshq"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_dt0a8"]
+font_size = 32
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_53x4o"]
+resource_name = "Eyes"
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_vpfmb"]
+resource_name = "Noses"
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_swxed"]
+resource_name = "Ears"
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_pjupv"]
+resource_name = "Mouths"
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_2e7d7"]
+resource_name = "Hair"
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_d13sf"]
+resource_name = "Accessories"
+
+[sub_resource type="LabelSettings" id="LabelSettings_ka5pb"]
+font_size = 24
+
+[node name="NpcCreator" type="Control" node_paths=PackedStringArray("npc_resource", "eyes_option_picker", "noses_option_picker", "ears_option_picker", "mouths_option_picker", "hair_option_picker", "accessories_option_picker", "name_field", "load_button", "save_button", "save_as_button", "preview", "zoom_slider", "rotation_slider", "rotation_box", "error_display", "error_icon")]
+layout_mode = 3
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 361.0
+grow_vertical = 2
+script = ExtResource("1_mwd3g")
+npc_resource = NodePath("VBoxContainer/NPCEditor/VBoxContainer/ResourceLoader")
+eyes_option_picker = NodePath("VBoxContainer/NPCEditor/VBoxContainer/EyesPicker")
+noses_option_picker = NodePath("VBoxContainer/NPCEditor/VBoxContainer/NosePicker")
+ears_option_picker = NodePath("VBoxContainer/NPCEditor/VBoxContainer/EarsPicker")
+mouths_option_picker = NodePath("VBoxContainer/NPCEditor/VBoxContainer/MouthPicker")
+hair_option_picker = NodePath("VBoxContainer/NPCEditor/VBoxContainer/HairPicker")
+accessories_option_picker = NodePath("VBoxContainer/NPCEditor/VBoxContainer/AccessoriesPicker")
+name_field = NodePath("VBoxContainer/NPCEditor/VBoxContainer/NameHolder/NameField")
+load_button = NodePath("VBoxContainer/NPCEditor/VBoxContainer/HBoxContainer5/LoadButton")
+save_button = NodePath("VBoxContainer/VBoxContainer/HBoxContainer5/SaveButton")
+save_as_button = NodePath("VBoxContainer/VBoxContainer/HBoxContainer5/SaveAsButton")
+preview = NodePath("VBoxContainer/NPCEditor/VBoxContainer/VBoxContainer/PreviewTexture")
+zoom_slider = NodePath("VBoxContainer/NPCEditor/VBoxContainer/VBoxContainer/VSlider")
+rotation_slider = NodePath("VBoxContainer/NPCEditor/VBoxContainer/HBoxContainer/HSlider")
+rotation_box = NodePath("VBoxContainer/NPCEditor/VBoxContainer/HBoxContainer/SpinBox")
+error_display = NodePath("VBoxContainer/VBoxContainer/VBoxContainer/HBoxContainer/Panel/VBoxContainer/HBoxContainer/Label")
+error_icon = NodePath("VBoxContainer/VBoxContainer/VBoxContainer/HBoxContainer/Panel/VBoxContainer/HBoxContainer/TextureRect")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+
+[node name="NPCEditor" type="Panel" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/NPCEditor"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="VBoxContainer/NPCEditor/VBoxContainer"]
+layout_mode = 2
+text = "NPC Visual Editor"
+label_settings = SubResource("LabelSettings_dt0a8")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Seperator2" type="HSeparator" parent="VBoxContainer/NPCEditor/VBoxContainer"]
+layout_mode = 2
+
+[node name="ResourceLoader" parent="VBoxContainer/NPCEditor/VBoxContainer" instance=ExtResource("2_1rawp")]
+layout_mode = 2
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="VBoxContainer/NPCEditor/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="ReferenceRect2" type="ReferenceRect" parent="VBoxContainer/NPCEditor/VBoxContainer/HBoxContainer5"]
+custom_minimum_size = Vector2(5, 0)
+layout_mode = 2
+border_color = Color(1, 0, 0, 0)
+
+[node name="LoadButton" type="Button" parent="VBoxContainer/NPCEditor/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+size_flags_horizontal = 3
+disabled = true
+text = "Load"
+
+[node name="ReferenceRect" type="ReferenceRect" parent="VBoxContainer/NPCEditor/VBoxContainer/HBoxContainer5"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+border_color = Color(1, 0, 0, 0)
+
+[node name="Seperator5" type="HSeparator" parent="VBoxContainer/NPCEditor/VBoxContainer"]
+layout_mode = 2
+
+[node name="NameHolder" type="HBoxContainer" parent="VBoxContainer/NPCEditor/VBoxContainer"]
+layout_mode = 2
+size_flags_stretch_ratio = 1.25
+alignment = 1
+
+[node name="ReferenceRect2" type="ReferenceRect" parent="VBoxContainer/NPCEditor/VBoxContainer/NameHolder"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+border_color = Color(1, 0, 0, 0)
+
+[node name="Label" type="Label" parent="VBoxContainer/NPCEditor/VBoxContainer/NameHolder"]
+custom_minimum_size = Vector2(85, 0)
+layout_mode = 2
+text = "Name"
+
+[node name="NameField" type="LineEdit" parent="VBoxContainer/NPCEditor/VBoxContainer/NameHolder"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+placeholder_text = "Insert Name Here..."
+
+[node name="ReferenceRect" type="ReferenceRect" parent="VBoxContainer/NPCEditor/VBoxContainer/NameHolder"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+border_color = Color(1, 0, 0, 0)
+
+[node name="Seperator6" type="HSeparator" parent="VBoxContainer/NPCEditor/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="VBoxContainer/NPCEditor/VBoxContainer"]
+layout_mode = 2
+
+[node name="ReferenceRect2" type="ReferenceRect" parent="VBoxContainer/NPCEditor/VBoxContainer/HBoxContainer4"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+border_color = Color(1, 0, 0, 0)
+
+[node name="Label" type="Label" parent="VBoxContainer/NPCEditor/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+text = "Skin Color"
+
+[node name="ReferenceRect4" type="ReferenceRect" parent="VBoxContainer/NPCEditor/VBoxContainer/HBoxContainer4"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+border_color = Color(1, 0, 0, 0)
+
+[node name="ColorPicker" type="ColorPickerButton" parent="VBoxContainer/NPCEditor/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 3
+color = Color(1, 0.752941, 0.666667, 1)
+edit_alpha = false
+
+[node name="ReferenceRect3" type="ReferenceRect" parent="VBoxContainer/NPCEditor/VBoxContainer/HBoxContainer4"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+border_color = Color(1, 0, 0, 0)
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer/NPCEditor/VBoxContainer"]
+layout_mode = 2
+
+[node name="ReferenceRect2" type="ReferenceRect" parent="VBoxContainer/NPCEditor/VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+border_color = Color(1, 0, 0, 0)
+
+[node name="Label" type="Label" parent="VBoxContainer/NPCEditor/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+text = "Hair Color"
+
+[node name="ReferenceRect4" type="ReferenceRect" parent="VBoxContainer/NPCEditor/VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+border_color = Color(1, 0, 0, 0)
+
+[node name="ColorPicker" type="ColorPickerButton" parent="VBoxContainer/NPCEditor/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+edit_alpha = false
+
+[node name="ReferenceRect3" type="ReferenceRect" parent="VBoxContainer/NPCEditor/VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+border_color = Color(1, 0, 0, 0)
+
+[node name="Seperator7" type="HSeparator" parent="VBoxContainer/NPCEditor/VBoxContainer"]
+layout_mode = 2
+
+[node name="EyesPicker" parent="VBoxContainer/NPCEditor/VBoxContainer" instance=ExtResource("4_4dyc0")]
+layout_mode = 2
+button_group = SubResource("ButtonGroup_53x4o")
+
+[node name="NosePicker" parent="VBoxContainer/NPCEditor/VBoxContainer" instance=ExtResource("4_4dyc0")]
+layout_mode = 2
+button_group = SubResource("ButtonGroup_vpfmb")
+
+[node name="EarsPicker" parent="VBoxContainer/NPCEditor/VBoxContainer" instance=ExtResource("4_4dyc0")]
+layout_mode = 2
+button_group = SubResource("ButtonGroup_swxed")
+
+[node name="MouthPicker" parent="VBoxContainer/NPCEditor/VBoxContainer" instance=ExtResource("4_4dyc0")]
+layout_mode = 2
+button_group = SubResource("ButtonGroup_pjupv")
+
+[node name="HairPicker" parent="VBoxContainer/NPCEditor/VBoxContainer" instance=ExtResource("4_4dyc0")]
+layout_mode = 2
+button_group = SubResource("ButtonGroup_2e7d7")
+
+[node name="AccessoriesPicker" parent="VBoxContainer/NPCEditor/VBoxContainer" instance=ExtResource("4_4dyc0")]
+layout_mode = 2
+button_group = SubResource("ButtonGroup_d13sf")
+
+[node name="Seperator3" type="HSeparator" parent="VBoxContainer/NPCEditor/VBoxContainer"]
+layout_mode = 2
+
+[node name="ReferenceRect4" type="ReferenceRect" parent="VBoxContainer/NPCEditor/VBoxContainer"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+border_color = Color(1, 0, 0, 0)
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/NPCEditor/VBoxContainer"]
+layout_mode = 2
+
+[node name="ReferenceRect3" type="ReferenceRect" parent="VBoxContainer/NPCEditor/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+border_color = Color(1, 0, 0, 0)
+
+[node name="Label" type="Label" parent="VBoxContainer/NPCEditor/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Preview"
+label_settings = SubResource("LabelSettings_ka5pb")
+horizontal_alignment = 1
+
+[node name="ReferenceRect4" type="ReferenceRect" parent="VBoxContainer/NPCEditor/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+border_color = Color(1, 0, 0, 0)
+
+[node name="VBoxContainer" type="HBoxContainer" parent="VBoxContainer/NPCEditor/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ReferenceRect4" type="ReferenceRect" parent="VBoxContainer/NPCEditor/VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+border_color = Color(1, 0, 0, 0)
+
+[node name="VSlider" type="VSlider" parent="VBoxContainer/NPCEditor/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+max_value = 1.0
+step = 0.001
+value = 1.0
+
+[node name="ReferenceRect5" type="ReferenceRect" parent="VBoxContainer/NPCEditor/VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+border_color = Color(1, 0, 0, 0)
+
+[node name="PreviewTexture" type="TextureRect" parent="VBoxContainer/NPCEditor/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("1_qkgog")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="ReferenceRect3" type="ReferenceRect" parent="VBoxContainer/NPCEditor/VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+border_color = Color(1, 0, 0, 0)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/NPCEditor/VBoxContainer"]
+layout_mode = 2
+
+[node name="ReferenceRect3" type="ReferenceRect" parent="VBoxContainer/NPCEditor/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+border_color = Color(1, 0, 0, 0)
+
+[node name="HSlider" type="HSlider" parent="VBoxContainer/NPCEditor/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+min_value = 45.0
+max_value = 315.0
+value = 180.0
+
+[node name="ReferenceRect2" type="ReferenceRect" parent="VBoxContainer/NPCEditor/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+border_color = Color(1, 0, 0, 0)
+
+[node name="SpinBox" type="SpinBox" parent="VBoxContainer/NPCEditor/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+min_value = 45.0
+max_value = 315.0
+value = 180.0
+select_all_on_focus = true
+
+[node name="ReferenceRect4" type="ReferenceRect" parent="VBoxContainer/NPCEditor/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+border_color = Color(1, 0, 0, 0)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Panel6" type="ReferenceRect" parent="VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+border_color = Color(1, 0, 0, 0)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="ReferenceRect6" type="ReferenceRect" parent="VBoxContainer/VBoxContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+border_color = Color(1, 0, 0, 0)
+
+[node name="Panel" type="PanelContainer" parent="VBoxContainer/VBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Panel" type="Panel" parent="VBoxContainer/VBoxContainer/VBoxContainer/HBoxContainer/Panel"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/VBoxContainer/VBoxContainer/HBoxContainer/Panel"]
+layout_mode = 2
+
+[node name="Panel6" type="ReferenceRect" parent="VBoxContainer/VBoxContainer/VBoxContainer/HBoxContainer/Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 2
+border_color = Color(1, 0, 0, 0)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/VBoxContainer/VBoxContainer/HBoxContainer/Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ReferenceRect7" type="ReferenceRect" parent="VBoxContainer/VBoxContainer/VBoxContainer/HBoxContainer/Panel/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+border_color = Color(1, 0, 0, 0)
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/VBoxContainer/VBoxContainer/HBoxContainer/Panel/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("10_umshq")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="ReferenceRect8" type="ReferenceRect" parent="VBoxContainer/VBoxContainer/VBoxContainer/HBoxContainer/Panel/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+border_color = Color(1, 0, 0, 0)
+
+[node name="Label" type="Label" parent="VBoxContainer/VBoxContainer/VBoxContainer/HBoxContainer/Panel/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Name cannot be empty"
+label_settings = ExtResource("10_3kivo")
+
+[node name="ReferenceRect6" type="ReferenceRect" parent="VBoxContainer/VBoxContainer/VBoxContainer/HBoxContainer/Panel/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+border_color = Color(1, 0, 0, 0)
+
+[node name="Panel5" type="ReferenceRect" parent="VBoxContainer/VBoxContainer/VBoxContainer/HBoxContainer/Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 2
+border_color = Color(1, 0, 0, 0)
+
+[node name="ReferenceRect4" type="ReferenceRect" parent="VBoxContainer/VBoxContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+border_color = Color(1, 0, 0, 0)
+
+[node name="Panel5" type="ReferenceRect" parent="VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+border_color = Color(1, 0, 0, 0)
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="VBoxContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="ReferenceRect2" type="ReferenceRect" parent="VBoxContainer/VBoxContainer/HBoxContainer5"]
+custom_minimum_size = Vector2(5, 0)
+layout_mode = 2
+border_color = Color(1, 0, 0, 0)
+
+[node name="SaveButton" type="Button" parent="VBoxContainer/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+size_flags_horizontal = 3
+disabled = true
+text = "Save"
+
+[node name="SaveAsButton" type="Button" parent="VBoxContainer/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+size_flags_horizontal = 3
+disabled = true
+text = "Save As..."
+
+[node name="ReferenceRect" type="ReferenceRect" parent="VBoxContainer/VBoxContainer/HBoxContainer5"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+border_color = Color(1, 0, 0, 0)
+
+[node name="Panel4" type="ReferenceRect" parent="VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+border_color = Color(1, 0, 0, 0)
