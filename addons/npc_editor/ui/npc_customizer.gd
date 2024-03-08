@@ -3,8 +3,6 @@ class_name NPCCustomizer
 extends Panel
 
 
-var active: bool = false
-
 @export var npc_resource: ResourceLoadingHandler
 
 @export_subgroup("Picker")
@@ -17,7 +15,6 @@ var active: bool = false
 
 @export_subgroup("References")
 @export var name_field: LineEdit
-@export var chin_slider: Slider
 @export var load_button: Button
 @export var save_button: Button
 @export var save_as_button: Button
@@ -32,7 +29,6 @@ var active: bool = false
 @export var error_display: Label
 @export var error_icon: TextureRect
 
-
 var update_preview_callback: Callable
 
 var edited_resource: NPCResource
@@ -41,10 +37,8 @@ var current_path: String
 var has_error: bool = false
 
 
-func _ready():
+func make_ready():
 	npc_resource.set_value()
-
-	chin_slider.value_changed.connect(_update_character)
 
 	rotation_slider.value_changed.connect(_set_rotation_value)
 	rotation_box.value_changed.connect(_set_rotation_value)
@@ -54,15 +48,16 @@ func _ready():
 	save_as_button.pressed.connect(_save_as)
 
 	edited_resource = NPCResource.new()
-	active = true
 
 
-func _process(delta):
+func on_process(delta):
 	if not Engine.is_editor_hint():
 		return
 
-	if not active:
+	if self == get_tree().edited_scene_root:
 		return
+
+	print(1)
 
 	if npc_resource.value == null:
 		save_button.disabled = true
@@ -89,8 +84,6 @@ func _update_character(_value = 0):
 	edited_resource.hair_index = hair_option_picker.get_current_index()
 	edited_resource.accessory_index = accessories_option_picker.get_current_index()
 
-	edited_resource.chin_value = chin_slider.value
-
 	update_preview_callback.call(edited_resource)
 
 
@@ -105,7 +98,6 @@ func _load():
 	accessories_option_picker.set_button_index(_resource.accessory_index)
 
 	name_field.text = _resource.name
-	chin_slider.value = _resource.chin_value
 	current_path = _resource.resource_path
 	edited_resource = _resource.duplicate()
 
@@ -173,7 +165,3 @@ func _set_button_connections(preview_scene, collection, rotate, picker: NPCCusto
 func _set_rotation_value(_value):
 	rotation_slider.value = _value
 	rotation_box.value = _value
-
-
-func _exit_tree():
-	active = false

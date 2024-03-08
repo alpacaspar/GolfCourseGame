@@ -1,33 +1,60 @@
-[gd_scene load_steps=16 format=3 uid="uid://dywmn4tambxpc"]
+[gd_scene load_steps=15 format=3 uid="uid://dywmn4tambxpc"]
 
-[ext_resource type="ButtonGroup" uid="uid://l5gir5351irf" path="res://addons/npc_editor/button_groups/eye_group.tres" id="1_gulxh"]
 [ext_resource type="Script" path="res://addons/npc_editor/ui/npc_dock.gd" id="1_mwd3g"]
 [ext_resource type="Texture2D" uid="uid://dfspa0f55imyc" path="res://icon.svg" id="1_qkgog"]
 [ext_resource type="PackedScene" uid="uid://5q7b6g71i8sm" path="res://addons/npc_editor/ui/resource_loader.tscn" id="2_1rawp"]
-[ext_resource type="Script" path="res://addons/npc_editor/ui/npc_customizer.gd" id="2_nrfom"]
-[ext_resource type="ButtonGroup" uid="uid://cmy4dvuvwsmxp" path="res://addons/npc_editor/button_groups/nose_group.tres" id="3_u22ul"]
 [ext_resource type="PackedScene" uid="uid://bscnygsgtcj41" path="res://addons/npc_editor/ui/npc_customizer_option_picker.tscn" id="4_4dyc0"]
-[ext_resource type="ButtonGroup" uid="uid://cjbgjthhucyh4" path="res://addons/npc_editor/button_groups/mouth_group.tres" id="4_n1fok"]
-[ext_resource type="ButtonGroup" uid="uid://i5g7pvbaaytj" path="res://addons/npc_editor/button_groups/hair_group.tres" id="5_j2yxv"]
-[ext_resource type="ButtonGroup" uid="uid://cs1engfbu44j" path="res://addons/npc_editor/button_groups/accessory_group.tres" id="6_4v3tu"]
 [ext_resource type="LabelSettings" uid="uid://y18aqn0x2wop" path="res://addons/npc_editor/ui/error_label.tres" id="10_3kivo"]
-[ext_resource type="ButtonGroup" uid="uid://dkcjbcgbwp8bm" path="res://addons/npc_editor/button_groups/ear_group.tres" id="10_t6pqv"]
 [ext_resource type="Texture2D" uid="uid://c3hcdbvgeihu3" path="res://addons/npc_editor/ui/Error_icon.png" id="10_umshq"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_dt0a8"]
 font_size = 32
 
+[sub_resource type="ButtonGroup" id="ButtonGroup_ki62n"]
+resource_name = "Eyes"
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_idv7u"]
+resource_name = "Noses"
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_bqf0d"]
+resource_name = "Ears"
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_bqvgt"]
+resource_name = "Mouths"
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_at24v"]
+resource_name = "Hair"
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_op21a"]
+resource_name = "Accessories"
+
 [sub_resource type="LabelSettings" id="LabelSettings_ka5pb"]
 font_size = 24
 
-[node name="NpcDock" type="Control" node_paths=PackedStringArray("npc_customizer")]
+[node name="NpcDock" type="Control" node_paths=PackedStringArray("npc_resource", "eyes_option_picker", "noses_option_picker", "ears_option_picker", "mouths_option_picker", "hair_option_picker", "accessories_option_picker", "name_field", "load_button", "save_button", "save_as_button", "preview", "zoom_slider", "rotation_slider", "rotation_box", "error_display", "error_icon")]
 layout_mode = 3
 anchors_preset = 9
 anchor_bottom = 1.0
 offset_right = 361.0
 grow_vertical = 2
 script = ExtResource("1_mwd3g")
-npc_customizer = NodePath("VBoxContainer/NPCEditor")
+npc_resource = NodePath("VBoxContainer/NPCEditor/VBoxContainer/ResourceLoader")
+eyes_option_picker = NodePath("VBoxContainer/NPCEditor/VBoxContainer/EyesPicker")
+noses_option_picker = NodePath("VBoxContainer/NPCEditor/VBoxContainer/NosePicker")
+ears_option_picker = NodePath("VBoxContainer/NPCEditor/VBoxContainer/EarsPicker")
+mouths_option_picker = NodePath("VBoxContainer/NPCEditor/VBoxContainer/MouthPicker")
+hair_option_picker = NodePath("VBoxContainer/NPCEditor/VBoxContainer/HairPicker")
+accessories_option_picker = NodePath("VBoxContainer/NPCEditor/VBoxContainer/AccessoriesPicker")
+name_field = NodePath("VBoxContainer/NPCEditor/VBoxContainer/NameHolder/NameField")
+load_button = NodePath("VBoxContainer/NPCEditor/VBoxContainer/HBoxContainer5/LoadButton")
+save_button = NodePath("VBoxContainer/VBoxContainer/HBoxContainer5/SaveButton")
+save_as_button = NodePath("VBoxContainer/VBoxContainer/HBoxContainer5/SaveAsButton")
+preview = NodePath("VBoxContainer/NPCEditor/VBoxContainer/VBoxContainer/PreviewTexture")
+zoom_slider = NodePath("VBoxContainer/NPCEditor/VBoxContainer/VBoxContainer/VSlider")
+rotation_slider = NodePath("VBoxContainer/NPCEditor/VBoxContainer/HBoxContainer/HSlider")
+rotation_box = NodePath("VBoxContainer/NPCEditor/VBoxContainer/HBoxContainer/SpinBox")
+error_display = NodePath("VBoxContainer/VBoxContainer/VBoxContainer/HBoxContainer/Panel/VBoxContainer/HBoxContainer/Label")
+error_icon = NodePath("VBoxContainer/VBoxContainer/VBoxContainer/HBoxContainer/Panel/VBoxContainer/HBoxContainer/TextureRect")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -40,28 +67,9 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 alignment = 1
 
-[node name="NPCEditor" type="Panel" parent="VBoxContainer" node_paths=PackedStringArray("npc_resource", "name_field", "chin_slider", "preview", "error_display", "error_icon", "eyes_option_picker", "noses_option_picker", "ears_option_picker", "mouths_option_picker", "hair_option_picker", "accessories_option_picker", "zoom_slider", "rotation_slider", "rotation_box", "load_button", "save_button", "save_as_button")]
+[node name="NPCEditor" type="Panel" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-script = ExtResource("2_nrfom")
-npc_resource = NodePath("VBoxContainer/ResourceLoader")
-name_field = NodePath("VBoxContainer/NameHolder/NameField")
-chin_slider = NodePath("VBoxContainer/ChinHolder/HSlider")
-preview = NodePath("VBoxContainer/VBoxContainer/PreviewTexture")
-error_display = NodePath("../VBoxContainer/VBoxContainer/HBoxContainer/Panel/VBoxContainer/HBoxContainer/Label")
-error_icon = NodePath("../VBoxContainer/VBoxContainer/HBoxContainer/Panel/VBoxContainer/HBoxContainer/TextureRect")
-eyes_option_picker = NodePath("VBoxContainer/EyesPicker")
-noses_option_picker = NodePath("VBoxContainer/NosePicker")
-ears_option_picker = NodePath("VBoxContainer/EarsPicker")
-mouths_option_picker = NodePath("VBoxContainer/MouthPicker")
-hair_option_picker = NodePath("VBoxContainer/HairPicker")
-accessories_option_picker = NodePath("VBoxContainer/AccessoriesPicker")
-zoom_slider = NodePath("VBoxContainer/VBoxContainer/VSlider")
-rotation_slider = NodePath("VBoxContainer/HBoxContainer/HSlider")
-rotation_box = NodePath("VBoxContainer/HBoxContainer/SpinBox")
-load_button = NodePath("VBoxContainer/HBoxContainer5/LoadButton")
-save_button = NodePath("../VBoxContainer/HBoxContainer5/SaveButton")
-save_as_button = NodePath("../VBoxContainer/HBoxContainer5/SaveAsButton")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/NPCEditor"]
 layout_mode = 1
@@ -196,56 +204,27 @@ layout_mode = 2
 
 [node name="EyesPicker" parent="VBoxContainer/NPCEditor/VBoxContainer" instance=ExtResource("4_4dyc0")]
 layout_mode = 2
-button_group = ExtResource("1_gulxh")
+button_group = SubResource("ButtonGroup_ki62n")
 
 [node name="NosePicker" parent="VBoxContainer/NPCEditor/VBoxContainer" instance=ExtResource("4_4dyc0")]
 layout_mode = 2
-button_group = ExtResource("3_u22ul")
+button_group = SubResource("ButtonGroup_idv7u")
 
 [node name="EarsPicker" parent="VBoxContainer/NPCEditor/VBoxContainer" instance=ExtResource("4_4dyc0")]
 layout_mode = 2
-button_group = ExtResource("10_t6pqv")
+button_group = SubResource("ButtonGroup_bqf0d")
 
 [node name="MouthPicker" parent="VBoxContainer/NPCEditor/VBoxContainer" instance=ExtResource("4_4dyc0")]
 layout_mode = 2
-button_group = ExtResource("4_n1fok")
+button_group = SubResource("ButtonGroup_bqvgt")
 
 [node name="HairPicker" parent="VBoxContainer/NPCEditor/VBoxContainer" instance=ExtResource("4_4dyc0")]
 layout_mode = 2
-button_group = ExtResource("5_j2yxv")
+button_group = SubResource("ButtonGroup_at24v")
 
 [node name="AccessoriesPicker" parent="VBoxContainer/NPCEditor/VBoxContainer" instance=ExtResource("4_4dyc0")]
 layout_mode = 2
-button_group = ExtResource("6_4v3tu")
-
-[node name="Seperator" type="HSeparator" parent="VBoxContainer/NPCEditor/VBoxContainer"]
-layout_mode = 2
-
-[node name="ChinHolder" type="HBoxContainer" parent="VBoxContainer/NPCEditor/VBoxContainer"]
-layout_mode = 2
-size_flags_stretch_ratio = 1.25
-alignment = 1
-
-[node name="ReferenceRect2" type="ReferenceRect" parent="VBoxContainer/NPCEditor/VBoxContainer/ChinHolder"]
-custom_minimum_size = Vector2(10, 0)
-layout_mode = 2
-border_color = Color(1, 0, 0, 0)
-
-[node name="Label" type="Label" parent="VBoxContainer/NPCEditor/VBoxContainer/ChinHolder"]
-custom_minimum_size = Vector2(85, 0)
-layout_mode = 2
-text = "Chin"
-
-[node name="HSlider" type="HSlider" parent="VBoxContainer/NPCEditor/VBoxContainer/ChinHolder"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 4
-value = 35.0
-
-[node name="ReferenceRect" type="ReferenceRect" parent="VBoxContainer/NPCEditor/VBoxContainer/ChinHolder"]
-custom_minimum_size = Vector2(10, 0)
-layout_mode = 2
-border_color = Color(1, 0, 0, 0)
+button_group = SubResource("ButtonGroup_op21a")
 
 [node name="Seperator3" type="HSeparator" parent="VBoxContainer/NPCEditor/VBoxContainer"]
 layout_mode = 2

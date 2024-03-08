@@ -3,8 +3,6 @@ class_name PreviewSpawner
 extends Node
 
 
-var active: bool = false
-
 @export var character_factory: CharacterFactory
 
 @export var preview_viewport: SubViewport
@@ -24,21 +22,13 @@ var zoom_value: int
 var getting_icons: bool
 
 
-func make_ready(_callback: Callable):
+func make_ready():
 	preview_cam.make_current()
-	callback = _callback
-	active = true
 
 	_spawn_character(NPCResource.new())
 
 
-func _process(_delta):
-	if not Engine.is_editor_hint():
-		return
-
-	if not active:
-		return
-	
+func on_process(_delta):	
 	if !getting_icons:
 		spawned_character.basis = Basis()
 		spawned_character.rotate(Vector3.UP, deg_to_rad(180 + rotation_value))
@@ -89,6 +79,5 @@ func create_button_icon(mesh, rotate: bool) -> Texture:
 	return ImageTexture.create_from_image(image)
 
 
-func _cleanup():
+func _exit_tree():
 	spawned_character.queue_free()
-	active = false
