@@ -19,7 +19,7 @@ signal value_changed(value)
 
 func set_value():
 	node = EditorResourcePicker.new()
-	node.size_flags_horizontal = 3
+	node.size_flags_horizontal = node.SIZE_EXPAND_FILL
 	thing_parent.add_child(node)
 
 
