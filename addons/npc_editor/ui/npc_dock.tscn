@@ -10,28 +10,28 @@
 [sub_resource type="LabelSettings" id="LabelSettings_dt0a8"]
 font_size = 32
 
-[sub_resource type="ButtonGroup" id="ButtonGroup_ki62n"]
+[sub_resource type="ButtonGroup" id="ButtonGroup_53x4o"]
 resource_name = "Eyes"
 
-[sub_resource type="ButtonGroup" id="ButtonGroup_idv7u"]
+[sub_resource type="ButtonGroup" id="ButtonGroup_vpfmb"]
 resource_name = "Noses"
 
-[sub_resource type="ButtonGroup" id="ButtonGroup_bqf0d"]
+[sub_resource type="ButtonGroup" id="ButtonGroup_swxed"]
 resource_name = "Ears"
 
-[sub_resource type="ButtonGroup" id="ButtonGroup_bqvgt"]
+[sub_resource type="ButtonGroup" id="ButtonGroup_pjupv"]
 resource_name = "Mouths"
 
-[sub_resource type="ButtonGroup" id="ButtonGroup_at24v"]
+[sub_resource type="ButtonGroup" id="ButtonGroup_2e7d7"]
 resource_name = "Hair"
 
-[sub_resource type="ButtonGroup" id="ButtonGroup_op21a"]
+[sub_resource type="ButtonGroup" id="ButtonGroup_d13sf"]
 resource_name = "Accessories"
 
 [sub_resource type="LabelSettings" id="LabelSettings_ka5pb"]
 font_size = 24
 
-[node name="NpcDock" type="Control" node_paths=PackedStringArray("npc_resource", "eyes_option_picker", "noses_option_picker", "ears_option_picker", "mouths_option_picker", "hair_option_picker", "accessories_option_picker", "name_field", "load_button", "save_button", "save_as_button", "preview", "zoom_slider", "rotation_slider", "rotation_box", "error_display", "error_icon")]
+[node name="NpcCreator" type="Control" node_paths=PackedStringArray("npc_resource", "eyes_option_picker", "noses_option_picker", "ears_option_picker", "mouths_option_picker", "hair_option_picker", "accessories_option_picker", "name_field", "load_button", "save_button", "save_as_button", "preview", "zoom_slider", "rotation_slider", "rotation_box", "error_display", "error_icon")]
 layout_mode = 3
 anchors_preset = 9
 anchor_bottom = 1.0
@@ -204,27 +204,27 @@ layout_mode = 2
 
 [node name="EyesPicker" parent="VBoxContainer/NPCEditor/VBoxContainer" instance=ExtResource("4_4dyc0")]
 layout_mode = 2
-button_group = SubResource("ButtonGroup_ki62n")
+button_group = SubResource("ButtonGroup_53x4o")
 
 [node name="NosePicker" parent="VBoxContainer/NPCEditor/VBoxContainer" instance=ExtResource("4_4dyc0")]
 layout_mode = 2
-button_group = SubResource("ButtonGroup_idv7u")
+button_group = SubResource("ButtonGroup_vpfmb")
 
 [node name="EarsPicker" parent="VBoxContainer/NPCEditor/VBoxContainer" instance=ExtResource("4_4dyc0")]
 layout_mode = 2
-button_group = SubResource("ButtonGroup_bqf0d")
+button_group = SubResource("ButtonGroup_swxed")
 
 [node name="MouthPicker" parent="VBoxContainer/NPCEditor/VBoxContainer" instance=ExtResource("4_4dyc0")]
 layout_mode = 2
-button_group = SubResource("ButtonGroup_bqvgt")
+button_group = SubResource("ButtonGroup_pjupv")
 
 [node name="HairPicker" parent="VBoxContainer/NPCEditor/VBoxContainer" instance=ExtResource("4_4dyc0")]
 layout_mode = 2
-button_group = SubResource("ButtonGroup_at24v")
+button_group = SubResource("ButtonGroup_2e7d7")
 
 [node name="AccessoriesPicker" parent="VBoxContainer/NPCEditor/VBoxContainer" instance=ExtResource("4_4dyc0")]
 layout_mode = 2
-button_group = SubResource("ButtonGroup_op21a")
+button_group = SubResource("ButtonGroup_d13sf")
 
 [node name="Seperator3" type="HSeparator" parent="VBoxContainer/NPCEditor/VBoxContainer"]
 layout_mode = 2
