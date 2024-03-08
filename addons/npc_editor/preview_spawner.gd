@@ -10,6 +10,7 @@ var active: bool = false
 @export var preview_viewport: SubViewport
 @export var preview_cam: Camera3D
 @export var icon_viewport: SubViewport
+@export var icon_cam: Camera3D
 
 @export var zoom_holder: Node3D
 @export var unzoom_holder: Node3D
@@ -62,8 +63,8 @@ func _edit_character(_character_resource: NPCResource):
 
 
 func create_button_icon(mesh, rotate: bool) -> Texture:
+	icon_cam.current = true
 	spawned_character.set_preview_mode(true)
-	await get_tree().create_timer(.5).timeout
 	spawned_character.preview_mesh.mesh = mesh
 
 	spawned_character.basis = Basis()
@@ -72,13 +73,14 @@ func create_button_icon(mesh, rotate: bool) -> Texture:
 	else:
 		spawned_character.rotate(Vector3.UP, deg_to_rad(0))
 
-	await get_tree().create_timer(.5).timeout
-
+	icon_viewport.render_target_update_mode = 1
+	await RenderingServer.frame_post_draw
 	var image = icon_viewport.get_texture().get_image()
 
 	spawned_character.set_preview_mode(false)
 	spawned_character.rotate(Vector3.UP, deg_to_rad(180 + rotation_value))
 	
+	preview_cam.current = true
 	return ImageTexture.create_from_image(image)
 
 
