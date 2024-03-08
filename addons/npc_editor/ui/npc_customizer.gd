@@ -51,14 +51,6 @@ func make_ready():
 
 
 func on_process(delta):
-	if not Engine.is_editor_hint():
-		return
-
-	if self == get_tree().edited_scene_root:
-		return
-
-	print(1)
-
 	if npc_resource.value == null:
 		save_button.disabled = true
 		load_button.disabled = true
