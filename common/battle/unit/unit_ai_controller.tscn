@@ -1,12 +1,12 @@
 [gd_scene load_steps=9 format=3 uid="uid://bmbpmw618ddnf"]
 
-[ext_resource type="Script" path="res://entities/unit/unit_ai_controller.gd" id="1_vqycx"]
-[ext_resource type="Script" path="res://entities/unit/detection_area_3d.gd" id="2_nwyxe"]
+[ext_resource type="Script" path="res://common/battle/unit/unit_ai_controller.gd" id="1_vqycx"]
+[ext_resource type="Script" path="res://common/battle/unit/detection_area_3d.gd" id="2_nwyxe"]
 [ext_resource type="Script" path="res://common/finite_state_machine/finite_state_machine.gd" id="3_k8ad3"]
-[ext_resource type="Script" path="res://entities/unit/idle_state.gd" id="4_1xvua"]
-[ext_resource type="Script" path="res://entities/unit/search_state.gd" id="4_6um3d"]
-[ext_resource type="Script" path="res://entities/unit/goto_state.gd" id="6_41l2t"]
-[ext_resource type="Script" path="res://entities/unit/attack_state.gd" id="7_smha7"]
+[ext_resource type="Script" path="res://common/battle/unit/idle_state.gd" id="4_1xvua"]
+[ext_resource type="Script" path="res://common/battle/unit/search_state.gd" id="4_6um3d"]
+[ext_resource type="Script" path="res://common/battle/unit/goto_state.gd" id="6_41l2t"]
+[ext_resource type="Script" path="res://common/battle/unit/attack_state.gd" id="7_smha7"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_t7kot"]
 radius = 1.0
