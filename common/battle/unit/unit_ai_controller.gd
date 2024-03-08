@@ -1,15 +1,17 @@
 extends Node3D
 
 
+const DETECTION_RADIUS_PADDING = 5
+
 @onready var navigation_agent: NavigationAgent3D = $NavigationAgent3D
 @onready var detection_area: DetectionArea3D = $DetectionArea3D
-
 
 var body: CharacterBody3D
 
 
 func _ready():
 	navigation_agent.path_desired_distance = body.golfer_resource.role.desired_distance
+	detection_area.set_detection_radius(body.golfer_resource.role.desired_distance, DETECTION_RADIUS_PADDING)
 	
 	navigation_agent.velocity_computed.connect(_on_velocity_computed)
 
@@ -17,7 +19,7 @@ func _ready():
 func _physics_process(delta):
 	var wish_dir := Vector3.ZERO
 	
-	wish_dir += separate_from(body.global_position, detection_area.overlapping_character_positions) * 0.02
+	#wish_dir += separate_from(body.global_position, detection_area.overlapping_body_positions) * 0.02
 	
 	if not navigation_agent.is_navigation_finished():
 		var next_path_position := navigation_agent.get_next_path_position()

@@ -19,10 +19,9 @@ func setup(new_golfer: GolferResource, spawn_position: Vector3):
 	controller.body = self
 
 
-func set_targets(move_target: Vector3, attack_target: Vector3):
-	# Set targets.
-	pass
-
+func set_targets(move_target: Vector3):
+	if controller.has_method("set_movement_target"):
+		controller.set_movement_target(move_target)
 
 func is_exhausted() -> bool:
 	return golfer_resource.stamina <= 0

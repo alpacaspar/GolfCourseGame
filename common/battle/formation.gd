@@ -2,18 +2,49 @@ class_name Formation
 extends Node
 
 
-var team: Node
-var members: Array
+const MIN_FORMATION_UPDATE_DISTANCE = 10
+
+var team: Team
+var role: Role
+var units: Array
+
+@onready var formation_update_timer: Timer = $FormationUpdateTimer
+
+var current_target: Vector3
 
 
-func _physics_process(delta: float):
-	#TODO: Implement formation logic.
-	pass
+func _ready():
+	formation_update_timer.timeout.connect(_on_formation_update_timer_timeout)
 
-func setup(current_team: Node, current_members: Array):
+
+func _on_formation_update_timer_timeout():
+	var new_target_position: Vector3
+
+	if role.target_type == role.TargetType.OPPONENT:
+		new_target_position = _get_average_position(BattleManager.get_opponent_units(team))
+	else:
+		new_target_position = _get_average_position(team.units)
+	
+	if new_target_position.distance_squared_to(current_target) > MIN_FORMATION_UPDATE_DISTANCE ** 2:
+		current_target = new_target_position
+		_update_units(current_target)
+
+
+func setup(current_team: Team, current_role: Role, current_units: Array):
 	team = current_team
-	members = current_members
+	role = current_role
+	units = current_units
 
 
-func set_tactic(tactic):
-	pass
+func _update_units(move_target: Vector3):
+	for unit in units:
+		unit.set_targets(move_target)
+		await get_tree().create_timer(0.1).timeout
+
+
+func _get_average_position(selection: Array) -> Vector3:
+	var average_position := Vector3.ZERO
+	for unit in selection:
+		average_position += unit.global_position
+	
+	return average_position / selection.size()

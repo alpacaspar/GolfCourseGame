@@ -35,6 +35,17 @@ func end_battle(winning_rival: RivalResource):
 	on_battle_ended.emit(winning_rival)
 
 
+## Returns all units that are not part of the given team.
+func get_opponent_units(my_team: Team) -> Array:
+	var units: Array = []
+
+	for team in teams:
+		if team != my_team:
+			units += team.units
+	
+	return units
+
+
 func _instantiate_team(team_resource: TeamResource, origin: Node3D):
 	var team := team_scene.instantiate()
 	var commander: Node3D
@@ -62,7 +73,7 @@ func _instantiate_team(team_resource: TeamResource, origin: Node3D):
 			formation.add_child(unit)
 			instances.append(unit)
 		
-		formation.setup(team, instances)
+		formation.setup(team, role, instances)
 		team.add_child(formation)
 		formations.append(formation)
 	
