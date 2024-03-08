@@ -2,8 +2,8 @@
 extends EditorPlugin
 
 
-var dock
-var preview_scene
+var dock: Node
+var preview_scene: Node
 
 
 func _enter_tree():

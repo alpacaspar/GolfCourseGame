@@ -9,10 +9,10 @@ var node: EditorResourcePicker
 var value: Resource:
 	get:
 		return node.edited_resource
-	set(_value):
-		node.edited_resource = _value
+	set(value):
+		node.edited_resource = value
 
-var last_value
+var last_value: Resource
 
 signal value_changed(value)
 

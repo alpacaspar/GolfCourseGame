@@ -57,8 +57,6 @@ func on_process(delta):
 	if self == get_tree().edited_scene_root:
 		return
 
-	print(1)
-
 	if npc_resource.value == null:
 		save_button.disabled = true
 		load_button.disabled = true
@@ -104,7 +102,7 @@ func _load():
 
 func _save():
 	edited_resource.resource_name = edited_resource.name
-	var result = ResourceSaver.save(edited_resource, current_path)
+	var result := ResourceSaver.save(edited_resource, current_path)
 	if result != OK:
 		print(result)
 	else:
@@ -117,7 +115,7 @@ func _save_as():
 		print("FILE ALREADY EXISTS")
 		return
 
-	var result = ResourceSaver.save(edited_resource, "res://common/npc_resources/{str}.tres".format({"str": edited_resource.name.to_snake_case()}))
+	var result := ResourceSaver.save(edited_resource, "res://common/npc_resources/{str}.tres".format({"str": edited_resource.name.to_snake_case()}))
 	if result != OK:
 		print(result)
 	else:

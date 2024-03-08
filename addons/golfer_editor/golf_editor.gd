@@ -2,7 +2,7 @@
 extends EditorPlugin
 
 
-var dock
+var dock: Node
 
 
 func _enter_tree():
