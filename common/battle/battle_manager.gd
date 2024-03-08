@@ -36,40 +36,39 @@ func end_battle(winning_rival: RivalResource):
 
 
 func _instantiate_team(team_resource: TeamResource, origin: Node3D):
-	var commander: Node3D
-
 	var team := team_scene.instantiate()
-	add_child(team)
+	var commander: Node3D
 
 	var spawnpoints := _get_triangular_points(team_resource.size, origin.global_position, origin.global_basis.z, 5)
 
+	# Create Formations.
+	var formations := []
 	for role: Role in team_resource.formations.keys():
 		var formation := formation_scene.instantiate()
-		team.add_child(formation)
 		
+		# Create Units.
 		var instances := []
-		
 		for member: GolferResource in team_resource.formations[role]:
 			var unit := unit_scene.instantiate()
+			if member is RivalResource:
+				commander = unit
 
 			if member is PlayerRivalResource:
 				unit.add_child(unit_player_controller.instantiate())
 			else:
 				unit.add_child(unit_ai_controller.instantiate())
 			
-			unit.setup(member)
+			unit.setup(member, spawnpoints.pop_front())
 			formation.add_child(unit)
-
-			unit.global_position = spawnpoints.pop_front()
-
-			if member is RivalResource:
-				commander = unit
-
 			instances.append(unit)
 		
 		formation.setup(team, instances)
+		team.add_child(formation)
+		formations.append(formation)
 	
-	team.setup(commander)
+	# Finish setting up the team.
+	team.setup(commander, formations)
+	add_child(team)
 	teams.append(team)
 
 
