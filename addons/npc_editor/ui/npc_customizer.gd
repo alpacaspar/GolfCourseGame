@@ -7,12 +7,7 @@ var active: bool = false
 
 @export var npc_resource: ResourceLoadingHandler
 
-@export var name_field: LineEdit
-@export var chin_slider: Slider
-@export var preview: TextureRect
-@export var error_display: Label
-@export var error_icon: TextureRect
-
+@export_subgroup("Picker")
 @export var eyes_option_picker: NPCCustomizerPicker
 @export var noses_option_picker: NPCCustomizerPicker
 @export var ears_option_picker: NPCCustomizerPicker
@@ -20,13 +15,23 @@ var active: bool = false
 @export var hair_option_picker: NPCCustomizerPicker
 @export var accessories_option_picker: NPCCustomizerPicker
 
+@export_subgroup("References")
+@export var name_field: LineEdit
+@export var chin_slider: Slider
+@export var load_button: Button
+@export var save_button: Button
+@export var save_as_button: Button
+
+@export_subgroup("Preview Stuff")
+@export var preview: TextureRect
 @export var zoom_slider: Slider
 @export var rotation_slider: Slider
 @export var rotation_box: SpinBox
 
-@export var load_button: Button
-@export var save_button: Button
-@export var save_as_button: Button
+@export_subgroup("Error Stuff")
+@export var error_display: Label
+@export var error_icon: TextureRect
+
 
 var update_preview_callback: Callable
 

@@ -21,6 +21,8 @@ var callback: Callable
 var rotation_value: int = 180
 var zoom_value: int
 
+var getting_icons: bool
+
 
 func make_ready(_callback: Callable):
 	preview_cam.make_current()
@@ -37,8 +39,9 @@ func _process(_delta):
 	if not active:
 		return
 	
-	#spawned_character.basis = Basis()
-	#spawned_character.rotate(Vector3.UP, deg_to_rad(180 + rotation_value))
+	if !getting_icons:
+		spawned_character.basis = Basis()
+		spawned_character.rotate(Vector3.UP, deg_to_rad(180 + rotation_value))
 
 	var img = preview_viewport.get_texture() as Texture2D
 	callback.call(img)
@@ -63,6 +66,7 @@ func _edit_character(_character_resource: NPCResource):
 
 
 func create_button_icon(mesh, rotate: bool) -> Texture:
+	getting_icons = true
 	icon_cam.current = true
 	spawned_character.set_preview_mode(true)
 	spawned_character.preview_mesh.mesh = mesh
@@ -81,6 +85,7 @@ func create_button_icon(mesh, rotate: bool) -> Texture:
 	spawned_character.rotate(Vector3.UP, deg_to_rad(180 + rotation_value))
 	
 	preview_cam.current = true
+	getting_icons = false
 	return ImageTexture.create_from_image(image)
 
 
