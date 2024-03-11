@@ -4,7 +4,7 @@ extends Control
 
 var active: bool = false
 
-@export var sequence_resource: ResourceLoadingHandler
+@export var sequence_resource: SequenceResourceLoader
 @export var extended_visuals: Control
 
 @export var sequencer_functionality: SequencerFunctionality

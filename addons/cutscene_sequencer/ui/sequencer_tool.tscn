@@ -33,7 +33,7 @@ border_color = Color(1, 0.0117647, 0.137255, 1)
 [sub_resource type="LabelSettings" id="LabelSettings_nmv6j"]
 font_size = 32
 
-[node name="SequencerTool" type="Control" node_paths=PackedStringArray("sequence_resource", "extended_visuals", "sequencer_functionality")]
+[node name="SequencerTool" type="Control" node_paths=PackedStringArray("extended_visuals", "sequencer_functionality")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -41,7 +41,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_lpnir")
-sequence_resource = NodePath("FullView/VBoxContainer/UpperPortion/Panel/PanelContainer/VBoxContainer/Resource Holder")
 extended_visuals = NodePath("FullView/VBoxContainer/UpperPortion")
 sequencer_functionality = NodePath("FullView/SequencerUI")
 
@@ -155,14 +154,14 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 5.8
-scroll_offset = Vector2(0, -549)
+scroll_offset = Vector2(0, -518)
 
 [node name="GraphNode" type="GraphNode" parent="FullView/VBoxContainer/UpperPortion/VBoxContainer/Panel2"]
 layout_mode = 0
 offset_left = 201.0
-offset_top = 292.0
+offset_top = 261.0
 offset_right = 339.0
-offset_bottom = 490.0
+offset_bottom = 459.0
 mouse_filter = 1
 position_offset = Vector2(201, -257)
 title = "This Node"
@@ -246,6 +245,7 @@ layout_mode = 2
 size_flags_vertical = 3
 
 [node name="VBoxContainer" type="VBoxContainer" parent="FullView/SequencerUI/HBoxContainer"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 4.78
@@ -371,7 +371,6 @@ layout_mode = 2
 size_flags_horizontal = 3
 max_value = 841.0
 step = 14.0167
-value = 1.0
 
 [node name="Panel3" type="HBoxContainer" parent="FullView/SequencerUI/HBoxContainer/VBoxContainer/VBoxContainer" node_paths=PackedStringArray("block_parent")]
 custom_minimum_size = Vector2(0, 20)
@@ -517,11 +516,9 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="GraphEdit" type="GraphEdit" parent="FullView/SequencerUI/HBoxContainer"]
-visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 4.78
-scroll_offset = Vector2(0, -19)
 minimap_enabled = false
 show_menu = false
 
@@ -691,9 +688,9 @@ visible = false
 layout_mode = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 104.99
+offset_left = 104.0
 offset_top = -182.0
-offset_right = 124.99
+offset_right = 124.0
 theme_override_constants/separation = 20
 theme_override_styles/separator = SubResource("StyleBoxFlat_nbcg7")
 

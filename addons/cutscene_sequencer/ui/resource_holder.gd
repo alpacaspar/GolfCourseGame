@@ -1,5 +1,5 @@
 @tool
-class_name ResourceLoadingHandler
+class_name SequenceResourceLoader
 extends Control
 
 
