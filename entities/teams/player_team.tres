@@ -1,7 +1,8 @@
-[gd_resource type="Resource" script_class="TeamResource" load_steps=9 format=3 uid="uid://6a541a10r4sh"]
+[gd_resource type="Resource" script_class="TeamResource" load_steps=10 format=3 uid="uid://6a541a10r4sh"]
 
 [ext_resource type="Resource" uid="uid://dl31ic8xbffso" path="res://entities/golfers/rivals/player_rival_resource.tres" id="1_xh7sv"]
 [ext_resource type="Script" path="res://entities/golfers/golfer_resource.gd" id="2_eli4i"]
+[ext_resource type="Resource" uid="uid://4koktwjenpih" path="res://common/npc_resources/andries_is_moe.tres" id="2_n1ckx"]
 [ext_resource type="Resource" uid="uid://yb8e3rujs5nl" path="res://common/roles/iron.tres" id="2_ti11k"]
 [ext_resource type="Script" path="res://entities/teams/team_resource.gd" id="3_rgxn0"]
 
@@ -10,24 +11,28 @@ script = ExtResource("2_eli4i")
 name = "Joe Schmoe"
 level = 1
 role = ExtResource("2_ti11k")
+npc_resource = ExtResource("2_n1ckx")
 
 [sub_resource type="Resource" id="Resource_dxc7q"]
 script = ExtResource("2_eli4i")
 name = "Joe Schmoe"
 level = 1
 role = ExtResource("2_ti11k")
+npc_resource = ExtResource("2_n1ckx")
 
 [sub_resource type="Resource" id="Resource_vg3cv"]
 script = ExtResource("2_eli4i")
 name = "Joe Schmoe"
 level = 1
 role = ExtResource("2_ti11k")
+npc_resource = ExtResource("2_n1ckx")
 
 [sub_resource type="Resource" id="Resource_0rur8"]
 script = ExtResource("2_eli4i")
 name = "Joe Schmoe"
 level = 1
 role = ExtResource("2_ti11k")
+npc_resource = ExtResource("2_n1ckx")
 
 [resource]
 script = ExtResource("3_rgxn0")

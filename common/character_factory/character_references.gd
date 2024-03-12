@@ -13,6 +13,13 @@ extends Node3D
 
 @export var preview_mesh: MeshInstance3D
 
+var animation_tree: AnimationTree:
+	get:
+		if not animation_tree:
+			animation_tree = $AnimationTree
+		
+		return animation_tree
+
 
 func set_preview_mode(preview_mode: bool):
 	ear_mesh.visible = !preview_mode

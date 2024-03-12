@@ -11,15 +11,15 @@ script = ExtResource("1_377ic")
 camera = NodePath("CameraPivot/SpringArm3D/PlayerCamera")
 
 [node name="CameraPivot" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1, 0)
 
 [node name="SpringArm3D" type="SpringArm3D" parent="CameraPivot"]
 shape = SubResource("SphereShape3D_3ltxi")
-spring_length = 6.0
+spring_length = 4.0
 margin = 0.5
 
 [node name="PlayerCamera" type="Camera3D" parent="CameraPivot/SpringArm3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
 
 [node name="InputProvider" type="Node" parent="." node_paths=PackedStringArray("controller")]
 script = ExtResource("2_04lo5")

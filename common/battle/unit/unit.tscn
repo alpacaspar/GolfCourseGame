@@ -1,10 +1,9 @@
 [gd_scene load_steps=4 format=3 uid="uid://s18mlviu254u"]
 
 [ext_resource type="Script" path="res://common/battle/unit/unit.gd" id="1_x0dyn"]
+[ext_resource type="Script" path="res://common/battle/unit/unit_visuals.gd" id="2_vays6"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_yo62r"]
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_y5eue"]
 
 [node name="Unit" type="CharacterBody3D"]
 collision_layer = 2
@@ -15,9 +14,6 @@ script = ExtResource("1_x0dyn")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_yo62r")
 
-[node name="Visuals" type="Node3D" parent="."]
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Visuals"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-mesh = SubResource("CapsuleMesh_y5eue")
-skeleton = NodePath("../../CollisionShape3D")
+[node name="Visuals" type="Node3D" parent="." node_paths=PackedStringArray("body")]
+script = ExtResource("2_vays6")
+body = NodePath("..")

@@ -1,7 +1,26 @@
-[gd_resource type="Resource" script_class="TeamResource" load_steps=2 format=3 uid="uid://bqfynn7xbjh4x"]
+[gd_resource type="Resource" script_class="TeamResource" load_steps=8 format=3 uid="uid://bqfynn7xbjh4x"]
 
+[ext_resource type="Resource" uid="uid://dm01uu1l6m7hb" path="res://entities/golfers/rivals/tiger_woods.tres" id="1_2cwpe"]
 [ext_resource type="Script" path="res://entities/teams/team_resource.gd" id="1_sadap"]
+[ext_resource type="Resource" uid="uid://exfdy455d72r" path="res://common/npc_resources/charlie_ofzo.tres" id="2_83g5t"]
+[ext_resource type="Resource" uid="uid://yb8e3rujs5nl" path="res://common/roles/iron.tres" id="3_n6ori"]
+[ext_resource type="Script" path="res://entities/golfers/golfer_resource.gd" id="4_ldpdp"]
+
+[sub_resource type="Resource" id="Resource_j3qc5"]
+script = ExtResource("4_ldpdp")
+name = "Joe Schmoe"
+level = 1
+role = ExtResource("3_n6ori")
+npc_resource = ExtResource("2_83g5t")
+
+[sub_resource type="Resource" id="Resource_44nr1"]
+script = ExtResource("4_ldpdp")
+name = "Joe Schmoe"
+level = 1
+role = ExtResource("3_n6ori")
+npc_resource = ExtResource("2_83g5t")
 
 [resource]
 script = ExtResource("1_sadap")
-members = Array[Resource("res://entities/golfers/golfer_resource.gd")]([])
+commander = ExtResource("1_2cwpe")
+members = Array[ExtResource("4_ldpdp")]([SubResource("Resource_j3qc5"), SubResource("Resource_44nr1")])
