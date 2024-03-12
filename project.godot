@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 InputManager="*res://common/input/input_manager.gd"
 BattleManager="*res://common/battle/battle_manager.gd"
+CharacterFactory="*res://common/character_factory/character_factory.tscn"
 
 [dotnet]
 

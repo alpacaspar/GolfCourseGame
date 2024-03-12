@@ -154,12 +154,12 @@ func set_zoom_slider(value):
 
 
 func set_pickers(preview_scene):
-	await _set_button_connections(preview_scene, preview_scene.character_factory.eye_meshes, false, eyes_option_picker)
-	await _set_button_connections(preview_scene, preview_scene.character_factory.nose_meshes, false, noses_option_picker)
-	await _set_button_connections(preview_scene, preview_scene.character_factory.ear_meshes, false, ears_option_picker)
-	await _set_button_connections(preview_scene, preview_scene.character_factory.mouth_meshes, false, mouths_option_picker)
-	await _set_button_connections(preview_scene, preview_scene.character_factory.hair_meshes, true, hair_option_picker)
-	await _set_button_connections(preview_scene, preview_scene.character_factory.accessory_meshes, false, accessories_option_picker)
+	await _set_button_connections(preview_scene, CharacterFactory.eye_meshes, false, eyes_option_picker)
+	await _set_button_connections(preview_scene, CharacterFactory.nose_meshes, false, noses_option_picker)
+	await _set_button_connections(preview_scene, CharacterFactory.ear_meshes, false, ears_option_picker)
+	await _set_button_connections(preview_scene, CharacterFactory.mouth_meshes, false, mouths_option_picker)
+	await _set_button_connections(preview_scene, CharacterFactory.hair_meshes, true, hair_option_picker)
+	await _set_button_connections(preview_scene, CharacterFactory.accessory_meshes, false, accessories_option_picker)
 
 
 func _set_button_connections(preview_scene, collection, rotate, picker: NPCCustomizerPicker):

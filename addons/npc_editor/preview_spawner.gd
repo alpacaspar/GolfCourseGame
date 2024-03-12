@@ -3,8 +3,6 @@ class_name PreviewSpawner
 extends Node
 
 
-@export var character_factory: CharacterFactory
-
 @export var preview_viewport: SubViewport
 @export var preview_cam: Camera3D
 @export var icon_viewport: SubViewport
@@ -46,7 +44,7 @@ func _set_zoom(_value := 0.0):
 
 
 func _spawn_character(character_resource: NPCResource):
-	spawned_character = character_factory.spawn_character(character_resource) as CharacterReferences
+	spawned_character = CharacterFactory.spawn_character(character_resource) as CharacterReferences
 	add_child(spawned_character)
 
 

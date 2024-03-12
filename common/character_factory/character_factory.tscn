@@ -7,7 +7,7 @@
 [ext_resource type="ArrayMesh" uid="uid://c853f81w1negk" path="res://common/character_factory/ears/ears_v3.tres" id="4_pader"]
 [ext_resource type="ArrayMesh" uid="uid://xr7dpimen2ai" path="res://common/character_factory/ears/ears_v4.tres" id="5_ggkux"]
 [ext_resource type="ArrayMesh" uid="uid://cgvg5t362r4sm" path="res://common/character_factory/ears/ears_v5.tres" id="6_p44aj"]
-[ext_resource type="ArrayMesh" uid="uid://6nc40krj55fp" path="res://common/character_factory/hair/buzzcut_hair.tres" id="7_v7qvc"]
+[ext_resource type="ArrayMesh" uid="uid://bigfmu15848y" path="res://common/character_factory/hair/buzzcut_hair.tres" id="7_v7qvc"]
 [ext_resource type="ArrayMesh" uid="uid://jmpv6ia3rh7q" path="res://common/character_factory/hair/charlie_hair.tres" id="8_b6sll"]
 [ext_resource type="ArrayMesh" uid="uid://3a5jlsl4cfc7" path="res://common/character_factory/hair/combover_hair.tres" id="9_4v00r"]
 [ext_resource type="ArrayMesh" uid="uid://doqcrrjj5lta5" path="res://common/character_factory/hair/longish_hair.tres" id="10_b2tr2"]
@@ -18,12 +18,9 @@
 [ext_resource type="ArrayMesh" uid="uid://dbotanwftp4a6" path="res://common/character_factory/noses/nose_v3.tres" id="15_1hsmk"]
 [ext_resource type="ArrayMesh" uid="uid://cehi1fujyfgd3" path="res://common/character_factory/noses/nose_v4.tres" id="16_750pi"]
 
-[node name="CharacterFactory" type="Node3D"]
+[node name="CharacterFactory" type="Node"]
 script = ExtResource("1_i4r0e")
 ear_meshes = Array[Mesh]([ExtResource("2_gci0h"), ExtResource("3_hlr06"), ExtResource("4_pader"), ExtResource("5_ggkux"), ExtResource("6_p44aj")])
 hair_meshes = Array[Mesh]([ExtResource("7_v7qvc"), ExtResource("8_b6sll"), ExtResource("9_4v00r"), ExtResource("10_b2tr2"), ExtResource("11_mjmw2"), ExtResource("12_vb6vx")])
 nose_meshes = Array[Mesh]([ExtResource("13_cd7pm"), ExtResource("14_rlsxe"), ExtResource("15_1hsmk"), ExtResource("16_750pi")])
-accessory_meshes = null
-eye_meshes = null
-mouth_meshes = null
 character_base = ExtResource("2_fojra")
