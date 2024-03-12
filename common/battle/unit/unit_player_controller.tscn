@@ -20,6 +20,7 @@ margin = 0.5
 
 [node name="PlayerCamera" type="Camera3D" parent="CameraPivot/SpringArm3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+fov = 60.0
 
 [node name="InputProvider" type="Node" parent="." node_paths=PackedStringArray("controller")]
 script = ExtResource("2_04lo5")

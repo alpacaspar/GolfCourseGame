@@ -7,7 +7,7 @@ var formations: Array
 
 var units: Array:
 	get:
-		var result = []
+		var result := []
 		for formation in formations:
 			result += formation.units
 		
