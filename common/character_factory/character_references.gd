@@ -15,12 +15,12 @@ extends Node3D
 
 
 func set_preview_mode(preview_mode: bool):
-    ear_mesh.visible = !preview_mode
-    nose_mesh.visible = !preview_mode
-    hair_mesh.visible = !preview_mode
-    #accessory_mesh.visible = !preview_mode
-    mouth_mesh.visible = !preview_mode
-    eye_mesh.visible = !preview_mode
-    eyebrow_mesh.visible = !preview_mode
+	ear_mesh.visible = !preview_mode
+	nose_mesh.visible = !preview_mode
+	hair_mesh.visible = !preview_mode
+	#accessory_mesh.visible = !preview_mode
+	mouth_mesh.visible = !preview_mode
+	eye_mesh.visible = !preview_mode
+	eyebrow_mesh.visible = !preview_mode
 
-    preview_mesh.visible = preview_mode
+	preview_mesh.visible = preview_mode
