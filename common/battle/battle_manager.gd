@@ -47,43 +47,34 @@ func get_opponent_units(my_team: Team) -> Array:
 
 
 func _instantiate_team(team_resource: TeamResource, origin: Node3D):
-	var team := team_scene.instantiate()
-	var commander: Node3D
+	var team_instance := team_scene.instantiate()
+	self.add_child(team_instance)
+	teams.append(team_instance)
 
-	var spawnpoints := _get_triangular_points(team_resource.size, origin.global_position, origin.global_basis.z, 5)
+	var spawnpoints := _get_triangular_points(team_resource.size, origin.global_position, origin.global_transform.basis.z, 2.0)
 
-	# Create Formations.
-	var formations := []
-	for role: Role in team_resource.formations.keys():
-		var formation := formation_scene.instantiate()
-		
-		# Create Units.
-		var instances := []
-		for member: GolferResource in team_resource.formations[role]:
-			var unit := unit_scene.instantiate()
-			if member is RivalResource:
-				commander = unit
+	var commander := unit_scene.instantiate()
+	team_instance.add_child(commander)
+	commander.setup(team_resource.commander)
+	commander.global_transform.origin = spawnpoints.pop_front()
 
-			if member is PlayerRivalResource:
-				unit.add_child(unit_player_controller.instantiate())
-			else:
-				unit.add_child(unit_ai_controller.instantiate())
-			
-			unit.setup(member, spawnpoints.pop_front())
-			formation.add_child(unit)
-			instances.append(unit)
-		
-		formation.setup(team, role, instances)
-		team.add_child(formation)
-		formations.append(formation)
-	
-	# Finish setting up the team.
-	team.setup(commander, formations)
-	add_child(team)
-	teams.append(team)
+	team_instance.commander = commander
+
+	for formation_resource: FormationResource in team_resource.formations:
+		var formation_instance := formation_scene.instantiate()
+		team_instance.add_child(formation_instance)
+		team_instance.formations.append(formation_instance)
+
+		for unit: GolferResource in formation_resource.units:
+			var unit_instance := unit_scene.instantiate()
+			formation_instance.add_child(unit_instance)
+			formation_instance.units.append(unit_instance)
+
+			unit_instance.setup(unit)
+			unit_instance.global_transform.origin = spawnpoints.pop_front()
 
 
-## Return an array of points in a triangular pattern (bowling pin formation).
+## Returns an array of points in a triangular pattern (bowling pin formation).
 func _get_triangular_points(amount: int, offset: Vector3, direction: Vector3, spacing: float) -> Array[Vector3]:
 	var rows: int = ceil((sqrt(8 * amount + 1) - 1) * 0.5)
 

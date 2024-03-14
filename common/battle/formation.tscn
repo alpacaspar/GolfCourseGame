@@ -2,8 +2,7 @@
 
 [ext_resource type="Script" path="res://common/battle/formation.gd" id="1_6tjdm"]
 
-[node name="Formation" type="Node"]
+[node name="Formation" type="Node3D"]
 script = ExtResource("1_6tjdm")
 
-[node name="FormationUpdateTimer" type="Timer" parent="."]
-autostart = true
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]

@@ -10,9 +10,6 @@ var body: CharacterBody3D
 
 
 func _ready():
-	navigation_agent.path_desired_distance = body.golfer_resource.role.desired_distance
-	detection_area.set_detection_radius(body.golfer_resource.role.desired_distance, DETECTION_RADIUS_PADDING)
-	
 	navigation_agent.velocity_computed.connect(_on_velocity_computed)
 
 

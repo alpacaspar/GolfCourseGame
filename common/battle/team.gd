@@ -3,20 +3,14 @@ extends Node
 
 
 var commander: Unit
-var formations: Array
+var formations: Array[Formation]
 
-var units: Array:
+var units: Array[Unit]:
 	get:
-		var result := []
-		for formation in formations:
+		var result: Array[Unit] = []
+		result.append(commander)
+		
+		for formation: Formation in formations:
 			result += formation.units
 		
 		return result
-
-func setup(new_commander: Unit, new_formations: Array):
-	commander = new_commander
-	formations = new_formations
-
-
-func update_tactics(tactic):
-	pass

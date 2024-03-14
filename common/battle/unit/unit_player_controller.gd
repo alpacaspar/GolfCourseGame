@@ -6,8 +6,6 @@ const SENSITIVITY = 0.3
 @onready var input_provider: InputProvider = $InputProvider
 @onready var camera_pivot: Marker3D = $CameraPivot
 
-@export var camera: Camera3D
-
 var body: CharacterBody3D
 
 
@@ -38,7 +36,3 @@ func _physics_process(delta: float):
 
 func _on_exit():
 	input_provider.on_look.disconnect(_on_look)
-
-
-func make_camera_current(value: bool):
-	camera.current = value
