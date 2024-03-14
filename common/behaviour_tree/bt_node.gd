@@ -9,7 +9,10 @@ func _tick(_blackboard: Dictionary, _delta: float) -> int:
 
 
 enum {
-	SUCCESS, ## [BTNode] has successfully completed its task.
-	FAILURE, ## [BTNode] has failed to complete its task.
-	RUNNING  ## [BTNode] is still running its task.
+	## [BTNode] has successfully completed its task.
+	SUCCESS,
+	## [BTNode] has failed to complete its task.
+	FAILURE,
+	## [BTNode] is still running its task.
+	RUNNING
 }
