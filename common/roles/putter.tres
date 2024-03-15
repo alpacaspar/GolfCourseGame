@@ -5,4 +5,3 @@
 [resource]
 script = ExtResource("1_ue8kh")
 display_name = "Putter"
-desired_distance = 3.0

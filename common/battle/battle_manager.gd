@@ -36,14 +36,8 @@ func end_battle(winning_rival: RivalResource):
 
 
 ## Returns all units that are not part of the given team.
-func get_opponent_units(my_team: Team) -> Array:
-	var units: Array = []
-
-	for team in teams:
-		if team != my_team:
-			units += team.units
-	
-	return units
+func get_opponent_teams(my_team: Team) -> Array[Team]:
+	return teams.filter(func(team) -> bool: return team != my_team)
 
 
 func _instantiate_team(team_resource: TeamResource, origin: Node3D):
