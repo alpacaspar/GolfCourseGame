@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cwev4newqfqhe"]
+
+[ext_resource type="Script" path="res://addons/cutscene_sequencer/retracer/sequence_retracer.gd" id="1_vweu5"]
+
+[node name="Sequence Retracer" type="Node"]
+script = ExtResource("1_vweu5")
