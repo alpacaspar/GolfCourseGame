@@ -11,13 +11,15 @@ var team: Team:
 
 var units: Array[Unit]
 
-var behaviour_tree: BehaviourTree
+@onready var behaviour_tree: BehaviourTree = $BehaviourTree
 
 
 func _ready():
-	behaviour_tree = $BehaviourTree
-
 	behaviour_tree.blackboard["formation"] = self
+
+
+func _physics_process(delta: float):
+	behaviour_tree.tick_tree(delta)
 
 
 func get_center_position() -> Vector3:

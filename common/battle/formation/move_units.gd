@@ -17,6 +17,8 @@ func _tick(blackboard: Dictionary, _delta: float) -> int:
 func _instruct_units(blackboard: Dictionary, _delta: float):
 	instructing_units = true
 
+	await get_tree().physics_frame
+
 	var formation: Formation = blackboard["formation"]
 
 	var target_position: Vector3 = blackboard["target_position"]
