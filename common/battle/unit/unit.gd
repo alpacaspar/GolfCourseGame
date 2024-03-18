@@ -34,11 +34,8 @@ func setup(new_golfer: GolferResource):
 func give_instructions(target_position: Vector3, _target_formation: Formation = null):
 	# If the controller is a player controller, do nothing.
 	# Technically the player will never receive instructions as they are not in a formation, but this is a good safety check.
-	if controller.has_method("set_movement_target"):
-		## Offset the given position by a random amount to make the movement look more natural.
-		var theta : float = randf() * 2 * PI
-		var offset = Vector3(cos(theta), 0, sin(theta)) * sqrt(randf()) * 10
-		controller.set_movement_target(target_position + offset)
+	if controller.has_method("give_commands"):
+		controller.give_commands(target_position, _target_formation)
 
 
 func is_exhausted() -> bool:
