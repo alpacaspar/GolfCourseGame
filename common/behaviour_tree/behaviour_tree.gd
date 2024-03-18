@@ -12,6 +12,6 @@ func _ready():
 	child_node = get_child(0)
 
 
-func _process(delta: float):
+func tick_tree(delta: float):
 	if child_node:
 		child_node._tick(blackboard, delta)
