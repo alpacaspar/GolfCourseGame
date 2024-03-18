@@ -1,0 +1,57 @@
+Event	ID	Name			Wwise Object Path	Notes
+	3502184788	play_x_debug_distance			\Debug\Debug\play_x_debug_distance	
+	3634679436	play_x_debug_continuous_sound			\Debug\Debug\play_x_debug_continuous_sound	
+
+Switch Group	ID	Name			Wwise Object Path	Notes
+	1611159812	debug_distance			\Debug\debug_distance	
+
+Switch	ID	Name	Switch Group			Notes
+	1131221074	distance_090	debug_distance			
+	1131221079	distance_095	debug_distance			
+	1147998656	distance_085	debug_distance			
+	1147998661	distance_080	debug_distance			
+	1164776376	distance_070	debug_distance			
+	1164776381	distance_075	debug_distance			
+	1181406900	distance_100	debug_distance			
+	1181553963	distance_060	debug_distance			
+	1181553966	distance_065	debug_distance			
+	1198331547	distance_055	debug_distance			
+	1198331550	distance_050	debug_distance			
+	1215109233	distance_040	debug_distance			
+	1215109236	distance_045	debug_distance			
+	1231886817	distance_035	debug_distance			
+	1231886820	distance_030	debug_distance			
+	1248664402	distance_025	debug_distance			
+	1248664407	distance_020	debug_distance			
+	1265441994	distance_010	debug_distance			
+	1265441999	distance_015	debug_distance			
+	1282219704	distance_005	debug_distance			
+	1282219709	distance_000	debug_distance			
+
+Game Parameter	ID	Name			Wwise Object Path	Notes
+	1611159812	debug_distance			\Debug\debug_distance	
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	118680040	x_debug_100	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\x_debug_100_81E2D1CA.wem		\Actor-Mixer Hierarchy\Debug\Debug\x_debug_distance\x_debug_100	100	65374
+	148261550	x_debug_060	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\x_debug_060_79351DC7.wem		\Actor-Mixer Hierarchy\Debug\Debug\x_debug_distance\x_debug_060	60	59060
+	198311683	x_debug_095	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\x_debug_095_23FDDA3B.wem		\Actor-Mixer Hierarchy\Debug\Debug\x_debug_distance\x_debug_095	95	70752
+	218542944	x_debug_055	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\x_debug_055_0345FFBB.wem		\Actor-Mixer Hierarchy\Debug\Debug\x_debug_distance\x_debug_055	55	67654
+	242391901	x_debug_030	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\x_debug_030_6FAD11A2.wem		\Actor-Mixer Hierarchy\Debug\Debug\x_debug_distance\x_debug_030	30	49948
+	410123159	x_debug_000	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\x_debug_000_D8FF21CD.wem		\Actor-Mixer Hierarchy\Debug\Debug\x_debug_distance\x_debug_000	0	54704
+	435315871	x_debug_continuous_sound	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\x_debug_continuous_sound_3AB58229.wem		\Actor-Mixer Hierarchy\Debug\Debug\x_debug_continuous_sound		3733624
+	462026169	x_debug_040	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\x_debug_040_0C8E896C.wem		\Actor-Mixer Hierarchy\Debug\Debug\x_debug_distance\x_debug_040	40	52680
+	473477781	x_debug_075	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\x_debug_075_CD70EBD0.wem		\Actor-Mixer Hierarchy\Debug\Debug\x_debug_distance\x_debug_075	75	77258
+	537761227	x_debug_090	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\x_debug_090_8C9DFC48.wem		\Actor-Mixer Hierarchy\Debug\Debug\x_debug_distance\x_debug_090	90	55096
+	563463160	x_debug_045	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\x_debug_045_1487DF12.wem		\Actor-Mixer Hierarchy\Debug\Debug\x_debug_distance\x_debug_045	45	69696
+	581031923	x_debug_010	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\x_debug_010_312EDF86.wem		\Actor-Mixer Hierarchy\Debug\Debug\x_debug_distance\x_debug_010	10	51602
+	615271320	x_debug_035	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\x_debug_035_541BF739.wem		\Actor-Mixer Hierarchy\Debug\Debug\x_debug_distance\x_debug_035	35	66570
+	670193729	x_debug_020	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\x_debug_020_254BA722.wem		\Actor-Mixer Hierarchy\Debug\Debug\x_debug_distance\x_debug_020	20	55110
+	675582719	x_debug_070	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\x_debug_070_566FD26F.wem		\Actor-Mixer Hierarchy\Debug\Debug\x_debug_distance\x_debug_070	70	61186
+	756909045	x_debug_015	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\x_debug_015_8165BBC3.wem		\Actor-Mixer Hierarchy\Debug\Debug\x_debug_distance\x_debug_015	15	57720
+	769985240	x_debug_065	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\x_debug_065_B64B9849.wem		\Actor-Mixer Hierarchy\Debug\Debug\x_debug_distance\x_debug_065	65	74280
+	831443500	x_debug_050	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\x_debug_050_C2F2850A.wem		\Actor-Mixer Hierarchy\Debug\Debug\x_debug_distance\x_debug_050	50	52362
+	866386947	x_debug_025	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\x_debug_025_A5CDF058.wem		\Actor-Mixer Hierarchy\Debug\Debug\x_debug_distance\x_debug_025	25	70778
+	924864581	x_debug_080	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\x_debug_080_EDF8564D.wem		\Actor-Mixer Hierarchy\Debug\Debug\x_debug_distance\x_debug_080	80	49080
+	934108237	x_debug_005	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\x_debug_005_5F049832.wem		\Actor-Mixer Hierarchy\Debug\Debug\x_debug_distance\x_debug_005	5	51264
+	935693696	x_debug_085	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\x_debug_085_E1D6B929.wem		\Actor-Mixer Hierarchy\Debug\Debug\x_debug_distance\x_debug_085	85	65762
+

@@ -1,32 +1,277 @@
 <?xml version="1.0" encoding="utf-8"?>
 <SoundBanksInfo Platform="Windows" BasePlatform="Windows" SchemaVersion="16" SoundBankVersion="150">
 	<RootPaths>
-		<ProjectRoot>../../../../WwiseProjects/OffCourse/Off_Course_Wwise_Project</ProjectRoot>
-		<SourceFilesRoot>../../../../WwiseProjects/OffCourse/Off_Course_Wwise_Project/.cache/Windows</SourceFilesRoot>
+		<ProjectRoot>../../../../../Perforce/Off_Course/OffCourse_WwiseProject</ProjectRoot>
+		<SourceFilesRoot>../../../../../Perforce/Off_Course/OffCourse_WwiseProject/.cache/Windows</SourceFilesRoot>
 		<SoundBanksRoot>.</SoundBanksRoot>
 		<ExternalSourcesInputFile></ExternalSourcesInputFile>
-		<ExternalSourcesOutputRoot>../../../../WwiseProjects/OffCourse/Off_Course_Wwise_Project/GeneratedSoundBanks/Windows</ExternalSourcesOutputRoot>
+		<ExternalSourcesOutputRoot>../../../../../Perforce/Off_Course/OffCourse_WwiseProject/GeneratedSoundBanks/Windows</ExternalSourcesOutputRoot>
 	</RootPaths>
 	<DialogueEvents/>
 	<SoundBanks>
-		<SoundBank Id="534561221" Type="User" Language="SFX" Hash="{7DFB249B-88B1-0B70-6071-183E874525DF}">
-			<ShortName>MainSoundBank</ShortName>
-			<Path>MainSoundBank.bnk</Path>
+		<SoundBank Id="56103612" Type="User" Language="SFX" Hash="{10FA495B-9CFF-3DE8-4D7E-46BBBC8B6DFD}">
+			<ShortName>debug_soundbank</ShortName>
+			<Path>debug_soundbank.bnk</Path>
 			<Media>
-				<File Id="595097576" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>grrr1.wav</ShortName>
-					<CachePath>SFX/grrr1_818F3B66.wem</CachePath>
+				<File Id="118680040" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>x_debug_100.wav</ShortName>
+					<CachePath>SFX/x_debug_100_81E2D1CA.wem</CachePath>
+				</File>
+				<File Id="148261550" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>x_debug_060.wav</ShortName>
+					<CachePath>SFX/x_debug_060_79351DC7.wem</CachePath>
+				</File>
+				<File Id="198311683" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>x_debug_095.wav</ShortName>
+					<CachePath>SFX/x_debug_095_23FDDA3B.wem</CachePath>
+				</File>
+				<File Id="218542944" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>x_debug_055.wav</ShortName>
+					<CachePath>SFX/x_debug_055_0345FFBB.wem</CachePath>
+				</File>
+				<File Id="242391901" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>x_debug_030.wav</ShortName>
+					<CachePath>SFX/x_debug_030_6FAD11A2.wem</CachePath>
+				</File>
+				<File Id="410123159" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>x_debug_000.wav</ShortName>
+					<CachePath>SFX/x_debug_000_D8FF21CD.wem</CachePath>
+				</File>
+				<File Id="435315871" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>x_debug_continuous_sound.wav</ShortName>
+					<CachePath>SFX/x_debug_continuous_sound_3AB58229.wem</CachePath>
+				</File>
+				<File Id="462026169" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>x_debug_040.wav</ShortName>
+					<CachePath>SFX/x_debug_040_0C8E896C.wem</CachePath>
+				</File>
+				<File Id="473477781" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>x_debug_075.wav</ShortName>
+					<CachePath>SFX/x_debug_075_CD70EBD0.wem</CachePath>
+				</File>
+				<File Id="537761227" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>x_debug_090.wav</ShortName>
+					<CachePath>SFX/x_debug_090_8C9DFC48.wem</CachePath>
+				</File>
+				<File Id="563463160" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>x_debug_045.wav</ShortName>
+					<CachePath>SFX/x_debug_045_1487DF12.wem</CachePath>
+				</File>
+				<File Id="581031923" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>x_debug_010.wav</ShortName>
+					<CachePath>SFX/x_debug_010_312EDF86.wem</CachePath>
+				</File>
+				<File Id="615271320" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>x_debug_035.wav</ShortName>
+					<CachePath>SFX/x_debug_035_541BF739.wem</CachePath>
+				</File>
+				<File Id="670193729" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>x_debug_020.wav</ShortName>
+					<CachePath>SFX/x_debug_020_254BA722.wem</CachePath>
+				</File>
+				<File Id="675582719" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>x_debug_070.wav</ShortName>
+					<CachePath>SFX/x_debug_070_566FD26F.wem</CachePath>
+				</File>
+				<File Id="756909045" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>x_debug_015.wav</ShortName>
+					<CachePath>SFX/x_debug_015_8165BBC3.wem</CachePath>
+				</File>
+				<File Id="769985240" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>x_debug_065.wav</ShortName>
+					<CachePath>SFX/x_debug_065_B64B9849.wem</CachePath>
+				</File>
+				<File Id="831443500" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>x_debug_050.wav</ShortName>
+					<CachePath>SFX/x_debug_050_C2F2850A.wem</CachePath>
+				</File>
+				<File Id="866386947" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>x_debug_025.wav</ShortName>
+					<CachePath>SFX/x_debug_025_A5CDF058.wem</CachePath>
+				</File>
+				<File Id="924864581" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>x_debug_080.wav</ShortName>
+					<CachePath>SFX/x_debug_080_EDF8564D.wem</CachePath>
+				</File>
+				<File Id="934108237" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>x_debug_005.wav</ShortName>
+					<CachePath>SFX/x_debug_005_5F049832.wem</CachePath>
+				</File>
+				<File Id="935693696" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>x_debug_085.wav</ShortName>
+					<CachePath>SFX/x_debug_085_E1D6B929.wem</CachePath>
 				</File>
 			</Media>
 			<Events>
-				<Event Id="3157003241" Name="test">
+				<Event Id="3634679436" Name="play_x_debug_continuous_sound">
 					<MediaRefs>
-						<MediaRef Id="595097576"/>
+						<MediaRef Id="435315871"/>
 					</MediaRefs>
 				</Event>
+				<Event Id="3502184788" Name="play_x_debug_distance">
+					<SwitchContainers>
+						<SwitchContainer>
+							<SwitchValue GroupType="Switch" GroupId="1611159812" Id="1164776381"/>
+							<MediaRefs>
+								<MediaRef Id="473477781"/>
+							</MediaRefs>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="Switch" GroupId="1611159812" Id="1282219704"/>
+							<MediaRefs>
+								<MediaRef Id="934108237"/>
+							</MediaRefs>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="Switch" GroupId="1611159812" Id="1198331550"/>
+							<MediaRefs>
+								<MediaRef Id="831443500"/>
+							</MediaRefs>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="Switch" GroupId="1611159812" Id="1215109236"/>
+							<MediaRefs>
+								<MediaRef Id="563463160"/>
+							</MediaRefs>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="Switch" GroupId="1611159812" Id="1164776376"/>
+							<MediaRefs>
+								<MediaRef Id="675582719"/>
+							</MediaRefs>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="Switch" GroupId="1611159812" Id="1231886817"/>
+							<MediaRefs>
+								<MediaRef Id="615271320"/>
+							</MediaRefs>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="Switch" GroupId="1611159812" Id="1131221074"/>
+							<MediaRefs>
+								<MediaRef Id="537761227"/>
+							</MediaRefs>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="Switch" GroupId="1611159812" Id="1147998656"/>
+							<MediaRefs>
+								<MediaRef Id="935693696"/>
+							</MediaRefs>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="Switch" GroupId="1611159812" Id="1248664402"/>
+							<MediaRefs>
+								<MediaRef Id="866386947"/>
+							</MediaRefs>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="Switch" GroupId="1611159812" Id="1248664407"/>
+							<MediaRefs>
+								<MediaRef Id="670193729"/>
+							</MediaRefs>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="Switch" GroupId="1611159812" Id="1131221079"/>
+							<MediaRefs>
+								<MediaRef Id="198311683"/>
+							</MediaRefs>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="Switch" GroupId="1611159812" Id="1215109233"/>
+							<MediaRefs>
+								<MediaRef Id="462026169"/>
+							</MediaRefs>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="Switch" GroupId="1611159812" Id="1265441999"/>
+							<MediaRefs>
+								<MediaRef Id="756909045"/>
+							</MediaRefs>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="Switch" GroupId="1611159812" Id="1181406900"/>
+							<MediaRefs>
+								<MediaRef Id="118680040"/>
+							</MediaRefs>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="Switch" GroupId="1611159812" Id="1147998661"/>
+							<MediaRefs>
+								<MediaRef Id="924864581"/>
+							</MediaRefs>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="Switch" GroupId="1611159812" Id="1181553963"/>
+							<MediaRefs>
+								<MediaRef Id="148261550"/>
+							</MediaRefs>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="Switch" GroupId="1611159812" Id="1198331547"/>
+							<MediaRefs>
+								<MediaRef Id="218542944"/>
+							</MediaRefs>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="Switch" GroupId="1611159812" Id="1181553966"/>
+							<MediaRefs>
+								<MediaRef Id="769985240"/>
+							</MediaRefs>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="Switch" GroupId="1611159812" Id="1282219709" Default="true"/>
+							<MediaRefs>
+								<MediaRef Id="410123159"/>
+							</MediaRefs>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="Switch" GroupId="1611159812" Id="1265441994"/>
+							<MediaRefs>
+								<MediaRef Id="581031923"/>
+							</MediaRefs>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="Switch" GroupId="1611159812" Id="1231886820"/>
+							<MediaRefs>
+								<MediaRef Id="242391901"/>
+							</MediaRefs>
+						</SwitchContainer>
+					</SwitchContainers>
+				</Event>
 			</Events>
+			<GameParameters>
+				<GameParameter Id="1611159812" Name="debug_distance"/>
+			</GameParameters>
+			<SwitchGroups>
+				<SwitchGroup Id="1611159812" Name="debug_distance">
+					<GameParameterRef Id="1611159812"/>
+					<Switches>
+						<Switch Id="1131221074" Name="distance_090"/>
+						<Switch Id="1131221079" Name="distance_095"/>
+						<Switch Id="1147998656" Name="distance_085"/>
+						<Switch Id="1147998661" Name="distance_080"/>
+						<Switch Id="1164776376" Name="distance_070"/>
+						<Switch Id="1164776381" Name="distance_075"/>
+						<Switch Id="1181406900" Name="distance_100"/>
+						<Switch Id="1181553963" Name="distance_060"/>
+						<Switch Id="1181553966" Name="distance_065"/>
+						<Switch Id="1198331547" Name="distance_055"/>
+						<Switch Id="1198331550" Name="distance_050"/>
+						<Switch Id="1215109233" Name="distance_040"/>
+						<Switch Id="1215109236" Name="distance_045"/>
+						<Switch Id="1231886817" Name="distance_035"/>
+						<Switch Id="1231886820" Name="distance_030"/>
+						<Switch Id="1248664402" Name="distance_025"/>
+						<Switch Id="1248664407" Name="distance_020"/>
+						<Switch Id="1265441994" Name="distance_010"/>
+						<Switch Id="1265441999" Name="distance_015"/>
+						<Switch Id="1282219704" Name="distance_005"/>
+						<Switch Id="1282219709" Name="distance_000"/>
+					</Switches>
+				</SwitchGroup>
+			</SwitchGroups>
 		</SoundBank>
-		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{80AA3125-B4C7-2DBE-1BF1-31EE7B72A930}">
+		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{2CEA0C21-4EAB-4C7A-B9CA-59C7F3AF1603}">
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
 			<Plugins>
@@ -38,6 +283,37 @@
 			<Busses>
 				<Bus Id="3803692087" Name="Master Audio Bus"/>
 			</Busses>
+			<GameParameters>
+				<GameParameter Id="1611159812" Name="debug_distance"/>
+			</GameParameters>
+			<SwitchGroups>
+				<SwitchGroup Id="1611159812" Name="debug_distance">
+					<GameParameterRef Id="1611159812"/>
+					<Switches>
+						<Switch Id="1131221074" Name="distance_090"/>
+						<Switch Id="1131221079" Name="distance_095"/>
+						<Switch Id="1147998656" Name="distance_085"/>
+						<Switch Id="1147998661" Name="distance_080"/>
+						<Switch Id="1164776376" Name="distance_070"/>
+						<Switch Id="1164776381" Name="distance_075"/>
+						<Switch Id="1181406900" Name="distance_100"/>
+						<Switch Id="1181553963" Name="distance_060"/>
+						<Switch Id="1181553966" Name="distance_065"/>
+						<Switch Id="1198331547" Name="distance_055"/>
+						<Switch Id="1198331550" Name="distance_050"/>
+						<Switch Id="1215109233" Name="distance_040"/>
+						<Switch Id="1215109236" Name="distance_045"/>
+						<Switch Id="1231886817" Name="distance_035"/>
+						<Switch Id="1231886820" Name="distance_030"/>
+						<Switch Id="1248664402" Name="distance_025"/>
+						<Switch Id="1248664407" Name="distance_020"/>
+						<Switch Id="1265441994" Name="distance_010"/>
+						<Switch Id="1265441999" Name="distance_015"/>
+						<Switch Id="1282219704" Name="distance_005"/>
+						<Switch Id="1282219709" Name="distance_000"/>
+					</Switches>
+				</SwitchGroup>
+			</SwitchGroups>
 			<AcousticTextures>
 				<AcousticTexture Id="504532776" Name="Brick">
 					<Properties>
@@ -168,5 +444,5 @@
 			</AcousticTextures>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{5464757C-D246-4946-3293-A003BCF2DB90}</FileHash>
+	<FileHash>{4DA67238-8F3D-E5DC-00F8-E799505AF74D}</FileHash>
 </SoundBanksInfo>

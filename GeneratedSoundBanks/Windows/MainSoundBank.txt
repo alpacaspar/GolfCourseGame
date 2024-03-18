@@ -1,6 +1,0 @@
-Event	ID	Name			Wwise Object Path	Notes
-	3157003241	test			\Default Work Unit\test	
-
-In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
-	595097576	grrr1	D:\WwiseProjects\OffCourse\Off_Course_Wwise_Project\.cache\Windows\SFX\grrr1_818F3B66.wem		\Actor-Mixer Hierarchy\caspar\grrr1		96024
-

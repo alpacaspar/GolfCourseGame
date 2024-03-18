@@ -1,3 +1,29 @@
+Switch Group	ID	Name			Wwise Object Path	Notes
+	1611159812	debug_distance			\Debug\debug_distance	
+
+Switch	ID	Name	Switch Group			Notes
+	1131221074	distance_090	debug_distance			
+	1131221079	distance_095	debug_distance			
+	1147998656	distance_085	debug_distance			
+	1147998661	distance_080	debug_distance			
+	1164776376	distance_070	debug_distance			
+	1164776381	distance_075	debug_distance			
+	1181406900	distance_100	debug_distance			
+	1181553963	distance_060	debug_distance			
+	1181553966	distance_065	debug_distance			
+	1198331547	distance_055	debug_distance			
+	1198331550	distance_050	debug_distance			
+	1215109233	distance_040	debug_distance			
+	1215109236	distance_045	debug_distance			
+	1231886817	distance_035	debug_distance			
+	1231886820	distance_030	debug_distance			
+	1248664402	distance_025	debug_distance			
+	1248664407	distance_020	debug_distance			
+	1265441994	distance_010	debug_distance			
+	1265441999	distance_015	debug_distance			
+	1282219704	distance_005	debug_distance			
+	1282219709	distance_000	debug_distance			
+
 Game Parameter	ID	Name			Wwise Object Path	Notes
 	504532776	Brick			\Factory Acoustic Textures\Textures\Brick	
 	513139656	Mountain			\Factory Acoustic Textures\Textures\Mountain	

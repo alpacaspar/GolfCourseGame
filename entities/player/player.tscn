@@ -43,6 +43,9 @@ margin = 0.5
 [node name="PlayerCamera" type="Camera3D" parent="CameraPivot/SpringArm3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5)
 
+[node name="AkListener3D" type="AkListener3D" parent="CameraPivot/SpringArm3D/PlayerCamera"]
+is_spatial = true
+
 [node name="FiniteStateMachine" type="Node" parent="."]
 script = ExtResource("3_ox5tx")
 
