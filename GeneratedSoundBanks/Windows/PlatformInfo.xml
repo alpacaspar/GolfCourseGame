@@ -2,11 +2,11 @@
 <PlatformInfo>
 	<Platform Name="Windows" BasePlatform="Windows" Generator="2023.1.1.8417"/>
 	<RootPaths>
-		<ProjectRoot>../../../../../Perforce/Off_Course/OffCourse_WwiseProject</ProjectRoot>
-		<SourceFilesRoot>../../../../../Perforce/Off_Course/OffCourse_WwiseProject/.cache/Windows</SourceFilesRoot>
+		<ProjectRoot>../..</ProjectRoot>
+		<SourceFilesRoot>../../.cache/Windows</SourceFilesRoot>
 		<SoundBanksRoot>.</SoundBanksRoot>
 		<ExternalSourcesInputFile></ExternalSourcesInputFile>
-		<ExternalSourcesOutputRoot>../../../../../Perforce/Off_Course/OffCourse_WwiseProject/GeneratedSoundBanks/Windows</ExternalSourcesOutputRoot>
+		<ExternalSourcesOutputRoot>.</ExternalSourcesOutputRoot>
 	</RootPaths>
 	<DefaultAlign>16</DefaultAlign>
 	<Settings>
@@ -28,5 +28,5 @@
 		<PrintObjectGuid>false</PrintObjectGuid>
 		<PrintObjectPath>false</PrintObjectPath>
 	</Settings>
-	<FileHash>{ED0F309D-4C2A-F61F-BA10-D2699CF3F95A}</FileHash>
+	<FileHash>{0D557DAE-86AE-0346-167D-168D2BF5C4F0}</FileHash>
 </PlatformInfo>

@@ -1,6 +1,8 @@
 Event	ID	Name			Wwise Object Path	Notes
+	3408384243	play_plr_swing			\Player\Player\play_plr_swing	
 	3502184788	play_x_debug_distance			\Debug\Debug\play_x_debug_distance	
 	3634679436	play_x_debug_continuous_sound			\Debug\Debug\play_x_debug_continuous_sound	
+	3735612561	play_plr_footstep			\Player\Player\play_plr_footstep	
 
 Switch Group	ID	Name			Wwise Object Path	Notes
 	1611159812	debug_distance			\Debug\debug_distance	
@@ -32,13 +34,18 @@ Game Parameter	ID	Name			Wwise Object Path	Notes
 	1611159812	debug_distance			\Debug\debug_distance	
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	74631228	sfx_uni_plr_club_swing_iron_03	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\SFX\Player\sfx_uni_plr_club_swing_iron_03_818F3B66.wem		\Actor-Mixer Hierarchy\Player\Player\swing\sfx_uni_plr_club_swing_iron_03		42630
 	118680040	x_debug_100	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\x_debug_100_81E2D1CA.wem		\Actor-Mixer Hierarchy\Debug\Debug\x_debug_distance\x_debug_100	100	65374
+	139831637	sfx_uni_plr_club_swing_iron_02	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\SFX\Player\sfx_uni_plr_club_swing_iron_02_818F3B66.wem		\Actor-Mixer Hierarchy\Player\Player\swing\sfx_uni_plr_club_swing_iron_02		49038
 	148261550	x_debug_060	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\x_debug_060_79351DC7.wem		\Actor-Mixer Hierarchy\Debug\Debug\x_debug_distance\x_debug_060	60	59060
+	185686888	sfx_uni_plr_club_swing_iron_04	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\SFX\Player\sfx_uni_plr_club_swing_iron_04_818F3B66.wem		\Actor-Mixer Hierarchy\Player\Player\swing\sfx_uni_plr_club_swing_iron_04		45094
 	198311683	x_debug_095	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\x_debug_095_23FDDA3B.wem		\Actor-Mixer Hierarchy\Debug\Debug\x_debug_distance\x_debug_095	95	70752
 	218542944	x_debug_055	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\x_debug_055_0345FFBB.wem		\Actor-Mixer Hierarchy\Debug\Debug\x_debug_distance\x_debug_055	55	67654
 	242391901	x_debug_030	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\x_debug_030_6FAD11A2.wem		\Actor-Mixer Hierarchy\Debug\Debug\x_debug_distance\x_debug_030	30	49948
+	263840221	sfx_uni_plr_club_swing_iron_01	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\SFX\Player\sfx_uni_plr_club_swing_iron_01_818F3B66.wem		\Actor-Mixer Hierarchy\Player\Player\swing\sfx_uni_plr_club_swing_iron_01		51712
 	410123159	x_debug_000	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\x_debug_000_D8FF21CD.wem		\Actor-Mixer Hierarchy\Debug\Debug\x_debug_distance\x_debug_000	0	54704
-	435315871	x_debug_continuous_sound	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\x_debug_continuous_sound_3AB58229.wem		\Actor-Mixer Hierarchy\Debug\Debug\x_debug_continuous_sound		3733624
+	435315871	x_debug_continuous_sound	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\x_debug_continuous_sound_430FA349.wem		\Actor-Mixer Hierarchy\Debug\Debug\x_debug_continuous_sound		3733624
+	457778012	sfx_uni_plr_club_swing_iron_07	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\SFX\Player\sfx_uni_plr_club_swing_iron_07_818F3B66.wem		\Actor-Mixer Hierarchy\Player\Player\swing\sfx_uni_plr_club_swing_iron_07		40844
 	462026169	x_debug_040	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\x_debug_040_0C8E896C.wem		\Actor-Mixer Hierarchy\Debug\Debug\x_debug_distance\x_debug_040	40	52680
 	473477781	x_debug_075	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\x_debug_075_CD70EBD0.wem		\Actor-Mixer Hierarchy\Debug\Debug\x_debug_distance\x_debug_075	75	77258
 	537761227	x_debug_090	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\x_debug_090_8C9DFC48.wem		\Actor-Mixer Hierarchy\Debug\Debug\x_debug_distance\x_debug_090	90	55096
@@ -47,6 +54,9 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	615271320	x_debug_035	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\x_debug_035_541BF739.wem		\Actor-Mixer Hierarchy\Debug\Debug\x_debug_distance\x_debug_035	35	66570
 	670193729	x_debug_020	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\x_debug_020_254BA722.wem		\Actor-Mixer Hierarchy\Debug\Debug\x_debug_distance\x_debug_020	20	55110
 	675582719	x_debug_070	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\x_debug_070_566FD26F.wem		\Actor-Mixer Hierarchy\Debug\Debug\x_debug_distance\x_debug_070	70	61186
+	686307647	sfx_uni_plr_club_swing_iron_05	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\SFX\Player\sfx_uni_plr_club_swing_iron_05_818F3B66.wem		\Actor-Mixer Hierarchy\Player\Player\swing\sfx_uni_plr_club_swing_iron_05		46712
+	703704545	sfx_uni_plr_club_swing_iron_06	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\SFX\Player\sfx_uni_plr_club_swing_iron_06_818F3B66.wem		\Actor-Mixer Hierarchy\Player\Player\swing\sfx_uni_plr_club_swing_iron_06		47072
+	754155897	sfx_uni_plr_club_swing_iron_08	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\SFX\Player\sfx_uni_plr_club_swing_iron_08_818F3B66.wem		\Actor-Mixer Hierarchy\Player\Player\swing\sfx_uni_plr_club_swing_iron_08		45398
 	756909045	x_debug_015	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\x_debug_015_8165BBC3.wem		\Actor-Mixer Hierarchy\Debug\Debug\x_debug_distance\x_debug_015	15	57720
 	769985240	x_debug_065	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\x_debug_065_B64B9849.wem		\Actor-Mixer Hierarchy\Debug\Debug\x_debug_distance\x_debug_065	65	74280
 	831443500	x_debug_050	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\x_debug_050_C2F2850A.wem		\Actor-Mixer Hierarchy\Debug\Debug\x_debug_distance\x_debug_050	50	52362
