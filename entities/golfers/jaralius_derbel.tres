@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="GolferResource" load_steps=4 format=3 uid="uid://c4up0ea70klhf"]
 
-[ext_resource type="Resource" uid="uid://4koktwjenpih" path="res://common/npc_resources/andries_is_moe.tres" id="1_mjohs"]
-[ext_resource type="Resource" uid="uid://yb8e3rujs5nl" path="res://common/roles/iron.tres" id="2_tqr8a"]
+[ext_resource type="Resource" uid="uid://exfdy455d72r" path="res://common/npc_resources/charlie_ofzo.tres" id="1_0rexn"]
+[ext_resource type="Resource" uid="uid://3odoff5r71oh" path="res://common/roles/iron.tres" id="2_tqr8a"]
 [ext_resource type="Script" path="res://entities/golfers/golfer_resource.gd" id="3_bye28"]
 
 [resource]
@@ -9,4 +9,4 @@ script = ExtResource("3_bye28")
 name = "Jaralius Derbel"
 level = 1
 role = ExtResource("2_tqr8a")
-npc_resource = ExtResource("1_mjohs")
+npc_resource = ExtResource("1_0rexn")

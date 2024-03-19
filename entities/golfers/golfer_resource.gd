@@ -19,5 +19,5 @@ func _init(golfer_name := "", golfer_level := 1, golfer_role: Role = Role.new(),
 	role = golfer_role
 	npc_resource = golfer_npc_resource
 
-	power = 100
+	power = 10
 	stamina = 100

@@ -49,7 +49,7 @@ func _instantiate_team(team_resource: TeamResource, origin: Node3D):
 
 	var commander := unit_scene.instantiate()
 	team_instance.add_child(commander)
-	commander.setup(team_resource.commander)
+	commander.setup(team_resource.commander, null, team_instance)
 	commander.global_transform.origin = spawnpoints.pop_front()
 
 	team_instance.commander = commander
@@ -64,7 +64,7 @@ func _instantiate_team(team_resource: TeamResource, origin: Node3D):
 			formation_instance.add_child(unit_instance)
 			formation_instance.units.append(unit_instance)
 
-			unit_instance.setup(unit)
+			unit_instance.setup(unit, formation_instance, team_instance)
 			unit_instance.global_transform.origin = spawnpoints.pop_front()
 
 

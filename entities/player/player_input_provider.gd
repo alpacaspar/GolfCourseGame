@@ -3,6 +3,7 @@ extends InputProvider
 
 
 signal on_look(input_delta: Vector2)
+signal on_interact()
 
 @export var camera: Camera3D
 
@@ -25,3 +26,6 @@ func _on_input(event: InputEvent):
 
 func _on_process():
 	move = Input.get_vector("move_left", "move_right", "move_up", "move_down")
+
+	if Input.is_action_just_pressed("interact"):
+		on_interact.emit()
