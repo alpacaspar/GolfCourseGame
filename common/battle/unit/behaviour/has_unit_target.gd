@@ -2,4 +2,13 @@ extends BTLeaf
 
 
 func _tick(blackboard: Dictionary, _delta: float) -> int:
-	return SUCCESS if blackboard.has("target_unit") else FAILURE
+	if not blackboard.has("target_unit"):
+		return FAILURE
+
+	if not is_instance_valid(blackboard["target_unit"]):
+		return FAILURE
+
+	if blackboard["target_unit"].is_exhausted():
+		return FAILURE
+	
+	return SUCCESS

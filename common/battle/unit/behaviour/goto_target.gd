@@ -1,7 +1,7 @@
 extends BTLeaf
 
 
-func _tick(blackboard: Dictionary, _delta: float) -> int:
+func _tick(blackboard: Dictionary, delta: float) -> int:
 	var controller: Node = blackboard["controller"]
 
 	if controller.navigation_agent.is_navigation_finished():
@@ -17,4 +17,6 @@ func _tick(blackboard: Dictionary, _delta: float) -> int:
 	else:
 		controller._on_velocity_computed(new_velocity)
 	
-	return RUNNING
+	blackboard["visuals"].look_in_dir(controller.body.velocity, delta)
+
+	return SUCCESS

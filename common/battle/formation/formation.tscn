@@ -39,6 +39,7 @@ script = ExtResource("4_41e8g")
 
 [node name="TargetPositionChanged" type="Node" parent="BehaviourTree/Sequence/Sequence"]
 script = ExtResource("8_k72wc")
+distance_threshold = 20.0
 
 [node name="MoveFormation" type="Node" parent="BehaviourTree/Sequence/Sequence"]
 script = ExtResource("9_k7wke")

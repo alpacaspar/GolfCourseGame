@@ -9,10 +9,11 @@ func _tick(blackboard: Dictionary, _delta: float) -> int:
 
 	var avg_stamina := 0.0
 
-	for unit: Unit in formation.units:
+	var active_units: Array[Unit] = formation.get_active_units()
+	for unit: Unit in active_units:
 		avg_stamina += unit.golfer_resource.stamina
 	
-	avg_stamina /= formation.units.size()
+	avg_stamina /= active_units.size()
 
 	# TODO: make threshold a percentage.
 	return SUCCESS if avg_stamina < 20 else FAILURE

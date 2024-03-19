@@ -11,7 +11,10 @@ var body: CharacterBody3D
 
 func _ready():
 	navigation_agent.velocity_computed.connect(_on_velocity_computed)
+	navigation_agent.target_desired_distance = body.golfer_resource.role.desired_distance
+
 	behaviour_tree.blackboard["controller"] = self
+	behaviour_tree.blackboard["visuals"] = body.visuals
 	behaviour_tree.blackboard["golfer"] = body.golfer_resource
 
 

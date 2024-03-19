@@ -25,6 +25,9 @@ func _instruct_units(blackboard: Dictionary, _delta: float):
 	var target_formation: Formation = blackboard["target_formation"]
 
 	for unit: Unit in formation.units:
+		if not is_instance_valid(unit) or unit.is_exhausted():
+			continue
+		
 		unit.give_instructions(target_position, target_formation)
 		await get_tree().create_timer(0.1).timeout
 	

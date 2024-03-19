@@ -24,7 +24,16 @@ func _physics_process(delta: float):
 
 func get_center_position() -> Vector3:
 	var result := Vector3()
-	for unit: Unit in units:
+	for unit: Unit in get_active_units():
 		result += unit.global_transform.origin
 
 	return result / units.size()
+
+
+func get_active_units() -> Array[Unit]:
+	var result: Array[Unit] = []
+	for unit: Unit in units:
+		if is_instance_valid(unit) && not unit.is_exhausted():
+			result.append(unit)
+
+	return result
