@@ -1,70 +1,41 @@
-[gd_scene load_steps=51 format=3 uid="uid://ck84hpbuds8v8"]
+[gd_scene load_steps=46 format=3 uid="uid://ck84hpbuds8v8"]
 
 [ext_resource type="Script" path="res://common/character_factory/character_references.gd" id="1_losqe"]
 [ext_resource type="AnimationLibrary" uid="uid://cteindhxey6qa" path="res://entities/characters/animations/character_anim_library.res" id="2_la17h"]
+[ext_resource type="PackedScene" uid="uid://d346oafjyah52" path="res://entities/equipment/iron_club.tscn" id="3_ajne1"]
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_sucvr"]
-animation = &"character/character_run"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_p6wfo"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_vfsqt"]
 animation = &"character/character_idle"
 
-[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_aadev"]
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_oi70o"]
 
-[sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_uhwi2"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ouaox"]
+animation = &"character/character_run"
 
-[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_4ajow"]
-graph_offset = Vector2(-788.679, 112.63)
-nodes/Animation/node = SubResource("AnimationNodeAnimation_p6wfo")
-nodes/Animation/position = Vector2(-380, 140)
-"nodes/Animation 2/node" = SubResource("AnimationNodeAnimation_sucvr")
-"nodes/Animation 2/position" = Vector2(-380, 280)
-nodes/Blend2/node = SubResource("AnimationNodeBlend2_aadev")
-nodes/Blend2/position = Vector2(40, 140)
-nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_uhwi2")
-nodes/TimeScale/position = Vector2(-120, 280)
-node_connections = [&"Blend2", 0, &"Animation", &"Blend2", 1, &"TimeScale", &"TimeScale", 0, &"Animation 2", &"output", 0, &"Blend2"]
+[sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_0wre6"]
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_dum2e"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_bhjs0"]
 animation = &"character/character_swing"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_fd5cw"]
-advance_mode = 2
-
-[sub_resource type="Curve" id="Curve_3tllv"]
-_data = [Vector2(0, 0), 3.0, 3.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
-point_count = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_auxei"]
-xfade_time = 0.5
-xfade_curve = SubResource("Curve_3tllv")
-advance_mode = 2
-advance_condition = &"on_swing"
-
-[sub_resource type="Curve" id="Curve_m1yva"]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 2.0, 0.0, 0, 0]
-point_count = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_lqh7i"]
-xfade_time = 0.5
-xfade_curve = SubResource("Curve_m1yva")
-switch_mode = 2
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_dt777"]
-states/End/position = Vector2(200, 168)
-states/IdleToRunBlendTree/node = SubResource("AnimationNodeBlendTree_4ajow")
-states/IdleToRunBlendTree/position = Vector2(395, 37)
-states/character_character_swing/node = SubResource("AnimationNodeAnimation_dum2e")
-states/character_character_swing/position = Vector2(395, 154)
-transitions = ["Start", "IdleToRunBlendTree", SubResource("AnimationNodeStateMachineTransition_fd5cw"), "IdleToRunBlendTree", "character_character_swing", SubResource("AnimationNodeStateMachineTransition_auxei"), "character_character_swing", "IdleToRunBlendTree", SubResource("AnimationNodeStateMachineTransition_lqh7i")]
-graph_offset = Vector2(-371, -29)
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_5laqw"]
+fadein_time = 0.2
+fadeout_time = 0.2
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_oo302"]
-graph_offset = Vector2(-382.727, 176.354)
-nodes/StateMachine/node = SubResource("AnimationNodeStateMachine_dt777")
-nodes/StateMachine/position = Vector2(100, 140)
-node_connections = [&"output", 0, &"StateMachine"]
+nodes/Idle/node = SubResource("AnimationNodeAnimation_vfsqt")
+nodes/Idle/position = Vector2(-280, 120)
+nodes/MoveBlend/node = SubResource("AnimationNodeBlend2_oi70o")
+nodes/MoveBlend/position = Vector2(20, 120)
+nodes/Run/node = SubResource("AnimationNodeAnimation_ouaox")
+nodes/Run/position = Vector2(-360, 280)
+nodes/RunSpeed/node = SubResource("AnimationNodeTimeScale_0wre6")
+nodes/RunSpeed/position = Vector2(-120, 280)
+nodes/Swing/node = SubResource("AnimationNodeAnimation_bhjs0")
+nodes/Swing/position = Vector2(-80, 420)
+nodes/SwingOneShot/node = SubResource("AnimationNodeOneShot_5laqw")
+nodes/SwingOneShot/position = Vector2(220, 120)
+nodes/output/position = Vector2(400, 120)
+node_connections = [&"MoveBlend", 0, &"Idle", &"MoveBlend", 1, &"RunSpeed", &"RunSpeed", 0, &"Run", &"SwingOneShot", 0, &"MoveBlend", &"SwingOneShot", 1, &"Swing", &"output", 0, &"SwingOneShot"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a7nd8"]
 resource_name = "BodyMAT"
@@ -696,15 +667,17 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_mr30p")
 
-[node name="BaseCharacter" type="Node3D" node_paths=PackedStringArray("ear_mesh", "nose_mesh", "hair_mesh", "mouth_mesh", "eye_mesh", "eyebrow_mesh", "preview_mesh")]
+[node name="BaseCharacter" type="Node3D" node_paths=PackedStringArray("ear_mesh", "nose_mesh", "hair_mesh", "mouth_mesh", "eye_mesh", "eyebrow_mesh", "preview_mesh", "animation_tree", "right_hand_holder")]
 script = ExtResource("1_losqe")
-ear_mesh = NodePath("Armature/GeneralSkeleton/BoneAttachment3D/Head/Ears/EarsV1")
-nose_mesh = NodePath("Armature/GeneralSkeleton/BoneAttachment3D/Head/Noses/NoseScape4")
-hair_mesh = NodePath("Armature/GeneralSkeleton/BoneAttachment3D/Head/Hair/BuzzCut")
-mouth_mesh = NodePath("Armature/GeneralSkeleton/BoneAttachment3D/Head/ExpressoinPlanes/MouthPlane")
-eye_mesh = NodePath("Armature/GeneralSkeleton/BoneAttachment3D/Head/ExpressoinPlanes/EyesPlane")
-eyebrow_mesh = NodePath("Armature/GeneralSkeleton/BoneAttachment3D/Head/ExpressoinPlanes/EyebrowPlane")
-preview_mesh = NodePath("Armature/GeneralSkeleton/BoneAttachment3D/Head/HeadPreviewMesh")
+ear_mesh = NodePath("Armature/GeneralSkeleton/HeadBoneAttachment/Head/Ears/EarsV1")
+nose_mesh = NodePath("Armature/GeneralSkeleton/HeadBoneAttachment/Head/Noses/NoseScape4")
+hair_mesh = NodePath("Armature/GeneralSkeleton/HeadBoneAttachment/Head/Hair/BuzzCut")
+mouth_mesh = NodePath("Armature/GeneralSkeleton/HeadBoneAttachment/Head/ExpressoinPlanes/MouthPlane")
+eye_mesh = NodePath("Armature/GeneralSkeleton/HeadBoneAttachment/Head/ExpressoinPlanes/EyesPlane")
+eyebrow_mesh = NodePath("Armature/GeneralSkeleton/HeadBoneAttachment/Head/ExpressoinPlanes/EyebrowPlane")
+preview_mesh = NodePath("Armature/GeneralSkeleton/HeadBoneAttachment/Head/HeadPreviewMesh")
+animation_tree = NodePath("AnimationTree")
+right_hand_holder = NodePath("Armature/GeneralSkeleton/HandBoneAttachment/HandCenter")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -717,9 +690,11 @@ libraries = {
 }
 tree_root = SubResource("AnimationNodeBlendTree_oo302")
 anim_player = NodePath("../AnimationPlayer")
-parameters/StateMachine/conditions/on_swing = false
-parameters/StateMachine/IdleToRunBlendTree/Blend2/blend_amount = 0.0
-parameters/StateMachine/IdleToRunBlendTree/TimeScale/scale = 2.0
+parameters/MoveBlend/blend_amount = 0.0
+parameters/RunSpeed/scale = 2.0
+parameters/SwingOneShot/active = false
+parameters/SwingOneShot/internal_active = false
+parameters/SwingOneShot/request = 0
 
 [node name="Armature" type="Node3D" parent="."]
 transform = Transform3D(0.01, 0, 0, 0, 0, -0.01, 0, 0.01, 0, 0, 0, 0)
@@ -946,51 +921,61 @@ skin = SubResource("Skin_2ls0q")
 mesh = SubResource("ArrayMesh_yq0px")
 skin = SubResource("Skin_2ls0q")
 
-[node name="BoneAttachment3D" type="BoneAttachment3D" parent="Armature/GeneralSkeleton"]
-transform = Transform3D(0.932614, 0.33381, 0.13712, -0.340425, 0.939875, 0.0273162, -0.119757, -0.0721544, 0.990178, -3.96464, 0.695944, -110.043)
+[node name="HeadBoneAttachment" type="BoneAttachment3D" parent="Armature/GeneralSkeleton"]
+transform = Transform3D(0.989776, -0.132155, -0.0536528, 0.138291, 0.98126, 0.134177, 0.0349151, -0.140225, 0.989504, 1.60928, -0.964021, -110.211)
 bone_name = "Head"
 bone_idx = 5
 
-[node name="Head" type="Node3D" parent="Armature/GeneralSkeleton/BoneAttachment3D"]
+[node name="Head" type="Node3D" parent="Armature/GeneralSkeleton/HeadBoneAttachment"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.605, 111.193)
 
-[node name="Ears" type="Node3D" parent="Armature/GeneralSkeleton/BoneAttachment3D/Head"]
+[node name="Ears" type="Node3D" parent="Armature/GeneralSkeleton/HeadBoneAttachment/Head"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.42417e-06, -0.000100955, -0.000202656)
 
-[node name="EarsV1" type="MeshInstance3D" parent="Armature/GeneralSkeleton/BoneAttachment3D/Head/Ears"]
+[node name="EarsV1" type="MeshInstance3D" parent="Armature/GeneralSkeleton/HeadBoneAttachment/Head/Ears"]
 mesh = SubResource("ArrayMesh_vj7su")
 skeleton = NodePath("")
 
-[node name="Noses" type="Node3D" parent="Armature/GeneralSkeleton/BoneAttachment3D/Head"]
+[node name="Noses" type="Node3D" parent="Armature/GeneralSkeleton/HeadBoneAttachment/Head"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.42417e-06, -0.000100955, -0.000202656)
 
-[node name="NoseScape4" type="MeshInstance3D" parent="Armature/GeneralSkeleton/BoneAttachment3D/Head/Noses"]
+[node name="NoseScape4" type="MeshInstance3D" parent="Armature/GeneralSkeleton/HeadBoneAttachment/Head/Noses"]
 mesh = SubResource("ArrayMesh_ws2a3")
 skeleton = NodePath("")
 
-[node name="Hair" type="Node3D" parent="Armature/GeneralSkeleton/BoneAttachment3D/Head"]
+[node name="Hair" type="Node3D" parent="Armature/GeneralSkeleton/HeadBoneAttachment/Head"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.42417e-06, -0.000100955, -0.000202656)
 
-[node name="BuzzCut" type="MeshInstance3D" parent="Armature/GeneralSkeleton/BoneAttachment3D/Head/Hair"]
+[node name="BuzzCut" type="MeshInstance3D" parent="Armature/GeneralSkeleton/HeadBoneAttachment/Head/Hair"]
 mesh = SubResource("ArrayMesh_2264h")
 skeleton = NodePath("")
 
-[node name="ExpressoinPlanes" type="Node3D" parent="Armature/GeneralSkeleton/BoneAttachment3D/Head"]
+[node name="ExpressoinPlanes" type="Node3D" parent="Armature/GeneralSkeleton/HeadBoneAttachment/Head"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.42417e-06, -0.000100955, -0.000202656)
 
-[node name="EyebrowPlane" type="MeshInstance3D" parent="Armature/GeneralSkeleton/BoneAttachment3D/Head/ExpressoinPlanes"]
+[node name="EyebrowPlane" type="MeshInstance3D" parent="Armature/GeneralSkeleton/HeadBoneAttachment/Head/ExpressoinPlanes"]
 transform = Transform3D(0.77485, 0, 0, 0, 0.774569, 0.0208779, 0, -0.0208779, 0.774569, 0, 4.59123, -22.6076)
 mesh = SubResource("ArrayMesh_oefmg")
 skeleton = NodePath("")
 
-[node name="EyesPlane" type="MeshInstance3D" parent="Armature/GeneralSkeleton/BoneAttachment3D/Head/ExpressoinPlanes"]
+[node name="EyesPlane" type="MeshInstance3D" parent="Armature/GeneralSkeleton/HeadBoneAttachment/Head/ExpressoinPlanes"]
 mesh = SubResource("ArrayMesh_tdpjd")
 skeleton = NodePath("")
 
-[node name="MouthPlane" type="MeshInstance3D" parent="Armature/GeneralSkeleton/BoneAttachment3D/Head/ExpressoinPlanes"]
+[node name="MouthPlane" type="MeshInstance3D" parent="Armature/GeneralSkeleton/HeadBoneAttachment/Head/ExpressoinPlanes"]
 mesh = SubResource("ArrayMesh_wiye2")
 skeleton = NodePath("")
 
-[node name="HeadPreviewMesh" type="MeshInstance3D" parent="Armature/GeneralSkeleton/BoneAttachment3D/Head"]
+[node name="HeadPreviewMesh" type="MeshInstance3D" parent="Armature/GeneralSkeleton/HeadBoneAttachment/Head"]
 transform = Transform3D(1, 0, 1.77636e-15, 0, 1, 0, 1.77636e-15, 0, 1, 7.42417e-06, -0.000101089, -0.000202894)
 skeleton = NodePath("")
+
+[node name="HandBoneAttachment" type="BoneAttachment3D" parent="Armature/GeneralSkeleton"]
+transform = Transform3D(0.260985, -0.958627, -0.11367, 0.304277, 0.193439, -0.932736, 0.916134, 0.208843, 0.342173, -27.8689, 10.1382, -58.6329)
+bone_name = "RightHand"
+bone_idx = 13
+
+[node name="HandCenter" type="Marker3D" parent="Armature/GeneralSkeleton/HandBoneAttachment"]
+transform = Transform3D(100, 3.72529e-07, 5.96047e-06, -3.72529e-07, 100, 2.98023e-06, -5.96047e-06, -2.98023e-06, 100, 4, 3, 0)
+
+[node name="IronClub" parent="Armature/GeneralSkeleton/HandBoneAttachment/HandCenter" instance=ExtResource("3_ajne1")]
