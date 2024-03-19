@@ -11,9 +11,9 @@ var start_value: float
 var end_value: float
 
 
-func _ready():
+func on_ready():
 	pass
 
 
-func _process(delta):
+func on_process(delta):
 	pass

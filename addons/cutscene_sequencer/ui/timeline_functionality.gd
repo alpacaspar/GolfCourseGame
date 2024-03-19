@@ -29,6 +29,9 @@ func on_ready():
 func on_process(delta):
 	time_since_last_click += delta
 
+	for block in sequence_buttons:
+		block.on_process(delta)
+
 
 func _add_block():
 	var filler = filler_block_prefab.instantiate()
@@ -42,7 +45,7 @@ func _add_block():
 
 
 func _check_for_double_click():
-	if time_since_last_click > .5:
+	if time_since_last_click > .2:
 		range_for_double_click = false
 
 	var x_in_bounds = get_local_mouse_position().x > 0 and get_local_mouse_position().x < size.x
