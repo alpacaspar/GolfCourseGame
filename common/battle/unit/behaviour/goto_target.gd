@@ -11,7 +11,7 @@ func _tick(blackboard: Dictionary, delta: float) -> int:
 	var wish_dir: Vector3 = controller.global_position.direction_to(next_path_position)
 	
 	var new_velocity: Vector3 = wish_dir.normalized() * controller.body.MOVEMENT_SPEED
-	
+
 	if controller.navigation_agent.avoidance_enabled:
 		controller.navigation_agent.set_velocity(new_velocity)
 	else:

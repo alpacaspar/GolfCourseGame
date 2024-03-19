@@ -47,15 +47,21 @@ func _instantiate_team(team_resource: TeamResource, origin: Node3D):
 
 	var spawnpoints := _get_triangular_points(team_resource.size, origin.global_position, origin.global_transform.basis.z, 2.0)
 
+	var formation_instance := formation_scene.instantiate()
+	
+	team_instance.add_child(formation_instance)
+	team_instance.formations.append(formation_instance)
+
 	var commander := unit_scene.instantiate()
-	team_instance.add_child(commander)
-	commander.setup(team_resource.commander, null, team_instance)
+	formation_instance.add_child(commander)
+	formation_instance.units.append(commander)
+	commander.setup(team_resource.commander, formation_instance, team_instance)
 	commander.global_transform.origin = spawnpoints.pop_front()
 
 	team_instance.commander = commander
 
 	for formation_resource: FormationResource in team_resource.formations:
-		var formation_instance := formation_scene.instantiate()
+		formation_instance = formation_scene.instantiate()
 		team_instance.add_child(formation_instance)
 		team_instance.formations.append(formation_instance)
 

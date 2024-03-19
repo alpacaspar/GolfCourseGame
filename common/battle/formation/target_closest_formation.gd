@@ -16,13 +16,15 @@ func _tick(blackboard: Dictionary, _delta: float) -> int:
 	
 	# get the closest formation
 	var closest_formation: Formation
-	var closest_distance := INF
+	# var closest_distance := INF
 
-	for formation: Formation in opponent_formations:
-		var distance = blackboard["formation"].position.distance_squared_to(formation.position)
-		if distance < closest_distance:
-			closest_distance = distance
-			closest_formation = formation
+	# for formation: Formation in opponent_formations:
+	# 	var distance = blackboard["formation"].position.distance_squared_to(formation.position)
+	# 	if distance < closest_distance:
+	# 		closest_distance = distance
+	# 		closest_formation = formation
+
+	closest_formation = opponent_formations.pick_random()
 
 	blackboard["target_position"] = closest_formation.get_center_position()
 	blackboard["target_formation"] = closest_formation

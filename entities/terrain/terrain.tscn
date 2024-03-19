@@ -29,7 +29,7 @@ test_player = ExtResource("7_xouit")
 test_rival = ExtResource("8_t61lj")
 
 [node name="TeeArea" type="Marker3D" parent="Hole01"]
-transform = Transform3D(0.550758, 0, -0.834665, 0, 1, 0, 0.834665, 0, 0.550758, 106.035, 4, -64.3419)
+transform = Transform3D(0.550758, 0, -0.834665, 0, 1, 0, 0.834665, 0, 0.550758, 50.035, 3, -4.34192)
 
 [node name="GreenArea" type="Marker3D" parent="Hole01"]
-transform = Transform3D(0.970658, 0, 0.240465, 0, 1, 0, -0.240465, 0, 0.970658, -112.265, 4.12066, 38.7378)
+transform = Transform3D(0.970658, 0, 0.240465, 0, 1, 0, -0.240465, 0, 0.970658, -103.078, 4.12066, 35.7602)

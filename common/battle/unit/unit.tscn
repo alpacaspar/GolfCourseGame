@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bmbpmw618ddnf" path="res://common/battle/unit/unit_ai_controller.tscn" id="3_k0n7y"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_yo62r"]
+radius = 0.3
 
 [node name="Unit" type="CharacterBody3D"]
 collision_layer = 2
