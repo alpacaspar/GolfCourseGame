@@ -2,34 +2,29 @@
 extends Control
 
 
-var active: bool = false
-
 @export var sequence_resource: SequenceResourceLoader
 @export var extended_visuals: Control
 
 @export var sequencer_functionality: SequencerFunctionality
+@export var node_sequence_functionality: SequenceNodeEditor
 
 var size_threshhold = 300.0
 
 
-func _ready():
+func on_ready():
 	sequence_resource.set_value()
-	active = true
+	sequencer_functionality.on_ready()
+	node_sequence_functionality.on_ready()
 
 
-func _process(delta):
+func on_process(delta):
 	if not Engine.is_editor_hint():
 		return
 
-	if not active:
+	if self == get_tree().edited_scene_root:
 		return
 
-	if size.y > size_threshhold:
-		extended_visuals.visible = true
-	else:
-		extended_visuals.visible = false
+	sequencer_functionality.on_process(delta)
+	node_sequence_functionality.on_process(delta)
 
-
-func cleanup():
-	sequencer_functionality.cleanup()
-	active = false
+	extended_visuals.visible = size.y > size_threshhold

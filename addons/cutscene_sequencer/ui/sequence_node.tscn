@@ -1,0 +1,76 @@
+[gd_scene load_steps=3 format=3 uid="uid://ow3qdkokqqia"]
+
+[ext_resource type="Script" path="res://addons/cutscene_sequencer/ui/sequence_node.gd" id="1_j4qlx"]
+[ext_resource type="PackedScene" uid="uid://mul03t3vjpxt" path="res://addons/cutscene_sequencer/ui/option.tscn" id="2_dlcua"]
+
+[node name="GraphNode" type="GraphNode" node_paths=PackedStringArray("add_option_button")]
+offset_right = 197.0
+offset_bottom = 130.0
+title = "Sequence"
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color(1, 1, 1, 1)
+slot/0/left_icon = null
+slot/0/right_enabled = true
+slot/0/right_type = 0
+slot/0/right_color = Color(1, 1, 1, 1)
+slot/0/right_icon = null
+slot/0/draw_stylebox = true
+slot/1/left_enabled = true
+slot/1/left_type = 0
+slot/1/left_color = Color(1, 1, 1, 1)
+slot/1/left_icon = null
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color(1, 1, 1, 1)
+slot/1/right_icon = null
+slot/1/draw_stylebox = true
+slot/2/left_enabled = false
+slot/2/left_type = 0
+slot/2/left_color = Color(1, 1, 1, 1)
+slot/2/left_icon = null
+slot/2/right_enabled = false
+slot/2/right_type = 0
+slot/2/right_color = Color(1, 1, 1, 1)
+slot/2/right_icon = null
+slot/2/draw_stylebox = true
+slot/3/left_enabled = false
+slot/3/left_type = 0
+slot/3/left_color = Color(1, 1, 1, 1)
+slot/3/left_icon = null
+slot/3/right_enabled = false
+slot/3/right_type = 0
+slot/3/right_color = Color(1, 1, 1, 1)
+slot/3/right_icon = null
+slot/3/draw_stylebox = true
+slot/4/left_enabled = false
+slot/4/left_type = 0
+slot/4/left_color = Color(1, 1, 1, 1)
+slot/4/left_icon = null
+slot/4/right_enabled = false
+slot/4/right_type = 0
+slot/4/right_color = Color(1, 1, 1, 1)
+slot/4/right_icon = null
+slot/4/draw_stylebox = true
+script = ExtResource("1_j4qlx")
+option_scene = ExtResource("2_dlcua")
+add_option_button = NodePath("Button")
+
+[node name="Label" type="LineEdit" parent="."]
+layout_mode = 2
+placeholder_text = "Name.."
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 2
+text = "In"
+
+[node name="HSeparator" type="HSeparator" parent="."]
+layout_mode = 2
+
+[node name="Label3" type="Label" parent="."]
+layout_mode = 2
+text = "Options:"
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 2
+text = "Add Option +"

@@ -3,8 +3,6 @@ class_name TimelineFunctionality
 extends Container
 
 
-var active: bool = false
-
 @export var block_parent: Control
 
 @export var sequence_block_prefab: PackedScene
@@ -17,20 +15,18 @@ var time_since_last_click: float
 var range_for_double_click: bool
 
 
-func _ready():
+func on_ready():
+	for child in block_parent.get_children():
+		child.free()
+
 	var filler = filler_block_prefab.instantiate()
 	block_parent.add_child(filler)
 	filler.pressed.connect(_check_for_double_click)
 
 	filler_buttons.append(filler)
 
-	active = true
 
-
-func _process(delta):
-	if not active:
-		return
-	
+func on_process(delta):
 	time_since_last_click += delta
 
 
@@ -61,7 +57,3 @@ func _check_for_double_click():
 	else:
 		range_for_double_click = true
 		time_since_last_click = 0
-
-
-func _exit_tree():
-	active = false

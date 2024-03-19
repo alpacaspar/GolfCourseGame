@@ -3,9 +3,6 @@ class_name SequencerFunctionality
 extends Control
 
 
-
-var active: bool = false
-
 @export var camera_window: Control
 @export var dialog_window: Control
 @export var event_window: Control
@@ -13,27 +10,31 @@ var active: bool = false
 @export var timeline_slider: Slider
 @export var timeline_line: Control
 
+@export var camera_timeline: TimelineFunctionality
+@export var dialogue_timeline: TimelineFunctionality
+@export var event_timeline: TimelineFunctionality
+
 var slider_value: float
 
 
-func _ready():
-	active = true
-
+func on_ready():
 	await get_tree().create_timer(.1).timeout
+
+	camera_timeline.on_ready()
+	dialogue_timeline.on_ready()
+	event_timeline.on_ready()
 
 	timeline_slider.min_value = 0
 	timeline_slider.step = timeline_slider.size.x / 60
 	timeline_slider.max_value = timeline_slider.size.x
 
 
-func _process(delta):
-	if not Engine.is_editor_hint():
-		return
-
-	if not active:
-		return
-
+func on_process(delta):
 	_check_size_changed()
+	
+	camera_timeline.on_process(delta)
+	dialogue_timeline.on_process(delta)
+	event_timeline.on_process(delta)
 
 	timeline_line.position.x = (timeline_slider.value * .99) + 104
 	slider_value = timeline_slider.value / timeline_slider.max_value
@@ -46,7 +47,3 @@ func _check_size_changed():
 		timeline_slider.step = timeline_slider.size.x / 60
 		timeline_slider.max_value = timeline_slider.size.x
 		last_size = size
-	
-
-func cleanup():
-	active = false
