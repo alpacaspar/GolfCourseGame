@@ -18,10 +18,7 @@ func _ready():
 func _physics_process(delta: float):
 	var target_blend_value := 0.0
 
-	if body.velocity.length() > 0.5:
-		target_blend_value = 1.0
-	else:
-		target_blend_value = 0.0
+	target_blend_value = 1.0 if body.velocity.length_squared() > 0.5 * 0.5 else 0.0
 
 	move_blend_value = lerp(move_blend_value, target_blend_value, delta * BLEND_SPEED)
 	body.animation_tree.set(MOVE_BLEND_PARAMETER, move_blend_value)
