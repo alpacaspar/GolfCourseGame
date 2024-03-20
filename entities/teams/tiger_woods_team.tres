@@ -1,0 +1,71 @@
+[gd_resource type="Resource" script_class="TeamResource" load_steps=17 format=3 uid="uid://bqfynn7xbjh4x"]
+
+[ext_resource type="Resource" uid="uid://dm01uu1l6m7hb" path="res://entities/golfers/rivals/tiger_woods.tres" id="1_2cwpe"]
+[ext_resource type="Script" path="res://entities/teams/team_resource.gd" id="1_sadap"]
+[ext_resource type="Script" path="res://entities/teams/formation_resource.gd" id="2_801al"]
+[ext_resource type="Resource" uid="uid://3odoff5r71oh" path="res://common/roles/iron.tres" id="3_n6ori"]
+[ext_resource type="Resource" uid="uid://c4up0ea70klhf" path="res://entities/golfers/jaralius_derbel.tres" id="3_slq38"]
+[ext_resource type="Script" path="res://entities/golfers/golfer_resource.gd" id="4_ldpdp"]
+[ext_resource type="Resource" uid="uid://exfdy455d72r" path="res://common/npc_resources/charlie_ofzo.tres" id="7_08f2d"]
+
+[sub_resource type="Resource" id="Resource_t25fk"]
+script = ExtResource("4_ldpdp")
+name = "Jaralius Derbel"
+level = 1
+role = ExtResource("3_n6ori")
+npc_resource = ExtResource("7_08f2d")
+
+[sub_resource type="Resource" id="Resource_uyib6"]
+script = ExtResource("4_ldpdp")
+name = "Jaralius Derbel"
+level = 1
+role = ExtResource("3_n6ori")
+npc_resource = ExtResource("7_08f2d")
+
+[sub_resource type="Resource" id="Resource_llxoq"]
+script = ExtResource("4_ldpdp")
+name = "Jaralius Derbel"
+level = 1
+role = ExtResource("3_n6ori")
+npc_resource = ExtResource("7_08f2d")
+
+[sub_resource type="Resource" id="Resource_e4k5m"]
+script = ExtResource("2_801al")
+units = Array[ExtResource("4_ldpdp")]([ExtResource("3_slq38"), SubResource("Resource_t25fk"), SubResource("Resource_uyib6"), SubResource("Resource_llxoq")])
+
+[sub_resource type="Resource" id="Resource_spd6q"]
+script = ExtResource("4_ldpdp")
+name = "Jaralius Derbel"
+level = 1
+role = ExtResource("3_n6ori")
+npc_resource = ExtResource("7_08f2d")
+
+[sub_resource type="Resource" id="Resource_hkrer"]
+script = ExtResource("4_ldpdp")
+name = "Jaralius Derbel"
+level = 1
+role = ExtResource("3_n6ori")
+npc_resource = ExtResource("7_08f2d")
+
+[sub_resource type="Resource" id="Resource_dspq8"]
+script = ExtResource("4_ldpdp")
+name = "Jaralius Derbel"
+level = 1
+role = ExtResource("3_n6ori")
+npc_resource = ExtResource("7_08f2d")
+
+[sub_resource type="Resource" id="Resource_h7avl"]
+script = ExtResource("4_ldpdp")
+name = "Jaralius Derbel"
+level = 1
+role = ExtResource("3_n6ori")
+npc_resource = ExtResource("7_08f2d")
+
+[sub_resource type="Resource" id="Resource_igycr"]
+script = ExtResource("2_801al")
+units = Array[ExtResource("4_ldpdp")]([SubResource("Resource_spd6q"), SubResource("Resource_hkrer"), SubResource("Resource_dspq8"), SubResource("Resource_h7avl")])
+
+[resource]
+script = ExtResource("1_sadap")
+commander = ExtResource("1_2cwpe")
+formations = Array[ExtResource("2_801al")]([SubResource("Resource_e4k5m"), SubResource("Resource_igycr")])

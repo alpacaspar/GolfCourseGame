@@ -1,0 +1,24 @@
+[gd_scene load_steps=6 format=3 uid="uid://s18mlviu254u"]
+
+[ext_resource type="Script" path="res://common/battle/unit/unit.gd" id="1_x0dyn"]
+[ext_resource type="PackedScene" uid="uid://ewg7npthvni2" path="res://common/battle/unit/unit_player_controller.tscn" id="2_s8utx"]
+[ext_resource type="Script" path="res://common/battle/unit/unit_visuals.gd" id="2_vays6"]
+[ext_resource type="PackedScene" uid="uid://bmbpmw618ddnf" path="res://common/battle/unit/unit_ai_controller.tscn" id="3_k0n7y"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_yo62r"]
+radius = 0.3
+
+[node name="Unit" type="CharacterBody3D"]
+collision_layer = 2
+collision_mask = 3
+script = ExtResource("1_x0dyn")
+player_controller = ExtResource("2_s8utx")
+ai_controller = ExtResource("3_k0n7y")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_yo62r")
+
+[node name="Visuals" type="Node3D" parent="." node_paths=PackedStringArray("body")]
+script = ExtResource("2_vays6")
+body = NodePath("..")

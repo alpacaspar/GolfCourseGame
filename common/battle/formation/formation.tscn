@@ -1,0 +1,45 @@
+[gd_scene load_steps=10 format=3 uid="uid://dhib5nubyg28"]
+
+[ext_resource type="Script" path="res://common/battle/formation/formation.gd" id="1_6tjdm"]
+[ext_resource type="Script" path="res://common/behaviour_tree/behaviour_tree.gd" id="2_u1qf1"]
+[ext_resource type="Script" path="res://common/behaviour_tree/bt_selector.gd" id="3_5aue3"]
+[ext_resource type="Script" path="res://common/behaviour_tree/bt_sequence.gd" id="4_41e8g"]
+[ext_resource type="Script" path="res://common/behaviour_tree/bt_decorator_invert.gd" id="5_rf4vl"]
+[ext_resource type="Script" path="res://common/battle/formation/is_stamina_critical.gd" id="6_t5vs0"]
+[ext_resource type="Script" path="res://common/battle/formation/target_closest_formation.gd" id="7_7e06m"]
+[ext_resource type="Script" path="res://common/battle/formation/target_position_changed.gd" id="8_k72wc"]
+[ext_resource type="Script" path="res://common/battle/formation/move_units.gd" id="9_k7wke"]
+
+[node name="Formation" type="Node3D"]
+script = ExtResource("1_6tjdm")
+
+[node name="BehaviourTree" type="Node" parent="."]
+script = ExtResource("2_u1qf1")
+
+[node name="Sequence" type="Node" parent="BehaviourTree"]
+script = ExtResource("4_41e8g")
+
+[node name="Selector" type="Node" parent="BehaviourTree/Sequence"]
+script = ExtResource("3_5aue3")
+
+[node name="Sequence" type="Node" parent="BehaviourTree/Sequence/Selector"]
+script = ExtResource("4_41e8g")
+
+[node name="Invert" type="Node" parent="BehaviourTree/Sequence/Selector/Sequence"]
+script = ExtResource("5_rf4vl")
+
+[node name="IsStaminaCritical" type="Node" parent="BehaviourTree/Sequence/Selector/Sequence/Invert"]
+script = ExtResource("6_t5vs0")
+
+[node name="TargetClosest" type="Node" parent="BehaviourTree/Sequence/Selector/Sequence"]
+script = ExtResource("7_7e06m")
+
+[node name="Sequence" type="Node" parent="BehaviourTree/Sequence"]
+script = ExtResource("4_41e8g")
+
+[node name="TargetPositionChanged" type="Node" parent="BehaviourTree/Sequence/Sequence"]
+script = ExtResource("8_k72wc")
+distance_threshold = 20.0
+
+[node name="MoveFormation" type="Node" parent="BehaviourTree/Sequence/Sequence"]
+script = ExtResource("9_k7wke")

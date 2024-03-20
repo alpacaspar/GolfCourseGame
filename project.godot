@@ -18,9 +18,9 @@ config/icon="res://icon.svg"
 [autoload]
 
 InputManager="*res://common/input/input_manager.gd"
-BattleManager="*res://common/battle/battle_manager.gd"
 CharacterFactory="*res://common/character_factory/character_factory.tscn"
 WwiseRuntimeManager="*res://addons/Wwise/runtime/wwise_runtime_manager.gd"
+BattleManager="*res://common/battle/battle_manager.tscn"
 
 [dotnet]
 
@@ -90,6 +90,10 @@ move_down={
 
 3d_physics/layer_2="character"
 3d_physics/layer_3="interactable"
+
+[navigation]
+
+3d/default_cell_size=0.5
 
 [physics]
 

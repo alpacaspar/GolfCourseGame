@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://entities/player/player.gd" id="1_qh1c4"]
 [ext_resource type="Script" path="res://common/finite_state_machine/finite_state_machine.gd" id="3_ox5tx"]
-[ext_resource type="Script" path="res://entities/player/movement_state.gd" id="4_8jdu4"]
-[ext_resource type="Script" path="res://entities/player/idle_state.gd" id="5_fmu0s"]
+[ext_resource type="Script" path="res://entities/player/idle_state.gd" id="4_4hjke"]
+[ext_resource type="Script" path="res://entities/player/movement_state.gd" id="5_fmu0s"]
 [ext_resource type="Script" path="res://entities/player/player_input_provider.gd" id="7_832ik"]
 [ext_resource type="PackedScene" uid="uid://kkl735rs4naf" path="res://entities/player/player_interactor.tscn" id="8_qcnlv"]
 
@@ -50,16 +50,15 @@ is_spatial = true
 script = ExtResource("3_ox5tx")
 
 [node name="MovementState" type="Node" parent="FiniteStateMachine" node_paths=PackedStringArray("player")]
-script = ExtResource("4_8jdu4")
-player = NodePath("../..")
-
-[node name="IdleState" type="Node" parent="FiniteStateMachine" node_paths=PackedStringArray("player")]
 script = ExtResource("5_fmu0s")
 player = NodePath("../..")
 
-[node name="InputProvider" type="Node" parent="." node_paths=PackedStringArray("player")]
+[node name="IdleState" type="Node" parent="FiniteStateMachine" node_paths=PackedStringArray("player")]
+script = ExtResource("4_4hjke")
+player = NodePath("../..")
+
+[node name="InputProvider" type="Node" parent="."]
 script = ExtResource("7_832ik")
-player = NodePath("..")
 
 [node name="PlayerInteractor" parent="." node_paths=PackedStringArray("player") instance=ExtResource("8_qcnlv")]
 monitorable = true

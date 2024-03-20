@@ -1,8 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://dixhhv1bgajy0"]
+[gd_scene load_steps=5 format=3 uid="uid://dixhhv1bgajy0"]
 
-[ext_resource type="PackedScene" uid="uid://b3yo3dem2wtkt" path="res://entities/player/player.tscn" id="1_24cwy"]
 [ext_resource type="PackedScene" uid="uid://dbssg6p52li32" path="res://entities/terrain/terrain.tscn" id="2_ucwcg"]
-[ext_resource type="PackedScene" uid="uid://dkxoy6eab4ceu" path="res://entities/golf_car/golf_car.tscn" id="3_5s7p7"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_en4cg"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -33,8 +31,6 @@ shadow_enabled = true
 
 [node name="golf_terrain" parent="." instance=ExtResource("2_ucwcg")]
 
-[node name="Player" parent="." instance=ExtResource("1_24cwy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 112.417, 10.0627, 782.6)
-
-[node name="GolfCar" parent="." instance=ExtResource("3_5s7p7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 118.286, 13, 773.736)
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.939925, -0.123929, 0.318091, 9.31323e-09, 0.93178, 0.363024, -0.34138, -0.341215, 0.875803, 198.119, 26.3455, 675.408)
+fov = 50.0

@@ -4,8 +4,6 @@ extends BTComposite
 
 
 func _tick(blackboard: Dictionary, delta: float) -> int:
-	var any_child_running := false
-
 	for node: BTNode in child_nodes:
 		var status = node._tick(blackboard, delta)
 		match status:
@@ -14,7 +12,6 @@ func _tick(blackboard: Dictionary, delta: float) -> int:
 			SUCCESS:
 				return SUCCESS
 			RUNNING:
-				any_child_running = true
-				continue
+				return RUNNING
 	
-	return RUNNING if any_child_running else FAILURE
+	return FAILURE
