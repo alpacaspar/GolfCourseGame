@@ -21,6 +21,3 @@ func _tick(blackboard: Dictionary, delta: float) -> int:
 		return SUCCESS
 	else:
 		return RUNNING
-
-
-
