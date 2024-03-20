@@ -21,6 +21,8 @@ margin = 0.5
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
 fov = 60.0
 
+[node name="AkListener3D" type="AkListener3D" parent="CameraPivot/SpringArm3D/PlayerCamera"]
+
 [node name="InputProvider" type="Node" parent="." node_paths=PackedStringArray("camera")]
 script = ExtResource("2_04lo5")
 camera = NodePath("../CameraPivot/SpringArm3D/PlayerCamera")

@@ -1,9 +1,8 @@
-[gd_scene load_steps=47 format=3 uid="uid://ck84hpbuds8v8"]
+[gd_scene load_steps=46 format=3 uid="uid://ck84hpbuds8v8"]
 
 [ext_resource type="Script" path="res://common/character_factory/character_references.gd" id="1_losqe"]
 [ext_resource type="AnimationLibrary" uid="uid://cteindhxey6qa" path="res://entities/characters/animations/character_anim_library.res" id="2_la17h"]
 [ext_resource type="PackedScene" uid="uid://d346oafjyah52" path="res://entities/equipment/iron_club.tscn" id="3_ajne1"]
-[ext_resource type="Script" path="res://common/character_factory/ak_locomotion.gd" id="4_poahg"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_vfsqt"]
 animation = &"character/character_idle"
@@ -982,5 +981,16 @@ transform = Transform3D(100, 3.72529e-07, 5.96047e-06, -3.72529e-07, 100, 2.9802
 
 [node name="IronClub" parent="Armature/GeneralSkeleton/HandBoneAttachment/HandCenter" instance=ExtResource("3_ajne1")]
 
-[node name="AkEvent3D" type="Node" parent="."]
-script = ExtResource("4_poahg")
+[node name="AkFootstep" type="AkEvent3D" parent="."]
+event = {
+"id": 3735612561,
+"name": "play_plr_footstep"
+}
+stop_on = 3
+
+[node name="AkSwing" type="AkEvent3D" parent="."]
+event = {
+"id": 3408384243,
+"name": "play_plr_swing"
+}
+stop_on = 3
