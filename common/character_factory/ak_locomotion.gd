@@ -1,4 +1,4 @@
-extends AkEvent3D
+extends Node
 
 
 func play_footstep():
