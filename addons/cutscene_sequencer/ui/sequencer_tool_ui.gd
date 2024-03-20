@@ -8,6 +8,8 @@ extends Control
 @export var sequencer_functionality: SequencerFunctionality
 @export var node_sequence_functionality: SequenceNodeEditor
 
+@export var context_menu: Control
+
 var size_threshhold = 300.0
 
 

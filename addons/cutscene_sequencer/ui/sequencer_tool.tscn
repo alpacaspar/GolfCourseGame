@@ -32,7 +32,7 @@ border_color = Color(1, 0.0117647, 0.137255, 1)
 [sub_resource type="LabelSettings" id="LabelSettings_nmv6j"]
 font_size = 32
 
-[node name="SequencerTool" type="Control" node_paths=PackedStringArray("sequence_resource", "extended_visuals", "sequencer_functionality", "node_sequence_functionality")]
+[node name="SequencerTool" type="Control" node_paths=PackedStringArray("sequence_resource", "extended_visuals", "sequencer_functionality", "node_sequence_functionality", "context_menu")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -44,6 +44,7 @@ sequence_resource = NodePath("AllWindows/UpperArea/UpperPortion/NodeSequenceEdit
 extended_visuals = NodePath("AllWindows/UpperArea/UpperPortion")
 sequencer_functionality = NodePath("AllWindows/SequencerUI")
 node_sequence_functionality = NodePath("AllWindows/UpperArea/UpperPortion/NodeSequenceEditor")
+context_menu = NodePath("RightClickContextMenu")
 
 [node name="AllWindows" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -61,14 +62,15 @@ size_flags_vertical = 3
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="NodeSequenceEditor" type="VBoxContainer" parent="AllWindows/UpperArea/UpperPortion" node_paths=PackedStringArray("add_node_button", "node_parent")]
+[node name="NodeSequenceEditor" type="VBoxContainer" parent="AllWindows/UpperArea/UpperPortion" node_paths=PackedStringArray("add_node_button", "node_parent", "context_menu")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 4.78
 script = ExtResource("2_1v235")
-add_node_button = NodePath("Panel/HBoxContainer/Button")
+add_node_button = NodePath("../../../../RightClickContextMenu/Button2")
 node_parent = NodePath("Panel2")
 node_prefab = ExtResource("3_ybek8")
+context_menu = NodePath("../../../../RightClickContextMenu")
 
 [node name="Panel" type="HBoxContainer" parent="AllWindows/UpperArea/UpperPortion/NodeSequenceEditor"]
 custom_minimum_size = Vector2(0, 30)
@@ -77,10 +79,6 @@ layout_mode = 2
 [node name="HBoxContainer" type="HBoxContainer" parent="AllWindows/UpperArea/UpperPortion/NodeSequenceEditor/Panel"]
 layout_mode = 2
 size_flags_horizontal = 3
-
-[node name="Button" type="Button" parent="AllWindows/UpperArea/UpperPortion/NodeSequenceEditor/Panel/HBoxContainer"]
-layout_mode = 2
-text = "+ Add Node"
 
 [node name="VBoxContainer" type="HBoxContainer" parent="AllWindows/UpperArea/UpperPortion/NodeSequenceEditor/Panel"]
 layout_mode = 2
@@ -135,14 +133,13 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 5.8
-scroll_offset = Vector2(0, -358)
 
 [node name="GraphNode" type="GraphNode" parent="AllWindows/UpperArea/UpperPortion/NodeSequenceEditor/Panel2"]
 layout_mode = 0
 offset_left = 21.0
-offset_top = -121.0
+offset_top = -479.0
 offset_right = 146.0
-offset_bottom = -43.0
+offset_bottom = -401.0
 mouse_filter = 1
 position_offset = Vector2(21, -479)
 title = "Sequence Start"
@@ -163,9 +160,9 @@ text = "Out"
 [node name="GraphNode2" type="GraphNode" parent="AllWindows/UpperArea/UpperPortion/NodeSequenceEditor/Panel2"]
 layout_mode = 0
 offset_left = 601.0
-offset_top = -120.0
+offset_top = -478.0
 offset_right = 726.0
-offset_bottom = -42.0
+offset_bottom = -400.0
 mouse_filter = 1
 position_offset = Vector2(601, -478)
 title = "Sequence End"
@@ -339,6 +336,7 @@ stretch_mode = 5
 [node name="HBoxContainer" type="HBoxContainer" parent="AllWindows/SequencerUI/HBoxContainer/Sequencer2/Sequences/CameraTimeline"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_constants/separation = 0
 alignment = 1
 
 [node name="DialogueTimeline" type="HBoxContainer" parent="AllWindows/SequencerUI/HBoxContainer/Sequencer2/Sequences" node_paths=PackedStringArray("block_parent")]
@@ -386,6 +384,7 @@ stretch_mode = 5
 [node name="HBoxContainer" type="HBoxContainer" parent="AllWindows/SequencerUI/HBoxContainer/Sequencer2/Sequences/DialogueTimeline"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_constants/separation = 0
 alignment = 1
 
 [node name="EventTimeline" type="HBoxContainer" parent="AllWindows/SequencerUI/HBoxContainer/Sequencer2/Sequences" node_paths=PackedStringArray("block_parent")]
@@ -433,6 +432,7 @@ stretch_mode = 5
 [node name="HBoxContainer" type="HBoxContainer" parent="AllWindows/SequencerUI/HBoxContainer/Sequencer2/Sequences/EventTimeline"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_constants/separation = 0
 alignment = 1
 
 [node name="GraphEdit" type="GraphEdit" parent="AllWindows/SequencerUI/HBoxContainer"]
@@ -606,3 +606,13 @@ text = "Select a node to start editing"
 label_settings = SubResource("LabelSettings_nmv6j")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="RightClickContextMenu" type="VBoxContainer" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 98.0
+offset_bottom = 40.0
+
+[node name="Button2" type="Button" parent="RightClickContextMenu"]
+layout_mode = 2
+text = "+ Add Node"
