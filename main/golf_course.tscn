@@ -30,3 +30,7 @@ transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75
 shadow_enabled = true
 
 [node name="golf_terrain" parent="." instance=ExtResource("2_ucwcg")]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.939925, -0.123929, 0.318091, 9.31323e-09, 0.93178, 0.363024, -0.34138, -0.341215, 0.875803, 198.119, 26.3455, 675.408)
+fov = 50.0

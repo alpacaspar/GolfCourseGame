@@ -23,7 +23,6 @@ height = 2.0
 radius = 0.3
 neighbor_distance = 5.0
 max_neighbors = 3
-keep_y_velocity = false
 
 [node name="BehaviourTree" type="Node" parent="."]
 script = ExtResource("2_fevwe")
