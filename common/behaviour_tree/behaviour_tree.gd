@@ -12,6 +12,12 @@ func _ready():
 	child_node = get_child(0)
 
 
-func tick_tree(delta: float):
+## This function should only be called by other [BTNodes]. For external use, use [process_tree].
+func tick(_blackboard: Dictionary, delta: float) -> int:
+	return child_node.tick(_blackboard, delta)
+
+
+## Tick the tree, this function should be used if the Behaviour Tree is not an internal Behaviour Tree
+func process_tree(delta: float):
 	if child_node:
-		child_node._tick(blackboard, delta)
+		child_node.tick(blackboard, delta)

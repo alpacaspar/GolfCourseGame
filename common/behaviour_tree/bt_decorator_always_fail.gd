@@ -5,5 +5,5 @@ extends BTDecorator
 ## If the child node is still running, this node will return RUNNING.
 
 
-func _tick(blackboard: Dictionary, delta: float) -> int:
-	return RUNNING if child_node._tick(blackboard, delta) == RUNNING else FAILURE
+func tick(blackboard: Dictionary, delta: float) -> int:
+	return RUNNING if child_node.tick(blackboard, delta) == RUNNING else FAILURE
