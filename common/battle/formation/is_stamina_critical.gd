@@ -1,7 +1,7 @@
 extends BTLeaf
 
 
-func _tick(blackboard: Dictionary, _delta: float) -> int:
+func tick(blackboard: Dictionary, _delta: float) -> int:
 	if not blackboard.has("formation"):
 		return FAILURE
 

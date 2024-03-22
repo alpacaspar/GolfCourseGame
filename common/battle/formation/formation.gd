@@ -11,6 +11,16 @@ var team: Team:
 
 var units: Array[Unit]
 
+var target_formation: Formation:
+	get:
+		if get_active_units().is_empty():
+			return null
+
+		if behaviour_tree and behaviour_tree.blackboard.has("target_formation"):
+			return behaviour_tree.blackboard["target_formation"]
+		
+		return null
+
 @onready var behaviour_tree: BehaviourTree = $BehaviourTree
 
 
@@ -19,15 +29,7 @@ func _ready():
 
 
 func _physics_process(delta: float):
-	behaviour_tree.tick_tree(delta)
-
-
-func get_center_position() -> Vector3:
-	var result := Vector3()
-	for unit: Unit in get_active_units():
-		result += unit.global_transform.origin
-
-	return result / units.size()
+	behaviour_tree.process_tree(delta)
 
 
 func get_active_units() -> Array[Unit]:

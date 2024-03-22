@@ -1,7 +1,7 @@
 extends BTLeaf
 
 
-func _tick(blackboard: Dictionary, _delta: float) -> int:
+func tick(blackboard: Dictionary, _delta: float) -> int:
 	if not blackboard.has("formation"):
 		return FAILURE
 
@@ -14,19 +14,20 @@ func _tick(blackboard: Dictionary, _delta: float) -> int:
 	if opponent_formations.is_empty():
 		return FAILURE
 	
-	# get the closest formation
-	var closest_formation: Formation
-	# var closest_distance := INF
+	var target_formation: Formation
 
-	# for formation: Formation in opponent_formations:
-	# 	var distance = blackboard["formation"].position.distance_squared_to(formation.position)
-	# 	if distance < closest_distance:
-	# 		closest_distance = distance
-	# 		closest_formation = formation
+	# If any of the opponent formations are targeting the current formation, target that formation back.
+	for formation: Formation in opponent_formations:
+		if formation.target_formation == blackboard["formation"]:
+			target_formation = formation
 
-	closest_formation = opponent_formations.pick_random()
+	# If no target has been found yet, just pick a random formation.
+	if not target_formation:
+		target_formation = opponent_formations.pick_random()
 
-	blackboard["target_position"] = closest_formation.get_center_position()
-	blackboard["target_formation"] = closest_formation
+	blackboard["target_formation"] = target_formation
+
+	for unit: Unit in blackboard["formation"].get_active_units():
+		unit.give_command(blackboard["target_formation"])
 
 	return SUCCESS

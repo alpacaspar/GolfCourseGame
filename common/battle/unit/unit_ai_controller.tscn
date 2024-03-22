@@ -1,18 +1,16 @@
-[gd_scene load_steps=14 format=3 uid="uid://bmbpmw618ddnf"]
+[gd_scene load_steps=12 format=3 uid="uid://bmbpmw618ddnf"]
 
 [ext_resource type="Script" path="res://common/battle/unit/unit_ai_controller.gd" id="1_vqycx"]
 [ext_resource type="Script" path="res://common/behaviour_tree/behaviour_tree.gd" id="2_fevwe"]
 [ext_resource type="Script" path="res://common/behaviour_tree/bt_sequence.gd" id="3_4wvrg"]
 [ext_resource type="Script" path="res://common/behaviour_tree/bt_selector.gd" id="4_5kw74"]
-[ext_resource type="Script" path="res://common/battle/unit/behaviour/has_instructions.gd" id="4_saurn"]
-[ext_resource type="Script" path="res://common/behaviour_tree/bt_decorator_invert.gd" id="5_ijaqp"]
-[ext_resource type="Script" path="res://common/battle/unit/behaviour/has_unit_target.gd" id="9_kivj5"]
-[ext_resource type="Script" path="res://common/battle/unit/behaviour/in_range_of_target_unit.gd" id="9_yiirr"]
-[ext_resource type="Script" path="res://common/battle/unit/behaviour/pick_closest_unit.gd" id="10_81tn4"]
-[ext_resource type="Script" path="res://common/battle/unit/behaviour/set_movement_target.gd" id="11_4maul"]
-[ext_resource type="Script" path="res://common/battle/unit/target_unit_position_changed.gd" id="11_orcff"]
-[ext_resource type="Script" path="res://common/battle/unit/behaviour/goto_target.gd" id="13_7p1ay"]
-[ext_resource type="Script" path="res://common/battle/unit/behaviour/perform_action.gd" id="14_jbbgs"]
+[ext_resource type="Script" path="res://common/battle/unit/behaviour/has_command.gd" id="4_ibj44"]
+[ext_resource type="Script" path="res://common/behaviour_tree/bt_decorator_invert.gd" id="5_3n0vb"]
+[ext_resource type="Script" path="res://common/battle/unit/behaviour/should_change_target.gd" id="5_5ut4a"]
+[ext_resource type="Script" path="res://common/battle/unit/behaviour/pick_optimal_target.gd" id="6_r0aaj"]
+[ext_resource type="Script" path="res://common/battle/unit/goto.gd" id="7_pggqv"]
+[ext_resource type="Script" path="res://common/battle/unit/look_at_target.gd" id="8_a107r"]
+[ext_resource type="Script" path="res://common/battle/unit/perform_action.gd" id="9_twabe"]
 
 [node name="Controller" type="Node3D"]
 script = ExtResource("1_vqycx")
@@ -27,56 +25,29 @@ max_neighbors = 3
 [node name="BehaviourTree" type="Node" parent="."]
 script = ExtResource("2_fevwe")
 
-[node name="Selector" type="Node" parent="BehaviourTree"]
-script = ExtResource("4_5kw74")
-
-[node name="Invert" type="Node" parent="BehaviourTree/Selector"]
-script = ExtResource("5_ijaqp")
-
-[node name="HasInstructions" type="Node" parent="BehaviourTree/Selector/Invert"]
-script = ExtResource("4_saurn")
-
-[node name="Sequence" type="Node" parent="BehaviourTree/Selector"]
+[node name="Sequence" type="Node" parent="BehaviourTree"]
 script = ExtResource("3_4wvrg")
 
-[node name="Selector" type="Node" parent="BehaviourTree/Selector/Sequence"]
+[node name="HasCommand" type="Node" parent="BehaviourTree/Sequence"]
+script = ExtResource("4_ibj44")
+
+[node name="Selector" type="Node" parent="BehaviourTree/Sequence"]
 script = ExtResource("4_5kw74")
 
-[node name="HasUnitTarget" type="Node" parent="BehaviourTree/Selector/Sequence/Selector"]
-script = ExtResource("9_kivj5")
+[node name="Invert" type="Node" parent="BehaviourTree/Sequence/Selector"]
+script = ExtResource("5_3n0vb")
 
-[node name="PickClosestUnit" type="Node" parent="BehaviourTree/Selector/Sequence/Selector"]
-script = ExtResource("10_81tn4")
+[node name="ShouldChangeTarget" type="Node" parent="BehaviourTree/Sequence/Selector/Invert"]
+script = ExtResource("5_5ut4a")
 
-[node name="Selector2" type="Node" parent="BehaviourTree/Selector/Sequence"]
-script = ExtResource("4_5kw74")
+[node name="PickOptimalTarget" type="Node" parent="BehaviourTree/Sequence/Selector"]
+script = ExtResource("6_r0aaj")
 
-[node name="Sequence" type="Node" parent="BehaviourTree/Selector/Sequence/Selector2"]
-script = ExtResource("3_4wvrg")
+[node name="Goto" type="Node" parent="BehaviourTree/Sequence"]
+script = ExtResource("7_pggqv")
 
-[node name="InRangeOfTargetUnit" type="Node" parent="BehaviourTree/Selector/Sequence/Selector2/Sequence"]
-script = ExtResource("9_yiirr")
+[node name="LookAtTarget" type="Node" parent="BehaviourTree/Sequence"]
+script = ExtResource("8_a107r")
 
-[node name="InRangeOfTargetUnit2" type="Node" parent="BehaviourTree/Selector/Sequence/Selector2/Sequence"]
-script = ExtResource("9_yiirr")
-
-[node name="PerformAction" type="Node" parent="BehaviourTree/Selector/Sequence/Selector2/Sequence"]
-script = ExtResource("14_jbbgs")
-
-[node name="Sequence2" type="Node" parent="BehaviourTree/Selector/Sequence/Selector2"]
-script = ExtResource("3_4wvrg")
-
-[node name="Selector" type="Node" parent="BehaviourTree/Selector/Sequence/Selector2/Sequence2"]
-script = ExtResource("4_5kw74")
-
-[node name="Invert" type="Node" parent="BehaviourTree/Selector/Sequence/Selector2/Sequence2/Selector"]
-script = ExtResource("5_ijaqp")
-
-[node name="TargetUnitPositionChanged" type="Node" parent="BehaviourTree/Selector/Sequence/Selector2/Sequence2/Selector/Invert"]
-script = ExtResource("11_orcff")
-
-[node name="SetMovementTarget" type="Node" parent="BehaviourTree/Selector/Sequence/Selector2/Sequence2/Selector"]
-script = ExtResource("11_4maul")
-
-[node name="GotoTarget" type="Node" parent="BehaviourTree/Selector/Sequence/Selector2/Sequence2"]
-script = ExtResource("13_7p1ay")
+[node name="PerformAction" type="Node" parent="BehaviourTree/Sequence"]
+script = ExtResource("9_twabe")
