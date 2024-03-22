@@ -45,20 +45,10 @@ func _instantiate_team(team_resource: TeamResource, origin: Node3D):
 	self.add_child(team_instance)
 	teams.append(team_instance)
 
-	var spawnpoints := _get_triangular_points(team_resource.size, origin.global_position, origin.global_transform.basis.z, 2.0)
+	var spawnpoints := _get_triangular_points(team_resource.size, origin.global_position, origin.global_transform.basis.z, 4.0)
 
-	var formation_instance := formation_scene.instantiate()
-	
-	team_instance.add_child(formation_instance)
-	team_instance.formations.append(formation_instance)
-
-	var commander := unit_scene.instantiate()
-	formation_instance.add_child(commander)
-	formation_instance.units.append(commander)
-	commander.setup(team_resource.commander, formation_instance, team_instance)
-	commander.global_transform.origin = spawnpoints.pop_front()
-
-	team_instance.commander = commander
+	var formation_instance: Formation
+	var unit_instance: Unit
 
 	for formation_resource: FormationResource in team_resource.formations:
 		formation_instance = formation_scene.instantiate()
@@ -66,12 +56,24 @@ func _instantiate_team(team_resource: TeamResource, origin: Node3D):
 		team_instance.formations.append(formation_instance)
 
 		for unit: GolferResource in formation_resource.units:
-			var unit_instance := unit_scene.instantiate()
+			unit_instance = unit_scene.instantiate()
 			formation_instance.add_child(unit_instance)
 			formation_instance.units.append(unit_instance)
 
 			unit_instance.setup(unit, formation_instance, team_instance)
-			unit_instance.global_transform.origin = spawnpoints.pop_front()
+			unit_instance.global_transform.origin = spawnpoints.pop_back()
+	
+	
+	# The commander will be added to the last created formation.
+	formation_instance = team_instance.formations.back()
+
+	var commander := unit_scene.instantiate()
+	formation_instance.add_child(commander)
+	formation_instance.units.append(commander)
+	commander.setup(team_resource.commander, formation_instance, team_instance)
+	commander.global_transform.origin = spawnpoints.pop_back()
+
+	team_instance.commander = commander
 
 
 ## Returns an array of points in a triangular pattern (bowling pin formation).
