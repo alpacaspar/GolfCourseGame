@@ -5,3 +5,5 @@
 [resource]
 script = ExtResource("1_a5bv5")
 display_name = "ironnaut"
+desired_distance = 1.5
+target_type = 1
