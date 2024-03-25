@@ -960,14 +960,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.42417e-06, -0.000100955, -0
 
 [node name="EyebrowPlane" type="MeshInstance3D" parent="Armature/GeneralSkeleton/HeadBoneAttachment/Head/ExpressoinPlanes"]
 transform = Transform3D(0.77485, 0, 0, 0, 0.774569, 0.0208779, 0, -0.0208779, 0.774569, 0, 4.59123, -22.6076)
+material_override = ExtResource("3_ikf4d")
 mesh = SubResource("ArrayMesh_oefmg")
 skeleton = NodePath("")
 
 [node name="EyesPlane" type="MeshInstance3D" parent="Armature/GeneralSkeleton/HeadBoneAttachment/Head/ExpressoinPlanes"]
+material_override = ExtResource("4_m1f87")
 mesh = SubResource("ArrayMesh_tdpjd")
 skeleton = NodePath("")
 
 [node name="MouthPlane" type="MeshInstance3D" parent="Armature/GeneralSkeleton/HeadBoneAttachment/Head/ExpressoinPlanes"]
+material_override = ExtResource("5_27qty")
 mesh = SubResource("ArrayMesh_wiye2")
 skeleton = NodePath("")
 
