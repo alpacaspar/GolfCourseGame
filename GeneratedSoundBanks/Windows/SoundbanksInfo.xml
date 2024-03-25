@@ -9,13 +9,13 @@
 	</RootPaths>
 	<DialogueEvents/>
 	<SoundBanks>
-		<SoundBank Id="56103612" Type="User" Language="SFX" Hash="{0310B4B3-58FB-9560-6E6A-5BE748CF0A2B}">
+		<SoundBank Id="56103612" Type="User" Language="SFX" Hash="{A37D0BDC-67EA-E8B5-8556-A2C1774AE905}">
 			<ShortName>debug_soundbank</ShortName>
 			<Path>debug_soundbank.bnk</Path>
 			<Media>
 				<File Id="39461927" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>SFX\Player\sfx_uni_plr_footstep_walk_grass_06.wav</ShortName>
-					<CachePath>SFX/SFX/Player/sfx_uni_plr_footstep_walk_grass_06_20FCB6A2.wem</CachePath>
+					<CachePath>SFX/SFX/Player/sfx_uni_plr_footstep_walk_grass_06_D27E9F1B.wem</CachePath>
 				</File>
 				<File Id="74631228" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>SFX\Player\sfx_uni_plr_club_swing_iron_03.wav</ShortName>
@@ -55,7 +55,7 @@
 				</File>
 				<File Id="264017571" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>SFX\Player\sfx_uni_plr_footstep_walk_grass_03.wav</ShortName>
-					<CachePath>SFX/SFX/Player/sfx_uni_plr_footstep_walk_grass_03_E2023069.wem</CachePath>
+					<CachePath>SFX/SFX/Player/sfx_uni_plr_footstep_walk_grass_03_E317E58D.wem</CachePath>
 				</File>
 				<File Id="410123159" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>x_debug_000.wav</ShortName>
@@ -87,7 +87,7 @@
 				</File>
 				<File Id="567544787" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>SFX\Player\sfx_uni_plr_footstep_walk_grass_04.wav</ShortName>
-					<CachePath>SFX/SFX/Player/sfx_uni_plr_footstep_walk_grass_04_4790A7AC.wem</CachePath>
+					<CachePath>SFX/SFX/Player/sfx_uni_plr_footstep_walk_grass_04_7148611A.wem</CachePath>
 				</File>
 				<File Id="581031923" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>x_debug_010.wav</ShortName>
@@ -135,7 +135,7 @@
 				</File>
 				<File Id="882077841" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>SFX\Player\sfx_uni_plr_footstep_walk_grass_05.wav</ShortName>
-					<CachePath>SFX/SFX/Player/sfx_uni_plr_footstep_walk_grass_05_6D00154E.wem</CachePath>
+					<CachePath>SFX/SFX/Player/sfx_uni_plr_footstep_walk_grass_05_434F675B.wem</CachePath>
 				</File>
 				<File Id="924864581" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>x_debug_080.wav</ShortName>
@@ -151,7 +151,7 @@
 				</File>
 				<File Id="1056569421" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>SFX\Player\sfx_uni_plr_footstep_walk_grass_02.wav</ShortName>
-					<CachePath>SFX/SFX/Player/sfx_uni_plr_footstep_walk_grass_02_0A5FE278.wem</CachePath>
+					<CachePath>SFX/SFX/Player/sfx_uni_plr_footstep_walk_grass_02_E9BB5327.wem</CachePath>
 				</File>
 			</Media>
 			<Events>
@@ -313,6 +313,7 @@
 				</Event>
 			</Events>
 			<GameParameters>
+				<GameParameter Id="511984960" Name="footstep_volume"/>
 				<GameParameter Id="1611159812" Name="debug_distance"/>
 			</GameParameters>
 			<SwitchGroups>
@@ -344,7 +345,7 @@
 				</SwitchGroup>
 			</SwitchGroups>
 		</SoundBank>
-		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{2CEA0C21-4EAB-4C7A-B9CA-59C7F3AF1603}">
+		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{5DA43F15-18BA-2A4A-A032-09503E0DD456}">
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
 			<Plugins>
@@ -357,6 +358,7 @@
 				<Bus Id="3803692087" Name="Master Audio Bus"/>
 			</Busses>
 			<GameParameters>
+				<GameParameter Id="511984960" Name="footstep_volume"/>
 				<GameParameter Id="1611159812" Name="debug_distance"/>
 			</GameParameters>
 			<SwitchGroups>
@@ -517,5 +519,5 @@
 			</AcousticTextures>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{731DA349-C341-8AD4-C214-49339B7CBE54}</FileHash>
+	<FileHash>{BBE6D55E-25BF-CBF0-346E-EE7412AB6EAD}</FileHash>
 </SoundBanksInfo>
