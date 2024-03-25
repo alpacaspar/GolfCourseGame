@@ -94,7 +94,7 @@ text = "Name"
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 size_flags_horizontal = 3
-placeholder_text = "Sequence Name..."
+placeholder_text = "Cutscene Name..."
 
 [node name="VSeparator" type="VSeparator" parent="AllWindows/UpperArea/UpperPortion/NodeSequenceEditor/Panel/VBoxContainer"]
 layout_mode = 2
