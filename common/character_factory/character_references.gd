@@ -10,6 +10,7 @@ signal on_swing_ended
 @export var nose_mesh: MeshInstance3D
 @export var hair_mesh: MeshInstance3D
 @export var accessory_mesh: MeshInstance3D
+
 @export var mouth_mesh: MeshInstance3D
 @export var eye_mesh: MeshInstance3D
 @export var eyebrow_mesh: MeshInstance3D
@@ -24,10 +25,12 @@ func set_preview_mode(preview_mode: bool):
 	ear_mesh.visible = !preview_mode
 	nose_mesh.visible = !preview_mode
 	hair_mesh.visible = !preview_mode
-	#accessory_mesh.visible = !preview_mode
+	
 	mouth_mesh.visible = !preview_mode
 	eye_mesh.visible = !preview_mode
 	eyebrow_mesh.visible = !preview_mode
+	
+	# accessory_mesh.visible = !preview_mode
 
 	preview_mesh.visible = preview_mode
 

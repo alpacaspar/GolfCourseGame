@@ -7,6 +7,7 @@ extends Control
 
 @export_subgroup("Picker")
 @export var eyes_option_picker: NPCCustomizerPicker
+@export var eyebrows_option_picker: NPCCustomizerPicker
 @export var noses_option_picker: NPCCustomizerPicker
 @export var ears_option_picker: NPCCustomizerPicker
 @export var mouths_option_picker: NPCCustomizerPicker
@@ -154,18 +155,38 @@ func set_zoom_slider(value):
 
 
 func set_pickers(preview_scene):
-	await _set_button_connections(preview_scene, CharacterFactory.eye_meshes, false, eyes_option_picker)
 	await _set_button_connections(preview_scene, CharacterFactory.nose_meshes, false, noses_option_picker)
 	await _set_button_connections(preview_scene, CharacterFactory.ear_meshes, false, ears_option_picker)
-	await _set_button_connections(preview_scene, CharacterFactory.mouth_meshes, false, mouths_option_picker)
 	await _set_button_connections(preview_scene, CharacterFactory.hair_meshes, true, hair_option_picker)
 	await _set_button_connections(preview_scene, CharacterFactory.accessory_meshes, false, accessories_option_picker)
+
+	await _set_eye_button_connections(preview_scene)
+	await _set_mouth_button_connections(preview_scene)
+	await _set_eyebrow_button_connections(preview_scene)
 
 
 func _set_button_connections(preview_scene, collection, rotate, picker: NPCCustomizerPicker):
 	for option in collection:
 		var texture = await preview_scene.create_button_icon(option, rotate)
 		picker.add_button(texture, _update_character)
+
+
+func _set_eye_button_connections(preview_scene):
+	for option in CharacterFactory.eye_textures.get_layers():
+		var texture = await ImageTexture.create_from_image(CharacterFactory.eye_textures.get_layer_data(option))
+		eyes_option_picker.add_button(texture, _update_character)
+
+
+func _set_mouth_button_connections(preview_scene):
+	for option in CharacterFactory.mouth_textures.get_layers():
+		var texture = await ImageTexture.create_from_image(CharacterFactory.mouth_textures.get_layer_data(option))
+		mouths_option_picker.add_button(texture, _update_character)
+
+
+func _set_eyebrow_button_connections(preview_scene):
+	for option in CharacterFactory.eyebrow_textures.get_layers():
+		var texture = await ImageTexture.create_from_image(CharacterFactory.eyebrow_textures.get_layer_data(option))
+		eyebrows_option_picker.add_button(texture, _update_character)
 
 
 func _set_rotation_value(_value):

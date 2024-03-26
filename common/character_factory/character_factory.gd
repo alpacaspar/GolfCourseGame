@@ -7,8 +7,10 @@ extends Node
 @export var nose_meshes: Array[Mesh] = []
 
 @export var accessory_meshes: Array[Mesh] = []
-@export var eye_meshes: Array[Mesh] = []
-@export var mouth_meshes: Array[Mesh] = []
+
+@export var eye_textures: CompressedTexture2DArray
+@export var eyebrow_textures: CompressedTexture2DArray
+@export var mouth_textures: CompressedTexture2DArray
 
 @export var character_base: PackedScene
 
@@ -19,5 +21,9 @@ func spawn_character(resource: NPCResource) -> CharacterReferences:
 	character.ear_mesh.mesh = ear_meshes[resource.ear_index]
 	character.nose_mesh.mesh = nose_meshes[resource.nose_index]
 	character.hair_mesh.mesh = hair_meshes[resource.hair_index]
+
+	character.eye_mesh.get_mesh().surface_get_material(0).set("albedo_texture", ImageTexture.create_from_image(eye_textures.get_layer_data(resource.eye_index)))
+	character.mouth_mesh.get_mesh().surface_get_material(0).set("albedo_texture", ImageTexture.create_from_image(mouth_textures.get_layer_data(resource.mouth_index)))
+	character.eyebrow_mesh.get_mesh().surface_get_material(0).set("albedo_texture", ImageTexture.create_from_image(eyebrow_textures.get_layer_data(resource.eyebrow_index)))
 	
 	return character
