@@ -1,0 +1,14 @@
+[gd_resource type="StandardMaterial3D" load_steps=5 format=3 uid="uid://d0o8jgo78vcup"]
+
+[ext_resource type="Texture2D" uid="uid://dnss88udywu4n" path="res://common/character_factory/character_materials/hair/groupedhair_albedo.png" id="1_as0sb"]
+[ext_resource type="Texture2D" uid="uid://jmwg2yjl5cvb" path="res://common/character_factory/character_materials/hair/groupedhair_metallic.png" id="2_1godn"]
+[ext_resource type="Texture2D" uid="uid://bmy5d4h6piicp" path="res://common/character_factory/character_materials/hair/groupedhair_normal.png" id="3_ecvr2"]
+[ext_resource type="Texture2D" uid="uid://cpo1luow02nte" path="res://common/character_factory/character_materials/hair/groupedhair_roughness.png" id="4_ujqrd"]
+
+[resource]
+albedo_texture = ExtResource("1_as0sb")
+metallic = 1.0
+metallic_texture = ExtResource("2_1godn")
+roughness_texture = ExtResource("4_ujqrd")
+normal_enabled = true
+normal_texture = ExtResource("3_ecvr2")
