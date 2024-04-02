@@ -35,6 +35,31 @@ func on_process(_delta):
 	callback.call(img)
 
 
+func create_button_icon(mesh, rotate: bool) -> Texture:
+	spawned_character.set_preview_mode(true)
+	spawned_character.preview_mesh.mesh = mesh
+
+	getting_icons = true
+	icon_cam.current = true
+
+	spawned_character.basis = Basis()
+	if rotate:
+		spawned_character.rotate(Vector3.UP, deg_to_rad(90))
+	else:
+		spawned_character.rotate(Vector3.UP, deg_to_rad(0))
+
+	icon_viewport.render_target_update_mode = 1
+	await RenderingServer.frame_post_draw
+	var image = icon_viewport.get_texture().get_image()
+
+	spawned_character.set_preview_mode(false)
+	spawned_character.rotate(Vector3.UP, deg_to_rad(180 + rotation_value))
+	
+	preview_cam.current = true
+	getting_icons = false
+	return ImageTexture.create_from_image(image)
+
+
 func _set_rotation(_value):
 	rotation_value = _value
 
@@ -51,67 +76,6 @@ func _spawn_character(character_resource: NPCResource):
 func _edit_character(_character_resource: NPCResource):
 	spawned_character.queue_free()
 	_spawn_character(_character_resource)
-
-
-func create_button_icon(mesh, rotate: bool) -> Texture:
-	spawned_character.set_preview_mode(true)
-	spawned_character.preview_mesh.mesh = mesh
-
-	var icon = await _create_icon(rotate)
-	spawned_character.set_preview_mode(false)
-
-	return icon
-
-
-func create_eye_icon(image: ImageTexture) -> Texture:
-	spawned_character.eye_mesh.get_mesh().surface_get_material(0).set("albedo_texture", image)
-	spawned_character.set_eye_preview(true)
-	
-	var icon = await _create_icon(false)
-	spawned_character.set_eye_preview(false)
-	
-	return icon
-
-
-func create_mouth_icon(image: ImageTexture) -> Texture:
-	spawned_character.mouth_mesh.get_mesh().surface_get_material(0).set("albedo_texture", image)
-	spawned_character.set_mouth_preview(true)
-	
-	var icon = await _create_icon(false)
-	spawned_character.set_mouth_preview(false)
-	
-	return icon
-
-
-func create_eyebrow_icon(image: ImageTexture) -> Texture:
-	spawned_character.eyebrow_mesh.get_mesh().surface_get_material(0).set("albedo_texture", image)
-	spawned_character.set_eyebrow_preview(true)
-	
-	var icon = await _create_icon(false)
-	spawned_character.set_eyebrow_preview(false)
-	
-	return icon
-
-
-func _create_icon(rotate: bool):
-	getting_icons = true
-	icon_cam.current = true
-
-	spawned_character.basis = Basis()
-	if rotate:
-		spawned_character.rotate(Vector3.UP, deg_to_rad(90))
-	else:
-		spawned_character.rotate(Vector3.UP, deg_to_rad(0))
-
-	icon_viewport.render_target_update_mode = 1
-	await RenderingServer.frame_post_draw
-	var image = icon_viewport.get_texture().get_image()
-
-	spawned_character.rotate(Vector3.UP, deg_to_rad(180 + rotation_value))
-	
-	preview_cam.current = true
-	getting_icons = false
-	return ImageTexture.create_from_image(image)
 
 
 func _exit_tree():

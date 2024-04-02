@@ -26,5 +26,8 @@ func spawn_character(resource: NPCResource) -> CharacterReferences:
 	character.nose_mesh.mesh = nose_meshes[resource.nose_index]
 	character.hair_mesh.mesh = hair_meshes[resource.hair_index]
 
+	character.hair_mesh.get_surface_override_material(0).set("albedo_color", resource.hair_color)
+	character.ear_mesh.get_surface_override_material(0).set("albedo_color", resource.skin_color)
+	character.nose_mesh.get_surface_override_material(0).set("albedo_color", resource.skin_color)
 	
 	return character

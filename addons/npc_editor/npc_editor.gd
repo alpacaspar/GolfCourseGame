@@ -12,15 +12,8 @@ func _enter_tree():
 	preview_scene = preload("res://addons/npc_editor/preview_scene.tscn").instantiate()
 	add_child(preview_scene)
 
-	dock.make_ready()
 	preview_scene.make_ready()
-
-	preview_scene.callback = Callable(dock._set_preview)
-	dock.update_preview_callback = Callable(preview_scene._edit_character)
-	
-	dock.set_rotation_slider(preview_scene._set_rotation)
-	dock.set_zoom_slider(preview_scene._set_zoom)
-	dock.set_pickers(preview_scene)
+	dock.make_ready(preview_scene)
 	
 	add_control_to_dock(DOCK_SLOT_RIGHT_UL, dock)
 

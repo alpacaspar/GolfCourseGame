@@ -54,19 +54,36 @@ var current_path: String
 var has_error: bool = false
 
 
-func make_ready():
+func make_ready(preview_scene):
 	npc_resource.set_value()
+	edited_resource = NPCResource.new()
 
+	preview_scene.callback = Callable(_set_preview)
+	
 	rotation_slider.value_changed.connect(_set_rotation_value)
 	rotation_box.value_changed.connect(_set_rotation_value)
 
 	hair_color_picker.color_changed.connect(_update_character)
 	skin_color_picker.color_changed.connect(_update_character)
+
 	load_button.pressed.connect(_load)
 	save_button.pressed.connect(_save)
 	save_as_button.pressed.connect(_save_as)
 
-	edited_resource = NPCResource.new()
+	update_preview_callback = Callable(preview_scene._edit_character)
+	rotation_slider.value_changed.connect(preview_scene._set_rotation)
+	zoom_slider.value_changed.connect(preview_scene._set_zoom)
+
+	await _set_button_connections(preview_scene, CharacterFactory.nose_meshes, false, noses_option_picker)
+	await _set_button_connections(preview_scene, CharacterFactory.ear_meshes, false, ears_option_picker)
+	await _set_button_connections(preview_scene, CharacterFactory.hair_meshes, true, hair_option_picker)
+	await _set_button_connections(preview_scene, CharacterFactory.accessory_meshes, false, accessories_option_picker)
+
+	await _set_face_button_connections(preview_scene, CharacterFactory.eye_textures, eyes_option_picker)
+	await _set_face_button_connections(preview_scene, CharacterFactory.mouth_textures, mouths_option_picker)
+	await _set_face_button_connections(preview_scene, CharacterFactory.eyebrow_textures, eyebrows_option_picker)
+
+	_update_character()
 
 
 func on_process(delta):
@@ -172,25 +189,6 @@ func _check_for_errors():
 
 func _set_preview(_texture):
 	preview.texture = _texture
-
-
-func set_rotation_slider(value):
-	rotation_slider.value_changed.connect(value)
-
-
-func set_zoom_slider(value):
-	zoom_slider.value_changed.connect(value)
-
-
-func set_pickers(preview_scene):
-	await _set_button_connections(preview_scene, CharacterFactory.nose_meshes, false, noses_option_picker)
-	await _set_button_connections(preview_scene, CharacterFactory.ear_meshes, false, ears_option_picker)
-	await _set_button_connections(preview_scene, CharacterFactory.hair_meshes, true, hair_option_picker)
-	await _set_button_connections(preview_scene, CharacterFactory.accessory_meshes, false, accessories_option_picker)
-
-	await _set_eye_button_connections(preview_scene)
-	await _set_mouth_button_connections(preview_scene)
-	await _set_eyebrow_button_connections(preview_scene)
 
 
 func _set_button_connections(preview_scene, collection, rotate, picker: NPCCustomizerPicker):
