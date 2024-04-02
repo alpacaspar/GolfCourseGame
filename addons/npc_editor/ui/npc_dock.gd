@@ -1,20 +1,20 @@
 @tool
 class_name NPCDock
 extends Control
-# The code behind the UI, that makes sure all parts of the tool work as it should.
-# Handles loading, saving, updating and setting data.
+### The code behind the UI, that makes sure all parts of the tool work as it should.
+### Handles loading, saving, updating and setting data.
 
 
-# This script works together with other scripts;
+### This script works together with other scripts;
 
-# npc_editor (Handles Editor code and running it)
-# npc_resource (The resource for the NPC)
-# preview_spawner (Shows the preview character and handles Icons)
-# character_factory (Spawns a character based on the NPCResource it is given)
+### npc_editor (Handles Editor code and running it)
+### npc_resource (The resource for the NPC)
+### preview_spawner (Shows the preview character and handles Icons)
+### character_factory (Spawns a character based on the NPCResource it is given)
 
-# resource_loader (Loads a resource for loading and resaving)
-# npc_customizer_picker (Allows a single option from a list)
-# npc_customizer_option (The single option from the npc_customizer_picker list)
+### resource_loader (Loads a resource for loading and resaving)
+### npc_customizer_picker (Allows a single option from a list)
+### npc_customizer_option (The single option from the npc_customizer_picker list)
 
 
 @export var npc_resource: ResourceLoadingHandler
