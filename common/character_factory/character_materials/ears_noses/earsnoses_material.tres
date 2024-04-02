@@ -1,12 +1,11 @@
-[gd_resource type="StandardMaterial3D" load_steps=5 format=3 uid="uid://n65btp0wlcfs"]
+[gd_resource type="StandardMaterial3D" load_steps=4 format=3 uid="uid://n65btp0wlcfs"]
 
-[ext_resource type="Texture2D" uid="uid://cwrnqhiq4nlxh" path="res://common/character_factory/character_materials/ears_noses/nosesears_albedo.png" id="1_8us44"]
 [ext_resource type="Texture2D" uid="uid://bsk52rc21oumk" path="res://common/character_factory/character_materials/ears_noses/nosesears_metallic.png" id="2_smryj"]
 [ext_resource type="Texture2D" uid="uid://dq8ii0i8g60ou" path="res://common/character_factory/character_materials/ears_noses/nosesears_normal.png" id="3_qf2di"]
 [ext_resource type="Texture2D" uid="uid://c60722dtiwrc6" path="res://common/character_factory/character_materials/ears_noses/nosesears_roughness.png" id="4_mqx43"]
 
 [resource]
-albedo_texture = ExtResource("1_8us44")
+albedo_color = Color(1, 0.752941, 0.666667, 1)
 metallic = 1.0
 metallic_texture = ExtResource("2_smryj")
 roughness_texture = ExtResource("4_mqx43")

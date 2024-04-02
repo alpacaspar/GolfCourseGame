@@ -940,6 +940,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.42417e-06, -0.000100955, -0
 [node name="EarsV1" type="MeshInstance3D" parent="Armature/GeneralSkeleton/HeadBoneAttachment/Head/Ears"]
 mesh = SubResource("ArrayMesh_vj7su")
 skeleton = NodePath("")
+surface_material_override/0 = ExtResource("4_3o6f3")
 
 [node name="Noses" type="Node3D" parent="Armature/GeneralSkeleton/HeadBoneAttachment/Head"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.42417e-06, -0.000100955, -0.000202656)
@@ -947,6 +948,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.42417e-06, -0.000100955, -0
 [node name="NoseScape4" type="MeshInstance3D" parent="Armature/GeneralSkeleton/HeadBoneAttachment/Head/Noses"]
 mesh = SubResource("ArrayMesh_ws2a3")
 skeleton = NodePath("")
+surface_material_override/0 = ExtResource("4_3o6f3")
 
 [node name="Hair" type="Node3D" parent="Armature/GeneralSkeleton/HeadBoneAttachment/Head"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.42417e-06, -0.000100955, -0.000202656)
@@ -954,6 +956,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.42417e-06, -0.000100955, -0
 [node name="BuzzCut" type="MeshInstance3D" parent="Armature/GeneralSkeleton/HeadBoneAttachment/Head/Hair"]
 mesh = SubResource("ArrayMesh_2264h")
 skeleton = NodePath("")
+surface_material_override/0 = ExtResource("5_515q6")
 
 [node name="ExpressoinPlanes" type="Node3D" parent="Armature/GeneralSkeleton/HeadBoneAttachment/Head"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.42417e-06, -0.000100955, -0.000202656)

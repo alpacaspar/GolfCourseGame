@@ -1,6 +1,20 @@
 @tool
 class_name NPCDock
 extends Control
+# The code behind the UI, that makes sure all parts of the tool work as it should.
+# Handles loading, saving, updating and setting data.
+
+
+# This script works together with other scripts;
+
+# npc_editor (Handles Editor code and running it)
+# npc_resource (The resource for the NPC)
+# preview_spawner (Shows the preview character and handles Icons)
+# character_factory (Spawns a character based on the NPCResource it is given)
+
+# resource_loader (Loads a resource for loading and resaving)
+# npc_customizer_picker (Allows a single option from a list)
+# npc_customizer_option (The single option from the npc_customizer_picker list)
 
 
 @export var npc_resource: ResourceLoadingHandler
@@ -15,6 +29,8 @@ extends Control
 @export var accessories_option_picker: NPCCustomizerPicker
 
 @export_subgroup("References")
+@export var hair_color_picker: ColorPickerButton
+@export var skin_color_picker: ColorPickerButton
 @export var name_field: LineEdit
 @export var load_button: Button
 @export var save_button: Button
@@ -44,6 +60,8 @@ func make_ready():
 	rotation_slider.value_changed.connect(_set_rotation_value)
 	rotation_box.value_changed.connect(_set_rotation_value)
 
+	hair_color_picker.color_changed.connect(_update_character)
+	skin_color_picker.color_changed.connect(_update_character)
 	load_button.pressed.connect(_load)
 	save_button.pressed.connect(_save)
 	save_as_button.pressed.connect(_save_as)
@@ -73,28 +91,38 @@ func on_process(delta):
 		save_as_button.disabled = false
 
 
+# Set all data in the "edited_resource" first, then give it to the preview spawner
 func _update_character(_value = 0):
 	edited_resource.name = name_field.text
 	
 	edited_resource.eye_index = eyes_option_picker.get_current_index()
+	edited_resource.eyebrow_index = eyebrows_option_picker.get_current_index()
 	edited_resource.nose_index = noses_option_picker.get_current_index()
 	edited_resource.ear_index = ears_option_picker.get_current_index()
 	edited_resource.mouth_index = mouths_option_picker.get_current_index()
 	edited_resource.hair_index = hair_option_picker.get_current_index()
 	edited_resource.accessory_index = accessories_option_picker.get_current_index()
 
+	edited_resource.hair_color = hair_color_picker.color
+	edited_resource.skin_color = skin_color_picker.color
+
 	update_preview_callback.call(edited_resource)
 
 
+# Update all UI to display the current options
 func _load():
 	var _resource = npc_resource.value
 
 	eyes_option_picker.set_button_index(_resource.eye_index)
+	eyebrows_option_picker.set_button_index(_resource.eyebrow_index)
 	noses_option_picker.set_button_index(_resource.nose_index)
 	ears_option_picker.set_button_index(_resource.ear_index)
 	mouths_option_picker.set_button_index(_resource.mouth_index)
 	hair_option_picker.set_button_index(_resource.hair_index)
 	accessories_option_picker.set_button_index(_resource.accessory_index)
+
+	hair_color_picker.color = _resource.hair_color
+	skin_color_picker.color = _resource.skin_color
 
 	name_field.text = _resource.name
 	current_path = _resource.resource_path
@@ -171,22 +199,10 @@ func _set_button_connections(preview_scene, collection, rotate, picker: NPCCusto
 		picker.add_button(texture, _update_character)
 
 
-func _set_eye_button_connections(preview_scene):
-	for option in CharacterFactory.eye_textures.get_layers():
-		var texture = await ImageTexture.create_from_image(CharacterFactory.eye_textures.get_layer_data(option))
-		eyes_option_picker.add_button(texture, _update_character)
-
-
-func _set_mouth_button_connections(preview_scene):
-	for option in CharacterFactory.mouth_textures.get_layers():
-		var texture = await ImageTexture.create_from_image(CharacterFactory.mouth_textures.get_layer_data(option))
-		mouths_option_picker.add_button(texture, _update_character)
-
-
-func _set_eyebrow_button_connections(preview_scene):
-	for option in CharacterFactory.eyebrow_textures.get_layers():
-		var texture = await ImageTexture.create_from_image(CharacterFactory.eyebrow_textures.get_layer_data(option))
-		eyebrows_option_picker.add_button(texture, _update_character)
+func _set_face_button_connections(preview_scene, collection, picker: NPCCustomizerPicker):
+	for option in collection.get_layers():
+		var texture = await ImageTexture.create_from_image(collection.get_layer_data(option))
+		picker.add_button(texture, _update_character)
 
 
 func _set_rotation_value(_value):

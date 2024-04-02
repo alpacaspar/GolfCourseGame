@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://vlhqfeikttuy" path="res://common/character_factory/character_materials/body/characterbaseoutfit_roughness.png" id="4_8wkej"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_f3wgl"]
-load_path = "res://.godot/imported/characterbaseoutfit_height.png-75cf368d20af935a0f025c09f0103ac3.s3tc.ctex"
 
 [resource]
 albedo_texture = ExtResource("1_j5l6s")
