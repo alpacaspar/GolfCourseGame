@@ -15,6 +15,7 @@ var size_threshhold = 300.0
 
 func on_ready():
 	sequence_resource.set_value()
+	
 	sequencer_functionality.on_ready()
 	node_sequence_functionality.on_ready()
 

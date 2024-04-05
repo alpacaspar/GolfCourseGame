@@ -54,6 +54,9 @@ func _add_node():
 	node_parent.add_child(node)
 	node.on_ready()
 
+	var local_pos = context_menu.get_local_mouse_position()
+	node.position = Vector2(local_pos.x, local_pos.y)
+
 	nodes.append(node)
 	context_menu.visible = false
 

@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bc82sewgbqu3q"]
 
-[ext_resource type="Script" path="res://addons/cutscene_sequencer/ui/sequence_block.gd" id="1_i1njx"]
+[ext_resource type="Script" path="res://addons/cutscene_sequencer/ui/timeline_editor/timeline_block.gd" id="1_i1njx"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4qjsy"]
 bg_color = Color(0.117647, 0.368627, 0.247059, 1)

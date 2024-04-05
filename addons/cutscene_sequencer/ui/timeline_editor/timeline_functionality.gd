@@ -8,7 +8,7 @@ extends Container
 @export var sequence_block_prefab: PackedScene
 @export var filler_block_prefab: PackedScene
 
-var sequence_buttons: Array[SequenceBlock] = []
+var sequence_buttons: Array[TimelineBlock] = []
 var filler_buttons: Array[Button] = []
 
 var time_since_last_click: float

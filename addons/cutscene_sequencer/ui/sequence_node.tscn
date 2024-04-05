@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://ow3qdkokqqia"]
 
 [ext_resource type="Script" path="res://addons/cutscene_sequencer/ui/sequence_node.gd" id="1_j4qlx"]
-[ext_resource type="PackedScene" uid="uid://mul03t3vjpxt" path="res://addons/cutscene_sequencer/ui/option.tscn" id="2_dlcua"]
+[ext_resource type="PackedScene" uid="uid://mul03t3vjpxt" path="res://addons/cutscene_sequencer/ui/sequence_node_option.tscn" id="2_dlcua"]
 
 [node name="GraphNode" type="GraphNode" node_paths=PackedStringArray("add_option_button")]
 offset_right = 197.0

@@ -1,6 +1,8 @@
 @tool
 class_name SequencerFunctionality
 extends Control
+### Sequencer functionality, specifically the UI in the Bottom panel
+### Works together with TimelineFunctionality, for the Camera, Event and Dialogue timelines
 
 
 @export var camera_window: Control

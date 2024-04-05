@@ -1,17 +1,17 @@
 [gd_scene load_steps=19 format=3 uid="uid://1i06d8cxpb6h"]
 
-[ext_resource type="Script" path="res://addons/cutscene_sequencer/ui/sequencer_tool_ui.gd" id="1_lpnir"]
-[ext_resource type="Script" path="res://addons/cutscene_sequencer/ui/sequences_node_editing.gd" id="2_1v235"]
-[ext_resource type="Script" path="res://addons/cutscene_sequencer/ui/resource_holder.gd" id="2_xayej"]
-[ext_resource type="PackedScene" uid="uid://ow3qdkokqqia" path="res://addons/cutscene_sequencer/ui/sequence_node.tscn" id="3_ybek8"]
-[ext_resource type="Script" path="res://addons/cutscene_sequencer/ui/sequencer_functionality.gd" id="5_ox6dj"]
-[ext_resource type="Script" path="res://addons/cutscene_sequencer/ui/timeline_functionality.gd" id="7_8vutc"]
-[ext_resource type="Texture2D" uid="uid://br45cg0i2a5w5" path="res://addons/cutscene_sequencer/icons/fast-forward-button.png" id="7_i7i0t"]
-[ext_resource type="Texture2D" uid="uid://d4aldk0l6d0oc" path="res://addons/cutscene_sequencer/icons/next-button.png" id="8_hjs4q"]
-[ext_resource type="PackedScene" uid="uid://bc82sewgbqu3q" path="res://addons/cutscene_sequencer/ui/sequence_block.tscn" id="8_ylqfd"]
-[ext_resource type="PackedScene" uid="uid://sepd5fnrdl8h" path="res://addons/cutscene_sequencer/ui/filler_block.tscn" id="9_f3q4f"]
-[ext_resource type="Texture2D" uid="uid://byiegk0qnxadc" path="res://addons/cutscene_sequencer/icons/sight-disabled.png" id="12_84olx"]
-[ext_resource type="Texture2D" uid="uid://c87tsjb2u526y" path="res://addons/cutscene_sequencer/icons/play-button.png" id="12_noo05"]
+[ext_resource type="Script" path="res://addons/cutscene_sequencer/ui/tool_ui_functionality.gd" id="1_ks86f"]
+[ext_resource type="Script" path="res://addons/cutscene_sequencer/ui/sequence_node_editing_functionality.gd" id="2_jl4vt"]
+[ext_resource type="PackedScene" uid="uid://ow3qdkokqqia" path="res://addons/cutscene_sequencer/ui/sequence_node.tscn" id="3_pg77h"]
+[ext_resource type="Script" path="res://addons/cutscene_sequencer/ui/resource_holder.gd" id="4_6uy6j"]
+[ext_resource type="Script" path="res://addons/cutscene_sequencer/ui/sequencer_functionality.gd" id="5_nea3n"]
+[ext_resource type="Texture2D" uid="uid://c87tsjb2u526y" path="res://addons/cutscene_sequencer/icons/play-button.png" id="6_13vfu"]
+[ext_resource type="Texture2D" uid="uid://br45cg0i2a5w5" path="res://addons/cutscene_sequencer/icons/fast-forward-button.png" id="7_540t2"]
+[ext_resource type="Texture2D" uid="uid://d4aldk0l6d0oc" path="res://addons/cutscene_sequencer/icons/next-button.png" id="8_yk3d1"]
+[ext_resource type="Script" path="res://addons/cutscene_sequencer/ui/timeline_editor/timeline_functionality.gd" id="9_78x27"]
+[ext_resource type="PackedScene" uid="uid://bc82sewgbqu3q" path="res://addons/cutscene_sequencer/ui/timeline_editor/timeline_block.tscn" id="10_tfg1q"]
+[ext_resource type="PackedScene" uid="uid://sepd5fnrdl8h" path="res://addons/cutscene_sequencer/ui/timeline_editor/timeline_filler_block.tscn" id="11_xwa1f"]
+[ext_resource type="Texture2D" uid="uid://byiegk0qnxadc" path="res://addons/cutscene_sequencer/icons/sight-disabled.png" id="12_tokrk"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f6e5x"]
 
@@ -39,7 +39,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_lpnir")
+script = ExtResource("1_ks86f")
 sequence_resource = NodePath("AllWindows/UpperArea/UpperPortion/NodeSequenceEditor/Panel/VBoxContainer/Resource Holder")
 extended_visuals = NodePath("AllWindows/UpperArea/UpperPortion")
 sequencer_functionality = NodePath("AllWindows/SequencerUI")
@@ -66,10 +66,10 @@ size_flags_vertical = 3
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 4.78
-script = ExtResource("2_1v235")
+script = ExtResource("2_jl4vt")
 add_node_button = NodePath("../../../../RightClickContextMenu/Button2")
 node_parent = NodePath("Panel2")
-node_prefab = ExtResource("3_ybek8")
+node_prefab = ExtResource("3_pg77h")
 context_menu = NodePath("../../../../RightClickContextMenu")
 
 [node name="Panel" type="HBoxContainer" parent="AllWindows/UpperArea/UpperPortion/NodeSequenceEditor"]
@@ -102,7 +102,7 @@ layout_mode = 2
 [node name="Resource Holder" type="PanelContainer" parent="AllWindows/UpperArea/UpperPortion/NodeSequenceEditor/Panel/VBoxContainer"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
-script = ExtResource("2_xayej")
+script = ExtResource("4_6uy6j")
 
 [node name="VSeparator2" type="VSeparator" parent="AllWindows/UpperArea/UpperPortion/NodeSequenceEditor/Panel/VBoxContainer"]
 layout_mode = 2
@@ -183,7 +183,7 @@ text = "In"
 [node name="SequencerUI" type="VBoxContainer" parent="AllWindows" node_paths=PackedStringArray("camera_window", "dialog_window", "event_window", "timeline_slider", "timeline_line", "camera_timeline", "dialogue_timeline", "event_timeline")]
 custom_minimum_size = Vector2(0, 208)
 layout_mode = 2
-script = ExtResource("5_ox6dj")
+script = ExtResource("5_nea3n")
 camera_window = NodePath("HBoxContainer/InfoContainers/CameraContainer")
 dialog_window = NodePath("HBoxContainer/InfoContainers/DialogueContainer")
 event_window = NodePath("HBoxContainer/InfoContainers/EventContainer")
@@ -228,7 +228,7 @@ offset_bottom = 3.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.8, 0.8)
-texture = ExtResource("12_noo05")
+texture = ExtResource("6_13vfu")
 expand_mode = 2
 stretch_mode = 5
 
@@ -248,7 +248,7 @@ offset_bottom = 3.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.8, 0.8)
-texture = ExtResource("7_i7i0t")
+texture = ExtResource("7_540t2")
 expand_mode = 4
 stretch_mode = 5
 
@@ -268,7 +268,7 @@ offset_bottom = 3.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.8, 0.8)
-texture = ExtResource("8_hjs4q")
+texture = ExtResource("8_yk3d1")
 expand_mode = 4
 stretch_mode = 5
 
@@ -298,10 +298,10 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 4.0
 theme_override_constants/separation = 0
-script = ExtResource("7_8vutc")
+script = ExtResource("9_78x27")
 block_parent = NodePath("HBoxContainer")
-sequence_block_prefab = ExtResource("8_ylqfd")
-filler_block_prefab = ExtResource("9_f3q4f")
+sequence_block_prefab = ExtResource("10_tfg1q")
+filler_block_prefab = ExtResource("11_xwa1f")
 
 [node name="Panel" type="Panel" parent="AllWindows/SequencerUI/HBoxContainer/Sequencer2/Sequences/CameraTimeline"]
 custom_minimum_size = Vector2(85, 0)
@@ -329,7 +329,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("12_84olx")
+texture = ExtResource("12_tokrk")
 expand_mode = 4
 stretch_mode = 5
 
@@ -346,10 +346,10 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 4.0
 theme_override_constants/separation = 0
-script = ExtResource("7_8vutc")
+script = ExtResource("9_78x27")
 block_parent = NodePath("HBoxContainer")
-sequence_block_prefab = ExtResource("8_ylqfd")
-filler_block_prefab = ExtResource("9_f3q4f")
+sequence_block_prefab = ExtResource("10_tfg1q")
+filler_block_prefab = ExtResource("11_xwa1f")
 
 [node name="Panel" type="Panel" parent="AllWindows/SequencerUI/HBoxContainer/Sequencer2/Sequences/DialogueTimeline"]
 custom_minimum_size = Vector2(85, 0)
@@ -377,7 +377,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("12_84olx")
+texture = ExtResource("12_tokrk")
 expand_mode = 4
 stretch_mode = 5
 
@@ -394,10 +394,10 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 4.0
 theme_override_constants/separation = 0
-script = ExtResource("7_8vutc")
+script = ExtResource("9_78x27")
 block_parent = NodePath("HBoxContainer")
-sequence_block_prefab = ExtResource("8_ylqfd")
-filler_block_prefab = ExtResource("9_f3q4f")
+sequence_block_prefab = ExtResource("10_tfg1q")
+filler_block_prefab = ExtResource("11_xwa1f")
 
 [node name="Panel" type="Panel" parent="AllWindows/SequencerUI/HBoxContainer/Sequencer2/Sequences/EventTimeline"]
 custom_minimum_size = Vector2(85, 0)
@@ -425,7 +425,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("12_84olx")
+texture = ExtResource("12_tokrk")
 expand_mode = 4
 stretch_mode = 5
 

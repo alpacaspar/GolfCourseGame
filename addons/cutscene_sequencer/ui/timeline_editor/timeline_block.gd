@@ -1,6 +1,7 @@
 @tool
-class_name SequenceBlock
+class_name TimelineBlock
 extends Control
+
 
 @export var left_grabber: Button
 @export var right_grabber: Button
