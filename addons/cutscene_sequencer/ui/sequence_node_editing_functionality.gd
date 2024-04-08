@@ -5,7 +5,7 @@ extends VBoxContainer
 
 @export var add_node_button: Button
 
-@export var node_parent: Control
+@export var graph_editor: GraphEdit
 @export var node_prefab: PackedScene
 
 @export var context_menu: Control
@@ -15,6 +15,9 @@ var nodes := []
 
 func on_ready():
 	add_node_button.pressed.connect(_add_node)
+
+	graph_editor.connection_request.connect(_make_connection)
+	graph_editor.disconnection_request.connect(_remove_connection)
 
 
 func on_process(delta):
@@ -51,16 +54,24 @@ func _input(event):
 
 func _add_node():
 	var node = node_prefab.instantiate() as SequenceNode
-	node_parent.add_child(node)
+	graph_editor.add_child(node)
 	node.on_ready()
 
-	var local_pos = context_menu.get_local_mouse_position()
-	node.position = Vector2(local_pos.x, local_pos.y)
+	node.position = graph_editor.get_local_mouse_position()
 
 	nodes.append(node)
 	context_menu.visible = false
 
 
-func remove_node(node: Control):
-	nodes.erase(node)
-	node.queue_free()
+func _make_connection(from_node: StringName, from_port: int, to_node: StringName, to_port: int):
+	graph_editor.connect_node(from_node, from_port, to_node, to_port)
+
+
+func _remove_connection(from_node: StringName, from_port: int, to_node: StringName, to_port: int):
+	graph_editor.disconnect_node(from_node, from_port, to_node, to_port)
+
+
+func _delete_node(nodes: Array[StringName]):
+	# nodes.erase(node)
+	# node.queue_free()
+	pass

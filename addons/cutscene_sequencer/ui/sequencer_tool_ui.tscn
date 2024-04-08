@@ -40,7 +40,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ks86f")
-sequence_resource = NodePath("AllWindows/UpperArea/UpperPortion/NodeSequenceEditor/Panel/VBoxContainer/Resource Holder")
+sequence_resource = NodePath("AllWindows/UpperArea/UpperPortion/NodeSequenceEditor/ToolBar/VBoxContainer/Resource Holder")
 extended_visuals = NodePath("AllWindows/UpperArea/UpperPortion")
 sequencer_functionality = NodePath("AllWindows/SequencerUI")
 node_sequence_functionality = NodePath("AllWindows/UpperArea/UpperPortion/NodeSequenceEditor")
@@ -62,68 +62,68 @@ size_flags_vertical = 3
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="NodeSequenceEditor" type="VBoxContainer" parent="AllWindows/UpperArea/UpperPortion" node_paths=PackedStringArray("add_node_button", "node_parent", "context_menu")]
+[node name="NodeSequenceEditor" type="VBoxContainer" parent="AllWindows/UpperArea/UpperPortion" node_paths=PackedStringArray("add_node_button", "graph_editor", "context_menu")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 4.78
 script = ExtResource("2_jl4vt")
 add_node_button = NodePath("../../../../RightClickContextMenu/Button2")
-node_parent = NodePath("Panel2")
+graph_editor = NodePath("Panel2")
 node_prefab = ExtResource("3_pg77h")
 context_menu = NodePath("../../../../RightClickContextMenu")
 
-[node name="Panel" type="HBoxContainer" parent="AllWindows/UpperArea/UpperPortion/NodeSequenceEditor"]
+[node name="ToolBar" type="HBoxContainer" parent="AllWindows/UpperArea/UpperPortion/NodeSequenceEditor"]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="AllWindows/UpperArea/UpperPortion/NodeSequenceEditor/Panel"]
+[node name="HBoxContainer" type="HBoxContainer" parent="AllWindows/UpperArea/UpperPortion/NodeSequenceEditor/ToolBar"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="VBoxContainer" type="HBoxContainer" parent="AllWindows/UpperArea/UpperPortion/NodeSequenceEditor/Panel"]
+[node name="VBoxContainer" type="HBoxContainer" parent="AllWindows/UpperArea/UpperPortion/NodeSequenceEditor/ToolBar"]
 layout_mode = 2
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="AllWindows/UpperArea/UpperPortion/NodeSequenceEditor/Panel/VBoxContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="AllWindows/UpperArea/UpperPortion/NodeSequenceEditor/ToolBar/VBoxContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="AllWindows/UpperArea/UpperPortion/NodeSequenceEditor/Panel/VBoxContainer/HBoxContainer2"]
+[node name="Label" type="Label" parent="AllWindows/UpperArea/UpperPortion/NodeSequenceEditor/ToolBar/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 text = "Name"
 
-[node name="LineEdit" type="LineEdit" parent="AllWindows/UpperArea/UpperPortion/NodeSequenceEditor/Panel/VBoxContainer/HBoxContainer2"]
+[node name="LineEdit" type="LineEdit" parent="AllWindows/UpperArea/UpperPortion/NodeSequenceEditor/ToolBar/VBoxContainer/HBoxContainer2"]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 placeholder_text = "Cutscene Name..."
 
-[node name="VSeparator" type="VSeparator" parent="AllWindows/UpperArea/UpperPortion/NodeSequenceEditor/Panel/VBoxContainer"]
+[node name="VSeparator" type="VSeparator" parent="AllWindows/UpperArea/UpperPortion/NodeSequenceEditor/ToolBar/VBoxContainer"]
 layout_mode = 2
 
-[node name="Resource Holder" type="PanelContainer" parent="AllWindows/UpperArea/UpperPortion/NodeSequenceEditor/Panel/VBoxContainer"]
+[node name="Resource Holder" type="PanelContainer" parent="AllWindows/UpperArea/UpperPortion/NodeSequenceEditor/ToolBar/VBoxContainer"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 script = ExtResource("4_6uy6j")
 
-[node name="VSeparator2" type="VSeparator" parent="AllWindows/UpperArea/UpperPortion/NodeSequenceEditor/Panel/VBoxContainer"]
+[node name="VSeparator2" type="VSeparator" parent="AllWindows/UpperArea/UpperPortion/NodeSequenceEditor/ToolBar/VBoxContainer"]
 layout_mode = 2
 
-[node name="Button" type="Button" parent="AllWindows/UpperArea/UpperPortion/NodeSequenceEditor/Panel/VBoxContainer"]
+[node name="Button" type="Button" parent="AllWindows/UpperArea/UpperPortion/NodeSequenceEditor/ToolBar/VBoxContainer"]
 layout_mode = 2
 text = "Load
 "
 
-[node name="VSeparator3" type="VSeparator" parent="AllWindows/UpperArea/UpperPortion/NodeSequenceEditor/Panel/VBoxContainer"]
+[node name="VSeparator3" type="VSeparator" parent="AllWindows/UpperArea/UpperPortion/NodeSequenceEditor/ToolBar/VBoxContainer"]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="AllWindows/UpperArea/UpperPortion/NodeSequenceEditor/Panel/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="AllWindows/UpperArea/UpperPortion/NodeSequenceEditor/ToolBar/VBoxContainer"]
 layout_mode = 2
 
-[node name="Button" type="Button" parent="AllWindows/UpperArea/UpperPortion/NodeSequenceEditor/Panel/VBoxContainer/HBoxContainer"]
+[node name="Button" type="Button" parent="AllWindows/UpperArea/UpperPortion/NodeSequenceEditor/ToolBar/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Save"
 
-[node name="Button2" type="Button" parent="AllWindows/UpperArea/UpperPortion/NodeSequenceEditor/Panel/VBoxContainer/HBoxContainer"]
+[node name="Button2" type="Button" parent="AllWindows/UpperArea/UpperPortion/NodeSequenceEditor/ToolBar/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Save as..."

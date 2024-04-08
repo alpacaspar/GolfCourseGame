@@ -14,8 +14,7 @@ func on_ready():
 
 
 func on_process(delta):
-	set_slot_enabled_right(0, get_child_count() < 6)
-	reset_size()
+	set_slot(1, false, 0, Color.WHITE, get_child_count() < 8, 0, Color.GREEN)
 
 
 func _add_option():
@@ -26,14 +25,14 @@ func _add_option():
 	text_option.setup(Callable(_remove_option), _drag_option)
 	options.append(text_option)
 
-	set_slot_enabled_right(get_child_count() - 2, true)
+	set_slot(get_child_count() - 2, false, 0, Color.WHITE, true, 0, Color.GREEN)
 
 
 func _remove_option(option):
 	options.erase(option)
 	option.queue_free()
 	
-	set_slot_enabled_right(get_child_count() - 2, false)
+	set_slot(get_child_count() - 2, false, 0, Color.WHITE, false, 0, Color.GREEN)
 
 
 func _drag_option():

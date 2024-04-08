@@ -6,17 +6,18 @@
 [node name="GraphNode" type="GraphNode" node_paths=PackedStringArray("add_option_button")]
 offset_right = 197.0
 offset_bottom = 130.0
+resizable = true
 title = "Sequence"
 slot/0/left_enabled = false
 slot/0/left_type = 0
 slot/0/left_color = Color(1, 1, 1, 1)
 slot/0/left_icon = null
-slot/0/right_enabled = true
+slot/0/right_enabled = false
 slot/0/right_type = 0
 slot/0/right_color = Color(1, 1, 1, 1)
 slot/0/right_icon = null
 slot/0/draw_stylebox = true
-slot/1/left_enabled = true
+slot/1/left_enabled = false
 slot/1/left_type = 0
 slot/1/left_color = Color(1, 1, 1, 1)
 slot/1/left_icon = null
@@ -25,7 +26,7 @@ slot/1/right_type = 0
 slot/1/right_color = Color(1, 1, 1, 1)
 slot/1/right_icon = null
 slot/1/draw_stylebox = true
-slot/2/left_enabled = false
+slot/2/left_enabled = true
 slot/2/left_type = 0
 slot/2/left_color = Color(1, 1, 1, 1)
 slot/2/left_icon = null
@@ -52,9 +53,32 @@ slot/4/right_type = 0
 slot/4/right_color = Color(1, 1, 1, 1)
 slot/4/right_icon = null
 slot/4/draw_stylebox = true
+slot/5/left_enabled = false
+slot/5/left_type = 0
+slot/5/left_color = Color(1, 1, 1, 1)
+slot/5/left_icon = null
+slot/5/right_enabled = false
+slot/5/right_type = 0
+slot/5/right_color = Color(1, 1, 1, 1)
+slot/5/right_icon = null
+slot/5/draw_stylebox = true
+slot/6/left_enabled = false
+slot/6/left_type = 0
+slot/6/left_color = Color(1, 1, 1, 1)
+slot/6/left_icon = null
+slot/6/right_enabled = false
+slot/6/right_type = 0
+slot/6/right_color = Color(1, 1, 1, 1)
+slot/6/right_icon = null
+slot/6/draw_stylebox = true
 script = ExtResource("1_j4qlx")
 option_scene = ExtResource("2_dlcua")
 add_option_button = NodePath("Button")
+
+[node name="ReferenceRect2" type="ReferenceRect" parent="."]
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 2
+border_color = Color(1, 0, 0, 0)
 
 [node name="Label" type="LineEdit" parent="."]
 layout_mode = 2
@@ -74,3 +98,8 @@ text = "Options:"
 [node name="Button" type="Button" parent="."]
 layout_mode = 2
 text = "Add Option +"
+
+[node name="ReferenceRect" type="ReferenceRect" parent="."]
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 2
+border_color = Color(1, 0, 0, 0)
