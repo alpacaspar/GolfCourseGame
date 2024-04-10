@@ -41,7 +41,7 @@ func _add_block():
 	filler_buttons.append(filler)
 
 	for button in filler_buttons:
-		print("Button")
+		button.set_values()
 
 
 func _check_for_double_click():
@@ -56,7 +56,6 @@ func _check_for_double_click():
 	if range_for_double_click:
 		range_for_double_click = false
 		_add_block()
-		print("Clicked!")
 	else:
 		range_for_double_click = true
 		time_since_last_click = 0

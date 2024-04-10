@@ -3,9 +3,9 @@
 [ext_resource type="Script" path="res://addons/cutscene_sequencer/ui/sequence_node.gd" id="1_j4qlx"]
 [ext_resource type="PackedScene" uid="uid://mul03t3vjpxt" path="res://addons/cutscene_sequencer/ui/sequence_node_option.tscn" id="2_dlcua"]
 
-[node name="GraphNode" type="GraphNode" node_paths=PackedStringArray("add_option_button")]
+[node name="GraphNode" type="GraphNode" node_paths=PackedStringArray("add_option_button", "spacer")]
 offset_right = 197.0
-offset_bottom = 130.0
+offset_bottom = 260.0
 resizable = true
 title = "Sequence"
 slot/0/left_enabled = false
@@ -71,9 +71,37 @@ slot/6/right_type = 0
 slot/6/right_color = Color(1, 1, 1, 1)
 slot/6/right_icon = null
 slot/6/draw_stylebox = true
+slot/7/left_enabled = false
+slot/7/left_type = 0
+slot/7/left_color = Color(1, 1, 1, 1)
+slot/7/left_icon = null
+slot/7/right_enabled = false
+slot/7/right_type = 0
+slot/7/right_color = Color(1, 1, 1, 1)
+slot/7/right_icon = null
+slot/7/draw_stylebox = true
+slot/8/left_enabled = false
+slot/8/left_type = 0
+slot/8/left_color = Color(1, 1, 1, 1)
+slot/8/left_icon = null
+slot/8/right_enabled = false
+slot/8/right_type = 0
+slot/8/right_color = Color(1, 1, 1, 1)
+slot/8/right_icon = null
+slot/8/draw_stylebox = true
+slot/9/left_enabled = false
+slot/9/left_type = 0
+slot/9/left_color = Color(1, 1, 1, 1)
+slot/9/left_icon = null
+slot/9/right_enabled = false
+slot/9/right_type = 0
+slot/9/right_color = Color(1, 1, 1, 1)
+slot/9/right_icon = null
+slot/9/draw_stylebox = true
 script = ExtResource("1_j4qlx")
 option_scene = ExtResource("2_dlcua")
 add_option_button = NodePath("Button")
+spacer = NodePath("ReferenceRect")
 
 [node name="ReferenceRect2" type="ReferenceRect" parent="."]
 custom_minimum_size = Vector2(0, 5)
@@ -88,6 +116,19 @@ placeholder_text = "Name.."
 layout_mode = 2
 text = "In"
 
+[node name="HSeparator2" type="HSeparator" parent="."]
+layout_mode = 2
+
+[node name="Label4" type="Label" parent="."]
+layout_mode = 2
+text = "Text"
+
+[node name="TextEdit" type="TextEdit" parent="."]
+layout_mode = 2
+size_flags_vertical = 3
+placeholder_text = "Place text here..."
+wrap_mode = 1
+
 [node name="HSeparator" type="HSeparator" parent="."]
 layout_mode = 2
 
@@ -100,6 +141,6 @@ layout_mode = 2
 text = "Add Option +"
 
 [node name="ReferenceRect" type="ReferenceRect" parent="."]
-custom_minimum_size = Vector2(0, 5)
+custom_minimum_size = Vector2(0, 35)
 layout_mode = 2
 border_color = Color(1, 0, 0, 0)

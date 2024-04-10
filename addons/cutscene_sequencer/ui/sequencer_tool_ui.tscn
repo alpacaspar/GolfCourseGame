@@ -582,7 +582,6 @@ horizontal_alignment = 1
 layout_mode = 2
 
 [node name="Timeline" type="VSeparator" parent="."]
-visible = false
 layout_mode = 2
 anchor_top = 1.0
 anchor_bottom = 1.0

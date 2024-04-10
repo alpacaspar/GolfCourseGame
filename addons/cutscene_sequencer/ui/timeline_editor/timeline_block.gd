@@ -18,3 +18,8 @@ func on_ready():
 
 func on_process(delta):
 	pass
+
+
+func set_values(_start_value: float, _end_value: float):
+	start_value = _start_value
+	end_value = _end_value
