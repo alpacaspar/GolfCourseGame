@@ -1,10 +1,12 @@
-[gd_scene load_steps=18 format=3 uid="uid://vgv1rlclfus7"]
+[gd_scene load_steps=22 format=3 uid="uid://vgv1rlclfus7"]
 
 [ext_resource type="PackedScene" uid="uid://b3yo3dem2wtkt" path="res://entities/player/player.tscn" id="1_56dmc"]
 [ext_resource type="Script" path="res://main/audio_test_level.gd" id="1_cxuja"]
 [ext_resource type="Texture2D" uid="uid://blpc24it64q8a" path="res://entities/terrain/fairway.png" id="3_62ool"]
 [ext_resource type="Texture2D" uid="uid://dfyfubpegolkx" path="res://entities/terrain/rough.png" id="4_5a5pl"]
 [ext_resource type="Texture2D" uid="uid://d4i22ctyaeq1k" path="res://entities/terrain/bunker.png" id="5_kcfmm"]
+[ext_resource type="Script" path="res://main/ak_post_event.gd" id="6_q7fy4"]
+[ext_resource type="Script" path="res://main/ak_amb_object.gd" id="7_l1cn0"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_15fs0"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -36,12 +38,18 @@ albedo_color = Color(0.2, 1, 0.956863, 1)
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_tyuip"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_fbtgw"]
+height = 10.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5fx5u"]
 albedo_color = Color(0.27451, 0.160784, 0.772549, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xdnc5"]
 albedo_color = Color(0.588235, 0.254902, 0.00392157, 1)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_eyc7b"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_1syic"]
+height = 10.0
 
 [node name="Node3D" type="Node3D"]
 script = ExtResource("1_cxuja")
@@ -99,38 +107,46 @@ bank = {
 load_on = 1
 unload_on = 3
 
-[node name="AkEvent3D" type="AkEvent3D" parent="."]
-event = {
-"id": 2795370051,
-"name": "x_debug_distance"
-}
-trigger_on = 2
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="AkEvent3D"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("CylinderMesh_fbtgw")
+skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_5fx5u")
+script = ExtResource("6_q7fy4")
 
-[node name="AkEvent3D" type="AkEvent3D" parent="AkEvent3D"]
-event = {
-"id": 3634679436,
-"name": "play_x_debug_continuous_sound"
-}
-trigger_on = 1
-
-[node name="MeshInstance3D_Tree" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 7, 0, 0, 0, 1, 0, 0, -8.20241)
+[node name="MeshInstance3D_Tree" type="MeshInstance3D" parent="." groups=["leaves"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -20.183)
 mesh = SubResource("CylinderMesh_fbtgw")
-skeleton = NodePath("../AkEvent3D")
+skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_xdnc5")
 
-[node name="MeshInstance3D_Tree2" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 7, 0, 0, 0, 1, 19.6216, 0, -11.9491)
+[node name="StaticBody3DAUDIO" type="StaticBody3D" parent="MeshInstance3D_Tree"]
+collision_layer = 128
+collision_mask = 0
+script = ExtResource("7_l1cn0")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D_Tree/StaticBody3DAUDIO"]
+shape = SubResource("SphereShape3D_eyc7b")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D_Tree"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D_Tree/StaticBody3D"]
+shape = SubResource("CylinderShape3D_1syic")
+
+[node name="MeshInstance3D_Tree2" type="MeshInstance3D" parent="." groups=["leaves"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.653, 0, -0.377073)
 mesh = SubResource("CylinderMesh_fbtgw")
-skeleton = NodePath("../AkEvent3D")
+skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_xdnc5")
 
-[node name="MeshInstance3D_Tree3" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 7, 0, 0, 0, 1, -17.2203, 0, -15.3952)
-mesh = SubResource("CylinderMesh_fbtgw")
-skeleton = NodePath("../AkEvent3D")
-surface_material_override/0 = SubResource("StandardMaterial3D_xdnc5")
+[node name="StaticBody3DAUDIO" type="StaticBody3D" parent="MeshInstance3D_Tree2"]
+collision_layer = 128
+collision_mask = 0
+script = ExtResource("7_l1cn0")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D_Tree2/StaticBody3DAUDIO"]
+shape = SubResource("SphereShape3D_eyc7b")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D_Tree2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D_Tree2/StaticBody3D"]
+shape = SubResource("CylinderShape3D_1syic")
