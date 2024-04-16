@@ -12,7 +12,6 @@ signal on_swing_performed
 @onready var visuals: Node = $Visuals
 
 var team: Team
-var formation: Formation
 
 var golfer_resource: GolferResource
 
@@ -34,9 +33,8 @@ func _on_swing_ended():
 	equipment.monitoring = false
 
 
-func setup(new_golfer: GolferResource, assigned_formation: Formation, assigned_team: Team):
+func setup(new_golfer: GolferResource, assigned_team: Team):
 	golfer_resource = new_golfer
-	formation = assigned_formation
 	team = assigned_team
 	
 	if golfer_resource is PlayerRivalResource:
@@ -58,13 +56,6 @@ func setup(new_golfer: GolferResource, assigned_formation: Formation, assigned_t
 	character.on_swing_ended.connect(_on_swing_ended)
 
 	animation_tree = character.animation_tree
-
-
-func give_command(target_formation: Formation):
-	# If the controller is a player controller, do nothing.
-	# Technically the player will never receive instructions as they are not in a formation, but this is a good safety check.
-	if controller.has_method("give_command"):
-		controller.give_command(target_formation)
 
 
 func perform_swing():

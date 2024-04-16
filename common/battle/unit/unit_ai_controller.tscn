@@ -1,16 +1,6 @@
-[gd_scene load_steps=12 format=3 uid="uid://bmbpmw618ddnf"]
+[gd_scene load_steps=2 format=3 uid="uid://bmbpmw618ddnf"]
 
 [ext_resource type="Script" path="res://common/battle/unit/unit_ai_controller.gd" id="1_vqycx"]
-[ext_resource type="Script" path="res://common/behaviour_tree/behaviour_tree.gd" id="2_fevwe"]
-[ext_resource type="Script" path="res://common/behaviour_tree/bt_sequence.gd" id="3_4wvrg"]
-[ext_resource type="Script" path="res://common/behaviour_tree/bt_selector.gd" id="4_5kw74"]
-[ext_resource type="Script" path="res://common/battle/unit/behaviour/has_command.gd" id="4_ibj44"]
-[ext_resource type="Script" path="res://common/behaviour_tree/bt_decorator_invert.gd" id="5_3n0vb"]
-[ext_resource type="Script" path="res://common/battle/unit/behaviour/should_change_target.gd" id="5_5ut4a"]
-[ext_resource type="Script" path="res://common/battle/unit/behaviour/pick_optimal_target.gd" id="6_r0aaj"]
-[ext_resource type="Script" path="res://common/battle/unit/goto.gd" id="7_pggqv"]
-[ext_resource type="Script" path="res://common/battle/unit/look_at_target.gd" id="8_a107r"]
-[ext_resource type="Script" path="res://common/battle/unit/perform_action.gd" id="9_twabe"]
 
 [node name="Controller" type="Node3D"]
 script = ExtResource("1_vqycx")
@@ -21,33 +11,3 @@ height = 2.0
 radius = 0.3
 neighbor_distance = 5.0
 max_neighbors = 3
-
-[node name="BehaviourTree" type="Node" parent="."]
-script = ExtResource("2_fevwe")
-
-[node name="Sequence" type="Node" parent="BehaviourTree"]
-script = ExtResource("3_4wvrg")
-
-[node name="HasCommand" type="Node" parent="BehaviourTree/Sequence"]
-script = ExtResource("4_ibj44")
-
-[node name="Selector" type="Node" parent="BehaviourTree/Sequence"]
-script = ExtResource("4_5kw74")
-
-[node name="Invert" type="Node" parent="BehaviourTree/Sequence/Selector"]
-script = ExtResource("5_3n0vb")
-
-[node name="ShouldChangeTarget" type="Node" parent="BehaviourTree/Sequence/Selector/Invert"]
-script = ExtResource("5_5ut4a")
-
-[node name="PickOptimalTarget" type="Node" parent="BehaviourTree/Sequence/Selector"]
-script = ExtResource("6_r0aaj")
-
-[node name="Goto" type="Node" parent="BehaviourTree/Sequence"]
-script = ExtResource("7_pggqv")
-
-[node name="LookAtTarget" type="Node" parent="BehaviourTree/Sequence"]
-script = ExtResource("8_a107r")
-
-[node name="PerformAction" type="Node" parent="BehaviourTree/Sequence"]
-script = ExtResource("9_twabe")

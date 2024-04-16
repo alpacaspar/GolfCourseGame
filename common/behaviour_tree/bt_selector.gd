@@ -5,7 +5,7 @@ extends BTComposite
 
 func tick(blackboard: Dictionary, delta: float) -> int:
 	for node: BTNode in child_nodes:
-		var status = node.tick(blackboard, delta)
+		var status := node.tick(blackboard, delta)
 		match status:
 			FAILURE:
 				continue

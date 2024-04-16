@@ -6,7 +6,6 @@ signal on_battle_ended(winning_team: TeamResource)
 
 @export_subgroup("Composition")
 @export var team_scene: PackedScene
-@export var formation_scene: PackedScene
 
 @export_subgroup("Units")
 @export var unit_scene: PackedScene
@@ -17,86 +16,76 @@ var teams: Array[Team] = []
 
 
 func _process(_delta: float):
-	if teams.is_empty():
-		return
+    if teams.is_empty():
+        return
 
 
 func start_battle(hole: Hole, team1: TeamResource, team2: TeamResource):
-	teams.clear()
+    teams.clear()
 
-	_instantiate_team(team1, hole.tee_area)
-	_instantiate_team(team2, hole.green)
+    _instantiate_team(team1, hole.tee_area)
+    _instantiate_team(team2, hole.green)
 
-	on_battle_started.emit()
+    on_battle_started.emit()
 
 
 func end_battle(winning_rival: RivalResource):
-	teams.clear()
-	on_battle_ended.emit(winning_rival)
+    teams.clear()
+    on_battle_ended.emit(winning_rival)
 
 
 ## Returns all units that are not part of the given team.
 func get_opponent_teams(my_team: Team) -> Array[Team]:
-	return teams.filter(func(team) -> bool: return team != my_team)
+    return teams.filter(func(team) -> bool: return team != my_team)
 
 
 func _instantiate_team(team_resource: TeamResource, origin: Node3D):
-	var team_instance := team_scene.instantiate()
-	self.add_child(team_instance)
-	teams.append(team_instance)
+    var team_instance := team_scene.instantiate()
+    self.add_child(team_instance)
+    teams.append(team_instance)
 
-	var spawnpoints := _get_triangular_points(team_resource.size, origin.global_position, origin.global_transform.basis.z, 4.0)
+    var spawnpoints := _get_triangular_points(team_resource.size(), origin.global_position, origin.global_transform.basis.z, 4.0)
 
-	var formation_instance: Formation
-	var unit_instance: Unit
+    var unit_instance: Unit
 
-	for formation_resource: FormationResource in team_resource.formations:
-		formation_instance = formation_scene.instantiate()
-		team_instance.add_child(formation_instance)
-		team_instance.formations.append(formation_instance)
+    for unit: GolferResource in team_resource.units:
+        unit_instance = unit_scene.instantiate()
+        team_instance.add_child(unit_instance)
+        team_instance.units.append(unit_instance)
 
-		for unit: GolferResource in formation_resource.units:
-			unit_instance = unit_scene.instantiate()
-			formation_instance.add_child(unit_instance)
-			formation_instance.units.append(unit_instance)
+        unit_instance.setup(unit, team_instance)
+        unit_instance.global_transform.origin = spawnpoints.pop_back()
 
-			unit_instance.setup(unit, formation_instance, team_instance)
-			unit_instance.global_transform.origin = spawnpoints.pop_back()
-	
-	
-	# The commander will be added to the last created formation.
-	formation_instance = team_instance.formations.back()
+    var leader := unit_scene.instantiate()
+    team_instance.add_child(leader)
+    team_instance.units.append(leader)
+    leader.setup(team_resource.leader, team_instance)
+    leader.global_transform.origin = spawnpoints.pop_back()
 
-	var commander := unit_scene.instantiate()
-	formation_instance.add_child(commander)
-	formation_instance.units.append(commander)
-	commander.setup(team_resource.commander, formation_instance, team_instance)
-	commander.global_transform.origin = spawnpoints.pop_back()
-
-	team_instance.commander = commander
+    team_instance.leader = leader
 
 
 ## Returns an array of points in a triangular pattern (bowling pin formation).
 func _get_triangular_points(amount: int, offset: Vector3, direction: Vector3, spacing: float) -> Array[Vector3]:
-	var rows: int = ceil((sqrt(8 * amount + 1) - 1) * 0.5)
+    var rows: int = ceil((sqrt(8 * amount + 1) - 1) * 0.5)
 
-	var vectors: Array[Vector3] = []
+    var vectors: Array[Vector3] = []
 
-	var forward = direction.normalized()
-	var right = direction.cross(Vector3.UP).normalized()
-	var up = right.cross(direction).normalized()
+    var forward = direction.normalized()
+    var right = direction.cross(Vector3.UP).normalized()
+    var up = right.cross(direction).normalized()
 
-	for row in range(1, rows + 1):
-		for point in row:
-			if vectors.size() >= amount:
-				return vectors
-			
-			var x = (point - row * 0.5 + 0.5) * spacing
-			var z = -row * spacing
+    for row in range(1, rows + 1):
+        for point in row:
+            if vectors.size() >= amount:
+                return vectors
+            
+            var x = (point - row * 0.5 + 0.5) * spacing
+            var z = -row * spacing
 
-			var local_pos = Vector3(x, 0, z)
-			var world_pos = right * local_pos.x + up * local_pos.y + forward * local_pos.z
+            var local_pos = Vector3(x, 0, z)
+            var world_pos = right * local_pos.x + up * local_pos.y + forward * local_pos.z
 
-			vectors.append(world_pos + offset)
+            vectors.append(world_pos + offset)
 
-	return vectors
+    return vectors
