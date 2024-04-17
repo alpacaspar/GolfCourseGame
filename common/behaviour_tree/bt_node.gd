@@ -4,7 +4,7 @@ extends Node
 
 
 ## Override this method to define the behavior of the node.
-func tick(_blackboard: Dictionary, _delta: float) -> int:
+func _tick(_blackboard: Dictionary, _delta: float) -> int:
 	return FAILURE
 
 

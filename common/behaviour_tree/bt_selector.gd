@@ -3,9 +3,9 @@ extends BTComposite
 ## Ticks each child node until one returns SUCCESS. If none succeed, FAILURE is returned.
 
 
-func tick(blackboard: Dictionary, delta: float) -> int:
+func _tick(blackboard: Dictionary, delta: float) -> int:
 	for node: BTNode in child_nodes:
-		var status := node.tick(blackboard, delta)
+		var status := node._tick(blackboard, delta)
 		match status:
 			FAILURE:
 				continue
