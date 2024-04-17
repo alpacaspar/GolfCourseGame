@@ -1,7 +1,7 @@
 extends BTLeaf
 
 
-func tick(blackboard: Dictionary, delta: float) -> int:
+func _tick(blackboard: Dictionary, delta: float) -> int:
 	if not blackboard.has("target"):
 		return FAILURE
 	

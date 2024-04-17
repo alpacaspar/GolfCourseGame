@@ -5,7 +5,7 @@ var swing_cooldown_time := 4.0
 var current_time := 0.0
 
 
-func tick(blackboard: Dictionary, delta: float) -> int:
+func _tick(blackboard: Dictionary, delta: float) -> int:
 	if current_time == 0:
 		blackboard["unit"].perform_swing()
 		blackboard["performing_action"] = true

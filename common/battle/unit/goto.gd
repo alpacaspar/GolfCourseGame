@@ -1,7 +1,7 @@
 extends BTLeaf
 
 
-func tick(blackboard: Dictionary, delta: float) -> int:
+func _tick(blackboard: Dictionary, delta: float) -> int:
 	var unit: Unit = blackboard["unit"]
 	var controller: Node = unit.controller
 	var navigation_agent: NavigationAgent3D = controller.navigation_agent
