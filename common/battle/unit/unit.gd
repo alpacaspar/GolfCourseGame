@@ -42,7 +42,7 @@ func setup(new_golfer: GolferResource, assigned_team: Team):
 	else:
 		controller = ai_controller.instantiate()
 	
-	controller.body = self
+	controller.unit = self
 	add_child(controller)
 	
 	var character: Character = CharacterFactory.spawn_character(golfer_resource.npc_resource)

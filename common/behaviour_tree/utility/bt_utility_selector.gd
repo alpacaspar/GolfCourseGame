@@ -22,6 +22,7 @@ func _tick(blackboard: Dictionary, delta: float) -> int:
 
     for node: BTUtilityNode in child_nodes:
         var status := node._tick(blackboard, delta)
+        print(node.get_name())
         match status:
             FAILURE:
                 continue

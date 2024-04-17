@@ -1,2 +1,2 @@
 class_name BTUtilityLeaf
-extends BTLeaf
+extends BTUtilityNode

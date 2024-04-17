@@ -39,6 +39,15 @@ func get_opponent_teams(my_team: Team) -> Array[Team]:
     return teams.filter(func(team) -> bool: return team != my_team)
 
 
+func get_opponent_units(my_team: Team) -> Array[Unit]:
+    var opponents: Array[Unit] = []
+
+    for team in get_opponent_teams(my_team):
+        opponents += team.get_active_units()
+
+    return opponents
+
+
 func _instantiate_team(team_resource: TeamResource, origin: Node3D):
     var team_instance := team_scene.instantiate()
     self.add_child(team_instance)
