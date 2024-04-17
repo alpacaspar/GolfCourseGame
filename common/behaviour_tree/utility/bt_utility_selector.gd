@@ -21,9 +21,7 @@ func _tick(blackboard: Dictionary, delta: float) -> int:
     child_nodes.sort_custom(sort_utility)
 
     for node: BTUtilityNode in child_nodes:
-        var status := node._tick(blackboard, delta)
-        print(node.get_name())
-        match status:
+        match node._tick(blackboard, delta):
             FAILURE:
                 continue
             SUCCESS:

@@ -73,8 +73,8 @@ script = ExtResource("9_d851d")
 [node name="Goto" type="Node" parent="BehaviourTree/Sequence"]
 script = ExtResource("9_0l5lm")
 
-[node name="LookAtTarget" type="Node" parent="BehaviourTree/Sequence"]
-script = ExtResource("10_jtbm3")
-
 [node name="PerformAction" type="Node" parent="BehaviourTree/Sequence"]
 script = ExtResource("11_th7i2")
+
+[node name="LookAtTarget" type="Node" parent="BehaviourTree/Sequence"]
+script = ExtResource("10_jtbm3")

@@ -14,6 +14,4 @@ func _get_utility(blackboard: Dictionary) -> float:
 
     var distance: float = blackboard["unit"].global_position.distance_to(blackboard["target"].global_position)
 
-    print(1 - min(distance, max_distance) / max_distance)
-
     return 1 - min(distance, max_distance) / max_distance
