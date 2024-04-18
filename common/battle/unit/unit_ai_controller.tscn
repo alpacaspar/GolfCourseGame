@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bmbpmw618ddnf"]
+[gd_scene load_steps=14 format=3 uid="uid://bmbpmw618ddnf"]
 
 [ext_resource type="Script" path="res://common/battle/unit/unit_ai_controller.gd" id="1_vqycx"]
 [ext_resource type="Script" path="res://common/behaviour_tree/behaviour_tree.gd" id="2_tqmpt"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" path="res://common/battle/unit/behaviour/target_melee.gd" id="8_0vq3w"]
 [ext_resource type="Script" path="res://common/battle/unit/behaviour/goto.gd" id="9_0l5lm"]
 [ext_resource type="Script" path="res://common/battle/unit/behaviour/keep_current_target.gd" id="9_d851d"]
+[ext_resource type="Resource" uid="uid://3odoff5r71oh" path="res://common/roles/iron.tres" id="9_shdry"]
 [ext_resource type="Script" path="res://common/battle/unit/behaviour/look_at_target.gd" id="10_jtbm3"]
 [ext_resource type="Script" path="res://common/battle/unit/behaviour/perform_action.gd" id="11_th7i2"]
 
@@ -52,6 +53,7 @@ factor = 1.1
 
 [node name="TargetMelee" type="Node" parent="BehaviourTree/Sequence/UtilitySelector/MultiplyUtility2"]
 script = ExtResource("8_0vq3w")
+target_role = ExtResource("9_shdry")
 
 [node name="MultiplyUtility3" type="Node" parent="BehaviourTree/Sequence/UtilitySelector"]
 script = ExtResource("5_mjvnh")

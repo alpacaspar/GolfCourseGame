@@ -34,11 +34,11 @@ func end_battle(winning_rival: RivalResource):
     on_battle_ended.emit(winning_rival)
 
 
-## Returns all units that are not part of the given team.
 func get_opponent_teams(my_team: Team) -> Array[Team]:
     return teams.filter(func(team) -> bool: return team != my_team)
 
 
+## Returns all units that are not part of the given team.
 func get_opponent_units(my_team: Team) -> Array[Unit]:
     var opponents: Array[Unit] = []
 
@@ -46,6 +46,10 @@ func get_opponent_units(my_team: Team) -> Array[Unit]:
         opponents += team.get_active_units()
 
     return opponents
+
+
+func get_opponent_units_of_role(my_team: Team, role: Role) -> Array[Unit]:
+    return get_opponent_units(my_team).filter(func(unit: Unit) -> bool: return unit.role == role)
 
 
 func _instantiate_team(team_resource: TeamResource, origin: Node3D):

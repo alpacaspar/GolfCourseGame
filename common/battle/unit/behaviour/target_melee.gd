@@ -1,6 +1,7 @@
 extends BTUtilityLeaf
 
 
+@export var target_role: Role
 @export var max_distance := 50.0
 
 
@@ -25,7 +26,7 @@ func _get_closest_target(current_unit: Unit) -> Unit:
     var closest_distance := INF
     var target: Unit
 
-    for unit: Unit in BattleManager.get_opponent_units(current_unit.team):
+    for unit: Unit in BattleManager.get_opponent_units_of_role(current_unit.team, target_role):
         var distance_squared: float = current_unit.global_position.distance_squared_to(unit.global_position)
         if distance_squared < closest_distance:
             target = unit
