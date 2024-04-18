@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://csuld3p017py1"]
+
+[ext_resource type="Script" path="res://addons/cutscene_sequencer/retracer/sequencer_autoload.gd" id="1_ng12e"]
+[ext_resource type="Script" path="res://addons/cutscene_sequencer/retracer/sequencer_events.gd" id="2_3kyr4"]
+
+[node name="SequencerAutoLoad" type="Node"]
+script = ExtResource("1_ng12e")
+
+[node name="Node" type="Node" parent="."]
+script = ExtResource("2_3kyr4")
