@@ -1,8 +1,8 @@
 extends Node
 
 
-@export var main_text: Label
-@export var name_text: Label
+@export var main_text: RichTextLabel
+@export var name_text: RichTextLabel
 
 @export var button_panel: Control
 @export var button_holder: Control
@@ -11,10 +11,16 @@ extends Node
 var index: int
 var is_writing: bool
 
+var has_pressed: bool
+
 
 func _process(_delta):
+	if has_pressed:
+		return
+
 	if Input.is_key_pressed(KEY_L):
-		display_text("Placeholder Name", "This is some placeholder text, so I can test wether [b]EVERYTHING[/b] works!", 0.05)
+		display_text("Placeholder Name, set via code", "This is some [i]placeholder[/i] text, so I can test wether [b]EVERYTHING[/b] works!", 0.05)
+		has_pressed = true
 
 
 func display_text(dialog_name: String, text: String, time_between_characters: float):
@@ -25,13 +31,10 @@ func display_text(dialog_name: String, text: String, time_between_characters: fl
 	
 	var current_line: String = ""
 	while index < text.length():
-		current_line += text[index]
-		main_text.text = str(current_line)
-
 		if text[index] == '[':
-			var style_part_one = _read_until_character(text, ']')
-			var text_between = _read_until_character(text, '[')
-			var style_part_two = _read_until_character(text, ']')
+			var style_part_one = _read_until_character(text, ']', true)
+			var text_between = _read_until_character(text, '[', false)
+			var style_part_two = _read_until_character(text, ']', true)
 
 			var result = ""
 			for i in text_between:
@@ -40,7 +43,6 @@ func display_text(dialog_name: String, text: String, time_between_characters: fl
 				var final = str(current_line)
 				final += style_part_one
 				final += result
-				final += style_part_two
 
 				main_text.text = final
 
@@ -51,25 +53,29 @@ func display_text(dialog_name: String, text: String, time_between_characters: fl
 			current_line += style_part_one
 			current_line += text_between
 			current_line += style_part_two
+		else:
+			await get_tree().create_timer(time_between_characters).timeout
 
-		await get_tree().create_timer(time_between_characters).timeout
 		if not is_writing:
 			return
 			
+		current_line = current_line + text[index]
+		main_text.text = str(current_line)
 		index += 1
 
 	is_writing = false
 
 
-func _read_until_character(text: String, target: String) -> String:
+func _read_until_character(text: String, target: String, include_target: bool) -> String:
 	var result = ""
 
 	while index < text.length() && text[index] != target:
 		result += text[index]
 		index += 1
 
-	result += text[index]
-	index += 1
+	if include_target:
+		result += text[index]
+		index += 1
 
 	return result
 
