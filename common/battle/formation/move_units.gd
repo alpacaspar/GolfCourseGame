@@ -4,7 +4,7 @@ extends BTLeaf
 var instructing_units: bool = false
 
 
-func _tick(blackboard: Dictionary, _delta: float) -> int:
+func tick(blackboard: Dictionary, _delta: float) -> int:
 	if not blackboard.has("formation"):
 		return FAILURE
 	
@@ -28,7 +28,7 @@ func _instruct_units(blackboard: Dictionary, _delta: float):
 		if not is_instance_valid(unit) or unit.is_exhausted():
 			continue
 		
-		unit.give_instructions(target_position, target_formation)
+		unit.give_command(target_position, target_formation)
 		await get_tree().create_timer(0.1).timeout
 	
 	instructing_units = false

@@ -3,6 +3,7 @@ extends BTNode
 ## Abstract class for all child_nodes that can have multiple children.
 
 
+## The child [BTNode]s of this composite.
 var child_nodes: Array[BTNode]
 
 

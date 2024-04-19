@@ -6,7 +6,7 @@ extends BTLeaf
 var last_position: Vector3 = Vector3.INF
 
 
-func _tick(blackboard: Dictionary, _delta: float):
+func tick(blackboard: Dictionary, _delta: float):
 	if not blackboard.has("target_position"):
 		return FAILURE
 

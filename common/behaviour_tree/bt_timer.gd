@@ -7,7 +7,7 @@ extends BTLeaf
 var current_time: float = 0.0
 
 
-func _tick(_blackboard: Dictionary, delta: float) -> int:
+func tick(_blackboard: Dictionary, delta: float) -> int:
 	current_time += delta
 
 	if current_time >= wait_time:

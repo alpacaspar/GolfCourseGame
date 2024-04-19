@@ -24,7 +24,7 @@ func _physics_process(delta: float):
 	body.animation_tree.set(MOVE_BLEND_PARAMETER, move_blend_value)
 
 
-func look_in_dir(target: Vector3, delta: float):
+func look_in_direction(target: Vector3, delta: float):
 	rotation_dir = Vector3(target.x, global_position.y, target.z)
 	
 	var angle := atan2(rotation_dir.x, rotation_dir.z)

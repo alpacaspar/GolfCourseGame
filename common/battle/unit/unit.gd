@@ -22,6 +22,9 @@ var equipment: Area3D
 
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 
+## The amount of units that are targetting this unit.
+var targeting_units: Array[Unit] = []
+
 
 func _on_swing_started():
 	equipment.monitoring = true
@@ -57,11 +60,11 @@ func setup(new_golfer: GolferResource, assigned_formation: Formation, assigned_t
 	animation_tree = character.animation_tree
 
 
-func give_instructions(target_position: Vector3, _target_formation: Formation = null):
+func give_command(target_formation: Formation):
 	# If the controller is a player controller, do nothing.
 	# Technically the player will never receive instructions as they are not in a formation, but this is a good safety check.
-	if controller.has_method("give_commands"):
-		controller.give_commands(target_position, _target_formation)
+	if controller.has_method("give_command"):
+		controller.give_command(target_formation)
 
 
 func perform_swing():
@@ -82,3 +85,15 @@ func take_damage(damage: int):
 
 func _exhaust():
 	queue_free()
+
+
+func start_targeting(targeting: Unit):
+	targeting_units.append(targeting)
+
+
+func stop_targeting(targeting: Unit):
+	targeting_units.erase(targeting)
+
+
+func get_target_amount() -> int:
+	return targeting_units.size()

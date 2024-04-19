@@ -3,8 +3,8 @@ extends BTDecorator
 ## Inverts the status of a child node.
 
 
-func _tick(blackboard: Dictionary, delta: float) -> int:
-	var status = child_node._tick(blackboard, delta)
+func tick(blackboard: Dictionary, delta: float) -> int:
+	var status = child_node.tick(blackboard, delta)
 	match status:
 		FAILURE:
 			return SUCCESS
