@@ -1,7 +1,11 @@
-[gd_resource type="Resource" script_class="Role" load_steps=2 format=3 uid="uid://n2wwvf3uab1k"]
+[gd_resource type="Resource" script_class="Role" load_steps=3 format=3 uid="uid://n2wwvf3uab1k"]
 
 [ext_resource type="Script" path="res://common/roles/role.gd" id="1_epsvo"]
+[ext_resource type="PackedScene" uid="uid://4e5g3mjxwfp0" path="res://common/battle/unit/role_unit/driver_unit.tscn" id="2_pw2ou"]
 
 [resource]
 script = ExtResource("1_epsvo")
 display_name = "Power Driver"
+desired_distance = 2.0
+target_type = 1
+unit_scene = ExtResource("2_pw2ou")

@@ -8,7 +8,6 @@ signal on_battle_ended(winning_team: TeamResource)
 @export var team_scene: PackedScene
 
 @export_subgroup("Units")
-@export var unit_scene: PackedScene
 @export var unit_ai_controller: PackedScene
 @export var unit_player_controller: PackedScene
 
@@ -60,22 +59,25 @@ func _instantiate_team(team_resource: TeamResource, origin: Node3D):
     var spawnpoints := _get_triangular_points(team_resource.size(), origin.global_position, origin.global_transform.basis.z, 4.0)
 
     var unit_instance: Unit
+    var controller_instance: Node
 
-    for unit: GolferResource in team_resource.units:
-        unit_instance = unit_scene.instantiate()
+    for unit: GolferResource in team_resource.get_composition():
+        unit_instance = unit.role.unit_scene.instantiate()
         team_instance.add_child(unit_instance)
         team_instance.units.append(unit_instance)
 
+        if unit is PlayerRivalResource:
+            controller_instance = unit_player_controller.instantiate()
+        else:
+            controller_instance = unit_ai_controller.instantiate()
+        unit_instance.controller = controller_instance
+        
         unit_instance.setup(unit, team_instance)
+        unit_instance.add_child(controller_instance)
+
         unit_instance.global_transform.origin = spawnpoints.pop_back()
 
-    var leader := unit_scene.instantiate()
-    team_instance.add_child(leader)
-    team_instance.units.append(leader)
-    leader.setup(team_resource.leader, team_instance)
-    leader.global_transform.origin = spawnpoints.pop_back()
-
-    team_instance.leader = leader
+    team_instance.leader = unit_instance
 
 
 ## Returns an array of points in a triangular pattern (bowling pin formation).
