@@ -3,17 +3,11 @@ extends Node3D
 
 const BLEND_SPEED = 10
 const MOVE_BLEND_PARAMETER: StringName = "parameters/MoveBlend/blend_amount"
-const RUN_SPEED_PARAMETER: StringName = "parameters/RunSpeed/scale"
-const SWING_CONDITION: StringName = "parameters/SwingOneShot/request"
 
 @export var body: CharacterBody3D
 
 var rotation_dir := Vector3.ZERO
 var move_blend_value := 0.0
-
-
-func _ready():
-	body.on_swing_performed.connect(_on_swing_performed)
 
 
 func _physics_process(delta: float):
@@ -23,7 +17,6 @@ func _physics_process(delta: float):
 
 	move_blend_value = lerp(move_blend_value, target_blend_value, delta * BLEND_SPEED)
 	body.animation_tree.set(MOVE_BLEND_PARAMETER, move_blend_value)
-	body.animation_tree.set(RUN_SPEED_PARAMETER, body.velocity.length() / body.MOVEMENT_SPEED * 2)
 
 
 func look_in_direction(target: Vector3, delta: float):
@@ -31,7 +24,3 @@ func look_in_direction(target: Vector3, delta: float):
 	
 	var angle := atan2(rotation_dir.x, rotation_dir.z)
 	global_rotation.y = lerp_angle(global_rotation.y, angle, delta * BLEND_SPEED)
-
-
-func _on_swing_performed():
-	body.animation_tree.set(SWING_CONDITION, AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)

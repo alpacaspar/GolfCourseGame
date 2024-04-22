@@ -3,8 +3,7 @@ extends CharacterBody3D
 
 
 const MOVEMENT_SPEED = 6.0
-
-signal on_swing_performed
+const ACTION_ONE_SHOT: StringName = "parameters/ActionOneShot/request"
 
 @onready var visuals: Node = $Visuals
 
@@ -12,12 +11,11 @@ var team: Team
 
 var golfer_resource: GolferResource
 var role: Role:
-	get:
-		return golfer_resource.role
+    get:
+        return golfer_resource.role
 
 var animation_tree: AnimationTree
 var controller: Node
-var equipment: Area3D
 
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 
@@ -25,60 +23,52 @@ var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 var targeting_units: Array[Unit] = []
 
 
-func _on_swing_started():
-	equipment.monitoring = true
-
-
-func _on_swing_ended():
-	equipment.monitoring = false
-
-
 func setup(new_golfer: GolferResource, assigned_team: Team):
-	golfer_resource = new_golfer
-	team = assigned_team
+    golfer_resource = new_golfer
+    team = assigned_team
 
-	controller.unit = self
+    controller.unit = self
 
-	var character: CharacterReferences = CharacterFactory.spawn_character(golfer_resource.npc_resource)
-	visuals.add_child(character)
+    var character: Character = CharacterFactory.spawn_character(golfer_resource.npc_resource)
+    visuals.add_child(character)
 
-	# TODO: Figure out how to do this without hardcoding.
-	equipment = character.right_hand_holder.get_child(0)
-	equipment.parent_unit = self
+    if golfer_resource.role.primary_equipment:
+        var equipment: Node3D = golfer_resource.role.primary_equipment.instantiate()
+        equipment.owning_unit = self
 
-	character.on_swing_started.connect(_on_swing_started)
-	character.on_swing_ended.connect(_on_swing_ended)
+        character.primary_equipment_slot.add_child(equipment)
 
-	animation_tree = character.animation_tree
+    animation_tree = character.animation_tree
+    character.animation_tree.tree_root.get_node("ACTION").animation = golfer_resource.role.primary_animation
 
 
-func perform_swing():
-	on_swing_performed.emit()
+func perform_action():
+    animation_tree.set(ACTION_ONE_SHOT, AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
 
 
 func is_exhausted() -> bool:
-	return golfer_resource.stamina <= 0
+    return golfer_resource.stamina <= 0
 
 
 func take_damage(damage: int):
-	golfer_resource.stamina -= damage
+    golfer_resource.stamina -= damage
 
-	if golfer_resource.stamina <= 0:
-		golfer_resource.stamina = 0
-		_exhaust()
+    if golfer_resource.stamina <= 0:
+        golfer_resource.stamina = 0
+        _exhaust()
 
 
 func _exhaust():
-	queue_free()
+    queue_free()
 
 
 func start_targeting(targeting: Unit):
-	targeting_units.append(targeting)
+    targeting_units.append(targeting)
 
 
 func stop_targeting(targeting: Unit):
-	targeting_units.erase(targeting)
+    targeting_units.erase(targeting)
 
 
 func get_target_amount() -> int:
-	return targeting_units.size()
+    return targeting_units.size()

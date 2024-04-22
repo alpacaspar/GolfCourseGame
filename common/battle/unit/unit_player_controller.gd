@@ -11,7 +11,7 @@ var unit: CharacterBody3D
 var last_velocity := Vector3.ZERO
 
 ## TODO: Use state machine to get rid of this ugly nasty gross dirty smelly bool.
-var performing_swing: bool = false
+var performing_action: bool = false
 
 func _ready():
 	input_provider.on_look.connect(_on_look)
@@ -26,16 +26,16 @@ func _on_look(input_delta: Vector2):
 
 
 func _on_interact():
-	if performing_swing:
+	if performing_action:
 		return
 	
-	_do_the_swing()
+	_perform_action()
 
 
 func _physics_process(delta: float):
 	unit.visuals.look_in_direction(last_velocity, delta)
 
-	var move_input: Vector2 = input_provider.move if not performing_swing else Vector2.ZERO
+	var move_input: Vector2 = input_provider.move if not performing_action else Vector2.ZERO
 
 	unit.velocity.y = -1 if unit.is_on_floor() else unit.velocity.y - unit.gravity * delta
 
@@ -55,10 +55,10 @@ func _on_exit():
 	input_provider.on_look.disconnect(_on_look)
 
 
-func _do_the_swing():
-	performing_swing = true
-	unit.perform_swing()
+func _perform_action():
+	performing_action = true
+	unit.perform_action()
 
 	await get_tree().create_timer(3).timeout
 
-	performing_swing = false
+	performing_action = false

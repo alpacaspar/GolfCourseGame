@@ -7,7 +7,7 @@ var current_time := 0.0
 
 func _tick(blackboard: Dictionary, delta: float) -> int:
 	if current_time == 0:
-		blackboard["unit"].perform_swing()
+		blackboard["unit"].perform_action()
 		blackboard["performing_action"] = true
 	
 	current_time += delta

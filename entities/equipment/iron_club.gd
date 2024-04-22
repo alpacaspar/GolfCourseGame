@@ -1,18 +1,26 @@
 extends Area3D
 
 
-var parent_unit: Unit
+var owning_unit: Unit
 
 
-func _on_body_entered(body: Node3D):
-	if body == parent_unit:
-		return
+func start_event():
+    monitoring = true
 
-	if not body is Unit:
-		return
 
-	if body.team == parent_unit.team:
-		return
+func end_event():
+    monitoring = false
 
-	if body.has_method("take_damage"):
-		body.take_damage(parent_unit.golfer_resource.power)
+
+func _on_body_entered(unit: Node3D):
+    if unit == owning_unit:
+        return
+
+    if not unit is Unit:
+        return
+
+    if unit.team == owning_unit.team:
+        return
+
+    if unit.has_method("take_damage"):
+        unit.take_damage(owning_unit.golfer_resource.power)
