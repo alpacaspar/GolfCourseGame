@@ -10,15 +10,15 @@ radius = 0.1
 script = ExtResource("1_377ic")
 
 [node name="CameraPivot" type="Marker3D" parent="."]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1, 0)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1.5, 0)
 
 [node name="SpringArm3D" type="SpringArm3D" parent="CameraPivot"]
 shape = SubResource("SphereShape3D_3ltxi")
-spring_length = 4.0
+spring_length = 3.0
 margin = 0.5
 
 [node name="PlayerCamera" type="Camera3D" parent="CameraPivot/SpringArm3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
 fov = 60.0
 
 [node name="AkListener3D" type="AkListener3D" parent="CameraPivot/SpringArm3D/PlayerCamera"]

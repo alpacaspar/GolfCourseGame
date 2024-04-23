@@ -3,9 +3,9 @@ extends CharacterBody3D
 
 
 const MOVEMENT_SPEED = 6.0
-const ACTION_ONE_SHOT: StringName = "parameters/ActionOneShot/request"
 
 @onready var visuals: Node = $Visuals
+@onready var primary_action: Node = $PrimaryAction
 
 var team: Team
 
@@ -43,7 +43,7 @@ func setup(new_golfer: GolferResource, assigned_team: Team):
 
 
 func perform_action():
-    animation_tree.set(ACTION_ONE_SHOT, AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
+    primary_action.perform(self)
 
 
 func is_exhausted() -> bool:

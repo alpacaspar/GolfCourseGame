@@ -33,7 +33,7 @@ func _on_interact():
 
 
 func _physics_process(delta: float):
-	unit.visuals.look_in_direction(last_velocity, delta)
+	#unit.visuals.look_in_direction(last_velocity, delta)
 
 	var move_input: Vector2 = input_provider.move if not performing_action else Vector2.ZERO
 
