@@ -1,9 +1,5 @@
-[gd_scene load_steps=3 format=3 uid="uid://do4drhyodkjp6"]
+[gd_scene load_steps=2 format=3 uid="uid://do4drhyodkjp6"]
 
 [ext_resource type="PackedScene" uid="uid://s18mlviu254u" path="res://common/battle/unit/unit.tscn" id="1_c6o56"]
-[ext_resource type="Script" path="res://common/battle/unit/role_unit/melee_action.gd" id="2_y2hmb"]
 
 [node name="Unit" instance=ExtResource("1_c6o56")]
-
-[node name="Action" parent="." index="2"]
-script = ExtResource("2_y2hmb")
