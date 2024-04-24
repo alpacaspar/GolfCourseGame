@@ -15,9 +15,9 @@ func _ready():
 
 func ak_register():
 	Wwise.register_game_obj(self, get_name())
-	Wwise.set_3d_position(self, self.global_transform)
+	#Wwise.set_3d_position(self, self.global_transform)
 
-func ak_event_post(event_name):
+func ak_event_post(event_name): # AK_END_OF_EVENT
 	Wwise.post_event_callback(event_name, AkUtils.AK_DURATION, self, cookie_wrapper)
 	#AkEvent.post_event()
 

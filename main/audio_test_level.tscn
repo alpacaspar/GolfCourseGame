@@ -133,7 +133,7 @@ shape = SubResource("SphereShape3D_eyc7b")
 shape = SubResource("CylinderShape3D_1syic")
 
 [node name="MeshInstance3D_Tree2" type="MeshInstance3D" parent="." groups=["leaves"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.653, 0, -0.377073)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.265, 0, -20.7692)
 mesh = SubResource("CylinderMesh_fbtgw")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_xdnc5")

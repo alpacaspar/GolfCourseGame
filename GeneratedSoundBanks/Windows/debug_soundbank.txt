@@ -1,8 +1,12 @@
 Event	ID	Name			Wwise Object Path	Notes
+	40897922	play_ambience_bed			\Ambience\Ambience\play_ambience_bed	
+	460794023	play_treeLeaves_rustling			\Ambience\Ambience\play_treeLeaves_rustling	
+	563870990	play_wind_gust			\Ambience\Ambience\play_wind_gust	
 	3408384243	play_plr_swing			\Player\Player\play_plr_swing	
 	3502184788	play_x_debug_distance			\Debug\Debug\play_x_debug_distance	
 	3634679436	play_x_debug_continuous_sound			\Debug\Debug\play_x_debug_continuous_sound	
 	3735612561	play_plr_footstep			\Player\Player\play_plr_footstep	
+	4117275841	stop_treeLeaves_rustling			\Ambience\Ambience\stop_treeLeaves_rustling	
 
 Switch Group	ID	Name			Wwise Object Path	Notes
 	1611159812	debug_distance			\Debug\debug_distance	
@@ -32,7 +36,12 @@ Switch	ID	Name	Switch Group			Notes
 
 Game Parameter	ID	Name			Wwise Object Path	Notes
 	511984960	footstep_volume			\Universal\footstep_volume	
+	855296609	wind_intensity			\Ambience\wind_intensity	
 	1611159812	debug_distance			\Debug\debug_distance	
+
+Effect plug-ins	ID	Name	Type				Notes
+	660343269	Meter (Custom)	Wwise Meter			
+	904732365	Gain (Custom)	Wwise Gain			
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	39461927	sfx_uni_plr_footstep_walk_grass_06	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\SFX\Player\sfx_uni_plr_footstep_walk_grass_06_D27E9F1B.wem		\Actor-Mixer Hierarchy\Player\Player\footsteps\sfx_uni_plr_footstep_walk_grass_06		29398
@@ -46,19 +55,23 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	242391901	x_debug_030	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\x_debug_030_6FAD11A2.wem		\Actor-Mixer Hierarchy\Debug\Debug\x_debug_distance\x_debug_030	30	49948
 	263840221	sfx_uni_plr_club_swing_iron_01	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\SFX\Player\sfx_uni_plr_club_swing_iron_01_818F3B66.wem		\Actor-Mixer Hierarchy\Player\Player\swing\sfx_uni_plr_club_swing_iron_01		51712
 	264017571	sfx_uni_plr_footstep_walk_grass_03	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\SFX\Player\sfx_uni_plr_footstep_walk_grass_03_E317E58D.wem		\Actor-Mixer Hierarchy\Player\Player\footsteps\sfx_uni_plr_footstep_walk_grass_03		29428
+	387933196	sfx_uni_amb_treeLeaves_rustling_mid	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\SFX\Ambience\sfx_uni_amb_treeLeaves_rustling_mid_033C4B21.wem		\Actor-Mixer Hierarchy\Ambience\Ambience\treeLeaves_rustling\sfx_uni_amb_treeLeaves_rustling_mid		8890740
 	410123159	x_debug_000	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\x_debug_000_D8FF21CD.wem		\Actor-Mixer Hierarchy\Debug\Debug\x_debug_distance\x_debug_000	0	54704
-	435315871	x_debug_continuous_sound	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\x_debug_continuous_sound_430FA349.wem		\Actor-Mixer Hierarchy\Debug\Debug\x_debug_continuous_sound		3733624
+	435315871	x_debug_continuous_sound	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\x_debug_continuous_sound_DB182E5B.wem		\Actor-Mixer Hierarchy\Debug\Debug\x_debug_continuous_sound		3733576
 	457778012	sfx_uni_plr_club_swing_iron_07	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\SFX\Player\sfx_uni_plr_club_swing_iron_07_818F3B66.wem		\Actor-Mixer Hierarchy\Player\Player\swing\sfx_uni_plr_club_swing_iron_07		40844
 	462026169	x_debug_040	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\x_debug_040_0C8E896C.wem		\Actor-Mixer Hierarchy\Debug\Debug\x_debug_distance\x_debug_040	40	52680
 	473477781	x_debug_075	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\x_debug_075_CD70EBD0.wem		\Actor-Mixer Hierarchy\Debug\Debug\x_debug_distance\x_debug_075	75	77258
 	537761227	x_debug_090	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\x_debug_090_8C9DFC48.wem		\Actor-Mixer Hierarchy\Debug\Debug\x_debug_distance\x_debug_090	90	55096
+	556231829	sfx_uni_amb_wind_gust_02	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\SFX\Ambience\sfx_uni_amb_wind_gust_02_818F3B66.wem		\Actor-Mixer Hierarchy\Ambience\Ambience\wind_gust\sfx_uni_amb_wind_gust_02		1653260
 	563463160	x_debug_045	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\x_debug_045_1487DF12.wem		\Actor-Mixer Hierarchy\Debug\Debug\x_debug_distance\x_debug_045	45	69696
 	567544787	sfx_uni_plr_footstep_walk_grass_04	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\SFX\Player\sfx_uni_plr_footstep_walk_grass_04_7148611A.wem		\Actor-Mixer Hierarchy\Player\Player\footsteps\sfx_uni_plr_footstep_walk_grass_04		29216
 	581031923	x_debug_010	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\x_debug_010_312EDF86.wem		\Actor-Mixer Hierarchy\Debug\Debug\x_debug_distance\x_debug_010	10	51602
 	615271320	x_debug_035	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\x_debug_035_541BF739.wem		\Actor-Mixer Hierarchy\Debug\Debug\x_debug_distance\x_debug_035	35	66570
+	627593933	EFX SD Wind Soft Whistling Gusts 04	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\EFX SD Wind Soft Whistling Gusts 04_99159D31.wem		\Actor-Mixer Hierarchy\Ambience\Ambience\EFX SD Wind Soft Whistling Gusts 04	test	23065832
 	670193729	x_debug_020	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\x_debug_020_254BA722.wem		\Actor-Mixer Hierarchy\Debug\Debug\x_debug_distance\x_debug_020	20	55110
 	675582719	x_debug_070	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\x_debug_070_566FD26F.wem		\Actor-Mixer Hierarchy\Debug\Debug\x_debug_distance\x_debug_070	70	61186
 	686307647	sfx_uni_plr_club_swing_iron_05	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\SFX\Player\sfx_uni_plr_club_swing_iron_05_818F3B66.wem		\Actor-Mixer Hierarchy\Player\Player\swing\sfx_uni_plr_club_swing_iron_05		46712
+	695809357	sfx_uni_amb_wind_gust_03	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\SFX\Ambience\sfx_uni_amb_wind_gust_03_818F3B66.wem		\Actor-Mixer Hierarchy\Ambience\Ambience\wind_gust\sfx_uni_amb_wind_gust_03		2050460
 	703704545	sfx_uni_plr_club_swing_iron_06	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\SFX\Player\sfx_uni_plr_club_swing_iron_06_818F3B66.wem		\Actor-Mixer Hierarchy\Player\Player\swing\sfx_uni_plr_club_swing_iron_06		47072
 	754155897	sfx_uni_plr_club_swing_iron_08	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\SFX\Player\sfx_uni_plr_club_swing_iron_08_818F3B66.wem		\Actor-Mixer Hierarchy\Player\Player\swing\sfx_uni_plr_club_swing_iron_08		45398
 	756909045	x_debug_015	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\x_debug_015_8165BBC3.wem		\Actor-Mixer Hierarchy\Debug\Debug\x_debug_distance\x_debug_015	15	57720
@@ -69,5 +82,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	924864581	x_debug_080	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\x_debug_080_EDF8564D.wem		\Actor-Mixer Hierarchy\Debug\Debug\x_debug_distance\x_debug_080	80	49080
 	934108237	x_debug_005	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\x_debug_005_5F049832.wem		\Actor-Mixer Hierarchy\Debug\Debug\x_debug_distance\x_debug_005	5	51264
 	935693696	x_debug_085	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\x_debug_085_E1D6B929.wem		\Actor-Mixer Hierarchy\Debug\Debug\x_debug_distance\x_debug_085	85	65762
+	939711943	sfx_uni_amb_wind_gust_04	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\SFX\Ambience\sfx_uni_amb_wind_gust_04_818F3B66.wem		\Actor-Mixer Hierarchy\Ambience\Ambience\wind_gust\sfx_uni_amb_wind_gust_04		1304160
+	996294800	sfx_uni_amb_wind_gust_01	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\SFX\Ambience\sfx_uni_amb_wind_gust_01_818F3B66.wem		\Actor-Mixer Hierarchy\Ambience\Ambience\wind_gust\sfx_uni_amb_wind_gust_01		1515660
 	1056569421	sfx_uni_plr_footstep_walk_grass_02	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\SFX\Player\sfx_uni_plr_footstep_walk_grass_02_E9BB5327.wem		\Actor-Mixer Hierarchy\Player\Player\footsteps\sfx_uni_plr_footstep_walk_grass_02		28340
 

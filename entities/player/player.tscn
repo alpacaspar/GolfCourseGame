@@ -16,7 +16,7 @@
 radius = 0.1
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_3tsju"]
-radius = 10.0
+radius = 30.0
 
 [node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("camera", "input_provider", "state_machine")]
 collision_layer = 2
@@ -50,6 +50,20 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5)
 [node name="AkListener3D" type="AkListener3D" parent="CameraPivot/SpringArm3D/PlayerCamera"]
 is_spatial = true
 
+[node name="AmbienceArea" type="Area3D" parent="CameraPivot/SpringArm3D/PlayerCamera"]
+collision_layer = 0
+collision_mask = 128
+script = ExtResource("7_itai3")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CameraPivot/SpringArm3D/PlayerCamera/AmbienceArea"]
+shape = SubResource("SphereShape3D_3tsju")
+
+[node name="Trees" type="Node3D" parent="CameraPivot/SpringArm3D/PlayerCamera/AmbienceArea/CollisionShape3D"]
+
+[node name="Bushes" type="Node3D" parent="CameraPivot/SpringArm3D/PlayerCamera/AmbienceArea/CollisionShape3D"]
+
+[node name="Bird" type="Node3D" parent="CameraPivot/SpringArm3D/PlayerCamera/AmbienceArea/CollisionShape3D"]
+
 [node name="FiniteStateMachine" type="Node" parent="."]
 script = ExtResource("3_ox5tx")
 
@@ -72,15 +86,7 @@ player = NodePath("..")
 [node name="CollisionShape3D" parent="PlayerInteractor" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
-[node name="AmbienceArea" type="Area3D" parent="."]
-collision_layer = 0
-collision_mask = 128
-script = ExtResource("7_itai3")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="AmbienceArea"]
-shape = SubResource("SphereShape3D_3tsju")
-
-[connection signal="body_entered" from="AmbienceArea" to="AmbienceArea" method="_on_body_entered"]
-[connection signal="body_exited" from="AmbienceArea" to="AmbienceArea" method="_on_body_exited"]
+[connection signal="body_entered" from="CameraPivot/SpringArm3D/PlayerCamera/AmbienceArea" to="CameraPivot/SpringArm3D/PlayerCamera/AmbienceArea" method="_on_body_entered"]
+[connection signal="body_exited" from="CameraPivot/SpringArm3D/PlayerCamera/AmbienceArea" to="CameraPivot/SpringArm3D/PlayerCamera/AmbienceArea" method="_on_body_exited"]
 
 [editable path="PlayerInteractor"]
