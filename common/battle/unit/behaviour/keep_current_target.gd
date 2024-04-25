@@ -9,9 +9,6 @@ func _tick(_blackboard: Dictionary, _delta: float) -> int:
 
 
 func _get_utility(blackboard: Dictionary) -> float:
-    if not blackboard.has("target"):
-        return 0.0
-    
     if not blackboard["unit"].target or not is_instance_valid(blackboard["unit"].target):
         return 0.0
 

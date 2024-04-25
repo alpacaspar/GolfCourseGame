@@ -53,24 +53,21 @@ func perform():
 
 func _on_animation_event_started():
     # If _calculate_intersection_time() fails, a 0 is returned, in that case the prediction will default to the target's current position.
-    var predicted_target_position: Vector3 = current_target.global_position + average_velocity * _calculate_intersection_time(ball.global_position)
-    #var linear_direction: Vector3 = ball.global_position.direction_to(predicted_target_position)
-
+    var predicted_target_position := current_target.global_position + average_velocity * _calculate_intersection_time(ball.global_position)
     var delta: Vector3 = (predicted_target_position + Vector3.UP) - ball.global_position
 
+    # A launch angle of 0 degrees will go straight ahead, which is fine for closer targets.
     var launch_angle := _calculate_launch_angle(PROJECTILE_SPEED, gravity, Vector2(delta.x, delta.z).length(), delta.y)
-
     if launch_angle > deg_to_rad(60):
         launch_angle = 0.0
     
     var sx := PROJECTILE_SPEED * cos(launch_angle)
     var sy := PROJECTILE_SPEED * sin(launch_angle)
 
-
-    var horizontal_delta: Vector3 = predicted_target_position - ball.global_position
+    var horizontal_delta := predicted_target_position - ball.global_position
     horizontal_delta.y = 0
 
-    var launch_force: Vector3 = horizontal_delta.normalized() * sx + Vector3.UP * sy
+    var launch_force := horizontal_delta.normalized() * sx + Vector3.UP * sy
 
     ball.apply_impulse(launch_force)
 
@@ -84,7 +81,7 @@ func _calculate_intersection_time(origin: Vector3) -> float:
     if a == 0:
         return -c / b
     
-    var discriminant = b * b - 4 * a * c
+    var discriminant := b * b - 4 * a * c
     if discriminant < 0:
         return 0.0
     elif discriminant == 0:
@@ -101,7 +98,7 @@ func _calculate_intersection_time(origin: Vector3) -> float:
 
 
 func _calculate_launch_angle(v: float, g: float, x: float, y: float) -> float:
-    var discriminant: float = v**4 - g * (g * x**2 + 2 * y * v**2)
+    var discriminant := v**4 - g * (g * x**2 + 2 * y * v**2)
     if discriminant < 0:
         return 0.0
     elif discriminant == 0:

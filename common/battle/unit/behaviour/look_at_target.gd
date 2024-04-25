@@ -2,7 +2,7 @@ extends BTLeaf
 
 
 func _tick(blackboard: Dictionary, delta: float) -> int:
-	if not blackboard.has("target"):
+	if not blackboard["unit"].target:
 		return FAILURE
 	
 	var target_position: Vector3 = blackboard["unit"].target.global_position
