@@ -95,10 +95,6 @@ move_down={
 
 3d/default_cell_size=0.5
 
-[physics]
-
-common/physics_ticks_per_second=144
-
 [rendering]
 
 anti_aliasing/quality/msaa_3d=1
