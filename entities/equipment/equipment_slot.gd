@@ -6,11 +6,11 @@ var equipment: Node3D:
         return null if get_child_count() == 0 else get_child(0)
 
 
-func start_event():
-    if equipment:
-        equipment.start_event()
-
-
-func end_event():
+func _on_base_character_animation_event_ended():
     if equipment:
         equipment.end_event()
+
+
+func _on_base_character_animation_event_started():
+    if equipment:
+        equipment.start_event()

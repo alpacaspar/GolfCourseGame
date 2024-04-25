@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://common/roles/role.gd" id="1_a5bv5"]
 [ext_resource type="PackedScene" uid="uid://do4drhyodkjp6" path="res://common/battle/unit/role_unit/melee_unit.tscn" id="2_4lf3v"]
-[ext_resource type="PackedScene" uid="uid://d346oafjyah52" path="res://entities/equipment/iron_club.tscn" id="2_crto2"]
+[ext_resource type="PackedScene" uid="uid://d346oafjyah52" path="res://entities/equipment/club_iron.tscn" id="2_crto2"]
 
 [resource]
 script = ExtResource("1_a5bv5")

@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://d346oafjyah52"]
 
-[ext_resource type="Script" path="res://entities/equipment/iron_club.gd" id="1_xhsse"]
+[ext_resource type="Script" path="res://entities/equipment/club_iron.gd" id="1_b61xs"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_om53g"]
 size = Vector3(0.3, 0.1, 1)
@@ -20,7 +20,7 @@ collision_layer = 0
 collision_mask = 2
 monitoring = false
 monitorable = false
-script = ExtResource("1_xhsse")
+script = ExtResource("1_b61xs")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, -1.49012e-08, 0, 7.45058e-09, 1, 0, 0, -1.49012e-08, 1, -0.05, 0, -0.5)

@@ -6,10 +6,12 @@ var owning_unit: Unit
 
 func start_event():
     monitoring = true
+    print(1)
 
 
 func end_event():
     monitoring = false
+    print(2)
 
 
 func _on_body_entered(unit: Node3D):
