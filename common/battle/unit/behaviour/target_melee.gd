@@ -6,9 +6,9 @@ extends BTUtilityLeaf
 
 
 func _tick(blackboard: Dictionary, _delta: float) -> int:
-    blackboard["target"] = _get_closest_target(blackboard["unit"])
+    blackboard["unit"].target = _get_closest_target(blackboard["unit"])
 
-    return SUCCESS if blackboard["target"] else FAILURE
+    return SUCCESS if blackboard["unit"].target else FAILURE
 
 
 func _get_utility(blackboard: Dictionary) -> float:

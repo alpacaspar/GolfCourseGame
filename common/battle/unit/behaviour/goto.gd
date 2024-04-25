@@ -10,11 +10,11 @@ func _tick(blackboard: Dictionary, delta: float) -> int:
 		navigation_agent.set_velocity(Vector3.ZERO)
 		return SUCCESS
 
-	var distance_squared: float = unit.global_position.distance_squared_to(blackboard["target"].global_position)
+	var distance_squared: float = unit.global_position.distance_squared_to(blackboard["unit"].target.global_position)
 	if distance_squared < navigation_agent.target_desired_distance ** 2:
 		return SUCCESS
 
-	controller.set_movement_target(blackboard["target"].global_position)
+	controller.set_movement_target(blackboard["unit"].target.global_position)
 	
 	if not navigation_agent.is_navigation_finished():
 		var next_path_position: Vector3 = navigation_agent.get_next_path_position()
