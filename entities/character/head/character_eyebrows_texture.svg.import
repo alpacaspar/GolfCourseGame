@@ -1,0 +1,27 @@
+[remap]
+
+importer="2d_array_texture"
+type="CompressedTexture2DArray"
+uid="uid://b5l0k8hd6jdcu"
+path.s3tc="res://.godot/imported/character_eyebrows_texture.svg-607f3952190b47b4455c199d61e6218c.s3tc.ctexarray"
+metadata={
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
+}
+
+[deps]
+
+source_file="res://entities/character/head/character_eyebrows_texture.svg"
+dest_files=["res://.godot/imported/character_eyebrows_texture.svg-607f3952190b47b4455c199d61e6218c.s3tc.ctexarray"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+slices/horizontal=4
+slices/vertical=2

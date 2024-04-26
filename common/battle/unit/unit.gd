@@ -47,7 +47,7 @@ func setup(new_golfer: GolferResource, assigned_formation: Formation, assigned_t
 	controller.body = self
 	add_child(controller)
 	
-	var character: CharacterReferences = CharacterFactory.spawn_character(golfer_resource.npc_resource)
+	var character: Character = CharacterFactory.spawn_character(golfer_resource.npc_resource)
 	visuals.add_child(character)
 	
 	# TODO: Figure out how to do this without hardcoding.

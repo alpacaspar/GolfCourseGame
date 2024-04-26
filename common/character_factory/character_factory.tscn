@@ -1,32 +1,38 @@
-[gd_scene load_steps=21 format=3 uid="uid://cdh3hkt0sfd8y"]
+[gd_scene load_steps=26 format=3 uid="uid://cdh3hkt0sfd8y"]
 
 [ext_resource type="Script" path="res://common/character_factory/character_factory.gd" id="1_i4r0e"]
-[ext_resource type="PackedScene" uid="uid://ck84hpbuds8v8" path="res://common/character_factory/base_character.tscn" id="2_fojra"]
-[ext_resource type="ArrayMesh" uid="uid://ckj70h25e1524" path="res://common/character_factory/ears/ears_v1.tres" id="2_gci0h"]
-[ext_resource type="ArrayMesh" uid="uid://dse2rrw8s4afo" path="res://common/character_factory/ears/ears_v2.tres" id="3_hlr06"]
-[ext_resource type="ArrayMesh" uid="uid://c853f81w1negk" path="res://common/character_factory/ears/ears_v3.tres" id="4_pader"]
-[ext_resource type="ArrayMesh" uid="uid://xr7dpimen2ai" path="res://common/character_factory/ears/ears_v4.tres" id="5_ggkux"]
-[ext_resource type="ArrayMesh" uid="uid://cgvg5t362r4sm" path="res://common/character_factory/ears/ears_v5.tres" id="6_p44aj"]
-[ext_resource type="ArrayMesh" uid="uid://bigfmu15848y" path="res://common/character_factory/hair/buzzcut_hair.tres" id="7_v7qvc"]
-[ext_resource type="ArrayMesh" uid="uid://jmpv6ia3rh7q" path="res://common/character_factory/hair/charlie_hair.tres" id="8_b6sll"]
-[ext_resource type="ArrayMesh" uid="uid://3a5jlsl4cfc7" path="res://common/character_factory/hair/combover_hair.tres" id="9_4v00r"]
-[ext_resource type="ArrayMesh" uid="uid://doqcrrjj5lta5" path="res://common/character_factory/hair/longish_hair.tres" id="10_b2tr2"]
-[ext_resource type="ArrayMesh" uid="uid://d007ld1pic2rp" path="res://common/character_factory/hair/ponytail_hair.tres" id="11_mjmw2"]
-[ext_resource type="ArrayMesh" uid="uid://cp8c16jx7t1c1" path="res://common/character_factory/hair/preppy_hair.tres" id="12_vb6vx"]
-[ext_resource type="ArrayMesh" uid="uid://ci3vnn7d616gq" path="res://common/character_factory/noses/nose_v1.tres" id="13_cd7pm"]
-[ext_resource type="ArrayMesh" uid="uid://cpj6o1vxccwlt" path="res://common/character_factory/noses/nose_v2.tres" id="14_rlsxe"]
-[ext_resource type="ArrayMesh" uid="uid://dbotanwftp4a6" path="res://common/character_factory/noses/nose_v3.tres" id="15_1hsmk"]
-[ext_resource type="ArrayMesh" uid="uid://cehi1fujyfgd3" path="res://common/character_factory/noses/nose_v4.tres" id="16_750pi"]
-[ext_resource type="CompressedTexture2DArray" uid="uid://b2s2xnqkfst6b" path="res://common/character_factory/faces/eyes_texture.svg" id="17_8hvip"]
-[ext_resource type="CompressedTexture2DArray" uid="uid://b5l0k8hd6jdcu" path="res://common/character_factory/faces/eyebrows_texture.svg" id="18_bnnrc"]
-[ext_resource type="CompressedTexture2DArray" uid="uid://cwrwjiecowt3n" path="res://common/character_factory/faces/mouth_textures.svg" id="19_tbe4l"]
+[ext_resource type="ArrayMesh" uid="uid://ctvdng4wa44ne" path="res://entities/character/head/character_ears_1.res" id="2_r6hdl"]
+[ext_resource type="ArrayMesh" uid="uid://efm4pg1rf18p" path="res://entities/character/head/character_ears_2.res" id="3_wcwmv"]
+[ext_resource type="ArrayMesh" uid="uid://ckm45vryptgty" path="res://entities/character/head/character_ears_3.res" id="4_ujpgv"]
+[ext_resource type="ArrayMesh" uid="uid://dqi1i1st288n1" path="res://entities/character/head/character_ears_4.res" id="5_tdhg7"]
+[ext_resource type="ArrayMesh" uid="uid://btovktmxtpjg5" path="res://entities/character/head/character_ears_5.res" id="6_gepix"]
+[ext_resource type="ArrayMesh" uid="uid://ra6axj0t8mag" path="res://entities/character/head/character_hair_buzz.res" id="7_we6f7"]
+[ext_resource type="ArrayMesh" uid="uid://b4i2nuap0pjqq" path="res://entities/character/head/character_hair_caspar.res" id="8_44eej"]
+[ext_resource type="ArrayMesh" uid="uid://c5pyhnxy5b1ut" path="res://entities/character/head/character_hair_charlie.res" id="9_4fntv"]
+[ext_resource type="ArrayMesh" uid="uid://cwjjouf17da3r" path="res://entities/character/head/character_hair_combover.res" id="10_0bh4e"]
+[ext_resource type="ArrayMesh" uid="uid://cam0r2lojd0i0" path="res://entities/character/head/character_hair_long.res" id="11_2rrxp"]
+[ext_resource type="ArrayMesh" uid="uid://511lk7cedpkn" path="res://entities/character/head/character_hair_pony.res" id="12_pfcll"]
+[ext_resource type="ArrayMesh" uid="uid://bxvvyfaj2gjm0" path="res://entities/character/head/character_hair_preppy.res" id="13_jky7t"]
+[ext_resource type="ArrayMesh" uid="uid://cwa6wglrdhvcw" path="res://entities/character/head/character_nose_1.res" id="14_elv4t"]
+[ext_resource type="ArrayMesh" uid="uid://6ljqmoiu1j2t" path="res://entities/character/head/character_nose_2.res" id="15_urki0"]
+[ext_resource type="ArrayMesh" uid="uid://b7k8ihopssdbr" path="res://entities/character/head/character_nose_3.res" id="16_2jtp3"]
+[ext_resource type="ArrayMesh" uid="uid://cmv4tjyf0d06p" path="res://entities/character/head/character_nose_4.res" id="17_3tgyj"]
+[ext_resource type="ArrayMesh" uid="uid://ce7l6dfgo1rs0" path="res://entities/character/clothing/clothing_shirt_collar.res" id="18_kc5j8"]
+[ext_resource type="ArrayMesh" uid="uid://tup7higmxt78" path="res://entities/character/clothing/clothing_suit_collar.res" id="19_72fxk"]
+[ext_resource type="ArrayMesh" uid="uid://56b0hru0fbli" path="res://entities/character/clothing/clothing_tshirt_collar.res" id="20_y3y35"]
+[ext_resource type="ArrayMesh" uid="uid://dkrsmagi0wrxo" path="res://entities/character/clothing/clothing_vneck_collar.res" id="21_ximqg"]
+[ext_resource type="CompressedTexture2DArray" uid="uid://b2s2xnqkfst6b" path="res://entities/character/head/character_eyes_texture.svg" id="22_rt4sy"]
+[ext_resource type="CompressedTexture2DArray" uid="uid://b5l0k8hd6jdcu" path="res://entities/character/head/character_eyebrows_texture.svg" id="23_2orqr"]
+[ext_resource type="CompressedTexture2DArray" uid="uid://cwrwjiecowt3n" path="res://entities/character/head/character_mouth_textures.svg" id="24_mj7xl"]
+[ext_resource type="PackedScene" uid="uid://ck84hpbuds8v8" path="res://entities/character/character.tscn" id="25_gqjrl"]
 
 [node name="CharacterFactory" type="Node"]
 script = ExtResource("1_i4r0e")
-ear_meshes = Array[Mesh]([ExtResource("2_gci0h"), ExtResource("3_hlr06"), ExtResource("4_pader"), ExtResource("5_ggkux"), ExtResource("6_p44aj")])
-hair_meshes = Array[Mesh]([ExtResource("7_v7qvc"), ExtResource("8_b6sll"), ExtResource("9_4v00r"), ExtResource("10_b2tr2"), ExtResource("11_mjmw2"), ExtResource("12_vb6vx")])
-nose_meshes = Array[Mesh]([ExtResource("13_cd7pm"), ExtResource("14_rlsxe"), ExtResource("15_1hsmk"), ExtResource("16_750pi")])
-eye_textures = ExtResource("17_8hvip")
-eyebrow_textures = ExtResource("18_bnnrc")
-mouth_textures = ExtResource("19_tbe4l")
-character_base = ExtResource("2_fojra")
+ear_meshes = Array[Mesh]([ExtResource("2_r6hdl"), ExtResource("3_wcwmv"), ExtResource("4_ujpgv"), ExtResource("5_tdhg7"), ExtResource("6_gepix")])
+hair_meshes = Array[Mesh]([ExtResource("7_we6f7"), ExtResource("8_44eej"), ExtResource("9_4fntv"), ExtResource("10_0bh4e"), ExtResource("11_2rrxp"), ExtResource("12_pfcll"), ExtResource("13_jky7t")])
+nose_meshes = Array[Mesh]([ExtResource("14_elv4t"), ExtResource("15_urki0"), ExtResource("16_2jtp3"), ExtResource("17_3tgyj")])
+collar_meshes = Array[Mesh]([ExtResource("18_kc5j8"), ExtResource("19_72fxk"), ExtResource("20_y3y35"), ExtResource("21_ximqg")])
+eye_textures = ExtResource("22_rt4sy")
+eyebrow_textures = ExtResource("23_2orqr")
+mouth_textures = ExtResource("24_mj7xl")
+character_base = ExtResource("25_gqjrl")

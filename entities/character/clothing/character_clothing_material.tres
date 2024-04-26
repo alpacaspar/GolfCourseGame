@@ -1,0 +1,21 @@
+[gd_resource type="ShaderMaterial" load_steps=8 format=3 uid="uid://btb23i348d3pn"]
+
+[ext_resource type="Shader" uid="uid://dn8hcmbi0cime" path="res://entities/character/clothing/character_clothing_shader.tres" id="1_pfevk"]
+[ext_resource type="Texture2D" uid="uid://dyt5mfqtaght8" path="res://entities/character/clothing/clothing_pants_albedo.png" id="2_jelyw"]
+[ext_resource type="Texture2D" uid="uid://2mqcciu3x6ri" path="res://entities/character/clothing/clothing_pants_normal.png" id="3_aeuyf"]
+[ext_resource type="Texture2D" uid="uid://cmmqgcweqbbeo" path="res://entities/character/clothing/clothing_pants_roughness.png" id="4_3dtb8"]
+[ext_resource type="Texture2D" uid="uid://bsm4olkjvft4u" path="res://entities/character/clothing/clothing_polo_color.png" id="5_qho1a"]
+[ext_resource type="Texture2D" uid="uid://d38oic36tcw6a" path="res://entities/character/clothing/clothing_polo_normal.png" id="6_vbl3s"]
+[ext_resource type="Texture2D" uid="uid://fkavg7gqyo8q" path="res://entities/character/clothing/clothing_polo_roughness.png" id="7_jggcc"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_pfevk")
+shader_parameter/ShirtTint = Color(0.662745, 0.380392, 0.156863, 1)
+shader_parameter/PantsTint = Color(0.6, 0.52549, 0.341176, 1)
+shader_parameter/ShirtAlbedo = ExtResource("5_qho1a")
+shader_parameter/PantsAlbedo = ExtResource("2_jelyw")
+shader_parameter/ShirtRoughness = ExtResource("7_jggcc")
+shader_parameter/PantsRoughness = ExtResource("4_3dtb8")
+shader_parameter/ShirtNormal = ExtResource("6_vbl3s")
+shader_parameter/PantsNormal = ExtResource("3_aeuyf")
