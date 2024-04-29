@@ -8,13 +8,14 @@
 [resource]
 render_priority = 0
 shader = ExtResource("1_qj31f")
-shader_parameter/EyeHeight = 0.05
+shader_parameter/EyeHeight = 0.0
 shader_parameter/EyeBlinkIndex = 14
 shader_parameter/EyeIndex = 0
-shader_parameter/EyebrowHeight = 0.12
+shader_parameter/BlinkOffset = 0.0
+shader_parameter/EyebrowHeight = 0.0
 shader_parameter/EyebrowIndex = 0
-shader_parameter/MouthSize = 2.5
-shader_parameter/MouthHeight = -0.3
+shader_parameter/MouthSize = 1.0
+shader_parameter/MouthHeight = 0.0
 shader_parameter/MouthIndex = 0
 shader_parameter/Eyes = ExtResource("3_4mi10")
 shader_parameter/Eyebrows = ExtResource("2_1cmt4")
