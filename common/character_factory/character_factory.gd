@@ -17,22 +17,23 @@ extends Node
 
 func spawn_character(resource: NPCResource) -> Character:
     var character = character_base.instantiate() as Character
+    var face_material: Material = character.face_mesh_instance.material_override
 
-    # character.eye_mesh.get_mesh().surface_get_material(0).set("albedo_texture", ImageTexture.create_from_image(eye_textures.get_layer_data(resource.eye_index)))
-    # character.mouth_mesh.get_mesh().surface_get_material(0).set("albedo_texture", ImageTexture.create_from_image(mouth_textures.get_layer_data(resource.mouth_index)))
-    # character.eyebrow_mesh.get_mesh().surface_get_material(0).set("albedo_texture", ImageTexture.create_from_image(eyebrow_textures.get_layer_data(resource.eyebrow_index)))
-
-    var face_material: Material = character.face_mesh_instance.get_surface_override_material(0)
-    face_material.set("eye_index", resource.eye_index)
-    face_material.set("mouth_index", resource.mouth_index)
-    face_material.set("eyebrow_index", resource.eyebrow_index)
+    face_material.set("shader_parameter/EyeIndex", resource.eye_index)
+    face_material.set("shader_parameter/MouthIndex", resource.mouth_index)
+    face_material.set("shader_parameter/EyebrowIndex", resource.eyebrow_index)
+    
+    face_material.set("shader_parameter/EyeHeight", remap(resource.eye_offset, 0, 1, -.5, .5))
+    face_material.set("shader_parameter/EyebrowHeight", remap(resource.eyebrow_offset, 0, 1, -.6, .4))
+    face_material.set("shader_parameter/MouthSize", remap(resource.mouth_size, 0, 1, 0, 2))
+    face_material.set("shader_parameter/MouthHeight", remap(resource.mouth_offset, 0, 1, -.2, .8))
 
     character.ear_mesh_instance.mesh = ear_meshes[resource.ear_index]
     character.nose_mesh_instance.mesh = nose_meshes[resource.nose_index]
     character.hair_mesh_instance.mesh = hair_meshes[resource.hair_index]
 
-    character.hair_mesh_instance.get_surface_override_material(0).set("albedo_color", resource.hair_color)
-    character.ear_mesh_instance.get_surface_override_material(0).set("albedo_color", resource.skin_color)
-    character.nose_mesh_instance.get_surface_override_material(0).set("albedo_color", resource.skin_color)
-    
+    character.hair_mesh_instance.get_mesh().surface_get_material(0).set("albedo_color", resource.hair_color)
+    character.ear_mesh_instance.get_mesh().surface_get_material(0).set("albedo_color", resource.skin_color)
+    character.nose_mesh_instance.get_mesh().surface_get_material(0).set("albedo_color", resource.skin_color)
+	
     return character

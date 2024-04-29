@@ -26,11 +26,8 @@ func set_preview_mode(preview_mode: bool):
 	ear_mesh_instance.visible = !preview_mode
 	nose_mesh_instance.visible = !preview_mode
 	hair_mesh_instance.visible = !preview_mode
-	
 	face_mesh_instance.visible = !preview_mode
 	
-	# accessory_mesh_instance.visible = !preview_mode
-
 	preview_mesh.visible = preview_mode
 
 
