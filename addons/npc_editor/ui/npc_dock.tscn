@@ -10,31 +10,31 @@
 [sub_resource type="LabelSettings" id="LabelSettings_dt0a8"]
 font_size = 32
 
-[sub_resource type="ButtonGroup" id="ButtonGroup_5q0kw"]
+[sub_resource type="ButtonGroup" id="ButtonGroup_m68mp"]
 resource_name = "Eyes"
 
-[sub_resource type="ButtonGroup" id="ButtonGroup_yubh8"]
+[sub_resource type="ButtonGroup" id="ButtonGroup_2cg6c"]
 resource_name = "Eyebrows"
 
-[sub_resource type="ButtonGroup" id="ButtonGroup_7rwdi"]
+[sub_resource type="ButtonGroup" id="ButtonGroup_uy2u0"]
 resource_name = "Mouths"
 
-[sub_resource type="ButtonGroup" id="ButtonGroup_cc4oi"]
+[sub_resource type="ButtonGroup" id="ButtonGroup_ny6u8"]
 resource_name = "Noses"
 
-[sub_resource type="ButtonGroup" id="ButtonGroup_4r850"]
+[sub_resource type="ButtonGroup" id="ButtonGroup_r7qa4"]
 resource_name = "Ears"
 
-[sub_resource type="ButtonGroup" id="ButtonGroup_thngd"]
+[sub_resource type="ButtonGroup" id="ButtonGroup_1dqcv"]
 resource_name = "Hair"
 
-[sub_resource type="ButtonGroup" id="ButtonGroup_tvmcx"]
+[sub_resource type="ButtonGroup" id="ButtonGroup_tsn2o"]
 resource_name = "Accessories"
 
-[sub_resource type="ButtonGroup" id="ButtonGroup_y6mnu"]
+[sub_resource type="ButtonGroup" id="ButtonGroup_v5mnh"]
 resource_name = "Accessories"
 
-[sub_resource type="ButtonGroup" id="ButtonGroup_jvuo7"]
+[sub_resource type="ButtonGroup" id="ButtonGroup_j1l0g"]
 resource_name = "Accessories"
 
 [sub_resource type="LabelSettings" id="LabelSettings_ka5pb"]
@@ -282,7 +282,7 @@ layout_mode = 2
 
 [node name="EyesPicker" parent="VBoxContainer/NPCEditor/VBoxContainer/TabContainer/Face Options" instance=ExtResource("4_4dyc0")]
 layout_mode = 2
-button_group = SubResource("ButtonGroup_5q0kw")
+button_group = SubResource("ButtonGroup_m68mp")
 
 [node name="EyeOffset" type="HBoxContainer" parent="VBoxContainer/NPCEditor/VBoxContainer/TabContainer/Face Options"]
 layout_mode = 2
@@ -303,10 +303,11 @@ layout_mode = 2
 size_flags_horizontal = 3
 max_value = 1.0
 step = 0.01
+value = 0.51
 
 [node name="EyebrowsPicker" parent="VBoxContainer/NPCEditor/VBoxContainer/TabContainer/Face Options" instance=ExtResource("4_4dyc0")]
 layout_mode = 2
-button_group = SubResource("ButtonGroup_yubh8")
+button_group = SubResource("ButtonGroup_2cg6c")
 
 [node name="EyebrowOffset" type="HBoxContainer" parent="VBoxContainer/NPCEditor/VBoxContainer/TabContainer/Face Options"]
 layout_mode = 2
@@ -327,10 +328,11 @@ layout_mode = 2
 size_flags_horizontal = 3
 max_value = 1.0
 step = 0.01
+value = 0.63
 
 [node name="MouthPicker" parent="VBoxContainer/NPCEditor/VBoxContainer/TabContainer/Face Options" instance=ExtResource("4_4dyc0")]
 layout_mode = 2
-button_group = SubResource("ButtonGroup_7rwdi")
+button_group = SubResource("ButtonGroup_uy2u0")
 
 [node name="MouthOffset" type="HBoxContainer" parent="VBoxContainer/NPCEditor/VBoxContainer/TabContainer/Face Options"]
 layout_mode = 2
@@ -351,6 +353,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 max_value = 1.0
 step = 0.01
+value = 0.15
 
 [node name="MouthSize" type="HBoxContainer" parent="VBoxContainer/NPCEditor/VBoxContainer/TabContainer/Face Options"]
 layout_mode = 2
@@ -371,6 +374,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 max_value = 1.0
 step = 0.01
+value = 0.54
 
 [node name="Head Options" type="VBoxContainer" parent="VBoxContainer/NPCEditor/VBoxContainer/TabContainer"]
 visible = false
@@ -378,15 +382,15 @@ layout_mode = 2
 
 [node name="NosePicker" parent="VBoxContainer/NPCEditor/VBoxContainer/TabContainer/Head Options" instance=ExtResource("4_4dyc0")]
 layout_mode = 2
-button_group = SubResource("ButtonGroup_cc4oi")
+button_group = SubResource("ButtonGroup_ny6u8")
 
 [node name="EarsPicker" parent="VBoxContainer/NPCEditor/VBoxContainer/TabContainer/Head Options" instance=ExtResource("4_4dyc0")]
 layout_mode = 2
-button_group = SubResource("ButtonGroup_4r850")
+button_group = SubResource("ButtonGroup_r7qa4")
 
 [node name="HairPicker" parent="VBoxContainer/NPCEditor/VBoxContainer/TabContainer/Head Options" instance=ExtResource("4_4dyc0")]
 layout_mode = 2
-button_group = SubResource("ButtonGroup_thngd")
+button_group = SubResource("ButtonGroup_1dqcv")
 
 [node name="Body Options" type="VBoxContainer" parent="VBoxContainer/NPCEditor/VBoxContainer/TabContainer"]
 visible = false
@@ -394,17 +398,17 @@ layout_mode = 2
 
 [node name="AccessoriesPicker" parent="VBoxContainer/NPCEditor/VBoxContainer/TabContainer/Body Options" instance=ExtResource("4_4dyc0")]
 layout_mode = 2
-button_group = SubResource("ButtonGroup_tvmcx")
+button_group = SubResource("ButtonGroup_tsn2o")
 
 [node name="AccessoriesPicker2" parent="VBoxContainer/NPCEditor/VBoxContainer/TabContainer/Body Options" node_paths=PackedStringArray("label", "button_holder") instance=ExtResource("4_4dyc0")]
 layout_mode = 2
-button_group = SubResource("ButtonGroup_y6mnu")
+button_group = SubResource("ButtonGroup_v5mnh")
 label = NodePath("../AccessoriesPicker/Label")
 button_holder = NodePath("../AccessoriesPicker/ScrollContainer/HBoxContainer")
 
 [node name="AccessoriesPicker3" parent="VBoxContainer/NPCEditor/VBoxContainer/TabContainer/Body Options" node_paths=PackedStringArray("label", "button_holder") instance=ExtResource("4_4dyc0")]
 layout_mode = 2
-button_group = SubResource("ButtonGroup_jvuo7")
+button_group = SubResource("ButtonGroup_j1l0g")
 label = NodePath("../AccessoriesPicker/Label")
 button_holder = NodePath("../AccessoriesPicker/ScrollContainer/HBoxContainer")
 
