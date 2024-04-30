@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="PlayerRivalResource" load_steps=4 format=3 uid="uid://dl31ic8xbffso"]
 
-[ext_resource type="Resource" uid="uid://yb8e3rujs5nl" path="res://common/roles/iron.tres" id="1_1e7uu"]
-[ext_resource type="Resource" uid="uid://4koktwjenpih" path="res://common/npc_resources/andries_is_moe.tres" id="1_56wvx"]
+[ext_resource type="Resource" uid="uid://3odoff5r71oh" path="res://common/roles/iron/iron.tres" id="1_1e7uu"]
+[ext_resource type="Resource" uid="uid://exfdy455d72r" path="res://common/npc_resources/charlie_ofzo.tres" id="1_1op42"]
 [ext_resource type="Script" path="res://entities/golfers/rivals/player_rival_resource.gd" id="1_ulgkv"]
 
 [resource]
@@ -9,4 +9,4 @@ script = ExtResource("1_ulgkv")
 name = "Player"
 level = 1
 role = ExtResource("1_1e7uu")
-npc_resource = ExtResource("1_56wvx")
+npc_resource = ExtResource("1_1op42")

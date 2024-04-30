@@ -1,5 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://b7bbpynerybum"]
-
-[ext_resource type="PackedScene" uid="uid://d2qdnkb2ycvda" path="res://common/battle/unit/roles/melee_behaviour_tree.tscn" id="1_i0jj2"]
-
-[node name="BehaviourTree" instance=ExtResource("1_i0jj2")]

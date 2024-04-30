@@ -2,7 +2,7 @@
 
 [ext_resource type="Resource" uid="uid://dm01uu1l6m7hb" path="res://entities/golfers/rivals/tiger_woods.tres" id="1_2cwpe"]
 [ext_resource type="Script" path="res://entities/teams/team_resource.gd" id="1_sadap"]
-[ext_resource type="Resource" uid="uid://3odoff5r71oh" path="res://common/roles/iron.tres" id="3_n6ori"]
+[ext_resource type="Resource" uid="uid://3odoff5r71oh" path="res://common/roles/iron/iron.tres" id="3_n6ori"]
 [ext_resource type="Resource" uid="uid://bb0xhouhvg42j" path="res://entities/golfers/jermbert_fongle.tres" id="3_u0s0l"]
 [ext_resource type="Resource" uid="uid://4koktwjenpih" path="res://common/npc_resources/andries_is_moe.tres" id="4_iycwh"]
 [ext_resource type="Script" path="res://entities/golfers/golfer_resource.gd" id="4_ldpdp"]

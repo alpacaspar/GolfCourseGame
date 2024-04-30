@@ -2,7 +2,7 @@
 
 [ext_resource type="Resource" uid="uid://dl31ic8xbffso" path="res://entities/golfers/rivals/player_rival_resource.tres" id="1_xh7sv"]
 [ext_resource type="Script" path="res://entities/golfers/golfer_resource.gd" id="2_eli4i"]
-[ext_resource type="Resource" uid="uid://3odoff5r71oh" path="res://common/roles/iron.tres" id="2_ti11k"]
+[ext_resource type="Resource" uid="uid://3odoff5r71oh" path="res://common/roles/iron/iron.tres" id="2_ti11k"]
 [ext_resource type="Resource" uid="uid://c4up0ea70klhf" path="res://entities/golfers/jaralius_derbel.tres" id="3_dcoiu"]
 [ext_resource type="Script" path="res://entities/teams/team_resource.gd" id="3_rgxn0"]
 [ext_resource type="Resource" uid="uid://exfdy455d72r" path="res://common/npc_resources/charlie_ofzo.tres" id="4_cdcyr"]

@@ -53,6 +53,7 @@ func perform():
 
     unit.animation_tree.set(ACTION_ONE_SHOT, AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
     ball = golf_ball.instantiate()
+    ball.owning_unit = unit
     add_child(ball)
     ball.global_position = unit.global_position + Vector3.UP * 0.2
 
