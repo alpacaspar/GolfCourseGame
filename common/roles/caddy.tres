@@ -1,11 +1,9 @@
-[gd_resource type="Resource" script_class="Role" load_steps=3 format=3 uid="uid://djj0fkyow7k6u"]
+[gd_resource type="Resource" script_class="Role" load_steps=2 format=3 uid="uid://djj0fkyow7k6u"]
 
 [ext_resource type="Script" path="res://common/roles/role.gd" id="1_0t72d"]
-[ext_resource type="PackedScene" uid="uid://bimjbe78w24f4" path="res://common/battle/unit/role_unit/support_unit.tscn" id="2_ktnr7"]
 
 [resource]
 script = ExtResource("1_0t72d")
 display_name = "Caddy"
 desired_distance = 2.0
 target_type = 1
-unit_scene = ExtResource("2_ktnr7")

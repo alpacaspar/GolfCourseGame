@@ -18,5 +18,3 @@ shape = SubResource("CapsuleShape3D_yo62r")
 [node name="Visuals" type="Node3D" parent="." node_paths=PackedStringArray("body")]
 script = ExtResource("2_vays6")
 body = NodePath("..")
-
-[node name="PrimaryAction" type="Node" parent="."]

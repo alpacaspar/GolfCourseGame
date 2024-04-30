@@ -1,14 +1,13 @@
 [gd_resource type="Resource" script_class="Role" load_steps=4 format=3 uid="uid://n2wwvf3uab1k"]
 
-[ext_resource type="PackedScene" uid="uid://coet3oi43guo7" path="res://entities/equipment/club_driver.tscn" id="1_10ji3"]
+[ext_resource type="PackedScene" uid="uid://df1aj4awrkd6t" path="res://common/battle/unit/roles/driver_action.tscn" id="1_bhydt"]
 [ext_resource type="Script" path="res://common/roles/role.gd" id="1_epsvo"]
-[ext_resource type="PackedScene" uid="uid://4e5g3mjxwfp0" path="res://common/battle/unit/role_unit/driver_unit.tscn" id="2_pw2ou"]
+[ext_resource type="PackedScene" uid="uid://coet3oi43guo7" path="res://entities/equipment/club_driver.tscn" id="2_pdemb"]
 
 [resource]
 script = ExtResource("1_epsvo")
 display_name = "Power Driver"
 desired_distance = 50.0
-target_type = 1
-unit_scene = ExtResource("2_pw2ou")
+primary_action = ExtResource("1_bhydt")
 primary_animation = &"character/character_drive"
-primary_equipment = ExtResource("1_10ji3")
+primary_equipment = ExtResource("2_pdemb")

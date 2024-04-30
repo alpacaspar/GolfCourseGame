@@ -6,8 +6,14 @@ const ACTION_ONE_SHOT: StringName = "parameters/ActionOneShot/request"
 const PROJECTILE_SPEED = 30
 const PREDICTION_BUFFER_SIZE = 5
 
-@export var unit: Unit
 @export var golf_ball: PackedScene
+
+var unit: Unit:
+    get:
+        if not unit:
+            unit = get_parent()
+
+        return unit
 
 var current_target: Unit
 

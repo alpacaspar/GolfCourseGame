@@ -2,6 +2,7 @@ extends BTUtilityLeaf
 
 
 @export var max_distance := 50.0
+@export var utility_multiplier := 1.0
 
 
 func _tick(_blackboard: Dictionary, _delta: float) -> int:

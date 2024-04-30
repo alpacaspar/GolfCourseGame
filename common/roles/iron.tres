@@ -1,14 +1,13 @@
 [gd_resource type="Resource" script_class="Role" load_steps=4 format=3 uid="uid://3odoff5r71oh"]
 
 [ext_resource type="Script" path="res://common/roles/role.gd" id="1_a5bv5"]
-[ext_resource type="PackedScene" uid="uid://do4drhyodkjp6" path="res://common/battle/unit/role_unit/melee_unit.tscn" id="2_4lf3v"]
-[ext_resource type="PackedScene" uid="uid://d346oafjyah52" path="res://entities/equipment/club_iron.tscn" id="2_crto2"]
+[ext_resource type="PackedScene" uid="uid://bko8eacckxui3" path="res://common/battle/unit/roles/melee_action.tscn" id="1_h80eq"]
+[ext_resource type="PackedScene" uid="uid://d346oafjyah52" path="res://entities/equipment/club_iron.tscn" id="2_m3iqk"]
 
 [resource]
 script = ExtResource("1_a5bv5")
 display_name = "Ironnaut"
 desired_distance = 1.5
-target_type = null
-unit_scene = ExtResource("2_4lf3v")
+primary_action = ExtResource("1_h80eq")
 primary_animation = &"character/character_swing"
-primary_equipment = ExtResource("2_crto2")
+primary_equipment = ExtResource("2_m3iqk")

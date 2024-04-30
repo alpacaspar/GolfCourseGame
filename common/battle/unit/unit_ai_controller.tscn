@@ -1,21 +1,17 @@
-[gd_scene load_steps=14 format=3 uid="uid://bmbpmw618ddnf"]
+[gd_scene load_steps=6 format=3 uid="uid://bmbpmw618ddnf"]
 
 [ext_resource type="Script" path="res://common/battle/unit/unit_ai_controller.gd" id="1_vqycx"]
-[ext_resource type="Script" path="res://common/behaviour_tree/behaviour_tree.gd" id="2_tqmpt"]
-[ext_resource type="Script" path="res://common/behaviour_tree/bt_sequence.gd" id="3_k1i0q"]
-[ext_resource type="Script" path="res://common/behaviour_tree/utility/bt_utility_selector.gd" id="4_6q82u"]
-[ext_resource type="Script" path="res://common/behaviour_tree/utility/bt_utility_decorator_multiply.gd" id="5_mjvnh"]
-[ext_resource type="Script" path="res://common/behaviour_tree/utility/bt_utility_leaf.gd" id="5_ya7oy"]
-[ext_resource type="Script" path="res://common/behaviour_tree/utility/bt_utility_decorator_power.gd" id="6_jugl6"]
-[ext_resource type="Script" path="res://common/battle/unit/behaviour/target_melee.gd" id="8_0vq3w"]
-[ext_resource type="Script" path="res://common/battle/unit/behaviour/goto.gd" id="9_0l5lm"]
-[ext_resource type="Script" path="res://common/battle/unit/behaviour/keep_current_target.gd" id="9_d851d"]
+[ext_resource type="PackedScene" uid="uid://d2qdnkb2ycvda" path="res://common/battle/unit/roles/melee_behaviour_tree.tscn" id="2_ekohi"]
+[ext_resource type="Resource" uid="uid://n2wwvf3uab1k" path="res://common/roles/driver.tres" id="4_p30oq"]
+[ext_resource type="PackedScene" uid="uid://b7bbpynerybum" path="res://common/battle/unit/roles/driver_behaviour_tree.tscn" id="5_77s38"]
 [ext_resource type="Resource" uid="uid://3odoff5r71oh" path="res://common/roles/iron.tres" id="9_shdry"]
-[ext_resource type="Script" path="res://common/battle/unit/behaviour/look_at_target.gd" id="10_jtbm3"]
-[ext_resource type="Script" path="res://common/battle/unit/behaviour/perform_action.gd" id="11_th7i2"]
 
 [node name="Controller" type="Node3D"]
 script = ExtResource("1_vqycx")
+behaviour_tree_scene = {
+ExtResource("9_shdry"): ExtResource("2_ekohi"),
+ExtResource("4_p30oq"): ExtResource("5_77s38")
+}
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 avoidance_enabled = true
@@ -23,60 +19,3 @@ height = 2.0
 radius = 0.3
 neighbor_distance = 5.0
 max_neighbors = 3
-
-[node name="BehaviourTree" type="Node" parent="."]
-script = ExtResource("2_tqmpt")
-
-[node name="Sequence" type="Node" parent="BehaviourTree"]
-script = ExtResource("3_k1i0q")
-
-[node name="UtilitySelector" type="Node" parent="BehaviourTree/Sequence"]
-script = ExtResource("4_6q82u")
-
-[node name="TargetRanged" type="Node" parent="BehaviourTree/Sequence/UtilitySelector"]
-script = ExtResource("5_ya7oy")
-
-[node name="MultiplyUtility" type="Node" parent="BehaviourTree/Sequence/UtilitySelector"]
-script = ExtResource("5_mjvnh")
-factor = 2.0
-
-[node name="PowerUtility" type="Node" parent="BehaviourTree/Sequence/UtilitySelector/MultiplyUtility"]
-script = ExtResource("6_jugl6")
-factor = 3.0
-
-[node name="SeekSupport" type="Node" parent="BehaviourTree/Sequence/UtilitySelector/MultiplyUtility/PowerUtility"]
-script = ExtResource("5_ya7oy")
-
-[node name="MultiplyUtility2" type="Node" parent="BehaviourTree/Sequence/UtilitySelector"]
-script = ExtResource("5_mjvnh")
-factor = 1.1
-
-[node name="TargetMelee" type="Node" parent="BehaviourTree/Sequence/UtilitySelector/MultiplyUtility2"]
-script = ExtResource("8_0vq3w")
-target_role = ExtResource("9_shdry")
-
-[node name="MultiplyUtility3" type="Node" parent="BehaviourTree/Sequence/UtilitySelector"]
-script = ExtResource("5_mjvnh")
-factor = 1.5
-
-[node name="TargetSupport" type="Node" parent="BehaviourTree/Sequence/UtilitySelector/MultiplyUtility3"]
-script = ExtResource("5_ya7oy")
-
-[node name="MultiplyUtility4" type="Node" parent="BehaviourTree/Sequence/UtilitySelector"]
-script = ExtResource("5_mjvnh")
-factor = 0.9
-
-[node name="TargetCar" type="Node" parent="BehaviourTree/Sequence/UtilitySelector/MultiplyUtility4"]
-script = ExtResource("5_ya7oy")
-
-[node name="KeepCurrentTarget" type="Node" parent="BehaviourTree/Sequence/UtilitySelector"]
-script = ExtResource("9_d851d")
-
-[node name="Goto" type="Node" parent="BehaviourTree/Sequence"]
-script = ExtResource("9_0l5lm")
-
-[node name="PerformAction" type="Node" parent="BehaviourTree/Sequence"]
-script = ExtResource("11_th7i2")
-
-[node name="LookAtTarget" type="Node" parent="BehaviourTree/Sequence"]
-script = ExtResource("10_jtbm3")
