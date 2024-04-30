@@ -14,6 +14,7 @@ name = "Rough"
 albedo_texture = ExtResource("1_2rdnk")
 normal_texture = ExtResource("2_8x2rt")
 uv_scale = 1.0
+uv_rotation = 1.0
 
 [sub_resource type="Terrain3DTexture" id="Terrain3DTexture_ul5sv"]
 name = "Semirough"
@@ -21,6 +22,7 @@ texture_id = 1
 albedo_texture = ExtResource("3_uml71")
 normal_texture = ExtResource("4_r4d6r")
 uv_scale = 1.0
+uv_rotation = 1.0
 
 [sub_resource type="Terrain3DTexture" id="Terrain3DTexture_s7282"]
 name = "Fairway"
@@ -28,6 +30,7 @@ texture_id = 2
 albedo_texture = ExtResource("5_7cmsx")
 normal_texture = ExtResource("6_ggn4v")
 uv_scale = 1.0
+uv_rotation = 0.02
 
 [sub_resource type="Terrain3DTexture" id="Terrain3DTexture_ofja4"]
 name = "Green"
