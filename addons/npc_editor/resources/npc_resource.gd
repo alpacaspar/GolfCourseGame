@@ -10,7 +10,10 @@ extends Resource
 @export var ear_index: int
 @export var mouth_index: int
 @export var hair_index: int
+
 @export var accessory_index: int
+@export var shirt_index: int
+@export var pants_index: int
 
 @export var hair_color: Color
 @export var skin_color: Color
@@ -24,7 +27,7 @@ extends Resource
 
 
 func _init(_name := "", 
-    _eye_index := 0, _eyebrow_index := 0, _nose_index := 0, _ear_index := 0, _mouth_index := 0, _hair_index := 0, _accessory_index := 0, 
+    _eye_index := 0, _eyebrow_index := 0, _nose_index := 0, _ear_index := 0, _mouth_index := 0, _hair_index := 0, _accessory_index := 0, _shirt_index := 0, _pants_index := 0,
     _hair_color := Color.WHITE, _skin_color := Color.WHITE, _shirt_color := Color.WHITE, _pants_color := Color.WHITE,
     _eye_offset := 0, _eyebrow_offset := 0, _mouth_offset := 0, _mouth_size:= 0):
     name = _name
@@ -36,6 +39,8 @@ func _init(_name := "",
     mouth_index = _mouth_index
     hair_index = _hair_index
     accessory_index = _accessory_index
+    shirt_index = _shirt_index
+    pants_index = _pants_index
 
     hair_color = _hair_color
     skin_color = _skin_color

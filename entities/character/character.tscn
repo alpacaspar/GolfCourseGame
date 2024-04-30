@@ -920,12 +920,13 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[node name="BaseCharacter" type="Node3D" node_paths=PackedStringArray("ear_mesh_instance", "nose_mesh_instance", "hair_mesh_instance", "face_mesh_instance", "collar_mesh_instance", "animation_tree", "right_hand_holder")]
+[node name="BaseCharacter" type="Node3D" node_paths=PackedStringArray("ear_mesh_instance", "nose_mesh_instance", "hair_mesh_instance", "face_mesh_instance", "body_mesh_instance", "collar_mesh_instance", "animation_tree", "right_hand_holder")]
 script = ExtResource("1_deigj")
 ear_mesh_instance = NodePath("Armature/GeneralSkeleton/Ears")
 nose_mesh_instance = NodePath("Armature/GeneralSkeleton/Nose")
 hair_mesh_instance = NodePath("Armature/GeneralSkeleton/Hair")
 face_mesh_instance = NodePath("Armature/GeneralSkeleton/Face")
+body_mesh_instance = NodePath("Armature/GeneralSkeleton/Body_001")
 collar_mesh_instance = NodePath("Armature/GeneralSkeleton/Collar")
 animation_tree = NodePath("AnimationTree")
 right_hand_holder = NodePath("Armature/GeneralSkeleton/RightHandBoneAttachment3D/Marker3D")

@@ -12,6 +12,7 @@ signal on_swing_ended
 #@export var accessory_mesh_instance: MeshInstance3D
 
 @export var face_mesh_instance: MeshInstance3D
+@export var body_mesh_instance: MeshInstance3D
 
 # TODO: Add some reference to material overrides for body / clothes.
 @export var collar_mesh_instance: MeshInstance3D

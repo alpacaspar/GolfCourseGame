@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://cdh3hkt0sfd8y"]
+[gd_scene load_steps=55 format=3 uid="uid://cdh3hkt0sfd8y"]
 
 [ext_resource type="Script" path="res://common/character_factory/character_factory.gd" id="1_i4r0e"]
 [ext_resource type="ArrayMesh" uid="uid://ctvdng4wa44ne" path="res://entities/character/head/character_ears_1.res" id="2_r6hdl"]
@@ -21,17 +21,101 @@
 [ext_resource type="ArrayMesh" uid="uid://tup7higmxt78" path="res://entities/character/clothing/clothing_suit_collar.res" id="19_72fxk"]
 [ext_resource type="ArrayMesh" uid="uid://56b0hru0fbli" path="res://entities/character/clothing/clothing_tshirt_collar.res" id="20_y3y35"]
 [ext_resource type="ArrayMesh" uid="uid://dkrsmagi0wrxo" path="res://entities/character/clothing/clothing_vneck_collar.res" id="21_ximqg"]
+[ext_resource type="Texture2D" uid="uid://bsm4olkjvft4u" path="res://entities/character/clothing/clothing_polo_color.png" id="22_01cw5"]
 [ext_resource type="CompressedTexture2DArray" uid="uid://b2s2xnqkfst6b" path="res://entities/character/head/character_eyes_texture.svg" id="22_rt4sy"]
 [ext_resource type="CompressedTexture2DArray" uid="uid://b5l0k8hd6jdcu" path="res://entities/character/head/character_eyebrows_texture.svg" id="23_2orqr"]
+[ext_resource type="Texture2D" uid="uid://d38oic36tcw6a" path="res://entities/character/clothing/clothing_polo_normal.png" id="23_aejj4"]
+[ext_resource type="Texture2D" uid="uid://fkavg7gqyo8q" path="res://entities/character/clothing/clothing_polo_roughness.png" id="24_al8ho"]
 [ext_resource type="CompressedTexture2DArray" uid="uid://cwrwjiecowt3n" path="res://entities/character/head/character_mouth_textures.svg" id="24_mj7xl"]
 [ext_resource type="PackedScene" uid="uid://ck84hpbuds8v8" path="res://entities/character/character.tscn" id="25_gqjrl"]
+[ext_resource type="Script" path="res://common/character_factory/npc_clothing_resource.gd" id="25_ka2mo"]
+[ext_resource type="Texture2D" uid="uid://dyt5mfqtaght8" path="res://entities/character/clothing/clothing_pants_albedo.png" id="26_0w7xv"]
+[ext_resource type="Texture2D" uid="uid://cxf28ttjgg2se" path="res://entities/character/clothing/clothing_shirt_color.png" id="26_8i0yn"]
+[ext_resource type="Texture2D" uid="uid://2mqcciu3x6ri" path="res://entities/character/clothing/clothing_pants_normal.png" id="27_268xj"]
+[ext_resource type="Texture2D" uid="uid://dev6qgd7ybesl" path="res://entities/character/clothing/clothing_shirt_normal.png" id="27_c37pm"]
+[ext_resource type="Texture2D" uid="uid://cmmqgcweqbbeo" path="res://entities/character/clothing/clothing_pants_roughness.png" id="28_nyns6"]
+[ext_resource type="Texture2D" uid="uid://blcu1rnv3kay1" path="res://entities/character/clothing/clothing_shirt_roughness.png" id="28_sudf7"]
+[ext_resource type="Texture2D" uid="uid://b008tvyyphrub" path="res://entities/character/clothing/clothing_suit_color.png" id="29_dlnaa"]
+[ext_resource type="Texture2D" uid="uid://c1l6tfqjm2pfu" path="res://entities/character/clothing/clothing_suit_normal.png" id="30_rdyfq"]
+[ext_resource type="Texture2D" uid="uid://b52h4peiv7to7" path="res://entities/character/clothing/clothing_suit_roughness.png" id="31_c52nq"]
+[ext_resource type="Texture2D" uid="uid://b1xcfdusiin1a" path="res://entities/character/clothing/clothing_tshirt_albedo.png" id="32_k574i"]
+[ext_resource type="Texture2D" uid="uid://cfedc2vow4n07" path="res://entities/character/clothing/clothing_tshirt_normal.png" id="33_u68yu"]
+[ext_resource type="Texture2D" uid="uid://dtv820rsh681j" path="res://entities/character/clothing/clothing_tshirt_rougness.png" id="34_h3tse"]
+[ext_resource type="Texture2D" uid="uid://d4eohxwua4nx1" path="res://entities/character/clothing/clothing_turtleneck_color.png" id="35_kaxii"]
+[ext_resource type="Texture2D" uid="uid://d01adicnejwbw" path="res://entities/character/clothing/clothing_turtleneck_normal.png" id="36_g6r6c"]
+[ext_resource type="Texture2D" uid="uid://be5cx5bnjm8g8" path="res://entities/character/clothing/clothing_turtleneck_roughness.png" id="37_ty4gd"]
+[ext_resource type="Texture2D" uid="uid://dt40r10u1trww" path="res://entities/character/clothing/clothing_vneck_color.png" id="38_02s38"]
+[ext_resource type="Texture2D" uid="uid://btqk1urg86jah" path="res://entities/character/clothing/clothing_vneck_normal.png" id="39_equfc"]
+[ext_resource type="Texture2D" uid="uid://1sf3d1hhu003" path="res://entities/character/clothing/clothing_vneck_roughness.png" id="40_ju0nw"]
+
+[sub_resource type="Resource" id="Resource_ws3p0"]
+resource_local_to_scene = true
+script = ExtResource("25_ka2mo")
+name = "Polo"
+collar_mesh = ExtResource("18_kc5j8")
+albedo = ExtResource("22_01cw5")
+roughness = ExtResource("24_al8ho")
+normal = ExtResource("23_aejj4")
+
+[sub_resource type="Resource" id="Resource_lmwkt"]
+resource_local_to_scene = true
+script = ExtResource("25_ka2mo")
+name = "Shirt"
+collar_mesh = ExtResource("18_kc5j8")
+albedo = ExtResource("26_8i0yn")
+roughness = ExtResource("28_sudf7")
+normal = ExtResource("27_c37pm")
+
+[sub_resource type="Resource" id="Resource_qrkcb"]
+resource_local_to_scene = true
+script = ExtResource("25_ka2mo")
+name = "Suit"
+collar_mesh = ExtResource("19_72fxk")
+albedo = ExtResource("29_dlnaa")
+roughness = ExtResource("31_c52nq")
+normal = ExtResource("30_rdyfq")
+
+[sub_resource type="Resource" id="Resource_o5xnm"]
+resource_local_to_scene = true
+script = ExtResource("25_ka2mo")
+name = "TShirt"
+collar_mesh = ExtResource("20_y3y35")
+albedo = ExtResource("32_k574i")
+roughness = ExtResource("34_h3tse")
+normal = ExtResource("33_u68yu")
+
+[sub_resource type="Resource" id="Resource_2y4ql"]
+resource_local_to_scene = true
+script = ExtResource("25_ka2mo")
+name = "Turtleneck"
+albedo = ExtResource("35_kaxii")
+roughness = ExtResource("37_ty4gd")
+normal = ExtResource("36_g6r6c")
+
+[sub_resource type="Resource" id="Resource_flllq"]
+resource_local_to_scene = true
+script = ExtResource("25_ka2mo")
+name = "VNeck"
+collar_mesh = ExtResource("21_ximqg")
+albedo = ExtResource("38_02s38")
+roughness = ExtResource("40_ju0nw")
+normal = ExtResource("39_equfc")
+
+[sub_resource type="Resource" id="Resource_50ag1"]
+resource_local_to_scene = true
+script = ExtResource("25_ka2mo")
+name = "Pants"
+albedo = ExtResource("26_0w7xv")
+roughness = ExtResource("28_nyns6")
+normal = ExtResource("27_268xj")
 
 [node name="CharacterFactory" type="Node"]
 script = ExtResource("1_i4r0e")
 ear_meshes = Array[Mesh]([ExtResource("2_r6hdl"), ExtResource("3_wcwmv"), ExtResource("4_ujpgv"), ExtResource("5_tdhg7"), ExtResource("6_gepix")])
 hair_meshes = Array[Mesh]([ExtResource("7_we6f7"), ExtResource("8_44eej"), ExtResource("9_4fntv"), ExtResource("10_0bh4e"), ExtResource("11_2rrxp"), ExtResource("12_pfcll"), ExtResource("13_jky7t")])
 nose_meshes = Array[Mesh]([ExtResource("14_elv4t"), ExtResource("15_urki0"), ExtResource("16_2jtp3"), ExtResource("17_3tgyj")])
-collar_meshes = Array[Mesh]([ExtResource("18_kc5j8"), ExtResource("19_72fxk"), ExtResource("20_y3y35"), ExtResource("21_ximqg")])
+shirt_datas = Array[ExtResource("25_ka2mo")]([SubResource("Resource_ws3p0"), SubResource("Resource_lmwkt"), SubResource("Resource_qrkcb"), SubResource("Resource_o5xnm"), SubResource("Resource_2y4ql"), SubResource("Resource_flllq")])
+pants_datas = Array[ExtResource("25_ka2mo")]([SubResource("Resource_50ag1")])
 eye_textures = ExtResource("22_rt4sy")
 eyebrow_textures = ExtResource("23_2orqr")
 mouth_textures = ExtResource("24_mj7xl")

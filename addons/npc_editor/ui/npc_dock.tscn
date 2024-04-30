@@ -10,37 +10,37 @@
 [sub_resource type="LabelSettings" id="LabelSettings_dt0a8"]
 font_size = 32
 
-[sub_resource type="ButtonGroup" id="ButtonGroup_m68mp"]
+[sub_resource type="ButtonGroup" id="ButtonGroup_yhn62"]
 resource_name = "Eyes"
 
-[sub_resource type="ButtonGroup" id="ButtonGroup_2cg6c"]
+[sub_resource type="ButtonGroup" id="ButtonGroup_ek18m"]
 resource_name = "Eyebrows"
 
-[sub_resource type="ButtonGroup" id="ButtonGroup_uy2u0"]
+[sub_resource type="ButtonGroup" id="ButtonGroup_k74kb"]
 resource_name = "Mouths"
 
-[sub_resource type="ButtonGroup" id="ButtonGroup_ny6u8"]
+[sub_resource type="ButtonGroup" id="ButtonGroup_vvlki"]
 resource_name = "Noses"
 
-[sub_resource type="ButtonGroup" id="ButtonGroup_r7qa4"]
+[sub_resource type="ButtonGroup" id="ButtonGroup_ncvym"]
 resource_name = "Ears"
 
-[sub_resource type="ButtonGroup" id="ButtonGroup_1dqcv"]
+[sub_resource type="ButtonGroup" id="ButtonGroup_6yo5w"]
 resource_name = "Hair"
 
-[sub_resource type="ButtonGroup" id="ButtonGroup_tsn2o"]
+[sub_resource type="ButtonGroup" id="ButtonGroup_7qiq2"]
 resource_name = "Accessories"
 
-[sub_resource type="ButtonGroup" id="ButtonGroup_v5mnh"]
-resource_name = "Accessories"
+[sub_resource type="ButtonGroup" id="ButtonGroup_i8kur"]
+resource_name = "Shirt"
 
-[sub_resource type="ButtonGroup" id="ButtonGroup_j1l0g"]
-resource_name = "Accessories"
+[sub_resource type="ButtonGroup" id="ButtonGroup_k7f57"]
+resource_name = "Pants"
 
 [sub_resource type="LabelSettings" id="LabelSettings_ka5pb"]
 font_size = 24
 
-[node name="NpcCreator" type="Control" node_paths=PackedStringArray("npc_resource", "eyes_option_picker", "eyebrows_option_picker", "noses_option_picker", "ears_option_picker", "mouths_option_picker", "hair_option_picker", "accessories_option_picker", "eye_offset_slider", "eyebrow_offset_slider", "mouth_offset_slider", "mouth_size_slider", "hair_color_picker", "skin_color_picker", "shirt_color_picker", "pants_color_picker", "name_field", "load_button", "save_button", "save_as_button", "preview", "zoom_slider", "rotation_slider", "rotation_box", "error_display", "error_icon")]
+[node name="NpcCreator" type="Control" node_paths=PackedStringArray("npc_resource", "eyes_option_picker", "eyebrows_option_picker", "noses_option_picker", "ears_option_picker", "mouths_option_picker", "hair_option_picker", "accessories_option_picker", "shirt_option_picker", "pants_option_picker", "eye_offset_slider", "eyebrow_offset_slider", "mouth_offset_slider", "mouth_size_slider", "hair_color_picker", "skin_color_picker", "shirt_color_picker", "pants_color_picker", "name_field", "load_button", "save_button", "save_as_button", "preview", "zoom_slider", "rotation_slider", "rotation_box", "error_display", "error_icon")]
 layout_mode = 3
 anchors_preset = 9
 anchor_bottom = 1.0
@@ -55,6 +55,8 @@ ears_option_picker = NodePath("VBoxContainer/NPCEditor/VBoxContainer/TabContaine
 mouths_option_picker = NodePath("VBoxContainer/NPCEditor/VBoxContainer/TabContainer/Face Options/MouthPicker")
 hair_option_picker = NodePath("VBoxContainer/NPCEditor/VBoxContainer/TabContainer/Head Options/HairPicker")
 accessories_option_picker = NodePath("VBoxContainer/NPCEditor/VBoxContainer/TabContainer/Body Options/AccessoriesPicker")
+shirt_option_picker = NodePath("VBoxContainer/NPCEditor/VBoxContainer/TabContainer/Body Options/ShirtPicker")
+pants_option_picker = NodePath("VBoxContainer/NPCEditor/VBoxContainer/TabContainer/Body Options/PantsPicker")
 eye_offset_slider = NodePath("VBoxContainer/NPCEditor/VBoxContainer/TabContainer/Face Options/EyeOffset/HSlider")
 eyebrow_offset_slider = NodePath("VBoxContainer/NPCEditor/VBoxContainer/TabContainer/Face Options/EyebrowOffset/HSlider")
 mouth_offset_slider = NodePath("VBoxContainer/NPCEditor/VBoxContainer/TabContainer/Face Options/MouthOffset/HSlider")
@@ -282,7 +284,7 @@ layout_mode = 2
 
 [node name="EyesPicker" parent="VBoxContainer/NPCEditor/VBoxContainer/TabContainer/Face Options" instance=ExtResource("4_4dyc0")]
 layout_mode = 2
-button_group = SubResource("ButtonGroup_m68mp")
+button_group = SubResource("ButtonGroup_yhn62")
 
 [node name="EyeOffset" type="HBoxContainer" parent="VBoxContainer/NPCEditor/VBoxContainer/TabContainer/Face Options"]
 layout_mode = 2
@@ -307,7 +309,7 @@ value = 0.51
 
 [node name="EyebrowsPicker" parent="VBoxContainer/NPCEditor/VBoxContainer/TabContainer/Face Options" instance=ExtResource("4_4dyc0")]
 layout_mode = 2
-button_group = SubResource("ButtonGroup_2cg6c")
+button_group = SubResource("ButtonGroup_ek18m")
 
 [node name="EyebrowOffset" type="HBoxContainer" parent="VBoxContainer/NPCEditor/VBoxContainer/TabContainer/Face Options"]
 layout_mode = 2
@@ -332,7 +334,7 @@ value = 0.63
 
 [node name="MouthPicker" parent="VBoxContainer/NPCEditor/VBoxContainer/TabContainer/Face Options" instance=ExtResource("4_4dyc0")]
 layout_mode = 2
-button_group = SubResource("ButtonGroup_uy2u0")
+button_group = SubResource("ButtonGroup_k74kb")
 
 [node name="MouthOffset" type="HBoxContainer" parent="VBoxContainer/NPCEditor/VBoxContainer/TabContainer/Face Options"]
 layout_mode = 2
@@ -382,15 +384,15 @@ layout_mode = 2
 
 [node name="NosePicker" parent="VBoxContainer/NPCEditor/VBoxContainer/TabContainer/Head Options" instance=ExtResource("4_4dyc0")]
 layout_mode = 2
-button_group = SubResource("ButtonGroup_ny6u8")
+button_group = SubResource("ButtonGroup_vvlki")
 
 [node name="EarsPicker" parent="VBoxContainer/NPCEditor/VBoxContainer/TabContainer/Head Options" instance=ExtResource("4_4dyc0")]
 layout_mode = 2
-button_group = SubResource("ButtonGroup_r7qa4")
+button_group = SubResource("ButtonGroup_ncvym")
 
 [node name="HairPicker" parent="VBoxContainer/NPCEditor/VBoxContainer/TabContainer/Head Options" instance=ExtResource("4_4dyc0")]
 layout_mode = 2
-button_group = SubResource("ButtonGroup_1dqcv")
+button_group = SubResource("ButtonGroup_6yo5w")
 
 [node name="Body Options" type="VBoxContainer" parent="VBoxContainer/NPCEditor/VBoxContainer/TabContainer"]
 visible = false
@@ -398,19 +400,15 @@ layout_mode = 2
 
 [node name="AccessoriesPicker" parent="VBoxContainer/NPCEditor/VBoxContainer/TabContainer/Body Options" instance=ExtResource("4_4dyc0")]
 layout_mode = 2
-button_group = SubResource("ButtonGroup_tsn2o")
+button_group = SubResource("ButtonGroup_7qiq2")
 
-[node name="AccessoriesPicker2" parent="VBoxContainer/NPCEditor/VBoxContainer/TabContainer/Body Options" node_paths=PackedStringArray("label", "button_holder") instance=ExtResource("4_4dyc0")]
+[node name="ShirtPicker" parent="VBoxContainer/NPCEditor/VBoxContainer/TabContainer/Body Options" instance=ExtResource("4_4dyc0")]
 layout_mode = 2
-button_group = SubResource("ButtonGroup_v5mnh")
-label = NodePath("../AccessoriesPicker/Label")
-button_holder = NodePath("../AccessoriesPicker/ScrollContainer/HBoxContainer")
+button_group = SubResource("ButtonGroup_i8kur")
 
-[node name="AccessoriesPicker3" parent="VBoxContainer/NPCEditor/VBoxContainer/TabContainer/Body Options" node_paths=PackedStringArray("label", "button_holder") instance=ExtResource("4_4dyc0")]
+[node name="PantsPicker" parent="VBoxContainer/NPCEditor/VBoxContainer/TabContainer/Body Options" instance=ExtResource("4_4dyc0")]
 layout_mode = 2
-button_group = SubResource("ButtonGroup_j1l0g")
-label = NodePath("../AccessoriesPicker/Label")
-button_holder = NodePath("../AccessoriesPicker/ScrollContainer/HBoxContainer")
+button_group = SubResource("ButtonGroup_k7f57")
 
 [node name="ReferenceRect4" type="ReferenceRect" parent="VBoxContainer/NPCEditor/VBoxContainer"]
 custom_minimum_size = Vector2(10, 0)

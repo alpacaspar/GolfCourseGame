@@ -27,6 +27,8 @@ extends Control
 @export var mouths_option_picker: NPCCustomizerPicker
 @export var hair_option_picker: NPCCustomizerPicker
 @export var accessories_option_picker: NPCCustomizerPicker
+@export var shirt_option_picker: NPCCustomizerPicker
+@export var pants_option_picker: NPCCustomizerPicker
 
 @export_subgroup("Offset Sliders")
 @export var eye_offset_slider: Slider
@@ -73,6 +75,8 @@ func make_ready(preview_scene):
 
 	hair_color_picker.color_changed.connect(_update_character)
 	skin_color_picker.color_changed.connect(_update_character)
+	shirt_color_picker.color_changed.connect(_update_character)
+	pants_color_picker.color_changed.connect(_update_character)
 
 	load_button.pressed.connect(_load)
 	save_button.pressed.connect(_save)
@@ -90,11 +94,13 @@ func make_ready(preview_scene):
 	await _set_button_connections(preview_scene, CharacterFactory.nose_meshes, false, noses_option_picker)
 	await _set_button_connections(preview_scene, CharacterFactory.ear_meshes, false, ears_option_picker)
 	await _set_button_connections(preview_scene, CharacterFactory.hair_meshes, true, hair_option_picker)
-	#await _set_button_connections(preview_scene, CharacterFactory.accessory_meshes, false, accessories_option_picker)
 
 	await _set_face_button_connections(preview_scene, CharacterFactory.eye_textures, eyes_option_picker)
 	await _set_face_button_connections(preview_scene, CharacterFactory.mouth_textures, mouths_option_picker)
 	await _set_face_button_connections(preview_scene, CharacterFactory.eyebrow_textures, eyebrows_option_picker)
+
+	await _set_body_button_connections(preview_scene, CharacterFactory.shirt_datas, shirt_option_picker)
+	await _set_body_button_connections(preview_scene, CharacterFactory.pants_datas, pants_option_picker)
 
 	_update_character()
 
@@ -127,11 +133,15 @@ func _update_character(_value = 0):
 	
 	edited_resource.eye_index = eyes_option_picker.get_current_index()
 	edited_resource.eyebrow_index = eyebrows_option_picker.get_current_index()
+	edited_resource.mouth_index = mouths_option_picker.get_current_index()
+	
 	edited_resource.nose_index = noses_option_picker.get_current_index()
 	edited_resource.ear_index = ears_option_picker.get_current_index()
-	edited_resource.mouth_index = mouths_option_picker.get_current_index()
 	edited_resource.hair_index = hair_option_picker.get_current_index()
+
 	edited_resource.accessory_index = accessories_option_picker.get_current_index()
+	edited_resource.shirt_index = shirt_option_picker.get_current_index()
+	edited_resource.pants_index = pants_option_picker.get_current_index()
 
 	edited_resource.hair_color = hair_color_picker.color
 	edited_resource.skin_color = skin_color_picker.color
@@ -152,11 +162,15 @@ func _load():
 
 	eyes_option_picker.set_button_index(_resource.eye_index)
 	eyebrows_option_picker.set_button_index(_resource.eyebrow_index)
+	mouths_option_picker.set_button_index(_resource.mouth_index)
+	
 	noses_option_picker.set_button_index(_resource.nose_index)
 	ears_option_picker.set_button_index(_resource.ear_index)
-	mouths_option_picker.set_button_index(_resource.mouth_index)
 	hair_option_picker.set_button_index(_resource.hair_index)
+
 	accessories_option_picker.set_button_index(_resource.accessory_index)
+	shirt_option_picker.set_button_index(_resource.shirt_index)
+	pants_option_picker.set_button_index(_resource.pants_index)
 
 	hair_color_picker.color = _resource.hair_color
 	skin_color_picker.color = _resource.skin_color
@@ -228,6 +242,12 @@ func _set_face_button_connections(preview_scene, collection, picker: NPCCustomiz
 	for option in collection.get_layers():
 		var texture = await ImageTexture.create_from_image(collection.get_layer_data(option))
 		picker.add_button(texture, _update_character)
+
+
+func _set_body_button_connections(preview_scene, collection, picker: NPCCustomizerPicker):
+	for option in collection:
+		#var texture = await ImageTexture.create_from_image(collection.get_layer_data(option))
+		picker.add_button(null, _update_character)
 
 
 func _set_rotation_value(_value):
