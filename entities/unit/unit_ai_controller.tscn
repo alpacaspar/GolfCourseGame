@@ -1,16 +1,16 @@
 [gd_scene load_steps=6 format=3 uid="uid://bmbpmw618ddnf"]
 
-[ext_resource type="Script" path="res://entities/unit/unit_ai_controller.gd" id="1_vqycx"]
-[ext_resource type="Resource" uid="uid://3odoff5r71oh" path="res://common/roles/iron/iron.tres" id="2_c62pb"]
-[ext_resource type="PackedScene" uid="uid://d2qdnkb2ycvda" path="res://common/roles/iron/melee_behaviour_tree.tscn" id="3_v14hs"]
-[ext_resource type="Resource" uid="uid://n2wwvf3uab1k" path="res://common/roles/driver/driver.tres" id="4_mga7u"]
-[ext_resource type="PackedScene" uid="uid://b7bbpynerybum" path="res://common/roles/driver/driver_behaviour_tree.tscn" id="5_njq6f"]
+[ext_resource type="Script" path="res://entities/unit/unit_ai_controller.gd" id="1_4m1b1"]
+[ext_resource type="Resource" uid="uid://3odoff5r71oh" path="res://common/roles/iron/iron.tres" id="2_l7kqh"]
+[ext_resource type="PackedScene" uid="uid://d2qdnkb2ycvda" path="res://common/roles/iron/melee_behaviour_tree.tscn" id="3_0yyls"]
+[ext_resource type="Resource" uid="uid://n2wwvf3uab1k" path="res://common/roles/driver/driver.tres" id="4_efv2t"]
+[ext_resource type="PackedScene" uid="uid://b7bbpynerybum" path="res://common/roles/driver/driver_behaviour_tree.tscn" id="5_p0e7b"]
 
 [node name="Controller" type="Node3D"]
-script = ExtResource("1_vqycx")
+script = ExtResource("1_4m1b1")
 behaviour_tree_scene = {
-ExtResource("2_c62pb"): ExtResource("3_v14hs"),
-ExtResource("4_mga7u"): ExtResource("5_njq6f")
+ExtResource("2_l7kqh"): ExtResource("3_0yyls"),
+ExtResource("4_efv2t"): ExtResource("5_p0e7b")
 }
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
