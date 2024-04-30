@@ -2,7 +2,7 @@ extends BTUtilityLeaf
 
 
 @export var target_role: Role
-@export var max_distance := 50.0
+@export var max_distance := 100.0
 @export var target_team := TargetTeam.OPPONENT
 @export var utility_multiplier := 1.0
 
