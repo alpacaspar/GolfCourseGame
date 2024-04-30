@@ -1,18 +1,15 @@
-extends Area3D
+extends RigidBody3D
 
+
+const VELOCITY_DAMAGE_THRESHOLD = 10.0
 
 var owning_unit: Unit
 
 
-func start_event():
-    monitoring = true
-
-
-func end_event():
-    monitoring = false
-
-
 func _on_body_entered(unit: Node3D):
+    if linear_velocity.length_squared() < VELOCITY_DAMAGE_THRESHOLD ** 2:
+        return
+
     if not unit is Unit:
         return
 
