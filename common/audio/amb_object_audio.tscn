@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://1p5q23vnv5n1"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_arw8l"]
+
+[node name="StaticBody3DAudio" type="StaticBody3D"]
+collision_layer = 128
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_arw8l")

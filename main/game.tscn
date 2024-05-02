@@ -8,3 +8,19 @@
 [node name="GolfCourse" parent="." instance=ExtResource("1_0paj6")]
 
 [node name="UserInterface" parent="." instance=ExtResource("2_6u3u6")]
+
+[node name="AkBank" type="AkBank" parent="."]
+bank = {
+"id": 1355168291,
+"name": "Init"
+}
+load_on = 1
+unload_on = 3
+
+[node name="AkBank2" type="AkBank" parent="."]
+bank = {
+"id": 56103612,
+"name": "debug_soundbank"
+}
+load_on = 1
+unload_on = 3

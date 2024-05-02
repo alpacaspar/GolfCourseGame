@@ -24,6 +24,15 @@ Switch	ID	Name	Switch Group			Notes
 	1282219704	distance_005	debug_distance			
 	1282219709	distance_000	debug_distance			
 
+State Group	ID	Name			Wwise Object Path	Notes
+	984691642	InGame			\In-Game\InGame	
+
+State	ID	Name	State Group			Notes
+	579523862	Explore	InGame			
+	748895195	None	InGame			
+	2937832959	Battle	InGame			
+	3930136735	Dialogue	InGame			
+
 Game Parameter	ID	Name			Wwise Object Path	Notes
 	504532776	Brick			\Factory Acoustic Textures\Textures\Brick	
 	513139656	Mountain			\Factory Acoustic Textures\Textures\Mountain	
