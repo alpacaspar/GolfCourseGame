@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://vgv1rlclfus7"]
+[gd_scene load_steps=21 format=3 uid="uid://vgv1rlclfus7"]
 
 [ext_resource type="PackedScene" uid="uid://b3yo3dem2wtkt" path="res://entities/player/player.tscn" id="1_56dmc"]
 [ext_resource type="Script" path="res://main/audio_test_level.gd" id="1_cxuja"]
@@ -41,21 +41,6 @@ height = 10.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5fx5u"]
 albedo_color = Color(0.27451, 0.160784, 0.772549, 1)
-
-[sub_resource type="GDScript" id="GDScript_q0mda"]
-script/source = "extends Node3D
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	#Wwise.register_game_obj(self, \"meshInstance3D\")
-	#Wwise.post_event(\"play_x_debug_continuous_sound\", self)
-	pass
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-	#pass
-"
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xdnc5"]
 albedo_color = Color(0.588235, 0.254902, 0.00392157, 1)
@@ -109,7 +94,6 @@ shape = SubResource("WorldBoundaryShape3D_tyuip")
 mesh = SubResource("CylinderMesh_fbtgw")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_5fx5u")
-script = SubResource("GDScript_q0mda")
 
 [node name="MeshInstance3D_Tree" type="MeshInstance3D" parent="." groups=["leaves"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -20.183)
