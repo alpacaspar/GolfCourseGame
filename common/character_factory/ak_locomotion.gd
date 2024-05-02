@@ -1,13 +1,12 @@
-extends Node
+extends Node3D
 
 @onready var activity_timer : Timer = $ActivityTimer
 @onready var decay_timer : Timer = $DecayTimer
 @export var curve : Curve
 
-
-
 func play_footstep():
-	Wwise.register_game_obj(self, "AkTest")
+	Wwise.register_game_obj(self, get_name())
+	Wwise.set_3d_position(self, global_transform)
 	Wwise.post_event("play_plr_footstep", self)
 	activity_timer_start()
 
@@ -17,15 +16,8 @@ func activity_timer_start():
 		decay_timer.start()
 	activity_timer.start()
 	Wwise.set_rtpc_value("footstep_volume", curve.sample(decay_timer.time_left / decay_timer.wait_time), self)
-	# Wwise.set_rtpc_value("footstep_volume", 0, self)
-	
 
 func play_swing():
-	Wwise.register_game_obj(self, "AkTest")
+	Wwise.register_game_obj(self, get_name())
+	Wwise.set_3d_position(self, global_transform)
 	Wwise.post_event("play_plr_swing", self)
-	
-func play_test():
-	Wwise.register_game_obj(self, "AkTest")
-	Wwise.post_event("play_x_debug_distance", self)
-
-

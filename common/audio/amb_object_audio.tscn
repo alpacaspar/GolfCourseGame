@@ -1,19 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://1p5q23vnv5n1"]
-
-[ext_resource type="Script" path="res://main/ak_amb_object.gd" id="1_iaoxo"]
+[gd_scene load_steps=2 format=3 uid="uid://1p5q23vnv5n1"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_arw8l"]
 
 [node name="StaticBody3DAudio" type="StaticBody3D"]
 collision_layer = 128
 collision_mask = 0
-script = ExtResource("1_iaoxo")
-
-[node name="AkEvent3D" type="AkEvent3D" parent="."]
-event = {
-"id": 3408384243,
-"name": "play_plr_swing"
-}
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_arw8l")

@@ -5,8 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://blpc24it64q8a" path="res://entities/terrain/fairway.png" id="3_62ool"]
 [ext_resource type="Texture2D" uid="uid://dfyfubpegolkx" path="res://entities/terrain/rough.png" id="4_5a5pl"]
 [ext_resource type="Texture2D" uid="uid://d4i22ctyaeq1k" path="res://entities/terrain/bunker.png" id="5_kcfmm"]
-[ext_resource type="Script" path="res://main/ak_post_event.gd" id="6_q7fy4"]
-[ext_resource type="Script" path="res://main/ak_amb_object.gd" id="7_l1cn0"]
+[ext_resource type="Script" path="res://common/audio/ak_mus_callback.gd" id="7_l1cn0"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_15fs0"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -42,6 +41,21 @@ height = 10.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5fx5u"]
 albedo_color = Color(0.27451, 0.160784, 0.772549, 1)
+
+[sub_resource type="GDScript" id="GDScript_q0mda"]
+script/source = "extends Node3D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	#Wwise.register_game_obj(self, \"meshInstance3D\")
+	#Wwise.post_event(\"play_x_debug_continuous_sound\", self)
+	pass
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+#func _process(delta):
+	#pass
+"
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xdnc5"]
 albedo_color = Color(0.588235, 0.254902, 0.00392157, 1)
@@ -91,27 +105,11 @@ mesh = SubResource("PlaneMesh_lkb52")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/StaticBody3D"]
 shape = SubResource("WorldBoundaryShape3D_tyuip")
 
-[node name="AkBank" type="AkBank" parent="."]
-bank = {
-"id": 1355168291,
-"name": "Init"
-}
-load_on = 1
-unload_on = 3
-
-[node name="AkBank2" type="AkBank" parent="."]
-bank = {
-"id": 56103612,
-"name": "debug_soundbank"
-}
-load_on = 1
-unload_on = 3
-
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("CylinderMesh_fbtgw")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_5fx5u")
-script = ExtResource("6_q7fy4")
+script = SubResource("GDScript_q0mda")
 
 [node name="MeshInstance3D_Tree" type="MeshInstance3D" parent="." groups=["leaves"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -20.183)
@@ -150,3 +148,28 @@ shape = SubResource("SphereShape3D_eyc7b")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D_Tree2/StaticBody3D"]
 shape = SubResource("CylinderShape3D_1syic")
+
+[node name="Audio" type="Node3D" parent="."]
+
+[node name="AkBank" type="AkBank" parent="Audio"]
+bank = {
+"id": 1355168291,
+"name": "Init"
+}
+load_on = 1
+unload_on = 3
+
+[node name="AkBank2" type="AkBank" parent="Audio"]
+bank = {
+"id": 56103612,
+"name": "debug_soundbank"
+}
+load_on = 1
+unload_on = 3
+
+[node name="AkEvent3D" type="AkEvent3D" parent="Audio"]
+event = {
+"id": 40897922,
+"name": "play_ambience_bed"
+}
+trigger_on = 1

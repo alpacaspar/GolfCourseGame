@@ -1,5 +1,4 @@
-class_name Amb_Audio
-extends StaticBody3D
+extends Node
 
 #@export var event_ref : String
 #@onready var AkEvent : AkEvent3D = $AkEvent3D

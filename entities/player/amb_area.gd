@@ -53,26 +53,26 @@ func _event_callback(data):
 	Thread.set_thread_safety_checks_enabled(false)
 	play_windgust()
 
-func _on_body_entered(body):
+func _on_body_entered(body: Node3D):
 	if body.get_parent().is_in_group("leaves"):
 		on_object_entered("play_treeLeaves_rustling", child_trees, leaves, leaves_loc, body)
 	if body.get_parent().is_in_group("bush"):
 		on_object_entered("event_name", child_bushes, bushes, bushes_loc, body)
 
-func on_object_entered(play_event_name, child_object, objects_array, objects_location_array, body):
+func on_object_entered(play_event_name: String, child_object: Node3D, objects_array: Array, objects_location_array: Array[Transform3D], body: Node3D):
 	objects_array.append(body) # add object to respective array
 	objects_location_array.append(body.global_transform) # add position of object to respective array
 	Wwise.set_multiple_positions_3d(child_object, objects_location_array, objects_array.size(), AkUtils.TYPE_MULTI_DIRECTIONS) # set 3d positions with the afformentioned arrays
 	if objects_array.size() == 1:
 		Wwise.post_event(play_event_name, child_object)
 
-func _on_body_exited(body):
+func _on_body_exited(body: Node3D):
 	if body.get_parent().is_in_group("leaves"):
 		on_object_exited("stop_treeLeaves_rustling", child_trees, leaves, leaves_loc, body)
 	if body.get_parent().is_in_group("bush"):
 		on_object_exited("event_name", child_bushes, bushes, bushes_loc, body)
 
-func on_object_exited(stop_event_name, child_object, objects_array, objects_location_array, body):
+func on_object_exited(stop_event_name: String, child_object: Node3D, objects_array: Array, objects_location_array: Array[Transform3D], body: Node3D):
 	var location = objects_array.find(body) # creating location variable to remove the location from the location array
 	if objects_array.size() == 1: # if before removing the body from the arrays there's only 1 item left we know it should play the stop event
 		Wwise.post_event(stop_event_name, child_object)
