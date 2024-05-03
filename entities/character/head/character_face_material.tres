@@ -6,6 +6,7 @@
 [ext_resource type="CompressedTexture2DArray" uid="uid://cwrwjiecowt3n" path="res://entities/character/head/character_mouth_textures.svg" id="4_v0eu6"]
 
 [resource]
+resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("1_qj31f")
 shader_parameter/EyeHeight = 0.0
