@@ -87,6 +87,8 @@ func make_ready(preview_scene):
 	mouth_offset_slider.value_changed.connect(_update_character)
 	mouth_size_slider.value_changed.connect(_update_character)
 
+	name_field.text_changed.connect(_update_character)
+
 	await _set_color_button_connections(CharacterFactory.skin_colors, skin_color_option_picker)
 	await _set_color_button_connections(CharacterFactory.hair_colors, hair_color_option_picker)
 	await _set_color_button_connections(CharacterFactory.shirt_colors, shirt_color_option_picker)
