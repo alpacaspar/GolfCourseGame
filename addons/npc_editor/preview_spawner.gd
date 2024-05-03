@@ -60,7 +60,7 @@ func create_button_icon(mesh, rotate: bool) -> Texture:
 	return ImageTexture.create_from_image(image)
 
 
-func _set_rotation(_value):
+func _set_rotation(_value: float):
 	rotation_value = _value
 
 

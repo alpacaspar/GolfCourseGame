@@ -9,7 +9,6 @@ signal on_swing_ended
 @export var ear_mesh_instance: MeshInstance3D
 @export var nose_mesh_instance: MeshInstance3D
 @export var hair_mesh_instance: MeshInstance3D
-#@export var accessory_mesh_instance: MeshInstance3D
 
 @export var face_mesh_instance: MeshInstance3D
 @export var body_mesh_instance: MeshInstance3D

@@ -1,20 +1,19 @@
 @tool
 class_name NPCDock
 extends Control
-### The code behind the UI, that makes sure all parts of the tool work as it should.
-### Handles loading, saving, updating and setting data.
-
-
-### This script works together with other scripts;
-
-### npc_editor (Handles Editor code and running it)
-### npc_resource (The resource for the NPC)
-### preview_spawner (Shows the preview character and handles Icons)
-### character_factory (Spawns a character based on the NPCResource it is given)
-
-### resource_loader (Loads a resource for loading and resaving)
-### npc_customizer_picker (Allows a single option from a list)
-### npc_customizer_option (The single option from the npc_customizer_picker list)
+## The code behind the UI, that makes sure all parts of the tool work as it should.
+## Handles loading, saving, updating and setting data.
+##
+## This script works together with other scripts;
+##
+## npc_editor (Handles Editor code and running it)
+## npc_resource (The resource for the NPC)
+## preview_spawner (Shows the preview character and handles Icons)
+## character_factory (Spawns a character based on the NPCResource it is given)
+##
+## resource_loader (Loads a resource for loading and resaving)
+## npc_customizer_picker (Allows a single option from a list)
+## npc_customizer_option (The single option from the npc_customizer_picker list)
 
 
 @export var npc_resource: ResourceLoadingHandler
@@ -65,7 +64,7 @@ var current_path: String
 var has_error: bool = false
 
 
-func make_ready(preview_scene):
+func make_ready(preview_scene: Node):
 	npc_resource.set_value()
 	edited_resource = NPCResource.new()
 
@@ -98,9 +97,9 @@ func make_ready(preview_scene):
 	await _set_head_button_connections(preview_scene, CharacterFactory.ear_meshes, false, ears_option_picker)
 	await _set_head_button_connections(preview_scene, CharacterFactory.hair_meshes, true, hair_option_picker)
 
-	await _set_face_button_connections(preview_scene, CharacterFactory.eye_textures, eyes_option_picker)
-	await _set_face_button_connections(preview_scene, CharacterFactory.mouth_textures, mouths_option_picker)
-	await _set_face_button_connections(preview_scene, CharacterFactory.eyebrow_textures, eyebrows_option_picker)
+	await _set_face_button_connections(CharacterFactory.eye_textures, eyes_option_picker)
+	await _set_face_button_connections(CharacterFactory.mouth_textures, mouths_option_picker)
+	await _set_face_button_connections(CharacterFactory.eyebrow_textures, eyebrows_option_picker)
 
 	await _set_body_button_connections(preview_scene, CharacterFactory.shirt_datas, shirt_option_picker)
 	await _set_body_button_connections(preview_scene, CharacterFactory.pants_datas, pants_option_picker)
@@ -189,6 +188,8 @@ func _load():
 	current_path = _resource.resource_path
 	edited_resource = _resource.duplicate()
 
+	_update_character()
+
 
 func _save():
 	edited_resource.resource_name = edited_resource.name
@@ -231,35 +232,35 @@ func _check_for_errors():
 	error_display.text = result
 
 
-func _set_preview(_texture):
+func _set_preview(_texture: Texture):
 	preview.texture = _texture
 
 
-func _set_color_button_connections(collection, picker: NPCCustomizerPicker):
-	for color in collection:
-		var image = load("res://addons/npc_editor/ui/solid_white.png").duplicate()
+func _set_color_button_connections(collection: Array, picker: NPCCustomizerPicker):
+	for color: Color in collection:
+		var image: Image = load("res://addons/npc_editor/ui/solid_white.png").duplicate()
 		image.fill(color)
 		picker.add_button(ImageTexture.create_from_image(image), _update_character)
 
 
-func _set_head_button_connections(preview_scene, collection, rotate, picker: NPCCustomizerPicker):
-	for option in collection:
+func _set_head_button_connections(preview_scene: Node, collection: Array, rotate: bool, picker: NPCCustomizerPicker):
+	for option: Mesh in collection:
 		#var texture = await preview_scene.create_button_icon(option, rotate)
 		picker.add_button(null, _update_character)
 
 
-func _set_face_button_connections(preview_scene, collection, picker: NPCCustomizerPicker):
-	for option in collection.get_layers():
+func _set_face_button_connections(collection: CompressedTexture2DArray, picker: NPCCustomizerPicker):
+	for option: int in collection.get_layers():
 		var texture = await ImageTexture.create_from_image(collection.get_layer_data(option))
 		picker.add_button(texture, _update_character)
 
 
-func _set_body_button_connections(preview_scene, collection, picker: NPCCustomizerPicker):
-	for option in collection:
+func _set_body_button_connections(preview_scene: Node, collection: Array, picker: NPCCustomizerPicker):
+	for option: Resource in collection:
 		#var texture = await ImageTexture.create_from_image(collection.get_layer_data(option))
 		picker.add_button(null, _update_character)
 
 
-func _set_rotation_value(_value):
+func _set_rotation_value(_value: float):
 	rotation_slider.value = _value
 	rotation_box.value = _value

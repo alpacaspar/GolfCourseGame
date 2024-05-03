@@ -22,7 +22,7 @@ extends Node
 
 
 func spawn_character(resource: NPCResource) -> Character:
-    var character = character_base.instantiate() as Character
+    var character := character_base.instantiate() as Character
     var face_material: Material = character.face_mesh_instance.material_override
     var body_material: Material = character.body_mesh_instance.material_override
     var clothing_material: ShaderMaterial = character.body_mesh_instance.material_overlay
@@ -38,7 +38,7 @@ func spawn_character(resource: NPCResource) -> Character:
     face_material.set("shader_parameter/MouthHeight", remap(resource.mouth_offset, 0, 1, -.2, .8))
 
     # Shirt stuff
-    var shirt = shirt_datas[resource.shirt_index]
+    var shirt := shirt_datas[resource.shirt_index]
     character.collar_mesh_instance.mesh = shirt.collar_mesh
     clothing_material.set("shader_parameter/ShirtTint", shirt_colors[resource.shirt_color_index])
     clothing_material.set("shader_parameter/ShirtAlbedo", shirt.albedo)
@@ -46,7 +46,7 @@ func spawn_character(resource: NPCResource) -> Character:
     clothing_material.set("shader_parameter/ShirtNormal", shirt.normal)
 
     # Pants stuff
-    var pants = pants_datas[resource.pants_index]
+    var pants := pants_datas[resource.pants_index]
     clothing_material.set("shader_parameter/PantsTint", pants_colors[resource.pants_color_index])
     clothing_material.set("shader_parameter/PantsAlbedo", pants.albedo)
     clothing_material.set("shader_parameter/PantsRoughness", pants.roughness)
