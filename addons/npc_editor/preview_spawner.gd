@@ -11,7 +11,7 @@ extends Node
 @export var zoom_holder: Node3D
 @export var unzoom_holder: Node3D
 
-var spawned_character: CharacterReferences
+var spawned_character: Character
 var callback: Callable
 
 var rotation_value: int = 180
@@ -35,29 +35,12 @@ func on_process(_delta):
 	callback.call(img)
 
 
-func _set_rotation(_value):
-	rotation_value = _value
-
-
-func _set_zoom(_value := 0.0):
-	preview_cam.position = zoom_holder.position.lerp(unzoom_holder.position, 1 - _value)
-
-
-func _spawn_character(character_resource: NPCResource):
-	spawned_character = CharacterFactory.spawn_character(character_resource) as CharacterReferences
-	add_child(spawned_character)
-
-
-func _edit_character(_character_resource: NPCResource):
-	spawned_character.queue_free()
-	_spawn_character(_character_resource)
-
-
 func create_button_icon(mesh, rotate: bool) -> Texture:
-	getting_icons = true
-	icon_cam.current = true
 	spawned_character.set_preview_mode(true)
 	spawned_character.preview_mesh.mesh = mesh
+
+	getting_icons = true
+	icon_cam.current = true
 
 	spawned_character.basis = Basis()
 	if rotate:
@@ -75,6 +58,24 @@ func create_button_icon(mesh, rotate: bool) -> Texture:
 	preview_cam.current = true
 	getting_icons = false
 	return ImageTexture.create_from_image(image)
+
+
+func _set_rotation(_value: float):
+	rotation_value = _value
+
+
+func _set_zoom(_value := 0.0):
+	preview_cam.position = zoom_holder.position.lerp(unzoom_holder.position, 1 - _value)
+
+
+func _spawn_character(character_resource: NPCResource):
+	spawned_character = CharacterFactory.spawn_character(character_resource) as Character
+	add_child(spawned_character)
+
+
+func _edit_character(_character_resource: NPCResource):
+	spawned_character.queue_free()
+	_spawn_character(_character_resource)
 
 
 func _exit_tree():

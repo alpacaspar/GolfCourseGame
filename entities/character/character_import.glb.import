@@ -1,0 +1,246 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://cvbe1pdhlf4iq"
+path="res://.godot/imported/character_import.glb-50502d5f681b49a425071aec82ce183e.scn"
+
+[deps]
+
+source_file="res://entities/character/character_import.glb"
+dest_files=["res://.godot/imported/character_import.glb-50502d5f681b49a425071aec82ce183e.scn"]
+
+[params]
+
+nodes/root_type=""
+nodes/root_name=""
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+meshes/force_disable_compression=false
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+animation/trimming=false
+animation/remove_immutable_tracks=true
+import_script/path=""
+_subresources={
+"meshes": {
+"character_Mesh_110": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/make_streamable": "",
+"save_to_file/path": "res://entities/character/clothing/clothing_tshirt_collar.res"
+},
+"character_Mesh_111": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/make_streamable": "",
+"save_to_file/path": "res://entities/character/clothing/clothing_suit_collar.res"
+},
+"character_Mesh_112": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/make_streamable": "",
+"save_to_file/path": "res://entities/character/clothing/clothing_shirt_collar.res"
+},
+"character_Mesh_113": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/make_streamable": "",
+"save_to_file/path": "res://entities/character/clothing/clothing_vneck_collar.res"
+},
+"character_Mesh_121": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/make_streamable": "",
+"save_to_file/path": "res://entities/character/head/character_hair_buzz.res"
+},
+"character_Mesh_122": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/make_streamable": "",
+"save_to_file/path": "res://entities/character/head/character_hair_preppy.res"
+},
+"character_Mesh_123": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/make_streamable": "",
+"save_to_file/path": "res://entities/character/head/character_hair_pony.res"
+},
+"character_Mesh_124": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/make_streamable": "",
+"save_to_file/path": "res://entities/character/head/character_hair_long.res"
+},
+"character_Mesh_125": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/make_streamable": "",
+"save_to_file/path": "res://entities/character/head/character_hair_charlie.res"
+},
+"character_Mesh_126": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/make_streamable": "",
+"save_to_file/path": "res://entities/character/head/character_hair_caspar.res"
+},
+"character_Mesh_127": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/make_streamable": "",
+"save_to_file/path": "res://entities/character/head/character_hair_combover.res"
+},
+"character_Mesh_128": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/make_streamable": "",
+"save_to_file/path": "res://entities/character/head/character_ears_5.res"
+},
+"character_Mesh_129": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/make_streamable": "",
+"save_to_file/path": "res://entities/character/head/character_ears_4.res"
+},
+"character_Mesh_130": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/make_streamable": "",
+"save_to_file/path": "res://entities/character/head/character_ears_3.res"
+},
+"character_Mesh_131": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/make_streamable": "",
+"save_to_file/path": "res://entities/character/head/character_ears_2.res"
+},
+"character_Mesh_132": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/make_streamable": "",
+"save_to_file/path": "res://entities/character/head/character_ears_1.res"
+},
+"character_Mesh_133": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/make_streamable": "",
+"save_to_file/path": "res://entities/character/head/character_nose_1.res"
+},
+"character_Mesh_134": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/make_streamable": "",
+"save_to_file/path": "res://entities/character/head/character_nose_2.res"
+},
+"character_Mesh_135": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/make_streamable": "",
+"save_to_file/path": "res://entities/character/head/character_nose_3.res"
+},
+"character_Mesh_136": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/make_streamable": "",
+"save_to_file/path": "res://entities/character/head/character_nose_4.res"
+}
+},
+"nodes": {
+"PATH:Armature/Skeleton3D": {
+"retarget/bone_map": Object(BoneMap,"resource_local_to_scene":false,"resource_name":"","profile":Object(SkeletonProfileHumanoid,"resource_local_to_scene":false,"resource_name":"","root_bone":&"Root","scale_base_bone":&"Hips","group_size":4,"bone_size":56,"script":null)
+,"bonemap":null,"bone_map/Root":&"BaseJoint","bone_map/Hips":&"Hip_BJnt","bone_map/Spine":&"Stomach_BJnt","bone_map/Chest":&"Chest_BJnt","bone_map/UpperChest":&"","bone_map/Neck":&"Neck_BJnt","bone_map/Head":&"Head_Jnt","bone_map/LeftEye":&"","bone_map/RightEye":&"","bone_map/Jaw":&"","bone_map/LeftShoulder":&"L_Shoulder_BJnt","bone_map/LeftUpperArm":&"L_UpperArm_BJnt","bone_map/LeftLowerArm":&"L_Elbow_BJnt","bone_map/LeftHand":&"L_Wrist_BJnt","bone_map/LeftThumbMetacarpal":&"","bone_map/LeftThumbProximal":&"","bone_map/LeftThumbDistal":&"","bone_map/LeftIndexProximal":&"","bone_map/LeftIndexIntermediate":&"","bone_map/LeftIndexDistal":&"","bone_map/LeftMiddleProximal":&"","bone_map/LeftMiddleIntermediate":&"","bone_map/LeftMiddleDistal":&"","bone_map/LeftRingProximal":&"","bone_map/LeftRingIntermediate":&"","bone_map/LeftRingDistal":&"","bone_map/LeftLittleProximal":&"","bone_map/LeftLittleIntermediate":&"","bone_map/LeftLittleDistal":&"","bone_map/RightShoulder":&"R_Shoulder_BJnt","bone_map/RightUpperArm":&"R_UpperArm_BJnt","bone_map/RightLowerArm":&"R_Elbow_BJnt","bone_map/RightHand":&"R_Wrist_BJnt","bone_map/RightThumbMetacarpal":&"","bone_map/RightThumbProximal":&"","bone_map/RightThumbDistal":&"","bone_map/RightIndexProximal":&"","bone_map/RightIndexIntermediate":&"","bone_map/RightIndexDistal":&"","bone_map/RightMiddleProximal":&"","bone_map/RightMiddleIntermediate":&"","bone_map/RightMiddleDistal":&"","bone_map/RightRingProximal":&"","bone_map/RightRingIntermediate":&"","bone_map/RightRingDistal":&"","bone_map/RightLittleProximal":&"","bone_map/RightLittleIntermediate":&"","bone_map/RightLittleDistal":&"","bone_map/LeftUpperLeg":&"L_UpperLeg_BJnt","bone_map/LeftLowerLeg":&"L_Knee_BJnt","bone_map/LeftFoot":&"L_Ankle_BJnt","bone_map/LeftToes":&"L_Toes_BJnt","bone_map/RightUpperLeg":&"R_UpperLeg_BJnt","bone_map/RightLowerLeg":&"R_Knee_BJnt","bone_map/RightFoot":&"R_Ankle_BJnt","bone_map/RightToes":&"R_Toes_BJnt","script":null)
+,
+"retarget/remove_tracks/unmapped_bones": true,
+"retarget/rest_fixer/apply_node_transforms": false
+}
+}
+}
+gltf/naming_version=1
+gltf/embedded_image_handling=1

@@ -9,9 +9,8 @@ ambient_light_color = Color(0, 0, 0, 0)
 [sub_resource type="Environment" id="Environment_fl6vh"]
 ambient_light_color = Color(0, 0, 0, 0)
 
-[node name="PreviewScene" type="Node3D" node_paths=PackedStringArray("character_factory", "preview_viewport", "preview_cam", "icon_viewport", "icon_cam", "zoom_holder", "unzoom_holder")]
+[node name="PreviewScene" type="Node3D" node_paths=PackedStringArray("preview_viewport", "preview_cam", "icon_viewport", "icon_cam", "zoom_holder", "unzoom_holder")]
 script = ExtResource("1_yw5ff")
-character_factory = NodePath("CharacterFactory")
 preview_viewport = NodePath("SubViewport")
 preview_cam = NodePath("SubViewport/Camera3D")
 icon_viewport = NodePath("IconViewport")
@@ -20,9 +19,6 @@ zoom_holder = NodePath("ZoomedPosition")
 unzoom_holder = NodePath("UnzoomedPosition")
 
 [node name="CharacterFactory" parent="." instance=ExtResource("2_6ccju")]
-accessory_meshes = Array[Mesh]([])
-eye_meshes = Array[Mesh]([])
-mouth_meshes = Array[Mesh]([])
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.650721, 0.759317, 0, -0.759317, 0.650721, 0, 1.68537, 1.16289)
