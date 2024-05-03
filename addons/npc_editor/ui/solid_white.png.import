@@ -1,0 +1,14 @@
+[remap]
+
+importer="image"
+type="Image"
+uid="uid://u41kytji26kc"
+path="res://.godot/imported/solid_white.png-ff897d37737dc2db900ba338fc04f9e8.image"
+
+[deps]
+
+source_file="res://addons/npc_editor/ui/solid_white.png"
+dest_files=["res://.godot/imported/solid_white.png-ff897d37737dc2db900ba338fc04f9e8.image"]
+
+[params]
+

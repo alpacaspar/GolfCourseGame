@@ -30,6 +30,11 @@ extends Control
 @export var shirt_option_picker: NPCCustomizerPicker
 @export var pants_option_picker: NPCCustomizerPicker
 
+@export var skin_color_option_picker: NPCCustomizerPicker
+@export var hair_color_option_picker: NPCCustomizerPicker
+@export var shirt_color_option_picker: NPCCustomizerPicker
+@export var pants_color_option_picker: NPCCustomizerPicker
+
 @export_subgroup("Offset Sliders")
 @export var eye_offset_slider: Slider
 @export var eyebrow_offset_slider: Slider
@@ -37,10 +42,6 @@ extends Control
 @export var mouth_size_slider: Slider
 
 @export_subgroup("References")
-@export var hair_color_picker: ColorPickerButton
-@export var skin_color_picker: ColorPickerButton
-@export var shirt_color_picker: ColorPickerButton
-@export var pants_color_picker: ColorPickerButton
 @export var name_field: LineEdit
 @export var load_button: Button
 @export var save_button: Button
@@ -73,11 +74,6 @@ func make_ready(preview_scene):
 	rotation_slider.value_changed.connect(_set_rotation_value)
 	rotation_box.value_changed.connect(_set_rotation_value)
 
-	hair_color_picker.color_changed.connect(_update_character)
-	skin_color_picker.color_changed.connect(_update_character)
-	shirt_color_picker.color_changed.connect(_update_character)
-	pants_color_picker.color_changed.connect(_update_character)
-
 	load_button.pressed.connect(_load)
 	save_button.pressed.connect(_save)
 	save_as_button.pressed.connect(_save_as)
@@ -91,9 +87,14 @@ func make_ready(preview_scene):
 	mouth_offset_slider.value_changed.connect(_update_character)
 	mouth_size_slider.value_changed.connect(_update_character)
 
-	await _set_button_connections(preview_scene, CharacterFactory.nose_meshes, false, noses_option_picker)
-	await _set_button_connections(preview_scene, CharacterFactory.ear_meshes, false, ears_option_picker)
-	await _set_button_connections(preview_scene, CharacterFactory.hair_meshes, true, hair_option_picker)
+	await _set_color_button_connections(CharacterFactory.skin_colors, skin_color_option_picker)
+	await _set_color_button_connections(CharacterFactory.hair_colors, hair_color_option_picker)
+	await _set_color_button_connections(CharacterFactory.shirt_colors, shirt_color_option_picker)
+	await _set_color_button_connections(CharacterFactory.pants_colors, pants_color_option_picker)
+
+	await _set_head_button_connections(preview_scene, CharacterFactory.nose_meshes, false, noses_option_picker)
+	await _set_head_button_connections(preview_scene, CharacterFactory.ear_meshes, false, ears_option_picker)
+	await _set_head_button_connections(preview_scene, CharacterFactory.hair_meshes, true, hair_option_picker)
 
 	await _set_face_button_connections(preview_scene, CharacterFactory.eye_textures, eyes_option_picker)
 	await _set_face_button_connections(preview_scene, CharacterFactory.mouth_textures, mouths_option_picker)
@@ -143,10 +144,10 @@ func _update_character(_value = 0):
 	edited_resource.shirt_index = shirt_option_picker.get_current_index()
 	edited_resource.pants_index = pants_option_picker.get_current_index()
 
-	edited_resource.hair_color = hair_color_picker.color
-	edited_resource.skin_color = skin_color_picker.color
-	edited_resource.shirt_color = shirt_color_picker.color
-	edited_resource.pants_color = pants_color_picker.color
+	edited_resource.hair_color_index = hair_color_option_picker.get_current_index()
+	edited_resource.skin_color_index = skin_color_option_picker.get_current_index()
+	edited_resource.shirt_color_index = shirt_color_option_picker.get_current_index()
+	edited_resource.pants_color_index = pants_color_option_picker.get_current_index()
 
 	edited_resource.eye_offset = eye_offset_slider.value
 	edited_resource.eyebrow_offset = eyebrow_offset_slider.value
@@ -172,10 +173,10 @@ func _load():
 	shirt_option_picker.set_button_index(_resource.shirt_index)
 	pants_option_picker.set_button_index(_resource.pants_index)
 
-	hair_color_picker.color = _resource.hair_color
-	skin_color_picker.color = _resource.skin_color
-	shirt_color_picker.color = _resource.shirt_color
-	pants_color_picker.color = _resource.pants_color
+	hair_color_option_picker.set_button_index(_resource.hair_color_index)
+	skin_color_option_picker.set_button_index(_resource.skin_color_index)
+	shirt_color_option_picker.set_button_index(_resource.shirt_color_index)
+	pants_color_option_picker.set_button_index(_resource.pants_color_index)
 
 	eye_offset_slider.value = _resource.eye_offset
 	eyebrow_offset_slider.value = _resource.eyebrow_offset
@@ -232,7 +233,14 @@ func _set_preview(_texture):
 	preview.texture = _texture
 
 
-func _set_button_connections(preview_scene, collection, rotate, picker: NPCCustomizerPicker):
+func _set_color_button_connections(collection, picker: NPCCustomizerPicker):
+	for color in collection:
+		var image = load("res://addons/npc_editor/ui/solid_white.png").duplicate()
+		image.fill(color)
+		picker.add_button(ImageTexture.create_from_image(image), _update_character)
+
+
+func _set_head_button_connections(preview_scene, collection, rotate, picker: NPCCustomizerPicker):
 	for option in collection:
 		#var texture = await preview_scene.create_button_icon(option, rotate)
 		picker.add_button(null, _update_character)
