@@ -10,9 +10,6 @@ var unit: CharacterBody3D
 
 var last_velocity := Vector3.ZERO
 
-## TODO: Use state machine to get rid of this ugly nasty gross dirty smelly bool.
-var performing_action: bool = false
-
 func _ready():
 	input_provider.on_look.connect(_on_look)
 	input_provider.on_interact.connect(_on_interact)
@@ -26,7 +23,7 @@ func _on_look(input_delta: Vector2):
 
 
 func _on_interact():
-	if performing_action:
+	if unit.state == unit.ATTACKING:
 		return
 	
 	_perform_action()
@@ -35,14 +32,12 @@ func _on_interact():
 func _physics_process(delta: float):
 	#unit.visuals.look_in_direction(last_velocity, delta)
 
-	var move_input: Vector2 = input_provider.move if not performing_action else Vector2.ZERO
-
 	unit.velocity.y = -1 if unit.is_on_floor() else unit.velocity.y - unit.gravity * delta
 
-	var direction := (unit.transform.basis * Vector3(-move_input.x, 0, -move_input.y)).normalized()
+	var direction := (unit.transform.basis * Vector3(-input_provider.move.x, 0, -input_provider.move.y)).normalized()
 
-	unit.velocity.x = direction.x * unit.MOVEMENT_SPEED
-	unit.velocity.z = direction.z * unit.MOVEMENT_SPEED
+	unit.velocity.x = direction.x * unit.movement_speed
+	unit.velocity.z = direction.z * unit.movement_speed
 
 	# This function already uses the delta time internally.
 	unit.move_and_slide()
@@ -56,9 +51,9 @@ func _on_exit():
 
 
 func _perform_action():
-	performing_action = true
+	unit.state = unit.ATTACKING
 	unit.perform_action()
 
 	await get_tree().create_timer(3).timeout
 
-	performing_action = false
+	unit.state = unit.IDLE
