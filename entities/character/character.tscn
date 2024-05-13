@@ -487,8 +487,10 @@ _data = {
 animation = &"character/character_swing"
 
 [sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_5laqw"]
+filter_enabled = true
+filters = ["%GeneralSkeleton:Chest", "%GeneralSkeleton:Head", "%GeneralSkeleton:LeftHand", "%GeneralSkeleton:LeftLowerArm", "%GeneralSkeleton:LeftShoulder", "%GeneralSkeleton:LeftUpperArm", "%GeneralSkeleton:Neck", "%GeneralSkeleton:RightHand", "%GeneralSkeleton:RightLowerArm", "%GeneralSkeleton:RightShoulder", "%GeneralSkeleton:RightUpperArm", "%GeneralSkeleton:Spine", ".", "AnimationSoundEvents"]
 fadein_time = 0.2
-fadeout_time = 0.2
+fadeout_time = 0.5
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_vfsqt"]
 animation = &"character/character_idle"
