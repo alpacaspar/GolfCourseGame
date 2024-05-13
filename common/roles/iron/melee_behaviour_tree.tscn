@@ -1,9 +1,12 @@
-[gd_scene load_steps=15 format=3 uid="uid://d2qdnkb2ycvda"]
+[gd_scene load_steps=19 format=3 uid="uid://d2qdnkb2ycvda"]
 
 [ext_resource type="Script" path="res://common/behaviour_tree/behaviour_tree.gd" id="1_xamc8"]
+[ext_resource type="Script" path="res://common/behaviour_tree/bt_parallel.gd" id="2_6kxft"]
 [ext_resource type="Script" path="res://common/behaviour_tree/bt_sequence.gd" id="2_6qqk6"]
+[ext_resource type="Script" path="res://common/behaviour_tree/bt_selector.gd" id="3_1lsql"]
 [ext_resource type="Script" path="res://common/behaviour_tree/utility/bt_utility_selector.gd" id="3_7a1u1"]
 [ext_resource type="Script" path="res://entities/unit/behaviour/target_unit_by_type.gd" id="4_48gyc"]
+[ext_resource type="Script" path="res://common/behaviour_tree/bt_wait.gd" id="4_i38cq"]
 [ext_resource type="Resource" uid="uid://n2wwvf3uab1k" path="res://common/roles/driver/driver.tres" id="5_8sg7h"]
 [ext_resource type="Script" path="res://common/behaviour_tree/utility/bt_utility_decorator_multiply.gd" id="6_o0w15"]
 [ext_resource type="Script" path="res://common/behaviour_tree/utility/bt_utility_decorator_power.gd" id="7_b3g7n"]
@@ -13,58 +16,89 @@
 [ext_resource type="Script" path="res://entities/unit/behaviour/keep_current_target.gd" id="11_716gx"]
 [ext_resource type="Script" path="res://entities/unit/behaviour/goto.gd" id="12_cdm36"]
 [ext_resource type="Script" path="res://entities/unit/behaviour/perform_action.gd" id="13_qpaqs"]
-[ext_resource type="Script" path="res://entities/unit/behaviour/look_at_target.gd" id="14_ge4ee"]
+[ext_resource type="Script" path="res://entities/unit/behaviour/in_range.gd" id="14_k6y2d"]
+[ext_resource type="Script" path="res://entities/unit/behaviour/move_relative_to_target.gd" id="16_2w1n4"]
 
 [node name="BehaviourTree" type="Node"]
 script = ExtResource("1_xamc8")
 
-[node name="Sequence" type="Node" parent="."]
+[node name="Parallel" type="Node" parent="."]
+script = ExtResource("2_6kxft")
+
+[node name="Sequence" type="Node" parent="Parallel"]
 script = ExtResource("2_6qqk6")
 
-[node name="UtilitySelector" type="Node" parent="Sequence"]
+[node name="Wait" type="Node" parent="Parallel/Sequence"]
+script = ExtResource("4_i38cq")
+wait_time = 10.0
+skip_first = true
+
+[node name="UtilitySelector" type="Node" parent="Parallel/Sequence"]
 script = ExtResource("3_7a1u1")
 
-[node name="TargetRanged" type="Node" parent="Sequence/UtilitySelector"]
+[node name="TargetRanged" type="Node" parent="Parallel/Sequence/UtilitySelector"]
 script = ExtResource("4_48gyc")
 target_role = ExtResource("5_8sg7h")
 
-[node name="MultiplyUtility" type="Node" parent="Sequence/UtilitySelector"]
+[node name="MultiplyUtility" type="Node" parent="Parallel/Sequence/UtilitySelector"]
 script = ExtResource("6_o0w15")
 factor = 2.0
 
-[node name="PowerUtility" type="Node" parent="Sequence/UtilitySelector/MultiplyUtility"]
+[node name="PowerUtility" type="Node" parent="Parallel/Sequence/UtilitySelector/MultiplyUtility"]
 script = ExtResource("7_b3g7n")
 factor = 3.0
 
-[node name="SeekSupport" type="Node" parent="Sequence/UtilitySelector/MultiplyUtility/PowerUtility"]
+[node name="SeekSupport" type="Node" parent="Parallel/Sequence/UtilitySelector/MultiplyUtility/PowerUtility"]
 script = ExtResource("4_48gyc")
 target_role = ExtResource("8_5jah4")
 target_team = 0
 
-[node name="TargetMelee" type="Node" parent="Sequence/UtilitySelector"]
+[node name="TargetMelee" type="Node" parent="Parallel/Sequence/UtilitySelector"]
 script = ExtResource("4_48gyc")
 target_role = ExtResource("9_rt2n5")
 utility_multiplier = 1.1
 
-[node name="TargetSupport" type="Node" parent="Sequence/UtilitySelector"]
+[node name="TargetSupport" type="Node" parent="Parallel/Sequence/UtilitySelector"]
 script = ExtResource("4_48gyc")
 target_role = ExtResource("8_5jah4")
 utility_multiplier = 1.5
 
-[node name="TargetCar" type="Node" parent="Sequence/UtilitySelector"]
+[node name="TargetCar" type="Node" parent="Parallel/Sequence/UtilitySelector"]
 script = ExtResource("4_48gyc")
 target_role = ExtResource("10_xo0fy")
 utility_multiplier = 0.9
 
-[node name="KeepCurrentTarget" type="Node" parent="Sequence/UtilitySelector"]
+[node name="KeepCurrentTarget" type="Node" parent="Parallel/Sequence/UtilitySelector"]
 script = ExtResource("11_716gx")
 utility_multiplier = 2.0
 
-[node name="Goto" type="Node" parent="Sequence"]
-script = ExtResource("12_cdm36")
+[node name="Selector" type="Node" parent="Parallel"]
+script = ExtResource("3_1lsql")
 
-[node name="PerformAction" type="Node" parent="Sequence"]
+[node name="InRange" type="Node" parent="Parallel/Selector"]
+script = ExtResource("14_k6y2d")
+
+[node name="Sequence" type="Node" parent="Parallel/Selector/InRange"]
+script = ExtResource("2_6qqk6")
+
+[node name="StepForward" type="Node" parent="Parallel/Selector/InRange/Sequence"]
+script = ExtResource("16_2w1n4")
+angle = null
+
+[node name="PerformAction" type="Node" parent="Parallel/Selector/InRange/Sequence"]
 script = ExtResource("13_qpaqs")
 
-[node name="LookAtTarget" type="Node" parent="Sequence"]
-script = ExtResource("14_ge4ee")
+[node name="StepBack" type="Node" parent="Parallel/Selector/InRange/Sequence"]
+script = ExtResource("16_2w1n4")
+angle = 180.0
+
+[node name="Wait" type="Node" parent="Parallel/Selector/InRange/Sequence"]
+script = ExtResource("4_i38cq")
+wait_time = 4.0
+
+[node name="NotInRange" type="Node" parent="Parallel/Selector"]
+script = ExtResource("14_k6y2d")
+invert = true
+
+[node name="Goto" type="Node" parent="Parallel/Selector/NotInRange"]
+script = ExtResource("12_cdm36")
