@@ -1,10 +1,11 @@
-[gd_resource type="Resource" script_class="TeamResource" load_steps=4 format=3 uid="uid://6a541a10r4sh"]
+[gd_resource type="Resource" script_class="TeamResource" load_steps=5 format=3 uid="uid://n3vyqaj6du0j"]
 
-[ext_resource type="Resource" uid="uid://dl31ic8xbffso" path="res://entities/golfers/rivals/player_rival_resource.tres" id="1_xh7sv"]
-[ext_resource type="Resource" uid="uid://c4up0ea70klhf" path="res://entities/golfers/jaralius_derbel.tres" id="3_dcoiu"]
+[ext_resource type="Resource" uid="uid://c4up0ea70klhf" path="res://entities/golfers/rivals/player_rival.tres" id="1_omno1"]
+[ext_resource type="Resource" uid="uid://bulc3utlqt2ng" path="res://entities/golfers/choper_snippledorf.tres" id="3_4yahw"]
 [ext_resource type="Script" path="res://entities/teams/team_resource.gd" id="3_rgxn0"]
+[ext_resource type="Resource" uid="uid://bqf0q8hqgskuw" path="res://entities/golfers/forlee_tango.tres" id="4_36b52"]
 
 [resource]
 script = ExtResource("3_rgxn0")
-leader = ExtResource("1_xh7sv")
-units = Array[Resource("res://entities/golfers/golfer_resource.gd")]([ExtResource("3_dcoiu")])
+leader = ExtResource("1_omno1")
+units = Array[Resource("res://entities/golfers/golfer_resource.gd")]([ExtResource("3_4yahw"), ExtResource("4_36b52")])

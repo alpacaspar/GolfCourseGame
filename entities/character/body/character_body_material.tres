@@ -6,7 +6,8 @@
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_d1own"]
 
 [resource]
-albedo_color = Color(0.839216, 0.682353, 0.607843, 1)
+resource_local_to_scene = true
+albedo_color = Color(0.972549, 0.894118, 0.796078, 1)
 albedo_texture = ExtResource("1_bxum2")
 roughness_texture = ExtResource("2_eml3e")
 normal_texture = SubResource("CompressedTexture2D_d1own")
