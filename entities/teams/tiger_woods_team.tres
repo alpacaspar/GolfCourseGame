@@ -2,7 +2,7 @@
 
 [ext_resource type="Resource" uid="uid://dm01uu1l6m7hb" path="res://entities/golfers/rivals/tiger_woods.tres" id="1_2cwpe"]
 [ext_resource type="Script" path="res://entities/teams/team_resource.gd" id="1_sadap"]
-[ext_resource type="Resource" uid="uid://b7uanqc8bwplm" path="res://entities/golfers/forlee_tango.tres" id="3_8s473"]
+[ext_resource type="Resource" uid="uid://bqf0q8hqgskuw" path="res://entities/golfers/forlee_tango.tres" id="3_8s473"]
 
 [resource]
 script = ExtResource("1_sadap")

@@ -3,6 +3,7 @@ extends Node3D
 
 const BLEND_SPEED = 10
 const MOVE_BLEND_PARAMETER: StringName = "parameters/MoveBlend/blend_amount"
+const RUN_SPEED_PARAMETER: StringName = "parameters/RunSpeed/scale"
 
 @export var body: CharacterBody3D
 
@@ -17,6 +18,7 @@ func _physics_process(delta: float):
 
 	move_blend_value = lerp(move_blend_value, target_blend_value, delta * BLEND_SPEED)
 	body.animation_tree.set(MOVE_BLEND_PARAMETER, move_blend_value)
+	body.animation_tree.set(RUN_SPEED_PARAMETER, body.velocity.length() / body.MOVEMENT_SPEED * 2)
 
 
 func look_in_direction(target: Vector3, delta: float):

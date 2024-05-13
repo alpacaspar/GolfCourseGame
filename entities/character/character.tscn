@@ -483,6 +483,13 @@ _data = {
 "RESET": SubResource("Animation_ai1wp")
 }
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_bhjs0"]
+animation = &"character/character_swing"
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_5laqw"]
+fadein_time = 0.2
+fadeout_time = 0.2
+
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_vfsqt"]
 animation = &"character/character_idle"
 
@@ -493,14 +500,11 @@ animation = &"character/character_run"
 
 [sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_0wre6"]
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_bhjs0"]
-animation = &"character/character_swing"
-
-[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_5laqw"]
-fadein_time = 0.2
-fadeout_time = 0.2
-
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_oo302"]
+nodes/ACTION/node = SubResource("AnimationNodeAnimation_bhjs0")
+nodes/ACTION/position = Vector2(-80, 420)
+nodes/ActionOneShot/node = SubResource("AnimationNodeOneShot_5laqw")
+nodes/ActionOneShot/position = Vector2(220, 120)
 nodes/Idle/node = SubResource("AnimationNodeAnimation_vfsqt")
 nodes/Idle/position = Vector2(-280, 120)
 nodes/MoveBlend/node = SubResource("AnimationNodeBlend2_oi70o")
@@ -509,12 +513,8 @@ nodes/Run/node = SubResource("AnimationNodeAnimation_ouaox")
 nodes/Run/position = Vector2(-360, 280)
 nodes/RunSpeed/node = SubResource("AnimationNodeTimeScale_0wre6")
 nodes/RunSpeed/position = Vector2(-120, 280)
-nodes/Swing/node = SubResource("AnimationNodeAnimation_bhjs0")
-nodes/Swing/position = Vector2(-80, 420)
-nodes/SwingOneShot/node = SubResource("AnimationNodeOneShot_5laqw")
-nodes/SwingOneShot/position = Vector2(220, 120)
 nodes/output/position = Vector2(400, 120)
-node_connections = [&"MoveBlend", 0, &"Idle", &"MoveBlend", 1, &"RunSpeed", &"RunSpeed", 0, &"Run", &"SwingOneShot", 0, &"MoveBlend", &"SwingOneShot", 1, &"Swing", &"output", 0, &"SwingOneShot"]
+node_connections = [&"ActionOneShot", 0, &"MoveBlend", &"ActionOneShot", 1, &"ACTION", &"MoveBlend", 0, &"Idle", &"MoveBlend", 1, &"RunSpeed", &"RunSpeed", 0, &"Run", &"output", 0, &"ActionOneShot"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_epeq7"]
 resource_name = "BodyMAT.003"
@@ -924,7 +924,7 @@ blend_shape_mode = 0
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[node name="BaseCharacter" type="Node3D" node_paths=PackedStringArray("ear_mesh_instance", "nose_mesh_instance", "hair_mesh_instance", "face_mesh_instance", "body_mesh_instance", "collar_mesh_instance", "animation_tree", "right_hand_holder")]
+[node name="BaseCharacter" type="Node3D" node_paths=PackedStringArray("ear_mesh_instance", "nose_mesh_instance", "hair_mesh_instance", "face_mesh_instance", "body_mesh_instance", "collar_mesh_instance", "animation_tree", "primary_equipment_slot")]
 script = ExtResource("1_deigj")
 ear_mesh_instance = NodePath("Armature/GeneralSkeleton/Ears")
 nose_mesh_instance = NodePath("Armature/GeneralSkeleton/Nose")
@@ -933,7 +933,7 @@ face_mesh_instance = NodePath("Armature/GeneralSkeleton/Face")
 body_mesh_instance = NodePath("Armature/GeneralSkeleton/Body_001")
 collar_mesh_instance = NodePath("Armature/GeneralSkeleton/Collar")
 animation_tree = NodePath("AnimationTree")
-right_hand_holder = NodePath("Armature/GeneralSkeleton/RightHandBoneAttachment3D/Marker3D")
+primary_equipment_slot = NodePath("Armature/GeneralSkeleton/RightHandBoneAttachment3D/Marker3D")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -948,11 +948,11 @@ libraries = {
 }
 tree_root = SubResource("AnimationNodeBlendTree_oo302")
 anim_player = NodePath("../AnimationPlayer")
+parameters/ActionOneShot/active = false
+parameters/ActionOneShot/internal_active = false
+parameters/ActionOneShot/request = 0
 parameters/MoveBlend/blend_amount = 0.0
 parameters/RunSpeed/scale = 2.0
-parameters/SwingOneShot/active = false
-parameters/SwingOneShot/internal_active = false
-parameters/SwingOneShot/request = 0
 
 [node name="Armature" type="Node3D" parent="."]
 transform = Transform3D(0.01, 0, 0, 0, -1.19209e-09, -0.01, 0, 0.01, -1.19209e-09, 0, 0, 0)
@@ -1232,12 +1232,12 @@ mesh = SubResource("ArrayMesh_8fj5t")
 skin = SubResource("Skin_h8tku")
 
 [node name="RightHandBoneAttachment3D" type="BoneAttachment3D" parent="Armature/GeneralSkeleton"]
-transform = Transform3D(0.2285, -0.969983, -0.0831965, 0.206064, 0.131709, -0.969634, 0.951486, 0.204418, 0.229974, -30.8891, 6.94333, -58.7466)
+transform = Transform3D(0, -1, 0, 0, 0, -1, 1, 0, 0, -37.152, -0.969067, -62.0192)
 bone_name = "RightHand"
 bone_idx = 13
 
 [node name="Marker3D" type="Marker3D" parent="Armature/GeneralSkeleton/RightHandBoneAttachment3D"]
-transform = Transform3D(1, -2.42144e-08, 0, 4.09782e-08, 1, -2.23517e-08, 2.98023e-08, 1.49012e-08, 1, 4.07625, 3.26012, -1.90735e-06)
+transform = Transform3D(100, -4.09782e-06, -2.98023e-06, 4.09782e-06, 100, -1.49012e-06, 2.98023e-06, 1.49012e-06, 100, 4.07625, 3.26012, -1.90735e-06)
 
 [node name="AnimationSoundEvents" type="Node3D" parent="."]
 script = ExtResource("12_3afj3")

@@ -46,6 +46,8 @@ func setup(new_golfer: GolferResource, assigned_team: Team):
     animation_tree = character.animation_tree
     character.animation_tree.tree_root.get_node("ACTION").animation = golfer_resource.role.primary_animation
 
+    print(character)
+
 
 func perform_action():
     role_action.perform()

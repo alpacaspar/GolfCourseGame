@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://df1aj4awrkd6t" path="res://common/roles/driver/driver_action.tscn" id="1_bhydt"]
 [ext_resource type="Script" path="res://common/roles/role.gd" id="1_epsvo"]
-[ext_resource type="PackedScene" uid="uid://coet3oi43guo7" path="res://entities/equipment/club_driver.tscn" id="2_pdemb"]
+[ext_resource type="PackedScene" uid="uid://cpsugccd3bxr5" path="res://entities/equipment/club_driver.tscn" id="2_pdemb"]
 
 [resource]
 script = ExtResource("1_epsvo")
