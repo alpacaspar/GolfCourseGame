@@ -1,4 +1,4 @@
-class_name BTWait
+class_name Wait
 extends BTLeaf
 
 

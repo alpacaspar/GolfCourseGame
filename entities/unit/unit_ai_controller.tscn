@@ -14,6 +14,9 @@ ExtResource("4_efv2t"): ExtResource("5_p0e7b")
 }
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+path_desired_distance = 0.5
+target_desired_distance = 0.5
+path_height_offset = 0.5
 height = 2.0
 radius = 0.3
 neighbor_distance = 5.0

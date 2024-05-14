@@ -14,7 +14,6 @@ var unit: Unit
 
 func _ready():
     navigation_agent.velocity_computed.connect(_on_velocity_computed)
-    navigation_agent.target_desired_distance = unit.golfer_resource.role.desired_distance
 
     behaviour_tree = behaviour_tree_scene[unit.golfer_resource.role].instantiate()
     add_child(behaviour_tree)

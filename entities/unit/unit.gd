@@ -2,7 +2,7 @@ class_name Unit
 extends CharacterBody3D
 
 
-const BASE_SPEED = 6.0
+const MOVE_SPEED = 6.0
 
 @onready var visuals: Node = $Visuals
 
@@ -19,9 +19,6 @@ var controller: Node
 var role_action: Node
 
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
-var movement_speed: float:
-    get:
-        return 2.0 if state == ATTACKING else BASE_SPEED
 
 var target: Node3D
 ## The amount of units that are targeting this unit.

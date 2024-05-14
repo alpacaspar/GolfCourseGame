@@ -36,8 +36,8 @@ func _physics_process(delta: float):
 
 	var direction := (unit.transform.basis * Vector3(-input_provider.move.x, 0, -input_provider.move.y)).normalized()
 
-	unit.velocity.x = direction.x * unit.movement_speed
-	unit.velocity.z = direction.z * unit.movement_speed
+	unit.velocity.x = direction.x * unit.MOVE_SPEED
+	unit.velocity.z = direction.z * unit.MOVE_SPEED
 
 	# This function already uses the delta time internally.
 	unit.move_and_slide()
