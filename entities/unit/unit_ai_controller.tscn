@@ -14,7 +14,6 @@ ExtResource("4_efv2t"): ExtResource("5_p0e7b")
 }
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
-avoidance_enabled = true
 height = 2.0
 radius = 0.3
 neighbor_distance = 5.0

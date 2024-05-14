@@ -3,19 +3,25 @@ extends BTLeaf
 
 ## Move in angle relative to the direction towards the target.
 @export_range(0, 360) var angle: float = 0.0
+@export var duration := 0.1
+
+var current_time := 0.0
 
 
 func _tick(blackboard: Dictionary, delta: float) -> int:
-    var unit: Unit = blackboard["unit"]
-    var controller: Node = unit.controller
+	var unit: Unit = blackboard["unit"]
+	var controller: Node = unit.controller
+	var target: Unit = unit.target
 
-    var direction_to_target: Vector3 = controller.global_position.direction_to(blackboard["unit"].target.global_position)
-    direction_to_target.y = 0
-    direction_to_target = direction_to_target.normalized()
-    var new_velocity := direction_to_target.rotated(Vector3.UP, deg_to_rad(angle)) * unit.movement_speed
+	if current_time >= duration:
+		current_time = 0.0
+		return SUCCESS
 
-    controller._on_velocity_computed(new_velocity)
-    
-    unit.visuals.look_in_direction(unit.velocity, delta)
+	current_time += delta
 
-    return SUCCESS
+	var direction_delta: Vector3 = Vector3(target.global_position.x, unit.global_position.y, target.global_position.z) - unit.global_position
+	var new_velocity := direction_delta.rotated(Vector3.UP, deg_to_rad(angle))
+
+	controller._on_velocity_computed(new_velocity)
+	
+	return RUNNING

@@ -20,8 +20,6 @@ func _tick(blackboard: Dictionary, delta: float) -> int:
 
     child_nodes.sort_custom(sort_utility)
     
-    print(1)
-
     for node: BTUtilityNode in child_nodes:
         match node._tick(blackboard, delta):
             FAILURE:

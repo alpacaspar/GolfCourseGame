@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://d2qdnkb2ycvda"]
+[gd_scene load_steps=21 format=3 uid="uid://d2qdnkb2ycvda"]
 
 [ext_resource type="Script" path="res://common/behaviour_tree/behaviour_tree.gd" id="1_xamc8"]
 [ext_resource type="Script" path="res://common/behaviour_tree/bt_parallel.gd" id="2_6kxft"]
@@ -18,6 +18,8 @@
 [ext_resource type="Script" path="res://entities/unit/behaviour/perform_action.gd" id="13_qpaqs"]
 [ext_resource type="Script" path="res://entities/unit/behaviour/in_range.gd" id="14_k6y2d"]
 [ext_resource type="Script" path="res://entities/unit/behaviour/move_relative_to_target.gd" id="16_2w1n4"]
+[ext_resource type="Script" path="res://entities/unit/behaviour/idle.gd" id="18_l1wfb"]
+[ext_resource type="Script" path="res://entities/unit/behaviour/look_at_target.gd" id="18_xlfob"]
 
 [node name="BehaviourTree" type="Node"]
 script = ExtResource("1_xamc8")
@@ -77,28 +79,58 @@ script = ExtResource("3_1lsql")
 
 [node name="InRange" type="Node" parent="Parallel/Selector"]
 script = ExtResource("14_k6y2d")
+distance_tolerance = 3.0
 
-[node name="Sequence" type="Node" parent="Parallel/Selector/InRange"]
+[node name="Parallel" type="Node" parent="Parallel/Selector/InRange"]
+script = ExtResource("2_6kxft")
+
+[node name="Sequence" type="Node" parent="Parallel/Selector/InRange/Parallel"]
 script = ExtResource("2_6qqk6")
 
-[node name="StepForward" type="Node" parent="Parallel/Selector/InRange/Sequence"]
-script = ExtResource("16_2w1n4")
-angle = null
+[node name="WaitRandom" type="Node" parent="Parallel/Selector/InRange/Parallel/Sequence"]
+script = ExtResource("4_i38cq")
+random = true
+random_range = Vector2(0.5, 3)
 
-[node name="PerformAction" type="Node" parent="Parallel/Selector/InRange/Sequence"]
+[node name="PerformAction" type="Node" parent="Parallel/Selector/InRange/Parallel/Sequence"]
 script = ExtResource("13_qpaqs")
 
-[node name="StepBack" type="Node" parent="Parallel/Selector/InRange/Sequence"]
+[node name="Wait" type="Node" parent="Parallel/Selector/InRange/Parallel/Sequence"]
+script = ExtResource("4_i38cq")
+wait_time = 0.5
+
+[node name="Lunge" type="Node" parent="Parallel/Selector/InRange/Parallel/Sequence"]
+script = ExtResource("16_2w1n4")
+duration = 0.6
+
+[node name="Wait2" type="Node" parent="Parallel/Selector/InRange/Parallel/Sequence"]
+script = ExtResource("4_i38cq")
+
+[node name="StepBack" type="Node" parent="Parallel/Selector/InRange/Parallel/Sequence"]
 script = ExtResource("16_2w1n4")
 angle = 180.0
+duration = 0.6
 
-[node name="Wait" type="Node" parent="Parallel/Selector/InRange/Sequence"]
+[node name="Wait3" type="Node" parent="Parallel/Selector/InRange/Parallel/Sequence"]
 script = ExtResource("4_i38cq")
 wait_time = 4.0
 
+[node name="Idle" type="Node" parent="Parallel/Selector/InRange/Parallel/Sequence"]
+script = ExtResource("18_l1wfb")
+
+[node name="LookAtTarget" type="Node" parent="Parallel/Selector/InRange/Parallel"]
+script = ExtResource("18_xlfob")
+
 [node name="NotInRange" type="Node" parent="Parallel/Selector"]
 script = ExtResource("14_k6y2d")
+distance_tolerance = 3.0
 invert = true
 
-[node name="Goto" type="Node" parent="Parallel/Selector/NotInRange"]
+[node name="Sequence" type="Node" parent="Parallel/Selector/NotInRange"]
+script = ExtResource("2_6qqk6")
+
+[node name="Idle" type="Node" parent="Parallel/Selector/NotInRange/Sequence"]
+script = ExtResource("18_l1wfb")
+
+[node name="Goto" type="Node" parent="Parallel/Selector/NotInRange/Sequence"]
 script = ExtResource("12_cdm36")

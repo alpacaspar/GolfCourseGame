@@ -14,11 +14,11 @@ var move_blend_value := 0.0
 func _physics_process(delta: float):
 	var target_blend_value := 0.0
 
-	target_blend_value = 1.0 if body.velocity.length_squared() > 0.5 * 0.5 else 0.0
+	target_blend_value = body.velocity.length() / body.BASE_SPEED
 
 	move_blend_value = lerp(move_blend_value, target_blend_value, delta * BLEND_SPEED)
 	body.animation_tree.set(MOVE_BLEND_PARAMETER, move_blend_value)
-	body.animation_tree.set(RUN_SPEED_PARAMETER, body.velocity.length() / body.movement_speed * 2)
+	body.animation_tree.set(RUN_SPEED_PARAMETER, move_blend_value * 2)
 
 
 func look_in_direction(target: Vector3, delta: float):
