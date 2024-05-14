@@ -24,7 +24,7 @@ func _physics_process(delta: float):
     target_blend_value = lerp(target_blend_value, blend_value, delta * BLEND_SPEED) 
 
     body.animation_tree.set(MOVE_BLEND_PARAMETER, target_blend_value)
-    body.animation_tree.set(RUN_SPEED_PARAMETER, target_blend_value * 2)
+    body.animation_tree.set(RUN_SPEED_PARAMETER, (1 - ((1 - target_blend_value) ** 2)) * 2)
 
     last_position = global_position
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://ck84hpbuds8v8"]
+[gd_scene load_steps=43 format=3 uid="uid://ck84hpbuds8v8"]
 
 [ext_resource type="Script" path="res://entities/character/character.gd" id="1_deigj"]
 [ext_resource type="AnimationLibrary" uid="uid://cteindhxey6qa" path="res://entities/character/animations/character_anim_library.res" id="2_od26b"]
@@ -12,6 +12,7 @@
 [ext_resource type="ArrayMesh" uid="uid://ra6axj0t8mag" path="res://entities/character/head/character_hair_buzz.res" id="10_yka5w"]
 [ext_resource type="ArrayMesh" uid="uid://cwa6wglrdhvcw" path="res://entities/character/head/character_nose_1.res" id="11_5aqlu"]
 [ext_resource type="Script" path="res://entities/character/ak_locomotion.gd" id="12_3afj3"]
+[ext_resource type="Script" path="res://entities/equipment/equipment_slot.gd" id="12_gskdx"]
 
 [sub_resource type="Animation" id="Animation_ai1wp"]
 length = 0.001
@@ -935,7 +936,7 @@ face_mesh_instance = NodePath("Armature/GeneralSkeleton/Face")
 body_mesh_instance = NodePath("Armature/GeneralSkeleton/Body_001")
 collar_mesh_instance = NodePath("Armature/GeneralSkeleton/Collar")
 animation_tree = NodePath("AnimationTree")
-primary_equipment_slot = NodePath("Armature/GeneralSkeleton/RightHandBoneAttachment3D/Marker3D")
+primary_equipment_slot = NodePath("Armature/GeneralSkeleton/RightHandBoneAttachment3D/PrimaryEquipmentSlot")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -1238,8 +1239,9 @@ transform = Transform3D(0, -1, 0, 0, 0, -1, 1, 0, 0, -37.152, -0.969067, -62.019
 bone_name = "RightHand"
 bone_idx = 13
 
-[node name="Marker3D" type="Marker3D" parent="Armature/GeneralSkeleton/RightHandBoneAttachment3D"]
+[node name="PrimaryEquipmentSlot" type="Marker3D" parent="Armature/GeneralSkeleton/RightHandBoneAttachment3D"]
 transform = Transform3D(100, -4.09782e-06, -2.98023e-06, 4.09782e-06, 100, -1.49012e-06, 2.98023e-06, 1.49012e-06, 100, 4.07625, 3.26012, -1.90735e-06)
+script = ExtResource("12_gskdx")
 
 [node name="AnimationSoundEvents" type="Node3D" parent="."]
 script = ExtResource("12_3afj3")
@@ -1252,3 +1254,6 @@ one_shot = true
 wait_time = 9.0
 one_shot = true
 autostart = true
+
+[connection signal="animation_event_ended" from="." to="Armature/GeneralSkeleton/RightHandBoneAttachment3D/PrimaryEquipmentSlot" method="_on_base_character_animation_event_ended"]
+[connection signal="animation_event_started" from="." to="Armature/GeneralSkeleton/RightHandBoneAttachment3D/PrimaryEquipmentSlot" method="_on_base_character_animation_event_started"]

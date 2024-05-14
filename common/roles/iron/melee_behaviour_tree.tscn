@@ -1,12 +1,14 @@
-[gd_scene load_steps=22 format=3 uid="uid://d2qdnkb2ycvda"]
+[gd_scene load_steps=24 format=3 uid="uid://d2qdnkb2ycvda"]
 
 [ext_resource type="Script" path="res://common/behaviour_tree/behaviour_tree.gd" id="1_xamc8"]
 [ext_resource type="Script" path="res://common/behaviour_tree/bt_parallel.gd" id="2_6kxft"]
 [ext_resource type="Script" path="res://common/behaviour_tree/bt_sequence.gd" id="2_6qqk6"]
 [ext_resource type="Script" path="res://common/behaviour_tree/bt_selector.gd" id="3_1lsql"]
 [ext_resource type="Script" path="res://common/behaviour_tree/utility/bt_utility_selector.gd" id="3_7a1u1"]
+[ext_resource type="Script" path="res://entities/unit/behaviour/target_lost.gd" id="3_g8dug"]
 [ext_resource type="Script" path="res://entities/unit/behaviour/target_unit_by_type.gd" id="4_48gyc"]
 [ext_resource type="Script" path="res://common/behaviour_tree/bt_wait.gd" id="4_i38cq"]
+[ext_resource type="Script" path="res://common/behaviour_tree/bt_link.gd" id="4_t5wkl"]
 [ext_resource type="Resource" uid="uid://n2wwvf3uab1k" path="res://common/roles/driver/driver.tres" id="5_8sg7h"]
 [ext_resource type="Script" path="res://common/behaviour_tree/utility/bt_utility_decorator_multiply.gd" id="6_o0w15"]
 [ext_resource type="Script" path="res://common/behaviour_tree/utility/bt_utility_decorator_power.gd" id="7_b3g7n"]
@@ -25,98 +27,98 @@
 [node name="BehaviourTree" type="Node"]
 script = ExtResource("1_xamc8")
 
-[node name="Parallel" type="Node" parent="."]
-script = ExtResource("2_6kxft")
+[node name="Selector" type="Node" parent="."]
+script = ExtResource("3_1lsql")
 
-[node name="Sequence" type="Node" parent="Parallel"]
-script = ExtResource("2_6qqk6")
+[node name="TargetLost" type="Node" parent="Selector"]
+script = ExtResource("3_g8dug")
 
-[node name="Wait" type="Node" parent="Parallel/Sequence"]
-script = ExtResource("4_i38cq")
-wait_time = 10.0
-skip_first = true
+[node name="UtilitySelectorLink" type="Node" parent="Selector/TargetLost" node_paths=PackedStringArray("link")]
+script = ExtResource("4_t5wkl")
+link = NodePath("../../Cooldown/UtilitySelector")
 
-[node name="UtilitySelector" type="Node" parent="Parallel/Sequence"]
+[node name="Cooldown" type="Node" parent="Selector"]
+script = ExtResource("16_cxr1b")
+cooldown_time = 10.0
+
+[node name="UtilitySelector" type="Node" parent="Selector/Cooldown"]
 script = ExtResource("3_7a1u1")
 
-[node name="TargetRanged" type="Node" parent="Parallel/Sequence/UtilitySelector"]
+[node name="TargetRanged" type="Node" parent="Selector/Cooldown/UtilitySelector"]
 script = ExtResource("4_48gyc")
 target_role = ExtResource("5_8sg7h")
 
-[node name="MultiplyUtility" type="Node" parent="Parallel/Sequence/UtilitySelector"]
+[node name="MultiplyUtility" type="Node" parent="Selector/Cooldown/UtilitySelector"]
 script = ExtResource("6_o0w15")
 factor = 2.0
 
-[node name="PowerUtility" type="Node" parent="Parallel/Sequence/UtilitySelector/MultiplyUtility"]
+[node name="PowerUtility" type="Node" parent="Selector/Cooldown/UtilitySelector/MultiplyUtility"]
 script = ExtResource("7_b3g7n")
 factor = 3.0
 
-[node name="SeekSupport" type="Node" parent="Parallel/Sequence/UtilitySelector/MultiplyUtility/PowerUtility"]
+[node name="SeekSupport" type="Node" parent="Selector/Cooldown/UtilitySelector/MultiplyUtility/PowerUtility"]
 script = ExtResource("4_48gyc")
 target_role = ExtResource("8_5jah4")
 target_team = 0
 
-[node name="TargetMelee" type="Node" parent="Parallel/Sequence/UtilitySelector"]
+[node name="TargetMelee" type="Node" parent="Selector/Cooldown/UtilitySelector"]
 script = ExtResource("4_48gyc")
 target_role = ExtResource("9_rt2n5")
 utility_multiplier = 1.1
 
-[node name="TargetSupport" type="Node" parent="Parallel/Sequence/UtilitySelector"]
+[node name="TargetSupport" type="Node" parent="Selector/Cooldown/UtilitySelector"]
 script = ExtResource("4_48gyc")
 target_role = ExtResource("8_5jah4")
 utility_multiplier = 1.5
 
-[node name="TargetCar" type="Node" parent="Parallel/Sequence/UtilitySelector"]
+[node name="TargetCar" type="Node" parent="Selector/Cooldown/UtilitySelector"]
 script = ExtResource("4_48gyc")
 target_role = ExtResource("10_xo0fy")
 utility_multiplier = 0.9
 
-[node name="KeepCurrentTarget" type="Node" parent="Parallel/Sequence/UtilitySelector"]
+[node name="KeepCurrentTarget" type="Node" parent="Selector/Cooldown/UtilitySelector"]
 script = ExtResource("11_716gx")
-utility_multiplier = 2.0
+utility_multiplier = 1.6
 
-[node name="Selector" type="Node" parent="Parallel"]
-script = ExtResource("3_1lsql")
-
-[node name="InCombatRange" type="Node" parent="Parallel/Selector"]
+[node name="InCombatRange" type="Node" parent="Selector"]
 script = ExtResource("15_aktj6")
 target_range = 5.0
 
-[node name="Parallel" type="Node" parent="Parallel/Selector/InCombatRange"]
+[node name="Parallel" type="Node" parent="Selector/InCombatRange"]
 script = ExtResource("2_6kxft")
 
-[node name="Selector" type="Node" parent="Parallel/Selector/InCombatRange/Parallel"]
+[node name="Selector" type="Node" parent="Selector/InCombatRange/Parallel"]
 script = ExtResource("3_1lsql")
 
-[node name="Cooldown" type="Node" parent="Parallel/Selector/InCombatRange/Parallel/Selector"]
+[node name="Cooldown" type="Node" parent="Selector/InCombatRange/Parallel/Selector"]
 script = ExtResource("16_cxr1b")
 cooldown_time = 3.0
 
-[node name="Sequence" type="Node" parent="Parallel/Selector/InCombatRange/Parallel/Selector/Cooldown"]
+[node name="Sequence" type="Node" parent="Selector/InCombatRange/Parallel/Selector/Cooldown"]
 script = ExtResource("2_6qqk6")
 
-[node name="PerformAction" type="Node" parent="Parallel/Selector/InCombatRange/Parallel/Selector/Cooldown/Sequence"]
+[node name="PerformAction" type="Node" parent="Selector/InCombatRange/Parallel/Selector/Cooldown/Sequence"]
 script = ExtResource("13_qpaqs")
 
-[node name="Wait" type="Node" parent="Parallel/Selector/InCombatRange/Parallel/Selector/Cooldown/Sequence"]
+[node name="Wait" type="Node" parent="Selector/InCombatRange/Parallel/Selector/Cooldown/Sequence"]
 script = ExtResource("4_i38cq")
 wait_time = 0.3
 
-[node name="LungeForward" type="Node" parent="Parallel/Selector/InCombatRange/Parallel/Selector/Cooldown/Sequence"]
+[node name="LungeForward" type="Node" parent="Selector/InCombatRange/Parallel/Selector/Cooldown/Sequence"]
 script = ExtResource("17_gjls2")
 move_speed = 3.0
 
-[node name="Wait2" type="Node" parent="Parallel/Selector/InCombatRange/Parallel/Selector/Cooldown/Sequence"]
+[node name="Wait2" type="Node" parent="Selector/InCombatRange/Parallel/Selector/Cooldown/Sequence"]
 script = ExtResource("4_i38cq")
 random = true
 random_range = Vector2(0.5, 2)
 
-[node name="KeepRange" type="Node" parent="Parallel/Selector/InCombatRange/Parallel/Selector"]
+[node name="KeepRange" type="Node" parent="Selector/InCombatRange/Parallel/Selector"]
 script = ExtResource("18_iuwun")
 preferred_range = 3.0
 
-[node name="LookAtTarget" type="Node" parent="Parallel/Selector/InCombatRange/Parallel"]
+[node name="LookAtTarget" type="Node" parent="Selector/InCombatRange/Parallel"]
 script = ExtResource("18_xlfob")
 
-[node name="Goto" type="Node" parent="Parallel/Selector"]
+[node name="Goto" type="Node" parent="Selector"]
 script = ExtResource("12_cdm36")

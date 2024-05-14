@@ -1,21 +1,12 @@
 class_name Parallel
 extends BTComposite
-## Similar to [Sequence], but will continue to the next child node even if the current one is still running.
+## Runs child nodes in parallel, 
 
 
 func _tick(blackboard: Dictionary, delta: float) -> int:
-	var result := FAILURE
+	var result := SUCCESS as int
 
 	for node: BTNode in child_nodes:
-		var status := node._tick(blackboard, delta)
-		match status:
-			FAILURE:
-				return FAILURE
-			SUCCESS:
-				result = SUCCESS
-				continue
-			RUNNING:
-				result = RUNNING
-				continue
+		result = node._tick(blackboard, delta)
 
 	return result
