@@ -111,7 +111,7 @@ move_speed = 3.0
 [node name="Wait2" type="Node" parent="Selector/InCombatRange/Parallel/Selector/Cooldown/Sequence"]
 script = ExtResource("4_i38cq")
 random = true
-random_range = Vector2(0.5, 2)
+random_range = Vector2(0.2, 1)
 
 [node name="KeepRange" type="Node" parent="Selector/InCombatRange/Parallel/Selector"]
 script = ExtResource("18_iuwun")

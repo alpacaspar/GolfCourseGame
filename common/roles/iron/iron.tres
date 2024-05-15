@@ -7,7 +7,6 @@
 [resource]
 script = ExtResource("1_a5bv5")
 display_name = "Ironnaut"
-desired_distance = 1.5
 primary_action = ExtResource("1_h80eq")
 primary_animation = &"character/character_swing"
 primary_equipment = ExtResource("2_m3iqk")

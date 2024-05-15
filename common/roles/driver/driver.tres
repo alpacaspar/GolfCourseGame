@@ -7,7 +7,6 @@
 [resource]
 script = ExtResource("1_epsvo")
 display_name = "Power Driver"
-desired_distance = 50.0
 primary_action = ExtResource("1_bhydt")
 primary_animation = &"character/character_drive"
 primary_equipment = ExtResource("2_pdemb")
