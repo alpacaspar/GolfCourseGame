@@ -3,13 +3,13 @@
 importer="animation_library"
 importer_version=1
 type="AnimationLibrary"
-uid="uid://ca8t5trmy24p1"
-path="res://.godot/imported/character_swing_anim.glb-701c155d724da6baa0390cc448b855e7.res"
+uid="uid://bv4s5cd6oq7nj"
+path="res://.godot/imported/character_head_hit_anim.glb-039b3a86b3d4fcee85178194264c2b41.res"
 
 [deps]
 
-source_file="res://entities/character/animations/character_swing_anim.glb"
-dest_files=["res://.godot/imported/character_swing_anim.glb-701c155d724da6baa0390cc448b855e7.res"]
+source_file="res://entities/character/animations/character_head_hit_anim.glb"
+dest_files=["res://.godot/imported/character_head_hit_anim.glb-039b3a86b3d4fcee85178194264c2b41.res"]
 
 [params]
 
@@ -26,7 +26,7 @@ meshes/force_disable_compression=false
 skins/use_named_skins=true
 animation/import=true
 animation/fps=30
-animation/trimming=false
+animation/trimming=true
 animation/remove_immutable_tracks=true
 import_script/path=""
 _subresources={
@@ -34,7 +34,7 @@ _subresources={
 "Armature|mixamo_com|Layer0": {
 "save_to_file/enabled": true,
 "save_to_file/keep_custom_tracks": "",
-"save_to_file/path": "res://entities/character/animations/character_swing.res",
+"save_to_file/path": "res://entities/character/animations/character_head_hit.res",
 "settings/loop_mode": 0,
 "slice_1/end_frame": 0,
 "slice_1/loop_mode": 0,
@@ -1832,11 +1832,14 @@ _subresources={
 }
 },
 "nodes": {
+"PATH:AnimationPlayer": {
+"compression/enabled": true
+},
 "PATH:Armature/Skeleton3D": {
 "retarget/bone_map": Resource("res://entities/character/character_bone_map.tres"),
 "retarget/rest_fixer/apply_node_transforms": false
 }
 }
 }
-gltf/naming_version=0
+gltf/naming_version=1
 gltf/embedded_image_handling=1

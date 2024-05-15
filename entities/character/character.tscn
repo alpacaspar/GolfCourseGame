@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://ck84hpbuds8v8"]
+[gd_scene load_steps=45 format=3 uid="uid://ck84hpbuds8v8"]
 
 [ext_resource type="Script" path="res://entities/character/character.gd" id="1_deigj"]
 [ext_resource type="AnimationLibrary" uid="uid://cteindhxey6qa" path="res://entities/character/animations/character_anim_library.res" id="2_od26b"]
@@ -478,6 +478,27 @@ tracks/65/path = NodePath("Armature/GeneralSkeleton:RightToes")
 tracks/65/interp = 1
 tracks/65/loop_wrap = true
 tracks/65/keys = PackedFloat32Array(0, 1, 1, 1, 1)
+tracks/66/type = "position_3d"
+tracks/66/imported = false
+tracks/66/enabled = true
+tracks/66/path = NodePath("Armature/GeneralSkeleton/RightHandBoneAttachment3D")
+tracks/66/interp = 1
+tracks/66/loop_wrap = true
+tracks/66/keys = PackedFloat32Array(0, 1, -37.152, -0.969067, -62.0192)
+tracks/67/type = "rotation_3d"
+tracks/67/imported = false
+tracks/67/enabled = true
+tracks/67/path = NodePath("Armature/GeneralSkeleton/RightHandBoneAttachment3D")
+tracks/67/interp = 1
+tracks/67/loop_wrap = true
+tracks/67/keys = PackedFloat32Array(0, 1, 0.5, -0.5, 0.5, 0.5)
+tracks/68/type = "scale_3d"
+tracks/68/imported = false
+tracks/68/enabled = true
+tracks/68/path = NodePath("Armature/GeneralSkeleton/RightHandBoneAttachment3D")
+tracks/68/interp = 1
+tracks/68/loop_wrap = true
+tracks/68/keys = PackedFloat32Array(0, 1, 1, 1, 1)
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_b3t27"]
 _data = {
@@ -485,11 +506,21 @@ _data = {
 }
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_bhjs0"]
+resource_local_to_scene = true
 animation = &"character/character_swing"
 
 [sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_5laqw"]
 filter_enabled = true
-filters = ["%GeneralSkeleton:Chest", "%GeneralSkeleton:Head", "%GeneralSkeleton:LeftHand", "%GeneralSkeleton:LeftLowerArm", "%GeneralSkeleton:LeftShoulder", "%GeneralSkeleton:LeftUpperArm", "%GeneralSkeleton:Neck", "%GeneralSkeleton:RightHand", "%GeneralSkeleton:RightLowerArm", "%GeneralSkeleton:RightShoulder", "%GeneralSkeleton:RightUpperArm", "%GeneralSkeleton:Spine", ".", "AnimationSoundEvents"]
+filters = ["%GeneralSkeleton:Chest", "%GeneralSkeleton:Head", "%GeneralSkeleton:LeftHand", "%GeneralSkeleton:LeftLowerArm", "%GeneralSkeleton:LeftShoulder", "%GeneralSkeleton:LeftUpperArm", "%GeneralSkeleton:Neck", "%GeneralSkeleton:RightHand", "%GeneralSkeleton:RightLowerArm", "%GeneralSkeleton:RightShoulder", "%GeneralSkeleton:RightUpperArm", "%GeneralSkeleton:Spine", "AnimationSoundEvents"]
+fadein_time = 0.3
+fadeout_time = 0.5
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_lanlo"]
+animation = &"character/character_head_hit"
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_k0vrh"]
+filter_enabled = true
+filters = ["%GeneralSkeleton:Chest", "%GeneralSkeleton:Head", "%GeneralSkeleton:Hips", "%GeneralSkeleton:LeftShoulder", "%GeneralSkeleton:LeftUpperArm", "%GeneralSkeleton:LeftUpperLeg", "%GeneralSkeleton:Neck", "%GeneralSkeleton:RightShoulder", "%GeneralSkeleton:RightUpperArm", "%GeneralSkeleton:RightUpperLeg", "%GeneralSkeleton:Root", "%GeneralSkeleton:Spine"]
 fadein_time = 0.2
 fadeout_time = 0.5
 
@@ -499,15 +530,22 @@ animation = &"character/character_idle"
 [sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_oi70o"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ouaox"]
+resource_local_to_scene = true
 animation = &"character/character_run"
 
 [sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_0wre6"]
 
-[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_oo302"]
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_fkgia"]
+resource_local_to_scene = true
+graph_offset = Vector2(-479.639, -19.1389)
 nodes/ACTION/node = SubResource("AnimationNodeAnimation_bhjs0")
 nodes/ACTION/position = Vector2(-80, 420)
 nodes/ActionOneShot/node = SubResource("AnimationNodeOneShot_5laqw")
-nodes/ActionOneShot/position = Vector2(220, 120)
+nodes/ActionOneShot/position = Vector2(280, 120)
+nodes/Animation/node = SubResource("AnimationNodeAnimation_lanlo")
+nodes/Animation/position = Vector2(240, 420)
+nodes/HitOneShot/node = SubResource("AnimationNodeOneShot_k0vrh")
+nodes/HitOneShot/position = Vector2(560, 120)
 nodes/Idle/node = SubResource("AnimationNodeAnimation_vfsqt")
 nodes/Idle/position = Vector2(-280, 120)
 nodes/MoveBlend/node = SubResource("AnimationNodeBlend2_oi70o")
@@ -516,8 +554,8 @@ nodes/Run/node = SubResource("AnimationNodeAnimation_ouaox")
 nodes/Run/position = Vector2(-360, 280)
 nodes/RunSpeed/node = SubResource("AnimationNodeTimeScale_0wre6")
 nodes/RunSpeed/position = Vector2(-120, 280)
-nodes/output/position = Vector2(400, 120)
-node_connections = [&"ActionOneShot", 0, &"MoveBlend", &"ActionOneShot", 1, &"ACTION", &"MoveBlend", 0, &"Idle", &"MoveBlend", 1, &"RunSpeed", &"RunSpeed", 0, &"Run", &"output", 0, &"ActionOneShot"]
+nodes/output/position = Vector2(760, 120)
+node_connections = [&"ActionOneShot", 0, &"MoveBlend", &"ActionOneShot", 1, &"ACTION", &"HitOneShot", 0, &"ActionOneShot", &"HitOneShot", 1, &"Animation", &"MoveBlend", 0, &"Idle", &"MoveBlend", 1, &"RunSpeed", &"RunSpeed", 0, &"Run", &"output", 0, &"HitOneShot"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_epeq7"]
 resource_name = "BodyMAT.003"
@@ -949,11 +987,14 @@ libraries = {
 "": SubResource("AnimationLibrary_b3t27"),
 "character": ExtResource("2_od26b")
 }
-tree_root = SubResource("AnimationNodeBlendTree_oo302")
+tree_root = SubResource("AnimationNodeBlendTree_fkgia")
 anim_player = NodePath("../AnimationPlayer")
 parameters/ActionOneShot/active = false
 parameters/ActionOneShot/internal_active = false
 parameters/ActionOneShot/request = 0
+parameters/HitOneShot/active = false
+parameters/HitOneShot/internal_active = false
+parameters/HitOneShot/request = 0
 parameters/MoveBlend/blend_amount = 0.0
 parameters/RunSpeed/scale = 2.0
 
@@ -1143,6 +1184,7 @@ skin = SubResource("Skin_h8tku")
 
 [node name="Face" type="MeshInstance3D" parent="Armature/GeneralSkeleton"]
 material_override = ExtResource("8_67ytv")
+lod_bias = 10.0
 mesh = SubResource("ArrayMesh_jn30c")
 skin = SubResource("Skin_h8tku")
 
@@ -1235,7 +1277,7 @@ mesh = SubResource("ArrayMesh_8fj5t")
 skin = SubResource("Skin_h8tku")
 
 [node name="RightHandBoneAttachment3D" type="BoneAttachment3D" parent="Armature/GeneralSkeleton"]
-transform = Transform3D(0, -1, 0, 0, 0, -1, 1, 0, 0, -37.152, -0.969067, -62.0192)
+transform = Transform3D(-4.37114e-08, -1, 4.37114e-08, 0, -4.37114e-08, -1, 1, -4.37114e-08, 1.91069e-15, -37.152, -0.969067, -62.0192)
 bone_name = "RightHand"
 bone_idx = 13
 

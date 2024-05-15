@@ -33,4 +33,4 @@ func look_in_direction(target: Vector3, delta: float):
     rotation_dir = Vector3(target.x, global_position.y, target.z)
 
     var angle := atan2(rotation_dir.x, rotation_dir.z)
-    global_rotation.y = lerp_angle(global_rotation.y, angle, delta * BLEND_SPEED)
+    body.rotation.y = lerp_angle(global_rotation.y, angle, delta * BLEND_SPEED)
