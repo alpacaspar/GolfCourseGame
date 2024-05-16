@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://bfxkelwfpo0dm"]
+[gd_scene load_steps=26 format=3 uid="uid://bfxkelwfpo0dm"]
 
 [ext_resource type="Script" path="res://common/behaviour_tree/behaviour_tree.gd" id="1_bgl47"]
 [ext_resource type="Script" path="res://common/behaviour_tree/bt_selector.gd" id="2_ke1wb"]
@@ -15,6 +15,7 @@
 [ext_resource type="Resource" uid="uid://bvm3jvc6kbftb" path="res://common/roles/golf_car.tres" id="13_qmneo"]
 [ext_resource type="Script" path="res://entities/unit/behaviour/keep_current_target.gd" id="14_8kr8v"]
 [ext_resource type="Script" path="res://entities/unit/behaviour/in_combat_range.gd" id="15_m0l1v"]
+[ext_resource type="Script" path="res://common/behaviour_tree/bt_decorator_always_fail.gd" id="16_54yg3"]
 [ext_resource type="Script" path="res://common/behaviour_tree/bt_parallel.gd" id="16_b5ism"]
 [ext_resource type="Script" path="res://entities/unit/behaviour/attacker_in_range.gd" id="16_jr5h5"]
 [ext_resource type="Script" path="res://entities/unit/behaviour/flee.gd" id="17_1affm"]
@@ -23,6 +24,7 @@
 [ext_resource type="Script" path="res://common/behaviour_tree/bt_wait.gd" id="19_m2ndt"]
 [ext_resource type="Script" path="res://entities/unit/behaviour/look_at_target.gd" id="22_hbefy"]
 [ext_resource type="Script" path="res://entities/unit/behaviour/goto.gd" id="23_et0h8"]
+[ext_resource type="Script" path="res://entities/unit/behaviour/set_movement_target.gd" id="24_fewd8"]
 
 [node name="BehaviourTree" type="Node"]
 script = ExtResource("1_bgl47")
@@ -125,5 +127,17 @@ script = ExtResource("15_m0l1v")
 target_range = 30.0
 invert = true
 
-[node name="Goto" type="Node" parent="Selector/TargetOutofRange"]
+[node name="Selector" type="Node" parent="Selector/TargetOutofRange"]
+script = ExtResource("2_ke1wb")
+
+[node name="AlwaysFail" type="Node" parent="Selector/TargetOutofRange/Selector"]
+script = ExtResource("16_54yg3")
+
+[node name="Cooldown" type="Node" parent="Selector/TargetOutofRange/Selector/AlwaysFail"]
+script = ExtResource("5_ikhrx")
+
+[node name="SetMovementTarget" type="Node" parent="Selector/TargetOutofRange/Selector/AlwaysFail/Cooldown"]
+script = ExtResource("24_fewd8")
+
+[node name="Goto" type="Node" parent="Selector/TargetOutofRange/Selector"]
 script = ExtResource("23_et0h8")

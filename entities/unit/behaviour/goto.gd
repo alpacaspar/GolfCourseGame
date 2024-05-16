@@ -6,11 +6,9 @@ func _tick(blackboard: Dictionary, delta: float) -> int:
     var controller: Node = unit.controller
     var navigation_agent: NavigationAgent3D = controller.navigation_agent
 
-    controller.set_movement_target(unit.target.global_position)
-
     if not navigation_agent.is_navigation_finished():
         var next_path_position: Vector3 = navigation_agent.get_next_path_position()
-        var new_velocity: Vector3 = controller.global_position.direction_to(next_path_position) * unit.MOVE_SPEED
+        var new_velocity: Vector3 = unit.global_position.direction_to(next_path_position) * unit.MOVE_SPEED
         if navigation_agent.avoidance_enabled:
             navigation_agent.set_velocity(new_velocity)
         else:
