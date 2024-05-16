@@ -9,14 +9,14 @@
 [ext_resource type="Script" path="res://entities/unit/behaviour/target_unit_by_type.gd" id="4_48gyc"]
 [ext_resource type="Script" path="res://common/behaviour_tree/bt_wait.gd" id="4_i38cq"]
 [ext_resource type="Script" path="res://common/behaviour_tree/bt_link.gd" id="4_t5wkl"]
-[ext_resource type="Resource" uid="uid://n2wwvf3uab1k" path="res://common/roles/driver/driver_role.tres" id="5_8sg7h"]
 [ext_resource type="Script" path="res://common/behaviour_tree/utility/bt_utility_decorator_multiply.gd" id="6_o0w15"]
 [ext_resource type="Script" path="res://common/behaviour_tree/utility/bt_utility_decorator_power.gd" id="7_b3g7n"]
 [ext_resource type="Resource" uid="uid://djj0fkyow7k6u" path="res://common/roles/caddy.tres" id="8_5jah4"]
-[ext_resource type="Resource" uid="uid://3odoff5r71oh" path="res://common/roles/iron/iron_role.tres" id="9_rt2n5"]
+[ext_resource type="Resource" uid="uid://n2wwvf3uab1k" path="res://common/roles/driver/driver_role.tres" id="8_u7msb"]
 [ext_resource type="Resource" uid="uid://bvm3jvc6kbftb" path="res://common/roles/golf_car.tres" id="10_xo0fy"]
 [ext_resource type="Script" path="res://entities/unit/behaviour/keep_current_target.gd" id="11_716gx"]
 [ext_resource type="Script" path="res://entities/unit/behaviour/goto.gd" id="12_cdm36"]
+[ext_resource type="Resource" uid="uid://3odoff5r71oh" path="res://common/roles/iron/iron_role.tres" id="12_silyp"]
 [ext_resource type="Script" path="res://entities/unit/behaviour/perform_action.gd" id="13_qpaqs"]
 [ext_resource type="Script" path="res://entities/unit/behaviour/in_combat_range.gd" id="15_aktj6"]
 [ext_resource type="Script" path="res://common/behaviour_tree/bt_cooldown.gd" id="16_cxr1b"]
@@ -46,7 +46,7 @@ script = ExtResource("3_7a1u1")
 
 [node name="TargetRanged" type="Node" parent="Selector/Cooldown/UtilitySelector"]
 script = ExtResource("4_48gyc")
-target_role = ExtResource("5_8sg7h")
+target_role = ExtResource("8_u7msb")
 
 [node name="MultiplyUtility" type="Node" parent="Selector/Cooldown/UtilitySelector"]
 script = ExtResource("6_o0w15")
@@ -63,7 +63,7 @@ target_team = 0
 
 [node name="TargetMelee" type="Node" parent="Selector/Cooldown/UtilitySelector"]
 script = ExtResource("4_48gyc")
-target_role = ExtResource("9_rt2n5")
+target_role = ExtResource("12_silyp")
 utility_multiplier = 1.1
 
 [node name="TargetSupport" type="Node" parent="Selector/Cooldown/UtilitySelector"]

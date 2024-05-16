@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://bfxkelwfpo0dm"]
+[gd_scene load_steps=24 format=3 uid="uid://bfxkelwfpo0dm"]
 
 [ext_resource type="Script" path="res://common/behaviour_tree/behaviour_tree.gd" id="1_bgl47"]
 [ext_resource type="Script" path="res://common/behaviour_tree/bt_selector.gd" id="2_ke1wb"]
@@ -7,15 +7,18 @@
 [ext_resource type="Script" path="res://common/behaviour_tree/bt_cooldown.gd" id="5_ikhrx"]
 [ext_resource type="Script" path="res://common/behaviour_tree/utility/bt_utility_selector.gd" id="6_ft41e"]
 [ext_resource type="Script" path="res://entities/unit/behaviour/target_unit_by_type.gd" id="7_sq5eh"]
-[ext_resource type="Resource" uid="uid://n2wwvf3uab1k" path="res://common/roles/driver/driver_role.tres" id="8_v2kgk"]
+[ext_resource type="Resource" uid="uid://n2wwvf3uab1k" path="res://common/roles/driver/driver_role.tres" id="8_4kkan"]
 [ext_resource type="Script" path="res://common/behaviour_tree/utility/bt_utility_decorator_multiply.gd" id="9_y162l"]
 [ext_resource type="Script" path="res://common/behaviour_tree/utility/bt_utility_decorator_power.gd" id="10_5mfrx"]
 [ext_resource type="Resource" uid="uid://djj0fkyow7k6u" path="res://common/roles/caddy.tres" id="11_mxcph"]
-[ext_resource type="Resource" uid="uid://3odoff5r71oh" path="res://common/roles/iron/iron_role.tres" id="12_i6tku"]
+[ext_resource type="Resource" uid="uid://3odoff5r71oh" path="res://common/roles/iron/iron_role.tres" id="12_38uy6"]
 [ext_resource type="Resource" uid="uid://bvm3jvc6kbftb" path="res://common/roles/golf_car.tres" id="13_qmneo"]
 [ext_resource type="Script" path="res://entities/unit/behaviour/keep_current_target.gd" id="14_8kr8v"]
 [ext_resource type="Script" path="res://entities/unit/behaviour/in_combat_range.gd" id="15_m0l1v"]
 [ext_resource type="Script" path="res://common/behaviour_tree/bt_parallel.gd" id="16_b5ism"]
+[ext_resource type="Script" path="res://entities/unit/behaviour/attacker_in_range.gd" id="16_jr5h5"]
+[ext_resource type="Script" path="res://entities/unit/behaviour/flee.gd" id="17_1affm"]
+[ext_resource type="Script" path="res://common/behaviour_tree/bt_sequence.gd" id="17_4gwic"]
 [ext_resource type="Script" path="res://entities/unit/behaviour/perform_action.gd" id="18_46n3d"]
 [ext_resource type="Script" path="res://common/behaviour_tree/bt_wait.gd" id="19_m2ndt"]
 [ext_resource type="Script" path="res://entities/unit/behaviour/look_at_target.gd" id="22_hbefy"]
@@ -43,7 +46,7 @@ script = ExtResource("6_ft41e")
 
 [node name="TargetRanged" type="Node" parent="Selector/Cooldown/UtilitySelector"]
 script = ExtResource("7_sq5eh")
-target_role = ExtResource("8_v2kgk")
+target_role = ExtResource("8_4kkan")
 
 [node name="MultiplyUtility" type="Node" parent="Selector/Cooldown/UtilitySelector"]
 script = ExtResource("9_y162l")
@@ -60,7 +63,7 @@ target_team = 0
 
 [node name="TargetMelee" type="Node" parent="Selector/Cooldown/UtilitySelector"]
 script = ExtResource("7_sq5eh")
-target_role = ExtResource("12_i6tku")
+target_role = ExtResource("12_38uy6")
 
 [node name="TargetSupport" type="Node" parent="Selector/Cooldown/UtilitySelector"]
 script = ExtResource("7_sq5eh")
@@ -75,26 +78,52 @@ utility_multiplier = 2.0
 script = ExtResource("14_8kr8v")
 utility_multiplier = 0.5
 
-[node name="InCombatRange" type="Node" parent="Selector"]
+[node name="TargetInRange" type="Node" parent="Selector"]
 script = ExtResource("15_m0l1v")
 target_range = 30.0
 
-[node name="Parallel" type="Node" parent="Selector/InCombatRange"]
+[node name="Selector" type="Node" parent="Selector/TargetInRange"]
+script = ExtResource("2_ke1wb")
+
+[node name="OpponentsInRange" type="Node" parent="Selector/TargetInRange/Selector"]
+script = ExtResource("16_jr5h5")
+
+[node name="Sequence" type="Node" parent="Selector/TargetInRange/Selector/OpponentsInRange"]
+script = ExtResource("17_4gwic")
+
+[node name="Cooldown" type="Node" parent="Selector/TargetInRange/Selector/OpponentsInRange/Sequence"]
+script = ExtResource("5_ikhrx")
+
+[node name="Flee" type="Node" parent="Selector/TargetInRange/Selector/OpponentsInRange/Sequence/Cooldown"]
+script = ExtResource("17_1affm")
+
+[node name="UtilitySelectorLink" type="Node" parent="Selector/TargetInRange/Selector/OpponentsInRange/Sequence" node_paths=PackedStringArray("link")]
+script = ExtResource("4_dr7we")
+link = NodePath("../../../../../Cooldown/UtilitySelector")
+
+[node name="Parallel" type="Node" parent="Selector/TargetInRange/Selector"]
 script = ExtResource("16_b5ism")
 
-[node name="Cooldown" type="Node" parent="Selector/InCombatRange/Parallel"]
-script = ExtResource("5_ikhrx")
-cooldown_time = 3.0
-
-[node name="PerformAction" type="Node" parent="Selector/InCombatRange/Parallel/Cooldown"]
-script = ExtResource("18_46n3d")
-
-[node name="Wait" type="Node" parent="Selector/InCombatRange/Parallel/Cooldown"]
-script = ExtResource("19_m2ndt")
-wait_time = 5.0
-
-[node name="LookAtTarget" type="Node" parent="Selector/InCombatRange/Parallel"]
+[node name="LookAtTarget" type="Node" parent="Selector/TargetInRange/Selector/Parallel"]
 script = ExtResource("22_hbefy")
 
-[node name="Goto" type="Node" parent="Selector"]
+[node name="Cooldown" type="Node" parent="Selector/TargetInRange/Selector/Parallel"]
+script = ExtResource("5_ikhrx")
+
+[node name="Sequence" type="Node" parent="Selector/TargetInRange/Selector/Parallel/Cooldown"]
+script = ExtResource("17_4gwic")
+
+[node name="PerformAction" type="Node" parent="Selector/TargetInRange/Selector/Parallel/Cooldown/Sequence"]
+script = ExtResource("18_46n3d")
+
+[node name="Wait" type="Node" parent="Selector/TargetInRange/Selector/Parallel/Cooldown/Sequence"]
+script = ExtResource("19_m2ndt")
+wait_time = 3.0
+
+[node name="TargetOutofRange" type="Node" parent="Selector"]
+script = ExtResource("15_m0l1v")
+target_range = 30.0
+invert = true
+
+[node name="Goto" type="Node" parent="Selector/TargetOutofRange"]
 script = ExtResource("23_et0h8")
