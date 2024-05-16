@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://f6d26xjpiwaj"
-path.s3tc="res://.godot/imported/trees_palm_roughness.png-4dc48e25dbe8e32dde89b9e668088744.s3tc.ctex"
+path.bptc="res://.godot/imported/trees_palm_roughness.png-4dc48e25dbe8e32dde89b9e668088744.bptc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -12,12 +12,12 @@ metadata={
 [deps]
 
 source_file="res://entities/environment/trees_palm_roughness.png"
-dest_files=["res://.godot/imported/trees_palm_roughness.png-4dc48e25dbe8e32dde89b9e668088744.s3tc.ctex"]
+dest_files=["res://.godot/imported/trees_palm_roughness.png-4dc48e25dbe8e32dde89b9e668088744.bptc.ctex"]
 
 [params]
 
 compress/mode=2
-compress/high_quality=false
+compress/high_quality=true
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0
