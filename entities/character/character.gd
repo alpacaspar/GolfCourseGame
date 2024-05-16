@@ -3,8 +3,8 @@ class_name Character
 extends Node3D
 
 
-signal animation_event_started
-signal animation_event_ended
+signal primary_animation_event
+signal secondary_animation_event
 
 
 @export_group("Appearance")
@@ -21,7 +21,8 @@ signal animation_event_ended
 
 @export_group("Gameplay")
 @export var animation_tree: AnimationTree
-@export var primary_equipment_slot: Marker3D
+@export var right_hand_marker: Marker3D
+@export var left_hand_marker: Marker3D
 
 
 func set_preview_mode(preview_mode: bool):
@@ -33,9 +34,9 @@ func set_preview_mode(preview_mode: bool):
     preview_mesh.visible = preview_mode
 
 
-func start_animation_event():
-    animation_event_started.emit()
+func call_primary_animation_event():
+    primary_animation_event.emit()
 
 
-func end_animation_event():
-    animation_event_ended.emit()
+func call_secondary_animation_event():
+    secondary_animation_event.emit()

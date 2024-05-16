@@ -3,11 +3,11 @@
 [ext_resource type="Script" path="res://addons/golfer_editor/ui/golfer_customizer.gd" id="1_5c6wr"]
 [ext_resource type="Resource" uid="uid://djj0fkyow7k6u" path="res://common/roles/caddy.tres" id="2_6ncl1"]
 [ext_resource type="PackedScene" uid="uid://5q7b6g71i8sm" path="res://addons/npc_editor/ui/resource_loader.tscn" id="2_a7ttx"]
-[ext_resource type="Resource" uid="uid://n2wwvf3uab1k" path="res://common/roles/driver/driver.tres" id="3_4dg6a"]
+[ext_resource type="Resource" uid="uid://n2wwvf3uab1k" path="res://common/roles/driver/driver_role.tres" id="3_4dg6a"]
 [ext_resource type="Texture2D" uid="uid://c3hcdbvgeihu3" path="res://addons/npc_editor/ui/Error_icon.png" id="3_8wnmi"]
 [ext_resource type="LabelSettings" uid="uid://y18aqn0x2wop" path="res://addons/npc_editor/ui/error_label.tres" id="4_qhm2w"]
 [ext_resource type="Resource" uid="uid://bvm3jvc6kbftb" path="res://common/roles/golf_car.tres" id="4_vtpuw"]
-[ext_resource type="Resource" uid="uid://3odoff5r71oh" path="res://common/roles/iron/iron.tres" id="5_icd58"]
+[ext_resource type="Resource" uid="uid://3odoff5r71oh" path="res://common/roles/iron/iron_role.tres" id="5_icd58"]
 [ext_resource type="Resource" path="res://common/roles/putter.tres" id="6_quupf"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_sbb8n"]

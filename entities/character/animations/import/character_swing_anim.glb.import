@@ -4,12 +4,12 @@ importer="animation_library"
 importer_version=1
 type="AnimationLibrary"
 uid="uid://ca8t5trmy24p1"
-path="res://.godot/imported/character_swing_anim.glb-701c155d724da6baa0390cc448b855e7.res"
+path="res://.godot/imported/character_swing_anim.glb-7080be303494105442afb1f89b817913.res"
 
 [deps]
 
-source_file="res://entities/character/animations/character_swing_anim.glb"
-dest_files=["res://.godot/imported/character_swing_anim.glb-701c155d724da6baa0390cc448b855e7.res"]
+source_file="res://entities/character/animations/import/character_swing_anim.glb"
+dest_files=["res://.godot/imported/character_swing_anim.glb-7080be303494105442afb1f89b817913.res"]
 
 [params]
 

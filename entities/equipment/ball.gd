@@ -23,3 +23,7 @@ func _on_body_entered(body: Node) -> void:
         body.take_damage(owning_unit.golfer_resource.power)
         # Allow only one hit per ball.
         self.set_deferred("contact_monitor", false)
+
+
+func _on_timer_timeout():
+    queue_free()

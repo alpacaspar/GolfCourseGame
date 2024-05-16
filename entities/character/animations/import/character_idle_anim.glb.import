@@ -1,15 +1,15 @@
 [remap]
 
-importer="scene"
+importer="animation_library"
 importer_version=1
-type="PackedScene"
-uid="uid://dhcfl5sdxf68u"
-path="res://.godot/imported/character_drive_anim.glb-61080a92062e31ba84c388ed5b8f4a0b.scn"
+type="AnimationLibrary"
+uid="uid://xulh2tu72xdd"
+path="res://.godot/imported/character_idle_anim.glb-94a2a028de5072eb45b62da7b69c3f43.res"
 
 [deps]
 
-source_file="res://entities/character/animations/character_drive_anim.glb"
-dest_files=["res://.godot/imported/character_drive_anim.glb-61080a92062e31ba84c388ed5b8f4a0b.scn"]
+source_file="res://entities/character/animations/import/character_idle_anim.glb"
+dest_files=["res://.godot/imported/character_idle_anim.glb-94a2a028de5072eb45b62da7b69c3f43.res"]
 
 [params]
 

@@ -4,12 +4,12 @@ importer="animation_library"
 importer_version=1
 type="AnimationLibrary"
 uid="uid://crjvm0uau3lxg"
-path="res://.godot/imported/character_knockout_anim.glb-32ad9f05e9a16ed021b4a5cb8244eb2e.res"
+path="res://.godot/imported/character_knockout_anim.glb-1d0a36bc86d51870690ea8769a24ced9.res"
 
 [deps]
 
-source_file="res://entities/character/animations/character_knockout_anim.glb"
-dest_files=["res://.godot/imported/character_knockout_anim.glb-32ad9f05e9a16ed021b4a5cb8244eb2e.res"]
+source_file="res://entities/character/animations/import/character_knockout_anim.glb"
+dest_files=["res://.godot/imported/character_knockout_anim.glb-1d0a36bc86d51870690ea8769a24ced9.res"]
 
 [params]
 

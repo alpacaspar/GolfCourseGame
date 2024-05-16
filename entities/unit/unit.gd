@@ -2,7 +2,7 @@ class_name Unit
 extends CharacterBody3D
 
 
-const ACTION_ONE_SHOT: StringName = "parameters/ActionOneShot/request"
+const ACTION_TRANSITION_ANIM_PARAMETER: StringName = "parameters/Transition/transition_request"
 const HIT_ONE_SHOT: StringName = "parameters/HitOneShot/request"
 
 const MOVE_SPEED = 6.0
@@ -46,14 +46,13 @@ func setup(new_golfer: GolferResource, assigned_team: Team):
         var equipment: Node3D = golfer_resource.role.primary_equipment.instantiate()
         equipment.owning_unit = self
 
-        character.primary_equipment_slot.add_child(equipment)
+        character.right_hand_marker.add_child(equipment)
 
     animation_tree = character.animation_tree
-    character.animation_tree.tree_root.get_node("ACTION").animation = golfer_resource.role.primary_animation
-
+    character.animation_tree.tree_root = golfer_resource.role.animation_blend_tree
 
 func perform_action():
-    animation_tree.set(ACTION_ONE_SHOT, AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
+    animation_tree.set(ACTION_TRANSITION_ANIM_PARAMETER, "start_action")
     role_action.perform()
 
 
@@ -69,7 +68,7 @@ func take_damage(damage: int):
         _exhaust()
     
     animation_tree.set(HIT_ONE_SHOT, AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
-    animation_tree.set(ACTION_ONE_SHOT, AnimationNodeOneShot.ONE_SHOT_REQUEST_FADE_OUT)
+    animation_tree.set(ACTION_TRANSITION_ANIM_PARAMETER, "input")
 
 func _exhaust():
     queue_free()

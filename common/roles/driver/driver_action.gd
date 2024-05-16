@@ -46,16 +46,21 @@ func _physics_process(_delta: float):
 
 
 func perform():
-    if not unit.character.animation_event_started.is_connected(_on_animation_event_started):
-        unit.character.animation_event_started.connect(_on_animation_event_started)
+    if not unit.character.primary_animation_event.is_connected(_on_primary_animation_event):
+        unit.character.primary_animation_event.connect(_on_primary_animation_event)
+    
+    if not unit.character.secondary_animation_event.is_connected(_on_secondary_animation_event):
+        unit.character.secondary_animation_event.connect(_on_secondary_animation_event)
 
+
+func _on_primary_animation_event():
     ball = golf_ball.instantiate()
     ball.owning_unit = unit
     add_child(ball)
-    ball.global_position = unit.global_position + Vector3.UP
+    ball.global_position = unit.character.left_hand_marker.global_position
 
 
-func _on_animation_event_started():
+func _on_secondary_animation_event():
     # If _calculate_intersection_time() fails, a 0 is returned, in that case the prediction will default to the target's current position.
     var predicted_target_position := current_target.global_position + average_velocity * _calculate_intersection_time(ball.global_position)
     var delta: Vector3 = (predicted_target_position + Vector3.UP) - ball.global_position

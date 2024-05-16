@@ -1,7 +1,8 @@
-[gd_scene load_steps=45 format=3 uid="uid://ck84hpbuds8v8"]
+[gd_scene load_steps=37 format=3 uid="uid://ck84hpbuds8v8"]
 
 [ext_resource type="Script" path="res://entities/character/character.gd" id="1_deigj"]
 [ext_resource type="AnimationLibrary" uid="uid://cteindhxey6qa" path="res://entities/character/animations/character_anim_library.res" id="2_od26b"]
+[ext_resource type="AnimationNodeBlendTree" uid="uid://d117ky0nrc8gi" path="res://common/roles/driver/driver_animation_blend_tree.tres" id="3_5tnl4"]
 [ext_resource type="Material" uid="uid://df0m2c02rn35c" path="res://entities/character/body/character_body_material.tres" id="3_ashim"]
 [ext_resource type="Material" uid="uid://btb23i348d3pn" path="res://entities/character/clothing/character_clothing_material.tres" id="4_2eedj"]
 [ext_resource type="ArrayMesh" uid="uid://ce7l6dfgo1rs0" path="res://entities/character/clothing/clothing_shirt_collar.res" id="5_q5st1"]
@@ -505,58 +506,6 @@ _data = {
 "RESET": SubResource("Animation_ai1wp")
 }
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_bhjs0"]
-resource_local_to_scene = true
-animation = &"character/character_swing"
-
-[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_5laqw"]
-filter_enabled = true
-filters = ["%GeneralSkeleton:Chest", "%GeneralSkeleton:Head", "%GeneralSkeleton:LeftHand", "%GeneralSkeleton:LeftLowerArm", "%GeneralSkeleton:LeftShoulder", "%GeneralSkeleton:LeftUpperArm", "%GeneralSkeleton:Neck", "%GeneralSkeleton:RightHand", "%GeneralSkeleton:RightLowerArm", "%GeneralSkeleton:RightShoulder", "%GeneralSkeleton:RightUpperArm", "%GeneralSkeleton:Spine", "AnimationSoundEvents"]
-fadein_time = 0.3
-fadeout_time = 0.5
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_lanlo"]
-animation = &"character/character_head_hit"
-
-[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_k0vrh"]
-filter_enabled = true
-filters = ["%GeneralSkeleton:Chest", "%GeneralSkeleton:Head", "%GeneralSkeleton:Hips", "%GeneralSkeleton:LeftShoulder", "%GeneralSkeleton:LeftUpperArm", "%GeneralSkeleton:LeftUpperLeg", "%GeneralSkeleton:Neck", "%GeneralSkeleton:RightShoulder", "%GeneralSkeleton:RightUpperArm", "%GeneralSkeleton:RightUpperLeg", "%GeneralSkeleton:Root", "%GeneralSkeleton:Spine"]
-fadein_time = 0.2
-fadeout_time = 0.5
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_vfsqt"]
-animation = &"character/character_idle"
-
-[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_oi70o"]
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ouaox"]
-resource_local_to_scene = true
-animation = &"character/character_run"
-
-[sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_0wre6"]
-
-[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_fkgia"]
-resource_local_to_scene = true
-graph_offset = Vector2(-479.639, -19.1389)
-nodes/ACTION/node = SubResource("AnimationNodeAnimation_bhjs0")
-nodes/ACTION/position = Vector2(-80, 420)
-nodes/ActionOneShot/node = SubResource("AnimationNodeOneShot_5laqw")
-nodes/ActionOneShot/position = Vector2(280, 120)
-nodes/Animation/node = SubResource("AnimationNodeAnimation_lanlo")
-nodes/Animation/position = Vector2(240, 420)
-nodes/HitOneShot/node = SubResource("AnimationNodeOneShot_k0vrh")
-nodes/HitOneShot/position = Vector2(560, 120)
-nodes/Idle/node = SubResource("AnimationNodeAnimation_vfsqt")
-nodes/Idle/position = Vector2(-280, 120)
-nodes/MoveBlend/node = SubResource("AnimationNodeBlend2_oi70o")
-nodes/MoveBlend/position = Vector2(20, 120)
-nodes/Run/node = SubResource("AnimationNodeAnimation_ouaox")
-nodes/Run/position = Vector2(-360, 280)
-nodes/RunSpeed/node = SubResource("AnimationNodeTimeScale_0wre6")
-nodes/RunSpeed/position = Vector2(-120, 280)
-nodes/output/position = Vector2(760, 120)
-node_connections = [&"ActionOneShot", 0, &"MoveBlend", &"ActionOneShot", 1, &"ACTION", &"HitOneShot", 0, &"ActionOneShot", &"HitOneShot", 1, &"Animation", &"MoveBlend", 0, &"Idle", &"MoveBlend", 1, &"RunSpeed", &"RunSpeed", 0, &"Run", &"output", 0, &"HitOneShot"]
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_epeq7"]
 resource_name = "BodyMAT.003"
 cull_mode = 2
@@ -965,7 +914,7 @@ blend_shape_mode = 0
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[node name="BaseCharacter" type="Node3D" node_paths=PackedStringArray("ear_mesh_instance", "nose_mesh_instance", "hair_mesh_instance", "face_mesh_instance", "body_mesh_instance", "collar_mesh_instance", "animation_tree", "primary_equipment_slot")]
+[node name="BaseCharacter" type="Node3D" node_paths=PackedStringArray("ear_mesh_instance", "nose_mesh_instance", "hair_mesh_instance", "face_mesh_instance", "body_mesh_instance", "collar_mesh_instance", "animation_tree", "right_hand_marker", "left_hand_marker")]
 script = ExtResource("1_deigj")
 ear_mesh_instance = NodePath("Armature/GeneralSkeleton/Ears")
 nose_mesh_instance = NodePath("Armature/GeneralSkeleton/Nose")
@@ -974,7 +923,8 @@ face_mesh_instance = NodePath("Armature/GeneralSkeleton/Face")
 body_mesh_instance = NodePath("Armature/GeneralSkeleton/Body_001")
 collar_mesh_instance = NodePath("Armature/GeneralSkeleton/Collar")
 animation_tree = NodePath("AnimationTree")
-primary_equipment_slot = NodePath("Armature/GeneralSkeleton/RightHandBoneAttachment3D/PrimaryEquipmentSlot")
+right_hand_marker = NodePath("Armature/GeneralSkeleton/RightHandBoneAttachment3D/RightHandMarker")
+left_hand_marker = NodePath("Armature/GeneralSkeleton/LeftHandBoneAttachment3D2/LeftHandMarker")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -987,16 +937,17 @@ libraries = {
 "": SubResource("AnimationLibrary_b3t27"),
 "character": ExtResource("2_od26b")
 }
-tree_root = SubResource("AnimationNodeBlendTree_fkgia")
+tree_root = ExtResource("3_5tnl4")
 anim_player = NodePath("../AnimationPlayer")
-parameters/ActionOneShot/active = false
-parameters/ActionOneShot/internal_active = false
-parameters/ActionOneShot/request = 0
+parameters/DropSpeed/scale = 2.0
 parameters/HitOneShot/active = false
 parameters/HitOneShot/internal_active = false
 parameters/HitOneShot/request = 0
 parameters/MoveBlend/blend_amount = 0.0
 parameters/RunSpeed/scale = 2.0
+parameters/Transition/current_state = "input"
+parameters/Transition/transition_request = ""
+parameters/Transition/current_index = 0
 
 [node name="Armature" type="Node3D" parent="."]
 transform = Transform3D(0.01, 0, 0, 0, -1.19209e-09, -0.01, 0, 0.01, -1.19209e-09, 0, 0, 0)
@@ -1276,13 +1227,21 @@ material_overlay = ExtResource("4_2eedj")
 mesh = SubResource("ArrayMesh_8fj5t")
 skin = SubResource("Skin_h8tku")
 
+[node name="LeftHandBoneAttachment3D2" type="BoneAttachment3D" parent="Armature/GeneralSkeleton"]
+transform = Transform3D(0.267907, 0.943657, 0.194261, -0.337558, 0.280789, -0.89845, -0.902375, 0.175126, 0.393764, 24.4834, 14.1221, -59.106)
+bone_name = "LeftHand"
+bone_idx = 9
+
+[node name="LeftHandMarker" type="Marker3D" parent="Armature/GeneralSkeleton/LeftHandBoneAttachment3D2"]
+transform = Transform3D(100, -4.09782e-06, -2.98023e-06, 4.09782e-06, 100, -1.49012e-06, 2.98023e-06, 1.49012e-06, 100, -4, 4, 0)
+
 [node name="RightHandBoneAttachment3D" type="BoneAttachment3D" parent="Armature/GeneralSkeleton"]
 transform = Transform3D(-4.37114e-08, -1, 4.37114e-08, 0, -4.37114e-08, -1, 1, -4.37114e-08, 1.91069e-15, -37.152, -0.969067, -62.0192)
 bone_name = "RightHand"
 bone_idx = 13
 
-[node name="PrimaryEquipmentSlot" type="Marker3D" parent="Armature/GeneralSkeleton/RightHandBoneAttachment3D"]
-transform = Transform3D(100, -4.09782e-06, -2.98023e-06, 4.09782e-06, 100, -1.49012e-06, 2.98023e-06, 1.49012e-06, 100, 4.07625, 3.26012, -1.90735e-06)
+[node name="RightHandMarker" type="Marker3D" parent="Armature/GeneralSkeleton/RightHandBoneAttachment3D"]
+transform = Transform3D(100, -4.09782e-06, -2.98023e-06, 4.09782e-06, 100, -1.49012e-06, 2.98023e-06, 1.49012e-06, 100, 4, 4, 0)
 script = ExtResource("12_gskdx")
 
 [node name="AnimationSoundEvents" type="Node3D" parent="."]
@@ -1297,5 +1256,5 @@ wait_time = 9.0
 one_shot = true
 autostart = true
 
-[connection signal="animation_event_ended" from="." to="Armature/GeneralSkeleton/RightHandBoneAttachment3D/PrimaryEquipmentSlot" method="_on_base_character_animation_event_ended"]
-[connection signal="animation_event_started" from="." to="Armature/GeneralSkeleton/RightHandBoneAttachment3D/PrimaryEquipmentSlot" method="_on_base_character_animation_event_started"]
+[connection signal="primary_animation_event" from="." to="Armature/GeneralSkeleton/RightHandBoneAttachment3D/RightHandMarker" method="_on_base_character_primary_animation_event"]
+[connection signal="secondary_animation_event" from="." to="Armature/GeneralSkeleton/RightHandBoneAttachment3D/RightHandMarker" method="_on_base_character_secondary_animation_event"]
