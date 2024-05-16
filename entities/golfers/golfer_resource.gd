@@ -2,7 +2,6 @@ class_name GolferResource
 extends Resource
 
 
-@export var name := "Joe Schmoe"
 @export var level := 1
 @export var role := Role.new()
 
@@ -22,8 +21,7 @@ var experience: int:
 var bond: int: set = set_bond
 
 
-func _init(golfer_name := "", golfer_level := 1, golfer_role: Role = Role.new(), golfer_npc_resource: NPCResource = null):
-    name = golfer_name
+func _init(golfer_level := 1, golfer_role: Role = Role.new(), golfer_npc_resource: NPCResource = null):
     level = golfer_level
     role = golfer_role
     npc_resource = golfer_npc_resource

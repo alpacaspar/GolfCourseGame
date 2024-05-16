@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="GolferResource" load_steps=4 format=3 uid="uid://bkh32dy0v86px"]
+
+[ext_resource type="Resource" uid="uid://bihpkgvxnifuj" path="res://common/npc_resources/farl_jonnes.tres" id="1_m0j0g"]
+[ext_resource type="Resource" uid="uid://3odoff5r71oh" path="res://common/roles/iron/iron_role.tres" id="2_pyv18"]
+[ext_resource type="Script" path="res://entities/golfers/golfer_resource.gd" id="3_00k2b"]
+
+[resource]
+script = ExtResource("3_00k2b")
+name = "Farl Jonnes"
+level = 1
+role = ExtResource("2_pyv18")
+npc_resource = ExtResource("1_m0j0g")
