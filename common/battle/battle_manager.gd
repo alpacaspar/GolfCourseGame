@@ -56,7 +56,7 @@ func _instantiate_team(team_resource: TeamResource, origin: Node3D):
     self.add_child(team_instance)
     teams.append(team_instance)
 
-    var spawnpoints := _get_spawnpoints(team_resource.size(), origin.global_position, origin.global_transform.basis.z, 10.0)
+    var spawnpoints := _get_spawnpoints(team_resource.size(), origin.global_position, origin.global_transform.basis.z, 5.0)
 
     var unit_instance: Unit
     var controller_instance: Node
