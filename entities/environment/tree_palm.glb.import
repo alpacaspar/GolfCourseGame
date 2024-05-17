@@ -33,7 +33,11 @@ _subresources={
 "materials": {
 "PalmTreeMAT": {
 "use_external/enabled": true,
-"use_external/path": "res://entities/environment/trees_palm_material.tres"
+"use_external/path": "res://entities/environment/trees_palmleaves_material.tres"
+},
+"palm_tree_stronk_mat": {
+"use_external/enabled": true,
+"use_external/path": "res://entities/environment/trees_palmtrunk_material.tres"
 }
 }
 }
