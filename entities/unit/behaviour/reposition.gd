@@ -7,7 +7,7 @@ func _tick(blackboard: Dictionary, _delta: float) -> int:
 	
 	var delta_to_target := unit.global_position - unit.target.global_position
 	var direction_to_target := delta_to_target.normalized()
-	var cross_from_target := delta_to_target.cross(Vector3.UP)
+	var cross_from_target := direction_to_target.cross(Vector3.UP)
 	
 	unit.controller.set_movement_target(cross_from_target)
 

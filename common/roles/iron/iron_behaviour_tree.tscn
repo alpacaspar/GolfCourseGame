@@ -20,7 +20,7 @@
 [ext_resource type="Script" path="res://entities/unit/behaviour/perform_action.gd" id="19_r3bcs"]
 [ext_resource type="Script" path="res://common/behaviour_tree/bt_wait.gd" id="20_xb34n"]
 [ext_resource type="Script" path="res://entities/unit/behaviour/lunge_at_target.gd" id="21_4d5ab"]
-[ext_resource type="Script" path="res://entities/unit/behaviour/keep_range.gd" id="22_e6q07"]
+[ext_resource type="Script" path="res://entities/unit/behaviour/circle_target.gd" id="22_e6q07"]
 [ext_resource type="Script" path="res://entities/unit/behaviour/look_at_target.gd" id="23_muryb"]
 [ext_resource type="Script" path="res://common/behaviour_tree/bt_decorator_always_fail.gd" id="24_qbhpx"]
 [ext_resource type="Script" path="res://entities/unit/behaviour/set_movement_target.gd" id="24_wbvyj"]
@@ -94,7 +94,7 @@ script = ExtResource("2_47ibg")
 
 [node name="Cooldown" type="Node" parent="Selector/InCombatRange/Parallel/Selector"]
 script = ExtResource("5_u1lqt")
-cooldown_time = 4.0
+cooldown_time = 3.0
 
 [node name="Sequence" type="Node" parent="Selector/InCombatRange/Parallel/Selector/Cooldown"]
 script = ExtResource("18_bgycy")
@@ -115,12 +115,12 @@ script = ExtResource("20_xb34n")
 random = true
 random_range = Vector2(0.2, 1)
 
-[node name="KeepRange" type="Node" parent="Selector/InCombatRange/Parallel/Selector"]
+[node name="CircleTarget" type="Node" parent="Selector/InCombatRange/Parallel/Selector"]
 script = ExtResource("22_e6q07")
 preferred_range = 3.0
 move_speed = 2.0
 
-[node name="StrafeSwitchTimer" type="Timer" parent="Selector/InCombatRange/Parallel/Selector/KeepRange"]
+[node name="Timer" type="Timer" parent="Selector/InCombatRange/Parallel/Selector/CircleTarget"]
 wait_time = 3.0
 autostart = true
 
@@ -139,4 +139,4 @@ script = ExtResource("24_wbvyj")
 [node name="Goto" type="Node" parent="Selector"]
 script = ExtResource("25_w7tb8")
 
-[connection signal="timeout" from="Selector/InCombatRange/Parallel/Selector/KeepRange/StrafeSwitchTimer" to="Selector/InCombatRange/Parallel/Selector/KeepRange" method="_on_strafe_switch_timer_timeout"]
+[connection signal="timeout" from="Selector/InCombatRange/Parallel/Selector/CircleTarget/Timer" to="Selector/InCombatRange/Parallel/Selector/CircleTarget" method="_on_timer_timeout"]
