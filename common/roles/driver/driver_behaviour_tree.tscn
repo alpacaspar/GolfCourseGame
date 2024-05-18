@@ -111,6 +111,10 @@ script = ExtResource("19_mhol3")
 [node name="Reposition" type="Node" parent="Selector/TargetInRange/Selector/TargetObstructed"]
 script = ExtResource("20_mdyhc")
 
+[node name="Timer" type="Timer" parent="Selector/TargetInRange/Selector/TargetObstructed/Reposition"]
+wait_time = 10.0
+autostart = true
+
 [node name="Parallel" type="Node" parent="Selector/TargetInRange/Selector"]
 script = ExtResource("16_b5ism")
 
@@ -119,6 +123,7 @@ script = ExtResource("22_hbefy")
 
 [node name="Cooldown" type="Node" parent="Selector/TargetInRange/Selector/Parallel"]
 script = ExtResource("5_ikhrx")
+cooldown_time = 3.0
 
 [node name="Sequence" type="Node" parent="Selector/TargetInRange/Selector/Parallel/Cooldown"]
 script = ExtResource("17_4gwic")
@@ -149,3 +154,5 @@ script = ExtResource("24_fewd8")
 
 [node name="Goto" type="Node" parent="Selector/TargetOutofRange/Selector"]
 script = ExtResource("23_et0h8")
+
+[connection signal="timeout" from="Selector/TargetInRange/Selector/TargetObstructed/Reposition/Timer" to="Selector/TargetInRange/Selector/TargetObstructed/Reposition" method="_on_timer_timeout"]

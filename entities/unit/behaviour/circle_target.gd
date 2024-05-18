@@ -4,7 +4,6 @@ extends BTLeaf
 @export var preferred_range := 4.0
 @export var move_speed := 4.0
 
-
 var circle_direction_positive := true
 
 

@@ -20,7 +20,7 @@
 [ext_resource type="Script" path="res://entities/unit/behaviour/perform_action.gd" id="19_r3bcs"]
 [ext_resource type="Script" path="res://common/behaviour_tree/bt_wait.gd" id="20_xb34n"]
 [ext_resource type="Script" path="res://entities/unit/behaviour/lunge_at_target.gd" id="21_4d5ab"]
-[ext_resource type="Script" path="res://entities/unit/behaviour/circle_target.gd" id="22_e6q07"]
+[ext_resource type="Script" path="res://entities/unit/behaviour/circle_target.gd" id="21_orkio"]
 [ext_resource type="Script" path="res://entities/unit/behaviour/look_at_target.gd" id="23_muryb"]
 [ext_resource type="Script" path="res://common/behaviour_tree/bt_decorator_always_fail.gd" id="24_qbhpx"]
 [ext_resource type="Script" path="res://entities/unit/behaviour/set_movement_target.gd" id="24_wbvyj"]
@@ -116,7 +116,7 @@ random = true
 random_range = Vector2(0.2, 1)
 
 [node name="CircleTarget" type="Node" parent="Selector/InCombatRange/Parallel/Selector"]
-script = ExtResource("22_e6q07")
+script = ExtResource("21_orkio")
 preferred_range = 3.0
 move_speed = 2.0
 
