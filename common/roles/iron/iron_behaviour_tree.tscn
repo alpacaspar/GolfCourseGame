@@ -94,7 +94,7 @@ script = ExtResource("2_47ibg")
 
 [node name="Cooldown" type="Node" parent="Selector/InCombatRange/Parallel/Selector"]
 script = ExtResource("5_u1lqt")
-cooldown_time = 2.0
+cooldown_time = 4.0
 
 [node name="Sequence" type="Node" parent="Selector/InCombatRange/Parallel/Selector/Cooldown"]
 script = ExtResource("18_bgycy")
@@ -118,6 +118,11 @@ random_range = Vector2(0.2, 1)
 [node name="KeepRange" type="Node" parent="Selector/InCombatRange/Parallel/Selector"]
 script = ExtResource("22_e6q07")
 preferred_range = 3.0
+move_speed = 2.0
+
+[node name="StrafeSwitchTimer" type="Timer" parent="Selector/InCombatRange/Parallel/Selector/KeepRange"]
+wait_time = 3.0
+autostart = true
 
 [node name="LookAtTarget" type="Node" parent="Selector/InCombatRange/Parallel"]
 script = ExtResource("23_muryb")
@@ -133,3 +138,5 @@ script = ExtResource("24_wbvyj")
 
 [node name="Goto" type="Node" parent="Selector"]
 script = ExtResource("25_w7tb8")
+
+[connection signal="timeout" from="Selector/InCombatRange/Parallel/Selector/KeepRange/StrafeSwitchTimer" to="Selector/InCombatRange/Parallel/Selector/KeepRange" method="_on_strafe_switch_timer_timeout"]

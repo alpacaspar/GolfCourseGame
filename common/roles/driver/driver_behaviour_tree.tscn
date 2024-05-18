@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://bfxkelwfpo0dm"]
+[gd_scene load_steps=28 format=3 uid="uid://bfxkelwfpo0dm"]
 
 [ext_resource type="Script" path="res://common/behaviour_tree/behaviour_tree.gd" id="1_bgl47"]
 [ext_resource type="Script" path="res://common/behaviour_tree/bt_selector.gd" id="2_ke1wb"]
@@ -22,6 +22,8 @@
 [ext_resource type="Script" path="res://common/behaviour_tree/bt_sequence.gd" id="17_4gwic"]
 [ext_resource type="Script" path="res://entities/unit/behaviour/perform_action.gd" id="18_46n3d"]
 [ext_resource type="Script" path="res://common/behaviour_tree/bt_wait.gd" id="19_m2ndt"]
+[ext_resource type="Script" path="res://entities/unit/behaviour/target_obstructed.gd" id="19_mhol3"]
+[ext_resource type="Script" path="res://entities/unit/behaviour/reposition.gd" id="20_mdyhc"]
 [ext_resource type="Script" path="res://entities/unit/behaviour/look_at_target.gd" id="22_hbefy"]
 [ext_resource type="Script" path="res://entities/unit/behaviour/goto.gd" id="23_et0h8"]
 [ext_resource type="Script" path="res://entities/unit/behaviour/set_movement_target.gd" id="24_fewd8"]
@@ -102,6 +104,12 @@ script = ExtResource("17_1affm")
 [node name="UtilitySelectorLink" type="Node" parent="Selector/TargetInRange/Selector/OpponentsInRange/Sequence" node_paths=PackedStringArray("link")]
 script = ExtResource("4_dr7we")
 link = NodePath("../../../../../Cooldown/UtilitySelector")
+
+[node name="TargetObstructed" type="Node" parent="Selector/TargetInRange/Selector"]
+script = ExtResource("19_mhol3")
+
+[node name="Reposition" type="Node" parent="Selector/TargetInRange/Selector/TargetObstructed"]
+script = ExtResource("20_mdyhc")
 
 [node name="Parallel" type="Node" parent="Selector/TargetInRange/Selector"]
 script = ExtResource("16_b5ism")
