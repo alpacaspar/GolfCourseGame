@@ -61,6 +61,9 @@ func _on_primary_animation_event():
 
 
 func _on_secondary_animation_event():
+	if not current_target:
+		return
+	
 	# If _calculate_intersection_time() fails, a 0 is returned, in that case the prediction will default to the target's current position.
 	var predicted_target_position := current_target.global_position + average_velocity * _calculate_intersection_time(ball.global_position)
 	var delta: Vector3 = (predicted_target_position + Vector3.UP) - ball.global_position
