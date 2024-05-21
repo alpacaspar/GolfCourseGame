@@ -1,9 +1,0 @@
-[gd_resource type="Resource" script_class="Role" load_steps=2 format=3 uid="uid://3odoff5r71oh"]
-
-[ext_resource type="Script" path="res://common/roles/role.gd" id="1_a5bv5"]
-
-[resource]
-script = ExtResource("1_a5bv5")
-display_name = "ironnaut"
-desired_distance = 1.5
-target_type = 1

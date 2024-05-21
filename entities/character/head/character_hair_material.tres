@@ -4,7 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://b2pescm4fhjjo" path="res://entities/character/head/character_hair_roughness.png" id="2_ayivi"]
 
 [resource]
-albedo_color = Color(0, 0, 0, 1)
+resource_local_to_scene = true
+albedo_color = Color(0.796078, 0.670588, 0.0588235, 1)
 roughness_texture = ExtResource("2_ayivi")
 normal_enabled = true
 normal_texture = ExtResource("1_hvooh")

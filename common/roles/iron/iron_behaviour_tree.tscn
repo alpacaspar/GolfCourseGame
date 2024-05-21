@@ -1,0 +1,142 @@
+[gd_scene load_steps=26 format=3 uid="uid://c4s6x5nj8m700"]
+
+[ext_resource type="Script" path="res://common/behaviour_tree/behaviour_tree.gd" id="1_mkrcj"]
+[ext_resource type="Script" path="res://common/behaviour_tree/bt_selector.gd" id="2_47ibg"]
+[ext_resource type="Script" path="res://entities/unit/behaviour/target_lost.gd" id="3_uqwpi"]
+[ext_resource type="Script" path="res://common/behaviour_tree/bt_link.gd" id="4_6glo6"]
+[ext_resource type="Script" path="res://common/behaviour_tree/bt_cooldown.gd" id="5_u1lqt"]
+[ext_resource type="Script" path="res://common/behaviour_tree/utility/bt_utility_selector.gd" id="6_nho6n"]
+[ext_resource type="Script" path="res://entities/unit/behaviour/target_unit_by_type.gd" id="7_k10ch"]
+[ext_resource type="Resource" uid="uid://n2wwvf3uab1k" path="res://common/roles/driver/driver_role.tres" id="8_6ah87"]
+[ext_resource type="Script" path="res://common/behaviour_tree/utility/bt_utility_decorator_multiply.gd" id="9_w1slo"]
+[ext_resource type="Script" path="res://common/behaviour_tree/utility/bt_utility_decorator_power.gd" id="10_hagk3"]
+[ext_resource type="Resource" uid="uid://djj0fkyow7k6u" path="res://common/roles/caddy.tres" id="11_m6n1e"]
+[ext_resource type="Resource" uid="uid://3odoff5r71oh" path="res://common/roles/iron/iron_role.tres" id="12_nfv2i"]
+[ext_resource type="Resource" uid="uid://bvm3jvc6kbftb" path="res://common/roles/golf_car.tres" id="13_8n7nx"]
+[ext_resource type="Script" path="res://entities/unit/behaviour/keep_current_target.gd" id="14_v010n"]
+[ext_resource type="Script" path="res://entities/unit/behaviour/in_combat_range.gd" id="15_5oodb"]
+[ext_resource type="Script" path="res://common/behaviour_tree/bt_parallel.gd" id="16_85jbx"]
+[ext_resource type="Script" path="res://common/behaviour_tree/bt_sequence.gd" id="18_bgycy"]
+[ext_resource type="Script" path="res://entities/unit/behaviour/perform_action.gd" id="19_r3bcs"]
+[ext_resource type="Script" path="res://common/behaviour_tree/bt_wait.gd" id="20_xb34n"]
+[ext_resource type="Script" path="res://entities/unit/behaviour/lunge_at_target.gd" id="21_4d5ab"]
+[ext_resource type="Script" path="res://entities/unit/behaviour/circle_target.gd" id="21_orkio"]
+[ext_resource type="Script" path="res://entities/unit/behaviour/look_at_target.gd" id="23_muryb"]
+[ext_resource type="Script" path="res://common/behaviour_tree/bt_decorator_always_fail.gd" id="24_qbhpx"]
+[ext_resource type="Script" path="res://entities/unit/behaviour/set_movement_target.gd" id="24_wbvyj"]
+[ext_resource type="Script" path="res://entities/unit/behaviour/goto.gd" id="25_w7tb8"]
+
+[node name="BehaviourTree" type="Node"]
+script = ExtResource("1_mkrcj")
+
+[node name="Selector" type="Node" parent="."]
+script = ExtResource("2_47ibg")
+
+[node name="TargetLost" type="Node" parent="Selector"]
+script = ExtResource("3_uqwpi")
+
+[node name="UtilitySelectorLink" type="Node" parent="Selector/TargetLost" node_paths=PackedStringArray("link")]
+script = ExtResource("4_6glo6")
+link = NodePath("../../Cooldown/UtilitySelector")
+
+[node name="Cooldown" type="Node" parent="Selector"]
+script = ExtResource("5_u1lqt")
+cooldown_time = 10.0
+
+[node name="UtilitySelector" type="Node" parent="Selector/Cooldown"]
+script = ExtResource("6_nho6n")
+
+[node name="TargetRanged" type="Node" parent="Selector/Cooldown/UtilitySelector"]
+script = ExtResource("7_k10ch")
+target_role = ExtResource("8_6ah87")
+
+[node name="MultiplyUtility" type="Node" parent="Selector/Cooldown/UtilitySelector"]
+script = ExtResource("9_w1slo")
+factor = 2.0
+
+[node name="PowerUtility" type="Node" parent="Selector/Cooldown/UtilitySelector/MultiplyUtility"]
+script = ExtResource("10_hagk3")
+factor = 3.0
+
+[node name="SeekSupport" type="Node" parent="Selector/Cooldown/UtilitySelector/MultiplyUtility/PowerUtility"]
+script = ExtResource("7_k10ch")
+target_role = ExtResource("11_m6n1e")
+target_team = 0
+
+[node name="TargetMelee" type="Node" parent="Selector/Cooldown/UtilitySelector"]
+script = ExtResource("7_k10ch")
+target_role = ExtResource("12_nfv2i")
+utility_multiplier = 1.1
+
+[node name="TargetSupport" type="Node" parent="Selector/Cooldown/UtilitySelector"]
+script = ExtResource("7_k10ch")
+target_role = ExtResource("11_m6n1e")
+utility_multiplier = 1.5
+
+[node name="TargetCar" type="Node" parent="Selector/Cooldown/UtilitySelector"]
+script = ExtResource("7_k10ch")
+target_role = ExtResource("13_8n7nx")
+utility_multiplier = 0.9
+
+[node name="KeepCurrentTarget" type="Node" parent="Selector/Cooldown/UtilitySelector"]
+script = ExtResource("14_v010n")
+utility_multiplier = 1.6
+
+[node name="InCombatRange" type="Node" parent="Selector"]
+script = ExtResource("15_5oodb")
+target_range = 5.0
+
+[node name="Parallel" type="Node" parent="Selector/InCombatRange"]
+script = ExtResource("16_85jbx")
+
+[node name="Selector" type="Node" parent="Selector/InCombatRange/Parallel"]
+script = ExtResource("2_47ibg")
+
+[node name="Cooldown" type="Node" parent="Selector/InCombatRange/Parallel/Selector"]
+script = ExtResource("5_u1lqt")
+cooldown_time = 3.0
+
+[node name="Sequence" type="Node" parent="Selector/InCombatRange/Parallel/Selector/Cooldown"]
+script = ExtResource("18_bgycy")
+
+[node name="PerformAction" type="Node" parent="Selector/InCombatRange/Parallel/Selector/Cooldown/Sequence"]
+script = ExtResource("19_r3bcs")
+
+[node name="Wait" type="Node" parent="Selector/InCombatRange/Parallel/Selector/Cooldown/Sequence"]
+script = ExtResource("20_xb34n")
+wait_time = 0.3
+
+[node name="LungeForward" type="Node" parent="Selector/InCombatRange/Parallel/Selector/Cooldown/Sequence"]
+script = ExtResource("21_4d5ab")
+move_speed = 3.0
+
+[node name="Wait2" type="Node" parent="Selector/InCombatRange/Parallel/Selector/Cooldown/Sequence"]
+script = ExtResource("20_xb34n")
+random = true
+random_range = Vector2(0.2, 1)
+
+[node name="CircleTarget" type="Node" parent="Selector/InCombatRange/Parallel/Selector"]
+script = ExtResource("21_orkio")
+preferred_range = 3.0
+move_speed = 2.0
+
+[node name="Timer" type="Timer" parent="Selector/InCombatRange/Parallel/Selector/CircleTarget"]
+wait_time = 3.0
+autostart = true
+
+[node name="LookAtTarget" type="Node" parent="Selector/InCombatRange/Parallel"]
+script = ExtResource("23_muryb")
+
+[node name="AlwaysFail" type="Node" parent="Selector"]
+script = ExtResource("24_qbhpx")
+
+[node name="Cooldown" type="Node" parent="Selector/AlwaysFail"]
+script = ExtResource("5_u1lqt")
+
+[node name="SetMovementTarget" type="Node" parent="Selector/AlwaysFail/Cooldown"]
+script = ExtResource("24_wbvyj")
+
+[node name="Goto" type="Node" parent="Selector"]
+script = ExtResource("25_w7tb8")
+
+[connection signal="timeout" from="Selector/InCombatRange/Parallel/Selector/CircleTarget/Timer" to="Selector/InCombatRange/Parallel/Selector/CircleTarget" method="_on_timer_timeout"]

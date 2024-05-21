@@ -5,3 +5,5 @@
 [resource]
 script = ExtResource("1_0t72d")
 display_name = "Caddy"
+desired_distance = 2.0
+target_type = 1

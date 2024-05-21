@@ -3,19 +3,20 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://btqk1urg86jah"
-path="res://.godot/imported/clothing_vneck_normal.png-6bcd8ea2d7b79c257bd046de27bea0cc.ctex"
+path.s3tc="res://.godot/imported/clothing_vneck_normal.png-6bcd8ea2d7b79c257bd046de27bea0cc.s3tc.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
 }
 
 [deps]
 
 source_file="res://entities/character/clothing/clothing_vneck_normal.png"
-dest_files=["res://.godot/imported/clothing_vneck_normal.png-6bcd8ea2d7b79c257bd046de27bea0cc.ctex"]
+dest_files=["res://.godot/imported/clothing_vneck_normal.png-6bcd8ea2d7b79c257bd046de27bea0cc.s3tc.ctex"]
 
 [params]
 
-compress/mode=0
+compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
@@ -31,4 +32,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=1
+detect_3d/compress_to=0

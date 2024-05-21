@@ -1,0 +1,56 @@
+[gd_resource type="AnimationNodeBlendTree" load_steps=9 format=3 uid="uid://b6g776vm2kvrn"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_lanlo"]
+animation = &"character/character_head_hit"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_bhjs0"]
+resource_local_to_scene = true
+animation = &"character/character_swing"
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_k0vrh"]
+filter_enabled = true
+filters = ["%GeneralSkeleton:Chest", "%GeneralSkeleton:Head", "%GeneralSkeleton:Hips", "%GeneralSkeleton:LeftShoulder", "%GeneralSkeleton:LeftUpperArm", "%GeneralSkeleton:LeftUpperLeg", "%GeneralSkeleton:Neck", "%GeneralSkeleton:RightShoulder", "%GeneralSkeleton:RightUpperArm", "%GeneralSkeleton:RightUpperLeg", "%GeneralSkeleton:Root", "%GeneralSkeleton:Spine"]
+fadein_time = 0.2
+fadeout_time = 0.5
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_vfsqt"]
+animation = &"character/character_idle"
+
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_oi70o"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ouaox"]
+resource_local_to_scene = true
+animation = &"character/character_run"
+
+[sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_0wre6"]
+
+[sub_resource type="AnimationNodeTransition" id="AnimationNodeTransition_hon1b"]
+xfade_time = 0.4
+input_0/name = "input"
+input_0/auto_advance = false
+input_0/reset = true
+input_1/name = "start_action"
+input_1/auto_advance = true
+input_1/reset = true
+
+[resource]
+resource_local_to_scene = true
+graph_offset = Vector2(-690, 40)
+nodes/Animation/node = SubResource("AnimationNodeAnimation_lanlo")
+nodes/Animation/position = Vector2(240, 420)
+nodes/Drive/node = SubResource("AnimationNodeAnimation_bhjs0")
+nodes/Drive/position = Vector2(-80, 420)
+nodes/HitOneShot/node = SubResource("AnimationNodeOneShot_k0vrh")
+nodes/HitOneShot/position = Vector2(560, 120)
+nodes/Idle/node = SubResource("AnimationNodeAnimation_vfsqt")
+nodes/Idle/position = Vector2(-280, 120)
+nodes/MoveBlend/node = SubResource("AnimationNodeBlend2_oi70o")
+nodes/MoveBlend/position = Vector2(20, 120)
+nodes/Run/node = SubResource("AnimationNodeAnimation_ouaox")
+nodes/Run/position = Vector2(-360, 280)
+nodes/RunSpeed/node = SubResource("AnimationNodeTimeScale_0wre6")
+nodes/RunSpeed/position = Vector2(-120, 280)
+nodes/Transition/node = SubResource("AnimationNodeTransition_hon1b")
+nodes/Transition/position = Vector2(280, 120)
+nodes/output/position = Vector2(760, 120)
+node_connections = [&"HitOneShot", 0, &"Transition", &"HitOneShot", 1, &"Animation", &"MoveBlend", 0, &"Idle", &"MoveBlend", 1, &"RunSpeed", &"RunSpeed", 0, &"Run", &"Transition", 0, &"MoveBlend", &"Transition", 1, &"Drive", &"output", 0, &"HitOneShot"]

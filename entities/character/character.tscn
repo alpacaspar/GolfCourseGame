@@ -1,7 +1,8 @@
-[gd_scene load_steps=42 format=3 uid="uid://ck84hpbuds8v8"]
+[gd_scene load_steps=37 format=3 uid="uid://ck84hpbuds8v8"]
 
 [ext_resource type="Script" path="res://entities/character/character.gd" id="1_deigj"]
 [ext_resource type="AnimationLibrary" uid="uid://cteindhxey6qa" path="res://entities/character/animations/character_anim_library.res" id="2_od26b"]
+[ext_resource type="AnimationNodeBlendTree" uid="uid://d117ky0nrc8gi" path="res://common/roles/driver/driver_animation_blend_tree.tres" id="3_5tnl4"]
 [ext_resource type="Material" uid="uid://df0m2c02rn35c" path="res://entities/character/body/character_body_material.tres" id="3_ashim"]
 [ext_resource type="Material" uid="uid://btb23i348d3pn" path="res://entities/character/clothing/character_clothing_material.tres" id="4_2eedj"]
 [ext_resource type="ArrayMesh" uid="uid://ce7l6dfgo1rs0" path="res://entities/character/clothing/clothing_shirt_collar.res" id="5_q5st1"]
@@ -12,6 +13,7 @@
 [ext_resource type="ArrayMesh" uid="uid://ra6axj0t8mag" path="res://entities/character/head/character_hair_buzz.res" id="10_yka5w"]
 [ext_resource type="ArrayMesh" uid="uid://cwa6wglrdhvcw" path="res://entities/character/head/character_nose_1.res" id="11_5aqlu"]
 [ext_resource type="Script" path="res://entities/character/ak_locomotion.gd" id="12_3afj3"]
+[ext_resource type="Script" path="res://entities/equipment/equipment_slot.gd" id="12_gskdx"]
 
 [sub_resource type="Animation" id="Animation_ai1wp"]
 length = 0.001
@@ -477,44 +479,32 @@ tracks/65/path = NodePath("Armature/GeneralSkeleton:RightToes")
 tracks/65/interp = 1
 tracks/65/loop_wrap = true
 tracks/65/keys = PackedFloat32Array(0, 1, 1, 1, 1)
+tracks/66/type = "position_3d"
+tracks/66/imported = false
+tracks/66/enabled = true
+tracks/66/path = NodePath("Armature/GeneralSkeleton/RightHandBoneAttachment3D")
+tracks/66/interp = 1
+tracks/66/loop_wrap = true
+tracks/66/keys = PackedFloat32Array(0, 1, -37.152, -0.969067, -62.0192)
+tracks/67/type = "rotation_3d"
+tracks/67/imported = false
+tracks/67/enabled = true
+tracks/67/path = NodePath("Armature/GeneralSkeleton/RightHandBoneAttachment3D")
+tracks/67/interp = 1
+tracks/67/loop_wrap = true
+tracks/67/keys = PackedFloat32Array(0, 1, 0.5, -0.5, 0.5, 0.5)
+tracks/68/type = "scale_3d"
+tracks/68/imported = false
+tracks/68/enabled = true
+tracks/68/path = NodePath("Armature/GeneralSkeleton/RightHandBoneAttachment3D")
+tracks/68/interp = 1
+tracks/68/loop_wrap = true
+tracks/68/keys = PackedFloat32Array(0, 1, 1, 1, 1)
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_b3t27"]
 _data = {
 "RESET": SubResource("Animation_ai1wp")
 }
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_vfsqt"]
-animation = &"character/character_idle"
-
-[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_oi70o"]
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ouaox"]
-animation = &"character/character_run"
-
-[sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_0wre6"]
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_bhjs0"]
-animation = &"character/character_swing"
-
-[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_5laqw"]
-fadein_time = 0.2
-fadeout_time = 0.2
-
-[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_oo302"]
-nodes/Idle/node = SubResource("AnimationNodeAnimation_vfsqt")
-nodes/Idle/position = Vector2(-280, 120)
-nodes/MoveBlend/node = SubResource("AnimationNodeBlend2_oi70o")
-nodes/MoveBlend/position = Vector2(20, 120)
-nodes/Run/node = SubResource("AnimationNodeAnimation_ouaox")
-nodes/Run/position = Vector2(-360, 280)
-nodes/RunSpeed/node = SubResource("AnimationNodeTimeScale_0wre6")
-nodes/RunSpeed/position = Vector2(-120, 280)
-nodes/Swing/node = SubResource("AnimationNodeAnimation_bhjs0")
-nodes/Swing/position = Vector2(-80, 420)
-nodes/SwingOneShot/node = SubResource("AnimationNodeOneShot_5laqw")
-nodes/SwingOneShot/position = Vector2(220, 120)
-nodes/output/position = Vector2(400, 120)
-node_connections = [&"MoveBlend", 0, &"Idle", &"MoveBlend", 1, &"RunSpeed", &"RunSpeed", 0, &"Run", &"SwingOneShot", 0, &"MoveBlend", &"SwingOneShot", 1, &"Swing", &"output", 0, &"SwingOneShot"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_epeq7"]
 resource_name = "BodyMAT.003"
@@ -924,7 +914,7 @@ blend_shape_mode = 0
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[node name="BaseCharacter" type="Node3D" node_paths=PackedStringArray("ear_mesh_instance", "nose_mesh_instance", "hair_mesh_instance", "face_mesh_instance", "body_mesh_instance", "collar_mesh_instance", "animation_tree", "right_hand_holder")]
+[node name="BaseCharacter" type="Node3D" node_paths=PackedStringArray("ear_mesh_instance", "nose_mesh_instance", "hair_mesh_instance", "face_mesh_instance", "body_mesh_instance", "collar_mesh_instance", "animation_tree", "right_hand_marker", "left_hand_marker")]
 script = ExtResource("1_deigj")
 ear_mesh_instance = NodePath("Armature/GeneralSkeleton/Ears")
 nose_mesh_instance = NodePath("Armature/GeneralSkeleton/Nose")
@@ -933,7 +923,8 @@ face_mesh_instance = NodePath("Armature/GeneralSkeleton/Face")
 body_mesh_instance = NodePath("Armature/GeneralSkeleton/Body_001")
 collar_mesh_instance = NodePath("Armature/GeneralSkeleton/Collar")
 animation_tree = NodePath("AnimationTree")
-right_hand_holder = NodePath("Armature/GeneralSkeleton/RightHandBoneAttachment3D/Marker3D")
+right_hand_marker = NodePath("Armature/GeneralSkeleton/RightHandBoneAttachment3D/RightHandMarker")
+left_hand_marker = NodePath("Armature/GeneralSkeleton/LeftHandBoneAttachment3D2/LeftHandMarker")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -946,13 +937,17 @@ libraries = {
 "": SubResource("AnimationLibrary_b3t27"),
 "character": ExtResource("2_od26b")
 }
-tree_root = SubResource("AnimationNodeBlendTree_oo302")
+tree_root = ExtResource("3_5tnl4")
 anim_player = NodePath("../AnimationPlayer")
+parameters/DropSpeed/scale = 2.0
+parameters/HitOneShot/active = false
+parameters/HitOneShot/internal_active = false
+parameters/HitOneShot/request = 0
 parameters/MoveBlend/blend_amount = 0.0
 parameters/RunSpeed/scale = 2.0
-parameters/SwingOneShot/active = false
-parameters/SwingOneShot/internal_active = false
-parameters/SwingOneShot/request = 0
+parameters/Transition/current_state = "input"
+parameters/Transition/transition_request = ""
+parameters/Transition/current_index = 0
 
 [node name="Armature" type="Node3D" parent="."]
 transform = Transform3D(0.01, 0, 0, 0, -1.19209e-09, -0.01, 0, 0.01, -1.19209e-09, 0, 0, 0)
@@ -1140,6 +1135,7 @@ skin = SubResource("Skin_h8tku")
 
 [node name="Face" type="MeshInstance3D" parent="Armature/GeneralSkeleton"]
 material_override = ExtResource("8_67ytv")
+lod_bias = 10.0
 mesh = SubResource("ArrayMesh_jn30c")
 skin = SubResource("Skin_h8tku")
 
@@ -1231,13 +1227,22 @@ material_overlay = ExtResource("4_2eedj")
 mesh = SubResource("ArrayMesh_8fj5t")
 skin = SubResource("Skin_h8tku")
 
+[node name="LeftHandBoneAttachment3D2" type="BoneAttachment3D" parent="Armature/GeneralSkeleton"]
+transform = Transform3D(0.267907, 0.943657, 0.194261, -0.337558, 0.280789, -0.89845, -0.902375, 0.175126, 0.393764, 24.4834, 14.1221, -59.106)
+bone_name = "LeftHand"
+bone_idx = 9
+
+[node name="LeftHandMarker" type="Marker3D" parent="Armature/GeneralSkeleton/LeftHandBoneAttachment3D2"]
+transform = Transform3D(100, -4.09782e-06, -2.98023e-06, 4.09782e-06, 100, -1.49012e-06, 2.98023e-06, 1.49012e-06, 100, -4, 4, 0)
+
 [node name="RightHandBoneAttachment3D" type="BoneAttachment3D" parent="Armature/GeneralSkeleton"]
-transform = Transform3D(0.2285, -0.969983, -0.0831965, 0.206064, 0.131709, -0.969634, 0.951486, 0.204418, 0.229974, -30.8891, 6.94333, -58.7466)
+transform = Transform3D(-4.37114e-08, -1, 4.37114e-08, 0, -4.37114e-08, -1, 1, -4.37114e-08, 1.91069e-15, -37.152, -0.969067, -62.0192)
 bone_name = "RightHand"
 bone_idx = 13
 
-[node name="Marker3D" type="Marker3D" parent="Armature/GeneralSkeleton/RightHandBoneAttachment3D"]
-transform = Transform3D(1, -2.42144e-08, 0, 4.09782e-08, 1, -2.23517e-08, 2.98023e-08, 1.49012e-08, 1, 4.07625, 3.26012, -1.90735e-06)
+[node name="RightHandMarker" type="Marker3D" parent="Armature/GeneralSkeleton/RightHandBoneAttachment3D"]
+transform = Transform3D(100, -4.09782e-06, -2.98023e-06, 4.09782e-06, 100, -1.49012e-06, 2.98023e-06, 1.49012e-06, 100, 4, 4, 0)
+script = ExtResource("12_gskdx")
 
 [node name="AnimationSoundEvents" type="Node3D" parent="."]
 script = ExtResource("12_3afj3")
@@ -1250,3 +1255,6 @@ one_shot = true
 wait_time = 9.0
 one_shot = true
 autostart = true
+
+[connection signal="primary_animation_event" from="." to="Armature/GeneralSkeleton/RightHandBoneAttachment3D/RightHandMarker" method="_on_base_character_primary_animation_event"]
+[connection signal="secondary_animation_event" from="." to="Armature/GeneralSkeleton/RightHandBoneAttachment3D/RightHandMarker" method="_on_base_character_secondary_animation_event"]

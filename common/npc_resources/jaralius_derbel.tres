@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="NPCResource" load_steps=2 format=3 uid="uid://du8quaohsjxnr"]
+
+[ext_resource type="Script" path="res://addons/npc_editor/resources/npc_resource.gd" id="1_av5r7"]
+
+[resource]
+resource_name = "Jaralius Derbel"
+script = ExtResource("1_av5r7")
+name = "Jaralius Derbel"
+eye_index = 8
+eyebrow_index = 4
+nose_index = 2
+ear_index = 1
+mouth_index = 10
+hair_index = 0
+accessory_index = 0
+shirt_index = 1
+pants_index = 0
+hair_color_index = 2
+skin_color_index = 4
+shirt_color_index = 6
+pants_color_index = 0
+eye_offset = 0.51
+eyebrow_offset = 0.57
+mouth_offset = 0.16
+mouth_size = 0.65

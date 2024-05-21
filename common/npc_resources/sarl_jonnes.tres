@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="NPCResource" load_steps=2 format=3 uid="uid://cr38bkxu102vs"]
+
+[ext_resource type="Script" path="res://addons/npc_editor/resources/npc_resource.gd" id="1_t530y"]
+
+[resource]
+resource_name = "Sarl Jonnes"
+script = ExtResource("1_t530y")
+name = "Sarl Jonnes"
+eye_index = 11
+eyebrow_index = 0
+nose_index = 1
+ear_index = 2
+mouth_index = 8
+hair_index = 4
+accessory_index = 0
+shirt_index = 1
+pants_index = 0
+hair_color_index = 0
+skin_color_index = 1
+shirt_color_index = 10
+pants_color_index = 0
+eye_offset = 0.56
+eyebrow_offset = 0.65
+mouth_offset = 0.14
+mouth_size = 0.64
