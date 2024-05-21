@@ -45,7 +45,4 @@ func _get_closest_target(current_unit: Unit) -> Unit:
     return target
 
 
-enum TargetTeam {
-    SELF,
-    OPPONENT
-}
+enum TargetTeam { SELF, OPPONENT }
