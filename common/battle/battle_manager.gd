@@ -28,10 +28,15 @@ func start_battle(hole: Hole, team1: TeamResource, team2: TeamResource):
 
 	on_battle_started.emit()
 
+	Wwise.register_game_obj(self, get_name())
+	Wwise.post_event("play_mus_battle", self)
+
 
 func end_battle(winning_rival: RivalResource):
 	teams.clear()
 	on_battle_ended.emit(winning_rival)
+
+	Wwise.post_event("stop_mus_battle", self)
 
 
 func get_opponent_teams(my_team: Team) -> Array[Team]:
