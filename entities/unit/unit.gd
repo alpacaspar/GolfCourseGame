@@ -30,11 +30,20 @@ var targeting_units: Array[Unit] = []
 var state := IDLE
 
 
+func _ready():
+    BattleManager.on_battle_started.connect(_on_battle_manager_battle_started)
+
+
+func _on_battle_manager_battle_started():
+    controller.process_mode = PROCESS_MODE_INHERIT
+
+
 func setup(new_golfer: GolferResource, assigned_team: Team):
     golfer_resource = new_golfer
     team = assigned_team
 
     controller.unit = self
+    controller.process_mode = PROCESS_MODE_DISABLED
 
     character = CharacterFactory.spawn_character(golfer_resource.npc_resource)
     visuals.add_child(character)
@@ -67,7 +76,7 @@ func take_damage(damage: int):
     if golfer_resource.stamina <= 0:
         golfer_resource.stamina = 0
         _exhaust()
-    
+
     animation_tree.set(HIT_ONE_SHOT, AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
     animation_tree.set(ACTION_TRANSITION_ANIM_PARAMETER, "input")
 

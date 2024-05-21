@@ -4,6 +4,9 @@ extends Node
 signal on_battle_started
 signal on_battle_ended(winning_team: TeamResource)
 
+const SPAWN_SPACING = 2.0
+const SPAWN_HEIGHT_OFFSET = -0.2
+
 @export_subgroup("Composition")
 @export var team_scene: PackedScene
 
@@ -20,6 +23,8 @@ func start_battle(hole: Hole, team1: TeamResource, team2: TeamResource):
 
 	_instantiate_team(team1, hole.tee_area)
 	_instantiate_team(team2, hole.green)
+
+	await hole.play_intro_sequence()
 
 	on_battle_started.emit()
 
@@ -56,7 +61,7 @@ func _instantiate_team(team_resource: TeamResource, origin: Node3D):
 	self.add_child(team_instance)
 	teams.append(team_instance)
 
-	var spawnpoints := _get_spawnpoints(team_resource.size(), origin.global_position, origin.global_transform.basis.z, 5.0)
+	var spawnpoints := _get_spawnpoints(team_resource.size(), origin, SPAWN_SPACING)
 
 	var unit_instance: Unit
 	var controller_instance: Node
@@ -76,19 +81,32 @@ func _instantiate_team(team_resource: TeamResource, origin: Node3D):
 		unit_instance.add_child(controller_instance)
 
 		unit_instance.global_transform.origin = spawnpoints.pop_back()
+		unit_instance.global_rotation.y = origin.global_rotation.y
 
 	team_instance.leader = unit_instance
 
 
-## Returns an array of points in a triangular pattern (bowling pin formation).
-func _get_spawnpoints(amount: int, offset: Vector3, direction: Vector3, spacing: float) -> Array[Vector3]:
-	var result: Array[Vector3] = []
+func _get_spawnpoints(amount: int, origin_node: Node3D, spacing: float) -> Array[Vector3]:
+	var position := origin_node.global_position
+	var direction := origin_node.global_transform.basis.z
 
-	var half_amount := ceili(amount * 0.5)
+	var result: Array[Vector3] = []
 
 	var cross_direction := direction.cross(Vector3.UP)
 
+	var half_amount := ceili(amount * 0.5)
 	for i: int in range(-half_amount, half_amount - 1):
-		result.append(offset + cross_direction * (i * spacing))
+		var offset: Vector3 = position + cross_direction * (i * spacing)
+		offset.y = get_ground_level(origin_node, offset)
+		
+		result.append(offset)
 
 	return result
+
+
+func get_ground_level(origin_node: Node3D, offset: Vector3) -> float:
+	var space_state := origin_node.get_world_3d().direct_space_state
+	var query := PhysicsRayQueryParameters3D.create(offset, offset + Vector3.DOWN * 100)
+	var result := space_state.intersect_ray(query)
+
+	return result["position"].y
