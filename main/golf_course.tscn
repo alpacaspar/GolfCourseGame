@@ -1,10 +1,11 @@
-[gd_scene load_steps=14 format=3 uid="uid://dixhhv1bgajy0"]
+[gd_scene load_steps=15 format=3 uid="uid://dixhhv1bgajy0"]
 
 [ext_resource type="Material" uid="uid://gnoi7qwmsv7q" path="res://entities/environment/water_material.tres" id="2_lfi1o"]
 [ext_resource type="PackedScene" uid="uid://dbssg6p52li32" path="res://entities/terrain/terrain.tscn" id="2_ucwcg"]
 [ext_resource type="Script" path="res://entities/hole/hole.gd" id="3_exqrc"]
 [ext_resource type="Resource" uid="uid://n3vyqaj6du0j" path="res://entities/teams/player_team.tres" id="4_ef75d"]
 [ext_resource type="Resource" uid="uid://6gcjg525wbuu" path="res://entities/teams/garl_team.tres" id="5_1ohsd"]
+[ext_resource type="PackedScene" uid="uid://75rvfsq67s7b" path="res://entities/environment/palm_tree.tscn" id="6_7ctve"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_en4cg"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -34,7 +35,7 @@ center_offset = Vector3(500, 0, 500)
 
 [sub_resource type="Curve3D" id="Curve3D_g5mua"]
 _data = {
-"points": PackedVector3Array(0.914339, 1.27717, -10.7188, 0, 0, 10.719, 8.642, 6, -100.675, -0.078, 0, -13.411, 0.078, 0, 13.411, 23.6963, 1.90735e-06, -21.9435, 1.468, 0, -11.725, -1.468, 0, 11.725, 18.429, -0.365534, 13.3029, 0, 0, 0, -1.468, 0, 11.725, 19.4155, -3.65179, 38.0584),
+"points": PackedVector3Array(0.914339, 1.27717, -10.7188, 0, 0, 10.719, 8.642, 6, -100.675, -0.078, 0, -13.411, 0.078, 0, 13.411, 23.6963, 1.90735e-06, -21.9435, 1.47888, 0.873091, -11.6118, -1.47888, -0.873091, 11.6118, 18.4174, -1.41887, 13.1782, 0, 0, 0, -1.468, 0, 11.725, 22.6987, -5.40214, 45.508),
 "tilts": PackedFloat32Array(0, -0.1, 0, 0)
 }
 point_count = 4
@@ -116,3 +117,18 @@ mesh = SubResource("PlaneMesh_rvmyo")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Hole01/Pond/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.0166, 0, -1.07825)
 shape = SubResource("CylinderShape3D_aawpb")
+
+[node name="PalmTree" parent="Hole01" instance=ExtResource("6_7ctve")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45.89, -3.05763, 74.3802)
+
+[node name="PalmTree2" parent="Hole01" instance=ExtResource("6_7ctve")]
+transform = Transform3D(0.603152, 0, 0.797626, -0.084496, 0.994373, 0.0638945, -0.793138, -0.105934, 0.599759, 42.9161, -3.13448, 79.9261)
+
+[node name="PalmTree3" parent="Hole01" instance=ExtResource("6_7ctve")]
+transform = Transform3D(-0.88186, -0.110102, 0.458477, -0.0677153, 0.991849, 0.107942, -0.466624, 0.0641439, -0.882127, 38.4835, -4.03969, 80.9162)
+
+[node name="PalmTree4" parent="Hole01" instance=ExtResource("6_7ctve")]
+transform = Transform3D(-0.787755, -0.118361, 0.604511, -0.0666506, 0.991983, 0.107373, -0.612373, 0.0442927, -0.789328, 14.6087, -6.24586, 70.1333)
+
+[node name="PalmTree5" parent="Hole01" instance=ExtResource("6_7ctve")]
+transform = Transform3D(-0.911966, -0.0599604, -0.40586, -0.0826716, 0.995828, 0.0386425, 0.40185, 0.0687937, -0.913118, 10.043, -6.24586, 66.2043)
