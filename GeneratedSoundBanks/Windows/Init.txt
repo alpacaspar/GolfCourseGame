@@ -26,21 +26,29 @@ Switch	ID	Name	Switch Group			Notes
 
 State Group	ID	Name			Wwise Object Path	Notes
 	984691642	InGame			\In-Game\InGame	
+	2739846761	Battle_State			\Battle\Battle_State	
 
 State	ID	Name	State Group			Notes
 	579523862	Explore	InGame			
 	748895195	None	InGame			
 	2937832959	Battle	InGame			
 	3930136735	Dialogue	InGame			
+	461545889	Battle_End	Battle_State			
+	748895195	None	Battle_State			
+	2330123519	Battle_In_Progress	Battle_State			
+	2706291346	Battle_Start	Battle_State			
 
 Game Parameter	ID	Name			Wwise Object Path	Notes
 	504532776	Brick			\Factory Acoustic Textures\Textures\Brick	
 	513139656	Mountain			\Factory Acoustic Textures\Textures\Mountain	
 	841620460	Concrete			\Factory Acoustic Textures\Textures\Concrete	
+	889708287	mus_volume			\Settings\mus_volume	
+	1564184899	sfx_volume			\Settings\sfx_volume	
 	1755085759	Wood_Deep			\Factory Acoustic Textures\Textures\Wood_Deep	
 	1873957695	Anechoic			\Factory Acoustic Textures\Textures\Anechoic	
 	1970351858	Fabric			\Factory Acoustic Textures\Textures\Fabric	
 	2058049674	Wood			\Factory Acoustic Textures\Textures\Wood	
+	2261376858	dia_volume			\Settings\dia_volume	
 	2412606308	Carpet			\Factory Acoustic Textures\Textures\Carpet	
 	2637588553	Tile			\Factory Acoustic Textures\Textures\Tile	
 	2928161104	Curtains			\Factory Acoustic Textures\Textures\Curtains	
@@ -50,6 +58,16 @@ Game Parameter	ID	Name			Wwise Object Path	Notes
 	4262522749	Wood_Bright			\Factory Acoustic Textures\Textures\Wood_Bright	
 
 Audio Bus	ID	Name			Wwise Object Path	Notes
+	143634621	Ambience Master			\Default Work Unit\Master Audio Bus\SFX Master\Ambience Master	
+	439959608	Player Master			\Default Work Unit\Master Audio Bus\SFX Master\Player Master	
+	1698665495	UI Master			\Default Work Unit\Master Audio Bus\SFX Master\UI Master	
+	1943222575	Interactible Master			\Default Work Unit\Master Audio Bus\SFX Master\Interactible Master	
+	2126441370	Environment Master			\Default Work Unit\Master Audio Bus\SFX Master\Environment Master	
+	2536650578	Cinematic Master			\Default Work Unit\Master Audio Bus\SFX Master\Cinematic Master	
+	3210384600	MUS Master			\Default Work Unit\Master Audio Bus\MUS Master	
+	3222323340	SFX Master			\Default Work Unit\Master Audio Bus\SFX Master	
+	3362801048	NPC Master			\Default Work Unit\Master Audio Bus\SFX Master\NPC Master	
+	3798835517	DIA Master			\Default Work Unit\Master Audio Bus\DIA Master	
 	3803692087	Master Audio Bus			\Default Work Unit\Master Audio Bus	
 
 Audio Devices	ID	Name	Type				Notes
