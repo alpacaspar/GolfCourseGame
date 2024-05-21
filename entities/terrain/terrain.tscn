@@ -6,7 +6,7 @@
 [ext_resource type="Terrain3DTextureList" uid="uid://dsih680v02hr7" path="res://entities/terrain/terrain_3d_texture_list.tres" id="4_3ux7o"]
 [ext_resource type="PackedScene" uid="uid://bknw3rgmsvj8u" path="res://entities/hole/cup.glb" id="5_0024e"]
 
-[node name="golf_terrain" type="Node3D"]
+[node name="Terrain" type="Node3D"]
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 navigation_mesh = ExtResource("1_ymkyg")

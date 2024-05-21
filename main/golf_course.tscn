@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dixhhv1bgajy0"]
+[gd_scene load_steps=14 format=3 uid="uid://dixhhv1bgajy0"]
 
 [ext_resource type="Material" uid="uid://gnoi7qwmsv7q" path="res://entities/environment/water_material.tres" id="2_lfi1o"]
 [ext_resource type="PackedScene" uid="uid://dbssg6p52li32" path="res://entities/terrain/terrain.tscn" id="2_ucwcg"]
@@ -32,16 +32,20 @@ material = ExtResource("2_lfi1o")
 size = Vector2(4000, 4000)
 center_offset = Vector3(500, 0, 500)
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_rvmyo"]
-material = ExtResource("2_lfi1o")
-size = Vector2(50, 50)
-
 [sub_resource type="Curve3D" id="Curve3D_g5mua"]
 _data = {
 "points": PackedVector3Array(0.914339, 1.27717, -10.7188, 0, 0, 10.719, 8.642, 6, -100.675, -0.078, 0, -13.411, 0.078, 0, 13.411, 23.6963, 1.90735e-06, -21.9435, 1.468, 0, -11.725, -1.468, 0, 11.725, 18.429, -0.365534, 13.3029, 0, 0, 0, -1.468, 0, 11.725, 19.4155, -3.65179, 38.0584),
 "tilts": PackedFloat32Array(0, -0.1, 0, 0)
 }
 point_count = 4
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_rvmyo"]
+material = ExtResource("2_lfi1o")
+size = Vector2(50, 50)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_aawpb"]
+height = 40.0
+radius = 22.0
 
 [node name="GolfCourse" type="Node3D"]
 
@@ -70,13 +74,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -40, 0)
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ocean"]
 mesh = SubResource("PlaneMesh_cj3i1")
 
-[node name="Pond" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 505.519, -6.5, 508.465)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Pond"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.82184, 0, 0)
-mesh = SubResource("PlaneMesh_rvmyo")
-
 [node name="Hole01" type="Node3D" parent="." node_paths=PackedStringArray("camera_path_track")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 512.304, -1.90735e-06, 516.943)
 script = ExtResource("3_exqrc")
@@ -101,8 +98,21 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.26087, 0)
 curve = SubResource("Curve3D_g5mua")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Hole01/HolePath3D"]
-transform = Transform3D(-0.987689, 0.00653645, -0.156174, -0.00745116, 0.996014, 0.0888113, 0.156131, 0.0888832, -0.983723, 9.45919, 5.50653, -91.0189)
+transform = Transform3D(-0.983077, -0.0110102, -0.182759, -0.0247695, 0.997004, 0.0731771, 0.181404, 0.0764669, -0.980425, 9.9322, 5.48329, -91.0706)
 progress = 9.71623
 loop = false
 
 [node name="Camera3D" type="Camera3D" parent="Hole01/HolePath3D/PathFollow3D"]
+
+[node name="Pond" type="Node3D" parent="Hole01"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.785, -6.5, -8.478)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Hole01/Pond"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.82184, 0, 0)
+mesh = SubResource("PlaneMesh_rvmyo")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Hole01/Pond"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hole01/Pond/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.0166, 0, -1.07825)
+shape = SubResource("CylinderShape3D_aawpb")
