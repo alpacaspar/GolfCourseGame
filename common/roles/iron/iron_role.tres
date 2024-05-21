@@ -8,6 +8,8 @@
 [resource]
 script = ExtResource("4_jtkam")
 display_name = "Ironnaut"
+base_stamina = 100
+base_power = 15
 primary_action = ExtResource("2_0e2or")
 animation_blend_tree = ExtResource("1_wf25o")
 primary_equipment = ExtResource("3_4bfc4")
