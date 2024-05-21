@@ -1,6 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://dixhhv1bgajy0"]
+[gd_scene load_steps=13 format=3 uid="uid://dixhhv1bgajy0"]
 
+[ext_resource type="Material" uid="uid://gnoi7qwmsv7q" path="res://entities/environment/water_material.tres" id="2_lfi1o"]
 [ext_resource type="PackedScene" uid="uid://dbssg6p52li32" path="res://entities/terrain/terrain.tscn" id="2_ucwcg"]
+[ext_resource type="Script" path="res://entities/hole/hole.gd" id="3_exqrc"]
+[ext_resource type="Resource" uid="uid://n3vyqaj6du0j" path="res://entities/teams/player_team.tres" id="4_ef75d"]
+[ext_resource type="Resource" uid="uid://6gcjg525wbuu" path="res://entities/teams/garl_team.tres" id="5_1ohsd"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_en4cg"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -20,6 +24,25 @@ fog_light_energy = 2.0
 fog_density = 0.0002
 fog_sky_affect = 0.0
 
+[sub_resource type="BoxMesh" id="BoxMesh_hwxfc"]
+size = Vector3(120, 20, 40)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_cj3i1"]
+material = ExtResource("2_lfi1o")
+size = Vector2(4000, 4000)
+center_offset = Vector3(500, 0, 500)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_rvmyo"]
+material = ExtResource("2_lfi1o")
+size = Vector2(50, 50)
+
+[sub_resource type="Curve3D" id="Curve3D_g5mua"]
+_data = {
+"points": PackedVector3Array(0.914339, 1.27717, -10.7188, 0, 0, 10.719, 8.642, 6, -100.675, -0.078, 0, -13.411, 0.078, 0, 13.411, 23.6963, 1.90735e-06, -21.9435, 1.468, 0, -11.725, -1.468, 0, 11.725, 18.429, -0.365534, 13.3029, 0, 0, 0, -1.468, 0, 11.725, 19.4155, -3.65179, 38.0584),
+"tilts": PackedFloat32Array(0, -0.1, 0, 0)
+}
+point_count = 4
+
 [node name="GolfCourse" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -34,3 +57,52 @@ shadow_enabled = true
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(0.939925, -0.123929, 0.318091, 9.31323e-09, 0.93178, 0.363024, -0.34138, -0.341215, 0.875803, 198.119, 26.3455, 675.408)
 fov = 50.0
+
+[node name="ClubHouse" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ClubHouse"]
+transform = Transform3D(0.736522, 0, 0.676413, 0, 1, 0, -0.676413, 0, 0.736522, 290.589, 9.08958, 325.119)
+mesh = SubResource("BoxMesh_hwxfc")
+
+[node name="Ocean" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -40, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ocean"]
+mesh = SubResource("PlaneMesh_cj3i1")
+
+[node name="Pond" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 505.519, -6.5, 508.465)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Pond"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.82184, 0, 0)
+mesh = SubResource("PlaneMesh_rvmyo")
+
+[node name="Hole01" type="Node3D" parent="." node_paths=PackedStringArray("camera_path_track")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 512.304, -1.90735e-06, 516.943)
+script = ExtResource("3_exqrc")
+test_player = ExtResource("4_ef75d")
+test_rival = ExtResource("5_1ohsd")
+camera_path_track = NodePath("HolePath3D/PathFollow3D")
+
+[node name="TeeArea" type="Marker3D" parent="Hole01"]
+transform = Transform3D(0.985482, 0, 0.16978, 0, 1, 0, -0.16978, 0, 0.985482, 12.1696, -4.20163, -61.0583)
+
+[node name="Camera3D" type="Camera3D" parent="Hole01/TeeArea"]
+transform = Transform3D(0.866025, 0.0695864, 0.495134, 0, 0.990268, -0.139173, -0.5, 0.120527, 0.857597, 4.4902, -0.767924, 7.77753)
+
+[node name="GreenArea" type="Marker3D" parent="Hole01"]
+transform = Transform3D(-0.992367, 0, -0.123324, 0, 1, 0, 0.123324, 0, -0.992367, 27.9291, -3.37651, 53.2966)
+
+[node name="Camera3D" type="Camera3D" parent="Hole01/GreenArea"]
+transform = Transform3D(0.795596, 0.109819, 0.59579, -0.0360206, 0.990268, -0.134431, -0.604755, 0.0854919, 0.791809, 5.36212, -1.20988, 7.12634)
+
+[node name="HolePath3D" type="Path3D" parent="Hole01"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.26087, 0)
+curve = SubResource("Curve3D_g5mua")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Hole01/HolePath3D"]
+transform = Transform3D(-0.987689, 0.00653645, -0.156174, -0.00745116, 0.996014, 0.0888113, 0.156131, 0.0888832, -0.983723, 9.45919, 5.50653, -91.0189)
+progress = 9.71623
+loop = false
+
+[node name="Camera3D" type="Camera3D" parent="Hole01/HolePath3D/PathFollow3D"]
