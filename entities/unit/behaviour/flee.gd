@@ -3,7 +3,6 @@ extends BTLeaf
 
 @export var flee_time := 5.0
 
-
 var current_time := 0.0
 
 

@@ -54,6 +54,7 @@ func _perform_action():
 
     unit.perform_action()
 
+    # TODO: Use perform_action() function to get the duration.
     await get_tree().create_timer(3).timeout
 
     current_speed = unit.MOVE_SPEED

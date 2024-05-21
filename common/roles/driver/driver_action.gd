@@ -15,7 +15,7 @@ var unit: Unit:
 
 var current_target: Unit
 
-## Buffer storing the velocity of the target of the past 5 frames.
+## Buffer storing the velocity of the target of the past few frames.
 var velocity_buffer: Array[Vector3] = []
 var average_velocity: Vector3:
 	get:

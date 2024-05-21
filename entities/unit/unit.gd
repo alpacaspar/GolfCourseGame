@@ -51,6 +51,7 @@ func setup(new_golfer: GolferResource, assigned_team: Team):
     animation_tree = character.animation_tree
     character.animation_tree.tree_root = golfer_resource.role.animation_blend_tree
 
+
 func perform_action():
     animation_tree.set(ACTION_TRANSITION_ANIM_PARAMETER, "start_action")
     role_action.perform()
@@ -69,6 +70,7 @@ func take_damage(damage: int):
     
     animation_tree.set(HIT_ONE_SHOT, AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
     animation_tree.set(ACTION_TRANSITION_ANIM_PARAMETER, "input")
+
 
 func _exhaust():
     queue_free()

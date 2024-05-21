@@ -1,6 +1,6 @@
 class_name Parallel
 extends BTComposite
-## Runs child nodes in parallel, 
+## Similar to the [Sequence] node, but runs all of its children every tick. The last node that was ticked is the node's result.
 
 
 func _tick(blackboard: Dictionary, delta: float) -> int:

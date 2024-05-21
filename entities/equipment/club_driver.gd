@@ -4,7 +4,7 @@ extends Node3D
 var owning_unit: Unit
 
 
-# Script is empty, but is needed for now in order for the game to not crash 😎
+# TODO: Add Wwise calls to these functions
 func start_event():
     pass
 
