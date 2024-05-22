@@ -3,7 +3,7 @@
 [ext_resource type="Material" uid="uid://gnoi7qwmsv7q" path="res://entities/environment/water_material.tres" id="2_lfi1o"]
 [ext_resource type="PackedScene" uid="uid://dbssg6p52li32" path="res://entities/terrain/terrain.tscn" id="2_ucwcg"]
 [ext_resource type="Script" path="res://entities/hole/hole.gd" id="3_exqrc"]
-[ext_resource type="Resource" uid="uid://n3vyqaj6du0j" path="res://entities/teams/player_team.tres" id="4_ef75d"]
+[ext_resource type="Resource" uid="uid://n3vyqaj6du0j" path="res://entities/teams/player_team_preset.tres" id="4_vsg6a"]
 [ext_resource type="Resource" uid="uid://6gcjg525wbuu" path="res://entities/teams/garl_team.tres" id="5_1ohsd"]
 [ext_resource type="PackedScene" uid="uid://75rvfsq67s7b" path="res://entities/environment/palm_tree.tscn" id="6_7ctve"]
 
@@ -78,7 +78,7 @@ mesh = SubResource("PlaneMesh_cj3i1")
 [node name="Hole01" type="Node3D" parent="." node_paths=PackedStringArray("camera_path_track")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 512.304, -1.90735e-06, 516.943)
 script = ExtResource("3_exqrc")
-test_player = ExtResource("4_ef75d")
+test_player = ExtResource("4_vsg6a")
 test_rival = ExtResource("5_1ohsd")
 camera_path_track = NodePath("HolePath3D/PathFollow3D")
 

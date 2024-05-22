@@ -17,6 +17,22 @@ const SPAWN_HEIGHT_OFFSET = -0.2
 
 var teams: Array[Team] = []
 
+var battle_active := false
+
+
+func _process(_delta: float):
+	if not battle_active:
+		return
+
+	for team: Team in teams:
+		if team.get_active_units().is_empty():
+			# TODO: replace destructor with a proper cleanup function.
+			teams.erase(team)
+			team.queue_free()
+	
+	if teams.size() == 1:
+		end_battle(teams.front().leader.golfer_resource)
+
 
 func start_battle(hole: Hole, team1: TeamResource, team2: TeamResource):
 	teams.clear()
@@ -26,6 +42,7 @@ func start_battle(hole: Hole, team1: TeamResource, team2: TeamResource):
 
 	await hole.play_intro_sequence()
 
+	battle_active = true
 	on_battle_started.emit()
 
 	Wwise.register_game_obj(self, get_name())
@@ -33,7 +50,7 @@ func start_battle(hole: Hole, team1: TeamResource, team2: TeamResource):
 
 
 func end_battle(winning_rival: RivalResource):
-	teams.clear()
+	battle_active = false
 	on_battle_ended.emit(winning_rival)
 
 	Wwise.post_event("stop_mus_battle", self)
