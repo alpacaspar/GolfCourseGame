@@ -7,7 +7,7 @@ extends Resource
 
 @export var npc_resource: NPCResource
 
-var power: int: set = set_power
+var power: int: get = get_power
 var stamina: int: set = set_stamina
 
 var experience: int:
@@ -26,14 +26,14 @@ func _init(golfer_level := 1, golfer_role: Role = Role.new(), golfer_npc_resourc
 	role = golfer_role
 	npc_resource = golfer_npc_resource
 
-	power = golfer_role.base_power
-	stamina = golfer_role.base_stamina
+	stamina = level + role.base_stamina
+
 	experience = 0
 	bond = 0
 
 
-func set_power(new_power: int):
-	power = max(new_power, 0)
+func get_power() -> int:
+	return level + role.base_power
 
 
 func set_stamina(new_stamina: int):
