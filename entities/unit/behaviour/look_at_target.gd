@@ -1,4 +1,4 @@
-extends BTLeaf
+extends BTAction
 
 
 func _tick(blackboard: Dictionary, delta: float) -> int:

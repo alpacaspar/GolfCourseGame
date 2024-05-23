@@ -1,4 +1,4 @@
-extends BTLeaf
+extends BTAction
 
 
 @export var distance_threshold := 1.0

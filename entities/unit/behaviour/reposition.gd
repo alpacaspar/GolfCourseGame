@@ -1,4 +1,4 @@
-extends BTLeaf
+extends BTAction
 
 
 var reposition_direction_positive := true

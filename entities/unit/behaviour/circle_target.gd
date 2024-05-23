@@ -1,4 +1,4 @@
-extends BTLeaf
+extends BTAction
 
 
 @export var preferred_range := 4.0

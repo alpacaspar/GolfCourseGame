@@ -1,4 +1,4 @@
-extends BTLeaf
+extends BTAction
 
 
 @export var avoidance_radius := 2.0

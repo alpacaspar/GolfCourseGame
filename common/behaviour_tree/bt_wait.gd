@@ -1,5 +1,5 @@
 class_name Wait
-extends BTLeaf
+extends BTAction
 
 
 @export var wait_time := 1.0

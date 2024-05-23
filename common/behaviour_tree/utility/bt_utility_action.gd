@@ -1,4 +1,4 @@
-class_name BTUtilityLeaf
+class_name BTUtilityAction
 extends BTUtilityNode
 
 

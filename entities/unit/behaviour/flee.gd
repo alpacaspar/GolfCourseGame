@@ -1,4 +1,4 @@
-extends BTLeaf
+extends BTAction
 
 
 @export var flee_time := 5.0

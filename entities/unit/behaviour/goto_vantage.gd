@@ -1,4 +1,4 @@
-extends BTLeaf
+extends BTAction
 
 
 @export var preferred_distance := 30.0

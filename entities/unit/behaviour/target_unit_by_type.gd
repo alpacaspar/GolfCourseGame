@@ -1,4 +1,4 @@
-extends BTUtilityLeaf
+extends BTUtilityAction
 
 
 @export var target_role: Role

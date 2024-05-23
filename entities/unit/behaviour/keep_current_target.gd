@@ -1,4 +1,4 @@
-extends BTUtilityLeaf
+extends BTUtilityAction
 
 
 @export var max_distance := 50.0

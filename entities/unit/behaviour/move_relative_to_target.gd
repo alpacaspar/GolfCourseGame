@@ -1,4 +1,4 @@
-extends BTLeaf
+extends BTAction
 
 
 ## Move in angle relative to the direction towards the target.
