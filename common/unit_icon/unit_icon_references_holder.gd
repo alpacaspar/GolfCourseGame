@@ -3,13 +3,10 @@ extends Node
 
 @export var icon: TextureRect
 
-@export var name_text: RichTextLabel
-
-@export var power_text: RichTextLabel
-@export var stamina_text: RichTextLabel
-@export var somethignWElsw: RichTextLabel
+@export var class_letter: Label
+@export var level_text: Label
 
 
-func set_values(npc_resource: NPCResource):
-	name_text.text = npc_resource.name
-
+func set_values(resource: GolferResource):
+	level_text.text = str(resource.level)
+	class_letter.text = resource.role.descripive_letter

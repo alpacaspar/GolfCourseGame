@@ -1,12 +1,96 @@
-[gd_scene load_steps=2 format=3 uid="uid://ce20tmis1qoob"]
+[gd_scene load_steps=5 format=3 uid="uid://ce20tmis1qoob"]
 
 [ext_resource type="Script" path="res://common/unit_icon/unit_icon_references_holder.gd" id="1_uio8v"]
+[ext_resource type="Texture2D" uid="uid://dfspa0f55imyc" path="res://icon.svg" id="2_uxqan"]
 
-[node name="UnitIcon" type="Control"]
+[sub_resource type="LabelSettings" id="LabelSettings_y30eu"]
+font_size = 72
+font_color = Color(0, 0.866667, 0.329412, 1)
+outline_size = 3
+outline_color = Color(0.643137, 0.643137, 0.643137, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_00yij"]
+font_size = 32
+font_color = Color(0, 0.866667, 0.329412, 1)
+outline_size = 3
+outline_color = Color(0.643137, 0.643137, 0.643137, 1)
+
+[node name="UnitIcon" type="Control" node_paths=PackedStringArray("icon", "class_letter", "level_text")]
 layout_mode = 3
+anchors_preset = 0
+offset_left = -150.0
+offset_top = -150.0
+offset_right = 150.0
+offset_bottom = 150.0
+script = ExtResource("1_uio8v")
+icon = NodePath("TextureRect")
+class_letter = NodePath("RoleLetter")
+level_text = NodePath("LevelHolder")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_uio8v")
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("2_uxqan")
+
+[node name="RoleLetter" type="Label" parent="."]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = -36.0
+offset_top = -67.0
+offset_right = 60.0
+offset_bottom = 32.0
+grow_vertical = 0
+size_flags_horizontal = 4
+text = "D"
+label_settings = SubResource("LabelSettings_y30eu")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Lvl" type="Label" parent="."]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -105.0
+offset_top = -51.0
+offset_right = -36.0
+offset_bottom = -1.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 4
+text = "Lvl"
+label_settings = SubResource("LabelSettings_00yij")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LevelHolder" type="Label" parent="."]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -63.0
+offset_top = -51.0
+offset_right = 6.0
+offset_bottom = -1.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 4
+text = "1"
+label_settings = SubResource("LabelSettings_00yij")
+horizontal_alignment = 1
+vertical_alignment = 1
