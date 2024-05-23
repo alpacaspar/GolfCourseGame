@@ -1,0 +1,914 @@
+[gd_scene load_steps=32 format=3 uid="uid://di1ol523f6hnn"]
+
+[ext_resource type="Script" path="res://common/character_editor/character_editor.gd" id="1_aejrd"]
+[ext_resource type="ButtonGroup" uid="uid://gxcp7q5ddcrd" path="res://common/character_editor/editor_window_button_group.tres" id="1_kytdn"]
+[ext_resource type="PackedScene" uid="uid://bscnygsgtcj41" path="res://addons/npc_editor/ui/npc_customizer_option_picker.tscn" id="1_y4n6x"]
+[ext_resource type="Texture2D" uid="uid://dfspa0f55imyc" path="res://icon.svg" id="2_mv6cs"]
+[ext_resource type="PackedScene" uid="uid://bnovr4726jwoi" path="res://addons/npc_editor/ui/npc_customizer_gallery.tscn" id="3_5ut0o"]
+[ext_resource type="Texture2D" uid="uid://dnvt7megsoqwc" path="res://common/character_editor/icons/Eye.svg" id="3_n5dc1"]
+[ext_resource type="Theme" uid="uid://pq6ete4ie6a8" path="res://common/character_editor/character_creator_theme.tres" id="3_wnflr"]
+[ext_resource type="Texture2D" uid="uid://bkc38rjrfehfw" path="res://common/character_editor/icons/Eyebrow.svg" id="4_u1r2o"]
+[ext_resource type="Texture2D" uid="uid://by18btik8dcxl" path="res://common/character_editor/icons/Mouth.svg" id="5_rdmtd"]
+[ext_resource type="Texture2D" uid="uid://c7bif0hgmebao" path="res://common/character_editor/icons/Nose.svg" id="6_oehch"]
+[ext_resource type="Texture2D" uid="uid://b1iw5qnh86iut" path="res://common/character_editor/icons/Ears.svg" id="7_jbj20"]
+[ext_resource type="Texture2D" uid="uid://d3n668btwy2q0" path="res://common/character_editor/icons/Hair.svg" id="8_mvje5"]
+[ext_resource type="Texture2D" uid="uid://bjwnnbrf7gjql" path="res://common/character_editor/icons/Shirt.svg" id="9_a1rda"]
+[ext_resource type="Texture2D" uid="uid://dqmb2al0cn3tl" path="res://common/character_editor/icons/Pants.svg" id="10_nyxt4"]
+[ext_resource type="Texture2D" uid="uid://cmsumye0h7ks2" path="res://common/character_editor/icons/Shoes.svg" id="11_bswf2"]
+[ext_resource type="Texture2D" uid="uid://bngmvif3ad5r1" path="res://common/character_editor/icons/Naming.svg" id="12_ic3ai"]
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_o2lol"]
+resource_name = "Eyes"
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_ebivn"]
+resource_name = "Skin Color"
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_2mkmq"]
+resource_name = "Eyebrows"
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_dlcxg"]
+resource_name = "Mouths"
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_yfxgg"]
+resource_name = "Noses"
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_80yla"]
+resource_name = "Ears"
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_tf0bv"]
+resource_name = "Hair"
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_cn4sn"]
+resource_name = "Hair Color"
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_1a102"]
+resource_name = "Shirt"
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_4f6m5"]
+resource_name = "Shirt Color"
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_bpy01"]
+resource_name = "Pants"
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_3djmt"]
+resource_name = "Pants Color"
+
+[sub_resource type="LabelSettings" id="LabelSettings_mraeu"]
+font_size = 24
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_l4q78"]
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_a04it"]
+
+[node name="CharacterEditor" type="Control" node_paths=PackedStringArray("eyes_option_picker", "eyebrows_option_picker", "noses_option_picker", "ears_option_picker", "mouths_option_picker", "hair_option_picker", "shirt_option_picker", "pants_option_picker", "skin_color_option_picker", "hair_color_option_picker", "shirt_color_option_picker", "pants_color_option_picker", "name_field", "eye_offset_slider", "eyebrow_offset_slider", "mouth_offset_slider", "mouth_size_slider", "preview", "zoom_slider", "rotation_slider", "rotation_box", "tab_group")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_wnflr")
+script = ExtResource("1_aejrd")
+eyes_option_picker = NodePath("VBoxContainer2/HBoxContainer2/VBoxContainer/NPCEditor/VBoxContainer/TabContainer/EyeOptions/GalleryNode")
+eyebrows_option_picker = NodePath("VBoxContainer2/HBoxContainer2/VBoxContainer/NPCEditor/VBoxContainer/TabContainer/EyebrowOptions/GalleryNode")
+noses_option_picker = NodePath("VBoxContainer2/HBoxContainer2/VBoxContainer/NPCEditor/VBoxContainer/TabContainer/NoseOptions/GalleryNode")
+ears_option_picker = NodePath("VBoxContainer2/HBoxContainer2/VBoxContainer/NPCEditor/VBoxContainer/TabContainer/EarOptions/GalleryNode")
+mouths_option_picker = NodePath("VBoxContainer2/HBoxContainer2/VBoxContainer/NPCEditor/VBoxContainer/TabContainer/MouthOptions/GalleryNode")
+hair_option_picker = NodePath("VBoxContainer2/HBoxContainer2/VBoxContainer/NPCEditor/VBoxContainer/TabContainer/HairOptions/GalleryNode")
+shirt_option_picker = NodePath("VBoxContainer2/HBoxContainer2/VBoxContainer/NPCEditor/VBoxContainer/TabContainer/ShirtOptions/GalleryNode")
+pants_option_picker = NodePath("VBoxContainer2/HBoxContainer2/VBoxContainer/NPCEditor/VBoxContainer/TabContainer/PantsOptions/GalleryNode")
+skin_color_option_picker = NodePath("VBoxContainer2/HBoxContainer2/VBoxContainer/NPCEditor/VBoxContainer/TabContainer/EyeOptions/OptionPicker")
+hair_color_option_picker = NodePath("VBoxContainer2/HBoxContainer2/VBoxContainer/NPCEditor/VBoxContainer/TabContainer/HairOptions/OptionPicker2")
+shirt_color_option_picker = NodePath("VBoxContainer2/HBoxContainer2/VBoxContainer/NPCEditor/VBoxContainer/TabContainer/ShirtOptions/OptionPicker3")
+pants_color_option_picker = NodePath("VBoxContainer2/HBoxContainer2/VBoxContainer/NPCEditor/VBoxContainer/TabContainer/PantsOptions/OptionPicker4")
+name_field = NodePath("VBoxContainer2/HBoxContainer2/VBoxContainer/NPCEditor/VBoxContainer/TabContainer/PersonalOptions/NameHolder/NameField")
+eye_offset_slider = NodePath("VBoxContainer2/HBoxContainer2/VBoxContainer/NPCEditor/VBoxContainer/TabContainer/EyeOptions/EyeOffset/HSlider")
+eyebrow_offset_slider = NodePath("VBoxContainer2/HBoxContainer2/VBoxContainer/NPCEditor/VBoxContainer/TabContainer/EyebrowOptions/EyebrowOffset/HSlider")
+mouth_offset_slider = NodePath("VBoxContainer2/HBoxContainer2/VBoxContainer/NPCEditor/VBoxContainer/TabContainer/MouthOptions/MouthOffset/HSlider")
+mouth_size_slider = NodePath("VBoxContainer2/HBoxContainer2/VBoxContainer/NPCEditor/VBoxContainer/TabContainer/MouthOptions/MouthSize/HSlider")
+preview = NodePath("VBoxContainer2/HBoxContainer2/VBoxContainer2/HBoxContainer/PreviewRect")
+zoom_slider = NodePath("VBoxContainer2/HBoxContainer2/VBoxContainer2/HBoxContainer/HBoxContainer/VSlider")
+rotation_slider = NodePath("VBoxContainer2/HBoxContainer2/VBoxContainer2/HBoxContainer3/HSlider")
+rotation_box = NodePath("VBoxContainer2/HBoxContainer2/VBoxContainer2/HBoxContainer3/SpinBox")
+window_button_group = ExtResource("1_kytdn")
+tab_group = NodePath("VBoxContainer2/HBoxContainer2/VBoxContainer/NPCEditor/VBoxContainer/TabContainer")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_wnflr")
+
+[node name="ReferenceRect5" type="ReferenceRect" parent="VBoxContainer2"]
+custom_minimum_size = Vector2(10, 2)
+layout_mode = 2
+theme = ExtResource("3_wnflr")
+border_color = Color(1, 0, 0, 0)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("3_wnflr")
+
+[node name="Button" type="Button" parent="VBoxContainer2/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("3_wnflr")
+toggle_mode = true
+button_group = ExtResource("1_kytdn")
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer2/HBoxContainer/Button"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_wnflr")
+texture = ExtResource("3_n5dc1")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Button2" type="Button" parent="VBoxContainer2/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("3_wnflr")
+toggle_mode = true
+button_group = ExtResource("1_kytdn")
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer2/HBoxContainer/Button2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_wnflr")
+texture = ExtResource("4_u1r2o")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Button3" type="Button" parent="VBoxContainer2/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("3_wnflr")
+toggle_mode = true
+button_group = ExtResource("1_kytdn")
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer2/HBoxContainer/Button3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_wnflr")
+texture = ExtResource("5_rdmtd")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Button4" type="Button" parent="VBoxContainer2/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("3_wnflr")
+toggle_mode = true
+button_group = ExtResource("1_kytdn")
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer2/HBoxContainer/Button4"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_wnflr")
+texture = ExtResource("6_oehch")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Button5" type="Button" parent="VBoxContainer2/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("3_wnflr")
+toggle_mode = true
+button_group = ExtResource("1_kytdn")
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer2/HBoxContainer/Button5"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_wnflr")
+texture = ExtResource("7_jbj20")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Button6" type="Button" parent="VBoxContainer2/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("3_wnflr")
+toggle_mode = true
+button_group = ExtResource("1_kytdn")
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer2/HBoxContainer/Button6"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_wnflr")
+texture = ExtResource("8_mvje5")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Button7" type="Button" parent="VBoxContainer2/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("3_wnflr")
+toggle_mode = true
+button_group = ExtResource("1_kytdn")
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer2/HBoxContainer/Button7"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_wnflr")
+texture = ExtResource("9_a1rda")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Button8" type="Button" parent="VBoxContainer2/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("3_wnflr")
+toggle_mode = true
+button_group = ExtResource("1_kytdn")
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer2/HBoxContainer/Button8"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_wnflr")
+texture = ExtResource("10_nyxt4")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Button9" type="Button" parent="VBoxContainer2/HBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("3_wnflr")
+toggle_mode = true
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer2/HBoxContainer/Button9"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_wnflr")
+texture = ExtResource("11_bswf2")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Button10" type="Button" parent="VBoxContainer2/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("3_wnflr")
+toggle_mode = true
+button_group = ExtResource("1_kytdn")
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer2/HBoxContainer/Button10"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_wnflr")
+texture = ExtResource("12_ic3ai")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="ReferenceRect3" type="ReferenceRect" parent="VBoxContainer2"]
+custom_minimum_size = Vector2(10, 5)
+layout_mode = 2
+theme = ExtResource("3_wnflr")
+border_color = Color(1, 0, 0, 0)
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 6.43
+theme = ExtResource("3_wnflr")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer2/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("3_wnflr")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer2/HBoxContainer2/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("3_wnflr")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer2/HBoxContainer2/VBoxContainer2/HBoxContainer"]
+layout_mode = 2
+
+[node name="ReferenceRect3" type="ReferenceRect" parent="VBoxContainer2/HBoxContainer2/VBoxContainer2/HBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+theme = ExtResource("3_wnflr")
+border_color = Color(1, 0, 0, 0)
+
+[node name="VSlider" type="VSlider" parent="VBoxContainer2/HBoxContainer2/VBoxContainer2/HBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_wnflr")
+max_value = 1.0
+step = 0.001
+value = 1.0
+
+[node name="ReferenceRect4" type="ReferenceRect" parent="VBoxContainer2/HBoxContainer2/VBoxContainer2/HBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+theme = ExtResource("3_wnflr")
+border_color = Color(1, 0, 0, 0)
+
+[node name="PreviewRect" type="TextureRect" parent="VBoxContainer2/HBoxContainer2/VBoxContainer2/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("3_wnflr")
+stretch_mode = 2
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer2/HBoxContainer2/VBoxContainer2"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+theme = ExtResource("3_wnflr")
+
+[node name="ReferenceRect3" type="ReferenceRect" parent="VBoxContainer2/HBoxContainer2/VBoxContainer2/HBoxContainer3"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme = ExtResource("3_wnflr")
+border_color = Color(1, 0, 0, 0)
+
+[node name="HSlider" type="HSlider" parent="VBoxContainer2/HBoxContainer2/VBoxContainer2/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme = ExtResource("3_wnflr")
+min_value = 45.0
+max_value = 315.0
+value = 180.0
+
+[node name="ReferenceRect2" type="ReferenceRect" parent="VBoxContainer2/HBoxContainer2/VBoxContainer2/HBoxContainer3"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+theme = ExtResource("3_wnflr")
+border_color = Color(1, 0, 0, 0)
+
+[node name="SpinBox" type="SpinBox" parent="VBoxContainer2/HBoxContainer2/VBoxContainer2/HBoxContainer3"]
+layout_mode = 2
+size_flags_vertical = 4
+theme = ExtResource("3_wnflr")
+min_value = 45.0
+max_value = 315.0
+value = 180.0
+select_all_on_focus = true
+
+[node name="ReferenceRect4" type="ReferenceRect" parent="VBoxContainer2/HBoxContainer2/VBoxContainer2/HBoxContainer3"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+theme = ExtResource("3_wnflr")
+border_color = Color(1, 0, 0, 0)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer2/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("3_wnflr")
+alignment = 1
+
+[node name="NPCEditor" type="Panel" parent="VBoxContainer2/HBoxContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("3_wnflr")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer2/HBoxContainer2/VBoxContainer/NPCEditor"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_wnflr")
+
+[node name="TabContainer" type="TabContainer" parent="VBoxContainer2/HBoxContainer2/VBoxContainer/NPCEditor/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_wnflr")
+tabs_visible = false
+
+[node name="EyeOptions" type="VBoxContainer" parent="VBoxContainer2/HBoxContainer2/VBoxContainer/NPCEditor/VBoxContainer/TabContainer"]
+layout_mode = 2
+theme = ExtResource("3_wnflr")
+
+[node name="ReferenceRect3" type="ReferenceRect" parent="VBoxContainer2/HBoxContainer2/VBoxContainer/NPCEditor/VBoxContainer/TabContainer/EyeOptions"]
+custom_minimum_size = Vector2(10, 5)
+layout_mode = 2
+theme = ExtResource("3_wnflr")
+border_color = Color(1, 0, 0, 0)
+
+[node name="GalleryNode" parent="VBoxContainer2/HBoxContainer2/VBoxContainer/NPCEditor/VBoxContainer/TabContainer/EyeOptions" instance=ExtResource("3_5ut0o")]
+custom_minimum_size = Vector2(0, 75)
+layout_mode = 2
+theme = ExtResource("3_wnflr")
+button_group = SubResource("ButtonGroup_o2lol")
+
+[node name="ReferenceRect" type="ReferenceRect" parent="VBoxContainer2/HBoxContainer2/VBoxContainer/NPCEditor/VBoxContainer/TabContainer/EyeOptions"]
+custom_minimum_size = Vector2(10, 5)
+layout_mode = 2
+theme = ExtResource("3_wnflr")
+border_color = Color(1, 0, 0, 0)
+
+[node name="EyeOffset" type="HBoxContainer" parent="VBoxContainer2/HBoxContainer2/VBoxContainer/NPCEditor/VBoxContainer/TabContainer/EyeOptions"]
+layout_mode = 2
+theme = ExtResource("3_wnflr")
+
+[node name="ReferenceRect" type="ReferenceRect" parent="VBoxContainer2/HBoxContainer2/VBoxContainer/NPCEditor/VBoxContainer/TabContainer/EyeOptions/EyeOffset"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+theme = ExtResource("3_wnflr")
+border_color = Color(1, 0, 0, 0)
+
+[node name="Label" type="Label" parent="VBoxContainer2/HBoxContainer2/VBoxContainer/NPCEditor/VBoxContainer/TabContainer/EyeOptions/EyeOffset"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.4
+theme = ExtResource("3_wnflr")
+text = "Eyes Offset"
+
+[node name="ReferenceRect2" type="ReferenceRect" parent="VBoxContainer2/HBoxContainer2/VBoxContainer/NPCEditor/VBoxContainer/TabContainer/EyeOptions/EyeOffset"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+theme = ExtResource("3_wnflr")
+border_color = Color(1, 0, 0, 0)
+
+[node name="HSlider" type="HSlider" parent="VBoxContainer2/HBoxContainer2/VBoxContainer/NPCEditor/VBoxContainer/TabContainer/EyeOptions/EyeOffset"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme = ExtResource("3_wnflr")
+max_value = 1.0
+step = 0.01
+value = 0.51
+
+[node name="ReferenceRect3" type="ReferenceRect" parent="VBoxContainer2/HBoxContainer2/VBoxContainer/NPCEditor/VBoxContainer/TabContainer/EyeOptions/EyeOffset"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+theme = ExtResource("3_wnflr")
+border_color = Color(1, 0, 0, 0)
+
+[node name="ReferenceRect2" type="ReferenceRect" parent="VBoxContainer2/HBoxContainer2/VBoxContainer/NPCEditor/VBoxContainer/TabContainer/EyeOptions"]
+custom_minimum_size = Vector2(10, 5)
+layout_mode = 2
+theme = ExtResource("3_wnflr")
+border_color = Color(1, 0, 0, 0)
+
+[node name="OptionPicker" parent="VBoxContainer2/HBoxContainer2/VBoxContainer/NPCEditor/VBoxContainer/TabContainer/EyeOptions" instance=ExtResource("1_y4n6x")]
+layout_mode = 2
+theme = ExtResource("3_wnflr")
+button_group = SubResource("ButtonGroup_ebivn")
+
+[node name="EyebrowOptions" type="VBoxContainer" parent="VBoxContainer2/HBoxContainer2/VBoxContainer/NPCEditor/VBoxContainer/TabContainer"]
+visible = false
+layout_mode = 2
+theme = ExtResource("3_wnflr")
+
+[node name="ReferenceRect4" type="ReferenceRect" parent="VBoxContainer2/HBoxContainer2/VBoxContainer/NPCEditor/VBoxContainer/TabContainer/EyebrowOptions"]
+custom_minimum_size = Vector2(10, 5)
+layout_mode = 2
+theme = ExtResource("3_wnflr")
+border_color = Color(1, 0, 0, 0)
+
+[node name="GalleryNode" parent="VBoxContainer2/HBoxContainer2/VBoxContainer/NPCEditor/VBoxContainer/TabContainer/EyebrowOptions" instance=ExtResource("3_5ut0o")]
+layout_mode = 2
+theme = ExtResource("3_wnflr")
+button_group = SubResource("ButtonGroup_2mkmq")
+
+[node name="ReferenceRect3" type="ReferenceRect" parent="VBoxContainer2/HBoxContainer2/VBoxContainer/NPCEditor/VBoxContainer/TabContainer/EyebrowOptions"]
+custom_minimum_size = Vector2(10, 5)
+layout_mode = 2
+theme = ExtResource("3_wnflr")
+border_color = Color(1, 0, 0, 0)
+
+[node name="EyebrowOffset" type="HBoxContainer" parent="VBoxContainer2/HBoxContainer2/VBoxContainer/NPCEditor/VBoxContainer/TabContainer/EyebrowOptions"]
+layout_mode = 2
+theme = ExtResource("3_wnflr")
+
+[node name="ReferenceRect" type="ReferenceRect" parent="VBoxContainer2/HBoxContainer2/VBoxContainer/NPCEditor/VBoxContainer/TabContainer/EyebrowOptions/EyebrowOffset"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+theme = ExtResource("3_wnflr")
+border_color = Color(1, 0, 0, 0)
+
+[node name="Label" type="Label" parent="VBoxContainer2/HBoxContainer2/VBoxContainer/NPCEditor/VBoxContainer/TabContainer/EyebrowOptions/EyebrowOffset"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.4
+theme = ExtResource("3_wnflr")
+text = "Eyebrow Offset"
+
+[node name="ReferenceRect2" type="ReferenceRect" parent="VBoxContainer2/HBoxContainer2/VBoxContainer/NPCEditor/VBoxContainer/TabContainer/EyebrowOptions/EyebrowOffset"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+theme = ExtResource("3_wnflr")
+border_color = Color(1, 0, 0, 0)
+
+[node name="HSlider" type="HSlider" parent="VBoxContainer2/HBoxContainer2/VBoxContainer/NPCEditor/VBoxContainer/TabContainer/EyebrowOptions/EyebrowOffset"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme = ExtResource("3_wnflr")
+max_value = 1.0
+step = 0.01
+value = 0.63
+
+[node name="ReferenceRect3" type="ReferenceRect" parent="VBoxContainer2/HBoxContainer2/VBoxContainer/NPCEditor/VBoxContainer/TabContainer/EyebrowOptions/EyebrowOffset"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+theme = ExtResource("3_wnflr")
+border_color = Color(1, 0, 0, 0)
+
+[node name="MouthOptions" type="VBoxContainer" parent="VBoxContainer2/HBoxContainer2/VBoxContainer/NPCEditor/VBoxContainer/TabContainer"]
+visible = false
+layout_mode = 2
+theme = ExtResource("3_wnflr")
+
+[node name="ReferenceRect3" type="ReferenceRect" parent="VBoxContainer2/HBoxContainer2/VBoxContainer/NPCEditor/VBoxContainer/TabContainer/MouthOptions"]
+custom_minimum_size = Vector2(10, 5)
+layout_mode = 2
+theme = ExtResource("3_wnflr")
+border_color = Color(1, 0, 0, 0)
+
+[node name="GalleryNode" parent="VBoxContainer2/HBoxContainer2/VBoxContainer/NPCEditor/VBoxContainer/TabContainer/MouthOptions" instance=ExtResource("3_5ut0o")]
+layout_mode = 2
+theme = ExtResource("3_wnflr")
+button_group = SubResource("ButtonGroup_dlcxg")
+
+[node name="ReferenceRect4" type="ReferenceRect" parent="VBoxContainer2/HBoxContainer2/VBoxContainer/NPCEditor/VBoxContainer/TabContainer/MouthOptions"]
+custom_minimum_size = Vector2(10, 5)
+layout_mode = 2
+theme = ExtResource("3_wnflr")
+border_color = Color(1, 0, 0, 0)
+
+[node name="MouthOffset" type="HBoxContainer" parent="VBoxContainer2/HBoxContainer2/VBoxContainer/NPCEditor/VBoxContainer/TabContainer/MouthOptions"]
+layout_mode = 2
+theme = ExtResource("3_wnflr")
+
+[node name="ReferenceRect" type="ReferenceRect" parent="VBoxContainer2/HBoxContainer2/VBoxContainer/NPCEditor/VBoxContainer/TabContainer/MouthOptions/MouthOffset"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+theme = ExtResource("3_wnflr")
+border_color = Color(1, 0, 0, 0)
+
+[node name="Label" type="Label" parent="VBoxContainer2/HBoxContainer2/VBoxContainer/NPCEditor/VBoxContainer/TabContainer/MouthOptions/MouthOffset"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.4
+theme = ExtResource("3_wnflr")
+text = "Mouth Offset"
+
+[node name="ReferenceRect2" type="ReferenceRect" parent="VBoxContainer2/HBoxContainer2/VBoxContainer/NPCEditor/VBoxContainer/TabContainer/MouthOptions/MouthOffset"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+theme = ExtResource("3_wnflr")
+border_color = Color(1, 0, 0, 0)
+
+[node name="HSlider" type="HSlider" parent="VBoxContainer2/HBoxContainer2/VBoxContainer/NPCEditor/VBoxContainer/TabContainer/MouthOptions/MouthOffset"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme = ExtResource("3_wnflr")
+max_value = 1.0
+step = 0.01
+value = 0.15
+
+[node name="ReferenceRect3" type="ReferenceRect" parent="VBoxContainer2/HBoxContainer2/VBoxContainer/NPCEditor/VBoxContainer/TabContainer/MouthOptions/MouthOffset"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+theme = ExtResource("3_wnflr")
+border_color = Color(1, 0, 0, 0)
+
+[node name="ReferenceRect5" type="ReferenceRect" parent="VBoxContainer2/HBoxContainer2/VBoxContainer/NPCEditor/VBoxContainer/TabContainer/MouthOptions"]
+custom_minimum_size = Vector2(10, 5)
+layout_mode = 2
+theme = ExtResource("3_wnflr")
+border_color = Color(1, 0, 0, 0)
+
+[node name="MouthSize" type="HBoxContainer" parent="VBoxContainer2/HBoxContainer2/VBoxContainer/NPCEditor/VBoxContainer/TabContainer/MouthOptions"]
+layout_mode = 2
+theme = ExtResource("3_wnflr")
+
+[node name="ReferenceRect" type="ReferenceRect" parent="VBoxContainer2/HBoxContainer2/VBoxContainer/NPCEditor/VBoxContainer/TabContainer/MouthOptions/MouthSize"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+theme = ExtResource("3_wnflr")
+border_color = Color(1, 0, 0, 0)
+
+[node name="Label" type="Label" parent="VBoxContainer2/HBoxContainer2/VBoxContainer/NPCEditor/VBoxContainer/TabContainer/MouthOptions/MouthSize"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.4
+theme = ExtResource("3_wnflr")
+text = "Mouth Size"
+
+[node name="ReferenceRect3" type="ReferenceRect" parent="VBoxContainer2/HBoxContainer2/VBoxContainer/NPCEditor/VBoxContainer/TabContainer/MouthOptions/MouthSize"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+theme = ExtResource("3_wnflr")
+border_color = Color(1, 0, 0, 0)
+
+[node name="HSlider" type="HSlider" parent="VBoxContainer2/HBoxContainer2/VBoxContainer/NPCEditor/VBoxContainer/TabContainer/MouthOptions/MouthSize"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme = ExtResource("3_wnflr")
+max_value = 1.0
+step = 0.01
+value = 0.54
+
+[node name="ReferenceRect2" type="ReferenceRect" parent="VBoxContainer2/HBoxContainer2/VBoxContainer/NPCEditor/VBoxContainer/TabContainer/MouthOptions/MouthSize"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+theme = ExtResource("3_wnflr")
+border_color = Color(1, 0, 0, 0)
+
+[node name="NoseOptions" type="VBoxContainer" parent="VBoxContainer2/HBoxContainer2/VBoxContainer/NPCEditor/VBoxContainer/TabContainer"]
+visible = false
+layout_mode = 2
+theme = ExtResource("3_wnflr")
+
+[node name="ReferenceRect3" type="ReferenceRect" parent="VBoxContainer2/HBoxContainer2/VBoxContainer/NPCEditor/VBoxContainer/TabContainer/NoseOptions"]
+custom_minimum_size = Vector2(10, 5)
+layout_mode = 2
+theme = ExtResource("3_wnflr")
+border_color = Color(1, 0, 0, 0)
+
+[node name="GalleryNode" parent="VBoxContainer2/HBoxContainer2/VBoxContainer/NPCEditor/VBoxContainer/TabContainer/NoseOptions" instance=ExtResource("3_5ut0o")]
+layout_mode = 2
+theme = ExtResource("3_wnflr")
+button_group = SubResource("ButtonGroup_yfxgg")
+
+[node name="EarOptions" type="VBoxContainer" parent="VBoxContainer2/HBoxContainer2/VBoxContainer/NPCEditor/VBoxContainer/TabContainer"]
+visible = false
+layout_mode = 2
+theme = ExtResource("3_wnflr")
+
+[node name="ReferenceRect3" type="ReferenceRect" parent="VBoxContainer2/HBoxContainer2/VBoxContainer/NPCEditor/VBoxContainer/TabContainer/EarOptions"]
+custom_minimum_size = Vector2(10, 5)
+layout_mode = 2
+theme = ExtResource("3_wnflr")
+border_color = Color(1, 0, 0, 0)
+
+[node name="GalleryNode" parent="VBoxContainer2/HBoxContainer2/VBoxContainer/NPCEditor/VBoxContainer/TabContainer/EarOptions" instance=ExtResource("3_5ut0o")]
+layout_mode = 2
+theme = ExtResource("3_wnflr")
+button_group = SubResource("ButtonGroup_80yla")
+
+[node name="HairOptions" type="VBoxContainer" parent="VBoxContainer2/HBoxContainer2/VBoxContainer/NPCEditor/VBoxContainer/TabContainer"]
+visible = false
+layout_mode = 2
+theme = ExtResource("3_wnflr")
+
+[node name="ReferenceRect4" type="ReferenceRect" parent="VBoxContainer2/HBoxContainer2/VBoxContainer/NPCEditor/VBoxContainer/TabContainer/HairOptions"]
+custom_minimum_size = Vector2(10, 5)
+layout_mode = 2
+theme = ExtResource("3_wnflr")
+border_color = Color(1, 0, 0, 0)
+
+[node name="GalleryNode" parent="VBoxContainer2/HBoxContainer2/VBoxContainer/NPCEditor/VBoxContainer/TabContainer/HairOptions" instance=ExtResource("3_5ut0o")]
+layout_mode = 2
+theme = ExtResource("3_wnflr")
+button_group = SubResource("ButtonGroup_tf0bv")
+
+[node name="ReferenceRect3" type="ReferenceRect" parent="VBoxContainer2/HBoxContainer2/VBoxContainer/NPCEditor/VBoxContainer/TabContainer/HairOptions"]
+custom_minimum_size = Vector2(10, 5)
+layout_mode = 2
+theme = ExtResource("3_wnflr")
+border_color = Color(1, 0, 0, 0)
+
+[node name="OptionPicker2" parent="VBoxContainer2/HBoxContainer2/VBoxContainer/NPCEditor/VBoxContainer/TabContainer/HairOptions" instance=ExtResource("1_y4n6x")]
+layout_mode = 2
+theme = ExtResource("3_wnflr")
+button_group = SubResource("ButtonGroup_cn4sn")
+
+[node name="ShirtOptions" type="VBoxContainer" parent="VBoxContainer2/HBoxContainer2/VBoxContainer/NPCEditor/VBoxContainer/TabContainer"]
+visible = false
+layout_mode = 2
+theme = ExtResource("3_wnflr")
+
+[node name="ReferenceRect4" type="ReferenceRect" parent="VBoxContainer2/HBoxContainer2/VBoxContainer/NPCEditor/VBoxContainer/TabContainer/ShirtOptions"]
+custom_minimum_size = Vector2(10, 5)
+layout_mode = 2
+theme = ExtResource("3_wnflr")
+border_color = Color(1, 0, 0, 0)
+
+[node name="GalleryNode" parent="VBoxContainer2/HBoxContainer2/VBoxContainer/NPCEditor/VBoxContainer/TabContainer/ShirtOptions" instance=ExtResource("3_5ut0o")]
+layout_mode = 2
+theme = ExtResource("3_wnflr")
+button_group = SubResource("ButtonGroup_1a102")
+
+[node name="ReferenceRect3" type="ReferenceRect" parent="VBoxContainer2/HBoxContainer2/VBoxContainer/NPCEditor/VBoxContainer/TabContainer/ShirtOptions"]
+custom_minimum_size = Vector2(10, 5)
+layout_mode = 2
+theme = ExtResource("3_wnflr")
+border_color = Color(1, 0, 0, 0)
+
+[node name="OptionPicker3" parent="VBoxContainer2/HBoxContainer2/VBoxContainer/NPCEditor/VBoxContainer/TabContainer/ShirtOptions" instance=ExtResource("1_y4n6x")]
+layout_mode = 2
+theme = ExtResource("3_wnflr")
+button_group = SubResource("ButtonGroup_4f6m5")
+
+[node name="PantsOptions" type="VBoxContainer" parent="VBoxContainer2/HBoxContainer2/VBoxContainer/NPCEditor/VBoxContainer/TabContainer"]
+visible = false
+layout_mode = 2
+theme = ExtResource("3_wnflr")
+
+[node name="GalleryNode" parent="VBoxContainer2/HBoxContainer2/VBoxContainer/NPCEditor/VBoxContainer/TabContainer/PantsOptions" instance=ExtResource("3_5ut0o")]
+layout_mode = 2
+theme = ExtResource("3_wnflr")
+button_group = SubResource("ButtonGroup_bpy01")
+
+[node name="OptionPicker4" parent="VBoxContainer2/HBoxContainer2/VBoxContainer/NPCEditor/VBoxContainer/TabContainer/PantsOptions" instance=ExtResource("1_y4n6x")]
+layout_mode = 2
+theme = ExtResource("3_wnflr")
+button_group = SubResource("ButtonGroup_3djmt")
+
+[node name="PersonalOptions" type="VBoxContainer" parent="VBoxContainer2/HBoxContainer2/VBoxContainer/NPCEditor/VBoxContainer/TabContainer"]
+visible = false
+layout_mode = 2
+theme = ExtResource("3_wnflr")
+
+[node name="ReferenceRect3" type="ReferenceRect" parent="VBoxContainer2/HBoxContainer2/VBoxContainer/NPCEditor/VBoxContainer/TabContainer/PersonalOptions"]
+custom_minimum_size = Vector2(10, 5)
+layout_mode = 2
+theme = ExtResource("3_wnflr")
+border_color = Color(1, 0, 0, 0)
+
+[node name="NameHolder" type="HBoxContainer" parent="VBoxContainer2/HBoxContainer2/VBoxContainer/NPCEditor/VBoxContainer/TabContainer/PersonalOptions"]
+layout_mode = 2
+size_flags_stretch_ratio = 1.25
+theme = ExtResource("3_wnflr")
+alignment = 1
+
+[node name="ReferenceRect2" type="ReferenceRect" parent="VBoxContainer2/HBoxContainer2/VBoxContainer/NPCEditor/VBoxContainer/TabContainer/PersonalOptions/NameHolder"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+theme = ExtResource("3_wnflr")
+border_color = Color(1, 0, 0, 0)
+
+[node name="Label" type="Label" parent="VBoxContainer2/HBoxContainer2/VBoxContainer/NPCEditor/VBoxContainer/TabContainer/PersonalOptions/NameHolder"]
+custom_minimum_size = Vector2(85, 0)
+layout_mode = 2
+theme = ExtResource("3_wnflr")
+text = "Name"
+
+[node name="ReferenceRect3" type="ReferenceRect" parent="VBoxContainer2/HBoxContainer2/VBoxContainer/NPCEditor/VBoxContainer/TabContainer/PersonalOptions/NameHolder"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+theme = ExtResource("3_wnflr")
+border_color = Color(1, 0, 0, 0)
+
+[node name="NameField" type="LineEdit" parent="VBoxContainer2/HBoxContainer2/VBoxContainer/NPCEditor/VBoxContainer/TabContainer/PersonalOptions/NameHolder"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme = ExtResource("3_wnflr")
+placeholder_text = "Insert Name Here..."
+
+[node name="ReferenceRect" type="ReferenceRect" parent="VBoxContainer2/HBoxContainer2/VBoxContainer/NPCEditor/VBoxContainer/TabContainer/PersonalOptions/NameHolder"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+theme = ExtResource("3_wnflr")
+border_color = Color(1, 0, 0, 0)
+
+[node name="ReferenceRect4" type="ReferenceRect" parent="VBoxContainer2/HBoxContainer2/VBoxContainer/NPCEditor/VBoxContainer"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+theme = ExtResource("3_wnflr")
+border_color = Color(1, 0, 0, 0)
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer2/HBoxContainer2/VBoxContainer/NPCEditor/VBoxContainer"]
+visible = false
+layout_mode = 2
+theme = ExtResource("3_wnflr")
+
+[node name="ReferenceRect3" type="ReferenceRect" parent="VBoxContainer2/HBoxContainer2/VBoxContainer/NPCEditor/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+theme = ExtResource("3_wnflr")
+border_color = Color(1, 0, 0, 0)
+
+[node name="Label" type="Label" parent="VBoxContainer2/HBoxContainer2/VBoxContainer/NPCEditor/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("3_wnflr")
+text = "Preview"
+label_settings = SubResource("LabelSettings_mraeu")
+horizontal_alignment = 1
+
+[node name="ReferenceRect4" type="ReferenceRect" parent="VBoxContainer2/HBoxContainer2/VBoxContainer/NPCEditor/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+theme = ExtResource("3_wnflr")
+border_color = Color(1, 0, 0, 0)
+
+[node name="VBoxContainer" type="HBoxContainer" parent="VBoxContainer2/HBoxContainer2/VBoxContainer/NPCEditor/VBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("3_wnflr")
+
+[node name="ReferenceRect4" type="ReferenceRect" parent="VBoxContainer2/HBoxContainer2/VBoxContainer/NPCEditor/VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+theme = ExtResource("3_wnflr")
+border_color = Color(1, 0, 0, 0)
+
+[node name="VSlider" type="VSlider" parent="VBoxContainer2/HBoxContainer2/VBoxContainer/NPCEditor/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_wnflr")
+max_value = 1.0
+step = 0.001
+value = 1.0
+
+[node name="ReferenceRect5" type="ReferenceRect" parent="VBoxContainer2/HBoxContainer2/VBoxContainer/NPCEditor/VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+theme = ExtResource("3_wnflr")
+border_color = Color(1, 0, 0, 0)
+
+[node name="PreviewTexture" type="TextureRect" parent="VBoxContainer2/HBoxContainer2/VBoxContainer/NPCEditor/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("3_wnflr")
+texture = ExtResource("2_mv6cs")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="ReferenceRect3" type="ReferenceRect" parent="VBoxContainer2/HBoxContainer2/VBoxContainer/NPCEditor/VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+theme = ExtResource("3_wnflr")
+border_color = Color(1, 0, 0, 0)
+
+[node name="ShoesOptions" type="VBoxContainer" parent="VBoxContainer2/HBoxContainer2"]
+visible = false
+layout_mode = 2
+theme = ExtResource("3_wnflr")
+
+[node name="ReferenceRect3" type="ReferenceRect" parent="VBoxContainer2/HBoxContainer2/ShoesOptions"]
+custom_minimum_size = Vector2(10, 5)
+layout_mode = 2
+theme = ExtResource("3_wnflr")
+border_color = Color(1, 0, 0, 0)
+
+[node name="GalleryNode" parent="VBoxContainer2/HBoxContainer2/ShoesOptions" instance=ExtResource("3_5ut0o")]
+layout_mode = 2
+theme = ExtResource("3_wnflr")
+button_group = SubResource("ButtonGroup_l4q78")
+
+[node name="ReferenceRect4" type="ReferenceRect" parent="VBoxContainer2/HBoxContainer2/ShoesOptions"]
+custom_minimum_size = Vector2(10, 5)
+layout_mode = 2
+theme = ExtResource("3_wnflr")
+border_color = Color(1, 0, 0, 0)
+
+[node name="OptionPicker" parent="VBoxContainer2/HBoxContainer2/ShoesOptions" instance=ExtResource("1_y4n6x")]
+layout_mode = 2
+theme = ExtResource("3_wnflr")
+button_group = SubResource("ButtonGroup_a04it")
+
+[node name="ReferenceRect3" type="ReferenceRect" parent="VBoxContainer2/HBoxContainer2"]
+custom_minimum_size = Vector2(2, 0)
+layout_mode = 2
+theme = ExtResource("3_wnflr")
+border_color = Color(1, 0, 0, 0)
+
+[node name="ReferenceRect4" type="ReferenceRect" parent="VBoxContainer2"]
+custom_minimum_size = Vector2(10, 3)
+layout_mode = 2
+theme = ExtResource("3_wnflr")
+border_color = Color(1, 0, 0, 0)

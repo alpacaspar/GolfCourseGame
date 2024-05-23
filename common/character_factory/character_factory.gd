@@ -62,5 +62,5 @@ func spawn_character(resource: NPCResource) -> Character:
     character.hair_mesh_instance.material_override.set("albedo_color", hair_colors[resource.hair_color_index])
     character.ear_mesh_instance.material_override.set("albedo_color", skin_colors[resource.skin_color_index])
     character.nose_mesh_instance.material_override.set("albedo_color", skin_colors[resource.skin_color_index])
-	
+
     return character

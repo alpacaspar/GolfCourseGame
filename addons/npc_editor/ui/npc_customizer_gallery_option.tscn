@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=3 uid="uid://bj1d4jmao707v"]
+
+[ext_resource type="Script" path="res://addons/npc_editor/ui/npc_customizer_option.gd" id="1_kecmg"]
+[ext_resource type="Theme" uid="uid://pq6ete4ie6a8" path="res://common/character_editor/character_creator_theme.tres" id="1_v6li8"]
+[ext_resource type="Texture2D" uid="uid://dfspa0f55imyc" path="res://icon.svg" id="2_rmiw8"]
+
+[node name="NPCCustomizerGalleryOption" type="PanelContainer" node_paths=PackedStringArray("button", "texture")]
+custom_minimum_size = Vector2(72, 72)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_v6li8")
+script = ExtResource("1_kecmg")
+button = NodePath("Button")
+texture = NodePath("Texture")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_v6li8")
+toggle_mode = true
+
+[node name="Texture" type="TextureRect" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+texture = ExtResource("2_rmiw8")
+expand_mode = 3
+stretch_mode = 5

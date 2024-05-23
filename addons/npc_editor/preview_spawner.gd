@@ -11,6 +11,8 @@ extends Node
 @export var zoom_holder: Node3D
 @export var unzoom_holder: Node3D
 
+@export var character_spawn_position: Marker3D
+
 var spawned_character: Character
 var callback: Callable
 
@@ -70,6 +72,7 @@ func _set_zoom(_value := 0.0):
 func _spawn_character(character_resource: NPCResource):
 	spawned_character = CharacterFactory.spawn_character(character_resource) as Character
 	add_child(spawned_character)
+	spawned_character.position = character_spawn_position.position
 
 
 func _edit_character(_character_resource: NPCResource):
