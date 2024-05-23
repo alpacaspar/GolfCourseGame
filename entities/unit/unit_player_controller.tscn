@@ -18,7 +18,6 @@ spring_length = 3.0
 margin = 0.5
 
 [node name="PlayerCamera" type="Camera3D" parent="CameraPivot/SpringArm3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
 fov = 60.0
 
 [node name="AkListener3D" type="AkListener3D" parent="CameraPivot/SpringArm3D/PlayerCamera"]

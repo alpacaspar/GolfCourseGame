@@ -22,6 +22,10 @@ CharacterFactory="*res://common/character_factory/character_factory.tscn"
 WwiseRuntimeManager="*res://addons/Wwise/runtime/wwise_runtime_manager.gd"
 BattleManager="*res://common/battle/battle_manager.tscn"
 
+[display]
+
+window/size/mode=2
+
 [dotnet]
 
 project/assembly_name="GolfCourseGame"
@@ -33,7 +37,7 @@ version_control/autoload_on_startup=true
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/Wwise/plugin.cfg", "res://addons/npc_editor/plugin.cfg", "res://addons/terrain_3d/plugin.cfg")
+enabled=PackedStringArray("res://addons/Wwise/plugin.cfg", "res://addons/terrain_3d/plugin.cfg")
 
 [file_customization]
 
@@ -90,10 +94,6 @@ move_down={
 3d_physics/layer_2="character"
 3d_physics/layer_3="interactable"
 3d_physics/layer_8="audio"
-
-[navigation]
-
-3d/default_cell_size=0.5
 
 [rendering]
 

@@ -6,7 +6,6 @@
 
 [resource]
 script = ExtResource("3_i5gly")
-name = "Farl Jonnes"
 level = 1
 role = ExtResource("2_pgkwx")
 npc_resource = ExtResource("1_wp8eh")

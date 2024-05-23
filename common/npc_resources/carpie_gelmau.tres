@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="NPCResource" load_steps=2 format=3 uid="uid://ui86h5xjspin"]
+
+[ext_resource type="Script" path="res://addons/npc_editor/resources/npc_resource.gd" id="1_s751y"]
+
+[resource]
+resource_name = "Carpie Gelmau"
+script = ExtResource("1_s751y")
+name = "Carpie Gelmau"
+eye_index = 2
+eyebrow_index = 1
+nose_index = 0
+ear_index = 4
+mouth_index = 9
+hair_index = 1
+accessory_index = 0
+shirt_index = 0
+pants_index = 0
+hair_color_index = 2
+skin_color_index = 4
+shirt_color_index = 6
+pants_color_index = 0
+eye_offset = 0.53
+eyebrow_offset = 0.6
+mouth_offset = 0.23
+mouth_size = 0.48

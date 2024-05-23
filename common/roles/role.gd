@@ -3,6 +3,9 @@ extends Resource
 
 
 @export var display_name := "New Role"
+@export_group("Stats")
+@export var base_stamina := 100
+@export var base_power := 10
 
 @export_group("Actions")
 @export var primary_action := PackedScene.new()

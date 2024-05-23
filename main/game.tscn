@@ -9,7 +9,7 @@
 
 [node name="UserInterface" parent="." instance=ExtResource("2_6u3u6")]
 
-[node name="AkBank" type="AkBank" parent="."]
+[node name="InitAkBank" type="AkBank" parent="."]
 bank = {
 "id": 1355168291,
 "name": "Init"
@@ -17,10 +17,18 @@ bank = {
 load_on = 1
 unload_on = 3
 
-[node name="AkBank2" type="AkBank" parent="."]
+[node name="DebugAkBank" type="AkBank" parent="."]
 bank = {
 "id": 56103612,
 "name": "debug_soundbank"
+}
+load_on = 1
+unload_on = 3
+
+[node name="InGameAkBank" type="AkBank" parent="."]
+bank = {
+"id": 1472650531,
+"name": "in_game_soundbank"
 }
 load_on = 1
 unload_on = 3

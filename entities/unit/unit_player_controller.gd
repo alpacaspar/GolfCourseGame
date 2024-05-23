@@ -17,19 +17,7 @@ func _ready():
 
     current_speed = unit.MOVE_SPEED
 
-
-func _on_look(input_delta: Vector2):
-    unit.rotate_y(deg_to_rad(-input_delta.x) * SENSITIVITY) 
-    camera_pivot.rotate_x(deg_to_rad(input_delta.y) * SENSITIVITY)
-
-    camera_pivot.rotation_degrees.x = clamp(camera_pivot.rotation_degrees.x, -70, 30)
-
-
-func _on_interact():
-    if unit.state == unit.ATTACKING:
-        return
-
-    _perform_action()
+    BattleManager.on_battle_started.connect(_on_battle_manager_battle_started)
 
 
 func _physics_process(delta: float):
@@ -44,8 +32,29 @@ func _physics_process(delta: float):
     unit.move_and_slide()
 
 
+func _on_look(input_delta: Vector2):
+    if process_mode == PROCESS_MODE_DISABLED:
+        return
+
+    unit.rotate_y(deg_to_rad(-input_delta.x) * SENSITIVITY) 
+    camera_pivot.rotate_x(deg_to_rad(input_delta.y) * SENSITIVITY)
+
+    camera_pivot.rotation_degrees.x = clamp(camera_pivot.rotation_degrees.x, -70, 30)
+
+
+func _on_interact():
+    if unit.state == unit.ATTACKING:
+        return
+
+    _perform_action()
+
+
 func _on_exit():
     input_provider.on_look.disconnect(_on_look)
+
+
+func _on_battle_manager_battle_started():
+    input_provider._on_enter()
 
 
 func _perform_action():
