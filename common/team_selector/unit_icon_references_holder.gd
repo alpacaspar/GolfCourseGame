@@ -1,3 +1,4 @@
+class_name UnitIcon
 extends Node
 
 
