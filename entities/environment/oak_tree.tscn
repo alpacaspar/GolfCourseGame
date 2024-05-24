@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://c7c7cr6gjg8ua"]
+
+[ext_resource type="PackedScene" uid="uid://udwksi85robr" path="res://entities/environment/oak_tree_mesh.glb" id="1_qfwp1"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_x8lxb"]
+radius = 0.7
+height = 6.5
+
+[node name="OakTree" type="StaticBody3D"]
+
+[node name="oak_tree_mesh" parent="." instance=ExtResource("1_qfwp1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
+shape = SubResource("CapsuleShape3D_x8lxb")
