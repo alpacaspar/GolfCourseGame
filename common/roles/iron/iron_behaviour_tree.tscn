@@ -1,8 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://c4s6x5nj8m700"]
+[gd_scene load_steps=11 format=3 uid="uid://c4s6x5nj8m700"]
 
 [ext_resource type="Script" path="res://common/behaviour_tree/behaviour_tree.gd" id="1_mkrcj"]
 [ext_resource type="Script" path="res://common/behaviour_tree/bt_selector.gd" id="2_47ibg"]
 [ext_resource type="Script" path="res://entities/unit/behaviour/decorator_sensor_radius.gd" id="3_0c3gw"]
+[ext_resource type="Script" path="res://entities/unit/behaviour/decorator_filter_closest.gd" id="4_f0kqn"]
+[ext_resource type="Script" path="res://common/behaviour_tree/bt_cooldown.gd" id="6_va561"]
+[ext_resource type="Script" path="res://entities/unit/behaviour/action_aim_at_target.gd" id="8_yfq31"]
+[ext_resource type="Script" path="res://entities/unit/behaviour/action_attack.gd" id="9_bteus"]
+[ext_resource type="Script" path="res://common/behaviour_tree/bt_wait.gd" id="10_2ow2i"]
 [ext_resource type="Script" path="res://common/behaviour_tree/bt_parallel.gd" id="16_85jbx"]
 [ext_resource type="Script" path="res://common/behaviour_tree/bt_sequence.gd" id="18_bgycy"]
 
@@ -16,22 +21,28 @@ script = ExtResource("2_47ibg")
 script = ExtResource("3_0c3gw")
 
 [node name="DecoratorFilterClosest" type="Node" parent="Selector/DecoratorSensorRadius"]
+script = ExtResource("4_f0kqn")
 
-[node name="ConditionEntityInRange" type="Node" parent="Selector/DecoratorSensorRadius/DecoratorFilterClosest"]
-
-[node name="Parallel" type="Node" parent="Selector/DecoratorSensorRadius/DecoratorFilterClosest/ConditionEntityInRange"]
+[node name="Parallel" type="Node" parent="Selector/DecoratorSensorRadius/DecoratorFilterClosest"]
 script = ExtResource("16_85jbx")
 
-[node name="CombatPositioning" type="Node" parent="Selector/DecoratorSensorRadius/DecoratorFilterClosest/ConditionEntityInRange/Parallel"]
+[node name="CombatPositioning" type="Node" parent="Selector/DecoratorSensorRadius/DecoratorFilterClosest/Parallel"]
 
-[node name="ConditionCooldown" type="Node" parent="Selector/DecoratorSensorRadius/DecoratorFilterClosest/ConditionEntityInRange/Parallel"]
+[node name="ConditionCooldown" type="Node" parent="Selector/DecoratorSensorRadius/DecoratorFilterClosest/Parallel"]
+script = ExtResource("6_va561")
 
-[node name="Sequence" type="Node" parent="Selector/DecoratorSensorRadius/DecoratorFilterClosest/ConditionEntityInRange/Parallel/ConditionCooldown"]
+[node name="Sequence" type="Node" parent="Selector/DecoratorSensorRadius/DecoratorFilterClosest/Parallel/ConditionCooldown"]
 script = ExtResource("18_bgycy")
 
-[node name="ActionAimAtTarget" type="Node" parent="Selector/DecoratorSensorRadius/DecoratorFilterClosest/ConditionEntityInRange/Parallel/ConditionCooldown/Sequence"]
+[node name="ActionAimAtTarget" type="Node" parent="Selector/DecoratorSensorRadius/DecoratorFilterClosest/Parallel/ConditionCooldown/Sequence"]
+script = ExtResource("8_yfq31")
 
-[node name="ActionAttack" type="Node" parent="Selector/DecoratorSensorRadius/DecoratorFilterClosest/ConditionEntityInRange/Parallel/ConditionCooldown/Sequence"]
+[node name="ActionAttack" type="Node" parent="Selector/DecoratorSensorRadius/DecoratorFilterClosest/Parallel/ConditionCooldown/Sequence"]
+script = ExtResource("9_bteus")
+
+[node name="Wait" type="Node" parent="Selector/DecoratorSensorRadius/DecoratorFilterClosest/Parallel/ConditionCooldown/Sequence"]
+script = ExtResource("10_2ow2i")
+wait_time = 3.0
 
 [node name="CommandFollow" type="Node" parent="Selector"]
 
