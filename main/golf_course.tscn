@@ -60,7 +60,7 @@ shadow_enabled = true
 
 [node name="golf_terrain" parent="." instance=ExtResource("2_ucwcg")]
 
-[node name="EnvironmentCamera3D" type="Camera3D" parent="."]
+[node name="FallbackCamera3D" type="Camera3D" parent="."]
 transform = Transform3D(0.729184, 0.060832, 0.681609, 0, 0.996041, -0.0888943, -0.684318, 0.0648203, 0.726297, 554.577, -1.725, 566.86)
 fov = 50.0
 
