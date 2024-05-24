@@ -17,3 +17,4 @@ ExtResource("4_1cu8x"): ExtResource("5_p0e7b")
 path_desired_distance = 0.5
 target_desired_distance = 0.5
 path_height_offset = 0.5
+avoidance_enabled = true
