@@ -1,14 +1,113 @@
-[gd_scene load_steps=2 format=3 uid="uid://ybo6yif82wwi"]
+[gd_scene load_steps=19 format=3 uid="uid://ybo6yif82wwi"]
 
 [ext_resource type="PackedScene" uid="uid://c5rxv5qq7egp0" path="res://common/team_selector/unit_icon.tscn" id="1_mqurp"]
+[ext_resource type="Script" path="res://common/team_selector/team_picker_manager.gd" id="1_shhya"]
+[ext_resource type="Script" path="res://common/roles/role.gd" id="2_tavyt"]
+[ext_resource type="Script" path="res://entities/golfers/golfer_resource.gd" id="3_xnadi"]
 
-[node name="TeamPicker" type="Control"]
+[sub_resource type="Resource" id="Resource_vy8w7"]
+script = ExtResource("2_tavyt")
+display_name = ""
+desired_distance = 2.0
+target_type = 1
+descriptive_letter = "A"
+
+[sub_resource type="Resource" id="Resource_xcdqh"]
+script = ExtResource("3_xnadi")
+name = "Joe Schmoe"
+level = 2
+role = SubResource("Resource_vy8w7")
+
+[sub_resource type="Resource" id="Resource_q2ljj"]
+script = ExtResource("2_tavyt")
+display_name = ""
+desired_distance = 2.0
+target_type = 1
+descriptive_letter = "P"
+
+[sub_resource type="Resource" id="Resource_oxgei"]
+script = ExtResource("3_xnadi")
+name = "Joe Schmoe"
+level = 7
+role = SubResource("Resource_q2ljj")
+
+[sub_resource type="Resource" id="Resource_xiv55"]
+script = ExtResource("2_tavyt")
+display_name = ""
+desired_distance = 2.0
+target_type = 1
+descriptive_letter = "C"
+
+[sub_resource type="Resource" id="Resource_22bbh"]
+script = ExtResource("3_xnadi")
+name = "Joe Schmoe"
+level = 3
+role = SubResource("Resource_xiv55")
+
+[sub_resource type="Resource" id="Resource_rpebu"]
+script = ExtResource("2_tavyt")
+display_name = ""
+desired_distance = 2.0
+target_type = 1
+descriptive_letter = "M"
+
+[sub_resource type="Resource" id="Resource_engru"]
+script = ExtResource("3_xnadi")
+name = "Joe Schmoe"
+level = 3
+role = SubResource("Resource_rpebu")
+
+[sub_resource type="Resource" id="Resource_xwolj"]
+script = ExtResource("2_tavyt")
+display_name = ""
+desired_distance = 2.0
+target_type = 1
+descriptive_letter = "U"
+
+[sub_resource type="Resource" id="Resource_qd6nc"]
+script = ExtResource("3_xnadi")
+name = "Joe Schmoe"
+level = 1
+role = SubResource("Resource_xwolj")
+
+[sub_resource type="Resource" id="Resource_jpm5j"]
+script = ExtResource("2_tavyt")
+display_name = ""
+desired_distance = 2.0
+target_type = 1
+descriptive_letter = "H"
+
+[sub_resource type="Resource" id="Resource_7lhg8"]
+script = ExtResource("3_xnadi")
+name = "Joe Schmoe"
+level = 22
+role = SubResource("Resource_jpm5j")
+
+[sub_resource type="Resource" id="Resource_77uwn"]
+script = ExtResource("2_tavyt")
+display_name = ""
+desired_distance = 2.0
+target_type = 1
+descriptive_letter = "A"
+
+[sub_resource type="Resource" id="Resource_3ugdu"]
+script = ExtResource("3_xnadi")
+name = "Joe Schmoe"
+level = 5
+role = SubResource("Resource_77uwn")
+
+[node name="TeamPicker" type="Control" node_paths=PackedStringArray("team_icon_holder", "bench_icon_holder")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_shhya")
+golfers = Array[ExtResource("3_xnadi")]([SubResource("Resource_xcdqh"), SubResource("Resource_oxgei"), SubResource("Resource_22bbh"), SubResource("Resource_engru"), SubResource("Resource_qd6nc"), SubResource("Resource_7lhg8"), SubResource("Resource_3ugdu")])
+icon_ps = ExtResource("1_mqurp")
+team_icon_holder = NodePath("PanelContainer/HBoxContainer")
+bench_icon_holder = NodePath("PanelContainer2/ScrollContainer/GridContainer")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 1
@@ -22,49 +121,6 @@ grow_horizontal = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer"]
 layout_mode = 2
-
-[node name="UnitIcon" parent="PanelContainer/HBoxContainer" node_paths=PackedStringArray("icon") instance=ExtResource("1_mqurp")]
-custom_minimum_size = Vector2(150, 50)
-layout_mode = 2
-icon = Object(TextureRect,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"clip_contents":false,"custom_minimum_size":Vector2(0, 0),"layout_direction":0,"layout_mode":1,"anchors_preset":15,"anchor_left":0.0,"anchor_top":0.0,"anchor_right":1.0,"anchor_bottom":1.0,"offset_left":0.0,"offset_top":0.0,"offset_right":0.0,"offset_bottom":0.0,"grow_horizontal":2,"grow_vertical":2,"rotation":0.0,"scale":Vector2(1, 1),"pivot_offset":Vector2(0, 0),"size_flags_horizontal":3,"size_flags_vertical":3,"size_flags_stretch_ratio":1.0,"auto_translate":true,"localize_numeral_system":true,"tooltip_text":"","focus_neighbor_left":NodePath(""),"focus_neighbor_top":NodePath(""),"focus_neighbor_right":NodePath(""),"focus_neighbor_bottom":NodePath(""),"focus_next":NodePath(""),"focus_previous":NodePath(""),"focus_mode":0,"mouse_filter":1,"mouse_force_pass_scroll_events":true,"mouse_default_cursor_shape":0,"shortcut_context":null,"theme":null,"theme_type_variation":&"","texture":Resource("res://icon.svg"),"expand_mode":5,"stretch_mode":5,"flip_h":false,"flip_v":false,"script":null)
-
-icon = NodePath("TextureRect")
-
-[node name="UnitIcon2" parent="PanelContainer/HBoxContainer" node_paths=PackedStringArray("icon", "class_letter", "level_text") instance=ExtResource("1_mqurp")]
-custom_minimum_size = Vector2(150, 50)
-layout_mode = 2
-icon = Object(TextureRect,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"clip_contents":false,"custom_minimum_size":Vector2(0, 0),"layout_direction":0,"layout_mode":1,"anchors_preset":15,"anchor_left":0.0,"anchor_top":0.0,"anchor_right":1.0,"anchor_bottom":1.0,"offset_left":0.0,"offset_top":0.0,"offset_right":0.0,"offset_bottom":0.0,"grow_horizontal":2,"grow_vertical":2,"rotation":0.0,"scale":Vector2(1, 1),"pivot_offset":Vector2(0, 0),"size_flags_horizontal":3,"size_flags_vertical":3,"size_flags_stretch_ratio":1.0,"auto_translate":true,"localize_numeral_system":true,"tooltip_text":"","focus_neighbor_left":NodePath(""),"focus_neighbor_top":NodePath(""),"focus_neighbor_right":NodePath(""),"focus_neighbor_bottom":NodePath(""),"focus_next":NodePath(""),"focus_previous":NodePath(""),"focus_mode":0,"mouse_filter":1,"mouse_force_pass_scroll_events":true,"mouse_default_cursor_shape":0,"shortcut_context":null,"theme":null,"theme_type_variation":&"","texture":Resource("res://icon.svg"),"expand_mode":5,"stretch_mode":5,"flip_h":false,"flip_v":false,"script":null)
-
-icon = NodePath("../UnitIcon/TextureRect")
-class_letter = NodePath("../UnitIcon/RoleLetter")
-level_text = NodePath("../UnitIcon/LevelHolder")
-
-[node name="UnitIcon3" parent="PanelContainer/HBoxContainer" node_paths=PackedStringArray("icon", "class_letter", "level_text") instance=ExtResource("1_mqurp")]
-custom_minimum_size = Vector2(150, 50)
-layout_mode = 2
-icon = Object(TextureRect,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"clip_contents":false,"custom_minimum_size":Vector2(0, 0),"layout_direction":0,"layout_mode":1,"anchors_preset":15,"anchor_left":0.0,"anchor_top":0.0,"anchor_right":1.0,"anchor_bottom":1.0,"offset_left":0.0,"offset_top":0.0,"offset_right":0.0,"offset_bottom":0.0,"grow_horizontal":2,"grow_vertical":2,"rotation":0.0,"scale":Vector2(1, 1),"pivot_offset":Vector2(0, 0),"size_flags_horizontal":3,"size_flags_vertical":3,"size_flags_stretch_ratio":1.0,"auto_translate":true,"localize_numeral_system":true,"tooltip_text":"","focus_neighbor_left":NodePath(""),"focus_neighbor_top":NodePath(""),"focus_neighbor_right":NodePath(""),"focus_neighbor_bottom":NodePath(""),"focus_next":NodePath(""),"focus_previous":NodePath(""),"focus_mode":0,"mouse_filter":1,"mouse_force_pass_scroll_events":true,"mouse_default_cursor_shape":0,"shortcut_context":null,"theme":null,"theme_type_variation":&"","texture":Resource("res://icon.svg"),"expand_mode":5,"stretch_mode":5,"flip_h":false,"flip_v":false,"script":null)
-
-icon = NodePath("../UnitIcon/TextureRect")
-class_letter = NodePath("../UnitIcon/RoleLetter")
-level_text = NodePath("../UnitIcon/LevelHolder")
-
-[node name="UnitIcon4" parent="PanelContainer/HBoxContainer" node_paths=PackedStringArray("icon", "class_letter", "level_text") instance=ExtResource("1_mqurp")]
-custom_minimum_size = Vector2(150, 50)
-layout_mode = 2
-icon = Object(TextureRect,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"clip_contents":false,"custom_minimum_size":Vector2(0, 0),"layout_direction":0,"layout_mode":1,"anchors_preset":15,"anchor_left":0.0,"anchor_top":0.0,"anchor_right":1.0,"anchor_bottom":1.0,"offset_left":0.0,"offset_top":0.0,"offset_right":0.0,"offset_bottom":0.0,"grow_horizontal":2,"grow_vertical":2,"rotation":0.0,"scale":Vector2(1, 1),"pivot_offset":Vector2(0, 0),"size_flags_horizontal":3,"size_flags_vertical":3,"size_flags_stretch_ratio":1.0,"auto_translate":true,"localize_numeral_system":true,"tooltip_text":"","focus_neighbor_left":NodePath(""),"focus_neighbor_top":NodePath(""),"focus_neighbor_right":NodePath(""),"focus_neighbor_bottom":NodePath(""),"focus_next":NodePath(""),"focus_previous":NodePath(""),"focus_mode":0,"mouse_filter":1,"mouse_force_pass_scroll_events":true,"mouse_default_cursor_shape":0,"shortcut_context":null,"theme":null,"theme_type_variation":&"","texture":Resource("res://icon.svg"),"expand_mode":5,"stretch_mode":5,"flip_h":false,"flip_v":false,"script":null)
-
-icon = NodePath("../UnitIcon/TextureRect")
-class_letter = NodePath("../UnitIcon/RoleLetter")
-level_text = NodePath("../UnitIcon/LevelHolder")
-
-[node name="UnitIcon5" parent="PanelContainer/HBoxContainer" node_paths=PackedStringArray("icon", "class_letter", "level_text") instance=ExtResource("1_mqurp")]
-custom_minimum_size = Vector2(150, 50)
-layout_mode = 2
-icon = Object(TextureRect,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"clip_contents":false,"custom_minimum_size":Vector2(0, 0),"layout_direction":0,"layout_mode":1,"anchors_preset":15,"anchor_left":0.0,"anchor_top":0.0,"anchor_right":1.0,"anchor_bottom":1.0,"offset_left":0.0,"offset_top":0.0,"offset_right":0.0,"offset_bottom":0.0,"grow_horizontal":2,"grow_vertical":2,"rotation":0.0,"scale":Vector2(1, 1),"pivot_offset":Vector2(0, 0),"size_flags_horizontal":3,"size_flags_vertical":3,"size_flags_stretch_ratio":1.0,"auto_translate":true,"localize_numeral_system":true,"tooltip_text":"","focus_neighbor_left":NodePath(""),"focus_neighbor_top":NodePath(""),"focus_neighbor_right":NodePath(""),"focus_neighbor_bottom":NodePath(""),"focus_next":NodePath(""),"focus_previous":NodePath(""),"focus_mode":0,"mouse_filter":1,"mouse_force_pass_scroll_events":true,"mouse_default_cursor_shape":0,"shortcut_context":null,"theme":null,"theme_type_variation":&"","texture":Resource("res://icon.svg"),"expand_mode":5,"stretch_mode":5,"flip_h":false,"flip_v":false,"script":null)
-
-icon = NodePath("../UnitIcon/TextureRect")
-class_letter = NodePath("../UnitIcon/RoleLetter")
-level_text = NodePath("../UnitIcon/LevelHolder")
 
 [node name="PanelContainer2" type="PanelContainer" parent="."]
 layout_mode = 1
@@ -84,114 +140,6 @@ vertical_scroll_mode = 3
 [node name="GridContainer" type="GridContainer" parent="PanelContainer2/ScrollContainer"]
 layout_mode = 2
 columns = 4
-
-[node name="UnitIcon" parent="PanelContainer2/ScrollContainer/GridContainer" node_paths=PackedStringArray("icon", "class_letter", "level_text") instance=ExtResource("1_mqurp")]
-custom_minimum_size = Vector2(150, 150)
-layout_mode = 2
-icon = Object(TextureRect,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"clip_contents":false,"custom_minimum_size":Vector2(0, 0),"layout_direction":0,"layout_mode":1,"anchors_preset":15,"anchor_left":0.0,"anchor_top":0.0,"anchor_right":1.0,"anchor_bottom":1.0,"offset_left":0.0,"offset_top":0.0,"offset_right":0.0,"offset_bottom":0.0,"grow_horizontal":2,"grow_vertical":2,"rotation":0.0,"scale":Vector2(1, 1),"pivot_offset":Vector2(0, 0),"size_flags_horizontal":3,"size_flags_vertical":3,"size_flags_stretch_ratio":1.0,"auto_translate":true,"localize_numeral_system":true,"tooltip_text":"","focus_neighbor_left":NodePath(""),"focus_neighbor_top":NodePath(""),"focus_neighbor_right":NodePath(""),"focus_neighbor_bottom":NodePath(""),"focus_next":NodePath(""),"focus_previous":NodePath(""),"focus_mode":0,"mouse_filter":1,"mouse_force_pass_scroll_events":true,"mouse_default_cursor_shape":0,"shortcut_context":null,"theme":null,"theme_type_variation":&"","texture":Resource("res://icon.svg"),"expand_mode":5,"stretch_mode":5,"flip_h":false,"flip_v":false,"script":null)
-
-icon = NodePath("../../../../PanelContainer/HBoxContainer/UnitIcon/TextureRect")
-class_letter = NodePath("../../../../PanelContainer/HBoxContainer/UnitIcon/RoleLetter")
-level_text = NodePath("../../../../PanelContainer/HBoxContainer/UnitIcon/LevelHolder")
-
-[node name="UnitIcon2" parent="PanelContainer2/ScrollContainer/GridContainer" node_paths=PackedStringArray("icon", "class_letter", "level_text") instance=ExtResource("1_mqurp")]
-custom_minimum_size = Vector2(150, 150)
-layout_mode = 2
-icon = Object(TextureRect,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"clip_contents":false,"custom_minimum_size":Vector2(0, 0),"layout_direction":0,"layout_mode":1,"anchors_preset":15,"anchor_left":0.0,"anchor_top":0.0,"anchor_right":1.0,"anchor_bottom":1.0,"offset_left":0.0,"offset_top":0.0,"offset_right":0.0,"offset_bottom":0.0,"grow_horizontal":2,"grow_vertical":2,"rotation":0.0,"scale":Vector2(1, 1),"pivot_offset":Vector2(0, 0),"size_flags_horizontal":3,"size_flags_vertical":3,"size_flags_stretch_ratio":1.0,"auto_translate":true,"localize_numeral_system":true,"tooltip_text":"","focus_neighbor_left":NodePath(""),"focus_neighbor_top":NodePath(""),"focus_neighbor_right":NodePath(""),"focus_neighbor_bottom":NodePath(""),"focus_next":NodePath(""),"focus_previous":NodePath(""),"focus_mode":0,"mouse_filter":1,"mouse_force_pass_scroll_events":true,"mouse_default_cursor_shape":0,"shortcut_context":null,"theme":null,"theme_type_variation":&"","texture":Resource("res://icon.svg"),"expand_mode":5,"stretch_mode":5,"flip_h":false,"flip_v":false,"script":null)
-
-icon = NodePath("../../../../PanelContainer/HBoxContainer/UnitIcon/TextureRect")
-class_letter = NodePath("../../../../PanelContainer/HBoxContainer/UnitIcon/RoleLetter")
-level_text = NodePath("../../../../PanelContainer/HBoxContainer/UnitIcon/LevelHolder")
-
-[node name="UnitIcon3" parent="PanelContainer2/ScrollContainer/GridContainer" node_paths=PackedStringArray("icon", "class_letter", "level_text") instance=ExtResource("1_mqurp")]
-custom_minimum_size = Vector2(150, 150)
-layout_mode = 2
-icon = Object(TextureRect,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"clip_contents":false,"custom_minimum_size":Vector2(0, 0),"layout_direction":0,"layout_mode":1,"anchors_preset":15,"anchor_left":0.0,"anchor_top":0.0,"anchor_right":1.0,"anchor_bottom":1.0,"offset_left":0.0,"offset_top":0.0,"offset_right":0.0,"offset_bottom":0.0,"grow_horizontal":2,"grow_vertical":2,"rotation":0.0,"scale":Vector2(1, 1),"pivot_offset":Vector2(0, 0),"size_flags_horizontal":3,"size_flags_vertical":3,"size_flags_stretch_ratio":1.0,"auto_translate":true,"localize_numeral_system":true,"tooltip_text":"","focus_neighbor_left":NodePath(""),"focus_neighbor_top":NodePath(""),"focus_neighbor_right":NodePath(""),"focus_neighbor_bottom":NodePath(""),"focus_next":NodePath(""),"focus_previous":NodePath(""),"focus_mode":0,"mouse_filter":1,"mouse_force_pass_scroll_events":true,"mouse_default_cursor_shape":0,"shortcut_context":null,"theme":null,"theme_type_variation":&"","texture":Resource("res://icon.svg"),"expand_mode":5,"stretch_mode":5,"flip_h":false,"flip_v":false,"script":null)
-
-icon = NodePath("../../../../PanelContainer/HBoxContainer/UnitIcon/TextureRect")
-class_letter = NodePath("../../../../PanelContainer/HBoxContainer/UnitIcon/RoleLetter")
-level_text = NodePath("../../../../PanelContainer/HBoxContainer/UnitIcon/LevelHolder")
-
-[node name="UnitIcon4" parent="PanelContainer2/ScrollContainer/GridContainer" node_paths=PackedStringArray("icon", "class_letter", "level_text") instance=ExtResource("1_mqurp")]
-custom_minimum_size = Vector2(150, 150)
-layout_mode = 2
-icon = Object(TextureRect,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"clip_contents":false,"custom_minimum_size":Vector2(0, 0),"layout_direction":0,"layout_mode":1,"anchors_preset":15,"anchor_left":0.0,"anchor_top":0.0,"anchor_right":1.0,"anchor_bottom":1.0,"offset_left":0.0,"offset_top":0.0,"offset_right":0.0,"offset_bottom":0.0,"grow_horizontal":2,"grow_vertical":2,"rotation":0.0,"scale":Vector2(1, 1),"pivot_offset":Vector2(0, 0),"size_flags_horizontal":3,"size_flags_vertical":3,"size_flags_stretch_ratio":1.0,"auto_translate":true,"localize_numeral_system":true,"tooltip_text":"","focus_neighbor_left":NodePath(""),"focus_neighbor_top":NodePath(""),"focus_neighbor_right":NodePath(""),"focus_neighbor_bottom":NodePath(""),"focus_next":NodePath(""),"focus_previous":NodePath(""),"focus_mode":0,"mouse_filter":1,"mouse_force_pass_scroll_events":true,"mouse_default_cursor_shape":0,"shortcut_context":null,"theme":null,"theme_type_variation":&"","texture":Resource("res://icon.svg"),"expand_mode":5,"stretch_mode":5,"flip_h":false,"flip_v":false,"script":null)
-
-icon = NodePath("../../../../PanelContainer/HBoxContainer/UnitIcon/TextureRect")
-class_letter = NodePath("../../../../PanelContainer/HBoxContainer/UnitIcon/RoleLetter")
-level_text = NodePath("../../../../PanelContainer/HBoxContainer/UnitIcon/LevelHolder")
-
-[node name="UnitIcon5" parent="PanelContainer2/ScrollContainer/GridContainer" node_paths=PackedStringArray("icon", "class_letter", "level_text") instance=ExtResource("1_mqurp")]
-custom_minimum_size = Vector2(150, 150)
-layout_mode = 2
-icon = Object(TextureRect,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"clip_contents":false,"custom_minimum_size":Vector2(0, 0),"layout_direction":0,"layout_mode":1,"anchors_preset":15,"anchor_left":0.0,"anchor_top":0.0,"anchor_right":1.0,"anchor_bottom":1.0,"offset_left":0.0,"offset_top":0.0,"offset_right":0.0,"offset_bottom":0.0,"grow_horizontal":2,"grow_vertical":2,"rotation":0.0,"scale":Vector2(1, 1),"pivot_offset":Vector2(0, 0),"size_flags_horizontal":3,"size_flags_vertical":3,"size_flags_stretch_ratio":1.0,"auto_translate":true,"localize_numeral_system":true,"tooltip_text":"","focus_neighbor_left":NodePath(""),"focus_neighbor_top":NodePath(""),"focus_neighbor_right":NodePath(""),"focus_neighbor_bottom":NodePath(""),"focus_next":NodePath(""),"focus_previous":NodePath(""),"focus_mode":0,"mouse_filter":1,"mouse_force_pass_scroll_events":true,"mouse_default_cursor_shape":0,"shortcut_context":null,"theme":null,"theme_type_variation":&"","texture":Resource("res://icon.svg"),"expand_mode":5,"stretch_mode":5,"flip_h":false,"flip_v":false,"script":null)
-
-icon = NodePath("../../../../PanelContainer/HBoxContainer/UnitIcon/TextureRect")
-class_letter = NodePath("../../../../PanelContainer/HBoxContainer/UnitIcon/RoleLetter")
-level_text = NodePath("../../../../PanelContainer/HBoxContainer/UnitIcon/LevelHolder")
-
-[node name="UnitIcon6" parent="PanelContainer2/ScrollContainer/GridContainer" node_paths=PackedStringArray("icon", "class_letter", "level_text") instance=ExtResource("1_mqurp")]
-custom_minimum_size = Vector2(150, 150)
-layout_mode = 2
-icon = Object(TextureRect,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"clip_contents":false,"custom_minimum_size":Vector2(0, 0),"layout_direction":0,"layout_mode":1,"anchors_preset":15,"anchor_left":0.0,"anchor_top":0.0,"anchor_right":1.0,"anchor_bottom":1.0,"offset_left":0.0,"offset_top":0.0,"offset_right":0.0,"offset_bottom":0.0,"grow_horizontal":2,"grow_vertical":2,"rotation":0.0,"scale":Vector2(1, 1),"pivot_offset":Vector2(0, 0),"size_flags_horizontal":3,"size_flags_vertical":3,"size_flags_stretch_ratio":1.0,"auto_translate":true,"localize_numeral_system":true,"tooltip_text":"","focus_neighbor_left":NodePath(""),"focus_neighbor_top":NodePath(""),"focus_neighbor_right":NodePath(""),"focus_neighbor_bottom":NodePath(""),"focus_next":NodePath(""),"focus_previous":NodePath(""),"focus_mode":0,"mouse_filter":1,"mouse_force_pass_scroll_events":true,"mouse_default_cursor_shape":0,"shortcut_context":null,"theme":null,"theme_type_variation":&"","texture":Resource("res://icon.svg"),"expand_mode":5,"stretch_mode":5,"flip_h":false,"flip_v":false,"script":null)
-
-icon = NodePath("../../../../PanelContainer/HBoxContainer/UnitIcon/TextureRect")
-class_letter = NodePath("../../../../PanelContainer/HBoxContainer/UnitIcon/RoleLetter")
-level_text = NodePath("../../../../PanelContainer/HBoxContainer/UnitIcon/LevelHolder")
-
-[node name="UnitIcon7" parent="PanelContainer2/ScrollContainer/GridContainer" node_paths=PackedStringArray("icon", "class_letter", "level_text") instance=ExtResource("1_mqurp")]
-custom_minimum_size = Vector2(150, 150)
-layout_mode = 2
-icon = Object(TextureRect,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"clip_contents":false,"custom_minimum_size":Vector2(0, 0),"layout_direction":0,"layout_mode":1,"anchors_preset":15,"anchor_left":0.0,"anchor_top":0.0,"anchor_right":1.0,"anchor_bottom":1.0,"offset_left":0.0,"offset_top":0.0,"offset_right":0.0,"offset_bottom":0.0,"grow_horizontal":2,"grow_vertical":2,"rotation":0.0,"scale":Vector2(1, 1),"pivot_offset":Vector2(0, 0),"size_flags_horizontal":3,"size_flags_vertical":3,"size_flags_stretch_ratio":1.0,"auto_translate":true,"localize_numeral_system":true,"tooltip_text":"","focus_neighbor_left":NodePath(""),"focus_neighbor_top":NodePath(""),"focus_neighbor_right":NodePath(""),"focus_neighbor_bottom":NodePath(""),"focus_next":NodePath(""),"focus_previous":NodePath(""),"focus_mode":0,"mouse_filter":1,"mouse_force_pass_scroll_events":true,"mouse_default_cursor_shape":0,"shortcut_context":null,"theme":null,"theme_type_variation":&"","texture":Resource("res://icon.svg"),"expand_mode":5,"stretch_mode":5,"flip_h":false,"flip_v":false,"script":null)
-
-icon = NodePath("../../../../PanelContainer/HBoxContainer/UnitIcon/TextureRect")
-class_letter = NodePath("../../../../PanelContainer/HBoxContainer/UnitIcon/RoleLetter")
-level_text = NodePath("../../../../PanelContainer/HBoxContainer/UnitIcon/LevelHolder")
-
-[node name="UnitIcon8" parent="PanelContainer2/ScrollContainer/GridContainer" node_paths=PackedStringArray("icon", "class_letter", "level_text") instance=ExtResource("1_mqurp")]
-custom_minimum_size = Vector2(150, 150)
-layout_mode = 2
-icon = Object(TextureRect,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"clip_contents":false,"custom_minimum_size":Vector2(0, 0),"layout_direction":0,"layout_mode":1,"anchors_preset":15,"anchor_left":0.0,"anchor_top":0.0,"anchor_right":1.0,"anchor_bottom":1.0,"offset_left":0.0,"offset_top":0.0,"offset_right":0.0,"offset_bottom":0.0,"grow_horizontal":2,"grow_vertical":2,"rotation":0.0,"scale":Vector2(1, 1),"pivot_offset":Vector2(0, 0),"size_flags_horizontal":3,"size_flags_vertical":3,"size_flags_stretch_ratio":1.0,"auto_translate":true,"localize_numeral_system":true,"tooltip_text":"","focus_neighbor_left":NodePath(""),"focus_neighbor_top":NodePath(""),"focus_neighbor_right":NodePath(""),"focus_neighbor_bottom":NodePath(""),"focus_next":NodePath(""),"focus_previous":NodePath(""),"focus_mode":0,"mouse_filter":1,"mouse_force_pass_scroll_events":true,"mouse_default_cursor_shape":0,"shortcut_context":null,"theme":null,"theme_type_variation":&"","texture":Resource("res://icon.svg"),"expand_mode":5,"stretch_mode":5,"flip_h":false,"flip_v":false,"script":null)
-
-icon = NodePath("../../../../PanelContainer/HBoxContainer/UnitIcon/TextureRect")
-class_letter = NodePath("../../../../PanelContainer/HBoxContainer/UnitIcon/RoleLetter")
-level_text = NodePath("../../../../PanelContainer/HBoxContainer/UnitIcon/LevelHolder")
-
-[node name="UnitIcon9" parent="PanelContainer2/ScrollContainer/GridContainer" node_paths=PackedStringArray("icon", "class_letter", "level_text") instance=ExtResource("1_mqurp")]
-custom_minimum_size = Vector2(150, 150)
-layout_mode = 2
-icon = Object(TextureRect,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"clip_contents":false,"custom_minimum_size":Vector2(0, 0),"layout_direction":0,"layout_mode":1,"anchors_preset":15,"anchor_left":0.0,"anchor_top":0.0,"anchor_right":1.0,"anchor_bottom":1.0,"offset_left":0.0,"offset_top":0.0,"offset_right":0.0,"offset_bottom":0.0,"grow_horizontal":2,"grow_vertical":2,"rotation":0.0,"scale":Vector2(1, 1),"pivot_offset":Vector2(0, 0),"size_flags_horizontal":3,"size_flags_vertical":3,"size_flags_stretch_ratio":1.0,"auto_translate":true,"localize_numeral_system":true,"tooltip_text":"","focus_neighbor_left":NodePath(""),"focus_neighbor_top":NodePath(""),"focus_neighbor_right":NodePath(""),"focus_neighbor_bottom":NodePath(""),"focus_next":NodePath(""),"focus_previous":NodePath(""),"focus_mode":0,"mouse_filter":1,"mouse_force_pass_scroll_events":true,"mouse_default_cursor_shape":0,"shortcut_context":null,"theme":null,"theme_type_variation":&"","texture":Resource("res://icon.svg"),"expand_mode":5,"stretch_mode":5,"flip_h":false,"flip_v":false,"script":null)
-
-icon = NodePath("../../../../PanelContainer/HBoxContainer/UnitIcon/TextureRect")
-class_letter = NodePath("../../../../PanelContainer/HBoxContainer/UnitIcon/RoleLetter")
-level_text = NodePath("../../../../PanelContainer/HBoxContainer/UnitIcon/LevelHolder")
-
-[node name="UnitIcon10" parent="PanelContainer2/ScrollContainer/GridContainer" node_paths=PackedStringArray("icon", "class_letter", "level_text") instance=ExtResource("1_mqurp")]
-custom_minimum_size = Vector2(150, 150)
-layout_mode = 2
-icon = Object(TextureRect,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"clip_contents":false,"custom_minimum_size":Vector2(0, 0),"layout_direction":0,"layout_mode":1,"anchors_preset":15,"anchor_left":0.0,"anchor_top":0.0,"anchor_right":1.0,"anchor_bottom":1.0,"offset_left":0.0,"offset_top":0.0,"offset_right":0.0,"offset_bottom":0.0,"grow_horizontal":2,"grow_vertical":2,"rotation":0.0,"scale":Vector2(1, 1),"pivot_offset":Vector2(0, 0),"size_flags_horizontal":3,"size_flags_vertical":3,"size_flags_stretch_ratio":1.0,"auto_translate":true,"localize_numeral_system":true,"tooltip_text":"","focus_neighbor_left":NodePath(""),"focus_neighbor_top":NodePath(""),"focus_neighbor_right":NodePath(""),"focus_neighbor_bottom":NodePath(""),"focus_next":NodePath(""),"focus_previous":NodePath(""),"focus_mode":0,"mouse_filter":1,"mouse_force_pass_scroll_events":true,"mouse_default_cursor_shape":0,"shortcut_context":null,"theme":null,"theme_type_variation":&"","texture":Resource("res://icon.svg"),"expand_mode":5,"stretch_mode":5,"flip_h":false,"flip_v":false,"script":null)
-
-icon = NodePath("../../../../PanelContainer/HBoxContainer/UnitIcon/TextureRect")
-class_letter = NodePath("../../../../PanelContainer/HBoxContainer/UnitIcon/RoleLetter")
-level_text = NodePath("../../../../PanelContainer/HBoxContainer/UnitIcon/LevelHolder")
-
-[node name="UnitIcon11" parent="PanelContainer2/ScrollContainer/GridContainer" node_paths=PackedStringArray("icon", "class_letter", "level_text") instance=ExtResource("1_mqurp")]
-custom_minimum_size = Vector2(150, 150)
-layout_mode = 2
-icon = Object(TextureRect,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"clip_contents":false,"custom_minimum_size":Vector2(0, 0),"layout_direction":0,"layout_mode":1,"anchors_preset":15,"anchor_left":0.0,"anchor_top":0.0,"anchor_right":1.0,"anchor_bottom":1.0,"offset_left":0.0,"offset_top":0.0,"offset_right":0.0,"offset_bottom":0.0,"grow_horizontal":2,"grow_vertical":2,"rotation":0.0,"scale":Vector2(1, 1),"pivot_offset":Vector2(0, 0),"size_flags_horizontal":3,"size_flags_vertical":3,"size_flags_stretch_ratio":1.0,"auto_translate":true,"localize_numeral_system":true,"tooltip_text":"","focus_neighbor_left":NodePath(""),"focus_neighbor_top":NodePath(""),"focus_neighbor_right":NodePath(""),"focus_neighbor_bottom":NodePath(""),"focus_next":NodePath(""),"focus_previous":NodePath(""),"focus_mode":0,"mouse_filter":1,"mouse_force_pass_scroll_events":true,"mouse_default_cursor_shape":0,"shortcut_context":null,"theme":null,"theme_type_variation":&"","texture":Resource("res://icon.svg"),"expand_mode":5,"stretch_mode":5,"flip_h":false,"flip_v":false,"script":null)
-
-icon = NodePath("../../../../PanelContainer/HBoxContainer/UnitIcon/TextureRect")
-class_letter = NodePath("../../../../PanelContainer/HBoxContainer/UnitIcon/RoleLetter")
-level_text = NodePath("../../../../PanelContainer/HBoxContainer/UnitIcon/LevelHolder")
-
-[node name="UnitIcon12" parent="PanelContainer2/ScrollContainer/GridContainer" node_paths=PackedStringArray("icon", "class_letter", "level_text") instance=ExtResource("1_mqurp")]
-custom_minimum_size = Vector2(150, 150)
-layout_mode = 2
-icon = Object(TextureRect,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"clip_contents":false,"custom_minimum_size":Vector2(0, 0),"layout_direction":0,"layout_mode":1,"anchors_preset":15,"anchor_left":0.0,"anchor_top":0.0,"anchor_right":1.0,"anchor_bottom":1.0,"offset_left":0.0,"offset_top":0.0,"offset_right":0.0,"offset_bottom":0.0,"grow_horizontal":2,"grow_vertical":2,"rotation":0.0,"scale":Vector2(1, 1),"pivot_offset":Vector2(0, 0),"size_flags_horizontal":3,"size_flags_vertical":3,"size_flags_stretch_ratio":1.0,"auto_translate":true,"localize_numeral_system":true,"tooltip_text":"","focus_neighbor_left":NodePath(""),"focus_neighbor_top":NodePath(""),"focus_neighbor_right":NodePath(""),"focus_neighbor_bottom":NodePath(""),"focus_next":NodePath(""),"focus_previous":NodePath(""),"focus_mode":0,"mouse_filter":1,"mouse_force_pass_scroll_events":true,"mouse_default_cursor_shape":0,"shortcut_context":null,"theme":null,"theme_type_variation":&"","texture":Resource("res://icon.svg"),"expand_mode":5,"stretch_mode":5,"flip_h":false,"flip_v":false,"script":null)
-
-icon = NodePath("../../../../PanelContainer/HBoxContainer/UnitIcon/TextureRect")
-class_letter = NodePath("../../../../PanelContainer/HBoxContainer/UnitIcon/RoleLetter")
-level_text = NodePath("../../../../PanelContainer/HBoxContainer/UnitIcon/LevelHolder")
 
 [node name="PanelContainer3" type="PanelContainer" parent="."]
 layout_mode = 1
