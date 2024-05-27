@@ -15,8 +15,8 @@ font_color = Color(0, 0.866667, 0.329412, 1)
 outline_size = 3
 outline_color = Color(0.643137, 0.643137, 0.643137, 1)
 
-[node name="UnitIcon" type="Button" node_paths=PackedStringArray("icon", "class_letter", "level_text")]
-custom_minimum_size = Vector2(50, 50)
+[node name="UnitIcon" type="Button" node_paths=PackedStringArray("icon", "class_letter", "level_text", "button")]
+custom_minimum_size = Vector2(150, 150)
 offset_left = -150.0
 offset_top = -150.0
 offset_right = 150.0
@@ -27,6 +27,7 @@ script = ExtResource("1_xdmqp")
 icon = NodePath("TextureRect")
 class_letter = NodePath("RoleLetter")
 level_text = NodePath("LevelHolder")
+button = NodePath(".")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
