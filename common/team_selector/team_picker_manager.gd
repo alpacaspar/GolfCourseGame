@@ -1,33 +1,42 @@
 extends Control
 
 
+@export var inventory: PlayerTeamResource
 @export var golfers: Array[GolferResource]
 @export var icon_ps: PackedScene
 
 @export var team_icon_holder: Control
 @export var bench_icon_holder: Control
 
+@export var continue_button: Button
+@export var info_holder: Control
+
 var team_icons: Array[UnitIcon] = []
 var pickable_icons: Array[UnitIcon] = []
 
 
 func _ready():
+	continue_button.pressed.connect(_continue)
+
 	for golfer in golfers:
-		Inventory.add_golfer(golfer)
+		inventory.add_golfer(golfer)
 
 	for x in 5:
 		var icon = icon_ps.instantiate()
 		team_icon_holder.add_child(icon)
 		team_icons.append(icon)
 		
-		if Inventory.current_team.size() - 1 > x:
-			icon.set_values(Inventory.current_team[x])
+		if x == 0:
+			icon.set_values(inventory.player)
+			icon.button.interactable = false
+		else: if inventory.team.size() - 1 > x:
+			icon.set_values(inventory.team[x])
 		else:
 			icon.set_empty()
 
 		icon.callback = Callable(_button_signal)
 
-	for golfer in Inventory.get_non_team_golfers():
+	for golfer in inventory.get_non_team_golfers():
 		var icon = icon_ps.instantiate()
 		bench_icon_holder.add_child(icon)
 		icon.set_values(golfer)
@@ -39,10 +48,12 @@ var selected_icon: UnitIcon
 func _button_signal(icon: UnitIcon):
 	if selected_icon == null: # if there is no icon currently selected, select the clicked icon
 		selected_icon = icon
+		info_holder.set_values(icon.current_golfer)
 	else: # if an icon is selected
 		if icon == selected_icon:
-			icon.button.selected = false # Unleselect the button on the ui
+			icon.button.button_pressed = false # Unleselect the button on the ui
 			selected_icon = null # Unselect the icon in code
+			info_holder.hide_ui()
 			return
 
 		var old_golfer = icon.current_golfer # Grab the golfer on the second clicked icon
@@ -56,3 +67,14 @@ func _button_signal(icon: UnitIcon):
 
 		icon.button.button_pressed = false # Unselect the button on the ui
 		selected_icon = null # Unselect the icon in code
+		info_holder.hide_ui()
+
+
+func _continue():
+	var picked_golfers: Array[GolferResource] = []
+	for icon in team_icons:
+		if icon.current_golfer != null:
+			picked_golfers.append(icon.current_golfer)
+
+	inventory.team = picked_golfers
+	visible = false

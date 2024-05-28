@@ -1,102 +1,105 @@
-[gd_scene load_steps=19 format=3 uid="uid://ybo6yif82wwi"]
+[gd_scene load_steps=22 format=3 uid="uid://ybo6yif82wwi"]
 
 [ext_resource type="PackedScene" uid="uid://c5rxv5qq7egp0" path="res://common/team_selector/unit_icon.tscn" id="1_mqurp"]
 [ext_resource type="Script" path="res://common/team_selector/team_picker_manager.gd" id="1_shhya"]
+[ext_resource type="Resource" uid="uid://k87pt6f1uup8" path="res://common/npc_resources/charly.tres" id="2_6sexq"]
+[ext_resource type="Resource" uid="uid://v65qcsucqgh" path="res://entities/teams/player_golfer_inventory.tres" id="2_bxjl3"]
 [ext_resource type="Script" path="res://common/roles/role.gd" id="2_tavyt"]
 [ext_resource type="Script" path="res://entities/golfers/golfer_resource.gd" id="3_xnadi"]
+[ext_resource type="Script" path="res://common/team_selector/golfer_info_references.gd" id="7_b30yh"]
 
 [sub_resource type="Resource" id="Resource_vy8w7"]
 script = ExtResource("2_tavyt")
 display_name = ""
-desired_distance = 2.0
-target_type = 1
+base_stamina = 100
+base_power = 10
 descriptive_letter = "A"
 
 [sub_resource type="Resource" id="Resource_xcdqh"]
 script = ExtResource("3_xnadi")
-name = "Joe Schmoe"
 level = 2
 role = SubResource("Resource_vy8w7")
+npc_resource = ExtResource("2_6sexq")
 
 [sub_resource type="Resource" id="Resource_q2ljj"]
 script = ExtResource("2_tavyt")
 display_name = ""
-desired_distance = 2.0
-target_type = 1
+base_stamina = 100
+base_power = 10
 descriptive_letter = "P"
 
 [sub_resource type="Resource" id="Resource_oxgei"]
 script = ExtResource("3_xnadi")
-name = "Joe Schmoe"
 level = 7
 role = SubResource("Resource_q2ljj")
+npc_resource = ExtResource("2_6sexq")
 
 [sub_resource type="Resource" id="Resource_xiv55"]
 script = ExtResource("2_tavyt")
 display_name = ""
-desired_distance = 2.0
-target_type = 1
+base_stamina = 100
+base_power = 10
 descriptive_letter = "C"
 
 [sub_resource type="Resource" id="Resource_22bbh"]
 script = ExtResource("3_xnadi")
-name = "Joe Schmoe"
 level = 3
 role = SubResource("Resource_xiv55")
+npc_resource = ExtResource("2_6sexq")
 
 [sub_resource type="Resource" id="Resource_rpebu"]
 script = ExtResource("2_tavyt")
 display_name = ""
-desired_distance = 2.0
-target_type = 1
+base_stamina = 100
+base_power = 10
 descriptive_letter = "M"
 
 [sub_resource type="Resource" id="Resource_engru"]
 script = ExtResource("3_xnadi")
-name = "Joe Schmoe"
 level = 3
 role = SubResource("Resource_rpebu")
+npc_resource = ExtResource("2_6sexq")
 
 [sub_resource type="Resource" id="Resource_xwolj"]
 script = ExtResource("2_tavyt")
 display_name = ""
-desired_distance = 2.0
-target_type = 1
+base_stamina = 100
+base_power = 10
 descriptive_letter = "U"
 
 [sub_resource type="Resource" id="Resource_qd6nc"]
 script = ExtResource("3_xnadi")
-name = "Joe Schmoe"
 level = 1
 role = SubResource("Resource_xwolj")
+npc_resource = ExtResource("2_6sexq")
 
 [sub_resource type="Resource" id="Resource_jpm5j"]
 script = ExtResource("2_tavyt")
 display_name = ""
-desired_distance = 2.0
-target_type = 1
+base_stamina = 100
+base_power = 10
 descriptive_letter = "H"
 
 [sub_resource type="Resource" id="Resource_7lhg8"]
 script = ExtResource("3_xnadi")
-name = "Joe Schmoe"
 level = 22
 role = SubResource("Resource_jpm5j")
+npc_resource = ExtResource("2_6sexq")
 
 [sub_resource type="Resource" id="Resource_77uwn"]
 script = ExtResource("2_tavyt")
 display_name = ""
-desired_distance = 2.0
-target_type = 1
+base_stamina = 100
+base_power = 10
 descriptive_letter = "A"
 
 [sub_resource type="Resource" id="Resource_3ugdu"]
 script = ExtResource("3_xnadi")
-name = "Joe Schmoe"
 level = 5
 role = SubResource("Resource_77uwn")
+npc_resource = ExtResource("2_6sexq")
 
-[node name="TeamPicker" type="Control" node_paths=PackedStringArray("team_icon_holder", "bench_icon_holder")]
+[node name="TeamPicker" type="Control" node_paths=PackedStringArray("team_icon_holder", "bench_icon_holder", "continue_button", "info_holder")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -104,10 +107,13 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_shhya")
+inventory = ExtResource("2_bxjl3")
 golfers = Array[ExtResource("3_xnadi")]([SubResource("Resource_xcdqh"), SubResource("Resource_oxgei"), SubResource("Resource_22bbh"), SubResource("Resource_engru"), SubResource("Resource_qd6nc"), SubResource("Resource_7lhg8"), SubResource("Resource_3ugdu")])
 icon_ps = ExtResource("1_mqurp")
 team_icon_holder = NodePath("PanelContainer/HBoxContainer")
 bench_icon_holder = NodePath("PanelContainer2/ScrollContainer/GridContainer")
+continue_button = NodePath("Button")
+info_holder = NodePath("PanelContainer3")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 1
@@ -141,7 +147,8 @@ vertical_scroll_mode = 3
 layout_mode = 2
 columns = 4
 
-[node name="PanelContainer3" type="PanelContainer" parent="."]
+[node name="PanelContainer3" type="PanelContainer" parent="." node_paths=PackedStringArray("name_label", "stamina_label", "power_label", "experience_label", "level_label", "bond_label", "role_label")]
+visible = false
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -150,3 +157,216 @@ offset_top = 284.0
 offset_right = -101.0
 offset_bottom = 584.0
 grow_horizontal = 2
+script = ExtResource("7_b30yh")
+name_label = NodePath("VBoxContainer/HBoxContainer/Label")
+stamina_label = NodePath("VBoxContainer/HBoxContainer3/Label2")
+power_label = NodePath("VBoxContainer/HBoxContainer2/Label2")
+experience_label = NodePath("VBoxContainer/HBoxContainer8/Label2")
+level_label = NodePath("VBoxContainer/HBoxContainer4/Label2")
+bond_label = NodePath("VBoxContainer/HBoxContainer7/Label2")
+role_label = NodePath("VBoxContainer/HBoxContainer6/Label2")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer3"]
+layout_mode = 2
+size_flags_stretch_ratio = 10.19
+theme_override_constants/separation = 3
+
+[node name="ReferenceRect3" type="ReferenceRect" parent="PanelContainer3/VBoxContainer"]
+custom_minimum_size = Vector2(4, 5)
+layout_mode = 2
+border_color = Color(1, 0, 0, 0)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer3/VBoxContainer"]
+layout_mode = 2
+
+[node name="ReferenceRect2" type="ReferenceRect" parent="PanelContainer3/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(4, 0)
+layout_mode = 2
+border_color = Color(1, 0, 0, 0)
+
+[node name="Label" type="Label" parent="PanelContainer3/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Choper Snippledorf"
+autowrap_mode = 2
+
+[node name="ReferenceRect" type="ReferenceRect" parent="PanelContainer3/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(4, 0)
+layout_mode = 2
+border_color = Color(1, 0, 0, 0)
+
+[node name="ReferenceRect2" type="ReferenceRect" parent="PanelContainer3/VBoxContainer"]
+custom_minimum_size = Vector2(4, 5)
+layout_mode = 2
+border_color = Color(1, 0, 0, 0)
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="PanelContainer3/VBoxContainer"]
+layout_mode = 2
+
+[node name="ReferenceRect2" type="ReferenceRect" parent="PanelContainer3/VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(4, 0)
+layout_mode = 2
+border_color = Color(1, 0, 0, 0)
+
+[node name="Label" type="Label" parent="PanelContainer3/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+text = "Stamina:"
+
+[node name="Label2" type="Label" parent="PanelContainer3/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "0"
+horizontal_alignment = 2
+
+[node name="ReferenceRect" type="ReferenceRect" parent="PanelContainer3/VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(4, 0)
+layout_mode = 2
+border_color = Color(1, 0, 0, 0)
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="PanelContainer3/VBoxContainer"]
+layout_mode = 2
+
+[node name="ReferenceRect2" type="ReferenceRect" parent="PanelContainer3/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(4, 0)
+layout_mode = 2
+border_color = Color(1, 0, 0, 0)
+
+[node name="Label" type="Label" parent="PanelContainer3/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "Power:"
+
+[node name="Label2" type="Label" parent="PanelContainer3/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "0"
+horizontal_alignment = 2
+
+[node name="ReferenceRect" type="ReferenceRect" parent="PanelContainer3/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(4, 0)
+layout_mode = 2
+border_color = Color(1, 0, 0, 0)
+
+[node name="HBoxContainer8" type="HBoxContainer" parent="PanelContainer3/VBoxContainer"]
+layout_mode = 2
+
+[node name="ReferenceRect2" type="ReferenceRect" parent="PanelContainer3/VBoxContainer/HBoxContainer8"]
+custom_minimum_size = Vector2(4, 0)
+layout_mode = 2
+border_color = Color(1, 0, 0, 0)
+
+[node name="Label" type="Label" parent="PanelContainer3/VBoxContainer/HBoxContainer8"]
+layout_mode = 2
+text = "Experience:"
+
+[node name="Label2" type="Label" parent="PanelContainer3/VBoxContainer/HBoxContainer8"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "0"
+horizontal_alignment = 2
+
+[node name="ReferenceRect" type="ReferenceRect" parent="PanelContainer3/VBoxContainer/HBoxContainer8"]
+custom_minimum_size = Vector2(4, 0)
+layout_mode = 2
+border_color = Color(1, 0, 0, 0)
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="PanelContainer3/VBoxContainer"]
+layout_mode = 2
+
+[node name="ReferenceRect2" type="ReferenceRect" parent="PanelContainer3/VBoxContainer/HBoxContainer4"]
+custom_minimum_size = Vector2(4, 0)
+layout_mode = 2
+border_color = Color(1, 0, 0, 0)
+
+[node name="Label" type="Label" parent="PanelContainer3/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+text = "Level:"
+
+[node name="Label2" type="Label" parent="PanelContainer3/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "0"
+horizontal_alignment = 2
+
+[node name="ReferenceRect" type="ReferenceRect" parent="PanelContainer3/VBoxContainer/HBoxContainer4"]
+custom_minimum_size = Vector2(4, 0)
+layout_mode = 2
+border_color = Color(1, 0, 0, 0)
+
+[node name="HBoxContainer7" type="HBoxContainer" parent="PanelContainer3/VBoxContainer"]
+layout_mode = 2
+
+[node name="ReferenceRect2" type="ReferenceRect" parent="PanelContainer3/VBoxContainer/HBoxContainer7"]
+custom_minimum_size = Vector2(4, 0)
+layout_mode = 2
+border_color = Color(1, 0, 0, 0)
+
+[node name="Label" type="Label" parent="PanelContainer3/VBoxContainer/HBoxContainer7"]
+layout_mode = 2
+text = "Bond:"
+
+[node name="Label2" type="Label" parent="PanelContainer3/VBoxContainer/HBoxContainer7"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "0"
+horizontal_alignment = 2
+
+[node name="ReferenceRect" type="ReferenceRect" parent="PanelContainer3/VBoxContainer/HBoxContainer7"]
+custom_minimum_size = Vector2(4, 0)
+layout_mode = 2
+border_color = Color(1, 0, 0, 0)
+
+[node name="ReferenceRect4" type="ReferenceRect" parent="PanelContainer3/VBoxContainer"]
+custom_minimum_size = Vector2(4, 5)
+layout_mode = 2
+border_color = Color(1, 0, 0, 0)
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="PanelContainer3/VBoxContainer"]
+layout_mode = 2
+
+[node name="ReferenceRect2" type="ReferenceRect" parent="PanelContainer3/VBoxContainer/HBoxContainer5"]
+custom_minimum_size = Vector2(4, 0)
+layout_mode = 2
+border_color = Color(1, 0, 0, 0)
+
+[node name="Label" type="Label" parent="PanelContainer3/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+text = "Role:"
+
+[node name="ReferenceRect" type="ReferenceRect" parent="PanelContainer3/VBoxContainer/HBoxContainer5"]
+custom_minimum_size = Vector2(4, 0)
+layout_mode = 2
+border_color = Color(1, 0, 0, 0)
+
+[node name="HBoxContainer6" type="HBoxContainer" parent="PanelContainer3/VBoxContainer"]
+layout_mode = 2
+
+[node name="ReferenceRect2" type="ReferenceRect" parent="PanelContainer3/VBoxContainer/HBoxContainer6"]
+custom_minimum_size = Vector2(4, 0)
+layout_mode = 2
+border_color = Color(1, 0, 0, 0)
+
+[node name="Label2" type="Label" parent="PanelContainer3/VBoxContainer/HBoxContainer6"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "IronNaught"
+horizontal_alignment = 2
+
+[node name="ReferenceRect" type="ReferenceRect" parent="PanelContainer3/VBoxContainer/HBoxContainer6"]
+custom_minimum_size = Vector2(4, 0)
+layout_mode = 2
+border_color = Color(1, 0, 0, 0)
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -123.0
+offset_top = -44.0
+offset_right = -14.0
+offset_bottom = -8.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Continue"

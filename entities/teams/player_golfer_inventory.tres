@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="PlayerTeamResource" load_steps=12 format=3 uid="uid://v65qcsucqgh"]
+
+[ext_resource type="Script" path="res://entities/teams/player_team_resource.gd" id="1_bob6g"]
+[ext_resource type="Resource" uid="uid://bxi5nhgsxj5vh" path="res://entities/golfers/ferd_snop.tres" id="1_vktgg"]
+[ext_resource type="Resource" uid="uid://brs2oc47gsuy6" path="res://entities/golfers/jaralius_derbel.tres" id="2_bt6jj"]
+[ext_resource type="Resource" uid="uid://bulc3utlqt2ng" path="res://entities/golfers/choper_snippledorf.tres" id="3_sqa7x"]
+[ext_resource type="Resource" uid="uid://5lot0id2q157" path="res://entities/golfers/darney_wuttop.tres" id="4_83tc3"]
+[ext_resource type="Resource" uid="uid://5gctj875cu1d" path="res://entities/golfers/sarl_jonnes.tres" id="5_6gfi7"]
+[ext_resource type="Resource" uid="uid://ui86h5xjspin" path="res://common/npc_resources/carpie_gelmau.tres" id="6_ow0gc"]
+[ext_resource type="Resource" uid="uid://n2wwvf3uab1k" path="res://common/roles/driver/driver_role.tres" id="7_vku2r"]
+[ext_resource type="Script" path="res://entities/golfers/rivals/player_rival_resource.gd" id="8_4dvsi"]
+[ext_resource type="Resource" uid="uid://wc3fe7siutj7" path="res://entities/golfers/grungle_fonley.tres" id="10_x451k"]
+
+[sub_resource type="Resource" id="Resource_wdugs"]
+script = ExtResource("8_4dvsi")
+level = 2
+role = ExtResource("7_vku2r")
+npc_resource = ExtResource("6_ow0gc")
+
+[resource]
+script = ExtResource("1_bob6g")
+player = SubResource("Resource_wdugs")
+team = Array[Resource("res://entities/golfers/golfer_resource.gd")]([ExtResource("10_x451k")])
+benched_golfers = Array[Resource("res://entities/golfers/golfer_resource.gd")]([ExtResource("1_vktgg"), ExtResource("2_bt6jj"), ExtResource("3_sqa7x"), ExtResource("4_83tc3"), ExtResource("5_6gfi7")])
+units = Array[Resource("res://entities/golfers/golfer_resource.gd")]([])

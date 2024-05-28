@@ -22,6 +22,7 @@ func set_values(resource: GolferResource):
 	
 	level_text.text = str(resource.level)
 	class_letter.text = resource.role.descriptive_letter
+	icon.texture = resource.npc_resource.icon
 
 
 func set_empty():
@@ -33,4 +34,7 @@ func set_empty():
 
 
 func _on_clicked():
+	if current_golfer == null:
+		return
+
 	callback.call(self)
