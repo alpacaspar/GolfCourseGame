@@ -14,7 +14,6 @@ extends Resource
 @export var attack_speed := 3.0
 
 @export_group("Actions")
-@export var primary_action := PackedScene.new()
 ## The primary equipment to attach to the unit when the role performs the primary action.
 @export var primary_equipment := PackedScene.new()
 

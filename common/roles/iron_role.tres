@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Role" load_steps=3 format=3 uid="uid://b2hteiw7hfo3q"]
+
+[ext_resource type="PackedScene" uid="uid://pyxcqseoy2w4" path="res://entities/equipment/club_iron.tscn" id="1_qteap"]
+[ext_resource type="Script" path="res://common/roles/role.gd" id="4_jtkam"]
+
+[resource]
+script = ExtResource("4_jtkam")
+display_name = "Ironnaut"
+base_stamina = 100
+base_power = 10
+move_speed = 5.0
+attack_range = 2.0
+attack_speed = 3.0
+primary_equipment = ExtResource("1_qteap")

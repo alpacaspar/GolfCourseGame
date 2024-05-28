@@ -17,7 +17,6 @@ var role: Role:
 var character: Character
 var animation_tree: AnimationTree
 var controller: Node
-var role_action: Node
 
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 
@@ -41,9 +40,6 @@ func setup(new_golfer: GolferResource, assigned_team: Team, character_factory: N
 
 	character = character_factory.create_character(golfer_resource.npc_resource)
 	visuals.add_child(character)
-
-	role_action = golfer_resource.role.primary_action.instantiate()
-	add_child(role_action)
 
 	if golfer_resource.role.primary_equipment:
 		var equipment: Node3D = golfer_resource.role.primary_equipment.instantiate()

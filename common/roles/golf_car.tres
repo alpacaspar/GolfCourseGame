@@ -1,7 +1,0 @@
-[gd_resource type="Resource" script_class="Role" load_steps=2 format=3 uid="uid://bvm3jvc6kbftb"]
-
-[ext_resource type="Script" path="res://common/roles/role.gd" id="1_16xm8"]
-
-[resource]
-script = ExtResource("1_16xm8")
-display_name = "Golf Karter"
