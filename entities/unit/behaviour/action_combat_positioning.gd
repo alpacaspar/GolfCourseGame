@@ -13,7 +13,7 @@ func _tick(blackboard: Dictionary, _delta: float) -> int:
 
     var direction_to_target: Vector3 = unit.global_position.direction_to(target.global_position)
 
-    unit.controller.set_movement_target(target.global_position - direction_to_target * unit.role.attack_range)
+    unit.controller.set_movement_target(target.global_position - direction_to_target * (unit.role.attack_range - navigation_agent.target_desired_distance))
 
     if navigation_agent.is_navigation_finished():
         unit.controller.set_velocity(Vector3.ZERO)
