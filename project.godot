@@ -21,7 +21,6 @@ InputManager="*res://common/input/input_manager.gd"
 CharacterFactory="*res://common/character_factory/character_factory.tscn"
 WwiseRuntimeManager="*res://addons/Wwise/runtime/wwise_runtime_manager.gd"
 BattleManager="*res://common/battle/battle_manager.tscn"
-Inventory="*res://common/inventory/inventory.gd"
 
 [display]
 

@@ -54,28 +54,3 @@ func _init(_name := "",
     mouth_offset = _mouth_offset
     mouth_size = _mouth_size
     icon = _icon
-
-
-func overwrite(resource: NPCResource):
-    name = resource.name
-
-    eye_index = resource.eye_index
-    eyebrow_index = resource.eyebrow_index
-    nose_index = resource.nose_index
-    ear_index = resource.ear_index
-    mouth_index = resource.mouth_index
-    hair_index = resource.hair_index
-    accessory_index = resource.accessory_index
-    shirt_index = resource.shirt_index
-    pants_index = resource.pants_index
-
-    hair_color_index = resource.hair_color_index
-    skin_color_index = resource.skin_color_index
-    shirt_color_index = resource.shirt_color_index
-    pants_color_index = resource.pants_color_index
-
-    eye_offset = resource.eye_offset
-    eyebrow_offset = resource.eyebrow_offset
-    mouth_offset = resource.mouth_offset
-    mouth_size = resource.mouth_size
-    icon = resource.icon
