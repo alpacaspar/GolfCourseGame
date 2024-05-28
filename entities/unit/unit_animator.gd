@@ -19,7 +19,7 @@ func _ready():
 
 func _physics_process(delta: float):
     var velocity := (global_position - last_position).length() / delta
-    var blend_value: float = min(velocity / body.MOVE_SPEED, 1)
+    var blend_value: float = min(velocity / body.role.move_speed, 1)
 
     target_blend_value = lerp(target_blend_value, blend_value, delta * BLEND_SPEED) 
 

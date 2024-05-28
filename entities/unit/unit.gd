@@ -2,10 +2,8 @@ class_name Unit
 extends CharacterBody3D
 
 
-const ACTION_TRANSITION_ANIM_PARAMETER: StringName = "parameters/Transition/transition_request"
+const ATTACK_ONESHOT_ANIM_PARAMETER: StringName = "parameters/AttackOneShot/request"
 const HIT_ONE_SHOT: StringName = "parameters/HitOneShot/request"
-
-const MOVE_SPEED = 6.0
 
 @onready var visuals: Node = $Visuals
 
@@ -23,11 +21,7 @@ var role_action: Node
 
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 
-var target: Node3D
-## The amount of units that are targeting this unit.
-var targeting_units: Array[Unit] = []
-
-var state := IDLE
+var is_attacking := false
 
 
 func _ready():
@@ -58,7 +52,6 @@ func setup(new_golfer: GolferResource, assigned_team: Team, character_factory: N
 		character.right_hand_marker.add_child(equipment)
 
 	animation_tree = character.animation_tree
-	character.animation_tree.tree_root = golfer_resource.role.animation_blend_tree
 
 	character_factory.start_character_creation(character)
 	character_factory.refresh_character(character)
@@ -67,7 +60,7 @@ func setup(new_golfer: GolferResource, assigned_team: Team, character_factory: N
 
 
 func perform_action():
-	animation_tree.set(ACTION_TRANSITION_ANIM_PARAMETER, "start_action")
+	animation_tree.set(ATTACK_ONESHOT_ANIM_PARAMETER, AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
 	role_action.perform()
 
 
@@ -83,23 +76,7 @@ func take_damage(damage: int):
 		_exhaust()
 
 	animation_tree.set(HIT_ONE_SHOT, AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
-	animation_tree.set(ACTION_TRANSITION_ANIM_PARAMETER, "input")
 
 
 func _exhaust():
 	queue_free()
-
-
-func start_targeting(targeting: Unit):
-	targeting_units.append(targeting)
-
-
-func stop_targeting(targeting: Unit):
-	targeting_units.erase(targeting)
-
-
-func get_target_amount() -> int:
-	return targeting_units.size()
-
-
-enum { IDLE, ATTACKING }

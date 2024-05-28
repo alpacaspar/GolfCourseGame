@@ -15,7 +15,7 @@ func _ready():
     input_provider.on_look.connect(_on_look)
     input_provider.on_interact.connect(_on_interact)
 
-    current_speed = unit.MOVE_SPEED
+    current_speed = unit.role.move_speed
 
     BattleManager.on_battle_started.connect(_on_battle_manager_battle_started)
 
@@ -43,7 +43,7 @@ func _on_look(input_delta: Vector2):
 
 
 func _on_interact():
-    if unit.state == unit.ATTACKING:
+    if unit.is_attacking:
         return
 
     _perform_action()
@@ -58,7 +58,7 @@ func _on_battle_manager_battle_started():
 
 
 func _perform_action():
-    unit.state = unit.ATTACKING
+    unit.is_attacking = true
     current_speed = 4.0
 
     unit.perform_action()
@@ -66,5 +66,5 @@ func _perform_action():
     # TODO: Use perform_action() function to get the duration.
     await get_tree().create_timer(3).timeout
 
-    current_speed = unit.MOVE_SPEED
-    unit.state = unit.IDLE
+    current_speed = unit.role.move_speed
+    unit.is_attacking = false

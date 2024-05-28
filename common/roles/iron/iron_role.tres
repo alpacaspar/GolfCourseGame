@@ -1,6 +1,5 @@
-[gd_resource type="Resource" script_class="Role" load_steps=5 format=3 uid="uid://3odoff5r71oh"]
+[gd_resource type="Resource" script_class="Role" load_steps=4 format=3 uid="uid://3odoff5r71oh"]
 
-[ext_resource type="AnimationNodeBlendTree" uid="uid://b6g776vm2kvrn" path="res://common/roles/iron/iron_animation_blend_tree.tres" id="1_wf25o"]
 [ext_resource type="PackedScene" uid="uid://bko8eacckxui3" path="res://common/roles/iron/melee_action.tscn" id="2_0e2or"]
 [ext_resource type="PackedScene" uid="uid://pyxcqseoy2w4" path="res://entities/equipment/club_iron.tscn" id="3_4bfc4"]
 [ext_resource type="Script" path="res://common/roles/role.gd" id="4_jtkam"]
@@ -10,7 +9,9 @@ script = ExtResource("4_jtkam")
 display_name = "Ironnaut"
 base_stamina = 100
 base_power = 15
+move_speed = 5.0
+attack_range = 3.0
+attack_speed = 3.0
 primary_action = ExtResource("2_0e2or")
-animation_blend_tree = ExtResource("1_wf25o")
 primary_equipment = ExtResource("3_4bfc4")
 descriptive_letter = "I"

@@ -1,20 +1,63 @@
-[gd_scene load_steps=6 format=3 uid="uid://bmbpmw618ddnf"]
+[gd_scene load_steps=13 format=3 uid="uid://bmbpmw618ddnf"]
 
 [ext_resource type="Script" path="res://entities/unit/unit_ai_controller.gd" id="1_4m1b1"]
-[ext_resource type="Resource" uid="uid://3odoff5r71oh" path="res://common/roles/iron/iron_role.tres" id="2_vs06k"]
-[ext_resource type="PackedScene" uid="uid://c4s6x5nj8m700" path="res://common/roles/iron/iron_behaviour_tree.tscn" id="3_ofhrt"]
-[ext_resource type="Resource" uid="uid://n2wwvf3uab1k" path="res://common/roles/driver/driver_role.tres" id="4_1cu8x"]
-[ext_resource type="PackedScene" uid="uid://bfxkelwfpo0dm" path="res://common/roles/driver/driver_behaviour_tree.tscn" id="5_p0e7b"]
+[ext_resource type="Script" path="res://common/behaviour_tree/behaviour_tree.gd" id="2_sbpf6"]
+[ext_resource type="Script" path="res://common/behaviour_tree/bt_selector.gd" id="3_kkrbg"]
+[ext_resource type="Script" path="res://entities/unit/behaviour/decorator_sensor_radius.gd" id="4_urqn6"]
+[ext_resource type="Script" path="res://entities/unit/behaviour/decorator_filter_closest.gd" id="5_51llb"]
+[ext_resource type="Script" path="res://entities/unit/behaviour/condition_distance_less.gd" id="6_ntxke"]
+[ext_resource type="Script" path="res://common/behaviour_tree/bt_sequence.gd" id="7_emtuh"]
+[ext_resource type="Script" path="res://entities/unit/behaviour/action_combat_positioning.gd" id="8_4yc2b"]
+[ext_resource type="Script" path="res://common/behaviour_tree/bt_cooldown.gd" id="9_weibh"]
+[ext_resource type="Script" path="res://entities/unit/behaviour/action_aim_at_target.gd" id="10_6xjrr"]
+[ext_resource type="Script" path="res://entities/unit/behaviour/action_attack.gd" id="11_cyakl"]
+[ext_resource type="Script" path="res://entities/unit/behaviour/action_move_to.gd" id="13_wo51f"]
 
 [node name="Controller" type="Node3D"]
 script = ExtResource("1_4m1b1")
-behaviour_tree_scene = {
-ExtResource("2_vs06k"): ExtResource("3_ofhrt"),
-ExtResource("4_1cu8x"): ExtResource("5_p0e7b")
-}
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
-path_desired_distance = 0.5
-target_desired_distance = 0.5
-path_height_offset = 0.5
-avoidance_enabled = true
+debug_enabled = true
+
+[node name="BehaviourTree" type="Node" parent="."]
+script = ExtResource("2_sbpf6")
+
+[node name="DecoratorSensorRadius" type="Node" parent="BehaviourTree"]
+script = ExtResource("4_urqn6")
+radius = 300.0
+team_filter = 1
+exclude_self = true
+
+[node name="DecoratorFilterClosest" type="Node" parent="BehaviourTree/DecoratorSensorRadius"]
+script = ExtResource("5_51llb")
+
+[node name="Selector" type="Node" parent="BehaviourTree/DecoratorSensorRadius/DecoratorFilterClosest"]
+script = ExtResource("3_kkrbg")
+
+[node name="ConditionDistanceLess" type="Node" parent="BehaviourTree/DecoratorSensorRadius/DecoratorFilterClosest/Selector"]
+script = ExtResource("6_ntxke")
+
+[node name="Selector" type="Node" parent="BehaviourTree/DecoratorSensorRadius/DecoratorFilterClosest/Selector/ConditionDistanceLess"]
+script = ExtResource("7_emtuh")
+
+[node name="ActionCombatPositioning" type="Node" parent="BehaviourTree/DecoratorSensorRadius/DecoratorFilterClosest/Selector/ConditionDistanceLess/Selector"]
+script = ExtResource("8_4yc2b")
+
+[node name="ConditionCooldown" type="Node" parent="BehaviourTree/DecoratorSensorRadius/DecoratorFilterClosest/Selector/ConditionDistanceLess/Selector"]
+script = ExtResource("9_weibh")
+cooldown_time = 2.0
+cooldown_on_ready = true
+
+[node name="Sequence" type="Node" parent="BehaviourTree/DecoratorSensorRadius/DecoratorFilterClosest/Selector/ConditionDistanceLess/Selector/ConditionCooldown"]
+script = ExtResource("7_emtuh")
+
+[node name="ActionAimAtTarget" type="Node" parent="BehaviourTree/DecoratorSensorRadius/DecoratorFilterClosest/Selector/ConditionDistanceLess/Selector/ConditionCooldown/Sequence"]
+script = ExtResource("10_6xjrr")
+angle_threshold = 5.0
+aim_rotation_delta = 10.0
+
+[node name="ActionAttack" type="Node" parent="BehaviourTree/DecoratorSensorRadius/DecoratorFilterClosest/Selector/ConditionDistanceLess/Selector/ConditionCooldown/Sequence"]
+script = ExtResource("11_cyakl")
+
+[node name="ActionMoveTo" type="Node" parent="BehaviourTree/DecoratorSensorRadius/DecoratorFilterClosest/Selector"]
+script = ExtResource("13_wo51f")

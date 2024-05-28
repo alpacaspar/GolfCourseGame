@@ -7,14 +7,10 @@ extends BTDecorator
 
 
 func _decorate(blackboard: Dictionary):
-    var result: Array[Unit]
-    
-    # Reuse the entities array if it already exists.
-    result = blackboard["entities"] if blackboard.has("entities") else []
-    result.clear()
+    var result: Array[Unit] = []
 
     var unit: Unit = blackboard["unit"]
-    var team: Team = self.team
+    var team: Team = unit.team
 
     var space_state := unit.get_world_3d().direct_space_state
     var query := _get_query(unit.global_transform)
@@ -37,11 +33,10 @@ func _decorate(blackboard: Dictionary):
             TeamFilter.ALLY:
                 if intersected_unit.team == team:
                     result.append(intersected_unit)
-    
+
     if exclude_self:
         result.erase(unit)
 
-    
     blackboard["entities"] = result
     PhysicsServer3D.free_rid(query.shape_rid)
 

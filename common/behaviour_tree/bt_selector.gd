@@ -7,15 +7,15 @@ var _running_node_index: int = 0
 
 
 func _tick(blackboard: Dictionary, delta: float) -> int:
-    for i: int in range(_running_node_index, child_nodes.size()):
-        var status := child_nodes[i]._tick(blackboard, delta)
-        match status:
-            SUCCESS:
-                _running_node_index = 0
-                return SUCCESS
-            RUNNING:
-                _running_node_index = i
-                return RUNNING
+	for i: int in range(_running_node_index, child_nodes.size()):
+		var status := child_nodes[i]._tick(blackboard, delta)
+		match status:
+			SUCCESS:
+				_running_node_index = 0
+				return SUCCESS
+			RUNNING:
+				_running_node_index = i
+				return RUNNING
 
-    _running_node_index = 0
-    return FAILURE
+	_running_node_index = 0
+	return FAILURE
