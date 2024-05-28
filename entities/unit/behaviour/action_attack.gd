@@ -8,7 +8,7 @@ func _tick(blackboard: Dictionary, _delta: float) -> int:
     var unit: Unit = blackboard["unit"]
     
     if current_time <= 0.0:
-        unit.perform_action()
+        unit.perform_attack()
         unit.is_attacking = true
     
     current_time += _delta

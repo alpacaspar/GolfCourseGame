@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bmbpmw618ddnf"]
+[gd_scene load_steps=17 format=3 uid="uid://bmbpmw618ddnf"]
 
 [ext_resource type="Script" path="res://entities/unit/unit_ai_controller.gd" id="1_4m1b1"]
 [ext_resource type="Script" path="res://common/behaviour_tree/behaviour_tree.gd" id="2_sbpf6"]
@@ -8,9 +8,13 @@
 [ext_resource type="Script" path="res://entities/unit/behaviour/condition_distance_less.gd" id="6_ntxke"]
 [ext_resource type="Script" path="res://common/behaviour_tree/bt_sequence.gd" id="7_emtuh"]
 [ext_resource type="Script" path="res://entities/unit/behaviour/action_combat_positioning.gd" id="8_4yc2b"]
+[ext_resource type="Script" path="res://common/behaviour_tree/bt_parallel.gd" id="8_vp1rp"]
 [ext_resource type="Script" path="res://common/behaviour_tree/bt_cooldown.gd" id="9_weibh"]
 [ext_resource type="Script" path="res://entities/unit/behaviour/action_aim_at_target.gd" id="10_6xjrr"]
 [ext_resource type="Script" path="res://entities/unit/behaviour/action_attack.gd" id="11_cyakl"]
+[ext_resource type="Script" path="res://entities/unit/behaviour/condition_target_attacking.gd" id="11_uvess"]
+[ext_resource type="Script" path="res://entities/unit/behaviour/condition_random_chance.gd" id="12_0mpp3"]
+[ext_resource type="Script" path="res://entities/unit/behaviour/action_block.gd" id="13_8rkjp"]
 [ext_resource type="Script" path="res://entities/unit/behaviour/action_move_to.gd" id="13_wo51f"]
 
 [node name="Controller" type="Node3D"]
@@ -37,26 +41,35 @@ script = ExtResource("3_kkrbg")
 [node name="ConditionDistanceLess" type="Node" parent="BehaviourTree/DecoratorSensorRadius/DecoratorFilterClosest/Selector"]
 script = ExtResource("6_ntxke")
 
-[node name="Selector" type="Node" parent="BehaviourTree/DecoratorSensorRadius/DecoratorFilterClosest/Selector/ConditionDistanceLess"]
+[node name="Sequence" type="Node" parent="BehaviourTree/DecoratorSensorRadius/DecoratorFilterClosest/Selector/ConditionDistanceLess"]
 script = ExtResource("7_emtuh")
 
-[node name="ActionCombatPositioning" type="Node" parent="BehaviourTree/DecoratorSensorRadius/DecoratorFilterClosest/Selector/ConditionDistanceLess/Selector"]
-script = ExtResource("8_4yc2b")
+[node name="Parallel" type="Node" parent="BehaviourTree/DecoratorSensorRadius/DecoratorFilterClosest/Selector/ConditionDistanceLess/Sequence"]
+script = ExtResource("8_vp1rp")
 
-[node name="ConditionCooldown" type="Node" parent="BehaviourTree/DecoratorSensorRadius/DecoratorFilterClosest/Selector/ConditionDistanceLess/Selector"]
-script = ExtResource("9_weibh")
-cooldown_time = 2.0
-cooldown_on_ready = true
-
-[node name="Sequence" type="Node" parent="BehaviourTree/DecoratorSensorRadius/DecoratorFilterClosest/Selector/ConditionDistanceLess/Selector/ConditionCooldown"]
-script = ExtResource("7_emtuh")
-
-[node name="ActionAimAtTarget" type="Node" parent="BehaviourTree/DecoratorSensorRadius/DecoratorFilterClosest/Selector/ConditionDistanceLess/Selector/ConditionCooldown/Sequence"]
+[node name="ActionAimAtTarget" type="Node" parent="BehaviourTree/DecoratorSensorRadius/DecoratorFilterClosest/Selector/ConditionDistanceLess/Sequence/Parallel"]
 script = ExtResource("10_6xjrr")
 angle_threshold = 5.0
 aim_rotation_delta = 10.0
 
-[node name="ActionAttack" type="Node" parent="BehaviourTree/DecoratorSensorRadius/DecoratorFilterClosest/Selector/ConditionDistanceLess/Selector/ConditionCooldown/Sequence"]
+[node name="ActionCombatPositioning" type="Node" parent="BehaviourTree/DecoratorSensorRadius/DecoratorFilterClosest/Selector/ConditionDistanceLess/Sequence/Parallel"]
+script = ExtResource("8_4yc2b")
+
+[node name="ConditionTargetAttacking" type="Node" parent="BehaviourTree/DecoratorSensorRadius/DecoratorFilterClosest/Selector/ConditionDistanceLess/Sequence"]
+script = ExtResource("11_uvess")
+
+[node name="ConditionRandomChance" type="Node" parent="BehaviourTree/DecoratorSensorRadius/DecoratorFilterClosest/Selector/ConditionDistanceLess/Sequence/ConditionTargetAttacking"]
+script = ExtResource("12_0mpp3")
+
+[node name="ActionBlock" type="Node" parent="BehaviourTree/DecoratorSensorRadius/DecoratorFilterClosest/Selector/ConditionDistanceLess/Sequence/ConditionTargetAttacking/ConditionRandomChance"]
+script = ExtResource("13_8rkjp")
+
+[node name="ConditionCooldown" type="Node" parent="BehaviourTree/DecoratorSensorRadius/DecoratorFilterClosest/Selector/ConditionDistanceLess/Sequence"]
+script = ExtResource("9_weibh")
+cooldown_time = 2.0
+cooldown_on_ready = true
+
+[node name="ActionAttack" type="Node" parent="BehaviourTree/DecoratorSensorRadius/DecoratorFilterClosest/Selector/ConditionDistanceLess/Sequence/ConditionCooldown"]
 script = ExtResource("11_cyakl")
 
 [node name="ActionMoveTo" type="Node" parent="BehaviourTree/DecoratorSensorRadius/DecoratorFilterClosest/Selector"]

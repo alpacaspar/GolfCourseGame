@@ -1,6 +1,10 @@
 extends BTAction
 
 
+var strafe_influence := 0.5
+
+var strafe_time := 0.0
+
 
 func _tick(blackboard: Dictionary, _delta: float) -> int:
     var unit: Unit = blackboard["unit"]
@@ -21,3 +25,8 @@ func _tick(blackboard: Dictionary, _delta: float) -> int:
     unit.controller.set_velocity(new_velocity)
 
     return SUCCESS
+
+
+func _get_strafe_direction(delta: float) -> int:
+    strafe_time = fmod(strafe_time + delta * 0.2, 1.0)
+    return sign(strafe_time * 2 - 1)

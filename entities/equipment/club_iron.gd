@@ -5,22 +5,16 @@ var owning_unit: Unit
 
 
 func start_event():
-    monitoring = true
+	monitoring = true
 
 
 func end_event():
-    monitoring = false
+	monitoring = false
 
 
 func _on_body_entered(unit: Node3D):
-    if not unit is Unit:
-        return
+	if not unit is Unit:
+		return
 
-    if unit == owning_unit:
-        return
-
-    if unit.team == owning_unit.team:
-        return
-
-    if unit.has_method("take_damage"):
-        unit.take_damage(owning_unit.golfer_resource.power)
+	if unit.has_method("try_take_damage"):
+		unit.try_take_damage(owning_unit, owning_unit.golfer_resource.power)

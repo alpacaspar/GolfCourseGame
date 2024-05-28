@@ -5,6 +5,7 @@ const SENSITIVITY = 0.3
 
 @onready var input_provider: InputProvider = $InputProvider
 @onready var camera_pivot: Marker3D = $CameraPivot
+@onready var attack_timer: Timer = $AttackTimer
 
 var unit: CharacterBody3D
 
@@ -14,6 +15,7 @@ var current_speed := 0.0
 func _ready():
     input_provider.on_look.connect(_on_look)
     input_provider.on_interact.connect(_on_interact)
+    attack_timer.wait_time = unit.role.attack_speed
 
     current_speed = unit.role.move_speed
 
@@ -46,7 +48,9 @@ func _on_interact():
     if unit.is_attacking:
         return
 
-    _perform_action()
+    unit.is_attacking = true
+    unit.perform_attack()
+    attack_timer.start()
 
 
 func _on_exit():
@@ -57,14 +61,5 @@ func _on_battle_manager_battle_started():
     input_provider._on_enter()
 
 
-func _perform_action():
-    unit.is_attacking = true
-    current_speed = 4.0
-
-    unit.perform_action()
-
-    # TODO: Use perform_action() function to get the duration.
-    await get_tree().create_timer(3).timeout
-
-    current_speed = unit.role.move_speed
+func _on_attack_timer_timeout() -> void:
     unit.is_attacking = false

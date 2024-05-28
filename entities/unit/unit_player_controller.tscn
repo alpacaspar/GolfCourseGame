@@ -25,3 +25,8 @@ fov = 60.0
 [node name="InputProvider" type="Node" parent="." node_paths=PackedStringArray("camera")]
 script = ExtResource("2_ki5hh")
 camera = NodePath("../CameraPivot/SpringArm3D/PlayerCamera")
+
+[node name="AttackTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]
