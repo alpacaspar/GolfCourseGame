@@ -60,14 +60,16 @@ var update_preview_callback: Callable
 
 var edited_resource: NPCResource
 var current_path: String
+var preview_scene: PreviewSpawner
 
 var has_error: bool = false
 
 
-func make_ready(preview_scene: Node):
+func make_ready(_preview_scene: Node):
 	npc_resource.set_value()
 	edited_resource = NPCResource.new()
 
+	preview_scene = _preview_scene as PreviewSpawner
 	preview_scene.callback = Callable(_set_preview)
 	
 	rotation_slider.value_changed.connect(_set_rotation_value)
@@ -154,6 +156,8 @@ func _update_character(_value = 0):
 	edited_resource.eyebrow_offset = eyebrow_offset_slider.value
 	edited_resource.mouth_offset = mouth_offset_slider.value
 	edited_resource.mouth_size = mouth_size_slider.value
+
+	edited_resource.icon = await preview_scene.create_icon(edited_resource)
 
 	update_preview_callback.call(edited_resource)
 

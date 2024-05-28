@@ -25,11 +25,13 @@ extends Resource
 @export var mouth_offset: float
 @export var mouth_size: float
 
+@export var icon: Texture2D
+
 
 func _init(_name := "", 
     _eye_index := 0, _eyebrow_index := 0, _nose_index := 0, _ear_index := 0, _mouth_index := 0, _hair_index := 0, _accessory_index := 0, _shirt_index := 0, _pants_index := 0,
     _hair_color_index := 0, _skin_color_index := 0, _shirt_color_index := 0, _pants_color_index := 0,
-    _eye_offset := 0, _eyebrow_offset := 0, _mouth_offset := 0, _mouth_size:= 0):
+    _eye_offset := 0, _eyebrow_offset := 0, _mouth_offset := 0, _mouth_size:= 0, _icon: Texture2D = null):
     name = _name
     
     eye_index = _eye_index
@@ -51,3 +53,29 @@ func _init(_name := "",
     eyebrow_offset = _eyebrow_offset
     mouth_offset = _mouth_offset
     mouth_size = _mouth_size
+    icon = _icon
+
+
+func overwrite(resource: NPCResource):
+    name = resource.name
+
+    eye_index = resource.eye_index
+    eyebrow_index = resource.eyebrow_index
+    nose_index = resource.nose_index
+    ear_index = resource.ear_index
+    mouth_index = resource.mouth_index
+    hair_index = resource.hair_index
+    accessory_index = resource.accessory_index
+    shirt_index = resource.shirt_index
+    pants_index = resource.pants_index
+
+    hair_color_index = resource.hair_color_index
+    skin_color_index = resource.skin_color_index
+    shirt_color_index = resource.shirt_color_index
+    pants_color_index = resource.pants_color_index
+
+    eye_offset = resource.eye_offset
+    eyebrow_offset = resource.eyebrow_offset
+    mouth_offset = resource.mouth_offset
+    mouth_size = resource.mouth_size
+    icon = resource.icon

@@ -21,17 +21,9 @@ signal secondary_animation_event
 
 @export_group("Gameplay")
 @export var animation_tree: AnimationTree
+@export var animation_player: AnimationPlayer
 @export var right_hand_marker: Marker3D
 @export var left_hand_marker: Marker3D
-
-
-func set_preview_mode(preview_mode: bool):
-    ear_mesh_instance.visible = !preview_mode
-    nose_mesh_instance.visible = !preview_mode
-    hair_mesh_instance.visible = !preview_mode
-    face_mesh_instance.visible = !preview_mode
-
-    preview_mesh.visible = preview_mode
 
 
 func call_primary_animation_event():
