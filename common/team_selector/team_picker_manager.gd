@@ -25,16 +25,15 @@ func _ready():
 		var icon = icon_ps.instantiate()
 		team_icon_holder.add_child(icon)
 		team_icons.append(icon)
-		
+		icon.callback = Callable(_button_signal)
+
 		if x == 0:
 			icon.set_values(inventory.player)
-			icon.button.interactable = false
+			icon.button.disabled = true
 		else: if inventory.team.size() - 1 > x:
 			icon.set_values(inventory.team[x])
 		else:
 			icon.set_empty()
-
-		icon.callback = Callable(_button_signal)
 
 	for golfer in inventory.get_non_team_golfers():
 		var icon = icon_ps.instantiate()
@@ -44,30 +43,57 @@ func _ready():
 		icon.callback = Callable(_button_signal)
 
 
-var selected_icon: UnitIcon
-func _button_signal(icon: UnitIcon):
-	if selected_icon == null: # if there is no icon currently selected, select the clicked icon
-		selected_icon = icon
-		info_holder.set_values(icon.current_golfer)
-	else: # if an icon is selected
-		if icon == selected_icon:
-			icon.button.button_pressed = false # Unleselect the button on the ui
-			selected_icon = null # Unselect the icon in code
-			info_holder.hide_ui()
-			return
-
-		var old_golfer = icon.current_golfer # Grab the golfer on the second clicked icon
-		var new_golfer = selected_icon.current_golfer # Grab the golfer on the first clicked icon
-
-		icon.set_values(new_golfer) # Set the golfer on the second clicked icon, with the first clicked
-		if old_golfer == null:
-			selected_icon.queue_free()
+var selected_icon: UnitIcon = null
+func _button_signal(icon, event):
+	if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+		if selected_icon == null: # No icon currently selected, select the clicked icon
+			selected_icon = icon
+			if icon.current_golfer != null:
+				info_holder.set_values(icon.current_golfer)
 		else:
-			selected_icon.set_values(old_golfer) # Set the golfer on the first clicked icon, with the second clicked
+			if icon == selected_icon:
+				_deselect_icon(icon) # Deselect the current icon
+			else:
+				var old_golfer = icon.current_golfer
+				var new_golfer = selected_icon.current_golfer
 
-		icon.button.button_pressed = false # Unselect the button on the ui
-		selected_icon = null # Unselect the icon in code
-		info_holder.hide_ui()
+				if old_golfer == null and new_golfer != null:
+					transfer_golfer(selected_icon, icon, new_golfer)
+				elif new_golfer == null and old_golfer != null:
+					transfer_golfer(icon, selected_icon, old_golfer)
+				elif new_golfer != null and old_golfer != null:
+					icon.set_values(new_golfer)
+					selected_icon.set_values(old_golfer)
+
+				_deselect_icon(icon)
+	elif event.button_index == MOUSE_BUTTON_RIGHT and event.pressed:
+		if team_icons.has(icon) && icon.current_golfer != null:
+			var golfer = icon.current_golfer
+			var new_icon = icon_ps.instantiate()
+
+			icon.set_empty()
+
+			bench_icon_holder.add_child(new_icon)
+			new_icon.set_values(golfer)
+			pickable_icons.append(new_icon)
+			new_icon.callback = Callable(_button_signal)
+			
+			_deselect_icon(icon)
+
+
+func _deselect_icon(icon):
+	icon.button.button_pressed = false
+	selected_icon.button.button_pressed = false
+	selected_icon = null
+	info_holder.hide_ui()
+
+
+func transfer_golfer(from_icon: UnitIcon, to_icon: UnitIcon, golfer):
+	if not team_icons.has(from_icon):
+		from_icon.queue_free()
+	else:
+		from_icon.set_empty()
+	to_icon.set_values(golfer)
 
 
 func _continue():

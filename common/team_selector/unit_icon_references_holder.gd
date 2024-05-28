@@ -14,7 +14,7 @@ var callback: Callable
 
 
 func _ready():
-	button.pressed.connect(_on_clicked)
+	button.gui_input.connect(_on_button_gui_input)
 
 
 func set_values(resource: GolferResource):
@@ -33,8 +33,6 @@ func set_empty():
 	current_golfer = null
 
 
-func _on_clicked():
-	if current_golfer == null:
-		return
-
-	callback.call(self)
+func _on_button_gui_input(event):
+	if event is InputEventMouseButton and event.pressed:
+		callback.call(self, event)
