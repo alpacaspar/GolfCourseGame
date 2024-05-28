@@ -196,12 +196,9 @@ func _load():
 
 
 func _save():
-	edited_resource.resource_name = edited_resource.name
-	var result := ResourceSaver.save(edited_resource, current_path)
-	if result != OK:
-		print(result)
-	else:
-		print("Successfully saved")
+	var resource: NPCResource = load(current_path) as NPCResource
+	_overwrite(resource, edited_resource)
+	resource.resource_name = edited_resource.name
 
 
 func _save_as():
@@ -268,3 +265,28 @@ func _set_body_button_connections(preview_scene: Node, collection: Array, picker
 func _set_rotation_value(_value: float):
 	rotation_slider.value = _value
 	rotation_box.value = _value
+
+
+func _overwrite(to_overwrite: NPCResource, overwriter: NPCResource):
+	to_overwrite.name = overwriter.name
+
+	to_overwrite.eye_index = overwriter.eye_index
+	to_overwrite.eyebrow_index = overwriter.eyebrow_index
+	to_overwrite.nose_index = overwriter.nose_index
+	to_overwrite.ear_index = overwriter.ear_index
+	to_overwrite.mouth_index = overwriter.mouth_index
+	to_overwrite.hair_index = overwriter.hair_index
+	to_overwrite.accessory_index = overwriter.accessory_index
+	to_overwrite.shirt_index = overwriter.shirt_index
+	to_overwrite.pants_index = overwriter.pants_index
+
+	to_overwrite.hair_color_index = overwriter.hair_color_index
+	to_overwrite.skin_color_index = overwriter.skin_color_index
+	to_overwrite.shirt_color_index = overwriter.shirt_color_index
+	to_overwrite.pants_color_index = overwriter.pants_color_index
+
+	to_overwrite.eye_offset = overwriter.eye_offset
+	to_overwrite.eyebrow_offset = overwriter.eyebrow_offset
+	to_overwrite.mouth_offset = overwriter.mouth_offset
+	to_overwrite.mouth_size = overwriter.mouth_size
+	to_overwrite.icon = overwriter.icon
