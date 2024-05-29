@@ -17,9 +17,8 @@ extends Resource
 @export var descriptive_letter: String
 
 
-func _init(name: String = "", distance_desired: float = 2.0):
+func _init(name: String = ""):
 	display_name = name
-	desired_distance = distance_desired
 
 
 enum TargetType {

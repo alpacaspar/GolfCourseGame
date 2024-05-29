@@ -19,7 +19,7 @@ func _ready():
 	continue_button.pressed.connect(_continue)
 
 	for golfer in golfers:
-		inventory.add_golfer(golfer)
+		inventory.add_to_bench(golfer)
 
 	for x in 5:
 		var icon = icon_ps.instantiate()
