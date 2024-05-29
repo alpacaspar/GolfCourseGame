@@ -13,3 +13,4 @@ base_power = 20
 primary_action = ExtResource("2_t2vwf")
 animation_blend_tree = ExtResource("1_0yfbe")
 primary_equipment = ExtResource("3_y1r1p")
+descriptive_letter = "D"

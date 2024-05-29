@@ -14,14 +14,4 @@ extends Resource
 @export var primary_equipment := PackedScene.new()
 
 @export_group("UI")
-@export var descriptive_letter: String
-
-
-func _init(name: String = ""):
-	display_name = name
-
-
-enum TargetType {
-	TEAMMATE,
-	OPPONENT
-}
+@export var descriptive_letter: String = ""
