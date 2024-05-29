@@ -31,7 +31,7 @@ animation/remove_immutable_tracks=true
 import_script/path=""
 _subresources={
 "materials": {
-"golf_clubs_mat": {
+"golfclub_mat": {
 "use_external/enabled": true,
 "use_external/path": "res://entities/equipment/golf_clubs_material.tres"
 }
