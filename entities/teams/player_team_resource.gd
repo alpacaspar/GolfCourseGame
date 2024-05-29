@@ -26,7 +26,7 @@ func remove_from_bench(golfer: GolferResource):
 func get_non_team_golfers() -> Array[GolferResource]:
 	var result: Array[GolferResource] = []
 
-	for golfer in benched_golfers:
+	for golfer: GolferResource in benched_golfers:
 		if not team.has(golfer):
 			result.append(golfer)
 
