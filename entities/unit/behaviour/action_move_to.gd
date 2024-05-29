@@ -18,7 +18,7 @@ func _tick(blackboard: Dictionary, _delta: float) -> int:
         return SUCCESS
 
     var next_path_position: Vector3 = navigation_agent.get_next_path_position()
-    var new_velocity: Vector3 = unit.global_position.direction_to(next_path_position) * unit.role.move_speed
+    var new_velocity: Vector3 = unit.global_position.direction_to(next_path_position) * unit.move_speed
 
     unit.controller.set_velocity(new_velocity)
     

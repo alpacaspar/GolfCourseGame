@@ -10,6 +10,7 @@ extends Resource
 
 @export_group("Behaviour")
 @export var move_speed := 3.0
+@export var block_move_speed := 2.0
 @export var attack_range := 3.0
 @export var attack_speed := 3.0
 

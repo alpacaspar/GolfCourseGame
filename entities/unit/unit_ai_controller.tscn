@@ -61,29 +61,6 @@ aim_rotation_delta = 10.0
 [node name="ActionAttack" type="Node" parent="BehaviourTree/DecoratorSensorRadius/DecoratorFilterClosest/Selector/ConditionDistanceLess/Selector/ConditionCooldown/Sequence"]
 script = ExtResource("11_cyakl")
 
-[node name="ConditionTargetAttacking" type="Node" parent="BehaviourTree/DecoratorSensorRadius/DecoratorFilterClosest/Selector/ConditionDistanceLess/Selector"]
-script = ExtResource("11_uvess")
-
-[node name="Selector" type="Node" parent="BehaviourTree/DecoratorSensorRadius/DecoratorFilterClosest/Selector/ConditionDistanceLess/Selector/ConditionTargetAttacking"]
-script = ExtResource("3_kkrbg")
-
-[node name="ConditionRandomChance" type="Node" parent="BehaviourTree/DecoratorSensorRadius/DecoratorFilterClosest/Selector/ConditionDistanceLess/Selector/ConditionTargetAttacking/Selector"]
-script = ExtResource("12_0mpp3")
-
-[node name="Parallel" type="Node" parent="BehaviourTree/DecoratorSensorRadius/DecoratorFilterClosest/Selector/ConditionDistanceLess/Selector/ConditionTargetAttacking/Selector/ConditionRandomChance"]
-script = ExtResource("8_vp1rp")
-
-[node name="ActionAimAtTarget" type="Node" parent="BehaviourTree/DecoratorSensorRadius/DecoratorFilterClosest/Selector/ConditionDistanceLess/Selector/ConditionTargetAttacking/Selector/ConditionRandomChance/Parallel"]
-script = ExtResource("10_6xjrr")
-angle_threshold = 5.0
-aim_rotation_delta = 10.0
-
-[node name="ActionBlock" type="Node" parent="BehaviourTree/DecoratorSensorRadius/DecoratorFilterClosest/Selector/ConditionDistanceLess/Selector/ConditionTargetAttacking/Selector/ConditionRandomChance/Parallel"]
-script = ExtResource("13_8rkjp")
-
-[node name="Wait" type="Node" parent="BehaviourTree/DecoratorSensorRadius/DecoratorFilterClosest/Selector/ConditionDistanceLess/Selector/ConditionTargetAttacking/Selector"]
-script = ExtResource("15_iasuv")
-
 [node name="Parallel" type="Node" parent="BehaviourTree/DecoratorSensorRadius/DecoratorFilterClosest/Selector/ConditionDistanceLess/Selector"]
 script = ExtResource("8_vp1rp")
 
@@ -94,6 +71,25 @@ aim_rotation_delta = 10.0
 
 [node name="ActionCombatPositioning" type="Node" parent="BehaviourTree/DecoratorSensorRadius/DecoratorFilterClosest/Selector/ConditionDistanceLess/Selector/Parallel"]
 script = ExtResource("8_4yc2b")
+
+[node name="ConditionTargetAttacking" type="Node" parent="BehaviourTree/DecoratorSensorRadius/DecoratorFilterClosest/Selector/ConditionDistanceLess/Selector/Parallel"]
+script = ExtResource("11_uvess")
+
+[node name="ConditionDistanceLess" type="Node" parent="BehaviourTree/DecoratorSensorRadius/DecoratorFilterClosest/Selector/ConditionDistanceLess/Selector/Parallel/ConditionTargetAttacking"]
+script = ExtResource("6_ntxke")
+range_threshold = 4.0
+
+[node name="Selector" type="Node" parent="BehaviourTree/DecoratorSensorRadius/DecoratorFilterClosest/Selector/ConditionDistanceLess/Selector/Parallel/ConditionTargetAttacking/ConditionDistanceLess"]
+script = ExtResource("3_kkrbg")
+
+[node name="ConditionRandomChance" type="Node" parent="BehaviourTree/DecoratorSensorRadius/DecoratorFilterClosest/Selector/ConditionDistanceLess/Selector/Parallel/ConditionTargetAttacking/ConditionDistanceLess/Selector"]
+script = ExtResource("12_0mpp3")
+
+[node name="ActionBlock" type="Node" parent="BehaviourTree/DecoratorSensorRadius/DecoratorFilterClosest/Selector/ConditionDistanceLess/Selector/Parallel/ConditionTargetAttacking/ConditionDistanceLess/Selector/ConditionRandomChance"]
+script = ExtResource("13_8rkjp")
+
+[node name="Wait" type="Node" parent="BehaviourTree/DecoratorSensorRadius/DecoratorFilterClosest/Selector/ConditionDistanceLess/Selector/Parallel/ConditionTargetAttacking/ConditionDistanceLess/Selector"]
+script = ExtResource("15_iasuv")
 
 [node name="ActionMoveTo" type="Node" parent="BehaviourTree/DecoratorSensorRadius/DecoratorFilterClosest/Selector"]
 script = ExtResource("13_wo51f")

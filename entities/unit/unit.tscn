@@ -15,6 +15,6 @@ script = ExtResource("1_msadw")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_yo62r")
 
-[node name="Visuals" type="Node3D" parent="." node_paths=PackedStringArray("body")]
+[node name="Visuals" type="Node3D" parent="." node_paths=PackedStringArray("unit")]
 script = ExtResource("2_ho2eb")
-body = NodePath("..")
+unit = NodePath("..")

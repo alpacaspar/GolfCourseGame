@@ -4,6 +4,8 @@ extends CharacterBody3D
 
 const ATTACK_ONESHOT_ANIM_PARAMETER: StringName = "parameters/AttackOneShot/request"
 const BLOCK_BLEND_ANIM_PARAMETER = "parameters/BlockBlend/blend_amount"
+const BLOCK_TIME_SEEK_ANIM_PARAMETER = "parameters/BlockTimeSeek/seek_request"
+const BLOCK_TWEEN_DURATION = 0.2
 const HIT_ONE_SHOT_ANIM_PARAMETER: StringName = "parameters/HitOneShot/request"
 
 @onready var visuals: Node = $Visuals
@@ -23,6 +25,13 @@ var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 var is_attacking := false
 var is_blocking := false
+
+var move_speed:
+    get:
+        if is_blocking:
+            return role.block_move_speed
+        
+        return role.move_speed
 
 
 func _ready():
@@ -58,16 +67,23 @@ func setup(new_golfer: GolferResource, assigned_team: Team, character_factory: N
 
 
 func perform_attack():
+	animation_tree.set(ATTACK_ONESHOT_ANIM_PARAMETER, AnimationNodeOneShot.ONE_SHOT_REQUEST_FADE_OUT)
 	animation_tree.set(ATTACK_ONESHOT_ANIM_PARAMETER, AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
 
 
 func perform_block():
-	animation_tree.set(BLOCK_BLEND_ANIM_PARAMETER, 1.0)
+	var tween := create_tween()
+	tween.tween_property(animation_tree, BLOCK_BLEND_ANIM_PARAMETER, 1.0, BLOCK_TWEEN_DURATION)
+	animation_tree.set(BLOCK_TIME_SEEK_ANIM_PARAMETER, 0.0)
+
 	is_blocking = true
 
 
 func cancel_block():
-	animation_tree.set(BLOCK_BLEND_ANIM_PARAMETER, 0.0)
+	var tween := create_tween()
+	tween.tween_property(animation_tree, BLOCK_BLEND_ANIM_PARAMETER, 0.0, BLOCK_TWEEN_DURATION)
+	animation_tree.set(BLOCK_TIME_SEEK_ANIM_PARAMETER, -1.0)
+
 	is_blocking = false
 
 
@@ -79,7 +95,8 @@ func try_take_damage(attacker: Unit, damage: int) -> bool:
 	if attacker.team == team:
 		return false
 
-	var angle := global_basis.z.angle_to(-attacker.global_basis.z)
+	var direction_to_attacker: Vector3 = global_position.direction_to(Vector3(attacker.global_position.x, global_position.y, attacker.global_position.z))
+	var angle := global_basis.z.angle_to(direction_to_attacker)
 	if is_blocking and rad_to_deg(angle) < 30.0:
 		return false
 

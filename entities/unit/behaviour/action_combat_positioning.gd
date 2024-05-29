@@ -1,26 +1,29 @@
 extends BTAction
 
 
-var strafe_influence := 0.5
-
 var strafe_time := 0.0
 
 
-func _tick(blackboard: Dictionary, _delta: float) -> int:
+func _tick(blackboard: Dictionary, delta: float) -> int:
     var unit: Unit = blackboard["unit"]
     var navigation_agent: NavigationAgent3D = unit.controller.navigation_agent
     var target: Unit = blackboard["entities"].front()
 
-    var direction_to_target: Vector3 = unit.global_position.direction_to(target.global_position)
+    var direction_to_target: Vector3 = unit.global_position.direction_to(Vector3(target.global_position.x, unit.global_position.y, target.global_position.z))
+    var cross_to_target := direction_to_target.cross(Vector3.UP)
 
-    unit.controller.set_movement_target(target.global_position - direction_to_target * (unit.role.attack_range - navigation_agent.target_desired_distance))
+    var movement_target: Vector3 = target.global_position
+    movement_target += -direction_to_target * unit.role.attack_range
+    movement_target += cross_to_target * (_get_strafe_direction(delta) * 0.5)
+
+    unit.controller.set_movement_target(movement_target)
 
     if navigation_agent.is_navigation_finished():
         unit.controller.set_velocity(Vector3.ZERO)
         return SUCCESS
 
     var next_path_position: Vector3 = navigation_agent.get_next_path_position()
-    var new_velocity: Vector3 = unit.global_position.direction_to(next_path_position) * unit.role.move_speed
+    var new_velocity: Vector3 = unit.global_position.direction_to(next_path_position) * unit.move_speed
 
     unit.controller.set_velocity(new_velocity)
 
