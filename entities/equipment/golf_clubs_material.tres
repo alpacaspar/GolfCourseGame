@@ -1,0 +1,19 @@
+[gd_resource type="ShaderMaterial" load_steps=7 format=3 uid="uid://brhkbwyvut3ej"]
+
+[ext_resource type="Shader" uid="uid://cneovm88lddof" path="res://entities/equipment/golf_clubs_shader.tres" id="1_gvfls"]
+[ext_resource type="Texture2D" uid="uid://dn564duvo23iu" path="res://entities/equipment/clubs_albedo.png" id="2_jqpx8"]
+[ext_resource type="Texture2D" uid="uid://bav60lp8ga8tr" path="res://entities/equipment/clubs_metallic.png" id="3_bi08d"]
+[ext_resource type="Texture2D" uid="uid://btsw3obiderao" path="res://entities/equipment/clubs_teamcolor_mask.png" id="3_sie02"]
+[ext_resource type="Texture2D" uid="uid://uncv47gqa1ft" path="res://entities/equipment/clubs_normal.png" id="4_54ahe"]
+[ext_resource type="Texture2D" uid="uid://chjys8c5r73c5" path="res://entities/equipment/clubs_roughness.png" id="5_3imps"]
+
+[resource]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("1_gvfls")
+shader_parameter/TeamColor = Color(1, 1, 1, 1)
+shader_parameter/Albedo = ExtResource("2_jqpx8")
+shader_parameter/TeamColorMask = ExtResource("3_sie02")
+shader_parameter/Metallic = ExtResource("3_bi08d")
+shader_parameter/Roughness = ExtResource("5_3imps")
+shader_parameter/Normal = ExtResource("4_54ahe")
