@@ -12,6 +12,8 @@ extends Node
 var current_golfer: GolferResource = null
 var callback: Callable
 
+var can_click := true
+
 
 func _ready():
 	button.gui_input.connect(_on_button_gui_input)
@@ -34,5 +36,8 @@ func set_empty():
 
 
 func _on_button_gui_input(event):
+	if !can_click:
+		return
+
 	if event is InputEventMouseButton and event.pressed:
 		callback.call(self, event)

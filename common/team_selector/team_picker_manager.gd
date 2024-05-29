@@ -29,8 +29,8 @@ func _ready():
 
 		if x == 0:
 			icon.set_values(inventory.player)
-			icon.button.disabled = true
-		else: if inventory.team.size() - 1 > x:
+			icon.can_click = false
+		elif inventory.team.size() - 1 > x:
 			icon.set_values(inventory.team[x])
 		else:
 			icon.set_empty()
@@ -83,7 +83,6 @@ func _button_signal(icon, event):
 
 func _deselect_icon(icon):
 	icon.button.button_pressed = false
-	selected_icon.button.button_pressed = false
 	selected_icon = null
 	info_holder.hide_ui()
 
