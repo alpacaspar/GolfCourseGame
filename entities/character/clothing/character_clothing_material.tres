@@ -1,4 +1,4 @@
-[gd_resource type="ShaderMaterial" load_steps=12 format=3 uid="uid://btb23i348d3pn"]
+[gd_resource type="ShaderMaterial" load_steps=13 format=3 uid="uid://btb23i348d3pn"]
 
 [ext_resource type="Shader" uid="uid://dn8hcmbi0cime" path="res://entities/character/clothing/character_clothing_shader.tres" id="1_pfevk"]
 [ext_resource type="Texture2D" uid="uid://dyt5mfqtaght8" path="res://entities/character/clothing/clothing_pants_albedo.png" id="2_jelyw"]
@@ -9,8 +9,9 @@
 [ext_resource type="Texture2D" uid="uid://blcu1rnv3kay1" path="res://entities/character/clothing/clothing_shirt_roughness.png" id="7_fwpx7"]
 [ext_resource type="Texture2D" uid="uid://je6kmo5u5nsu" path="res://entities/character/clothing/shoes/shoes_allstars_roughness.png" id="8_bmsd8"]
 [ext_resource type="Texture2D" uid="uid://daq8u7aq4jv2n" path="res://entities/character/clothing/shoes/shoes_allstars_albedo.png" id="8_weey4"]
-[ext_resource type="Texture2D" uid="uid://btmgrux44l2u0" path="res://entities/character/clothing/shoes/shoes_dapper_metallic.png" id="9_puov2"]
 [ext_resource type="Texture2D" uid="uid://ses0a2ccav7a" path="res://entities/character/clothing/shoes/shoes_allstars_colormask.png" id="9_rrucs"]
+[ext_resource type="Texture2D" uid="uid://bjupnamcegtfd" path="res://entities/character/clothing/shoes/shoes_allstars_metallic.png" id="10_x4gwc"]
+[ext_resource type="Texture2D" uid="uid://hp6su3p07mq4" path="res://entities/character/clothing/shoes/shoes_allstars_normal.png" id="11_lm8tm"]
 
 [resource]
 resource_local_to_scene = true
@@ -23,9 +24,10 @@ shader_parameter/ShirtAlbedo = ExtResource("5_ypctw")
 shader_parameter/PantsAlbedo = ExtResource("2_jelyw")
 shader_parameter/ShoesAlbedo = ExtResource("8_weey4")
 shader_parameter/ShoesColorMask = ExtResource("9_rrucs")
-shader_parameter/ShoesMetallic = ExtResource("9_puov2")
+shader_parameter/ShoesMetallic = ExtResource("10_x4gwc")
 shader_parameter/ShirtRoughness = ExtResource("7_fwpx7")
 shader_parameter/PantsRoughness = ExtResource("4_3dtb8")
 shader_parameter/ShoesRoughness = ExtResource("8_bmsd8")
-shader_parameter/ShirtNormal = ExtResource("6_bfjd0")
+shader_parameter/ShoesNormal = ExtResource("11_lm8tm")
 shader_parameter/PantsNormal = ExtResource("3_aeuyf")
+shader_parameter/ShirtNormal = ExtResource("6_bfjd0")
