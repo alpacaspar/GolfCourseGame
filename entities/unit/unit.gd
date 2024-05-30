@@ -26,8 +26,13 @@ var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 var is_attacking := false
 var is_blocking := false
 
-var move_speed:
+var attack_tween: Tween
+
+var move_speed: float:
     get:
+        if is_attacking:
+            return 0.0
+
         if is_blocking:
             return role.block_move_speed
         
@@ -36,6 +41,11 @@ var move_speed:
 
 func _ready():
 	BattleManager.on_battle_started.connect(_on_battle_manager_battle_started)
+
+
+func _physics_process(_delta: float):
+    if not attack_tween == null and attack_tween.is_running():
+        move_and_slide()
 
 
 func _on_battle_manager_battle_started():
@@ -69,6 +79,9 @@ func setup(new_golfer: GolferResource, assigned_team: Team, character_factory: N
 func perform_attack():
 	animation_tree.set(ATTACK_ONESHOT_ANIM_PARAMETER, AnimationNodeOneShot.ONE_SHOT_REQUEST_FADE_OUT)
 	animation_tree.set(ATTACK_ONESHOT_ANIM_PARAMETER, AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
+
+    attack_tween = create_tween()
+    attack_tween.tween_property(self, "velocity", global_basis.z * 4, 0.5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC).set_delay(0.4)
 
 
 func perform_block():

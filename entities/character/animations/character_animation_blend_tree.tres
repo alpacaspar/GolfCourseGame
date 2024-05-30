@@ -5,10 +5,9 @@ resource_local_to_scene = true
 animation = &"character/swing"
 
 [sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_4puyu"]
-filter_enabled = true
-filters = ["%GeneralSkeleton:Chest", "%GeneralSkeleton:Head", "%GeneralSkeleton:LeftHand", "%GeneralSkeleton:LeftLowerArm", "%GeneralSkeleton:LeftShoulder", "%GeneralSkeleton:LeftUpperArm", "%GeneralSkeleton:Neck", "%GeneralSkeleton:RightHand", "%GeneralSkeleton:RightLowerArm", "%GeneralSkeleton:RightShoulder", "%GeneralSkeleton:RightUpperArm", "%GeneralSkeleton:Root", "%GeneralSkeleton:Spine", ".", "AnimationSoundEvents"]
+filters = ["%GeneralSkeleton:Chest", "%GeneralSkeleton:Head", "%GeneralSkeleton:Hips", "%GeneralSkeleton:LeftFoot", "%GeneralSkeleton:LeftHand", "%GeneralSkeleton:LeftLowerArm", "%GeneralSkeleton:LeftLowerLeg", "%GeneralSkeleton:LeftShoulder", "%GeneralSkeleton:LeftToes", "%GeneralSkeleton:LeftUpperArm", "%GeneralSkeleton:LeftUpperLeg", "%GeneralSkeleton:Neck", "%GeneralSkeleton:RightFoot", "%GeneralSkeleton:RightHand", "%GeneralSkeleton:RightLowerArm", "%GeneralSkeleton:RightLowerLeg", "%GeneralSkeleton:RightShoulder", "%GeneralSkeleton:RightToes", "%GeneralSkeleton:RightUpperArm", "%GeneralSkeleton:RightUpperLeg", "%GeneralSkeleton:Root", "%GeneralSkeleton:Spine", ".", "AnimationSoundEvents"]
 fadein_time = 0.5
-fadeout_time = 1.0
+fadeout_time = 0.5
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_qpgxk"]
 animation = &"character/block"

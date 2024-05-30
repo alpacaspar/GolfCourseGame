@@ -34,7 +34,7 @@ _subresources={
 "Armature|mixamo_com|Layer0": {
 "save_to_file/enabled": true,
 "save_to_file/keep_custom_tracks": "",
-"save_to_file/path": "res://entities/character/animations/character_swing.res",
+"save_to_file/path": "res://entities/character/animations/character_swing_anim.res",
 "settings/loop_mode": 0,
 "slice_1/end_frame": 0,
 "slice_1/loop_mode": 0,
@@ -1832,6 +1832,9 @@ _subresources={
 }
 },
 "nodes": {
+"PATH:AnimationPlayer": {
+"compression/enabled": true
+},
 "PATH:Armature/Skeleton3D": {
 "retarget/bone_map": Resource("res://entities/character/character_bone_map.tres"),
 "retarget/rest_fixer/apply_node_transforms": false
