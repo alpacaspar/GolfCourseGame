@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bmbpmw618ddnf"]
+[gd_scene load_steps=19 format=3 uid="uid://bmbpmw618ddnf"]
 
 [ext_resource type="Script" path="res://entities/unit/unit_ai_controller.gd" id="1_4m1b1"]
 [ext_resource type="Script" path="res://common/behaviour_tree/behaviour_tree.gd" id="2_sbpf6"]
@@ -15,6 +15,7 @@
 [ext_resource type="Script" path="res://entities/unit/behaviour/condition_target_attacking.gd" id="11_uvess"]
 [ext_resource type="Script" path="res://entities/unit/behaviour/condition_random_chance.gd" id="12_0mpp3"]
 [ext_resource type="Script" path="res://entities/unit/behaviour/action_block.gd" id="13_8rkjp"]
+[ext_resource type="Script" path="res://common/behaviour_tree/bt_decorator_succeed.gd" id="13_tqtxu"]
 [ext_resource type="Script" path="res://entities/unit/behaviour/action_move_to.gd" id="13_wo51f"]
 [ext_resource type="Script" path="res://common/behaviour_tree/bt_wait.gd" id="15_iasuv"]
 
@@ -72,23 +73,26 @@ aim_rotation_delta = 10.0
 [node name="ActionCombatPositioning" type="Node" parent="BehaviourTree/DecoratorSensorRadius/DecoratorFilterClosest/Selector/ConditionDistanceLess/Selector/Parallel"]
 script = ExtResource("8_4yc2b")
 
-[node name="ConditionTargetAttacking" type="Node" parent="BehaviourTree/DecoratorSensorRadius/DecoratorFilterClosest/Selector/ConditionDistanceLess/Selector/Parallel"]
+[node name="Succeed" type="Node" parent="BehaviourTree/DecoratorSensorRadius/DecoratorFilterClosest/Selector/ConditionDistanceLess/Selector/Parallel"]
+script = ExtResource("13_tqtxu")
+
+[node name="ConditionTargetAttacking" type="Node" parent="BehaviourTree/DecoratorSensorRadius/DecoratorFilterClosest/Selector/ConditionDistanceLess/Selector/Parallel/Succeed"]
 script = ExtResource("11_uvess")
 
-[node name="ConditionDistanceLess" type="Node" parent="BehaviourTree/DecoratorSensorRadius/DecoratorFilterClosest/Selector/ConditionDistanceLess/Selector/Parallel/ConditionTargetAttacking"]
+[node name="ConditionDistanceLess" type="Node" parent="BehaviourTree/DecoratorSensorRadius/DecoratorFilterClosest/Selector/ConditionDistanceLess/Selector/Parallel/Succeed/ConditionTargetAttacking"]
 script = ExtResource("6_ntxke")
 range_threshold = 4.0
 
-[node name="Selector" type="Node" parent="BehaviourTree/DecoratorSensorRadius/DecoratorFilterClosest/Selector/ConditionDistanceLess/Selector/Parallel/ConditionTargetAttacking/ConditionDistanceLess"]
+[node name="Selector" type="Node" parent="BehaviourTree/DecoratorSensorRadius/DecoratorFilterClosest/Selector/ConditionDistanceLess/Selector/Parallel/Succeed/ConditionTargetAttacking/ConditionDistanceLess"]
 script = ExtResource("3_kkrbg")
 
-[node name="ConditionRandomChance" type="Node" parent="BehaviourTree/DecoratorSensorRadius/DecoratorFilterClosest/Selector/ConditionDistanceLess/Selector/Parallel/ConditionTargetAttacking/ConditionDistanceLess/Selector"]
+[node name="ConditionRandomChance" type="Node" parent="BehaviourTree/DecoratorSensorRadius/DecoratorFilterClosest/Selector/ConditionDistanceLess/Selector/Parallel/Succeed/ConditionTargetAttacking/ConditionDistanceLess/Selector"]
 script = ExtResource("12_0mpp3")
 
-[node name="ActionBlock" type="Node" parent="BehaviourTree/DecoratorSensorRadius/DecoratorFilterClosest/Selector/ConditionDistanceLess/Selector/Parallel/ConditionTargetAttacking/ConditionDistanceLess/Selector/ConditionRandomChance"]
+[node name="ActionBlock" type="Node" parent="BehaviourTree/DecoratorSensorRadius/DecoratorFilterClosest/Selector/ConditionDistanceLess/Selector/Parallel/Succeed/ConditionTargetAttacking/ConditionDistanceLess/Selector/ConditionRandomChance"]
 script = ExtResource("13_8rkjp")
 
-[node name="Wait" type="Node" parent="BehaviourTree/DecoratorSensorRadius/DecoratorFilterClosest/Selector/ConditionDistanceLess/Selector/Parallel/ConditionTargetAttacking/ConditionDistanceLess/Selector"]
+[node name="Wait" type="Node" parent="BehaviourTree/DecoratorSensorRadius/DecoratorFilterClosest/Selector/ConditionDistanceLess/Selector/Parallel/Succeed/ConditionTargetAttacking/ConditionDistanceLess/Selector"]
 script = ExtResource("15_iasuv")
 
 [node name="ActionMoveTo" type="Node" parent="BehaviourTree/DecoratorSensorRadius/DecoratorFilterClosest/Selector"]

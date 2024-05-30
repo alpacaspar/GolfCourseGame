@@ -80,8 +80,11 @@ func perform_attack():
 	animation_tree.set(ATTACK_ONESHOT_ANIM_PARAMETER, AnimationNodeOneShot.ONE_SHOT_REQUEST_FADE_OUT)
 	animation_tree.set(ATTACK_ONESHOT_ANIM_PARAMETER, AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
 
+    var target_velocity := global_basis.z * role.move_speed
+    target_velocity.y = velocity.y
     attack_tween = create_tween()
-    attack_tween.tween_property(self, "velocity", global_basis.z * 4, 0.5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC).set_delay(0.4)
+    attack_tween.tween_interval(0.4)
+    attack_tween.tween_property(self, "velocity", target_velocity, 0.5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUART)
 
 
 func perform_block():

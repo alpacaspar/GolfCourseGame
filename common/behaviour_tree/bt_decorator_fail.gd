@@ -1,4 +1,4 @@
-class_name AlwaysFail
+class_name Fail
 extends BTDecorator
 ## Always returns a FAILURE status, even if the child node returns SUCCESS.
 ##

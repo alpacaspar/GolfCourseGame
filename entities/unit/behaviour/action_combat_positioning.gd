@@ -14,7 +14,7 @@ func _tick(blackboard: Dictionary, delta: float) -> int:
 
     var movement_target: Vector3 = target.global_position
     movement_target += -direction_to_target * unit.role.attack_range
-    movement_target += cross_to_target * (_get_strafe_direction(delta) * 0.5)
+    movement_target += cross_to_target * _get_strafe_direction(delta)
 
     unit.controller.set_movement_target(movement_target)
 
@@ -23,7 +23,7 @@ func _tick(blackboard: Dictionary, delta: float) -> int:
         return SUCCESS
 
     var next_path_position: Vector3 = navigation_agent.get_next_path_position()
-    var new_velocity: Vector3 = unit.global_position.direction_to(next_path_position) * unit.move_speed
+    var new_velocity: Vector3 = unit.global_position.direction_to(next_path_position) * 2
 
     unit.controller.set_velocity(new_velocity)
 
@@ -31,5 +31,5 @@ func _tick(blackboard: Dictionary, delta: float) -> int:
 
 
 func _get_strafe_direction(delta: float) -> int:
-    strafe_time = fmod(strafe_time + delta * 0.2, 1.0)
-    return sign(strafe_time * 2 - 1)
+    strafe_time = fmod(strafe_time + delta * 0.2, 2.0)
+    return roundi(strafe_time) - 1

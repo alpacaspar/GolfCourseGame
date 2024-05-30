@@ -130,13 +130,13 @@ func _get_spawnpoints(amount: int, origin_node: Node3D, spacing: float) -> Array
     var result: Array[Vector3] = []
 
     var cross_direction := direction.cross(Vector3.UP)
+    var start_position: Vector3 = position - cross_direction * (spacing * (amount - 1) / 2.0)
 
-	var half_amount := ceili(amount * 0.5)
-	for i: int in range(-half_amount, half_amount):
-		var offset: Vector3 = position + cross_direction * (i * spacing)
-		offset.y = get_ground_level(origin_node, offset)
-		
-		result.append(offset)
+    for i: int in range(amount):
+        var offset: Vector3 = start_position + cross_direction * (spacing * i)
+        offset.y = get_ground_level(origin_node, offset)
+        
+        result.append(offset)
 
     return result
 
