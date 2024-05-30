@@ -500,6 +500,27 @@ tracks/68/path = NodePath("Armature/GeneralSkeleton/RightHandBoneAttachment3D")
 tracks/68/interp = 1
 tracks/68/loop_wrap = true
 tracks/68/keys = PackedFloat32Array(0, 1, 1, 1, 1)
+tracks/69/type = "position_3d"
+tracks/69/imported = false
+tracks/69/enabled = true
+tracks/69/path = NodePath("Armature/GeneralSkeleton/LeftHandBoneAttachment3D")
+tracks/69/interp = 1
+tracks/69/loop_wrap = true
+tracks/69/keys = PackedFloat32Array(0, 1, 37.152, -0.969028, -62.0192)
+tracks/70/type = "rotation_3d"
+tracks/70/imported = false
+tracks/70/enabled = true
+tracks/70/path = NodePath("Armature/GeneralSkeleton/LeftHandBoneAttachment3D")
+tracks/70/interp = 1
+tracks/70/loop_wrap = true
+tracks/70/keys = PackedFloat32Array(0, 1, 0.5, 0.5, -0.5, 0.5)
+tracks/71/type = "scale_3d"
+tracks/71/imported = false
+tracks/71/enabled = true
+tracks/71/path = NodePath("Armature/GeneralSkeleton/LeftHandBoneAttachment3D")
+tracks/71/interp = 1
+tracks/71/loop_wrap = true
+tracks/71/keys = PackedFloat32Array(0, 1, 1, 1, 1)
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_b3t27"]
 _data = {
@@ -1160,7 +1181,7 @@ right_hand_mesh_instance = NodePath("Armature/GeneralSkeleton/RightHand")
 animation_tree = NodePath("AnimationTree")
 animation_player = NodePath("AnimationPlayer")
 right_hand_marker = NodePath("Armature/GeneralSkeleton/RightHandBoneAttachment3D/RightHandMarker")
-left_hand_marker = NodePath("Armature/GeneralSkeleton/LeftHandBoneAttachment3D2/LeftHandMarker")
+left_hand_marker = NodePath("Armature/GeneralSkeleton/LeftHandBoneAttachment3D/LeftHandMarker")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -1505,12 +1526,12 @@ material_overlay = SubResource("ShaderMaterial_lv4py")
 mesh = SubResource("ArrayMesh_kd2o6")
 skin = SubResource("Skin_846u7")
 
-[node name="LeftHandBoneAttachment3D2" type="BoneAttachment3D" parent="Armature/GeneralSkeleton"]
-transform = Transform3D(0.205532, 0.971265, 0.120005, -0.0930062, 0.141453, -0.985566, -0.974221, 0.191404, 0.119407, 30.1755, 5.30907, -58.2159)
+[node name="LeftHandBoneAttachment3D" type="BoneAttachment3D" parent="Armature/GeneralSkeleton"]
+transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, 37.152, -0.969028, -62.0192)
 bone_name = "LeftHand"
 bone_idx = 9
 
-[node name="LeftHandMarker" type="Marker3D" parent="Armature/GeneralSkeleton/LeftHandBoneAttachment3D2"]
+[node name="LeftHandMarker" type="Marker3D" parent="Armature/GeneralSkeleton/LeftHandBoneAttachment3D"]
 transform = Transform3D(100, -4.09782e-06, -2.98023e-06, 4.09782e-06, 100, -1.49012e-06, 2.98023e-06, 1.49012e-06, 100, -4, 4, 0)
 
 [node name="RightHandBoneAttachment3D" type="BoneAttachment3D" parent="Armature/GeneralSkeleton"]
