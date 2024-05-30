@@ -66,6 +66,7 @@ texture = ExtResource("3_njdke")
 
 [sub_resource type="VisualShaderNodeTexture2DParameter" id="VisualShaderNodeTexture2DParameter_e1acb"]
 parameter_name = "ShoesAlbedo"
+texture_type = 1
 
 [sub_resource type="VisualShaderNodeFloatOp" id="VisualShaderNodeFloatOp_goc8w"]
 operator = 6
@@ -138,19 +139,21 @@ texture = ExtResource("4_2s0oc")
 
 [sub_resource type="VisualShaderNodeTexture2DParameter" id="VisualShaderNodeTexture2DParameter_vj6hu"]
 parameter_name = "ShirtAlbedo"
+texture_type = 1
 
 [sub_resource type="VisualShaderNodeTexture2DParameter" id="VisualShaderNodeTexture2DParameter_081du"]
 parameter_name = "PantsAlbedo"
+texture_type = 1
 
 [resource]
 code = "shader_type spatial;
 render_mode blend_mix, depth_draw_opaque, cull_back, diffuse_lambert, specular_schlick_ggx;
 
 uniform vec4 ShirtTint : source_color = vec4(1.000000, 1.000000, 1.000000, 1.000000);
-uniform sampler2D ShirtAlbedo;
+uniform sampler2D ShirtAlbedo : source_color;
 uniform vec4 PantsTint : source_color = vec4(1.000000, 1.000000, 1.000000, 1.000000);
-uniform sampler2D PantsAlbedo;
-uniform sampler2D ShoesAlbedo;
+uniform sampler2D PantsAlbedo : source_color;
+uniform sampler2D ShoesAlbedo : source_color;
 uniform vec4 ShoesTint : source_color = vec4(1.000000, 1.000000, 1.000000, 1.000000);
 uniform sampler2D ShoesColorMask;
 uniform sampler2D ShoesMetallic;
@@ -299,7 +302,7 @@ void fragment() {
 
 }
 "
-graph_offset = Vector2(29.7847, 2240.19)
+graph_offset = Vector2(-174.57, -87.3764)
 nodes/fragment/0/position = Vector2(1660, 120)
 nodes/fragment/2/node = SubResource("VisualShaderNodeTexture_5o4u2")
 nodes/fragment/2/position = Vector2(100, -980)
@@ -377,4 +380,4 @@ nodes/fragment/45/node = SubResource("VisualShaderNodeMix_fl76u")
 nodes/fragment/45/position = Vector2(400, 1760)
 nodes/fragment/46/node = SubResource("VisualShaderNodeMix_1kxe0")
 nodes/fragment/46/position = Vector2(680, 1560)
-nodes/fragment/connections = PackedInt32Array(8, 0, 2, 2, 9, 0, 5, 2, 2, 4, 12, 0, 5, 4, 12, 1, 5, 4, 13, 2, 14, 0, 4, 2, 15, 0, 7, 2, 4, 0, 16, 0, 7, 0, 16, 1, 7, 4, 16, 2, 23, 0, 13, 0, 24, 0, 13, 1, 27, 0, 26, 2, 16, 0, 28, 0, 26, 0, 28, 1, 26, 4, 28, 2, 30, 0, 29, 2, 12, 0, 31, 0, 29, 4, 31, 1, 31, 0, 0, 1, 5, 0, 24, 1, 25, 0, 24, 0, 22, 0, 23, 0, 2, 0, 23, 1, 13, 0, 32, 0, 29, 4, 32, 2, 18, 0, 33, 2, 19, 0, 34, 2, 35, 0, 36, 2, 36, 0, 0, 2, 37, 0, 38, 2, 38, 0, 39, 1, 41, 0, 40, 0, 29, 0, 40, 1, 39, 0, 42, 2, 29, 0, 42, 0, 40, 0, 42, 1, 42, 0, 32, 1, 43, 0, 44, 2, 5, 4, 45, 2, 44, 0, 45, 0, 34, 0, 45, 1, 28, 0, 0, 3, 46, 0, 0, 9, 32, 0, 0, 0, 2, 4, 46, 2, 45, 0, 46, 0, 33, 0, 46, 1)
+nodes/fragment/connections = PackedInt32Array(8, 0, 2, 2, 9, 0, 5, 2, 2, 4, 12, 0, 5, 4, 12, 1, 5, 4, 13, 2, 14, 0, 4, 2, 15, 0, 7, 2, 4, 0, 16, 0, 7, 0, 16, 1, 7, 4, 16, 2, 23, 0, 13, 0, 24, 0, 13, 1, 27, 0, 26, 2, 16, 0, 28, 0, 26, 0, 28, 1, 26, 4, 28, 2, 30, 0, 29, 2, 12, 0, 31, 0, 29, 4, 31, 1, 31, 0, 0, 1, 5, 0, 24, 1, 25, 0, 24, 0, 22, 0, 23, 0, 2, 0, 23, 1, 13, 0, 32, 0, 29, 4, 32, 2, 18, 0, 33, 2, 19, 0, 34, 2, 35, 0, 36, 2, 36, 0, 0, 2, 37, 0, 38, 2, 38, 0, 39, 1, 41, 0, 40, 0, 29, 0, 40, 1, 39, 0, 42, 2, 29, 0, 42, 0, 40, 0, 42, 1, 43, 0, 44, 2, 5, 4, 45, 2, 44, 0, 45, 0, 34, 0, 45, 1, 28, 0, 0, 3, 46, 0, 0, 9, 32, 0, 0, 0, 2, 4, 46, 2, 45, 0, 46, 0, 33, 0, 46, 1, 42, 0, 32, 1)
