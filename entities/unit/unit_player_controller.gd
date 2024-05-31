@@ -23,23 +23,25 @@ func _ready():
 func _physics_process(delta: float):
     unit.velocity.y = -1 if unit.is_on_floor() else unit.velocity.y - unit.gravity * delta
 
-    var direction := (unit.transform.basis * Vector3(-input_provider.move.x, 0, -input_provider.move.y)).normalized()
+    var direction := (global_basis * Vector3(-input_provider.move.x, 0, -input_provider.move.y)).normalized()
 
     unit.velocity.x = direction.x * unit.move_speed
     unit.velocity.z = direction.z * unit.move_speed
 
-    # This function already uses the delta time internally.
     unit.move_and_slide()
+
+    if not unit.is_attacking:
+        var angle := atan2(basis.z.x, basis.z.z)
+        unit.character_container.global_rotation.y = rotate_toward(unit.character_container.global_rotation.y, angle, 10 * delta)
 
 
 func _on_look(input_delta: Vector2):
     if process_mode == PROCESS_MODE_DISABLED:
         return
 
-    unit.rotate_y(deg_to_rad(-input_delta.x) * SENSITIVITY) 
-    camera_pivot.rotate_x(deg_to_rad(input_delta.y) * SENSITIVITY)
+    rotate_y(deg_to_rad(-input_delta.x) * SENSITIVITY) 
 
-    camera_pivot.rotation_degrees.x = clamp(camera_pivot.rotation_degrees.x, -70, 30)
+    camera_pivot.rotation.x = deg_to_rad(clamp(rad_to_deg(camera_pivot.rotation.x) - input_delta.y * SENSITIVITY, -70, 30))
 
 
 func _on_interact_pressed():

@@ -23,7 +23,6 @@
 script = ExtResource("1_4m1b1")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
-debug_enabled = true
 
 [node name="BehaviourTree" type="Node" parent="."]
 script = ExtResource("2_sbpf6")
@@ -42,6 +41,7 @@ script = ExtResource("3_kkrbg")
 
 [node name="ConditionDistanceLess" type="Node" parent="BehaviourTree/DecoratorSensorRadius/DecoratorFilterClosest/Selector"]
 script = ExtResource("6_ntxke")
+range_threshold = 5.0
 
 [node name="Selector" type="Node" parent="BehaviourTree/DecoratorSensorRadius/DecoratorFilterClosest/Selector/ConditionDistanceLess"]
 script = ExtResource("3_kkrbg")

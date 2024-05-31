@@ -13,7 +13,7 @@ func _tick(blackboard: Dictionary, delta: float) -> int:
     if not target or not is_instance_valid(target) or target.is_exhausted():
         return FAILURE
 
-    var unit_forward := unit.get_global_transform().basis.z
+    var unit_forward: Vector3 = unit.controller.global_basis.z
 
     var target_position_adjusted := Vector3(target.global_position.x, unit.global_position.y, target.global_position.z)
     var direction_to_target := unit.global_position.direction_to(target_position_adjusted)
@@ -22,6 +22,6 @@ func _tick(blackboard: Dictionary, delta: float) -> int:
         return SUCCESS
 
     var angle := atan2(direction_to_target.x, direction_to_target.z)
-    unit.global_rotation.y = rotate_toward(unit.global_rotation.y, angle, aim_rotation_delta * delta)
+    unit.controller.global_rotation.y = rotate_toward(unit.controller.global_rotation.y, angle, aim_rotation_delta * delta)
 
     return RUNNING

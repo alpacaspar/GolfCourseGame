@@ -8,7 +8,7 @@ const BLOCK_TIME_SEEK_ANIM_PARAMETER = "parameters/BlockTimeSeek/seek_request"
 const BLOCK_TWEEN_DURATION = 0.2
 const HIT_ONE_SHOT_ANIM_PARAMETER: StringName = "parameters/HitOneShot/request"
 
-@onready var visuals: Node = $Visuals
+@onready var character_container: Node = $CharacterContainer
 
 var team: Team
 
@@ -19,7 +19,7 @@ var role: Role:
 
 var character: Character
 var animation_tree: AnimationTree
-var controller: Node
+var controller: Node3D
 
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 
@@ -60,7 +60,7 @@ func setup(new_golfer: GolferResource, assigned_team: Team, character_factory: N
 	controller.process_mode = PROCESS_MODE_DISABLED
 
 	character = character_factory.create_character(golfer_resource.npc_resource)
-	visuals.add_child(character)
+	character_container.add_child(character)
 
 	if golfer_resource.role.primary_equipment:
 		var equipment: Node3D = golfer_resource.role.primary_equipment.instantiate()
@@ -80,7 +80,7 @@ func perform_attack():
 	animation_tree.set(ATTACK_ONESHOT_ANIM_PARAMETER, AnimationNodeOneShot.ONE_SHOT_REQUEST_FADE_OUT)
 	animation_tree.set(ATTACK_ONESHOT_ANIM_PARAMETER, AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
 
-    var target_velocity := global_basis.z * role.move_speed
+    var target_velocity := controller.global_basis.z * role.move_speed
     target_velocity.y = velocity.y
     attack_tween = create_tween()
     attack_tween.tween_interval(0.4)
