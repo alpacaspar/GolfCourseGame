@@ -1,0 +1,26 @@
+[remap]
+
+importer="2d_array_texture"
+type="CompressedTexture2DArray"
+uid="uid://dnw1xsi6elgbp"
+path="res://.godot/imported/facialhair_moustaches_sheet.svg-c533c4cd44082892880eec74adcbba2d.ctexarray"
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+source_file="res://entities/character/head/facial_details/facialhair_moustaches_sheet.svg"
+dest_files=["res://.godot/imported/facialhair_moustaches_sheet.svg-c533c4cd44082892880eec74adcbba2d.ctexarray"]
+
+[params]
+
+compress/mode=0
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+slices/horizontal=4
+slices/vertical=2

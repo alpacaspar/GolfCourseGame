@@ -1,0 +1,26 @@
+[remap]
+
+importer="2d_array_texture"
+type="CompressedTexture2DArray"
+uid="uid://ip7i3a6eo2g1"
+path="res://.godot/imported/makeup_eyeshadowsoftbig_sheet.png-4d3fa9109b5b1328d43bbd41a1d67aa8.ctexarray"
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+source_file="res://entities/character/head/facial_details/makeup_eyeshadowsoftbig_sheet.png"
+dest_files=["res://.godot/imported/makeup_eyeshadowsoftbig_sheet.png-4d3fa9109b5b1328d43bbd41a1d67aa8.ctexarray"]
+
+[params]
+
+compress/mode=0
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+slices/horizontal=4
+slices/vertical=4
