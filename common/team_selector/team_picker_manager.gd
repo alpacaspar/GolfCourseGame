@@ -1,6 +1,8 @@
 extends Control
 
 
+const TEAM_MEMBER_COUNT := 5
+
 @export var inventory: PlayerTeamResource
 @export var golfers: Array[GolferResource]
 @export var icon_ps: PackedScene
@@ -12,7 +14,7 @@ extends Control
 @export var info_holder: Control
 
 var team_icons: Array[UnitIcon] = []
-var pickable_icons: Array[UnitIcon] = []
+var selected_icon: UnitIcon = null
 
 
 func _ready():
@@ -21,7 +23,7 @@ func _ready():
 	for golfer in golfers:
 		inventory.add_to_bench(golfer)
 
-	for x in 5:
+	for x in TEAM_MEMBER_COUNT:
 		var icon = icon_ps.instantiate()
 		team_icon_holder.add_child(icon)
 		team_icons.append(icon)
@@ -39,12 +41,10 @@ func _ready():
 		var icon = icon_ps.instantiate()
 		bench_icon_holder.add_child(icon)
 		icon.set_values(golfer)
-		pickable_icons.append(icon)
 		icon.callback = Callable(_button_signal)
 
 
-var selected_icon: UnitIcon = null
-func _button_signal(icon, event):
+func _button_signal(icon: UnitIcon, event: InputEvent):
 	if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 		if selected_icon == null: # No icon currently selected, select the clicked icon
 			selected_icon = icon
@@ -75,19 +75,18 @@ func _button_signal(icon, event):
 
 			bench_icon_holder.add_child(new_icon)
 			new_icon.set_values(golfer)
-			pickable_icons.append(new_icon)
 			new_icon.callback = Callable(_button_signal)
 			
 			_deselect_icon(icon)
 
 
-func _deselect_icon(icon):
+func _deselect_icon(icon: UnitIcon):
 	icon.button.button_pressed = false
 	selected_icon = null
 	info_holder.hide_ui()
 
 
-func transfer_golfer(from_icon: UnitIcon, to_icon: UnitIcon, golfer):
+func transfer_golfer(from_icon: UnitIcon, to_icon: UnitIcon, golfer: GolferResource):
 	if not team_icons.has(from_icon):
 		from_icon.queue_free()
 	else:
