@@ -36,7 +36,6 @@ func on_process(_delta):
 
 
 func create_button_icon(mesh, rotate: bool) -> Texture:
-	spawned_character.set_preview_mode(true)
 	spawned_character.preview_mesh.mesh = mesh
 
 	getting_icons = true
@@ -52,7 +51,7 @@ func create_button_icon(mesh, rotate: bool) -> Texture:
 	await RenderingServer.frame_post_draw
 	var image = icon_viewport.get_texture().get_image()
 
-	spawned_character.set_preview_mode(false)
+	# spawned_character.set_preview_mode(false)
 	spawned_character.rotate(Vector3.UP, deg_to_rad(180 + rotation_value))
 	
 	preview_cam.current = true
@@ -80,3 +79,16 @@ func _edit_character(_character_resource: NPCResource):
 
 func _exit_tree():
 	spawned_character.queue_free()
+
+
+func create_icon(_character_resource: NPCResource) -> Texture2D:
+	_edit_character(_character_resource)
+	_set_zoom(1)
+	
+	icon_cam.current = true
+	icon_viewport.render_target_update_mode = 1
+	await RenderingServer.frame_post_draw
+	var image = icon_viewport.get_texture().get_image()
+	
+	preview_cam.current = true
+	return ImageTexture.create_from_image(image)

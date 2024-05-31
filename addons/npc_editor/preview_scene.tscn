@@ -24,6 +24,7 @@ unzoom_holder = NodePath("UnzoomedPosition")
 transform = Transform3D(1, 0, 0, 0, 0.650721, 0.759317, 0, -0.759317, 0.650721, 0, 1.68537, 1.16289)
 
 [node name="IconViewport" type="SubViewport" parent="."]
+transparent_bg = true
 size_2d_override_stretch = true
 render_target_update_mode = 1
 

@@ -914,7 +914,7 @@ blend_shape_mode = 0
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[node name="BaseCharacter" type="Node3D" node_paths=PackedStringArray("ear_mesh_instance", "nose_mesh_instance", "hair_mesh_instance", "face_mesh_instance", "body_mesh_instance", "collar_mesh_instance", "animation_tree", "right_hand_marker", "left_hand_marker")]
+[node name="BaseCharacter" type="Node3D" node_paths=PackedStringArray("ear_mesh_instance", "nose_mesh_instance", "hair_mesh_instance", "face_mesh_instance", "body_mesh_instance", "collar_mesh_instance", "animation_tree", "animation_player", "right_hand_marker", "left_hand_marker")]
 script = ExtResource("1_deigj")
 ear_mesh_instance = NodePath("Armature/GeneralSkeleton/Ears")
 nose_mesh_instance = NodePath("Armature/GeneralSkeleton/Nose")
@@ -923,6 +923,7 @@ face_mesh_instance = NodePath("Armature/GeneralSkeleton/Face")
 body_mesh_instance = NodePath("Armature/GeneralSkeleton/Body_001")
 collar_mesh_instance = NodePath("Armature/GeneralSkeleton/Collar")
 animation_tree = NodePath("AnimationTree")
+animation_player = NodePath("AnimationPlayer")
 right_hand_marker = NodePath("Armature/GeneralSkeleton/RightHandBoneAttachment3D/RightHandMarker")
 left_hand_marker = NodePath("Armature/GeneralSkeleton/LeftHandBoneAttachment3D2/LeftHandMarker")
 

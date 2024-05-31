@@ -25,11 +25,13 @@ extends Resource
 @export var mouth_offset: float
 @export var mouth_size: float
 
+@export var icon: Texture2D
+
 
 func _init(_name := "", 
     _eye_index := 0, _eyebrow_index := 0, _nose_index := 0, _ear_index := 0, _mouth_index := 0, _hair_index := 0, _accessory_index := 0, _shirt_index := 0, _pants_index := 0,
     _hair_color_index := 0, _skin_color_index := 0, _shirt_color_index := 0, _pants_color_index := 0,
-    _eye_offset := 0, _eyebrow_offset := 0, _mouth_offset := 0, _mouth_size:= 0):
+    _eye_offset := 0, _eyebrow_offset := 0, _mouth_offset := 0, _mouth_size:= 0, _icon: Texture2D = null):
     name = _name
     
     eye_index = _eye_index
@@ -51,3 +53,4 @@ func _init(_name := "",
     eyebrow_offset = _eyebrow_offset
     mouth_offset = _mouth_offset
     mouth_size = _mouth_size
+    icon = _icon

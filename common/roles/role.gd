@@ -12,3 +12,6 @@ extends Resource
 @export var animation_blend_tree := AnimationNodeBlendTree.new()
 ## The primary equipment to attach to the unit when the role performs the primary action.
 @export var primary_equipment := PackedScene.new()
+
+@export_group("UI")
+@export var descriptive_letter: String = ""
