@@ -1,0 +1,765 @@
+[gd_scene load_steps=22 format=3 uid="uid://c75huqds1lmet"]
+
+[ext_resource type="Theme" uid="uid://pq6ete4ie6a8" path="res://common/character_creator/character_creator_theme.tres" id="1_o2jqn"]
+[ext_resource type="ButtonGroup" uid="uid://gxcp7q5ddcrd" path="res://common/character_creator/creator_window_button_group.tres" id="3_3tjqc"]
+[ext_resource type="Texture2D" uid="uid://bomv5ke20rhsb" path="res://common/character_creator/icons/extras/zoom-in.png" id="3_k7we3"]
+[ext_resource type="Texture2D" uid="uid://dnvt7megsoqwc" path="res://common/character_creator/icons/Eye.svg" id="4_12phg"]
+[ext_resource type="FontFile" uid="uid://yymhynh564w5" path="res://common/character_creator/fonts/FOTNewRodin_Pro_EB.otf" id="4_et5cu"]
+[ext_resource type="Texture2D" uid="uid://dbicohqe3hgws" path="res://common/character_creator/icons/extras/magnifying-glass.png" id="4_jxcwy"]
+[ext_resource type="Texture2D" uid="uid://bkc38rjrfehfw" path="res://common/character_creator/icons/Eyebrow.svg" id="5_nfnmu"]
+[ext_resource type="Texture2D" uid="uid://by18btik8dcxl" path="res://common/character_creator/icons/Mouth.svg" id="6_c66vl"]
+[ext_resource type="Texture2D" uid="uid://c7bif0hgmebao" path="res://common/character_creator/icons/Nose.svg" id="7_2xiug"]
+[ext_resource type="Texture2D" uid="uid://b1iw5qnh86iut" path="res://common/character_creator/icons/Ears.svg" id="8_2202p"]
+[ext_resource type="Texture2D" uid="uid://d3n668btwy2q0" path="res://common/character_creator/icons/Hair.svg" id="9_1etu7"]
+[ext_resource type="Texture2D" uid="uid://bjwnnbrf7gjql" path="res://common/character_creator/icons/Shirt.svg" id="10_jdfok"]
+[ext_resource type="Texture2D" uid="uid://dqmb2al0cn3tl" path="res://common/character_creator/icons/Pants.svg" id="11_gjpg7"]
+[ext_resource type="Texture2D" uid="uid://cmsumye0h7ks2" path="res://common/character_creator/icons/Shoes.svg" id="12_7aojr"]
+[ext_resource type="Texture2D" uid="uid://bngmvif3ad5r1" path="res://common/character_creator/icons/Naming.svg" id="13_rfnlh"]
+[ext_resource type="PackedScene" uid="uid://bnovr4726jwoi" path="res://addons/npc_editor/ui/npc_customizer_gallery.tscn" id="14_sq54w"]
+[ext_resource type="Texture2D" uid="uid://byb87wlds3nnr" path="res://common/character_creator/icons/extras/right-arrow.png" id="17_r0mrs"]
+[ext_resource type="Texture2D" uid="uid://joyadv5e1bqp" path="res://common/character_creator/icons/extras/rotate-right.png" id="18_0pb32"]
+[ext_resource type="Texture2D" uid="uid://cxqeblj4g32jp" path="res://common/character_creator/icons/extras/arrow-down-sign-to-navigate.png" id="18_jmpbr"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8pbir"]
+bg_color = Color(0.937255, 0.937255, 0.937255, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_00xxw"]
+font = ExtResource("4_et5cu")
+font_size = 48
+font_color = Color(0, 0, 0, 1)
+
+[node name="CharacterEditor" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_8pbir")
+
+[node name="Spacer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ReferenceRect2" type="ReferenceRect" parent="Spacer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Spacer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 20.0
+
+[node name="ReferenceRect2" type="ReferenceRect" parent="Spacer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.05
+
+[node name="TitleBox" type="HBoxContainer" parent="Spacer/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.9
+
+[node name="ReferenceRect" type="ReferenceRect" parent="Spacer/VBoxContainer2/TitleBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.49
+
+[node name="Label" type="Label" parent="Spacer/VBoxContainer2/TitleBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+size_flags_stretch_ratio = 20.0
+text = "Insert Name Country Club"
+label_settings = SubResource("LabelSettings_00xxw")
+vertical_alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Spacer/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 6.43
+theme = ExtResource("1_o2jqn")
+
+[node name="ZoomSliderHolder" type="VBoxContainer" parent="Spacer/VBoxContainer2/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.8
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/ZoomSliderHolder"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ReferenceRect" type="VBoxContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/ZoomSliderHolder/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ReferenceRect3" type="TextureRect" parent="Spacer/VBoxContainer2/HBoxContainer2/ZoomSliderHolder/HBoxContainer/ReferenceRect"]
+layout_mode = 2
+texture = ExtResource("3_k7we3")
+expand_mode = 5
+stretch_mode = 4
+flip_h = true
+
+[node name="ReferenceRect4" type="ReferenceRect" parent="Spacer/VBoxContainer2/HBoxContainer2/ZoomSliderHolder/HBoxContainer/ReferenceRect"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="Spacer/VBoxContainer2/HBoxContainer2/ZoomSliderHolder/HBoxContainer/ReferenceRect"]
+layout_mode = 2
+texture = ExtResource("4_jxcwy")
+expand_mode = 5
+stretch_mode = 4
+flip_h = true
+
+[node name="MarginContainer" type="MarginContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/ZoomSliderHolder/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_right = 0
+
+[node name="ReferenceRect2" type="VScrollBar" parent="Spacer/VBoxContainer2/HBoxContainer2/ZoomSliderHolder/HBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+step = 1.0
+page = 10.0
+
+[node name="ReferenceRect" type="ReferenceRect" parent="Spacer/VBoxContainer2/HBoxContainer2/ZoomSliderHolder"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.29
+
+[node name="PreviewContainer" type="MarginContainer" parent="Spacer/VBoxContainer2/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.39
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 75
+
+[node name="ReferenceRect" type="ReferenceRect" parent="Spacer/VBoxContainer2/HBoxContainer2/PreviewContainer"]
+layout_mode = 2
+border_color = Color(0, 0, 0, 1)
+border_width = 5.0
+editor_only = false
+
+[node name="ReferenceRect3" type="VBoxContainer" parent="Spacer/VBoxContainer2/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 5.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/ReferenceRect3"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ReferenceRect" type="ReferenceRect" parent="Spacer/VBoxContainer2/HBoxContainer2/ReferenceRect3/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 4.03
+
+[node name="Button" type="Button" parent="Spacer/VBoxContainer2/HBoxContainer2/ReferenceRect3/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect" type="TextureRect" parent="Spacer/VBoxContainer2/HBoxContainer2/ReferenceRect3/HBoxContainer/Button"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_o2jqn")
+texture = ExtResource("4_12phg")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Button2" type="Button" parent="Spacer/VBoxContainer2/HBoxContainer2/ReferenceRect3/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect" type="TextureRect" parent="Spacer/VBoxContainer2/HBoxContainer2/ReferenceRect3/HBoxContainer/Button2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_o2jqn")
+texture = ExtResource("10_jdfok")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="TabContainer" type="TabContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/ReferenceRect3"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 8.27
+tabs_visible = false
+
+[node name="FaceOptions" type="VBoxContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/ReferenceRect3/TabContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/ReferenceRect3/TabContainer/FaceOptions"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ReferenceRect2" type="ReferenceRect" parent="Spacer/VBoxContainer2/HBoxContainer2/ReferenceRect3/TabContainer/FaceOptions/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.05
+
+[node name="FaceButtons" type="HBoxContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/ReferenceRect3/TabContainer/FaceOptions/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("1_o2jqn")
+theme_override_constants/separation = 0
+
+[node name="ReferenceRect4" type="ReferenceRect" parent="Spacer/VBoxContainer2/HBoxContainer2/ReferenceRect3/TabContainer/FaceOptions/VBoxContainer/FaceButtons"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.2
+
+[node name="Button" type="Button" parent="Spacer/VBoxContainer2/HBoxContainer2/ReferenceRect3/TabContainer/FaceOptions/VBoxContainer/FaceButtons"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_o2jqn")
+toggle_mode = true
+button_group = ExtResource("3_3tjqc")
+
+[node name="TextureRect" type="TextureRect" parent="Spacer/VBoxContainer2/HBoxContainer2/ReferenceRect3/TabContainer/FaceOptions/VBoxContainer/FaceButtons/Button"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_o2jqn")
+texture = ExtResource("4_12phg")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Button2" type="Button" parent="Spacer/VBoxContainer2/HBoxContainer2/ReferenceRect3/TabContainer/FaceOptions/VBoxContainer/FaceButtons"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_o2jqn")
+toggle_mode = true
+button_group = ExtResource("3_3tjqc")
+
+[node name="TextureRect" type="TextureRect" parent="Spacer/VBoxContainer2/HBoxContainer2/ReferenceRect3/TabContainer/FaceOptions/VBoxContainer/FaceButtons/Button2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_o2jqn")
+texture = ExtResource("5_nfnmu")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Button3" type="Button" parent="Spacer/VBoxContainer2/HBoxContainer2/ReferenceRect3/TabContainer/FaceOptions/VBoxContainer/FaceButtons"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_o2jqn")
+toggle_mode = true
+button_group = ExtResource("3_3tjqc")
+
+[node name="TextureRect" type="TextureRect" parent="Spacer/VBoxContainer2/HBoxContainer2/ReferenceRect3/TabContainer/FaceOptions/VBoxContainer/FaceButtons/Button3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_o2jqn")
+texture = ExtResource("6_c66vl")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Button4" type="Button" parent="Spacer/VBoxContainer2/HBoxContainer2/ReferenceRect3/TabContainer/FaceOptions/VBoxContainer/FaceButtons"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_o2jqn")
+toggle_mode = true
+button_group = ExtResource("3_3tjqc")
+
+[node name="TextureRect" type="TextureRect" parent="Spacer/VBoxContainer2/HBoxContainer2/ReferenceRect3/TabContainer/FaceOptions/VBoxContainer/FaceButtons/Button4"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_o2jqn")
+texture = ExtResource("7_2xiug")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Button5" type="Button" parent="Spacer/VBoxContainer2/HBoxContainer2/ReferenceRect3/TabContainer/FaceOptions/VBoxContainer/FaceButtons"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_o2jqn")
+toggle_mode = true
+button_group = ExtResource("3_3tjqc")
+
+[node name="TextureRect" type="TextureRect" parent="Spacer/VBoxContainer2/HBoxContainer2/ReferenceRect3/TabContainer/FaceOptions/VBoxContainer/FaceButtons/Button5"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_o2jqn")
+texture = ExtResource("8_2202p")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Button6" type="Button" parent="Spacer/VBoxContainer2/HBoxContainer2/ReferenceRect3/TabContainer/FaceOptions/VBoxContainer/FaceButtons"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_o2jqn")
+toggle_mode = true
+button_group = ExtResource("3_3tjqc")
+
+[node name="TextureRect" type="TextureRect" parent="Spacer/VBoxContainer2/HBoxContainer2/ReferenceRect3/TabContainer/FaceOptions/VBoxContainer/FaceButtons/Button6"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_o2jqn")
+texture = ExtResource("9_1etu7")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Button11" type="Button" parent="Spacer/VBoxContainer2/HBoxContainer2/ReferenceRect3/TabContainer/FaceOptions/VBoxContainer/FaceButtons"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_o2jqn")
+toggle_mode = true
+button_group = ExtResource("3_3tjqc")
+
+[node name="TextureRect" type="TextureRect" parent="Spacer/VBoxContainer2/HBoxContainer2/ReferenceRect3/TabContainer/FaceOptions/VBoxContainer/FaceButtons/Button11"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_o2jqn")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Button12" type="Button" parent="Spacer/VBoxContainer2/HBoxContainer2/ReferenceRect3/TabContainer/FaceOptions/VBoxContainer/FaceButtons"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_o2jqn")
+toggle_mode = true
+button_group = ExtResource("3_3tjqc")
+
+[node name="TextureRect" type="TextureRect" parent="Spacer/VBoxContainer2/HBoxContainer2/ReferenceRect3/TabContainer/FaceOptions/VBoxContainer/FaceButtons/Button12"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_o2jqn")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Button13" type="Button" parent="Spacer/VBoxContainer2/HBoxContainer2/ReferenceRect3/TabContainer/FaceOptions/VBoxContainer/FaceButtons"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_o2jqn")
+toggle_mode = true
+button_group = ExtResource("3_3tjqc")
+
+[node name="TextureRect" type="TextureRect" parent="Spacer/VBoxContainer2/HBoxContainer2/ReferenceRect3/TabContainer/FaceOptions/VBoxContainer/FaceButtons/Button13"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_o2jqn")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Button14" type="Button" parent="Spacer/VBoxContainer2/HBoxContainer2/ReferenceRect3/TabContainer/FaceOptions/VBoxContainer/FaceButtons"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_o2jqn")
+toggle_mode = true
+button_group = ExtResource("3_3tjqc")
+
+[node name="TextureRect" type="TextureRect" parent="Spacer/VBoxContainer2/HBoxContainer2/ReferenceRect3/TabContainer/FaceOptions/VBoxContainer/FaceButtons/Button14"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_o2jqn")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Button7" type="Button" parent="Spacer/VBoxContainer2/HBoxContainer2/ReferenceRect3/TabContainer/FaceOptions/VBoxContainer/FaceButtons"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_o2jqn")
+toggle_mode = true
+button_group = ExtResource("3_3tjqc")
+
+[node name="TextureRect" type="TextureRect" parent="Spacer/VBoxContainer2/HBoxContainer2/ReferenceRect3/TabContainer/FaceOptions/VBoxContainer/FaceButtons/Button7"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_o2jqn")
+texture = ExtResource("10_jdfok")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Button8" type="Button" parent="Spacer/VBoxContainer2/HBoxContainer2/ReferenceRect3/TabContainer/FaceOptions/VBoxContainer/FaceButtons"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_o2jqn")
+toggle_mode = true
+button_group = ExtResource("3_3tjqc")
+
+[node name="TextureRect" type="TextureRect" parent="Spacer/VBoxContainer2/HBoxContainer2/ReferenceRect3/TabContainer/FaceOptions/VBoxContainer/FaceButtons/Button8"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_o2jqn")
+texture = ExtResource("11_gjpg7")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Button9" type="Button" parent="Spacer/VBoxContainer2/HBoxContainer2/ReferenceRect3/TabContainer/FaceOptions/VBoxContainer/FaceButtons"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_o2jqn")
+toggle_mode = true
+
+[node name="TextureRect" type="TextureRect" parent="Spacer/VBoxContainer2/HBoxContainer2/ReferenceRect3/TabContainer/FaceOptions/VBoxContainer/FaceButtons/Button9"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_o2jqn")
+texture = ExtResource("12_7aojr")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Button10" type="Button" parent="Spacer/VBoxContainer2/HBoxContainer2/ReferenceRect3/TabContainer/FaceOptions/VBoxContainer/FaceButtons"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_o2jqn")
+toggle_mode = true
+button_group = ExtResource("3_3tjqc")
+
+[node name="TextureRect" type="TextureRect" parent="Spacer/VBoxContainer2/HBoxContainer2/ReferenceRect3/TabContainer/FaceOptions/VBoxContainer/FaceButtons/Button10"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_o2jqn")
+texture = ExtResource("13_rfnlh")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="ReferenceRect3" type="ReferenceRect" parent="Spacer/VBoxContainer2/HBoxContainer2/ReferenceRect3/TabContainer/FaceOptions/VBoxContainer/FaceButtons"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.7
+
+[node name="ReferenceRect" type="ReferenceRect" parent="Spacer/VBoxContainer2/HBoxContainer2/ReferenceRect3/TabContainer/FaceOptions/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.05
+
+[node name="TabContainer" type="TabContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/ReferenceRect3/TabContainer/FaceOptions"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 7.0
+tabs_visible = false
+
+[node name="EyeOptions" type="VBoxContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/ReferenceRect3/TabContainer/FaceOptions/TabContainer"]
+layout_mode = 2
+
+[node name="ColorOptionPicker" type="VBoxContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/ReferenceRect3/TabContainer/FaceOptions/TabContainer/EyeOptions"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ReferenceRect2" type="ReferenceRect" parent="Spacer/VBoxContainer2/HBoxContainer2/ReferenceRect3/TabContainer/FaceOptions/TabContainer/EyeOptions/ColorOptionPicker"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.05
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/ReferenceRect3/TabContainer/FaceOptions/TabContainer/EyeOptions/ColorOptionPicker"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ReferenceRect4" type="ReferenceRect" parent="Spacer/VBoxContainer2/HBoxContainer2/ReferenceRect3/TabContainer/FaceOptions/TabContainer/EyeOptions/ColorOptionPicker/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.2
+
+[node name="HBoxContainer" type="ReferenceRect" parent="Spacer/VBoxContainer2/HBoxContainer2/ReferenceRect3/TabContainer/FaceOptions/TabContainer/EyeOptions/ColorOptionPicker/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 10.0
+border_color = Color(0, 0, 0, 1)
+editor_only = false
+
+[node name="ReferenceRect3" type="ReferenceRect" parent="Spacer/VBoxContainer2/HBoxContainer2/ReferenceRect3/TabContainer/FaceOptions/TabContainer/EyeOptions/ColorOptionPicker/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.7
+
+[node name="ReferenceRect" type="ReferenceRect" parent="Spacer/VBoxContainer2/HBoxContainer2/ReferenceRect3/TabContainer/FaceOptions/TabContainer/EyeOptions/ColorOptionPicker"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.05
+
+[node name="GalleryNode" parent="Spacer/VBoxContainer2/HBoxContainer2/ReferenceRect3/TabContainer/FaceOptions/TabContainer/EyeOptions" instance=ExtResource("14_sq54w")]
+layout_mode = 2
+size_flags_stretch_ratio = 5.0
+
+[node name="Buttons" type="VBoxContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/ReferenceRect3/TabContainer/FaceOptions/TabContainer/EyeOptions"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ReferenceRect2" type="ReferenceRect" parent="Spacer/VBoxContainer2/HBoxContainer2/ReferenceRect3/TabContainer/FaceOptions/TabContainer/EyeOptions/Buttons"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.2
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/ReferenceRect3/TabContainer/FaceOptions/TabContainer/EyeOptions/Buttons"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+
+[node name="ReferenceRect" type="ReferenceRect" parent="Spacer/VBoxContainer2/HBoxContainer2/ReferenceRect3/TabContainer/FaceOptions/TabContainer/EyeOptions/Buttons/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.01
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/ReferenceRect3/TabContainer/FaceOptions/TabContainer/EyeOptions/Buttons/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 0
+
+[node name="Button" type="Button" parent="Spacer/VBoxContainer2/HBoxContainer2/ReferenceRect3/TabContainer/FaceOptions/TabContainer/EyeOptions/Buttons/HBoxContainer3/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect" type="TextureRect" parent="Spacer/VBoxContainer2/HBoxContainer2/ReferenceRect3/TabContainer/FaceOptions/TabContainer/EyeOptions/Buttons/HBoxContainer3/HBoxContainer/Button"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_o2jqn")
+texture = ExtResource("17_r0mrs")
+expand_mode = 2
+stretch_mode = 5
+flip_h = true
+
+[node name="Button2" type="Button" parent="Spacer/VBoxContainer2/HBoxContainer2/ReferenceRect3/TabContainer/FaceOptions/TabContainer/EyeOptions/Buttons/HBoxContainer3/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect" type="TextureRect" parent="Spacer/VBoxContainer2/HBoxContainer2/ReferenceRect3/TabContainer/FaceOptions/TabContainer/EyeOptions/Buttons/HBoxContainer3/HBoxContainer/Button2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_o2jqn")
+texture = ExtResource("17_r0mrs")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="ReferenceRect2" type="ReferenceRect" parent="Spacer/VBoxContainer2/HBoxContainer2/ReferenceRect3/TabContainer/FaceOptions/TabContainer/EyeOptions/Buttons/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.01
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/ReferenceRect3/TabContainer/FaceOptions/TabContainer/EyeOptions/Buttons/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 0
+
+[node name="Button" type="Button" parent="Spacer/VBoxContainer2/HBoxContainer2/ReferenceRect3/TabContainer/FaceOptions/TabContainer/EyeOptions/Buttons/HBoxContainer3/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect" type="TextureRect" parent="Spacer/VBoxContainer2/HBoxContainer2/ReferenceRect3/TabContainer/FaceOptions/TabContainer/EyeOptions/Buttons/HBoxContainer3/HBoxContainer2/Button"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_o2jqn")
+texture = ExtResource("18_jmpbr")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Button2" type="Button" parent="Spacer/VBoxContainer2/HBoxContainer2/ReferenceRect3/TabContainer/FaceOptions/TabContainer/EyeOptions/Buttons/HBoxContainer3/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect" type="TextureRect" parent="Spacer/VBoxContainer2/HBoxContainer2/ReferenceRect3/TabContainer/FaceOptions/TabContainer/EyeOptions/Buttons/HBoxContainer3/HBoxContainer2/Button2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_o2jqn")
+texture = ExtResource("18_jmpbr")
+expand_mode = 2
+stretch_mode = 5
+flip_v = true
+
+[node name="ReferenceRect3" type="ReferenceRect" parent="Spacer/VBoxContainer2/HBoxContainer2/ReferenceRect3/TabContainer/FaceOptions/TabContainer/EyeOptions/Buttons/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.01
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/ReferenceRect3/TabContainer/FaceOptions/TabContainer/EyeOptions/Buttons/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 0
+
+[node name="Button" type="Button" parent="Spacer/VBoxContainer2/HBoxContainer2/ReferenceRect3/TabContainer/FaceOptions/TabContainer/EyeOptions/Buttons/HBoxContainer3/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect" type="TextureRect" parent="Spacer/VBoxContainer2/HBoxContainer2/ReferenceRect3/TabContainer/FaceOptions/TabContainer/EyeOptions/Buttons/HBoxContainer3/HBoxContainer3/Button"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_o2jqn")
+texture = ExtResource("18_0pb32")
+expand_mode = 2
+stretch_mode = 5
+flip_h = true
+
+[node name="Button2" type="Button" parent="Spacer/VBoxContainer2/HBoxContainer2/ReferenceRect3/TabContainer/FaceOptions/TabContainer/EyeOptions/Buttons/HBoxContainer3/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect" type="TextureRect" parent="Spacer/VBoxContainer2/HBoxContainer2/ReferenceRect3/TabContainer/FaceOptions/TabContainer/EyeOptions/Buttons/HBoxContainer3/HBoxContainer3/Button2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_o2jqn")
+texture = ExtResource("18_0pb32")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="ReferenceRect4" type="ReferenceRect" parent="Spacer/VBoxContainer2/HBoxContainer2/ReferenceRect3/TabContainer/FaceOptions/TabContainer/EyeOptions/Buttons/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.01
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/ReferenceRect3/TabContainer/FaceOptions/TabContainer/EyeOptions/Buttons/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 0
+
+[node name="Button" type="Button" parent="Spacer/VBoxContainer2/HBoxContainer2/ReferenceRect3/TabContainer/FaceOptions/TabContainer/EyeOptions/Buttons/HBoxContainer3/HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect" type="TextureRect" parent="Spacer/VBoxContainer2/HBoxContainer2/ReferenceRect3/TabContainer/FaceOptions/TabContainer/EyeOptions/Buttons/HBoxContainer3/HBoxContainer4/Button"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_o2jqn")
+texture = ExtResource("3_k7we3")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Button2" type="Button" parent="Spacer/VBoxContainer2/HBoxContainer2/ReferenceRect3/TabContainer/FaceOptions/TabContainer/EyeOptions/Buttons/HBoxContainer3/HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect" type="TextureRect" parent="Spacer/VBoxContainer2/HBoxContainer2/ReferenceRect3/TabContainer/FaceOptions/TabContainer/EyeOptions/Buttons/HBoxContainer3/HBoxContainer4/Button2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_o2jqn")
+texture = ExtResource("4_jxcwy")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="ReferenceRect5" type="ReferenceRect" parent="Spacer/VBoxContainer2/HBoxContainer2/ReferenceRect3/TabContainer/FaceOptions/TabContainer/EyeOptions/Buttons/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.01
+
+[node name="ReferenceRect" type="ReferenceRect" parent="Spacer/VBoxContainer2/HBoxContainer2/ReferenceRect3/TabContainer/FaceOptions/TabContainer/EyeOptions/Buttons"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.2
+
+[node name="ReferenceRect3" type="ReferenceRect" parent="Spacer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.05
+
+[node name="ReferenceRect" type="ReferenceRect" parent="Spacer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.1
