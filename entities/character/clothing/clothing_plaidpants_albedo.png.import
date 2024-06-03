@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dvyn6o7rr5vu6"
-path.bptc="res://.godot/imported/clothing_corduroypantswbelt_roughness.png-6a2d0e4578a1e6326fb52c5cfc486f01.bptc.ctex"
+uid="uid://bi6mhnycdrxqu"
+path.bptc="res://.godot/imported/clothing_plaidpants_albedo.png-858c1126f9655c486623cae069d465d2.bptc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://entities/character/clothing/clothing_corduroypantswbelt_roughness.png"
-dest_files=["res://.godot/imported/clothing_corduroypantswbelt_roughness.png-6a2d0e4578a1e6326fb52c5cfc486f01.bptc.ctex"]
+source_file="res://entities/character/clothing/clothing_plaidpants_albedo.png"
+dest_files=["res://.godot/imported/clothing_plaidpants_albedo.png-858c1126f9655c486623cae069d465d2.bptc.ctex"]
 
 [params]
 

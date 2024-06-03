@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c1d56aa85pfno"
-path.bptc="res://.godot/imported/clothing_pantalonshortswbelt_albedo.png-6624f6fc7c70395f17ab8bbde229754a.bptc.ctex"
+uid="uid://dckilkspi1mel"
+path.bptc="res://.godot/imported/clothing_pantalonrolledpants_roughness.png-0cf7548037a02db4ca4a4fd19d33ec74.bptc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://entities/character/clothing/clothing_pantalonshortswbelt_albedo.png"
-dest_files=["res://.godot/imported/clothing_pantalonshortswbelt_albedo.png-6624f6fc7c70395f17ab8bbde229754a.bptc.ctex"]
+source_file="res://entities/character/clothing/clothing_pantalonrolledpants_roughness.png"
+dest_files=["res://.godot/imported/clothing_pantalonrolledpants_roughness.png-0cf7548037a02db4ca4a4fd19d33ec74.bptc.ctex"]
 
 [params]
 

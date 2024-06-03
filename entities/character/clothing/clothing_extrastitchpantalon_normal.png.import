@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cc43r3d83a7mc"
-path.bptc="res://.godot/imported/clothing_corduroypantswbelt_albedo.png-f170494f1b666e73c792592373d10905.bptc.ctex"
+uid="uid://dbqtnukfcveux"
+path.bptc="res://.godot/imported/clothing_extrastitchpantalon_normal.png-61042ee40be86f165545f5a8f89a36ba.bptc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://entities/character/clothing/clothing_corduroypantswbelt_albedo.png"
-dest_files=["res://.godot/imported/clothing_corduroypantswbelt_albedo.png-f170494f1b666e73c792592373d10905.bptc.ctex"]
+source_file="res://entities/character/clothing/clothing_extrastitchpantalon_normal.png"
+dest_files=["res://.godot/imported/clothing_extrastitchpantalon_normal.png-61042ee40be86f165545f5a8f89a36ba.bptc.ctex"]
 
 [params]
 
