@@ -1,19 +1,25 @@
-[gd_resource type="ShaderMaterial" load_steps=5 format=3 uid="uid://dclhlui6th110"]
+[gd_resource type="ShaderMaterial" load_steps=9 format=3 uid="uid://dclhlui6th110"]
 
 [ext_resource type="Shader" uid="uid://dkcbfqu6cc34g" path="res://entities/character/head/character_face_shader.tres" id="1_qj31f"]
 [ext_resource type="CompressedTexture2DArray" uid="uid://b5l0k8hd6jdcu" path="res://entities/character/head/character_eyebrows_texture.svg" id="2_1cmt4"]
+[ext_resource type="CompressedTexture2DArray" uid="uid://ip7i3a6eo2g1" path="res://entities/character/head/facial_details/makeup_eyeshadowsoftbig_sheet.png" id="2_3i0qw"]
 [ext_resource type="CompressedTexture2DArray" uid="uid://b2s2xnqkfst6b" path="res://entities/character/head/character_eyes_texture.svg" id="3_4mi10"]
+[ext_resource type="CompressedTexture2DArray" uid="uid://dg484if27j2vy" path="res://entities/character/head/facial_details/piercing_eyebrowstud_sheet.svg" id="3_4umb2"]
+[ext_resource type="CompressedTexture2DArray" uid="uid://ctx80qp1s2jd2" path="res://entities/character/head/facial_details/makeup_eyelinerwinged_sheet.svg" id="4_hyftf"]
 [ext_resource type="CompressedTexture2DArray" uid="uid://cwrwjiecowt3n" path="res://entities/character/head/character_mouth_textures.svg" id="4_v0eu6"]
+[ext_resource type="CompressedTexture2DArray" uid="uid://dnw1xsi6elgbp" path="res://entities/character/head/facial_details/facialhair_moustaches_sheet.svg" id="7_y762h"]
 
 [resource]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("1_qj31f")
+shader_parameter/EyeShadowColor = Color(1, 0, 1, 1)
 shader_parameter/EyeSize = 1.0
 shader_parameter/EyePosition = Vector2(0, 0)
 shader_parameter/EyeAngle = 0.0
-shader_parameter/EyeBlinkIndex = 14
 shader_parameter/EyeIndex = 0
+shader_parameter/EyelinerColor = Color(1, 0.47451, 0.352941, 1)
+shader_parameter/EyeBlinkIndex = 14
 shader_parameter/BlinkOffset = 0.0
 shader_parameter/EyebrowColor = Color(0, 0, 0, 1)
 shader_parameter/EyebrowSize = 1.0
@@ -24,6 +30,14 @@ shader_parameter/MouthPosition = 0.0
 shader_parameter/MouthSize = 1.0
 shader_parameter/MouthIndex = 0
 shader_parameter/LipColor = Color(1, 0, 0, 1)
+shader_parameter/MoustachePosition = 0.0
+shader_parameter/MoustacheSize = 1.0
+shader_parameter/MoustacheIndex = 0
+shader_parameter/MoustacheColor = Color(1, 1, 1, 1)
+shader_parameter/EyeShadow = ExtResource("2_3i0qw")
+shader_parameter/Eyeliner = ExtResource("4_hyftf")
 shader_parameter/Eyes = ExtResource("3_4mi10")
 shader_parameter/Eyebrows = ExtResource("2_1cmt4")
+shader_parameter/EyebrowPiercings = ExtResource("3_4umb2")
 shader_parameter/Mouths = ExtResource("4_v0eu6")
+shader_parameter/Moustaches = ExtResource("7_y762h")
