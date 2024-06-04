@@ -1,0 +1,15 @@
+[gd_resource type="StandardMaterial3D" load_steps=5 format=3 uid="uid://dkwkt1vga0yfv"]
+
+[ext_resource type="Texture2D" uid="uid://c4pipsxtvnkja" path="res://entities/character/clothing/shoes/accessoires/wrist_watchleather_albedo.png" id="1_yjacu"]
+[ext_resource type="Texture2D" uid="uid://c6hhfmin41goh" path="res://entities/character/clothing/shoes/accessoires/wrist_watchleather_metallic.png" id="2_1hrjy"]
+[ext_resource type="Texture2D" uid="uid://c2cqh46f8qjca" path="res://entities/character/clothing/shoes/accessoires/wrist_watchleather_normal.png" id="3_thq8s"]
+[ext_resource type="Texture2D" uid="uid://bc7twgepdf85t" path="res://entities/character/clothing/shoes/accessoires/wrist_watchleather_roughness.png" id="4_8vfab"]
+
+[resource]
+transparency = 1
+albedo_texture = ExtResource("1_yjacu")
+metallic = 1.0
+metallic_texture = ExtResource("2_1hrjy")
+roughness_texture = ExtResource("4_8vfab")
+normal_enabled = true
+normal_texture = ExtResource("3_thq8s")

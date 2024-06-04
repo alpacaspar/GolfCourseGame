@@ -1,0 +1,15 @@
+[gd_resource type="StandardMaterial3D" load_steps=5 format=3 uid="uid://dsbi7a57ot1es"]
+
+[ext_resource type="Texture2D" uid="uid://dqr5hclxnuvoq" path="res://entities/character/clothing/shoes/accessoires/wrist_braceletgold_albedo.png" id="1_sirst"]
+[ext_resource type="Texture2D" uid="uid://csa5lhytm4jn" path="res://entities/character/clothing/shoes/accessoires/wrist_braceletgold_metallic.png" id="2_1anjq"]
+[ext_resource type="Texture2D" uid="uid://deoe74mqmwaa4" path="res://entities/character/clothing/shoes/accessoires/wrist_braceletgold_normal.png" id="3_2ufym"]
+[ext_resource type="Texture2D" uid="uid://dj4j4cnjvm3io" path="res://entities/character/clothing/shoes/accessoires/wrist_braceletgold_roughness.png" id="4_obpbl"]
+
+[resource]
+transparency = 1
+albedo_texture = ExtResource("1_sirst")
+metallic = 1.0
+metallic_texture = ExtResource("2_1anjq")
+roughness_texture = ExtResource("4_obpbl")
+normal_enabled = true
+normal_texture = ExtResource("3_2ufym")
