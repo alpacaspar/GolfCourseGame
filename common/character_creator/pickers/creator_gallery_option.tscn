@@ -1,18 +1,23 @@
 [gd_scene load_steps=4 format=3 uid="uid://bj1d4jmao707v"]
 
 [ext_resource type="Script" path="res://addons/npc_editor/ui/npc_customizer_option.gd" id="1_kecmg"]
-[ext_resource type="Theme" uid="uid://pq6ete4ie6a8" path="res://common/character_creator/character_creator_theme.tres" id="1_v6li8"]
+[ext_resource type="Theme" uid="uid://pq6ete4ie6a8" path="res://common/character_creator/resources/character_creator_theme.tres" id="1_v6li8"]
 [ext_resource type="Texture2D" uid="uid://dfspa0f55imyc" path="res://icon.svg" id="2_rmiw8"]
 
 [node name="NPCCustomizerGalleryOption" type="PanelContainer" node_paths=PackedStringArray("button", "texture")]
 custom_minimum_size = Vector2(72, 72)
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -104.0
+offset_top = -36.0
+offset_right = 104.0
+offset_bottom = 36.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
-size_flags_vertical = 3
 theme = ExtResource("1_v6li8")
 script = ExtResource("1_kecmg")
 button = NodePath("Button")
@@ -31,5 +36,5 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 2
 texture = ExtResource("2_rmiw8")
-expand_mode = 3
+expand_mode = 5
 stretch_mode = 5

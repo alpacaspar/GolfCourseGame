@@ -1,0 +1,6 @@
+[gd_resource type="Resource" script_class="IndexTracker" load_steps=2 format=3 uid="uid://df4my484pbut5"]
+
+[ext_resource type="Script" path="res://common/character_creator/resources/index_tracker.gd" id="1_d2e1m"]
+
+[resource]
+script = ExtResource("1_d2e1m")

@@ -1,6 +1,6 @@
 [gd_scene load_steps=20 format=3 uid="uid://0c1svuww682y"]
 
-[ext_resource type="PackedScene" uid="uid://di1ol523f6hnn" path="res://common/character_creator/character_creator.tscn" id="1_gopom"]
+[ext_resource type="PackedScene" uid="uid://di1ol523f6hnn" path="res://common/character_creator/main/character_creator.tscn" id="1_gopom"]
 [ext_resource type="Texture2D" uid="uid://drkx2fvxykkrs" path="res://common/character_creator/icons/noses/nose_1.png" id="2_p0tqx"]
 [ext_resource type="PackedScene" uid="uid://dbssg6p52li32" path="res://entities/terrain/terrain.tscn" id="2_uk66u"]
 [ext_resource type="Texture2D" uid="uid://bdh257ltncw5s" path="res://common/character_creator/icons/noses/nose_2.png" id="3_bssv1"]

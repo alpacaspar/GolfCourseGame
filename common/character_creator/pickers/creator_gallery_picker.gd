@@ -1,5 +1,5 @@
 @tool
-class_name NPCCustomizerGallery
+class_name CreatorGallery
 extends Control
 
 

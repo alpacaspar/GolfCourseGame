@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://5fowc4q08ld3"]
 
 [ext_resource type="Script" path="res://addons/npc_editor/ui/npc_customizer_option.gd" id="1_320y7"]
-[ext_resource type="Theme" uid="uid://pq6ete4ie6a8" path="res://common/character_creator/character_creator_theme.tres" id="1_manhe"]
+[ext_resource type="Theme" uid="uid://pq6ete4ie6a8" path="res://common/character_creator/resources/character_creator_theme.tres" id="1_manhe"]
 [ext_resource type="Texture2D" uid="uid://dfspa0f55imyc" path="res://icon.svg" id="2_vhrb1"]
 
 [node name="NPCCustomizerOption" type="PanelContainer" node_paths=PackedStringArray("button", "texture")]
