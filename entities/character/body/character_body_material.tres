@@ -10,6 +10,7 @@ render_priority = 0
 shader = ExtResource("1_irf5s")
 shader_parameter/SkinColor = Color(0.864786, 0.70928, 0.620483, 1)
 shader_parameter/BlushColor = Color(1, 1, 1, 1)
+shader_parameter/BeardColor = Color(1, 1, 1, 1)
 shader_parameter/Albedo = ExtResource("1_bxum2")
 shader_parameter/Blush = ExtResource("3_flh8l")
 shader_parameter/Roughness = ExtResource("2_eml3e")

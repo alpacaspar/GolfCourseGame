@@ -1,4 +1,4 @@
-[gd_resource type="ShaderMaterial" load_steps=9 format=3 uid="uid://dclhlui6th110"]
+[gd_resource type="ShaderMaterial" load_steps=11 format=3 uid="uid://dclhlui6th110"]
 
 [ext_resource type="Shader" uid="uid://dkcbfqu6cc34g" path="res://entities/character/head/character_face_shader.tres" id="1_qj31f"]
 [ext_resource type="CompressedTexture2DArray" uid="uid://b5l0k8hd6jdcu" path="res://entities/character/head/character_eyebrows_texture.svg" id="2_1cmt4"]
@@ -7,7 +7,9 @@
 [ext_resource type="CompressedTexture2DArray" uid="uid://dg484if27j2vy" path="res://entities/character/head/facial_details/piercing_eyebrowstud_sheet.svg" id="3_4umb2"]
 [ext_resource type="CompressedTexture2DArray" uid="uid://ctx80qp1s2jd2" path="res://entities/character/head/facial_details/makeup_eyelinerwinged_sheet.svg" id="4_hyftf"]
 [ext_resource type="CompressedTexture2DArray" uid="uid://cwrwjiecowt3n" path="res://entities/character/head/character_mouth_textures.svg" id="4_v0eu6"]
+[ext_resource type="CompressedTexture2DArray" uid="uid://c533wglac8vdc" path="res://entities/character/head/glasses_sheet.svg" id="7_qdkwo"]
 [ext_resource type="CompressedTexture2DArray" uid="uid://dnw1xsi6elgbp" path="res://entities/character/head/facial_details/facialhair_moustaches_sheet.svg" id="7_y762h"]
+[ext_resource type="CompressedTexture2DArray" uid="uid://cihd0bka08jdu" path="res://entities/character/head/glassesmask_sheet.png" id="8_815oe"]
 
 [resource]
 resource_local_to_scene = true
@@ -26,6 +28,9 @@ shader_parameter/EyebrowSize = 1.0
 shader_parameter/EyebrowPosition = Vector2(0, 0)
 shader_parameter/EyebrowAngle = 0.0
 shader_parameter/EyebrowIndex = 0
+shader_parameter/SunglassesTint = Color(1, 1, 1, 0)
+shader_parameter/GlassesPosition = Vector2(0, 0)
+shader_parameter/GlassesIndex = 0
 shader_parameter/MouthPosition = 0.0
 shader_parameter/MouthSize = 1.0
 shader_parameter/MouthIndex = 0
@@ -39,5 +44,7 @@ shader_parameter/Eyeliner = ExtResource("4_hyftf")
 shader_parameter/Eyes = ExtResource("3_4mi10")
 shader_parameter/Eyebrows = ExtResource("2_1cmt4")
 shader_parameter/EyebrowPiercings = ExtResource("3_4umb2")
+shader_parameter/GlassesGlasses = ExtResource("8_815oe")
+shader_parameter/GlassesFrames = ExtResource("7_qdkwo")
 shader_parameter/Mouths = ExtResource("4_v0eu6")
 shader_parameter/Moustaches = ExtResource("7_y762h")
