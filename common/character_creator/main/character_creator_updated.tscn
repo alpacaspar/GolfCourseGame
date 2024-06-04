@@ -32,38 +32,38 @@
 
 [sub_resource type="Resource" id="Resource_uplhe"]
 script = ExtResource("4_wuhbt")
-vertical_min_max = Vector2(0, 0)
-horizontal_min_max = Vector2(0, 0)
-rotation_min_max = Vector2(0, 0)
-scale_min_max = Vector2(0, 0)
+vertical_min_max = Vector2(-1, 1)
+horizontal_min_max = Vector2(-1, 1)
+rotation_min_max = Vector2(-45, 45)
+scale_min_max = Vector2(0.5, 1.5)
 
 [sub_resource type="Resource" id="Resource_583g3"]
 script = ExtResource("4_wuhbt")
-vertical_min_max = Vector2(0, 0)
-horizontal_min_max = Vector2(0, 0)
-rotation_min_max = Vector2(0, 0)
-scale_min_max = Vector2(0, 0)
+vertical_min_max = Vector2(-1, 1)
+horizontal_min_max = Vector2(-1, 1)
+rotation_min_max = Vector2(-45, 45)
+scale_min_max = Vector2(0.5, 1.5)
 
 [sub_resource type="Resource" id="Resource_yjiwt"]
 script = ExtResource("4_wuhbt")
-vertical_min_max = Vector2(0, 0)
-horizontal_min_max = Vector2(0, 0)
-rotation_min_max = Vector2(0, 0)
-scale_min_max = Vector2(0, 0)
+vertical_min_max = Vector2(-1, 1)
+horizontal_min_max = Vector2(-1, 1)
+rotation_min_max = Vector2(-45, 45)
+scale_min_max = Vector2(0.5, 1.5)
 
 [sub_resource type="Resource" id="Resource_1dj7s"]
 script = ExtResource("4_wuhbt")
-vertical_min_max = Vector2(0, 0)
-horizontal_min_max = Vector2(0, 0)
-rotation_min_max = Vector2(0, 0)
-scale_min_max = Vector2(0, 0)
+vertical_min_max = Vector2(-1, 1)
+horizontal_min_max = Vector2(-1, 1)
+rotation_min_max = Vector2(-45, 45)
+scale_min_max = Vector2(0.5, 1.5)
 
 [sub_resource type="Resource" id="Resource_jidrq"]
 script = ExtResource("4_wuhbt")
-vertical_min_max = Vector2(0, 0)
-horizontal_min_max = Vector2(0, 0)
-rotation_min_max = Vector2(0, 0)
-scale_min_max = Vector2(0, 0)
+vertical_min_max = Vector2(-1, 1)
+horizontal_min_max = Vector2(-1, 1)
+rotation_min_max = Vector2(-45, 45)
+scale_min_max = Vector2(0.5, 1.5)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8pbir"]
 bg_color = Color(0.937255, 0.937255, 0.937255, 1)
@@ -73,7 +73,7 @@ font = ExtResource("4_et5cu")
 font_size = 48
 font_color = Color(0, 0, 0, 1)
 
-[node name="CharacterEditor" type="Control" node_paths=PackedStringArray("eyes_option_picker", "eyebrows_option_picker", "noses_option_picker", "ears_option_picker", "mouths_option_picker", "hair_option_picker", "eyeshadow_option_picker", "eyeliner_option_picker", "blush_option_picker", "glasses_option_picker", "mustaches_option_picker", "beards_option_picker", "piercings_option_picker", "skin_color_option_pickers", "eyebrow_color_option_picker", "hair_color_option_picker", "mustache_color_option_picker", "beard_color_option_picker", "lip_color_option_picker", "eyeshadow_color_option_picker", "eyeliner_color_option_picker", "blush_color_option_picker", "glasses_color_option_picker", "eye_buttons", "eyebrow_buttons", "mouth_buttons", "glasses_buttons", "mustache_buttons", "shirt_option_picker", "pants_option_picker", "sock_option_picker", "shoes_option_picker", "belt_option_picker", "wrists_option_picker", "shirt_color_option_picker", "pants_color_option_picker", "sock_color_option_picker", "shoes_color_option_picker", "belt_color_option_picker", "name_field", "preview", "zoom_slider", "rotation_slider")]
+[node name="CharacterEditor" type="Control" node_paths=PackedStringArray("eyes_option_picker", "eyebrows_option_picker", "noses_option_picker", "ears_option_picker", "mouths_option_picker", "hair_option_picker", "eyeshadow_option_picker", "eyeliner_option_picker", "blush_option_picker", "glasses_option_picker", "mustaches_option_picker", "beards_option_picker", "piercings_option_picker", "earrings_option_picker", "skin_color_option_pickers", "eyebrow_color_option_picker", "hair_color_option_picker", "mustache_color_option_picker", "beard_color_option_picker", "lip_color_option_picker", "eyeshadow_color_option_picker", "eyeliner_color_option_picker", "blush_color_option_picker", "glasses_color_option_picker", "eye_buttons", "eyebrow_buttons", "mouth_buttons", "glasses_buttons", "mustache_buttons", "shirt_option_picker", "pants_option_picker", "sock_option_picker", "shoes_option_picker", "belt_option_picker", "wrists_option_picker", "shirt_color_option_picker", "pants_color_option_picker", "sock_color_option_picker", "shoes_color_option_picker", "belt_color_option_picker", "name_field", "preview", "zoom_slider", "rotation_slider")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -95,6 +95,7 @@ glasses_option_picker = NodePath("Spacer/VBoxContainer2/HBoxContainer2/WhereTheF
 mustaches_option_picker = NodePath("Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/FacialHairOptions/CreatorGallery")
 beards_option_picker = NodePath("Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/FacialHairOptions/CreatorGallery2")
 piercings_option_picker = NodePath("Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/PiercingOptions/CreatorGallery")
+earrings_option_picker = NodePath("Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/PiercingOptions/CreatorGallery2")
 skin_color_tracker = ExtResource("22_4oapn")
 skin_color_option_pickers = [NodePath("Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/EyeOptions/ColorOptionPicker"), NodePath("Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/EarOptions/ColorOptionPicker"), NodePath("Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/NoseOptions/ColorOptionPicker")]
 eyebrow_color_option_picker = NodePath("Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/EyebrowOptions/ColorOptionPicker")
@@ -380,13 +381,11 @@ stretch_mode = 5
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 8.27
-current_tab = 1
 tabs_visible = false
 script = ExtResource("8_g1j11")
 button_group = ExtResource("5_snfil")
 
 [node name="FaceOptions" type="VBoxContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody"]
-visible = false
 layout_mode = 2
 
 [node name="ButtonHolder" type="VBoxContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions"]
@@ -1034,8 +1033,14 @@ layout_mode = 2
 
 [node name="CreatorGallery" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/PiercingOptions" instance=ExtResource("14_sq54w")]
 layout_mode = 2
+size_flags_stretch_ratio = 4.0
+
+[node name="CreatorGallery2" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/PiercingOptions" instance=ExtResource("14_sq54w")]
+layout_mode = 2
+size_flags_stretch_ratio = 4.0
 
 [node name="BodyOptions" type="VBoxContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody"]
+visible = false
 layout_mode = 2
 
 [node name="ButtonHolder" type="VBoxContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions"]

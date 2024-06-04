@@ -20,6 +20,7 @@ extends Control
 @export var beards_option_picker: CreatorGallery
 
 @export var piercings_option_picker: CreatorGallery
+@export var earrings_option_picker: CreatorGallery
 
 @export_subgroup("Color Picker")
 @export var skin_color_tracker: IndexTracker
@@ -73,6 +74,7 @@ extends Control
 @export var ear_icons: Array[Texture] = []
 @export var beard_icons: Array[Texture] = []
 @export var piercing_icons: Array[Texture] = []
+@export var earring_icons: Array[Texture] = []
 
 @export_group("Preview Stuff")
 @export var preview: TextureRect
@@ -126,6 +128,7 @@ func _ready():
 	await _set_external_icon_button_connections(hair_icons, CharacterFactory.hair_meshes, hair_option_picker)
 	await _set_external_icon_button_connections(CharacterFactory.beard_textures, CharacterFactory.beard_textures, beards_option_picker)
 	await _set_external_icon_button_connections(piercing_icons, CharacterFactory.earring_meshes, piercings_option_picker)
+	await _set_external_icon_button_connections(earring_icons, CharacterFactory.earring_meshes, earrings_option_picker)
 
 	# Build in icons
 	await _set_texture_button_connections(CharacterFactory.eye_textures, eyes_option_picker)
@@ -147,11 +150,11 @@ func _ready():
 	await _set_body_button_connections(CharacterFactory.wrists_datas, wrists_option_picker)
 
 	# Offset Buttons
-	eye_buttons.set_values(eye_range)
-	eyebrow_buttons.set_values(eyebrow_range)
-	mouth_buttons.set_values(mouth_range)
-	glasses_buttons.set_values(glasses_range)
-	mustache_buttons.set_values(mustache_range)
+	eye_buttons.set_values(eye_range, _update_character)
+	eyebrow_buttons.set_values(eyebrow_range, _update_character)
+	mouth_buttons.set_values(mouth_range, _update_character)
+	glasses_buttons.set_values(glasses_range, _update_character)
+	mustache_buttons.set_values(mustache_range, _update_character)
 
 	_update_character()
 
@@ -176,7 +179,8 @@ func _update_character(_value = 0):
 	edited_resource.eyeliner_index = eyeliner_option_picker.get_current_index()
 	edited_resource.blush_index = blush_option_picker.get_current_index()
 	edited_resource.glasses_index = glasses_option_picker.get_current_index()
-	edited_resource.piercing_index = piercings_option_picker.get_current_index()
+	edited_resource.eyebrow_piercing_index = piercings_option_picker.get_current_index()
+	edited_resource.earring_index = earrings_option_picker.get_current_index()
 
 	edited_resource.mustache_index = mustaches_option_picker.get_current_index()
 	edited_resource.beard_index = beards_option_picker.get_current_index()

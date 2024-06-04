@@ -64,6 +64,7 @@ func spawn_character(resource: NPCResource) -> Character:
 	face_material.set("shader_parameter/EyebrowIndex", resource.eyebrow_index)
 	face_material.set("shader_parameter/MoustacheIndex", resource.mustache_index)
 	#face_material.set("shader_parameter/BeardIndex", resource.beard_index)
+	#face_material.set("shader_parameter/GlassesIndex", resource.glasses_index)
 
 	face_material.set("shader_parameter/EyeShadow", eyeshadow_textures[resource.eyeshadow_index])
 	face_material.set("shader_parameter/EyebrowPiercings", eyebrow_piercing_textures[resource.eyebrow_piercing_index])
@@ -111,10 +112,10 @@ func spawn_character(resource: NPCResource) -> Character:
 	# clothing_material.set("shader_parameter/PantsRoughness", pants.roughness)
 	# clothing_material.set("shader_parameter/PantsNormal", pants.normal)
 
-	# # Setting Head meshes
-	# character.ear_mesh_instance.mesh = ear_meshes[resource.ear_index]
-	# character.nose_mesh_instance.mesh = nose_meshes[resource.nose_index]
-	# character.hair_mesh_instance.mesh = hair_meshes[resource.hair_index]
+	# Setting Head meshes
+	character.ear_mesh_instance.mesh = ear_meshes[resource.ear_index]
+	character.nose_mesh_instance.mesh = nose_meshes[resource.nose_index]
+	character.hair_mesh_instance.mesh = hair_meshes[resource.hair_index]
 
 	# Setting Skin & Hair colors
 	body_material.set("albedo_color", skin_colors[resource.skin_color_index])

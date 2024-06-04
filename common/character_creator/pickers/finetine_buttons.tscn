@@ -16,14 +16,18 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 3
 script = ExtResource("1_rwyyh")
-up_button = NodePath("HBoxContainer3/HBoxContainer2/Button")
-down_button = NodePath("HBoxContainer3/HBoxContainer2/Button2")
+up_button = NodePath("HBoxContainer3/HBoxContainer2/Button2")
+down_button = NodePath("HBoxContainer3/HBoxContainer2/Button")
+vertical_step = 0.05
 left_button = NodePath("HBoxContainer3/HBoxContainer/Button")
 right_button = NodePath("HBoxContainer3/HBoxContainer/Button2")
+horizontal_step = 0.05
 rotate_left_button = NodePath("HBoxContainer3/HBoxContainer3/Button")
 rotate_right_button = NodePath("HBoxContainer3/HBoxContainer3/Button2")
+rotation_step = 5.0
 scale_up_button = NodePath("HBoxContainer3/HBoxContainer4/Button")
 scale_down_button = NodePath("HBoxContainer3/HBoxContainer4/Button2")
+scaling_step = 0.02
 
 [node name="ReferenceRect2" type="ReferenceRect" parent="."]
 layout_mode = 2

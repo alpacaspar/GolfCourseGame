@@ -7,31 +7,31 @@ extends VBoxContainer
 @export var down_button: Button
 @export var vertical_step: float
 var vertical_range: Vector2
-var vertical_current: int
+var vertical_current: float = 0
 
 @export_group("Horizontal")
 @export var left_button: Button
 @export var right_button: Button
 @export var horizontal_step: float
 var horizontal_range: Vector2
-var horizontal_current: int
+var horizontal_current: float = 0
 
 @export_group("Rotation")
 @export var rotate_left_button: Button
 @export var rotate_right_button: Button
 @export var rotation_step: float
 var rotation_range: Vector2
-var rotation_current: int
+var rotation_current: float = 0
 
 @export_group("Scaling")
 @export var scale_up_button: Button
 @export var scale_down_button: Button
 @export var scaling_step: float
 var scale_range: Vector2
-var scale_current: int
+var scale_current: float = 1
 
 
-func set_values(ranges: FinetuneRanges):
+func set_values(ranges: FinetuneRanges, callback):
     vertical_range = ranges.vertical_min_max
     horizontal_range = ranges.horizontal_min_max
     rotation_range = ranges.rotation_min_max
@@ -39,19 +39,27 @@ func set_values(ranges: FinetuneRanges):
     
     if left_button != null:
         left_button.pressed.connect(_left)
+        left_button.pressed.connect(callback)
     if right_button != null:
         right_button.pressed.connect(_right)
+        right_button.pressed.connect(callback)
     
     if rotate_left_button != null:
         rotate_left_button.pressed.connect(_rotate_left)
+        rotate_left_button.pressed.connect(callback)
     if rotate_right_button != null:
         rotate_right_button.pressed.connect(_rotate_right)
+        rotate_right_button.pressed.connect(callback)
     
     up_button.pressed.connect(_up)
+    up_button.pressed.connect(callback)
     down_button.pressed.connect(_down)
+    down_button.pressed.connect(callback)
 
     scale_up_button.pressed.connect(_scale_up)
+    scale_up_button.pressed.connect(callback)
     scale_down_button.pressed.connect(_scale_down)
+    scale_down_button.pressed.connect(callback)
 
 
 func get_values() -> FinetuneValues:

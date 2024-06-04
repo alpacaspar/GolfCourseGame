@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://cdh3hkt0sfd8y"]
+[gd_scene load_steps=52 format=3 uid="uid://cdh3hkt0sfd8y"]
 
 [ext_resource type="Script" path="res://common/character_factory/character_factory.gd" id="1_i4r0e"]
 [ext_resource type="ArrayMesh" uid="uid://ctvdng4wa44ne" path="res://entities/character/head/character_ears_1.res" id="2_r6hdl"]
@@ -34,7 +34,9 @@
 [ext_resource type="ArrayMesh" uid="uid://6ljqmoiu1j2t" path="res://entities/character/head/character_nose_2.res" id="15_urki0"]
 [ext_resource type="ArrayMesh" uid="uid://b7k8ihopssdbr" path="res://entities/character/head/character_nose_3.res" id="16_2jtp3"]
 [ext_resource type="ArrayMesh" uid="uid://dj1jdd4ovmg32" path="res://entities/character/head/earrings/character_earring_pearl_v2.res" id="16_fm231"]
+[ext_resource type="CompressedTexture2DArray" uid="uid://bidddg6auts75" path="res://entities/character/head/facial_details/piercing_eyebrowring_sheet.svg" id="16_ofr7k"]
 [ext_resource type="ArrayMesh" uid="uid://cmv4tjyf0d06p" path="res://entities/character/head/character_nose_4.res" id="17_3tgyj"]
+[ext_resource type="CompressedTexture2DArray" uid="uid://dg484if27j2vy" path="res://entities/character/head/facial_details/piercing_eyebrowstud_sheet.svg" id="17_grs16"]
 [ext_resource type="ArrayMesh" uid="uid://crmp5umwlij6q" path="res://entities/character/head/character_hair_afro.res" id="17_itvmc"]
 [ext_resource type="ArrayMesh" uid="uid://lm2oitaet2xx" path="res://entities/character/head/earrings/character_earring_pearl_v3.res" id="17_uvjdm"]
 [ext_resource type="ArrayMesh" uid="uid://dd46ewgihk2hd" path="res://entities/character/head/character_hair_bob.res" id="18_07lqu"]
@@ -59,6 +61,7 @@ mustache_textures = ExtResource("5_tr34a")
 blush_textures = Array[Texture]([ExtResource("6_ttfjd"), ExtResource("7_wvsx6"), ExtResource("8_ji7g3")])
 eyeshadow_textures = Array[CompressedTexture2DArray]([ExtResource("9_3ccqo"), ExtResource("10_x4f3u"), ExtResource("11_jv0df"), ExtResource("12_yb6kc"), ExtResource("13_as6bc")])
 eyeliner_textures = Array[CompressedTexture2DArray]([ExtResource("6_f705o"), ExtResource("11_61e7o")])
+eyebrow_piercing_textures = Array[CompressedTexture2DArray]([ExtResource("16_ofr7k"), ExtResource("17_grs16")])
 ear_meshes = Array[Mesh]([ExtResource("2_r6hdl"), ExtResource("3_wcwmv"), ExtResource("4_ujpgv"), ExtResource("5_tdhg7"), ExtResource("6_gepix")])
 earring_meshes = Array[Mesh]([ExtResource("10_0xbwj"), ExtResource("11_x0aaa"), ExtResource("12_1fn15"), ExtResource("13_oq8ra"), ExtResource("14_8nu28"), ExtResource("15_da6xe"), ExtResource("16_fm231"), ExtResource("17_uvjdm"), ExtResource("18_shak0"), ExtResource("19_g40vu"), ExtResource("20_3p7pv"), ExtResource("21_swbw3"), ExtResource("22_7db7x"), ExtResource("23_f0dkv"), ExtResource("24_dvcg3")])
 hair_meshes = Array[Mesh]([ExtResource("7_we6f7"), ExtResource("8_44eej"), ExtResource("9_4fntv"), ExtResource("10_0bh4e"), ExtResource("11_2rrxp"), ExtResource("12_pfcll"), ExtResource("13_jky7t"), ExtResource("17_itvmc"), ExtResource("18_07lqu")])
