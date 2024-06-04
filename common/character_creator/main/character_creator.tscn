@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://di1ol523f6hnn"]
+[gd_scene load_steps=23 format=3 uid="uid://di1ol523f6hnn"]
 
 [ext_resource type="Script" path="res://common/character_creator/main/character_creator.gd" id="1_aejrd"]
 [ext_resource type="ButtonGroup" uid="uid://gxcp7q5ddcrd" path="res://common/character_creator/button_groups/creator_window_button_group.tres" id="1_kytdn"]
@@ -17,50 +17,24 @@
 [ext_resource type="Texture2D" uid="uid://cmsumye0h7ks2" path="res://common/character_creator/icons/Shoes.svg" id="11_bswf2"]
 [ext_resource type="Texture2D" uid="uid://bngmvif3ad5r1" path="res://common/character_creator/icons/Naming.svg" id="12_ic3ai"]
 
-[sub_resource type="ButtonGroup" id="ButtonGroup_o2lol"]
-resource_name = "Eyes"
-
-[sub_resource type="ButtonGroup" id="ButtonGroup_ebivn"]
+[sub_resource type="ButtonGroup" id="ButtonGroup_pe58y"]
 resource_name = "Skin Color"
 
-[sub_resource type="ButtonGroup" id="ButtonGroup_2mkmq"]
-resource_name = "Eyebrows"
-
-[sub_resource type="ButtonGroup" id="ButtonGroup_dlcxg"]
-resource_name = "Mouths"
-
-[sub_resource type="ButtonGroup" id="ButtonGroup_yfxgg"]
-resource_name = "Noses"
-
-[sub_resource type="ButtonGroup" id="ButtonGroup_80yla"]
-resource_name = "Ears"
-
-[sub_resource type="ButtonGroup" id="ButtonGroup_tf0bv"]
-resource_name = "Hair"
-
-[sub_resource type="ButtonGroup" id="ButtonGroup_cn4sn"]
+[sub_resource type="ButtonGroup" id="ButtonGroup_6jbuf"]
 resource_name = "Hair Color"
 
-[sub_resource type="ButtonGroup" id="ButtonGroup_1a102"]
-resource_name = "Shirt"
-
-[sub_resource type="ButtonGroup" id="ButtonGroup_4f6m5"]
+[sub_resource type="ButtonGroup" id="ButtonGroup_fda7c"]
 resource_name = "Shirt Color"
 
-[sub_resource type="ButtonGroup" id="ButtonGroup_bpy01"]
-resource_name = "Pants"
-
-[sub_resource type="ButtonGroup" id="ButtonGroup_3djmt"]
+[sub_resource type="ButtonGroup" id="ButtonGroup_okcb4"]
 resource_name = "Pants Color"
 
 [sub_resource type="LabelSettings" id="LabelSettings_mraeu"]
 font_size = 24
 
-[sub_resource type="ButtonGroup" id="ButtonGroup_l4q78"]
+[sub_resource type="ButtonGroup" id="ButtonGroup_yoixt"]
 
-[sub_resource type="ButtonGroup" id="ButtonGroup_a04it"]
-
-[node name="CharacterEditor" type="Control" node_paths=PackedStringArray("eyes_option_picker", "eyebrows_option_picker", "noses_option_picker", "ears_option_picker", "mouths_option_picker", "hair_option_picker", "shirt_option_picker", "pants_option_picker", "skin_color_option_picker", "hair_color_option_picker", "shirt_color_option_picker", "pants_color_option_picker", "name_field", "eye_offset_slider", "eyebrow_offset_slider", "mouth_offset_slider", "mouth_size_slider", "preview", "zoom_slider", "rotation_slider", "rotation_box", "tab_group")]
+[node name="CharacterEditor" type="Control" node_paths=PackedStringArray("eyes_option_picker", "eyebrows_option_picker", "noses_option_picker", "ears_option_picker", "mouths_option_picker", "hair_option_picker", "hair_color_option_picker", "shirt_option_picker", "pants_option_picker", "shirt_color_option_picker", "pants_color_option_picker", "name_field", "preview", "zoom_slider", "rotation_slider")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -75,23 +49,15 @@ noses_option_picker = NodePath("VBoxContainer2/HBoxContainer2/VBoxContainer/NPCE
 ears_option_picker = NodePath("VBoxContainer2/HBoxContainer2/VBoxContainer/NPCEditor/VBoxContainer/TabContainer/EarOptions/GalleryNode")
 mouths_option_picker = NodePath("VBoxContainer2/HBoxContainer2/VBoxContainer/NPCEditor/VBoxContainer/TabContainer/MouthOptions/GalleryNode")
 hair_option_picker = NodePath("VBoxContainer2/HBoxContainer2/VBoxContainer/NPCEditor/VBoxContainer/TabContainer/HairOptions/GalleryNode")
+hair_color_option_picker = NodePath("VBoxContainer2/HBoxContainer2/VBoxContainer/NPCEditor/VBoxContainer/TabContainer/HairOptions/OptionPicker2")
 shirt_option_picker = NodePath("VBoxContainer2/HBoxContainer2/VBoxContainer/NPCEditor/VBoxContainer/TabContainer/ShirtOptions/GalleryNode")
 pants_option_picker = NodePath("VBoxContainer2/HBoxContainer2/VBoxContainer/NPCEditor/VBoxContainer/TabContainer/PantsOptions/GalleryNode")
-skin_color_option_picker = NodePath("VBoxContainer2/HBoxContainer2/VBoxContainer/NPCEditor/VBoxContainer/TabContainer/EyeOptions/OptionPicker")
-hair_color_option_picker = NodePath("VBoxContainer2/HBoxContainer2/VBoxContainer/NPCEditor/VBoxContainer/TabContainer/HairOptions/OptionPicker2")
 shirt_color_option_picker = NodePath("VBoxContainer2/HBoxContainer2/VBoxContainer/NPCEditor/VBoxContainer/TabContainer/ShirtOptions/OptionPicker3")
 pants_color_option_picker = NodePath("VBoxContainer2/HBoxContainer2/VBoxContainer/NPCEditor/VBoxContainer/TabContainer/PantsOptions/OptionPicker4")
 name_field = NodePath("VBoxContainer2/HBoxContainer2/VBoxContainer/NPCEditor/VBoxContainer/TabContainer/PersonalOptions/NameHolder/NameField")
-eye_offset_slider = NodePath("VBoxContainer2/HBoxContainer2/VBoxContainer/NPCEditor/VBoxContainer/TabContainer/EyeOptions/EyeOffset/HSlider")
-eyebrow_offset_slider = NodePath("VBoxContainer2/HBoxContainer2/VBoxContainer/NPCEditor/VBoxContainer/TabContainer/EyebrowOptions/EyebrowOffset/HSlider")
-mouth_offset_slider = NodePath("VBoxContainer2/HBoxContainer2/VBoxContainer/NPCEditor/VBoxContainer/TabContainer/MouthOptions/MouthOffset/HSlider")
-mouth_size_slider = NodePath("VBoxContainer2/HBoxContainer2/VBoxContainer/NPCEditor/VBoxContainer/TabContainer/MouthOptions/MouthSize/HSlider")
 preview = NodePath("VBoxContainer2/HBoxContainer2/VBoxContainer2/HBoxContainer/PreviewRect")
 zoom_slider = NodePath("VBoxContainer2/HBoxContainer2/VBoxContainer2/HBoxContainer/HBoxContainer/VSlider")
 rotation_slider = NodePath("VBoxContainer2/HBoxContainer2/VBoxContainer2/HBoxContainer3/HSlider")
-rotation_box = NodePath("VBoxContainer2/HBoxContainer2/VBoxContainer2/HBoxContainer3/SpinBox")
-window_button_group = ExtResource("1_kytdn")
-tab_group = NodePath("VBoxContainer2/HBoxContainer2/VBoxContainer/NPCEditor/VBoxContainer/TabContainer")
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -434,7 +400,6 @@ border_color = Color(1, 0, 0, 0)
 custom_minimum_size = Vector2(0, 75)
 layout_mode = 2
 theme = ExtResource("3_wnflr")
-button_group = SubResource("ButtonGroup_o2lol")
 
 [node name="ReferenceRect" type="ReferenceRect" parent="VBoxContainer2/HBoxContainer2/VBoxContainer/NPCEditor/VBoxContainer/TabContainer/EyeOptions"]
 custom_minimum_size = Vector2(10, 5)
@@ -489,7 +454,7 @@ border_color = Color(1, 0, 0, 0)
 [node name="OptionPicker" parent="VBoxContainer2/HBoxContainer2/VBoxContainer/NPCEditor/VBoxContainer/TabContainer/EyeOptions" instance=ExtResource("1_y4n6x")]
 layout_mode = 2
 theme = ExtResource("3_wnflr")
-button_group = SubResource("ButtonGroup_ebivn")
+button_group = SubResource("ButtonGroup_pe58y")
 
 [node name="EyebrowOptions" type="VBoxContainer" parent="VBoxContainer2/HBoxContainer2/VBoxContainer/NPCEditor/VBoxContainer/TabContainer"]
 visible = false
@@ -505,7 +470,6 @@ border_color = Color(1, 0, 0, 0)
 [node name="GalleryNode" parent="VBoxContainer2/HBoxContainer2/VBoxContainer/NPCEditor/VBoxContainer/TabContainer/EyebrowOptions" instance=ExtResource("3_5ut0o")]
 layout_mode = 2
 theme = ExtResource("3_wnflr")
-button_group = SubResource("ButtonGroup_2mkmq")
 
 [node name="ReferenceRect3" type="ReferenceRect" parent="VBoxContainer2/HBoxContainer2/VBoxContainer/NPCEditor/VBoxContainer/TabContainer/EyebrowOptions"]
 custom_minimum_size = Vector2(10, 5)
@@ -565,7 +529,6 @@ border_color = Color(1, 0, 0, 0)
 [node name="GalleryNode" parent="VBoxContainer2/HBoxContainer2/VBoxContainer/NPCEditor/VBoxContainer/TabContainer/MouthOptions" instance=ExtResource("3_5ut0o")]
 layout_mode = 2
 theme = ExtResource("3_wnflr")
-button_group = SubResource("ButtonGroup_dlcxg")
 
 [node name="ReferenceRect4" type="ReferenceRect" parent="VBoxContainer2/HBoxContainer2/VBoxContainer/NPCEditor/VBoxContainer/TabContainer/MouthOptions"]
 custom_minimum_size = Vector2(10, 5)
@@ -669,7 +632,6 @@ border_color = Color(1, 0, 0, 0)
 [node name="GalleryNode" parent="VBoxContainer2/HBoxContainer2/VBoxContainer/NPCEditor/VBoxContainer/TabContainer/NoseOptions" instance=ExtResource("3_5ut0o")]
 layout_mode = 2
 theme = ExtResource("3_wnflr")
-button_group = SubResource("ButtonGroup_yfxgg")
 
 [node name="EarOptions" type="VBoxContainer" parent="VBoxContainer2/HBoxContainer2/VBoxContainer/NPCEditor/VBoxContainer/TabContainer"]
 visible = false
@@ -685,7 +647,6 @@ border_color = Color(1, 0, 0, 0)
 [node name="GalleryNode" parent="VBoxContainer2/HBoxContainer2/VBoxContainer/NPCEditor/VBoxContainer/TabContainer/EarOptions" instance=ExtResource("3_5ut0o")]
 layout_mode = 2
 theme = ExtResource("3_wnflr")
-button_group = SubResource("ButtonGroup_80yla")
 
 [node name="HairOptions" type="VBoxContainer" parent="VBoxContainer2/HBoxContainer2/VBoxContainer/NPCEditor/VBoxContainer/TabContainer"]
 visible = false
@@ -701,7 +662,6 @@ border_color = Color(1, 0, 0, 0)
 [node name="GalleryNode" parent="VBoxContainer2/HBoxContainer2/VBoxContainer/NPCEditor/VBoxContainer/TabContainer/HairOptions" instance=ExtResource("3_5ut0o")]
 layout_mode = 2
 theme = ExtResource("3_wnflr")
-button_group = SubResource("ButtonGroup_tf0bv")
 
 [node name="ReferenceRect3" type="ReferenceRect" parent="VBoxContainer2/HBoxContainer2/VBoxContainer/NPCEditor/VBoxContainer/TabContainer/HairOptions"]
 custom_minimum_size = Vector2(10, 5)
@@ -712,7 +672,7 @@ border_color = Color(1, 0, 0, 0)
 [node name="OptionPicker2" parent="VBoxContainer2/HBoxContainer2/VBoxContainer/NPCEditor/VBoxContainer/TabContainer/HairOptions" instance=ExtResource("1_y4n6x")]
 layout_mode = 2
 theme = ExtResource("3_wnflr")
-button_group = SubResource("ButtonGroup_cn4sn")
+button_group = SubResource("ButtonGroup_6jbuf")
 
 [node name="ShirtOptions" type="VBoxContainer" parent="VBoxContainer2/HBoxContainer2/VBoxContainer/NPCEditor/VBoxContainer/TabContainer"]
 visible = false
@@ -728,7 +688,6 @@ border_color = Color(1, 0, 0, 0)
 [node name="GalleryNode" parent="VBoxContainer2/HBoxContainer2/VBoxContainer/NPCEditor/VBoxContainer/TabContainer/ShirtOptions" instance=ExtResource("3_5ut0o")]
 layout_mode = 2
 theme = ExtResource("3_wnflr")
-button_group = SubResource("ButtonGroup_1a102")
 
 [node name="ReferenceRect3" type="ReferenceRect" parent="VBoxContainer2/HBoxContainer2/VBoxContainer/NPCEditor/VBoxContainer/TabContainer/ShirtOptions"]
 custom_minimum_size = Vector2(10, 5)
@@ -739,7 +698,7 @@ border_color = Color(1, 0, 0, 0)
 [node name="OptionPicker3" parent="VBoxContainer2/HBoxContainer2/VBoxContainer/NPCEditor/VBoxContainer/TabContainer/ShirtOptions" instance=ExtResource("1_y4n6x")]
 layout_mode = 2
 theme = ExtResource("3_wnflr")
-button_group = SubResource("ButtonGroup_4f6m5")
+button_group = SubResource("ButtonGroup_fda7c")
 
 [node name="PantsOptions" type="VBoxContainer" parent="VBoxContainer2/HBoxContainer2/VBoxContainer/NPCEditor/VBoxContainer/TabContainer"]
 visible = false
@@ -749,12 +708,11 @@ theme = ExtResource("3_wnflr")
 [node name="GalleryNode" parent="VBoxContainer2/HBoxContainer2/VBoxContainer/NPCEditor/VBoxContainer/TabContainer/PantsOptions" instance=ExtResource("3_5ut0o")]
 layout_mode = 2
 theme = ExtResource("3_wnflr")
-button_group = SubResource("ButtonGroup_bpy01")
 
 [node name="OptionPicker4" parent="VBoxContainer2/HBoxContainer2/VBoxContainer/NPCEditor/VBoxContainer/TabContainer/PantsOptions" instance=ExtResource("1_y4n6x")]
 layout_mode = 2
 theme = ExtResource("3_wnflr")
-button_group = SubResource("ButtonGroup_3djmt")
+button_group = SubResource("ButtonGroup_okcb4")
 
 [node name="PersonalOptions" type="VBoxContainer" parent="VBoxContainer2/HBoxContainer2/VBoxContainer/NPCEditor/VBoxContainer/TabContainer"]
 visible = false
@@ -888,7 +846,6 @@ border_color = Color(1, 0, 0, 0)
 [node name="GalleryNode" parent="VBoxContainer2/HBoxContainer2/ShoesOptions" instance=ExtResource("3_5ut0o")]
 layout_mode = 2
 theme = ExtResource("3_wnflr")
-button_group = SubResource("ButtonGroup_l4q78")
 
 [node name="ReferenceRect4" type="ReferenceRect" parent="VBoxContainer2/HBoxContainer2/ShoesOptions"]
 custom_minimum_size = Vector2(10, 5)
@@ -899,7 +856,7 @@ border_color = Color(1, 0, 0, 0)
 [node name="OptionPicker" parent="VBoxContainer2/HBoxContainer2/ShoesOptions" instance=ExtResource("1_y4n6x")]
 layout_mode = 2
 theme = ExtResource("3_wnflr")
-button_group = SubResource("ButtonGroup_a04it")
+button_group = SubResource("ButtonGroup_yoixt")
 
 [node name="ReferenceRect3" type="ReferenceRect" parent="VBoxContainer2/HBoxContainer2"]
 custom_minimum_size = Vector2(2, 0)

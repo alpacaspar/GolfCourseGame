@@ -20,7 +20,8 @@ extends Resource
 @export var mustache_index: int = 0
 @export var beard_index: int = 0
 
-@export var piercing_index: int = 0
+@export var eyebrow_piercing_index: int = 0
+@export var earring_index: int = 0
 
 @export_subgroup("Colors")
 @export var skin_color_index: int = 0
@@ -40,8 +41,8 @@ extends Resource
 @export var eye_values: FinetuneValues = FinetuneValues.new()
 @export var eyebrow_values: FinetuneValues = FinetuneValues.new()
 @export var mouth_values: FinetuneValues = FinetuneValues.new()
-@export var glasses_values: FinetuneValues = FinetuneValues.new()
 @export var mustache_values: FinetuneValues = FinetuneValues.new()
+@export var glasses_values: FinetuneValues = FinetuneValues.new()
 
 @export_group("Body options")
 @export var shirt_index: int = 0

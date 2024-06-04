@@ -20,7 +20,7 @@ extends Control
 @export var beards_option_picker: CreatorGallery
 
 @export var piercings_option_picker: CreatorGallery
- 
+
 @export_subgroup("Color Picker")
 @export var skin_color_tracker: IndexTracker
 @export var skin_color_option_pickers: Array[CreatorColorPicker]
@@ -68,11 +68,11 @@ extends Control
 @export var name_field: LineEdit
 
 @export_group("Icons")
-@export var hair_icons: Array[Texture]
-@export var nose_icons: Array[Texture]
-@export var ear_icons: Array[Texture]
-@export var beard_icons: Array[Texture]
-@export var piercing_icons: Array[Texture]
+@export var hair_icons: Array[Texture] = []
+@export var nose_icons: Array[Texture] = []
+@export var ear_icons: Array[Texture] = []
+@export var beard_icons: Array[Texture] = []
+@export var piercing_icons: Array[Texture] = []
 
 @export_group("Preview Stuff")
 @export var preview: TextureRect
@@ -105,9 +105,9 @@ func _ready():
 	for picker in skin_color_option_pickers:
 		await _set_color_button_connections(CharacterFactory.skin_colors, picker)
 	await _set_color_button_connections(CharacterFactory.hair_colors, hair_color_option_picker)
-	await _set_color_button_connections(CharacterFactory.eyebrow_colors, eyebrow_color_option_picker)
-	await _set_color_button_connections(CharacterFactory.mustache_colors, mustache_color_option_picker)
-	await _set_color_button_connections(CharacterFactory.beard_colors, beard_color_option_picker)
+	await _set_color_button_connections(CharacterFactory.hair_colors, eyebrow_color_option_picker)
+	await _set_color_button_connections(CharacterFactory.hair_colors, mustache_color_option_picker)
+	await _set_color_button_connections(CharacterFactory.hair_colors, beard_color_option_picker)
 	await _set_color_button_connections(CharacterFactory.lip_colors, lip_color_option_picker)
 	await _set_color_button_connections(CharacterFactory.eyeshadow_colors, eyeshadow_color_option_picker)
 	await _set_color_button_connections(CharacterFactory.eyeliner_colors, eyeliner_color_option_picker)
@@ -116,15 +116,15 @@ func _ready():
 	
 	await _set_color_button_connections(CharacterFactory.shirt_colors, shirt_color_option_picker)
 	await _set_color_button_connections(CharacterFactory.pants_colors, pants_color_option_picker)
-	await _set_color_button_connections(CharacterFactory.sock_colors, sock_color_option_picker)
-	await _set_color_button_connections(CharacterFactory.shoes_colors, shoes_color_option_picker)
+	await _set_color_button_connections(CharacterFactory.shirt_colors, sock_color_option_picker)
+	await _set_color_button_connections(CharacterFactory.shirt_colors, shoes_color_option_picker)
 	await _set_color_button_connections(CharacterFactory.belt_colors, belt_color_option_picker)
-  
+
 	# External Icons
 	await _set_external_icon_button_connections(nose_icons, CharacterFactory.nose_meshes, noses_option_picker)
 	await _set_external_icon_button_connections(ear_icons, CharacterFactory.ear_meshes, ears_option_picker)
 	await _set_external_icon_button_connections(hair_icons, CharacterFactory.hair_meshes, hair_option_picker)
-	await _set_external_icon_button_connections(beard_icons, CharacterFactory.beard_textures, beards_option_picker)
+	await _set_external_icon_button_connections(CharacterFactory.beard_textures, CharacterFactory.beard_textures, beards_option_picker)
 	await _set_external_icon_button_connections(piercing_icons, CharacterFactory.earring_meshes, piercings_option_picker)
 
 	# Build in icons
@@ -132,11 +132,11 @@ func _ready():
 	await _set_texture_button_connections(CharacterFactory.eyebrow_textures, eyebrows_option_picker)
 	await _set_texture_button_connections(CharacterFactory.mouth_textures, mouths_option_picker)
 
-	await _set_texture_button_connections(CharacterFactory.eyeshadow_textures, eyeshadow_option_picker)
-	await _set_texture_button_connections(CharacterFactory.eyeliner_textures, eyeliner_option_picker)
-	await _set_texture_button_connections(CharacterFactory.glasses_textures, glasses_option_picker)
-	await _set_texture_button_connections(CharacterFactory.mustache_textures, mustaches_option_picker)
-	await _set_texture_button_connections(CharacterFactory.blush_textures, blush_option_picker)
+	await _set_single_texture_button_connections(CharacterFactory.eyeshadow_textures, eyeshadow_option_picker)
+	await _set_single_texture_button_connections(CharacterFactory.eyeliner_textures, eyeliner_option_picker)
+	# await _set_texture_button_connections(CharacterFactory.glasses_textures, glasses_option_picker)
+	# await _set_texture_button_connections(CharacterFactory.mustache_textures, mustaches_option_picker)
+	await _set_external_icon_button_connections(CharacterFactory.blush_textures, CharacterFactory.blush_textures, blush_option_picker)
 
 	# Clothing data option picker
 	await _set_body_button_connections(CharacterFactory.shirt_datas, shirt_option_picker)
@@ -175,7 +175,7 @@ func _update_character(_value = 0):
 	edited_resource.eyeshadow_index = eyeshadow_option_picker.get_current_index()
 	edited_resource.eyeliner_index = eyeliner_option_picker.get_current_index()
 	edited_resource.blush_index = blush_option_picker.get_current_index()
-	edited_resource.galsses_index = glasses_option_picker.get_current_index()
+	edited_resource.glasses_index = glasses_option_picker.get_current_index()
 	edited_resource.piercing_index = piercings_option_picker.get_current_index()
 
 	edited_resource.mustache_index = mustaches_option_picker.get_current_index()
@@ -197,7 +197,7 @@ func _update_character(_value = 0):
 	edited_resource.shirt_index = shirt_option_picker.get_current_index()
 	edited_resource.pants_index = pants_option_picker.get_current_index()
 	edited_resource.sock_index = sock_option_picker.get_current_index()
-	edited_resource.shoes_index = shoes_option_picker.get_current_index()
+	edited_resource.shoe_index = shoes_option_picker.get_current_index()
 	edited_resource.belt_index = belt_option_picker.get_current_index()
 	edited_resource.wrist_index = wrists_option_picker.get_current_index()
 
@@ -229,13 +229,20 @@ func _set_color_button_connections(collection, picker: CreatorColorPicker):
 func _set_external_icon_button_connections(icon_collection, collection, picker: CreatorGallery):
 	var i := 0
 	for option in collection:
-		picker.add_button(icon_collection[i], _update_character)
+		var texture = icon_collection[i] if icon_collection.size() > i else null
+		picker.add_button(texture, _update_character)
 		i += 1
 
 
 func _set_texture_button_connections(collection, picker: CreatorGallery):
 	for option in collection.get_layers() - 1:
 		var texture = ImageTexture.create_from_image(collection.get_layer_data(option))
+		picker.add_button(texture, _update_character)
+
+
+func _set_single_texture_button_connections(collection, picker: CreatorGallery):
+	for option in collection:
+		var texture = ImageTexture.create_from_image(option.get_layer_data(0))
 		picker.add_button(texture, _update_character)
 
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://c75huqds1lmet"]
+[gd_scene load_steps=37 format=3 uid="uid://c75huqds1lmet"]
 
 [ext_resource type="Theme" uid="uid://pq6ete4ie6a8" path="res://common/character_creator/resources/character_creator_theme.tres" id="1_o2jqn"]
 [ext_resource type="Script" path="res://common/character_creator/main/character_creator.gd" id="2_fmr2t"]
@@ -8,6 +8,7 @@
 [ext_resource type="FontFile" uid="uid://yymhynh564w5" path="res://common/character_creator/fonts/FOTNewRodin_Pro_EB.otf" id="4_et5cu"]
 [ext_resource type="Script" path="res://common/character_creator/tools/rescale_handler.gd" id="4_jtx3q"]
 [ext_resource type="Texture2D" uid="uid://dbicohqe3hgws" path="res://common/character_creator/icons/extras/magnifying-glass.png" id="4_jxcwy"]
+[ext_resource type="Script" path="res://common/character_creator/resources/finetune_button_range.gd" id="4_wuhbt"]
 [ext_resource type="ButtonGroup" uid="uid://07n1rspe725j" path="res://common/character_creator/button_groups/face_body_group.tres" id="5_snfil"]
 [ext_resource type="Texture2D" uid="uid://dfspa0f55imyc" path="res://icon.svg" id="8_4h4o2"]
 [ext_resource type="Script" path="res://common/character_creator/tools/external_tabs_handler.gd" id="8_g1j11"]
@@ -25,8 +26,44 @@
 [ext_resource type="PackedScene" uid="uid://cck5rfjeh8d3d" path="res://common/character_creator/pickers/color_option_picker.tscn" id="16_sn6bk"]
 [ext_resource type="Resource" uid="uid://xc57xdoukdg4" path="res://common/character_creator/resources/skin_color_tracker.tres" id="22_4oapn"]
 [ext_resource type="PackedScene" uid="uid://daduc6vljvtkd" path="res://common/character_creator/pickers/finetine_buttons.tscn" id="24_qcc4a"]
-[ext_resource type="Resource" uid="uid://df4my484pbut5" path="res://common/character_creator/resources/hair_color_tracker.tres" id="27_iyy0d"]
+[ext_resource type="Script" path="res://common/character_creator/pickers/creator_gallery_picker.gd" id="28_g88cc"]
+[ext_resource type="PackedScene" uid="uid://bj1d4jmao707v" path="res://common/character_creator/pickers/creator_gallery_option.tscn" id="29_5xpsr"]
 [ext_resource type="ButtonGroup" uid="uid://sxa8jxt1w7gr" path="res://common/character_creator/button_groups/body_button_group.tres" id="29_8hw7x"]
+
+[sub_resource type="Resource" id="Resource_uplhe"]
+script = ExtResource("4_wuhbt")
+vertical_min_max = Vector2(0, 0)
+horizontal_min_max = Vector2(0, 0)
+rotation_min_max = Vector2(0, 0)
+scale_min_max = Vector2(0, 0)
+
+[sub_resource type="Resource" id="Resource_583g3"]
+script = ExtResource("4_wuhbt")
+vertical_min_max = Vector2(0, 0)
+horizontal_min_max = Vector2(0, 0)
+rotation_min_max = Vector2(0, 0)
+scale_min_max = Vector2(0, 0)
+
+[sub_resource type="Resource" id="Resource_yjiwt"]
+script = ExtResource("4_wuhbt")
+vertical_min_max = Vector2(0, 0)
+horizontal_min_max = Vector2(0, 0)
+rotation_min_max = Vector2(0, 0)
+scale_min_max = Vector2(0, 0)
+
+[sub_resource type="Resource" id="Resource_1dj7s"]
+script = ExtResource("4_wuhbt")
+vertical_min_max = Vector2(0, 0)
+horizontal_min_max = Vector2(0, 0)
+rotation_min_max = Vector2(0, 0)
+scale_min_max = Vector2(0, 0)
+
+[sub_resource type="Resource" id="Resource_jidrq"]
+script = ExtResource("4_wuhbt")
+vertical_min_max = Vector2(0, 0)
+horizontal_min_max = Vector2(0, 0)
+rotation_min_max = Vector2(0, 0)
+scale_min_max = Vector2(0, 0)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8pbir"]
 bg_color = Color(0.937255, 0.937255, 0.937255, 1)
@@ -46,18 +83,18 @@ grow_vertical = 2
 theme = ExtResource("1_o2jqn")
 script = ExtResource("2_fmr2t")
 eyes_option_picker = NodePath("Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/EyeOptions/EyeGallery")
-eyebrows_option_picker = NodePath("Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/EyebrowOptions/EyebrowGallery")
-noses_option_picker = NodePath("Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/NoseOptions/NoseGallery")
-ears_option_picker = NodePath("Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/EarOptions/EarGallery")
-mouths_option_picker = NodePath("Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/MouthOptions/MouthGallery")
-hair_option_picker = NodePath("Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/HairOptions/HairGallery")
-eyeshadow_option_picker = NodePath("Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/MakeupOptions/EyeshadowGallery")
-eyeliner_option_picker = NodePath("Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/MakeupOptions/EyelinerGallery")
-blush_option_picker = NodePath("Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/MakeupOptions/BlushGallery")
-glasses_option_picker = NodePath("Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/GlassesOptions/GlassesGallery")
-mustaches_option_picker = NodePath("Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/FacialHairOptions/MustacheGallery")
-beards_option_picker = NodePath("Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/FacialHairOptions/BeardGallery")
-piercings_option_picker = NodePath("Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/PiercingOptions/PiercingGallery")
+eyebrows_option_picker = NodePath("Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/EyebrowOptions/CreatorGallery")
+noses_option_picker = NodePath("Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/NoseOptions/CreatorGallery")
+ears_option_picker = NodePath("Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/EarOptions/CreatorGallery")
+mouths_option_picker = NodePath("Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/MouthOptions/CreatorGallery")
+hair_option_picker = NodePath("Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/HairOptions/CreatorGallery")
+eyeshadow_option_picker = NodePath("Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/MakeupOptions/ScrollContainer/VBoxContainer/EyeshadowGallery")
+eyeliner_option_picker = NodePath("Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/MakeupOptions/ScrollContainer/VBoxContainer/EyelinerGallery")
+blush_option_picker = NodePath("Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/MakeupOptions/ScrollContainer/VBoxContainer/BlushGallery")
+glasses_option_picker = NodePath("Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/GlassesOptions/CreatorGallery")
+mustaches_option_picker = NodePath("Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/FacialHairOptions/CreatorGallery")
+beards_option_picker = NodePath("Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/FacialHairOptions/CreatorGallery2")
+piercings_option_picker = NodePath("Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/PiercingOptions/CreatorGallery")
 skin_color_tracker = ExtResource("22_4oapn")
 skin_color_option_pickers = [NodePath("Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/EyeOptions/ColorOptionPicker"), NodePath("Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/EarOptions/ColorOptionPicker"), NodePath("Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/NoseOptions/ColorOptionPicker")]
 eyebrow_color_option_picker = NodePath("Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/EyebrowOptions/ColorOptionPicker")
@@ -65,27 +102,32 @@ hair_color_option_picker = NodePath("Spacer/VBoxContainer2/HBoxContainer2/WhereT
 mustache_color_option_picker = NodePath("Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/FacialHairOptions/ColorOptionPicker")
 beard_color_option_picker = NodePath("Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/FacialHairOptions/ColorOptionPicker2")
 lip_color_option_picker = NodePath("Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/MouthOptions/ColorOptionPicker")
-eyeshadow_color_option_picker = NodePath("Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/MakeupOptions/ColorOptionPicker")
-eyeliner_color_option_picker = NodePath("Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/MakeupOptions/ColorOptionPicker2")
-blush_color_option_picker = NodePath("Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/MakeupOptions/ColorOptionPicker3")
+eyeshadow_color_option_picker = NodePath("Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/MakeupOptions/ScrollContainer/VBoxContainer/ColorOptionPicker3")
+eyeliner_color_option_picker = NodePath("Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/MakeupOptions/ScrollContainer/VBoxContainer/ColorOptionPicker2")
+blush_color_option_picker = NodePath("Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/MakeupOptions/ScrollContainer/VBoxContainer/ColorOptionPicker")
 glasses_color_option_picker = NodePath("Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/GlassesOptions/ColorOptionPicker")
 eye_buttons = NodePath("Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/EyeOptions/Buttons")
+eye_range = SubResource("Resource_uplhe")
 eyebrow_buttons = NodePath("Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/EyebrowOptions/Buttons2")
+eyebrow_range = SubResource("Resource_583g3")
 mouth_buttons = NodePath("Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/MouthOptions/Buttons")
+mouth_range = SubResource("Resource_yjiwt")
 glasses_buttons = NodePath("Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/GlassesOptions/Buttons")
+glasses_range = SubResource("Resource_1dj7s")
 mustache_buttons = NodePath("Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/FacialHairOptions/Buttons")
-shirt_option_picker = NodePath("Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/FaceOptionsTabGroup/ShirtOptions/ShirtGallery")
-pants_option_picker = NodePath("Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/FaceOptionsTabGroup/PantsOptions/PantsGallery")
-sock_option_picker = NodePath("Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/FaceOptionsTabGroup/FootwearOptions/SockGallery")
-shoes_option_picker = NodePath("Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/FaceOptionsTabGroup/FootwearOptions/ShoesGallery")
-belt_option_picker = NodePath("Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/FaceOptionsTabGroup/AccesoriesOptions/BeltGallery")
-wrists_option_picker = NodePath("Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/FaceOptionsTabGroup/AccesoriesOptions/WristGallery")
-shirt_color_option_picker = NodePath("Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/FaceOptionsTabGroup/ShirtOptions/ColorOptionPicker")
-pants_color_option_picker = NodePath("Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/FaceOptionsTabGroup/PantsOptions/ColorOptionPicker")
-sock_color_option_picker = NodePath("Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/FaceOptionsTabGroup/FootwearOptions/ColorOptionPicker")
-shoes_color_option_picker = NodePath("Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/FaceOptionsTabGroup/FootwearOptions/ColorOptionPicker2")
-belt_color_option_picker = NodePath("Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/FaceOptionsTabGroup/AccesoriesOptions/ColorOptionPicker")
-name_field = NodePath("Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/FaceOptionsTabGroup/Naming/LineEdit")
+mustache_range = SubResource("Resource_jidrq")
+shirt_option_picker = NodePath("Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/BodyOptionsTabGroup/ShirtOptions/ShirtGallery")
+pants_option_picker = NodePath("Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/BodyOptionsTabGroup/PantsOptions/PantsGallery")
+sock_option_picker = NodePath("Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/BodyOptionsTabGroup/FootwearOptions/SockGallery")
+shoes_option_picker = NodePath("Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/BodyOptionsTabGroup/FootwearOptions/ShoesGallery")
+belt_option_picker = NodePath("Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/BodyOptionsTabGroup/AccesoriesOptions/BeltGallery")
+wrists_option_picker = NodePath("Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/BodyOptionsTabGroup/AccesoriesOptions/WristGallery")
+shirt_color_option_picker = NodePath("Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/BodyOptionsTabGroup/ShirtOptions/ColorOptionPicker")
+pants_color_option_picker = NodePath("Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/BodyOptionsTabGroup/PantsOptions/ColorOptionPicker")
+sock_color_option_picker = NodePath("Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/BodyOptionsTabGroup/FootwearOptions/ColorOptionPicker")
+shoes_color_option_picker = NodePath("Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/BodyOptionsTabGroup/FootwearOptions/ColorOptionPicker2")
+belt_color_option_picker = NodePath("Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/BodyOptionsTabGroup/AccesoriesOptions/ColorOptionPicker")
+name_field = NodePath("Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/BodyOptionsTabGroup/Naming/LineEdit")
 preview = NodePath("Spacer/VBoxContainer2/HBoxContainer2/PreviewContainer/ReferenceRect/TextureRect")
 zoom_slider = NodePath("Spacer/VBoxContainer2/HBoxContainer2/ZoomSliderHolder/HBoxContainer/MarginContainer/ReferenceRect2")
 rotation_slider = NodePath("Spacer/VBoxContainer2/HBoxContainer2/PreviewContainer/HBoxContainer/VBoxContainer/HScrollBar")
@@ -196,8 +238,9 @@ theme_override_constants/margin_right = 0
 [node name="ReferenceRect2" type="VScrollBar" parent="Spacer/VBoxContainer2/HBoxContainer2/ZoomSliderHolder/HBoxContainer/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-step = 1.0
-page = 10.0
+max_value = 1.0
+step = 0.001
+page = 0.1
 
 [node name="ReferenceRect" type="ReferenceRect" parent="Spacer/VBoxContainer2/HBoxContainer2/ZoomSliderHolder"]
 layout_mode = 2
@@ -337,11 +380,13 @@ stretch_mode = 5
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 8.27
+current_tab = 1
 tabs_visible = false
 script = ExtResource("8_g1j11")
 button_group = ExtResource("5_snfil")
 
 [node name="FaceOptions" type="VBoxContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody"]
+visible = false
 layout_mode = 2
 
 [node name="ButtonHolder" type="VBoxContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions"]
@@ -734,15 +779,12 @@ layout_mode = 2
 visible = false
 layout_mode = 2
 
-[node name="ColorOptionPicker" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/EyebrowOptions" node_paths=PackedStringArray("button_holder") instance=ExtResource("16_sn6bk")]
+[node name="ColorOptionPicker" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/EyebrowOptions" instance=ExtResource("16_sn6bk")]
 layout_mode = 2
-tracker = ExtResource("27_iyy0d")
-button_holder = NodePath("../../EyeOptions/ColorOptionPicker/HBoxContainer/HBoxContainer")
 
-[node name="EyebrowGallery" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/EyebrowOptions" node_paths=PackedStringArray("button_holder") instance=ExtResource("14_sq54w")]
+[node name="CreatorGallery" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/EyebrowOptions" instance=ExtResource("14_sq54w")]
 layout_mode = 2
 size_flags_stretch_ratio = 6.0
-button_holder = NodePath("../../EyeOptions/EyeGallery/HBoxContainer/GalleryNode/GridContainer")
 
 [node name="Buttons2" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/EyebrowOptions" instance=ExtResource("24_qcc4a")]
 layout_mode = 2
@@ -751,14 +793,12 @@ layout_mode = 2
 visible = false
 layout_mode = 2
 
-[node name="ColorOptionPicker" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/MouthOptions" node_paths=PackedStringArray("button_holder") instance=ExtResource("16_sn6bk")]
+[node name="ColorOptionPicker" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/MouthOptions" instance=ExtResource("16_sn6bk")]
 layout_mode = 2
-button_holder = NodePath("../../EyeOptions/ColorOptionPicker/HBoxContainer/HBoxContainer")
 
-[node name="MouthGallery" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/MouthOptions" node_paths=PackedStringArray("button_holder") instance=ExtResource("14_sq54w")]
+[node name="CreatorGallery" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/MouthOptions" instance=ExtResource("14_sq54w")]
 layout_mode = 2
 size_flags_stretch_ratio = 6.0
-button_holder = NodePath("../../EyeOptions/EyeGallery/HBoxContainer/GalleryNode/GridContainer")
 
 [node name="Buttons" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/MouthOptions" instance=ExtResource("24_qcc4a")]
 layout_mode = 2
@@ -767,84 +807,202 @@ layout_mode = 2
 visible = false
 layout_mode = 2
 
-[node name="ColorOptionPicker" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/EarOptions" node_paths=PackedStringArray("button_holder") instance=ExtResource("16_sn6bk")]
+[node name="ColorOptionPicker" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/EarOptions" instance=ExtResource("16_sn6bk")]
 layout_mode = 2
-button_holder = NodePath("../../EyeOptions/ColorOptionPicker/HBoxContainer/HBoxContainer")
 
-[node name="EarGallery" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/EarOptions" node_paths=PackedStringArray("button_holder") instance=ExtResource("14_sq54w")]
+[node name="CreatorGallery" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/EarOptions" instance=ExtResource("14_sq54w")]
 layout_mode = 2
-size_flags_stretch_ratio = 6.0
-button_holder = NodePath("../../EyeOptions/EyeGallery/HBoxContainer/GalleryNode/GridContainer")
+size_flags_stretch_ratio = 7.0
 
 [node name="NoseOptions" type="VBoxContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup"]
 visible = false
 layout_mode = 2
 
-[node name="ColorOptionPicker" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/NoseOptions" node_paths=PackedStringArray("button_holder") instance=ExtResource("16_sn6bk")]
+[node name="ColorOptionPicker" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/NoseOptions" instance=ExtResource("16_sn6bk")]
 layout_mode = 2
-button_holder = NodePath("../../EyeOptions/ColorOptionPicker/HBoxContainer/HBoxContainer")
 
-[node name="NoseGallery" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/NoseOptions" node_paths=PackedStringArray("button_holder") instance=ExtResource("14_sq54w")]
+[node name="CreatorGallery" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/NoseOptions" instance=ExtResource("14_sq54w")]
 layout_mode = 2
-size_flags_stretch_ratio = 6.0
-button_holder = NodePath("../../EyeOptions/EyeGallery/HBoxContainer/GalleryNode/GridContainer")
+size_flags_stretch_ratio = 7.0
 
 [node name="HairOptions" type="VBoxContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup"]
 visible = false
 layout_mode = 2
 
-[node name="ColorOptionPicker" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/HairOptions" node_paths=PackedStringArray("button_holder") instance=ExtResource("16_sn6bk")]
+[node name="ColorOptionPicker" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/HairOptions" instance=ExtResource("16_sn6bk")]
 layout_mode = 2
-button_holder = NodePath("../../EyeOptions/ColorOptionPicker/HBoxContainer/HBoxContainer")
 
-[node name="HairGallery" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/HairOptions" node_paths=PackedStringArray("button_holder") instance=ExtResource("14_sq54w")]
+[node name="CreatorGallery" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/HairOptions" instance=ExtResource("14_sq54w")]
 layout_mode = 2
-size_flags_stretch_ratio = 6.0
-button_holder = NodePath("../../EyeOptions/EyeGallery/HBoxContainer/GalleryNode/GridContainer")
+size_flags_stretch_ratio = 7.0
 
 [node name="MakeupOptions" type="VBoxContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup"]
 visible = false
 layout_mode = 2
 
-[node name="ColorOptionPicker" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/MakeupOptions" node_paths=PackedStringArray("button_holder") instance=ExtResource("16_sn6bk")]
+[node name="ScrollContainer" type="ScrollContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/MakeupOptions"]
 layout_mode = 2
-button_holder = NodePath("../../EyeOptions/ColorOptionPicker/HBoxContainer/HBoxContainer")
+size_flags_vertical = 3
 
-[node name="EyeshadowGallery" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/MakeupOptions" node_paths=PackedStringArray("button_holder") instance=ExtResource("14_sq54w")]
+[node name="VBoxContainer" type="VBoxContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/MakeupOptions/ScrollContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ColorOptionPicker3" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/MakeupOptions/ScrollContainer/VBoxContainer" instance=ExtResource("16_sn6bk")]
+layout_mode = 2
+
+[node name="EyeshadowGallery" type="VBoxContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/MakeupOptions/ScrollContainer/VBoxContainer" node_paths=PackedStringArray("button_holder")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 size_flags_stretch_ratio = 6.0
-button_holder = NodePath("../../EyeOptions/EyeGallery/HBoxContainer/GalleryNode/GridContainer")
+theme_override_constants/separation = 0
+script = ExtResource("28_g88cc")
+npc_customizer_button_prefab = ExtResource("29_5xpsr")
+button_holder = NodePath("HBoxContainer/GridContainer")
 
-[node name="ColorOptionPicker2" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/MakeupOptions" node_paths=PackedStringArray("button_holder") instance=ExtResource("16_sn6bk")]
+[node name="ReferenceRect2" type="ReferenceRect" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/MakeupOptions/ScrollContainer/VBoxContainer/EyeshadowGallery"]
 layout_mode = 2
-button_holder = NodePath("../../EyeOptions/ColorOptionPicker/HBoxContainer/HBoxContainer")
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.04
 
-[node name="EyelinerGallery" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/MakeupOptions" node_paths=PackedStringArray("button_holder") instance=ExtResource("14_sq54w")]
+[node name="HBoxContainer" type="HBoxContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/MakeupOptions/ScrollContainer/VBoxContainer/EyeshadowGallery"]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 0
+
+[node name="ReferenceRect2" type="ReferenceRect" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/MakeupOptions/ScrollContainer/VBoxContainer/EyeshadowGallery/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.4
+
+[node name="GridContainer" type="GridContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/MakeupOptions/ScrollContainer/VBoxContainer/EyeshadowGallery/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 20.0
+theme_override_constants/h_separation = 30
+theme_override_constants/v_separation = 30
+columns = 4
+
+[node name="ReferenceRect" type="ReferenceRect" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/MakeupOptions/ScrollContainer/VBoxContainer/EyeshadowGallery/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.2
+
+[node name="ReferenceRect" type="ReferenceRect" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/MakeupOptions/ScrollContainer/VBoxContainer/EyeshadowGallery"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.04
+
+[node name="ColorOptionPicker2" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/MakeupOptions/ScrollContainer/VBoxContainer" instance=ExtResource("16_sn6bk")]
+layout_mode = 2
+
+[node name="EyelinerGallery" type="VBoxContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/MakeupOptions/ScrollContainer/VBoxContainer" node_paths=PackedStringArray("button_holder")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 size_flags_stretch_ratio = 6.0
-button_holder = NodePath("../../EyeOptions/EyeGallery/HBoxContainer/GalleryNode/GridContainer")
+theme_override_constants/separation = 0
+script = ExtResource("28_g88cc")
+npc_customizer_button_prefab = ExtResource("29_5xpsr")
+button_holder = NodePath("HBoxContainer/GridContainer")
 
-[node name="ColorOptionPicker3" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/MakeupOptions" node_paths=PackedStringArray("button_holder") instance=ExtResource("16_sn6bk")]
+[node name="ReferenceRect2" type="ReferenceRect" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/MakeupOptions/ScrollContainer/VBoxContainer/EyelinerGallery"]
 layout_mode = 2
-button_holder = NodePath("../../EyeOptions/ColorOptionPicker/HBoxContainer/HBoxContainer")
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.04
 
-[node name="BlushGallery" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/MakeupOptions" node_paths=PackedStringArray("button_holder") instance=ExtResource("14_sq54w")]
+[node name="HBoxContainer" type="HBoxContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/MakeupOptions/ScrollContainer/VBoxContainer/EyelinerGallery"]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 0
+
+[node name="ReferenceRect2" type="ReferenceRect" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/MakeupOptions/ScrollContainer/VBoxContainer/EyelinerGallery/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.4
+
+[node name="GridContainer" type="GridContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/MakeupOptions/ScrollContainer/VBoxContainer/EyelinerGallery/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 20.0
+theme_override_constants/h_separation = 30
+theme_override_constants/v_separation = 30
+columns = 4
+
+[node name="ReferenceRect" type="ReferenceRect" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/MakeupOptions/ScrollContainer/VBoxContainer/EyelinerGallery/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.2
+
+[node name="ReferenceRect" type="ReferenceRect" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/MakeupOptions/ScrollContainer/VBoxContainer/EyelinerGallery"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.04
+
+[node name="ColorOptionPicker" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/MakeupOptions/ScrollContainer/VBoxContainer" instance=ExtResource("16_sn6bk")]
+layout_mode = 2
+
+[node name="BlushGallery" type="VBoxContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/MakeupOptions/ScrollContainer/VBoxContainer" node_paths=PackedStringArray("button_holder")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 size_flags_stretch_ratio = 6.0
-button_holder = NodePath("../../EyeOptions/EyeGallery/HBoxContainer/GalleryNode/GridContainer")
+theme_override_constants/separation = 0
+script = ExtResource("28_g88cc")
+npc_customizer_button_prefab = ExtResource("29_5xpsr")
+button_holder = NodePath("HBoxContainer/GridContainer")
+
+[node name="ReferenceRect2" type="ReferenceRect" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/MakeupOptions/ScrollContainer/VBoxContainer/BlushGallery"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.04
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/MakeupOptions/ScrollContainer/VBoxContainer/BlushGallery"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 0
+
+[node name="ReferenceRect2" type="ReferenceRect" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/MakeupOptions/ScrollContainer/VBoxContainer/BlushGallery/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.4
+
+[node name="GridContainer" type="GridContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/MakeupOptions/ScrollContainer/VBoxContainer/BlushGallery/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 20.0
+theme_override_constants/h_separation = 30
+theme_override_constants/v_separation = 30
+columns = 4
+
+[node name="ReferenceRect" type="ReferenceRect" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/MakeupOptions/ScrollContainer/VBoxContainer/BlushGallery/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.2
+
+[node name="ReferenceRect" type="ReferenceRect" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/MakeupOptions/ScrollContainer/VBoxContainer/BlushGallery"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.04
 
 [node name="GlassesOptions" type="VBoxContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup"]
 visible = false
 layout_mode = 2
 
-[node name="ColorOptionPicker" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/GlassesOptions" node_paths=PackedStringArray("button_holder") instance=ExtResource("16_sn6bk")]
+[node name="ColorOptionPicker" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/GlassesOptions" instance=ExtResource("16_sn6bk")]
 layout_mode = 2
-button_holder = NodePath("../../EyeOptions/ColorOptionPicker/HBoxContainer/HBoxContainer")
 
-[node name="GlassesGallery" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/GlassesOptions" node_paths=PackedStringArray("button_holder") instance=ExtResource("14_sq54w")]
+[node name="CreatorGallery" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/GlassesOptions" instance=ExtResource("14_sq54w")]
 layout_mode = 2
 size_flags_stretch_ratio = 6.0
-button_holder = NodePath("../../EyeOptions/EyeGallery/HBoxContainer/GalleryNode/GridContainer")
 
 [node name="Buttons" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/GlassesOptions" instance=ExtResource("24_qcc4a")]
 layout_mode = 2
@@ -853,25 +1011,19 @@ layout_mode = 2
 visible = false
 layout_mode = 2
 
-[node name="ColorOptionPicker" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/FacialHairOptions" node_paths=PackedStringArray("button_holder") instance=ExtResource("16_sn6bk")]
+[node name="ColorOptionPicker" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/FacialHairOptions" instance=ExtResource("16_sn6bk")]
 layout_mode = 2
-tracker = ExtResource("27_iyy0d")
-button_holder = NodePath("../../EyeOptions/ColorOptionPicker/HBoxContainer/HBoxContainer")
 
-[node name="MustacheGallery" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/FacialHairOptions" node_paths=PackedStringArray("button_holder") instance=ExtResource("14_sq54w")]
+[node name="CreatorGallery" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/FacialHairOptions" instance=ExtResource("14_sq54w")]
 layout_mode = 2
-size_flags_stretch_ratio = 6.0
-button_holder = NodePath("../../EyeOptions/EyeGallery/HBoxContainer/GalleryNode/GridContainer")
+size_flags_stretch_ratio = 2.5
 
-[node name="ColorOptionPicker2" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/FacialHairOptions" node_paths=PackedStringArray("button_holder") instance=ExtResource("16_sn6bk")]
+[node name="ColorOptionPicker2" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/FacialHairOptions" instance=ExtResource("16_sn6bk")]
 layout_mode = 2
-tracker = ExtResource("27_iyy0d")
-button_holder = NodePath("../../EyeOptions/ColorOptionPicker/HBoxContainer/HBoxContainer")
 
-[node name="BeardGallery" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/FacialHairOptions" node_paths=PackedStringArray("button_holder") instance=ExtResource("14_sq54w")]
+[node name="CreatorGallery2" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/FacialHairOptions" instance=ExtResource("14_sq54w")]
 layout_mode = 2
-size_flags_stretch_ratio = 6.0
-button_holder = NodePath("../../EyeOptions/EyeGallery/HBoxContainer/GalleryNode/GridContainer")
+size_flags_stretch_ratio = 2.5
 
 [node name="Buttons" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/FacialHairOptions" instance=ExtResource("24_qcc4a")]
 layout_mode = 2
@@ -880,17 +1032,10 @@ layout_mode = 2
 visible = false
 layout_mode = 2
 
-[node name="ColorOptionPicker" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/PiercingOptions" node_paths=PackedStringArray("button_holder") instance=ExtResource("16_sn6bk")]
+[node name="CreatorGallery" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/PiercingOptions" instance=ExtResource("14_sq54w")]
 layout_mode = 2
-button_holder = NodePath("../../EyeOptions/ColorOptionPicker/HBoxContainer/HBoxContainer")
-
-[node name="PiercingGallery" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/PiercingOptions" node_paths=PackedStringArray("button_holder") instance=ExtResource("14_sq54w")]
-layout_mode = 2
-size_flags_stretch_ratio = 6.0
-button_holder = NodePath("../../EyeOptions/EyeGallery/HBoxContainer/GalleryNode/GridContainer")
 
 [node name="BodyOptions" type="VBoxContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody"]
-visible = false
 layout_mode = 2
 
 [node name="ButtonHolder" type="VBoxContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions"]
@@ -1037,69 +1182,73 @@ layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.1
 
-[node name="FaceOptionsTabGroup" type="TabContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions"]
+[node name="BodyOptionsTabGroup" type="TabContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions"]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 7.0
-current_tab = 4
 tabs_visible = false
 script = ExtResource("8_g1j11")
 button_group = ExtResource("29_8hw7x")
 
-[node name="ShirtOptions" type="VBoxContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/FaceOptionsTabGroup"]
+[node name="ShirtOptions" type="VBoxContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/BodyOptionsTabGroup"]
+layout_mode = 2
+
+[node name="ColorOptionPicker" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/BodyOptionsTabGroup/ShirtOptions" instance=ExtResource("16_sn6bk")]
+layout_mode = 2
+
+[node name="ShirtGallery" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/BodyOptionsTabGroup/ShirtOptions" instance=ExtResource("14_sq54w")]
+layout_mode = 2
+size_flags_stretch_ratio = 7.0
+
+[node name="PantsOptions" type="VBoxContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/BodyOptionsTabGroup"]
 visible = false
 layout_mode = 2
 
-[node name="ColorOptionPicker" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/FaceOptionsTabGroup/ShirtOptions" instance=ExtResource("16_sn6bk")]
+[node name="ColorOptionPicker" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/BodyOptionsTabGroup/PantsOptions" instance=ExtResource("16_sn6bk")]
 layout_mode = 2
 
-[node name="ShirtGallery" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/FaceOptionsTabGroup/ShirtOptions" instance=ExtResource("14_sq54w")]
+[node name="PantsGallery" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/BodyOptionsTabGroup/PantsOptions" instance=ExtResource("14_sq54w")]
 layout_mode = 2
-size_flags_stretch_ratio = 5.0
+size_flags_stretch_ratio = 7.0
 
-[node name="PantsOptions" type="VBoxContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/FaceOptionsTabGroup"]
+[node name="FootwearOptions" type="VBoxContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/BodyOptionsTabGroup"]
 visible = false
 layout_mode = 2
 
-[node name="ColorOptionPicker" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/FaceOptionsTabGroup/PantsOptions" instance=ExtResource("16_sn6bk")]
+[node name="ColorOptionPicker" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/BodyOptionsTabGroup/FootwearOptions" instance=ExtResource("16_sn6bk")]
 layout_mode = 2
 
-[node name="PantsGallery" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/FaceOptionsTabGroup/PantsOptions" instance=ExtResource("14_sq54w")]
+[node name="SockGallery" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/BodyOptionsTabGroup/FootwearOptions" instance=ExtResource("14_sq54w")]
+layout_mode = 2
+size_flags_stretch_ratio = 3.0
+
+[node name="ColorOptionPicker2" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/BodyOptionsTabGroup/FootwearOptions" instance=ExtResource("16_sn6bk")]
 layout_mode = 2
 
-[node name="FootwearOptions" type="VBoxContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/FaceOptionsTabGroup"]
+[node name="ShoesGallery" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/BodyOptionsTabGroup/FootwearOptions" instance=ExtResource("14_sq54w")]
+layout_mode = 2
+size_flags_stretch_ratio = 3.0
+
+[node name="AccesoriesOptions" type="VBoxContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/BodyOptionsTabGroup"]
 visible = false
 layout_mode = 2
 
-[node name="ColorOptionPicker" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/FaceOptionsTabGroup/FootwearOptions" instance=ExtResource("16_sn6bk")]
+[node name="ColorOptionPicker" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/BodyOptionsTabGroup/AccesoriesOptions" instance=ExtResource("16_sn6bk")]
 layout_mode = 2
 
-[node name="SockGallery" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/FaceOptionsTabGroup/FootwearOptions" instance=ExtResource("14_sq54w")]
+[node name="BeltGallery" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/BodyOptionsTabGroup/AccesoriesOptions" instance=ExtResource("14_sq54w")]
 layout_mode = 2
+size_flags_stretch_ratio = 3.5
 
-[node name="ColorOptionPicker2" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/FaceOptionsTabGroup/FootwearOptions" instance=ExtResource("16_sn6bk")]
+[node name="WristGallery" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/BodyOptionsTabGroup/AccesoriesOptions" instance=ExtResource("14_sq54w")]
 layout_mode = 2
+size_flags_stretch_ratio = 3.5
 
-[node name="ShoesGallery" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/FaceOptionsTabGroup/FootwearOptions" instance=ExtResource("14_sq54w")]
-layout_mode = 2
-
-[node name="AccesoriesOptions" type="VBoxContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/FaceOptionsTabGroup"]
+[node name="Naming" type="VBoxContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/BodyOptionsTabGroup"]
 visible = false
 layout_mode = 2
 
-[node name="ColorOptionPicker" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/FaceOptionsTabGroup/AccesoriesOptions" instance=ExtResource("16_sn6bk")]
-layout_mode = 2
-
-[node name="BeltGallery" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/FaceOptionsTabGroup/AccesoriesOptions" instance=ExtResource("14_sq54w")]
-layout_mode = 2
-
-[node name="WristGallery" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/FaceOptionsTabGroup/AccesoriesOptions" instance=ExtResource("14_sq54w")]
-layout_mode = 2
-
-[node name="Naming" type="VBoxContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/FaceOptionsTabGroup"]
-layout_mode = 2
-
-[node name="LineEdit" type="LineEdit" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/FaceOptionsTabGroup/Naming"]
+[node name="LineEdit" type="LineEdit" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/BodyOptionsTabGroup/Naming"]
 layout_mode = 2
 
 [node name="ReferenceRect3" type="ReferenceRect" parent="Spacer/VBoxContainer2"]

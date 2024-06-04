@@ -3,15 +3,21 @@ class_name CreatorGallery
 extends Control
 
 
-@export var button_group: ButtonGroup
 @export var npc_customizer_button_prefab: PackedScene
 
 @export var button_holder: Control
+
+var button_group: ButtonGroup
+
+
+func _ready():
+	button_group = ButtonGroup.new()
 
 
 func add_button(texture: Texture, button_callback):
 	var button = npc_customizer_button_prefab.instantiate() as NPCCustomizerOption
 	button_holder.add_child(button)
+
 	button.button.pressed.connect(button_callback)
 	button.button.button_group = button_group
 	button.texture.texture = texture
