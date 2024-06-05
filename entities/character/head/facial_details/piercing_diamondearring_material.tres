@@ -1,3 +1,15 @@
-[gd_resource type="StandardMaterial3D" format=3 uid="uid://bwcr12mvsutix"]
+[gd_resource type="StandardMaterial3D" load_steps=5 format=3 uid="uid://bwcr12mvsutix"]
+
+[ext_resource type="Texture2D" uid="uid://cqxb3fylwhlj0" path="res://entities/character/head/facial_details/piercing_diamondearring_albedo.png" id="1_5wrkv"]
+[ext_resource type="Texture2D" uid="uid://rlt08qyfg3kc" path="res://entities/character/head/facial_details/piercing_diamondearring_metallic.png" id="2_bxsxk"]
+[ext_resource type="Texture2D" uid="uid://db4wye6c16n8k" path="res://entities/character/head/facial_details/piercing_diamondearring_normal.png" id="3_yxevd"]
+[ext_resource type="Texture2D" uid="uid://bmaaxs2chqo3p" path="res://entities/character/head/facial_details/piercing_diamondearring_roughness.png" id="4_08xuq"]
 
 [resource]
+transparency = 1
+albedo_texture = ExtResource("1_5wrkv")
+metallic = 1.0
+metallic_texture = ExtResource("2_bxsxk")
+roughness_texture = ExtResource("4_08xuq")
+normal_enabled = true
+normal_texture = ExtResource("3_yxevd")
