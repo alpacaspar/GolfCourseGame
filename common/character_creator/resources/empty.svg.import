@@ -1,0 +1,26 @@
+[remap]
+
+importer="2d_array_texture"
+type="CompressedTexture2DArray"
+uid="uid://c4fpy38fyrqiu"
+path="res://.godot/imported/empty.svg-05e7cffae8faae038cc06f2a188ccad8.ctexarray"
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+source_file="res://common/character_creator/resources/empty.svg"
+dest_files=["res://.godot/imported/empty.svg-05e7cffae8faae038cc06f2a188ccad8.ctexarray"]
+
+[params]
+
+compress/mode=0
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+slices/horizontal=1
+slices/vertical=1
