@@ -113,21 +113,78 @@ func spawn_character(resource: NPCResource) -> Character:
 	head_material.set("shader_parameter/Blush", blush_data)
 	head_material.set("shader_parameter/BlushColor", blush_colors[resource.blush_color_index])
 
-	# # Shirt stuff
-	# var shirt := shirt_datas[resource.shirt_index]
-	# character.collar_mesh_instance.mesh = shirt.collar_mesh
-	# clothing_material.set("shader_parameter/ShirtTint", shirt_colors[resource.shirt_color_index])
-	# clothing_material.set("shader_parameter/ShirtAlbedo", shirt.albedo)
-	# clothing_material.set("shader_parameter/ShirtRoughness", shirt.roughness)
-	# clothing_material.set("shader_parameter/ShirtNormal", shirt.normal)
+	# Shirt stuff
+	var shirt := shirt_datas[resource.shirt_index]
+	character.collar_mesh_instance.mesh = shirt.collar
+	if shirt.can_pick_color:
+		clothing_material.set("shader_parameter/ShirtTint", shirt_colors[resource.shirt_color_index])
+	else:
+		clothing_material.set("shader_parameter/ShirtTint", Color.WHITE)
 
-	# # Pants stuff
-	# var pants := pants_datas[resource.pants_index]
-	# clothing_material.set("shader_parameter/PantsTint", pants_colors[resource.pants_color_index])
-	# clothing_material.set("shader_parameter/PantsAlbedo", pants.albedo)
-	# clothing_material.set("shader_parameter/PantsRoughness", pants.roughness)
-	# clothing_material.set("shader_parameter/PantsNormal", pants.normal)
+	clothing_material.set("shader_parameter/ShirtAlbedo", shirt.albedo)
+	clothing_material.set("shader_parameter/ShirtRoughness", shirt.roughness)
+	clothing_material.set("shader_parameter/ShirtNormal", shirt.normal)
 
+	# Pants stuff
+	var pants := pants_datas[resource.pants_index]
+	if !pants.is_skirt:
+		character.skirt_mesh_instance.visible = false
+		if pants.can_pick_color:
+			clothing_material.set("shader_parameter/PantsTint", pants_colors[resource.pants_color_index])
+		else:
+			clothing_material.set("shader_parameter/PantsTint", Color.WHITE)
+		
+		clothing_material.set("shader_parameter/PantsAlbedo", pants.albedo)
+		clothing_material.set("shader_parameter/PantsRoughness", pants.roughness)
+		clothing_material.set("shader_parameter/PantsNormal", pants.normal)
+		if pants.show_cuffs:
+			character.left_folded_pants_mesh_instance.visible = true
+			character.right_folded_pants_mesh_instance.visible = true
+		else:
+			character.left_folded_pants_mesh_instance.visible = false
+			character.right_folded_pants_mesh_instance.visible = false
+	else:
+		character.skirt_mesh_instance.visible = true
+		clothing_material.set("shader_parameter/PantsAlbedo", null)
+		clothing_material.set("shader_parameter/PantsRoughness", null)
+		clothing_material.set("shader_parameter/PantsNormal", null)
+		character.skirt_mesh_instance.material_override.albedo_color = pants_colors[resource.pants_color_index]
+
+	# Shoes stuff
+	var shoes := shoes_datas[resource.shoe_index]
+	clothing_material.set("shader_parameter/ShoesTint", shirt_colors[resource.shoes_color_index])
+	clothing_material.set("shader_parameter/ShoesAlbedo", shoes.albedo)
+	clothing_material.set("shader_parameter/ShoesRoughness", shoes.roughness)
+	clothing_material.set("shader_parameter/ShoesNormal", shoes.normal)
+	clothing_material.set("shader_parameter/ShoesMetallic", shoes.metallic)
+	clothing_material.set("shader_parameter/ShoesColorMask", shoes.color_mask)
+
+	# Sock stuff
+	var socks := sock_datas[resource.sock_index]
+	if socks.can_pick_color:
+		clothing_material.set("shader_parameter/SocksTint", shirt_colors[resource.sock_color_index])
+	else:
+		clothing_material.set("shader_parameter/SocksTint", Color.WHITE)
+	clothing_material.set("shader_parameter/SocksAlbedo", socks.albedo)
+	clothing_material.set("shader_parameter/SocksRoughness", socks.roughness)
+
+	# Setting Wrist meshes
+	if resource.wrist_index > -1:
+		var wrist_data := wrists_datas[resource.wrist_index]
+		character.wrist_mesh_instance.visible = true
+		character.wrist_mesh_instance.mesh = wrist_data.mesh
+		character.wrist_mesh_instance.material_override = wrist_data.material
+	else:
+		character.wrist_mesh_instance.visible = false
+
+	# Setting Belt meshes
+	if resource.belt_index > -1:
+		var belt_data := belt_datas[resource.belt_index]
+		character.belt_mesh_instance.visible = true
+		character.belt_mesh_instance.material_override = belt_data.material
+	else:
+		character.belt_mesh_instance.visible = false
+	
 	# Setting Head meshes
 	character.ear_mesh_instance.mesh = ear_meshes[resource.ear_index]
 	if resource.earring_index == -1:

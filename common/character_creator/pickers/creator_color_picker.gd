@@ -15,7 +15,7 @@ func _ready():
 	button_group = ButtonGroup.new()
 
 
-func _process(_delta):
+func _process(_delta):	
 	if tracker == null:
 		return
 	
@@ -28,7 +28,10 @@ func add_button(color: Color, button_callback):
 	var button = color_button_prefab.instantiate() as CreatorColorPickerOption
 	button_holder.add_child(button)
 
+	if tracker != null:
+		button.button.pressed.connect(_update_tracker)
 	button.button.pressed.connect(button_callback)
+
 	button.button.button_group = button_group
 	
 	var image = load("res://addons/npc_editor/ui/solid_white.png").duplicate()

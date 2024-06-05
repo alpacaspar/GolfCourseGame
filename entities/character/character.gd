@@ -14,6 +14,7 @@ signal secondary_animation_event
 @export var hair_mesh_instance: MeshInstance3D
 @export var wrist_mesh_instance: MeshInstance3D
 @export var belt_mesh_instance: MeshInstance3D
+@export var skirt_mesh_instance: MeshInstance3D
 
 @export var face_mesh_instance: MeshInstance3D
 @export var head_mesh_instance: MeshInstance3D

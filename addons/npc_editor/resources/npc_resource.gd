@@ -20,6 +20,7 @@ extends Resource
 @export var mustache_index: int = 0
 @export var beard_index: int = 0
 
+@export var nose_piercing_index: int = 0
 @export var eyebrow_piercing_index: int = 0
 @export var earring_index: int = 0
 
@@ -56,4 +57,3 @@ extends Resource
 @export var pants_color_index: int = 0
 @export var sock_color_index: int = 0
 @export var shoes_color_index: int = 0
-@export var belt_color_index: int = 0

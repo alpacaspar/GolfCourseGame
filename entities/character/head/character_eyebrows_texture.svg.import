@@ -3,20 +3,19 @@
 importer="2d_array_texture"
 type="CompressedTexture2DArray"
 uid="uid://b5l0k8hd6jdcu"
-path.s3tc="res://.godot/imported/character_eyebrows_texture.svg-607f3952190b47b4455c199d61e6218c.s3tc.ctexarray"
+path="res://.godot/imported/character_eyebrows_texture.svg-607f3952190b47b4455c199d61e6218c.ctexarray"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://entities/character/head/character_eyebrows_texture.svg"
-dest_files=["res://.godot/imported/character_eyebrows_texture.svg-607f3952190b47b4455c199d61e6218c.s3tc.ctexarray"]
+dest_files=["res://.godot/imported/character_eyebrows_texture.svg-607f3952190b47b4455c199d61e6218c.ctexarray"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
