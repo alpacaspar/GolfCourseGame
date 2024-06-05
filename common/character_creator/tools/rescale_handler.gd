@@ -12,5 +12,3 @@ func _on_scale():
 	var scale_y = current_resolution.y / standard_resolution.y
 
 	scale = Vector2(scale_x, scale_y)
-   
-	print(standard_resolution, current_resolution, " Scale:", scale,)

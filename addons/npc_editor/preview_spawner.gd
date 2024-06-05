@@ -42,7 +42,7 @@ func _set_rotation(value: float):
 
 
 func _set_zoom(value := 0.0):
-	preview_cam.position = zoom_holder.position.lerp(unzoom_holder.position, 1 - value)
+	preview_cam.position = zoom_holder.position.lerp(unzoom_holder.position, value)
 
 
 func _spawn_character(character_resource: NPCResource):

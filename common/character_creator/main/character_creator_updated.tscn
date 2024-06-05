@@ -1,6 +1,6 @@
-[gd_scene load_steps=37 format=3 uid="uid://c75huqds1lmet"]
+[gd_scene load_steps=75 format=3 uid="uid://c75huqds1lmet"]
 
-[ext_resource type="Theme" uid="uid://pq6ete4ie6a8" path="res://common/character_creator/resources/character_creator_theme.tres" id="1_o2jqn"]
+[ext_resource type="Theme" uid="uid://bw2a7mna652cl" path="res://common/character_creator/resources/new_character_creator_theme.tres" id="1_amotn"]
 [ext_resource type="Script" path="res://common/character_creator/main/character_creator.gd" id="2_fmr2t"]
 [ext_resource type="ButtonGroup" uid="uid://gxcp7q5ddcrd" path="res://common/character_creator/button_groups/creator_window_button_group.tres" id="3_3tjqc"]
 [ext_resource type="Texture2D" uid="uid://bomv5ke20rhsb" path="res://common/character_creator/icons/extras/zoom-in.png" id="3_k7we3"]
@@ -10,25 +10,63 @@
 [ext_resource type="Texture2D" uid="uid://dbicohqe3hgws" path="res://common/character_creator/icons/extras/magnifying-glass.png" id="4_jxcwy"]
 [ext_resource type="Script" path="res://common/character_creator/resources/finetune_button_range.gd" id="4_wuhbt"]
 [ext_resource type="ButtonGroup" uid="uid://07n1rspe725j" path="res://common/character_creator/button_groups/face_body_group.tres" id="5_snfil"]
+[ext_resource type="Texture2D" uid="uid://f0ahnrgrc62" path="res://common/character_creator/icons/ears/ears_1.png" id="5_sqx8j"]
+[ext_resource type="Texture2D" uid="uid://datjifkujw538" path="res://common/character_creator/icons/hair/afro_kaspel.png" id="5_tgl5y"]
+[ext_resource type="Texture2D" uid="uid://bdgbkubhjn5cg" path="res://common/character_creator/icons/ears/ears_2.png" id="6_rqkat"]
+[ext_resource type="Texture2D" uid="uid://dbc7ls1vk7x67" path="res://common/character_creator/icons/hair/bob_kapsel.png" id="6_s251f"]
+[ext_resource type="Texture2D" uid="uid://dp0kqc36fy1xm" path="res://common/character_creator/icons/ears/ears_3.png" id="7_mede7"]
+[ext_resource type="Texture2D" uid="uid://iragapsmrq0p" path="res://common/character_creator/icons/hair/buzz_cut.png" id="7_o25f1"]
 [ext_resource type="Texture2D" uid="uid://dfspa0f55imyc" path="res://icon.svg" id="8_4h4o2"]
+[ext_resource type="Texture2D" uid="uid://bdsneyjc1rgw7" path="res://common/character_creator/icons/ears/ears_4.png" id="8_07sdn"]
+[ext_resource type="Texture2D" uid="uid://d2hnpox72vxhh" path="res://common/character_creator/icons/hair/caspar_kapsel.png" id="8_aptni"]
 [ext_resource type="Script" path="res://common/character_creator/tools/external_tabs_handler.gd" id="8_g1j11"]
+[ext_resource type="Texture2D" uid="uid://bwxvxrnp2e03b" path="res://common/character_creator/icons/hair/charlie_kapsel.png" id="9_igdo4"]
+[ext_resource type="Texture2D" uid="uid://jxbicme5dndu" path="res://common/character_creator/icons/ears/ears_5.png" id="9_y81nd"]
+[ext_resource type="Texture2D" uid="uid://c7lfgw0gfqvjv" path="res://common/character_creator/icons/beard/beard_full.png" id="10_aby50"]
 [ext_resource type="Texture2D" uid="uid://bjwnnbrf7gjql" path="res://common/character_creator/icons/Shirt.svg" id="10_jdfok"]
+[ext_resource type="Texture2D" uid="uid://beslfxwcmf6tu" path="res://common/character_creator/icons/hair/comb_over.png" id="10_x3yrl"]
+[ext_resource type="Texture2D" uid="uid://cjgqgy67gixq8" path="res://common/character_creator/icons/beard/beard_fullstubble.png" id="11_4mmso"]
 [ext_resource type="Texture2D" uid="uid://dqmb2al0cn3tl" path="res://common/character_creator/icons/Pants.svg" id="11_gjpg7"]
+[ext_resource type="Texture2D" uid="uid://52hexens8345" path="res://common/character_creator/icons/hair/long_hair.png" id="11_ppy87"]
 [ext_resource type="Texture2D" uid="uid://cmsumye0h7ks2" path="res://common/character_creator/icons/Shoes.svg" id="12_7aojr"]
 [ext_resource type="Texture2D" uid="uid://bkc38rjrfehfw" path="res://common/character_creator/icons/Eyebrow.svg" id="12_cef86"]
+[ext_resource type="Texture2D" uid="uid://dfpywv5257gde" path="res://common/character_creator/icons/hair/pony_tail.png" id="12_i24fy"]
+[ext_resource type="Texture2D" uid="uid://bijhpie0hokm7" path="res://common/character_creator/icons/beard/beard_goatee.png" id="12_l0qri"]
 [ext_resource type="Texture2D" uid="uid://by18btik8dcxl" path="res://common/character_creator/icons/Mouth.svg" id="13_g7psi"]
+[ext_resource type="Texture2D" uid="uid://drxdwx8vnqjoj" path="res://common/character_creator/icons/hair/preppy_kapsel.png" id="13_lcfea"]
+[ext_resource type="Texture2D" uid="uid://d3hb0cjb1pwdu" path="res://common/character_creator/icons/beard/beard_medium.png" id="13_lmkbh"]
 [ext_resource type="Texture2D" uid="uid://bngmvif3ad5r1" path="res://common/character_creator/icons/Naming.svg" id="13_rfnlh"]
+[ext_resource type="Texture2D" uid="uid://drkx2fvxykkrs" path="res://common/character_creator/icons/noses/nose_1.png" id="14_6uwex"]
+[ext_resource type="Texture2D" uid="uid://dfngvsc5334nc" path="res://common/character_creator/icons/beard/beard_mediumstubble.png" id="14_8oo6v"]
 [ext_resource type="Texture2D" uid="uid://b1iw5qnh86iut" path="res://common/character_creator/icons/Ears.svg" id="14_oipyh"]
 [ext_resource type="PackedScene" uid="uid://bnovr4726jwoi" path="res://common/character_creator/pickers/creator_gallery.tscn" id="14_sq54w"]
 [ext_resource type="ButtonGroup" uid="uid://bpcb7up5p5aod" path="res://common/character_creator/button_groups/face_button_group.tres" id="15_gsruc"]
 [ext_resource type="Texture2D" uid="uid://c7bif0hgmebao" path="res://common/character_creator/icons/Nose.svg" id="15_k6xw7"]
+[ext_resource type="Texture2D" uid="uid://bdh257ltncw5s" path="res://common/character_creator/icons/noses/nose_2.png" id="15_sjc8k"]
 [ext_resource type="Texture2D" uid="uid://d3n668btwy2q0" path="res://common/character_creator/icons/Hair.svg" id="16_fvbrj"]
 [ext_resource type="PackedScene" uid="uid://cck5rfjeh8d3d" path="res://common/character_creator/pickers/color_option_picker.tscn" id="16_sn6bk"]
+[ext_resource type="Texture2D" uid="uid://dwlpxn6m5q0ra" path="res://common/character_creator/icons/noses/nose_3.png" id="16_vw5m5"]
+[ext_resource type="Texture2D" uid="uid://cugihvts28yb3" path="res://common/character_creator/icons/noses/nose_4.png" id="17_dau6g"]
 [ext_resource type="Resource" uid="uid://xc57xdoukdg4" path="res://common/character_creator/resources/skin_color_tracker.tres" id="22_4oapn"]
 [ext_resource type="PackedScene" uid="uid://daduc6vljvtkd" path="res://common/character_creator/pickers/finetine_buttons.tscn" id="24_qcc4a"]
+[ext_resource type="Texture2D" uid="uid://c4iis8evwhv3b" path="res://common/character_creator/icons/jewelry/piercing_nose.png" id="28_ey5ac"]
 [ext_resource type="Script" path="res://common/character_creator/pickers/creator_gallery_picker.gd" id="28_g88cc"]
+[ext_resource type="Texture2D" uid="uid://bnc1gneg2etmt" path="res://common/character_creator/icons/jewelry/earring_diamondstud.png" id="28_wqgcf"]
+[ext_resource type="Texture2D" uid="uid://07dcwpxauv8l" path="res://common/character_creator/icons/jewelry/earring_hoop.png" id="29_1wcng"]
 [ext_resource type="PackedScene" uid="uid://bj1d4jmao707v" path="res://common/character_creator/pickers/creator_gallery_option.tscn" id="29_5xpsr"]
 [ext_resource type="ButtonGroup" uid="uid://sxa8jxt1w7gr" path="res://common/character_creator/button_groups/body_button_group.tres" id="29_8hw7x"]
+[ext_resource type="Texture2D" uid="uid://c2ak3414hwm5h" path="res://common/character_creator/icons/jewelry/earring_pearl.png" id="30_pa571"]
+[ext_resource type="Texture2D" uid="uid://bgk5v5ntyypjk" path="res://common/character_creator/icons/jewelry/earring_stud.png" id="31_q6tmn"]
+[ext_resource type="Texture2D" uid="uid://bkvacbcu1yw5u" path="res://common/character_creator/icons/jewelry/earring_tear.png" id="32_0hqwg"]
+[ext_resource type="Texture2D" uid="uid://cjnxlo72ls1jf" path="res://common/character_creator/icons/jewelry/watch_leather.png" id="34_mftp0"]
+[ext_resource type="Texture2D" uid="uid://cxtlj4n7iohct" path="res://common/character_creator/icons/jewelry/watch_metal.png" id="35_mwl8u"]
+[ext_resource type="Texture2D" uid="uid://cjo2ykyxhtkl3" path="res://common/character_creator/icons/jewelry/watch_sports.png" id="36_ijucv"]
+[ext_resource type="Texture2D" uid="uid://cvdp676qqfk4r" path="res://common/character_creator/icons/jewelry/wrist_friendshipbracelet.png" id="37_7wji2"]
+[ext_resource type="Texture2D" uid="uid://vuh4s2x6mrfx" path="res://common/character_creator/icons/jewelry/wrist_goldbracelet.png" id="38_mpu6x"]
+[ext_resource type="Texture2D" uid="uid://i3t084gjqcy2" path="res://common/character_creator/icons/jewelry/wrist_leatherbracelet.png" id="39_oncpk"]
+[ext_resource type="Texture2D" uid="uid://c8hiu28nxsws1" path="res://common/character_creator/icons/jewelry/wrist_pearlbracelet.png" id="40_qotnk"]
+[ext_resource type="Script" path="res://common/character_creator/pickers/finetine_buttons.gd" id="63_jpa6f"]
+[ext_resource type="Texture2D" uid="uid://cxqeblj4g32jp" path="res://common/character_creator/icons/extras/arrow-down-sign-to-navigate.png" id="64_g7ufw"]
 
 [sub_resource type="Resource" id="Resource_uplhe"]
 script = ExtResource("4_wuhbt")
@@ -80,7 +118,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_o2jqn")
+theme = ExtResource("1_amotn")
 script = ExtResource("2_fmr2t")
 eyes_option_picker = NodePath("Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/EyeOptions/EyeGallery")
 eyebrows_option_picker = NodePath("Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/EyebrowOptions/CreatorGallery")
@@ -129,6 +167,13 @@ sock_color_option_picker = NodePath("Spacer/VBoxContainer2/HBoxContainer2/WhereT
 shoes_color_option_picker = NodePath("Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/BodyOptionsTabGroup/FootwearOptions/ColorOptionPicker2")
 belt_color_option_picker = NodePath("Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/BodyOptionsTabGroup/AccesoriesOptions/ColorOptionPicker")
 name_field = NodePath("Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/BodyOptionsTabGroup/Naming/LineEdit")
+hair_icons = Array[Texture]([ExtResource("5_tgl5y"), ExtResource("6_s251f"), ExtResource("7_o25f1"), ExtResource("8_aptni"), ExtResource("9_igdo4"), ExtResource("10_x3yrl"), ExtResource("11_ppy87"), ExtResource("12_i24fy"), ExtResource("13_lcfea")])
+nose_icons = Array[Texture]([ExtResource("14_6uwex"), ExtResource("15_sjc8k"), ExtResource("16_vw5m5"), ExtResource("17_dau6g")])
+ear_icons = Array[Texture]([ExtResource("5_sqx8j"), ExtResource("6_rqkat"), ExtResource("7_mede7"), ExtResource("8_07sdn"), ExtResource("9_y81nd")])
+beard_icons = Array[Texture]([ExtResource("10_aby50"), ExtResource("11_4mmso"), ExtResource("12_l0qri"), ExtResource("13_lmkbh"), ExtResource("14_8oo6v")])
+piercing_icons = Array[Texture]([ExtResource("28_ey5ac")])
+earring_icons = Array[Texture]([ExtResource("28_wqgcf"), ExtResource("29_1wcng"), ExtResource("30_pa571"), ExtResource("31_q6tmn"), ExtResource("32_0hqwg")])
+wrist_icons = Array[Texture]([ExtResource("34_mftp0"), ExtResource("35_mwl8u"), ExtResource("36_ijucv"), ExtResource("37_7wji2"), ExtResource("38_mpu6x"), ExtResource("39_oncpk"), ExtResource("40_qotnk")])
 preview = NodePath("Spacer/VBoxContainer2/HBoxContainer2/PreviewContainer/ReferenceRect/TextureRect")
 zoom_slider = NodePath("Spacer/VBoxContainer2/HBoxContainer2/ZoomSliderHolder/HBoxContainer/MarginContainer/ReferenceRect2")
 rotation_slider = NodePath("Spacer/VBoxContainer2/HBoxContainer2/PreviewContainer/HBoxContainer/VBoxContainer/HScrollBar")
@@ -140,6 +185,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_amotn")
 theme_override_styles/panel = SubResource("StyleBoxFlat_8pbir")
 
 [node name="Spacer" type="HBoxContainer" parent="."]
@@ -149,37 +195,44 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_amotn")
 
 [node name="ReferenceRect2" type="ReferenceRect" parent="Spacer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.1
+theme = ExtResource("1_amotn")
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="Spacer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 20.0
+theme = ExtResource("1_amotn")
 
 [node name="ReferenceRect2" type="ReferenceRect" parent="Spacer/VBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.05
+theme = ExtResource("1_amotn")
 
 [node name="TitleBox" type="HBoxContainer" parent="Spacer/VBoxContainer2"]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.9
+theme = ExtResource("1_amotn")
 
 [node name="ReferenceRect" type="ReferenceRect" parent="Spacer/VBoxContainer2/TitleBox"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.49
+theme = ExtResource("1_amotn")
 
 [node name="ReferenceRect2" type="ReferenceRect" parent="Spacer/VBoxContainer2/TitleBox"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 12.92
+theme = ExtResource("1_amotn")
 
 [node name="Label" type="Label" parent="Spacer/VBoxContainer2/TitleBox/ReferenceRect2"]
 layout_mode = 1
@@ -189,6 +242,7 @@ offset_bottom = 62.0
 size_flags_horizontal = 3
 size_flags_vertical = 1
 size_flags_stretch_ratio = 20.0
+theme = ExtResource("1_amotn")
 text = "Insert Name Country Club"
 label_settings = SubResource("LabelSettings_00xxw")
 vertical_alignment = 1
@@ -198,23 +252,27 @@ script = ExtResource("4_jtx3q")
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 6.43
-theme = ExtResource("1_o2jqn")
+theme = ExtResource("1_amotn")
 
 [node name="ZoomSliderHolder" type="VBoxContainer" parent="Spacer/VBoxContainer2/HBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.8
+theme = ExtResource("1_amotn")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/ZoomSliderHolder"]
 layout_mode = 2
 size_flags_vertical = 3
+theme = ExtResource("1_amotn")
 
 [node name="ReferenceRect" type="VBoxContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/ZoomSliderHolder/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme = ExtResource("1_amotn")
 
 [node name="ReferenceRect3" type="TextureRect" parent="Spacer/VBoxContainer2/HBoxContainer2/ZoomSliderHolder/HBoxContainer/ReferenceRect"]
 layout_mode = 2
+theme = ExtResource("1_amotn")
 texture = ExtResource("3_k7we3")
 expand_mode = 5
 stretch_mode = 4
@@ -223,9 +281,11 @@ flip_h = true
 [node name="ReferenceRect4" type="ReferenceRect" parent="Spacer/VBoxContainer2/HBoxContainer2/ZoomSliderHolder/HBoxContainer/ReferenceRect"]
 layout_mode = 2
 size_flags_vertical = 3
+theme = ExtResource("1_amotn")
 
 [node name="TextureRect" type="TextureRect" parent="Spacer/VBoxContainer2/HBoxContainer2/ZoomSliderHolder/HBoxContainer/ReferenceRect"]
 layout_mode = 2
+theme = ExtResource("1_amotn")
 texture = ExtResource("4_jxcwy")
 expand_mode = 5
 stretch_mode = 4
@@ -234,43 +294,51 @@ flip_h = true
 [node name="MarginContainer" type="MarginContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/ZoomSliderHolder/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme = ExtResource("1_amotn")
 theme_override_constants/margin_right = 0
 
 [node name="ReferenceRect2" type="VScrollBar" parent="Spacer/VBoxContainer2/HBoxContainer2/ZoomSliderHolder/HBoxContainer/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme = ExtResource("1_amotn")
 max_value = 1.0
 step = 0.001
-page = 0.1
+page = 0.3
 
 [node name="ReferenceRect" type="ReferenceRect" parent="Spacer/VBoxContainer2/HBoxContainer2/ZoomSliderHolder"]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.29
+theme = ExtResource("1_amotn")
 
 [node name="PreviewContainer" type="VBoxContainer" parent="Spacer/VBoxContainer2/HBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 3.39
+theme = ExtResource("1_amotn")
 
 [node name="ReferenceRect2" type="ReferenceRect" parent="Spacer/VBoxContainer2/HBoxContainer2/PreviewContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.02
+theme = ExtResource("1_amotn")
 
 [node name="ReferenceRect" type="HBoxContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/PreviewContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+theme = ExtResource("1_amotn")
 
 [node name="ReferenceRect3" type="ReferenceRect" parent="Spacer/VBoxContainer2/HBoxContainer2/PreviewContainer/ReferenceRect"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.02
+theme = ExtResource("1_amotn")
 
 [node name="TextureRect" type="TextureRect" parent="Spacer/VBoxContainer2/HBoxContainer2/PreviewContainer/ReferenceRect"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme = ExtResource("1_amotn")
 texture = ExtResource("8_4h4o2")
 
 [node name="ReferenceRect2" type="ReferenceRect" parent="Spacer/VBoxContainer2/HBoxContainer2/PreviewContainer/ReferenceRect"]
@@ -278,33 +346,39 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.02
+theme = ExtResource("1_amotn")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/PreviewContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.2
+theme = ExtResource("1_amotn")
 
 [node name="ReferenceRect2" type="ReferenceRect" parent="Spacer/VBoxContainer2/HBoxContainer2/PreviewContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.42
+theme = ExtResource("1_amotn")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/PreviewContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme = ExtResource("1_amotn")
 
 [node name="ReferenceRect3" type="ReferenceRect" parent="Spacer/VBoxContainer2/HBoxContainer2/PreviewContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.05
+theme = ExtResource("1_amotn")
 
 [node name="HScrollBar" type="HScrollBar" parent="Spacer/VBoxContainer2/HBoxContainer2/PreviewContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.27
+theme = ExtResource("1_amotn")
 min_value = 45.0
 max_value = 315.0
 step = 1.0
@@ -315,30 +389,36 @@ value = 180.0
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme = ExtResource("1_amotn")
 
 [node name="ReferenceRect3" type="ReferenceRect" parent="Spacer/VBoxContainer2/HBoxContainer2/PreviewContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.02
+theme = ExtResource("1_amotn")
 
 [node name="WhereTheFunHappens" type="VBoxContainer" parent="Spacer/VBoxContainer2/HBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 5.0
+theme = ExtResource("1_amotn")
 
 [node name="FaceBodyButtons" type="HBoxContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens"]
 layout_mode = 2
 size_flags_vertical = 3
+theme = ExtResource("1_amotn")
 
 [node name="ReferenceRect" type="ReferenceRect" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBodyButtons"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 4.03
+theme = ExtResource("1_amotn")
 
 [node name="Button" type="Button" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBodyButtons"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme = ExtResource("1_amotn")
 toggle_mode = true
 button_group = ExtResource("5_snfil")
 
@@ -349,7 +429,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_o2jqn")
+theme = ExtResource("1_amotn")
 texture = ExtResource("4_12phg")
 expand_mode = 2
 stretch_mode = 5
@@ -358,10 +438,12 @@ stretch_mode = 5
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.05
+theme = ExtResource("1_amotn")
 
 [node name="Button2" type="Button" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBodyButtons"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme = ExtResource("1_amotn")
 toggle_mode = true
 button_group = ExtResource("5_snfil")
 
@@ -372,7 +454,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_o2jqn")
+theme = ExtResource("1_amotn")
 texture = ExtResource("10_jdfok")
 expand_mode = 2
 stretch_mode = 5
@@ -381,37 +463,42 @@ stretch_mode = 5
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 8.27
+theme = ExtResource("1_amotn")
 tabs_visible = false
 script = ExtResource("8_g1j11")
 button_group = ExtResource("5_snfil")
 
 [node name="FaceOptions" type="VBoxContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody"]
 layout_mode = 2
+theme = ExtResource("1_amotn")
 
 [node name="ButtonHolder" type="VBoxContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions"]
 layout_mode = 2
 size_flags_vertical = 3
+theme = ExtResource("1_amotn")
 
 [node name="ReferenceRect2" type="ReferenceRect" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/ButtonHolder"]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.1
+theme = ExtResource("1_amotn")
 
 [node name="FaceButtons" type="HBoxContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/ButtonHolder"]
 layout_mode = 2
 size_flags_vertical = 3
-theme = ExtResource("1_o2jqn")
+theme = ExtResource("1_amotn")
 theme_override_constants/separation = 0
 
 [node name="ReferenceRect4" type="ReferenceRect" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/ButtonHolder/FaceButtons"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.2
+theme = ExtResource("1_amotn")
 
 [node name="Button" type="Button" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/ButtonHolder/FaceButtons"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme = ExtResource("1_o2jqn")
+theme = ExtResource("1_amotn")
 toggle_mode = true
 button_group = ExtResource("15_gsruc")
 
@@ -422,7 +509,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_o2jqn")
+theme = ExtResource("1_amotn")
 texture = ExtResource("4_12phg")
 expand_mode = 2
 stretch_mode = 5
@@ -431,11 +518,12 @@ stretch_mode = 5
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.1
+theme = ExtResource("1_amotn")
 
 [node name="Button2" type="Button" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/ButtonHolder/FaceButtons"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme = ExtResource("1_o2jqn")
+theme = ExtResource("1_amotn")
 toggle_mode = true
 button_group = ExtResource("15_gsruc")
 
@@ -446,7 +534,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_o2jqn")
+theme = ExtResource("1_amotn")
 texture = ExtResource("12_cef86")
 expand_mode = 2
 stretch_mode = 5
@@ -455,11 +543,12 @@ stretch_mode = 5
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.1
+theme = ExtResource("1_amotn")
 
 [node name="Button3" type="Button" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/ButtonHolder/FaceButtons"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme = ExtResource("1_o2jqn")
+theme = ExtResource("1_amotn")
 toggle_mode = true
 button_group = ExtResource("15_gsruc")
 
@@ -470,7 +559,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_o2jqn")
+theme = ExtResource("1_amotn")
 texture = ExtResource("13_g7psi")
 expand_mode = 2
 stretch_mode = 5
@@ -479,11 +568,12 @@ stretch_mode = 5
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.1
+theme = ExtResource("1_amotn")
 
 [node name="Button4" type="Button" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/ButtonHolder/FaceButtons"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme = ExtResource("1_o2jqn")
+theme = ExtResource("1_amotn")
 toggle_mode = true
 button_group = ExtResource("15_gsruc")
 
@@ -494,7 +584,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_o2jqn")
+theme = ExtResource("1_amotn")
 texture = ExtResource("14_oipyh")
 expand_mode = 2
 stretch_mode = 5
@@ -503,11 +593,12 @@ stretch_mode = 5
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.1
+theme = ExtResource("1_amotn")
 
 [node name="Button5" type="Button" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/ButtonHolder/FaceButtons"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme = ExtResource("1_o2jqn")
+theme = ExtResource("1_amotn")
 toggle_mode = true
 button_group = ExtResource("15_gsruc")
 
@@ -518,7 +609,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_o2jqn")
+theme = ExtResource("1_amotn")
 texture = ExtResource("15_k6xw7")
 expand_mode = 2
 stretch_mode = 5
@@ -527,11 +618,12 @@ stretch_mode = 5
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.1
+theme = ExtResource("1_amotn")
 
 [node name="Button6" type="Button" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/ButtonHolder/FaceButtons"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme = ExtResource("1_o2jqn")
+theme = ExtResource("1_amotn")
 toggle_mode = true
 button_group = ExtResource("15_gsruc")
 
@@ -542,7 +634,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_o2jqn")
+theme = ExtResource("1_amotn")
 texture = ExtResource("16_fvbrj")
 expand_mode = 2
 stretch_mode = 5
@@ -551,11 +643,12 @@ stretch_mode = 5
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.1
+theme = ExtResource("1_amotn")
 
 [node name="Button11" type="Button" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/ButtonHolder/FaceButtons"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme = ExtResource("1_o2jqn")
+theme = ExtResource("1_amotn")
 toggle_mode = true
 button_group = ExtResource("15_gsruc")
 
@@ -566,7 +659,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_o2jqn")
+theme = ExtResource("1_amotn")
 expand_mode = 2
 stretch_mode = 5
 
@@ -574,11 +667,12 @@ stretch_mode = 5
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.1
+theme = ExtResource("1_amotn")
 
 [node name="Button12" type="Button" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/ButtonHolder/FaceButtons"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme = ExtResource("1_o2jqn")
+theme = ExtResource("1_amotn")
 toggle_mode = true
 button_group = ExtResource("15_gsruc")
 
@@ -589,7 +683,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_o2jqn")
+theme = ExtResource("1_amotn")
 expand_mode = 2
 stretch_mode = 5
 
@@ -597,11 +691,12 @@ stretch_mode = 5
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.1
+theme = ExtResource("1_amotn")
 
 [node name="Button13" type="Button" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/ButtonHolder/FaceButtons"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme = ExtResource("1_o2jqn")
+theme = ExtResource("1_amotn")
 toggle_mode = true
 button_group = ExtResource("15_gsruc")
 
@@ -612,7 +707,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_o2jqn")
+theme = ExtResource("1_amotn")
 expand_mode = 2
 stretch_mode = 5
 
@@ -620,11 +715,12 @@ stretch_mode = 5
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.1
+theme = ExtResource("1_amotn")
 
 [node name="Button14" type="Button" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/ButtonHolder/FaceButtons"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme = ExtResource("1_o2jqn")
+theme = ExtResource("1_amotn")
 toggle_mode = true
 button_group = ExtResource("15_gsruc")
 
@@ -635,7 +731,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_o2jqn")
+theme = ExtResource("1_amotn")
 expand_mode = 2
 stretch_mode = 5
 
@@ -644,12 +740,13 @@ visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.1
+theme = ExtResource("1_amotn")
 
 [node name="Button7" type="Button" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/ButtonHolder/FaceButtons"]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 3
-theme = ExtResource("1_o2jqn")
+theme = ExtResource("1_amotn")
 toggle_mode = true
 button_group = ExtResource("3_3tjqc")
 
@@ -660,7 +757,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_o2jqn")
+theme = ExtResource("1_amotn")
 texture = ExtResource("10_jdfok")
 expand_mode = 2
 stretch_mode = 5
@@ -670,12 +767,13 @@ visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.1
+theme = ExtResource("1_amotn")
 
 [node name="Button8" type="Button" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/ButtonHolder/FaceButtons"]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 3
-theme = ExtResource("1_o2jqn")
+theme = ExtResource("1_amotn")
 toggle_mode = true
 button_group = ExtResource("3_3tjqc")
 
@@ -686,7 +784,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_o2jqn")
+theme = ExtResource("1_amotn")
 texture = ExtResource("11_gjpg7")
 expand_mode = 2
 stretch_mode = 5
@@ -696,12 +794,13 @@ visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.1
+theme = ExtResource("1_amotn")
 
 [node name="Button9" type="Button" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/ButtonHolder/FaceButtons"]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 3
-theme = ExtResource("1_o2jqn")
+theme = ExtResource("1_amotn")
 toggle_mode = true
 
 [node name="TextureRect" type="TextureRect" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/ButtonHolder/FaceButtons/Button9"]
@@ -711,7 +810,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_o2jqn")
+theme = ExtResource("1_amotn")
 texture = ExtResource("12_7aojr")
 expand_mode = 2
 stretch_mode = 5
@@ -721,12 +820,13 @@ visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.1
+theme = ExtResource("1_amotn")
 
 [node name="Button10" type="Button" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/ButtonHolder/FaceButtons"]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 3
-theme = ExtResource("1_o2jqn")
+theme = ExtResource("1_amotn")
 toggle_mode = true
 button_group = ExtResource("3_3tjqc")
 
@@ -737,7 +837,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_o2jqn")
+theme = ExtResource("1_amotn")
 texture = ExtResource("13_rfnlh")
 expand_mode = 2
 stretch_mode = 5
@@ -746,116 +846,288 @@ stretch_mode = 5
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.7
+theme = ExtResource("1_amotn")
 
 [node name="ReferenceRect" type="ReferenceRect" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/ButtonHolder"]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.1
+theme = ExtResource("1_amotn")
 
 [node name="FaceOptionsTabGroup" type="TabContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions"]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 7.0
+theme = ExtResource("1_amotn")
 tabs_visible = false
 script = ExtResource("8_g1j11")
 button_group = ExtResource("15_gsruc")
 
 [node name="EyeOptions" type="VBoxContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup"]
 layout_mode = 2
+theme = ExtResource("1_amotn")
 
 [node name="ColorOptionPicker" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/EyeOptions" instance=ExtResource("16_sn6bk")]
 layout_mode = 2
+theme = ExtResource("1_amotn")
 tracker = ExtResource("22_4oapn")
 
 [node name="EyeGallery" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/EyeOptions" instance=ExtResource("14_sq54w")]
 layout_mode = 2
 size_flags_stretch_ratio = 6.0
+theme = ExtResource("1_amotn")
 
 [node name="Buttons" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/EyeOptions" instance=ExtResource("24_qcc4a")]
 layout_mode = 2
+theme = ExtResource("1_amotn")
 
 [node name="EyebrowOptions" type="VBoxContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup"]
 visible = false
 layout_mode = 2
+theme = ExtResource("1_amotn")
 
 [node name="ColorOptionPicker" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/EyebrowOptions" instance=ExtResource("16_sn6bk")]
 layout_mode = 2
+theme = ExtResource("1_amotn")
 
 [node name="CreatorGallery" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/EyebrowOptions" instance=ExtResource("14_sq54w")]
 layout_mode = 2
 size_flags_stretch_ratio = 6.0
+theme = ExtResource("1_amotn")
 
 [node name="Buttons2" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/EyebrowOptions" instance=ExtResource("24_qcc4a")]
 layout_mode = 2
+theme = ExtResource("1_amotn")
 
 [node name="MouthOptions" type="VBoxContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup"]
 visible = false
 layout_mode = 2
+theme = ExtResource("1_amotn")
 
 [node name="ColorOptionPicker" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/MouthOptions" instance=ExtResource("16_sn6bk")]
 layout_mode = 2
+theme = ExtResource("1_amotn")
 
 [node name="CreatorGallery" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/MouthOptions" instance=ExtResource("14_sq54w")]
 layout_mode = 2
 size_flags_stretch_ratio = 6.0
+theme = ExtResource("1_amotn")
 
-[node name="Buttons" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/MouthOptions" instance=ExtResource("24_qcc4a")]
+[node name="Buttons" type="VBoxContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/MouthOptions" node_paths=PackedStringArray("up_button", "down_button", "scale_up_button", "scale_down_button")]
 layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("1_amotn")
+script = ExtResource("63_jpa6f")
+up_button = NodePath("HBoxContainer3/HBoxContainer2/Button2")
+down_button = NodePath("HBoxContainer3/HBoxContainer2/Button")
+vertical_step = 0.05
+scale_up_button = NodePath("HBoxContainer3/HBoxContainer4/Button")
+scale_down_button = NodePath("HBoxContainer3/HBoxContainer4/Button2")
+scaling_step = 0.02
+
+[node name="ReferenceRect2" type="ReferenceRect" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/MouthOptions/Buttons"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.2
+theme = ExtResource("1_amotn")
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/MouthOptions/Buttons"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+theme = ExtResource("1_amotn")
+
+[node name="ReferenceRect" type="ReferenceRect" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/MouthOptions/Buttons/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.87
+theme = ExtResource("1_amotn")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/MouthOptions/Buttons/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_amotn")
+theme_override_constants/separation = 0
+
+[node name="Button" type="Button" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/MouthOptions/Buttons/HBoxContainer3/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_amotn")
+
+[node name="TextureRect" type="TextureRect" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/MouthOptions/Buttons/HBoxContainer3/HBoxContainer2/Button"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 9.0
+offset_top = 6.0
+offset_right = -12.0
+offset_bottom = -7.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_amotn")
+texture = ExtResource("64_g7ufw")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Button2" type="Button" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/MouthOptions/Buttons/HBoxContainer3/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_amotn")
+
+[node name="TextureRect" type="TextureRect" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/MouthOptions/Buttons/HBoxContainer3/HBoxContainer2/Button2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 11.0
+offset_top = 6.0
+offset_right = -11.0
+offset_bottom = -7.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_amotn")
+texture = ExtResource("64_g7ufw")
+expand_mode = 2
+stretch_mode = 5
+flip_v = true
+
+[node name="ReferenceRect3" type="ReferenceRect" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/MouthOptions/Buttons/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.1
+theme = ExtResource("1_amotn")
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/MouthOptions/Buttons/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_amotn")
+theme_override_constants/separation = 0
+
+[node name="Button" type="Button" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/MouthOptions/Buttons/HBoxContainer3/HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_amotn")
+
+[node name="TextureRect" type="TextureRect" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/MouthOptions/Buttons/HBoxContainer3/HBoxContainer4/Button"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 6.0
+offset_right = -11.0
+offset_bottom = -7.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_amotn")
+texture = ExtResource("3_k7we3")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Button2" type="Button" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/MouthOptions/Buttons/HBoxContainer3/HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_amotn")
+
+[node name="TextureRect" type="TextureRect" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/MouthOptions/Buttons/HBoxContainer3/HBoxContainer4/Button2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 11.0
+offset_top = 6.0
+offset_right = -11.0
+offset_bottom = -7.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_amotn")
+texture = ExtResource("4_jxcwy")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="ReferenceRect5" type="ReferenceRect" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/MouthOptions/Buttons/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.87
+theme = ExtResource("1_amotn")
+
+[node name="ReferenceRect" type="ReferenceRect" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/MouthOptions/Buttons"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.2
+theme = ExtResource("1_amotn")
 
 [node name="EarOptions" type="VBoxContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup"]
 visible = false
 layout_mode = 2
+theme = ExtResource("1_amotn")
 
 [node name="ColorOptionPicker" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/EarOptions" instance=ExtResource("16_sn6bk")]
 layout_mode = 2
+theme = ExtResource("1_amotn")
 
 [node name="CreatorGallery" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/EarOptions" instance=ExtResource("14_sq54w")]
 layout_mode = 2
 size_flags_stretch_ratio = 7.0
+theme = ExtResource("1_amotn")
 
 [node name="NoseOptions" type="VBoxContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup"]
 visible = false
 layout_mode = 2
+theme = ExtResource("1_amotn")
 
 [node name="ColorOptionPicker" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/NoseOptions" instance=ExtResource("16_sn6bk")]
 layout_mode = 2
+theme = ExtResource("1_amotn")
 
 [node name="CreatorGallery" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/NoseOptions" instance=ExtResource("14_sq54w")]
 layout_mode = 2
 size_flags_stretch_ratio = 7.0
+theme = ExtResource("1_amotn")
 
 [node name="HairOptions" type="VBoxContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup"]
 visible = false
 layout_mode = 2
+theme = ExtResource("1_amotn")
 
 [node name="ColorOptionPicker" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/HairOptions" instance=ExtResource("16_sn6bk")]
 layout_mode = 2
+theme = ExtResource("1_amotn")
 
 [node name="CreatorGallery" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/HairOptions" instance=ExtResource("14_sq54w")]
 layout_mode = 2
 size_flags_stretch_ratio = 7.0
+theme = ExtResource("1_amotn")
 
 [node name="MakeupOptions" type="VBoxContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup"]
 visible = false
 layout_mode = 2
+theme = ExtResource("1_amotn")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/MakeupOptions"]
 layout_mode = 2
 size_flags_vertical = 3
+theme = ExtResource("1_amotn")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/MakeupOptions/ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme = ExtResource("1_amotn")
 
 [node name="ColorOptionPicker3" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/MakeupOptions/ScrollContainer/VBoxContainer" instance=ExtResource("16_sn6bk")]
 layout_mode = 2
+theme = ExtResource("1_amotn")
 
 [node name="EyeshadowGallery" type="VBoxContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/MakeupOptions/ScrollContainer/VBoxContainer" node_paths=PackedStringArray("button_holder")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 6.0
+theme = ExtResource("1_amotn")
 theme_override_constants/separation = 0
 script = ExtResource("28_g88cc")
 npc_customizer_button_prefab = ExtResource("29_5xpsr")
@@ -865,23 +1137,27 @@ button_holder = NodePath("HBoxContainer/GridContainer")
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.04
+theme = ExtResource("1_amotn")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/MakeupOptions/ScrollContainer/VBoxContainer/EyeshadowGallery"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme = ExtResource("1_amotn")
 theme_override_constants/separation = 0
 
 [node name="ReferenceRect2" type="ReferenceRect" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/MakeupOptions/ScrollContainer/VBoxContainer/EyeshadowGallery/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.4
+theme = ExtResource("1_amotn")
 
 [node name="GridContainer" type="GridContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/MakeupOptions/ScrollContainer/VBoxContainer/EyeshadowGallery/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 20.0
+theme = ExtResource("1_amotn")
 theme_override_constants/h_separation = 30
 theme_override_constants/v_separation = 30
 columns = 4
@@ -890,20 +1166,24 @@ columns = 4
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.2
+theme = ExtResource("1_amotn")
 
 [node name="ReferenceRect" type="ReferenceRect" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/MakeupOptions/ScrollContainer/VBoxContainer/EyeshadowGallery"]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.04
+theme = ExtResource("1_amotn")
 
 [node name="ColorOptionPicker2" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/MakeupOptions/ScrollContainer/VBoxContainer" instance=ExtResource("16_sn6bk")]
 layout_mode = 2
+theme = ExtResource("1_amotn")
 
 [node name="EyelinerGallery" type="VBoxContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/MakeupOptions/ScrollContainer/VBoxContainer" node_paths=PackedStringArray("button_holder")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 6.0
+theme = ExtResource("1_amotn")
 theme_override_constants/separation = 0
 script = ExtResource("28_g88cc")
 npc_customizer_button_prefab = ExtResource("29_5xpsr")
@@ -913,23 +1193,27 @@ button_holder = NodePath("HBoxContainer/GridContainer")
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.04
+theme = ExtResource("1_amotn")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/MakeupOptions/ScrollContainer/VBoxContainer/EyelinerGallery"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme = ExtResource("1_amotn")
 theme_override_constants/separation = 0
 
 [node name="ReferenceRect2" type="ReferenceRect" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/MakeupOptions/ScrollContainer/VBoxContainer/EyelinerGallery/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.4
+theme = ExtResource("1_amotn")
 
 [node name="GridContainer" type="GridContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/MakeupOptions/ScrollContainer/VBoxContainer/EyelinerGallery/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 20.0
+theme = ExtResource("1_amotn")
 theme_override_constants/h_separation = 30
 theme_override_constants/v_separation = 30
 columns = 4
@@ -938,20 +1222,24 @@ columns = 4
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.2
+theme = ExtResource("1_amotn")
 
 [node name="ReferenceRect" type="ReferenceRect" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/MakeupOptions/ScrollContainer/VBoxContainer/EyelinerGallery"]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.04
+theme = ExtResource("1_amotn")
 
 [node name="ColorOptionPicker" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/MakeupOptions/ScrollContainer/VBoxContainer" instance=ExtResource("16_sn6bk")]
 layout_mode = 2
+theme = ExtResource("1_amotn")
 
 [node name="BlushGallery" type="VBoxContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/MakeupOptions/ScrollContainer/VBoxContainer" node_paths=PackedStringArray("button_holder")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 6.0
+theme = ExtResource("1_amotn")
 theme_override_constants/separation = 0
 script = ExtResource("28_g88cc")
 npc_customizer_button_prefab = ExtResource("29_5xpsr")
@@ -961,23 +1249,27 @@ button_holder = NodePath("HBoxContainer/GridContainer")
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.04
+theme = ExtResource("1_amotn")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/MakeupOptions/ScrollContainer/VBoxContainer/BlushGallery"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme = ExtResource("1_amotn")
 theme_override_constants/separation = 0
 
 [node name="ReferenceRect2" type="ReferenceRect" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/MakeupOptions/ScrollContainer/VBoxContainer/BlushGallery/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.4
+theme = ExtResource("1_amotn")
 
 [node name="GridContainer" type="GridContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/MakeupOptions/ScrollContainer/VBoxContainer/BlushGallery/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 20.0
+theme = ExtResource("1_amotn")
 theme_override_constants/h_separation = 30
 theme_override_constants/v_separation = 30
 columns = 4
@@ -986,87 +1278,392 @@ columns = 4
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.2
+theme = ExtResource("1_amotn")
 
 [node name="ReferenceRect" type="ReferenceRect" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/MakeupOptions/ScrollContainer/VBoxContainer/BlushGallery"]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.04
+theme = ExtResource("1_amotn")
 
 [node name="GlassesOptions" type="VBoxContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup"]
 visible = false
 layout_mode = 2
+theme = ExtResource("1_amotn")
 
 [node name="ColorOptionPicker" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/GlassesOptions" instance=ExtResource("16_sn6bk")]
 layout_mode = 2
+theme = ExtResource("1_amotn")
 
 [node name="CreatorGallery" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/GlassesOptions" instance=ExtResource("14_sq54w")]
 layout_mode = 2
 size_flags_stretch_ratio = 6.0
+theme = ExtResource("1_amotn")
 
-[node name="Buttons" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/GlassesOptions" instance=ExtResource("24_qcc4a")]
+[node name="Buttons" type="VBoxContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/GlassesOptions" node_paths=PackedStringArray("up_button", "down_button", "scale_up_button", "scale_down_button")]
 layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("1_amotn")
+script = ExtResource("63_jpa6f")
+up_button = NodePath("HBoxContainer3/HBoxContainer2/Button2")
+down_button = NodePath("HBoxContainer3/HBoxContainer2/Button")
+vertical_step = 0.05
+scale_up_button = NodePath("HBoxContainer3/HBoxContainer4/Button")
+scale_down_button = NodePath("HBoxContainer3/HBoxContainer4/Button2")
+scaling_step = 0.02
+
+[node name="ReferenceRect2" type="ReferenceRect" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/GlassesOptions/Buttons"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.2
+theme = ExtResource("1_amotn")
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/GlassesOptions/Buttons"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+theme = ExtResource("1_amotn")
+
+[node name="ReferenceRect" type="ReferenceRect" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/GlassesOptions/Buttons/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.71
+theme = ExtResource("1_amotn")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/GlassesOptions/Buttons/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_amotn")
+theme_override_constants/separation = 0
+
+[node name="Button" type="Button" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/GlassesOptions/Buttons/HBoxContainer3/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_amotn")
+
+[node name="TextureRect" type="TextureRect" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/GlassesOptions/Buttons/HBoxContainer3/HBoxContainer2/Button"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 9.0
+offset_top = 6.0
+offset_right = -12.0
+offset_bottom = -7.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_amotn")
+texture = ExtResource("64_g7ufw")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Button2" type="Button" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/GlassesOptions/Buttons/HBoxContainer3/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_amotn")
+
+[node name="TextureRect" type="TextureRect" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/GlassesOptions/Buttons/HBoxContainer3/HBoxContainer2/Button2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 11.0
+offset_top = 6.0
+offset_right = -11.0
+offset_bottom = -7.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_amotn")
+texture = ExtResource("64_g7ufw")
+expand_mode = 2
+stretch_mode = 5
+flip_v = true
+
+[node name="ReferenceRect3" type="ReferenceRect" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/GlassesOptions/Buttons/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.1
+theme = ExtResource("1_amotn")
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/GlassesOptions/Buttons/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_amotn")
+theme_override_constants/separation = 0
+
+[node name="Button" type="Button" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/GlassesOptions/Buttons/HBoxContainer3/HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_amotn")
+
+[node name="TextureRect" type="TextureRect" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/GlassesOptions/Buttons/HBoxContainer3/HBoxContainer4/Button"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 6.0
+offset_right = -11.0
+offset_bottom = -7.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_amotn")
+texture = ExtResource("3_k7we3")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Button2" type="Button" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/GlassesOptions/Buttons/HBoxContainer3/HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_amotn")
+
+[node name="TextureRect" type="TextureRect" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/GlassesOptions/Buttons/HBoxContainer3/HBoxContainer4/Button2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 11.0
+offset_top = 6.0
+offset_right = -11.0
+offset_bottom = -7.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_amotn")
+texture = ExtResource("4_jxcwy")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="ReferenceRect5" type="ReferenceRect" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/GlassesOptions/Buttons/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.71
+theme = ExtResource("1_amotn")
+
+[node name="ReferenceRect" type="ReferenceRect" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/GlassesOptions/Buttons"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.2
+theme = ExtResource("1_amotn")
 
 [node name="FacialHairOptions" type="VBoxContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup"]
 visible = false
 layout_mode = 2
+theme = ExtResource("1_amotn")
 
 [node name="ColorOptionPicker" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/FacialHairOptions" instance=ExtResource("16_sn6bk")]
 layout_mode = 2
+theme = ExtResource("1_amotn")
 
 [node name="CreatorGallery" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/FacialHairOptions" instance=ExtResource("14_sq54w")]
 layout_mode = 2
 size_flags_stretch_ratio = 2.5
+theme = ExtResource("1_amotn")
 
 [node name="ColorOptionPicker2" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/FacialHairOptions" instance=ExtResource("16_sn6bk")]
 layout_mode = 2
+theme = ExtResource("1_amotn")
 
 [node name="CreatorGallery2" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/FacialHairOptions" instance=ExtResource("14_sq54w")]
 layout_mode = 2
 size_flags_stretch_ratio = 2.5
+theme = ExtResource("1_amotn")
 
-[node name="Buttons" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/FacialHairOptions" instance=ExtResource("24_qcc4a")]
+[node name="Buttons" type="VBoxContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/FacialHairOptions" node_paths=PackedStringArray("up_button", "down_button", "scale_up_button", "scale_down_button")]
 layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("1_amotn")
+script = ExtResource("63_jpa6f")
+up_button = NodePath("HBoxContainer3/HBoxContainer2/Button2")
+down_button = NodePath("HBoxContainer3/HBoxContainer2/Button")
+vertical_step = 0.05
+scale_up_button = NodePath("HBoxContainer3/HBoxContainer4/Button")
+scale_down_button = NodePath("HBoxContainer3/HBoxContainer4/Button2")
+scaling_step = 0.02
+
+[node name="ReferenceRect2" type="ReferenceRect" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/FacialHairOptions/Buttons"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.2
+theme = ExtResource("1_amotn")
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/FacialHairOptions/Buttons"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+theme = ExtResource("1_amotn")
+
+[node name="ReferenceRect" type="ReferenceRect" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/FacialHairOptions/Buttons/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.7
+theme = ExtResource("1_amotn")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/FacialHairOptions/Buttons/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_amotn")
+theme_override_constants/separation = 0
+
+[node name="Button" type="Button" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/FacialHairOptions/Buttons/HBoxContainer3/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_amotn")
+
+[node name="TextureRect" type="TextureRect" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/FacialHairOptions/Buttons/HBoxContainer3/HBoxContainer2/Button"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 9.0
+offset_top = 6.0
+offset_right = -12.0
+offset_bottom = -7.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_amotn")
+texture = ExtResource("64_g7ufw")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Button2" type="Button" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/FacialHairOptions/Buttons/HBoxContainer3/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_amotn")
+
+[node name="TextureRect" type="TextureRect" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/FacialHairOptions/Buttons/HBoxContainer3/HBoxContainer2/Button2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 11.0
+offset_top = 6.0
+offset_right = -11.0
+offset_bottom = -7.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_amotn")
+texture = ExtResource("64_g7ufw")
+expand_mode = 2
+stretch_mode = 5
+flip_v = true
+
+[node name="ReferenceRect3" type="ReferenceRect" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/FacialHairOptions/Buttons/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.1
+theme = ExtResource("1_amotn")
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/FacialHairOptions/Buttons/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_amotn")
+theme_override_constants/separation = 0
+
+[node name="Button" type="Button" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/FacialHairOptions/Buttons/HBoxContainer3/HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_amotn")
+
+[node name="TextureRect" type="TextureRect" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/FacialHairOptions/Buttons/HBoxContainer3/HBoxContainer4/Button"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 6.0
+offset_right = -11.0
+offset_bottom = -7.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_amotn")
+texture = ExtResource("3_k7we3")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Button2" type="Button" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/FacialHairOptions/Buttons/HBoxContainer3/HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_amotn")
+
+[node name="TextureRect" type="TextureRect" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/FacialHairOptions/Buttons/HBoxContainer3/HBoxContainer4/Button2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 11.0
+offset_top = 6.0
+offset_right = -11.0
+offset_bottom = -7.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_amotn")
+texture = ExtResource("4_jxcwy")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="ReferenceRect5" type="ReferenceRect" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/FacialHairOptions/Buttons/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.7
+theme = ExtResource("1_amotn")
+
+[node name="ReferenceRect" type="ReferenceRect" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/FacialHairOptions/Buttons"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.2
+theme = ExtResource("1_amotn")
 
 [node name="PiercingOptions" type="VBoxContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup"]
 visible = false
 layout_mode = 2
+theme = ExtResource("1_amotn")
 
 [node name="CreatorGallery" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/PiercingOptions" instance=ExtResource("14_sq54w")]
 layout_mode = 2
 size_flags_stretch_ratio = 4.0
+theme = ExtResource("1_amotn")
 
 [node name="CreatorGallery2" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/PiercingOptions" instance=ExtResource("14_sq54w")]
 layout_mode = 2
 size_flags_stretch_ratio = 4.0
+theme = ExtResource("1_amotn")
 
 [node name="BodyOptions" type="VBoxContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody"]
 visible = false
 layout_mode = 2
+theme = ExtResource("1_amotn")
 
 [node name="ButtonHolder" type="VBoxContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions"]
 layout_mode = 2
 size_flags_vertical = 3
+theme = ExtResource("1_amotn")
 
 [node name="ReferenceRect2" type="ReferenceRect" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/ButtonHolder"]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.1
+theme = ExtResource("1_amotn")
 
 [node name="BodyButtons" type="HBoxContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/ButtonHolder"]
 layout_mode = 2
 size_flags_vertical = 3
-theme = ExtResource("1_o2jqn")
+theme = ExtResource("1_amotn")
 theme_override_constants/separation = 0
 
 [node name="ReferenceRect4" type="ReferenceRect" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/ButtonHolder/BodyButtons"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.2
+theme = ExtResource("1_amotn")
 
 [node name="Button" type="Button" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/ButtonHolder/BodyButtons"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme = ExtResource("1_o2jqn")
+theme = ExtResource("1_amotn")
 toggle_mode = true
 button_group = ExtResource("29_8hw7x")
 
@@ -1077,7 +1674,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_o2jqn")
+theme = ExtResource("1_amotn")
 texture = ExtResource("10_jdfok")
 expand_mode = 2
 stretch_mode = 5
@@ -1086,11 +1683,12 @@ stretch_mode = 5
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.1
+theme = ExtResource("1_amotn")
 
 [node name="Button2" type="Button" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/ButtonHolder/BodyButtons"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme = ExtResource("1_o2jqn")
+theme = ExtResource("1_amotn")
 toggle_mode = true
 button_group = ExtResource("29_8hw7x")
 
@@ -1101,7 +1699,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_o2jqn")
+theme = ExtResource("1_amotn")
 texture = ExtResource("11_gjpg7")
 expand_mode = 2
 stretch_mode = 5
@@ -1110,11 +1708,12 @@ stretch_mode = 5
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.1
+theme = ExtResource("1_amotn")
 
 [node name="Button3" type="Button" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/ButtonHolder/BodyButtons"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme = ExtResource("1_o2jqn")
+theme = ExtResource("1_amotn")
 toggle_mode = true
 button_group = ExtResource("29_8hw7x")
 
@@ -1125,7 +1724,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_o2jqn")
+theme = ExtResource("1_amotn")
 texture = ExtResource("12_7aojr")
 expand_mode = 2
 stretch_mode = 5
@@ -1134,11 +1733,12 @@ stretch_mode = 5
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.1
+theme = ExtResource("1_amotn")
 
 [node name="Button4" type="Button" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/ButtonHolder/BodyButtons"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme = ExtResource("1_o2jqn")
+theme = ExtResource("1_amotn")
 toggle_mode = true
 button_group = ExtResource("29_8hw7x")
 
@@ -1149,7 +1749,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_o2jqn")
+theme = ExtResource("1_amotn")
 expand_mode = 2
 stretch_mode = 5
 
@@ -1157,11 +1757,12 @@ stretch_mode = 5
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.1
+theme = ExtResource("1_amotn")
 
 [node name="Button5" type="Button" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/ButtonHolder/BodyButtons"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme = ExtResource("1_o2jqn")
+theme = ExtResource("1_amotn")
 toggle_mode = true
 button_group = ExtResource("29_8hw7x")
 
@@ -1172,7 +1773,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_o2jqn")
+theme = ExtResource("1_amotn")
 texture = ExtResource("13_rfnlh")
 expand_mode = 2
 stretch_mode = 5
@@ -1181,92 +1782,110 @@ stretch_mode = 5
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 6.25
+theme = ExtResource("1_amotn")
 
 [node name="ReferenceRect" type="ReferenceRect" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/ButtonHolder"]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.1
+theme = ExtResource("1_amotn")
 
 [node name="BodyOptionsTabGroup" type="TabContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions"]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 7.0
+theme = ExtResource("1_amotn")
 tabs_visible = false
 script = ExtResource("8_g1j11")
 button_group = ExtResource("29_8hw7x")
 
 [node name="ShirtOptions" type="VBoxContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/BodyOptionsTabGroup"]
 layout_mode = 2
+theme = ExtResource("1_amotn")
 
 [node name="ColorOptionPicker" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/BodyOptionsTabGroup/ShirtOptions" instance=ExtResource("16_sn6bk")]
 layout_mode = 2
+theme = ExtResource("1_amotn")
 
 [node name="ShirtGallery" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/BodyOptionsTabGroup/ShirtOptions" instance=ExtResource("14_sq54w")]
 layout_mode = 2
 size_flags_stretch_ratio = 7.0
+theme = ExtResource("1_amotn")
 
 [node name="PantsOptions" type="VBoxContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/BodyOptionsTabGroup"]
 visible = false
 layout_mode = 2
+theme = ExtResource("1_amotn")
 
 [node name="ColorOptionPicker" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/BodyOptionsTabGroup/PantsOptions" instance=ExtResource("16_sn6bk")]
 layout_mode = 2
+theme = ExtResource("1_amotn")
 
 [node name="PantsGallery" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/BodyOptionsTabGroup/PantsOptions" instance=ExtResource("14_sq54w")]
 layout_mode = 2
 size_flags_stretch_ratio = 7.0
+theme = ExtResource("1_amotn")
 
 [node name="FootwearOptions" type="VBoxContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/BodyOptionsTabGroup"]
 visible = false
 layout_mode = 2
+theme = ExtResource("1_amotn")
 
 [node name="ColorOptionPicker" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/BodyOptionsTabGroup/FootwearOptions" instance=ExtResource("16_sn6bk")]
 layout_mode = 2
+theme = ExtResource("1_amotn")
 
 [node name="SockGallery" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/BodyOptionsTabGroup/FootwearOptions" instance=ExtResource("14_sq54w")]
 layout_mode = 2
 size_flags_stretch_ratio = 3.0
+theme = ExtResource("1_amotn")
 
 [node name="ColorOptionPicker2" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/BodyOptionsTabGroup/FootwearOptions" instance=ExtResource("16_sn6bk")]
 layout_mode = 2
+theme = ExtResource("1_amotn")
 
 [node name="ShoesGallery" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/BodyOptionsTabGroup/FootwearOptions" instance=ExtResource("14_sq54w")]
 layout_mode = 2
 size_flags_stretch_ratio = 3.0
+theme = ExtResource("1_amotn")
 
 [node name="AccesoriesOptions" type="VBoxContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/BodyOptionsTabGroup"]
 visible = false
 layout_mode = 2
+theme = ExtResource("1_amotn")
 
 [node name="ColorOptionPicker" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/BodyOptionsTabGroup/AccesoriesOptions" instance=ExtResource("16_sn6bk")]
 layout_mode = 2
+theme = ExtResource("1_amotn")
 
 [node name="BeltGallery" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/BodyOptionsTabGroup/AccesoriesOptions" instance=ExtResource("14_sq54w")]
 layout_mode = 2
 size_flags_stretch_ratio = 3.5
+theme = ExtResource("1_amotn")
 
 [node name="WristGallery" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/BodyOptionsTabGroup/AccesoriesOptions" instance=ExtResource("14_sq54w")]
 layout_mode = 2
 size_flags_stretch_ratio = 3.5
+theme = ExtResource("1_amotn")
 
 [node name="Naming" type="VBoxContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/BodyOptionsTabGroup"]
 visible = false
 layout_mode = 2
+theme = ExtResource("1_amotn")
 
 [node name="LineEdit" type="LineEdit" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/BodyOptionsTabGroup/Naming"]
 layout_mode = 2
+theme = ExtResource("1_amotn")
 
 [node name="ReferenceRect3" type="ReferenceRect" parent="Spacer/VBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.05
+theme = ExtResource("1_amotn")
 
 [node name="ReferenceRect" type="ReferenceRect" parent="Spacer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.1
-
-[editable path="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/MouthOptions/Buttons"]
-[editable path="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/GlassesOptions/Buttons"]
-[editable path="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/FacialHairOptions/Buttons"]
+theme = ExtResource("1_amotn")

@@ -1,9 +1,10 @@
-[gd_scene load_steps=52 format=3 uid="uid://cdh3hkt0sfd8y"]
+[gd_scene load_steps=75 format=3 uid="uid://cdh3hkt0sfd8y"]
 
 [ext_resource type="Script" path="res://common/character_factory/character_factory.gd" id="1_i4r0e"]
 [ext_resource type="ArrayMesh" uid="uid://ctvdng4wa44ne" path="res://entities/character/head/character_ears_1.res" id="2_r6hdl"]
 [ext_resource type="ArrayMesh" uid="uid://efm4pg1rf18p" path="res://entities/character/head/character_ears_2.res" id="3_wcwmv"]
 [ext_resource type="ArrayMesh" uid="uid://ckm45vryptgty" path="res://entities/character/head/character_ears_3.res" id="4_ujpgv"]
+[ext_resource type="CompressedTexture2DArray" uid="uid://c533wglac8vdc" path="res://entities/character/head/glasses_sheet.svg" id="5_5rvxa"]
 [ext_resource type="ArrayMesh" uid="uid://dqi1i1st288n1" path="res://entities/character/head/character_ears_4.res" id="5_tdhg7"]
 [ext_resource type="CompressedTexture2DArray" uid="uid://dnw1xsi6elgbp" path="res://entities/character/head/facial_details/facialhair_moustaches_sheet.svg" id="5_tr34a"]
 [ext_resource type="CompressedTexture2DArray" uid="uid://ctx80qp1s2jd2" path="res://entities/character/head/facial_details/makeup_eyelinerwinged_sheet.svg" id="6_f705o"]
@@ -17,61 +18,116 @@
 [ext_resource type="ArrayMesh" uid="uid://c5pyhnxy5b1ut" path="res://entities/character/head/character_hair_charlie.res" id="9_4fntv"]
 [ext_resource type="ArrayMesh" uid="uid://cwjjouf17da3r" path="res://entities/character/head/character_hair_combover.res" id="10_0bh4e"]
 [ext_resource type="ArrayMesh" uid="uid://n1v2dumgj2gt" path="res://entities/character/head/earrings/character_earring_hoop_v1.res" id="10_0xbwj"]
+[ext_resource type="CompressedTexture2DArray" uid="uid://c4fpy38fyrqiu" path="res://common/character_creator/resources/empty.svg" id="10_3x8iu"]
+[ext_resource type="Texture2D" uid="uid://bmmv6te6di8mx" path="res://entities/character/head/facial_details/beards_full_albedo.png" id="10_amg0a"]
 [ext_resource type="CompressedTexture2DArray" uid="uid://cbchvc11qxp4n" path="res://entities/character/head/facial_details/makeup_eyeshadowhardsmall_sheet.svg" id="10_x4f3u"]
 [ext_resource type="ArrayMesh" uid="uid://cam0r2lojd0i0" path="res://entities/character/head/character_hair_long.res" id="11_2rrxp"]
 [ext_resource type="CompressedTexture2DArray" uid="uid://c3qdb21aoogl3" path="res://entities/character/head/facial_details/makeup_eyeliner_sheet.svg" id="11_61e7o"]
+[ext_resource type="Texture2D" uid="uid://c7lfgw0gfqvjv" path="res://common/character_creator/icons/beard/beard_full.png" id="11_b6nu7"]
 [ext_resource type="CompressedTexture2DArray" uid="uid://ip7i3a6eo2g1" path="res://entities/character/head/facial_details/makeup_eyeshadowsoftbig_sheet.png" id="11_jv0df"]
 [ext_resource type="ArrayMesh" uid="uid://bd7sg4j0vwvlv" path="res://entities/character/head/earrings/character_earring_hoop_v2.res" id="11_x0aaa"]
 [ext_resource type="ArrayMesh" uid="uid://p1x8smwx255r" path="res://entities/character/head/earrings/character_earring_hoop_v3.res" id="12_1fn15"]
+[ext_resource type="Texture2D" uid="uid://dwjk7ler30365" path="res://entities/character/head/facial_details/beards_full_roughness.png" id="12_h24ol"]
 [ext_resource type="ArrayMesh" uid="uid://511lk7cedpkn" path="res://entities/character/head/character_hair_pony.res" id="12_pfcll"]
 [ext_resource type="CompressedTexture2DArray" uid="uid://dy64xnf2p7vhy" path="res://entities/character/head/facial_details/makeup_eyeshadowsoftbig_sheet.svg" id="12_yb6kc"]
 [ext_resource type="CompressedTexture2DArray" uid="uid://djs7imqrempbd" path="res://entities/character/head/facial_details/makeup_eyeshadowsoftsmall_sheet.svg" id="13_as6bc"]
 [ext_resource type="ArrayMesh" uid="uid://bxvvyfaj2gjm0" path="res://entities/character/head/character_hair_preppy.res" id="13_jky7t"]
 [ext_resource type="ArrayMesh" uid="uid://bs7qmb1huxprg" path="res://entities/character/head/earrings/character_earring_hoop_v4.res" id="13_oq8ra"]
+[ext_resource type="Script" path="res://common/character_creator/resources/beard_holder.gd" id="13_ugdgt"]
 [ext_resource type="ArrayMesh" uid="uid://do4nmmxm5s1p5" path="res://entities/character/head/earrings/character_earring_hoop_v5.res" id="14_8nu28"]
 [ext_resource type="ArrayMesh" uid="uid://cwa6wglrdhvcw" path="res://entities/character/head/character_nose_1.res" id="14_elv4t"]
+[ext_resource type="Texture2D" uid="uid://cq1bj80a1u8mr" path="res://entities/character/head/facial_details/beards_fullstubble_albedo_.png" id="14_qqj35"]
 [ext_resource type="ArrayMesh" uid="uid://cdvuuggvt7nrp" path="res://entities/character/head/earrings/character_earring_pearl_v1.res" id="15_da6xe"]
+[ext_resource type="Texture2D" uid="uid://cjgqgy67gixq8" path="res://common/character_creator/icons/beard/beard_fullstubble.png" id="15_q7gtq"]
 [ext_resource type="ArrayMesh" uid="uid://6ljqmoiu1j2t" path="res://entities/character/head/character_nose_2.res" id="15_urki0"]
 [ext_resource type="ArrayMesh" uid="uid://b7k8ihopssdbr" path="res://entities/character/head/character_nose_3.res" id="16_2jtp3"]
 [ext_resource type="ArrayMesh" uid="uid://dj1jdd4ovmg32" path="res://entities/character/head/earrings/character_earring_pearl_v2.res" id="16_fm231"]
 [ext_resource type="CompressedTexture2DArray" uid="uid://bidddg6auts75" path="res://entities/character/head/facial_details/piercing_eyebrowring_sheet.svg" id="16_ofr7k"]
+[ext_resource type="Texture2D" uid="uid://j81y2kqvprbl" path="res://entities/character/head/facial_details/beards_fullstubble_roughness.png" id="16_phutw"]
 [ext_resource type="ArrayMesh" uid="uid://cmv4tjyf0d06p" path="res://entities/character/head/character_nose_4.res" id="17_3tgyj"]
 [ext_resource type="CompressedTexture2DArray" uid="uid://dg484if27j2vy" path="res://entities/character/head/facial_details/piercing_eyebrowstud_sheet.svg" id="17_grs16"]
 [ext_resource type="ArrayMesh" uid="uid://crmp5umwlij6q" path="res://entities/character/head/character_hair_afro.res" id="17_itvmc"]
+[ext_resource type="Texture2D" uid="uid://d3yr54u7kfx8k" path="res://entities/character/head/facial_details/beards_goatee_albedo_.png" id="17_lcxmd"]
 [ext_resource type="ArrayMesh" uid="uid://lm2oitaet2xx" path="res://entities/character/head/earrings/character_earring_pearl_v3.res" id="17_uvjdm"]
 [ext_resource type="ArrayMesh" uid="uid://dd46ewgihk2hd" path="res://entities/character/head/character_hair_bob.res" id="18_07lqu"]
 [ext_resource type="ArrayMesh" uid="uid://b0bhws8t2kmyg" path="res://entities/character/head/earrings/character_earring_pearl_v4.res" id="18_shak0"]
+[ext_resource type="Texture2D" uid="uid://bijhpie0hokm7" path="res://common/character_creator/icons/beard/beard_goatee.png" id="18_uoi0c"]
+[ext_resource type="Texture2D" uid="uid://k4anng1krdxj" path="res://entities/character/head/facial_details/beards_goatee_roughness.png" id="19_b1h1t"]
 [ext_resource type="ArrayMesh" uid="uid://ceqaornoolk2l" path="res://entities/character/head/earrings/character_earring_pearl_v5.res" id="19_g40vu"]
 [ext_resource type="ArrayMesh" uid="uid://birdke1e13jxs" path="res://entities/character/head/earrings/character_earring_tear_v1.res" id="20_3p7pv"]
+[ext_resource type="Texture2D" uid="uid://bpf602420qst7" path="res://entities/character/head/facial_details/beards_medium_albedo.png" id="20_i7pnw"]
+[ext_resource type="Texture2D" uid="uid://d3hb0cjb1pwdu" path="res://common/character_creator/icons/beard/beard_medium.png" id="21_gxd8e"]
 [ext_resource type="ArrayMesh" uid="uid://datojw2vqcr60" path="res://entities/character/head/earrings/character_earring_tear_v2.res" id="21_swbw3"]
 [ext_resource type="ArrayMesh" uid="uid://c7toftkvtdxal" path="res://entities/character/head/earrings/character_earring_tear_v3.res" id="22_7db7x"]
+[ext_resource type="Texture2D" uid="uid://rli10r2ij62t" path="res://entities/character/head/facial_details/beards_medium_roughness.png" id="22_n4y3y"]
 [ext_resource type="CompressedTexture2DArray" uid="uid://b2s2xnqkfst6b" path="res://entities/character/head/character_eyes_texture.svg" id="22_rt4sy"]
 [ext_resource type="CompressedTexture2DArray" uid="uid://b5l0k8hd6jdcu" path="res://entities/character/head/character_eyebrows_texture.svg" id="23_2orqr"]
 [ext_resource type="ArrayMesh" uid="uid://b8pqxhp1miiik" path="res://entities/character/head/earrings/character_earring_tear_v4.res" id="23_f0dkv"]
+[ext_resource type="Texture2D" uid="uid://d2l1uryqtxa7v" path="res://entities/character/head/facial_details/beards_mediumstubble_albedo.png" id="23_jukbf"]
 [ext_resource type="ArrayMesh" uid="uid://d3qyc867n8156" path="res://entities/character/head/earrings/character_earring_tear_v5.res" id="24_dvcg3"]
+[ext_resource type="Texture2D" uid="uid://dfngvsc5334nc" path="res://common/character_creator/icons/beard/beard_mediumstubble.png" id="24_i6tmk"]
 [ext_resource type="CompressedTexture2DArray" uid="uid://cwrwjiecowt3n" path="res://entities/character/head/character_mouth_textures.svg" id="24_mj7xl"]
+[ext_resource type="Texture2D" uid="uid://b5ehet5778ubg" path="res://entities/character/head/facial_details/beards_mediumstubble_roughness.png" id="25_7pm38"]
 [ext_resource type="PackedScene" uid="uid://ck84hpbuds8v8" path="res://entities/character/character.tscn" id="25_gqjrl"]
+
+[sub_resource type="Resource" id="Resource_15dce"]
+script = ExtResource("13_ugdgt")
+name = "Full"
+icon = ExtResource("11_b6nu7")
+albedo = ExtResource("10_amg0a")
+roughness = ExtResource("12_h24ol")
+
+[sub_resource type="Resource" id="Resource_48eio"]
+script = ExtResource("13_ugdgt")
+name = "Full Stubble"
+icon = ExtResource("15_q7gtq")
+albedo = ExtResource("14_qqj35")
+roughness = ExtResource("16_phutw")
+
+[sub_resource type="Resource" id="Resource_ak3aw"]
+script = ExtResource("13_ugdgt")
+name = "Goatee"
+icon = ExtResource("18_uoi0c")
+albedo = ExtResource("17_lcxmd")
+roughness = ExtResource("19_b1h1t")
+
+[sub_resource type="Resource" id="Resource_o7k3w"]
+script = ExtResource("13_ugdgt")
+name = "Medium"
+icon = ExtResource("21_gxd8e")
+albedo = ExtResource("20_i7pnw")
+roughness = ExtResource("22_n4y3y")
+
+[sub_resource type="Resource" id="Resource_povyu"]
+script = ExtResource("13_ugdgt")
+name = "Medium Stubble"
+icon = ExtResource("24_i6tmk")
+albedo = ExtResource("23_jukbf")
+roughness = ExtResource("25_7pm38")
 
 [node name="CharacterFactory" type="Node"]
 script = ExtResource("1_i4r0e")
 eye_textures = ExtResource("22_rt4sy")
 eyebrow_textures = ExtResource("23_2orqr")
 mouth_textures = ExtResource("24_mj7xl")
+glasses_textures = ExtResource("5_5rvxa")
 mustache_textures = ExtResource("5_tr34a")
 blush_textures = Array[Texture]([ExtResource("6_ttfjd"), ExtResource("7_wvsx6"), ExtResource("8_ji7g3")])
-eyeshadow_textures = Array[CompressedTexture2DArray]([ExtResource("9_3ccqo"), ExtResource("10_x4f3u"), ExtResource("11_jv0df"), ExtResource("12_yb6kc"), ExtResource("13_as6bc")])
-eyeliner_textures = Array[CompressedTexture2DArray]([ExtResource("6_f705o"), ExtResource("11_61e7o")])
-eyebrow_piercing_textures = Array[CompressedTexture2DArray]([ExtResource("16_ofr7k"), ExtResource("17_grs16")])
+beard_textures = Array[ExtResource("13_ugdgt")]([SubResource("Resource_15dce"), SubResource("Resource_48eio"), SubResource("Resource_ak3aw"), SubResource("Resource_o7k3w"), SubResource("Resource_povyu")])
+eyeshadow_textures = Array[CompressedTexture2DArray]([ExtResource("10_3x8iu"), ExtResource("9_3ccqo"), ExtResource("10_x4f3u"), ExtResource("11_jv0df"), ExtResource("12_yb6kc"), ExtResource("13_as6bc")])
+eyeliner_textures = Array[CompressedTexture2DArray]([ExtResource("10_3x8iu"), ExtResource("6_f705o"), ExtResource("11_61e7o")])
+eyebrow_piercing_textures = Array[CompressedTexture2DArray]([ExtResource("10_3x8iu"), ExtResource("16_ofr7k"), ExtResource("17_grs16")])
 ear_meshes = Array[Mesh]([ExtResource("2_r6hdl"), ExtResource("3_wcwmv"), ExtResource("4_ujpgv"), ExtResource("5_tdhg7"), ExtResource("6_gepix")])
 earring_meshes = Array[Mesh]([ExtResource("10_0xbwj"), ExtResource("11_x0aaa"), ExtResource("12_1fn15"), ExtResource("13_oq8ra"), ExtResource("14_8nu28"), ExtResource("15_da6xe"), ExtResource("16_fm231"), ExtResource("17_uvjdm"), ExtResource("18_shak0"), ExtResource("19_g40vu"), ExtResource("20_3p7pv"), ExtResource("21_swbw3"), ExtResource("22_7db7x"), ExtResource("23_f0dkv"), ExtResource("24_dvcg3")])
 hair_meshes = Array[Mesh]([ExtResource("7_we6f7"), ExtResource("8_44eej"), ExtResource("9_4fntv"), ExtResource("10_0bh4e"), ExtResource("11_2rrxp"), ExtResource("12_pfcll"), ExtResource("13_jky7t"), ExtResource("17_itvmc"), ExtResource("18_07lqu")])
 nose_meshes = Array[Mesh]([ExtResource("14_elv4t"), ExtResource("15_urki0"), ExtResource("16_2jtp3"), ExtResource("17_3tgyj")])
 skin_colors = Array[Color]([Color(0.964706, 0.929412, 0.894118, 1), Color(0.972549, 0.894118, 0.796078, 1), Color(0.839216, 0.741176, 0.584314, 1), Color(0.933333, 0.752941, 0.65098, 1), Color(0.823529, 0.619608, 0.478431, 1), Color(0.678431, 0.427451, 0.231373, 1), Color(0.596078, 0.34902, 0.211765, 1), Color(0.513726, 0.356863, 0.258824, 1), Color(0.380392, 0.254902, 0.203922, 1), Color(0.227451, 0.192157, 0.164706, 1)])
-hair_colors = Array[Color]([Color(0.635294, 0.533333, 0.0431373, 1), Color(0.47451, 0.207843, 0, 1), Color(0.266667, 0.121569, 0, 1), Color(0.0941176, 0.0941176, 0.0941176, 1), Color(0.654902, 0.654902, 0.654902, 1)])
+hair_colors = Array[Color]([Color(0.764706, 0.639216, 0.356863, 1), Color(0.74902, 0.462745, 0.239216, 1), Color(0.282353, 0.0901961, 0.0705882, 1), Color(0.462745, 0.290196, 0.176471, 1), Color(0.309804, 0.219608, 0.172549, 1), Color(0.905882, 0.898039, 0.901961, 1), Color(0.0745098, 0.0588235, 0.0431373, 1), Color(0.478431, 0.470588, 0.47451, 1), Color(0.211765, 0.611765, 0.317647, 1), Color(0.992157, 0.643137, 0.729412, 1), Color(0.294118, 0.929412, 0.882353, 1)])
 lip_colors = Array[Color]([Color(0.792157, 0.0235294, 0.0235294, 1), Color(0.360784, 0, 0.0666667, 1), Color(0.882353, 0.184314, 0.388235, 1), Color(0.768627, 0.376471, 0.364706, 1), Color(0.364706, 0.203922, 0.113725, 1)])
 eyeshadow_colors = Array[Color]([Color(0.411765, 0.8, 0.866667, 1), Color(0.658824, 0.317647, 0.235294, 1), Color(0.8, 0.592157, 0.537255, 1), Color(0.337255, 0.352941, 0.25098, 1), Color(0.756863, 0.372549, 0.239216, 1)])
 eyeliner_colors = Array[Color]([Color(0.121569, 0.121569, 0.121569, 1), Color(1, 1, 1, 1), Color(0.509804, 0.164706, 0.168627, 1), Color(0.278431, 0.227451, 0.184314, 1)])
 blush_colors = Array[Color]([Color(0.705882, 0.376471, 0.290196, 1), Color(1, 0.568627, 0.603922, 1), Color(0.980392, 0.584314, 0.482353, 1), Color(0.972549, 0.6, 0.301961, 1)])
+glasses_colors = Array[Color]([Color(0.00392157, 0.00392157, 0.00392157, 1)])
 shirt_colors = Array[Color]([Color(0.956863, 0.956863, 0.956863, 1), Color(1, 0.207843, 0.207843, 1), Color(1, 0.556863, 0, 1), Color(1, 0.941176, 0, 1), Color(0.235294, 0.886275, 0.219608, 1), Color(0.0745098, 0.607843, 0.286275, 1), Color(0.196078, 0.811765, 0.996078, 1), Color(0.145098, 0.203922, 0.941176, 1), Color(0.968627, 0.113725, 0.47451, 1), Color(1, 0.72549, 1, 1), Color(0.682353, 0.54902, 0.32549, 1), Color(0.407843, 0.407843, 0.407843, 1), Color(0.0941176, 0.0941176, 0.0941176, 1)])
-pants_colors = Array[Color]([Color(0.0509804, 0.431373, 0.772549, 1), Color(0.215686, 0.435294, 0.188235, 1), Color(0.819608, 0.65098, 0.427451, 1), Color(0.933333, 0.933333, 0.933333, 1), Color(0.462745, 0.462745, 0.462745, 1), Color(0.054902, 0.054902, 0.054902, 1)])
+pants_colors = Array[Color]([Color(0.180392, 0.223529, 0.34902, 1), Color(0.278431, 0.309804, 0.25098, 1), Color(0.603922, 0.611765, 0.643137, 1), Color(0.964706, 0.858824, 0.603922, 1), Color(0.168627, 0.168627, 0.168627, 1), Color(0.552941, 0.290196, 0.290196, 1), Color(0.878431, 0.862745, 0.85098, 1), Color(0.282353, 0.160784, 0.027451, 1), Color(0.584314, 0.47451, 0.670588, 1)])
 character_base = ExtResource("25_gqjrl")

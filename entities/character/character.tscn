@@ -1079,7 +1079,7 @@ blend_shape_mode = 0
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[node name="BaseCharacter" type="Node3D" node_paths=PackedStringArray("ear_mesh_instance", "earring_mesh_instance", "nose_mesh_instance", "hair_mesh_instance", "wrist_mesh_instance", "belt_mesh_instance", "face_mesh_instance", "body_mesh_instance", "collar_mesh_instance", "left_folded_pants_mesh_instance", "right_folded_pants_mesh_instance", "animation_tree", "animation_player", "right_hand_marker", "left_hand_marker")]
+[node name="BaseCharacter" type="Node3D" node_paths=PackedStringArray("ear_mesh_instance", "earring_mesh_instance", "nose_mesh_instance", "hair_mesh_instance", "wrist_mesh_instance", "belt_mesh_instance", "face_mesh_instance", "head_mesh_instance", "body_mesh_instance", "collar_mesh_instance", "left_folded_pants_mesh_instance", "right_folded_pants_mesh_instance", "animation_tree", "animation_player", "right_hand_marker", "left_hand_marker")]
 script = ExtResource("1_deigj")
 ear_mesh_instance = NodePath("Armature/GeneralSkeleton/Ears")
 earring_mesh_instance = NodePath("Armature/GeneralSkeleton/EarringBase")
@@ -1088,6 +1088,7 @@ hair_mesh_instance = NodePath("Armature/GeneralSkeleton/Hair")
 wrist_mesh_instance = NodePath("Armature/GeneralSkeleton/BraceletBase")
 belt_mesh_instance = NodePath("Armature/GeneralSkeleton/Belt")
 face_mesh_instance = NodePath("Armature/GeneralSkeleton/Face")
+head_mesh_instance = NodePath("Armature/GeneralSkeleton/Head")
 body_mesh_instance = NodePath("Armature/GeneralSkeleton/Body_001")
 collar_mesh_instance = NodePath("Armature/GeneralSkeleton/Collar")
 left_folded_pants_mesh_instance = NodePath("Armature/GeneralSkeleton/PantCuffLeft")
@@ -1424,7 +1425,7 @@ mesh = SubResource("ArrayMesh_8htjf")
 skin = SubResource("Skin_bjk70")
 
 [node name="LeftHandBoneAttachment3D2" type="BoneAttachment3D" parent="Armature/GeneralSkeleton"]
-transform = Transform3D(0.23027, 0.952249, 0.200492, -0.107899, 0.229743, -0.967252, -0.967127, 0.201096, 0.15565, 31.3795, 7.74412, -57.8188)
+transform = Transform3D(0.244373, 0.942571, 0.227689, -0.127692, 0.264044, -0.956021, -0.961237, 0.204552, 0.184884, 31.2329, 8.91806, -57.6821)
 bone_name = "LeftHand"
 bone_idx = 9
 

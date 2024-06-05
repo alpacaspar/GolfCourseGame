@@ -50,11 +50,13 @@ theme_override_constants/v_separation = 30
 columns = 4
 
 [node name="ReferenceRect3" type="ReferenceRect" parent="HBoxContainer"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.5
@@ -66,6 +68,7 @@ size_flags_vertical = 3
 border_color = Color(1, 1, 1, 0)
 
 [node name="VScrollBar" type="VScrollBar" parent="HBoxContainer/VBoxContainer"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3

@@ -1,29 +1,54 @@
 [gd_scene load_steps=10 format=3 uid="uid://uv618k0m73pa"]
 
-[ext_resource type="Theme" uid="uid://pq6ete4ie6a8" path="res://common/character_creator/resources/character_creator_theme.tres" id="1_acbfn"]
+[ext_resource type="Theme" uid="uid://bw2a7mna652cl" path="res://common/character_creator/resources/new_character_creator_theme.tres" id="1_8hspp"]
 [ext_resource type="Script" path="res://common/character_creator/pickers/creator_color_picker_button.gd" id="1_ytaqp"]
 [ext_resource type="ButtonGroup" uid="uid://gxcp7q5ddcrd" path="res://common/character_creator/button_groups/creator_window_button_group.tres" id="2_5lrcu"]
 [ext_resource type="Texture2D" uid="uid://dfspa0f55imyc" path="res://icon.svg" id="3_5lgqr"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_st4fg"]
-bg_color = Color(0, 0, 0, 0)
-border_width_left = 3
-border_width_top = 3
-border_width_right = 3
-border_width_bottom = 3
-border_color = Color(0.643137, 0.643137, 0.643137, 1)
-corner_radius_top_left = 7
-corner_radius_top_right = 7
-corner_radius_bottom_right = 7
-corner_radius_bottom_left = 7
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4785p"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 7
+border_width_top = 7
+border_width_right = 7
+border_width_bottom = 7
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+corner_detail = 1
+anti_aliasing = false
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vi047"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w2gx2"]
+bg_color = Color(0.964706, 0.964706, 0.964706, 0.117647)
+border_width_left = 7
+border_width_top = 7
+border_width_right = 7
+border_width_bottom = 7
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+corner_detail = 1
+anti_aliasing = false
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ipiu0"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bop4a"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 7
+border_width_top = 7
+border_width_right = 7
+border_width_bottom = 7
+border_color = Color(0.196078, 0.196078, 0.196078, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+anti_aliasing = false
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5l23f"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eiasg"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gxtsd"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fw6xv"]
 
 [node name="Control" type="AspectRatioContainer" node_paths=PackedStringArray("button", "texture")]
 anchors_preset = 15
@@ -31,6 +56,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_8hspp")
 stretch_mode = 1
 script = ExtResource("1_ytaqp")
 button = NodePath("Button3")
@@ -38,18 +64,18 @@ texture = NodePath("TextureRect")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 2
-theme = ExtResource("1_acbfn")
+theme = ExtResource("1_8hspp")
 texture = ExtResource("3_5lgqr")
 expand_mode = 1
 
 [node name="Button3" type="Button" parent="."]
 layout_mode = 2
 size_flags_horizontal = 3
-theme = ExtResource("1_acbfn")
-theme_override_styles/normal = SubResource("StyleBoxFlat_st4fg")
-theme_override_styles/hover = SubResource("StyleBoxFlat_vi047")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_ipiu0")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_5l23f")
-theme_override_styles/focus = SubResource("StyleBoxFlat_gxtsd")
+theme = ExtResource("1_8hspp")
+theme_override_styles/normal = SubResource("StyleBoxFlat_4785p")
+theme_override_styles/hover = SubResource("StyleBoxFlat_w2gx2")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_bop4a")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_eiasg")
+theme_override_styles/focus = SubResource("StyleBoxFlat_fw6xv")
 toggle_mode = true
 button_group = ExtResource("2_5lrcu")
