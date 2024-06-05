@@ -18,9 +18,11 @@ extends Node
 
 @export_subgroup("Face Meshes")
 @export var ear_meshes: Array[Mesh] = []
-@export var earring_meshes: Array[Mesh] = []
 @export var hair_meshes: Array[Mesh] = []
 @export var nose_meshes: Array[Mesh] = []
+
+@export var earring_meshes: Array[EarringDataHolder] = []
+@export var nose_piercing_datas: Array[NosePiercingDataHolder] = []
 
 @export_subgroup("Face Colors")
 @export var skin_colors: Array[Color] = []
@@ -128,7 +130,22 @@ func spawn_character(resource: NPCResource) -> Character:
 
 	# Setting Head meshes
 	character.ear_mesh_instance.mesh = ear_meshes[resource.ear_index]
+	if resource.earring_index == -1:
+		character.ear_mesh_instance.material_overlay = null
+		character.earring_mesh_instance.visible = false
+	elif resource.earring_index < 3:
+		character.ear_mesh_instance.material_overlay = null
+		character.earring_mesh_instance.visible = true
+		character.earring_mesh_instance.mesh = earring_meshes[resource.earring_index].meshes[resource.ear_index]
+	else:
+		character.earring_mesh_instance.visible = false
+		character.ear_mesh_instance.material_overlay = earring_meshes[resource.earring_index].material
+
 	character.nose_mesh_instance.mesh = nose_meshes[resource.nose_index]
+	if resource.nose_piercing_index >= 0:
+		character.nose_mesh_instance.material_overlay = nose_piercing_datas[resource.nose_piercing_index].material
+	else:
+		character.nose_mesh_instance.material_overlay = null
 	
 	var hair_mesh = hair_meshes[resource.hair_index] if resource.hair_index >= 0 else null
 	character.hair_mesh_instance.mesh = hair_mesh
