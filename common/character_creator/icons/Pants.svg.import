@@ -3,20 +3,21 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dqmb2al0cn3tl"
-path="res://.godot/imported/Pants.svg-8a0ade3c9b044a7169df14d30bd70889.ctex"
+path.bptc="res://.godot/imported/Pants.svg-8a0ade3c9b044a7169df14d30bd70889.bptc.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
 }
 
 [deps]
 
 source_file="res://common/character_creator/icons/Pants.svg"
-dest_files=["res://.godot/imported/Pants.svg-8a0ade3c9b044a7169df14d30bd70889.ctex"]
+dest_files=["res://.godot/imported/Pants.svg-8a0ade3c9b044a7169df14d30bd70889.bptc.ctex"]
 
 [params]
 
-compress/mode=0
-compress/high_quality=false
+compress/mode=2
+compress/high_quality=true
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0

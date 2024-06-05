@@ -3,20 +3,21 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b1iw5qnh86iut"
-path="res://.godot/imported/Ears.svg-258fc3c72794d4c4bdc8a80d6b6647a5.ctex"
+path.bptc="res://.godot/imported/ears.svg-4ba43cfdc16524425dd9a9e4b5d02147.bptc.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
 }
 
 [deps]
 
-source_file="res://common/character_creator/icons/Ears.svg"
-dest_files=["res://.godot/imported/Ears.svg-258fc3c72794d4c4bdc8a80d6b6647a5.ctex"]
+source_file="res://common/character_creator/icons/ears.svg"
+dest_files=["res://.godot/imported/ears.svg-4ba43cfdc16524425dd9a9e4b5d02147.bptc.ctex"]
 
 [params]
 
-compress/mode=0
-compress/high_quality=false
+compress/mode=2
+compress/high_quality=true
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0
