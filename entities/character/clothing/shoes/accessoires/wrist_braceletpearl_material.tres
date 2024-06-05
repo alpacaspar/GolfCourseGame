@@ -1,15 +1,14 @@
-[gd_resource type="StandardMaterial3D" load_steps=5 format=3 uid="uid://b4a3njx2wuqlx"]
+[gd_resource type="StandardMaterial3D" load_steps=4 format=3 uid="uid://b4a3njx2wuqlx"]
 
-[ext_resource type="Texture2D" uid="uid://djd5v27stvy6g" path="res://entities/character/clothing/shoes/accessoires/wrist_braceletleather_albedo.png" id="1_qp2l6"]
-[ext_resource type="Texture2D" uid="uid://cupmex3rvqe4g" path="res://entities/character/clothing/shoes/accessoires/wrist_braceletleather_metallic.png" id="2_n0tjs"]
-[ext_resource type="Texture2D" uid="uid://d4gox1benev28" path="res://entities/character/clothing/shoes/accessoires/wrist_braceletleather_normal.png" id="3_7n3cy"]
-[ext_resource type="Texture2D" uid="uid://lgw1pi1awlmh" path="res://entities/character/clothing/shoes/accessoires/wrist_braceletleather_roughness.png" id="4_w8gk3"]
+[ext_resource type="Texture2D" uid="uid://dsqwv3rc33ksk" path="res://entities/character/clothing/shoes/accessoires/wrist_braceletpearl_albedo.png" id="1_1tnn5"]
+[ext_resource type="Texture2D" uid="uid://cb7jntt8p31v6" path="res://entities/character/clothing/shoes/accessoires/wrist_braceletpearl_metallic.png" id="2_t0g0l"]
+[ext_resource type="Texture2D" uid="uid://d1v18wxha2nec" path="res://entities/character/clothing/shoes/accessoires/wrist_braceletpearl_normal.png" id="3_uein2"]
 
 [resource]
 transparency = 1
-albedo_texture = ExtResource("1_qp2l6")
+albedo_texture = ExtResource("1_1tnn5")
 metallic = 1.0
-metallic_texture = ExtResource("2_n0tjs")
-roughness_texture = ExtResource("4_w8gk3")
+metallic_texture = ExtResource("2_t0g0l")
+roughness_texture = ExtResource("2_t0g0l")
 normal_enabled = true
-normal_texture = ExtResource("3_7n3cy")
+normal_texture = ExtResource("3_uein2")

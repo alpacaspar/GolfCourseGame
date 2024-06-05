@@ -1,15 +1,15 @@
 [gd_resource type="StandardMaterial3D" load_steps=5 format=3 uid="uid://dqqjxkfpgxkof"]
 
-[ext_resource type="Texture2D" uid="uid://bfdicbqxduq03" path="res://entities/character/clothing/shoes/accessoires/wrist_watchmetal_albedo.png" id="1_2ldud"]
-[ext_resource type="Texture2D" uid="uid://cnfwcpa0k1hv4" path="res://entities/character/clothing/shoes/accessoires/wrist_watchmetal_metallic.png" id="2_se3uv"]
-[ext_resource type="Texture2D" uid="uid://bcrgde4n7foh4" path="res://entities/character/clothing/shoes/accessoires/wrist_watchmetal_normal.png" id="3_ampu1"]
-[ext_resource type="Texture2D" uid="uid://b107y40widd3y" path="res://entities/character/clothing/shoes/accessoires/wrist_watchmetal_roughness.png" id="4_kr525"]
+[ext_resource type="Texture2D" uid="uid://omcrvmb3d4vg" path="res://entities/character/clothing/shoes/accessoires/wrist_watchsports_albedo.png" id="1_61khx"]
+[ext_resource type="Texture2D" uid="uid://cdxvhux2ul3jt" path="res://entities/character/clothing/shoes/accessoires/wrist_watchsports_metallic.png" id="2_guncy"]
+[ext_resource type="Texture2D" uid="uid://ctdmg7xdwiru5" path="res://entities/character/clothing/shoes/accessoires/wrist_watchsports_normal.png" id="3_uv12i"]
+[ext_resource type="Texture2D" uid="uid://decblas02u06c" path="res://entities/character/clothing/shoes/accessoires/wrist_watchsports_roughness.png" id="4_aivpw"]
 
 [resource]
 transparency = 1
-albedo_texture = ExtResource("1_2ldud")
+albedo_texture = ExtResource("1_61khx")
 metallic = 1.0
-metallic_texture = ExtResource("2_se3uv")
-roughness_texture = ExtResource("4_kr525")
+metallic_texture = ExtResource("2_guncy")
+roughness_texture = ExtResource("4_aivpw")
 normal_enabled = true
-normal_texture = ExtResource("3_ampu1")
+normal_texture = ExtResource("3_uv12i")
