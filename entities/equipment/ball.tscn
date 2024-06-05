@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://c10ogrcbcp16x"]
+[gd_scene load_steps=7 format=3 uid="uid://c10ogrcbcp16x"]
 
 [ext_resource type="Script" path="res://entities/equipment/ball.gd" id="1_g0o8n"]
+[ext_resource type="Script" path="res://entities/equipment/ball_hit_area.gd" id="2_fa55c"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_jxd0j"]
 
@@ -11,13 +12,17 @@ radius = 0.1
 radius = 0.1
 height = 0.2
 
-[node name="Ball" type="RigidBody3D"]
-collision_layer = 0
+[sub_resource type="SphereShape3D" id="SphereShape3D_b7nbg"]
+radius = 1.0
+
+[node name="Ball" type="RigidBody3D" groups=["ball"]]
+collision_layer = 2
 collision_mask = 3
 physics_material_override = SubResource("PhysicsMaterial_jxd0j")
 continuous_cd = true
 max_contacts_reported = 5
 contact_monitor = true
+linear_damp = 0.5
 script = ExtResource("1_g0o8n")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -26,9 +31,12 @@ shape = SubResource("SphereShape3D_34yrj")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("SphereMesh_ykwa8")
 
-[node name="Timer" type="Timer" parent="."]
-wait_time = 10.0
-autostart = true
+[node name="Area3D" type="Area3D" parent="." groups=["ball"]]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("2_fa55c")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("SphereShape3D_b7nbg")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

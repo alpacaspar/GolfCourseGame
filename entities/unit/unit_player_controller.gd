@@ -31,8 +31,8 @@ func _physics_process(delta: float):
     unit.move_and_slide()
 
     if not unit.is_attacking:
-        var angle := atan2(basis.z.x, basis.z.z)
-        unit.character_container.global_rotation.y = rotate_toward(unit.character_container.global_rotation.y, angle, 10 * delta)
+        var angle := atan2(global_basis.z.x, global_basis.z.z)
+        unit.character_container.global_rotation.y = lerp_angle(unit.character_container.global_rotation.y, angle, 10 * delta)
 
 
 func _on_look(input_delta: Vector2):

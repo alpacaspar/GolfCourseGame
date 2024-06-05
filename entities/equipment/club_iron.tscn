@@ -4,10 +4,10 @@
 [ext_resource type="PackedScene" uid="uid://dhfgkx7kv0vwf" path="res://entities/equipment/club_iron_mesh.glb" id="2_afxvr"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_om53g"]
-size = Vector3(0.150806, 0.0749023, 1)
+size = Vector3(0.2, 0.15, 1)
 
 [node name="IronClub" type="Area3D"]
-collision_layer = 0
+collision_layer = 2
 collision_mask = 2
 monitoring = false
 monitorable = false
@@ -20,5 +20,6 @@ shape = SubResource("BoxShape3D_om53g")
 [node name="club_iron_mesh" parent="." instance=ExtResource("2_afxvr")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
 
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

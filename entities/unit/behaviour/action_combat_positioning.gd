@@ -7,7 +7,7 @@ var strafe_time := 0.0
 func _tick(blackboard: Dictionary, delta: float) -> int:
     var unit: Unit = blackboard["unit"]
     var navigation_agent: NavigationAgent3D = unit.controller.navigation_agent
-    var target: Unit = blackboard["entities"].front()
+    var target: Node3D = blackboard["entities"].front()
 
     var direction_to_target: Vector3 = unit.global_position.direction_to(Vector3(target.global_position.x, unit.global_position.y, target.global_position.z))
     var cross_to_target := direction_to_target.cross(Vector3.UP)

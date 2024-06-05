@@ -8,7 +8,7 @@ extends BTAction
 
 func _tick(blackboard: Dictionary, delta: float) -> int:
     var unit: Unit = blackboard["unit"]
-    var target: Unit = blackboard["entities"].front()
+    var target: Node3D = blackboard["entities"].front()
     
     if not target or not is_instance_valid(target) or target.is_exhausted():
         return FAILURE

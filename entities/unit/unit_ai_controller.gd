@@ -17,6 +17,8 @@ func _ready():
 func _physics_process(delta: float):
     behaviour_tree.process_tree(delta)
 
+    unit.character_container.global_basis = global_basis
+
 
 # Signal function
 func _on_velocity_computed(safe_velocity: Vector3):

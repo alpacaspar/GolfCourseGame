@@ -7,7 +7,7 @@ extends BTCondition
 
 func _check_condition(blackboard: Dictionary) -> bool:
     var unit: Unit = blackboard["unit"]
-    var target: Unit = blackboard["entities"].front()
+    var target: Node3D = blackboard["entities"].front()
 
     if not target.is_attacking:
         return false

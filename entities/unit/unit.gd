@@ -9,6 +9,7 @@ const BLOCK_TWEEN_DURATION = 0.2
 const HIT_ONE_SHOT_ANIM_PARAMETER: StringName = "parameters/HitOneShot/request"
 
 @onready var character_container: Node = $CharacterContainer
+@onready var velocity_buffer: Node = $VelocityBuffer
 
 var team: Team
 

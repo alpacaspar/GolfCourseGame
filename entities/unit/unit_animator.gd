@@ -29,8 +29,3 @@ func _physics_process(delta: float):
     unit.animation_tree.set(RUN_SPEED_PARAMETER, (1 - ((1 - target_blend_value) ** 2)) * 2)
 
     last_position = global_position
-
-
-func look_in_direction(direction: Vector3):
-    var target := atan2(direction.x, direction.z) - rotation.y
-    rotation.y = lerp_angle(rotation.y, target, 8 * get_physics_process_delta_time())

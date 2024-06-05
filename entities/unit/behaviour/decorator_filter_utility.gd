@@ -5,16 +5,22 @@ func _decorate(blackboard: Dictionary):
     var entities: Array[Node3D] = blackboard["entities"]
     var unit: Unit = blackboard["unit"]
 
-    var distance_squared := INF
+    var best_utility := INF
     var result: Node3D
 
     for entity: Node3D in entities:
         if entity == unit:
             continue
 
-        var distance := unit.global_position.distance_squared_to(entity.global_position)
-        if distance < distance_squared:
-            distance_squared = distance
+        var utility := unit.global_position.distance_to(entity.global_position)
+        
+        if entity.is_in_group("ball"):
+            utility /= unit.role.max_ball_search_range
+        elif entity.is_in_group("unit"):
+            utility /= unit.role.max_unit_search_range
+
+        if utility < best_utility:
+            best_utility = utility
             result = entity
 
     if not result:
