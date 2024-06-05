@@ -6,13 +6,13 @@ const PROJECTILE_SPEED = 20.0
 
 @export_flags_3d_physics var sensor_collision_mask := 1
 
-var current_originator: Unit
+var last_user: Unit
 
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 
 func hit(originator: Unit):
-    current_originator = originator
+    last_user = originator
 
     var target_position := Vector3.ZERO
     var average_velocity := Vector3.ZERO
@@ -22,7 +22,7 @@ func hit(originator: Unit):
         target_position = target.global_position
         average_velocity = target.velocity_buffer.average_velocity
     else:
-        target_position = current_originator.global_position + current_originator.controller.basis.z * current_originator.role.max_drive_range
+        target_position = last_user.global_position + last_user.controller.basis.z * last_user.role.max_drive_range
 
     # If _calculate_intersection_time() fails, a 0 is returned, in that case the prediction will default to the target's current position.
     var predicted_target_position := target_position + average_velocity * _calculate_intersection_time(global_position, target_position, average_velocity)
@@ -46,19 +46,19 @@ func hit(originator: Unit):
 
 
 func _on_body_entered(body: Node3D):
-    if not body.is_in_group("unit"):
+    if body == last_user:
         return
 
     if linear_velocity.length_squared() < VELOCITY_DAMAGE_THRESHOLD * VELOCITY_DAMAGE_THRESHOLD:
         return
 
     if body.has_method("try_take_damage"):
-        body.try_take_damage(current_originator, current_originator.golfer_resource.power)
+        body.try_take_damage(self, last_user.golfer_resource.power)
  
 
 func _find_target() -> Node3D:
-    var space_state := current_originator.get_world_3d().direct_space_state
-    var query := _get_query(current_originator, current_originator.role.max_drive_range)
+    var space_state := last_user.get_world_3d().direct_space_state
+    var query := _get_query(last_user, last_user.role.max_drive_range)
 
     var intersections: Array[Dictionary] = space_state.intersect_shape(query)
 
@@ -67,8 +67,9 @@ func _find_target() -> Node3D:
         if not collider.is_in_group("unit"):
             intersections.remove_at(i)
 
-        var direction_to_collider := current_originator.global_position.direction_to(collider.global_position)
-        if current_originator.controller.basis.z.angle_to(direction_to_collider) > current_originator.role.max_drive_angle:
+        var direction_to_ball := last_user.global_position.direction_to(global_position)
+        var direction_to_collider := last_user.global_position.direction_to(collider.global_position)
+        if direction_to_ball.angle_to(direction_to_collider) > deg_to_rad(last_user.role.max_drive_angle):
             intersections.remove_at(i)
 
     ## Find intersection with smallest angle between originator's forward vector and the direction to the target.
@@ -76,8 +77,8 @@ func _find_target() -> Node3D:
     var min_angle := INF
 
     for intersection: Dictionary in intersections:
-        var direction_to_collider := current_originator.global_position.direction_to(intersection["collider"].global_position)
-        var angle := current_originator.controller.basis.z.angle_to(direction_to_collider)
+        var direction_to_collider := last_user.global_position.direction_to(intersection["collider"].global_position)
+        var angle := last_user.controller.basis.z.angle_to(direction_to_collider)
         if angle < min_angle:
             min_angle = angle
             target = intersection["collider"]

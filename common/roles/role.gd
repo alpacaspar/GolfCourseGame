@@ -14,8 +14,8 @@ extends Resource
 @export var attack_range := 3.0
 @export var attack_speed := 3.0
 
-@export var max_drive_range := 10.0
-@export var max_drive_angle := 20.0
+@export_range(0, 360) var max_drive_range := 10.0
+@export_range(0, 360) var max_drive_angle := 20.0
 
 @export var max_ball_search_range := 10.0
 @export var max_unit_search_range := 10.0

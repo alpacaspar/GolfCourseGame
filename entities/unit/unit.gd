@@ -108,11 +108,8 @@ func is_exhausted() -> bool:
 	return golfer_resource.stamina <= 0
 
 
-func try_take_damage(attacker: Unit, damage: int) -> bool:
-	if attacker.team == team:
-		return false
-
-	var direction_to_attacker: Vector3 = global_position.direction_to(Vector3(attacker.global_position.x, global_position.y, attacker.global_position.z))
+func try_take_damage(attack_origin: Node3D, damage: int) -> bool:
+	var direction_to_attacker: Vector3 = global_position.direction_to(Vector3(attack_origin.global_position.x, global_position.y, attack_origin.global_position.z))
 	var angle := global_basis.z.angle_to(direction_to_attacker)
 	if is_blocking and rad_to_deg(angle) < 30.0:
 		return false
