@@ -2,11 +2,12 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   width="2048mm"
-   height="2048mm"
-   viewBox="0 0 2048 2048"
+   width="128"
+   height="128"
+   viewBox="0 0 33.866667 33.866667"
    version="1.1"
    id="svg1"
+   sodipodi:docname="cross.svg"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -26,16 +27,17 @@
   <g
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
-     id="layer1">
+     id="layer1"
+     transform="matrix(0.23383207,0,0,0.23383207,-78.844284,-366.17714)">
     <circle
-       style="fill:none;stroke:#000000;stroke-width:93.4131;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none"
+       style="fill:none;stroke:#000000;stroke-width:6.27384;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none"
        id="path1"
-       cx="1024"
-       cy="1024"
-       r="611.92896" />
+       cx="409.60001"
+       cy="1638.4"
+       r="41.098583" />
     <path
-       style="fill:none;stroke:#000000;stroke-width:105.833;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none"
-       d="M 640.03265,577.32674 1429.2621,1444.398"
+       style="fill:none;stroke:#000000;stroke-width:7.10799;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none"
+       d="m 383.81185,1608.4004 53.0065,58.2345"
        id="path2"
        sodipodi:nodetypes="cc" />
   </g>

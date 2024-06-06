@@ -1,6 +1,6 @@
 [gd_scene load_steps=86 format=3 uid="uid://c75huqds1lmet"]
 
-[ext_resource type="Theme" uid="uid://bw2a7mna652cl" path="res://common/character_creator/resources/new_character_creator_theme.tres" id="1_amotn"]
+[ext_resource type="Theme" uid="uid://dr801tm3gbq04" path="res://common/character_creator/resources/new_character_creator_theme.tres" id="1_amotn"]
 [ext_resource type="Script" path="res://common/character_creator/main/character_creator.gd" id="2_fmr2t"]
 [ext_resource type="ButtonGroup" uid="uid://gxcp7q5ddcrd" path="res://common/character_creator/button_groups/creator_window_button_group.tres" id="3_3tjqc"]
 [ext_resource type="Texture2D" uid="uid://bomv5ke20rhsb" path="res://common/character_creator/icons/extras/zoom-in.png" id="3_k7we3"]
@@ -38,7 +38,7 @@
 [ext_resource type="Texture2D" uid="uid://bngmvif3ad5r1" path="res://common/character_creator/icons/Naming.svg" id="13_rfnlh"]
 [ext_resource type="Texture2D" uid="uid://drkx2fvxykkrs" path="res://common/character_creator/icons/noses/nose_1.png" id="14_6uwex"]
 [ext_resource type="Texture2D" uid="uid://dfngvsc5334nc" path="res://common/character_creator/icons/beard/beard_mediumstubble.png" id="14_8oo6v"]
-[ext_resource type="Texture2D" uid="uid://b1iw5qnh86iut" path="res://common/character_creator/icons/Ears.svg" id="14_oipyh"]
+[ext_resource type="Texture2D" uid="uid://b1iw5qnh86iut" path="res://common/character_creator/icons/ears.svg" id="14_oipyh"]
 [ext_resource type="PackedScene" uid="uid://bnovr4726jwoi" path="res://common/character_creator/pickers/creator_gallery.tscn" id="14_sq54w"]
 [ext_resource type="ButtonGroup" uid="uid://bpcb7up5p5aod" path="res://common/character_creator/button_groups/face_button_group.tres" id="15_gsruc"]
 [ext_resource type="Texture2D" uid="uid://c7bif0hgmebao" path="res://common/character_creator/icons/Nose.svg" id="15_k6xw7"]
@@ -68,6 +68,7 @@
 [ext_resource type="Texture2D" uid="uid://c8hiu28nxsws1" path="res://common/character_creator/icons/jewelry/wrist_pearlbracelet.png" id="40_qotnk"]
 [ext_resource type="FontFile" uid="uid://bggeuglve63i3" path="res://common/character_creator/fonts/AllerDisplay_Std_Rg.ttf" id="41_ukr78"]
 [ext_resource type="Texture2D" uid="uid://oec438gjjduq" path="res://common/character_creator/icons/cross.svg" id="45_r1hef"]
+[ext_resource type="Texture2D" uid="uid://bfmm1vjn5y8te" path="res://common/character_creator/resources/country_club_card_bg.png" id="46_ceht0"]
 [ext_resource type="Texture2D" uid="uid://ckumeprvfsvuy" path="res://common/character_creator/icons/character_turn_left.svg" id="51_4u1rc"]
 [ext_resource type="Texture2D" uid="uid://ch8yxplwn17b8" path="res://common/character_creator/icons/character_turn_right.svg" id="52_gs4cc"]
 [ext_resource type="Texture2D" uid="uid://bjig0ewl4351f" path="res://common/character_creator/icons/makeup.svg" id="56_ovg12"]
@@ -113,9 +114,6 @@ vertical_min_max = Vector2(-1, 1)
 horizontal_min_max = Vector2(-1, 1)
 rotation_min_max = Vector2(-45, 45)
 scale_min_max = Vector2(0.5, 1.5)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8pbir"]
-bg_color = Color(0.937255, 0.937255, 0.937255, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_00xxw"]
 font = ExtResource("41_ukr78")
@@ -192,7 +190,7 @@ zoom_slider = NodePath("Spacer/VBoxContainer2/HBoxContainer2/ZoomSliderHolder/HB
 zoom_target_slider = NodePath("Spacer/VBoxContainer2/HBoxContainer2/ZoomSliderHolder/HBoxContainer/ReferenceRect/ReferenceRect4/HBoxContainer/ReferenceRect2")
 rotation_slider = NodePath("Spacer/VBoxContainer2/HBoxContainer2/PreviewContainer/HBoxContainer/VBoxContainer/HScrollBar")
 
-[node name="Panel" type="Panel" parent="."]
+[node name="Background" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -200,7 +198,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_amotn")
-theme_override_styles/panel = SubResource("StyleBoxFlat_8pbir")
+texture = ExtResource("46_ceht0")
+expand_mode = 5
+stretch_mode = 4
 
 [node name="Spacer" type="HBoxContainer" parent="."]
 layout_mode = 1
