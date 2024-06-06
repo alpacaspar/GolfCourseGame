@@ -81,7 +81,7 @@ func make_ready(_preview_scene: Node):
 
 	update_preview_callback = Callable(preview_scene._edit_character)
 	rotation_slider.value_changed.connect(preview_scene._set_rotation)
-	zoom_slider.value_changed.connect(preview_scene._set_zoom)
+	zoom_slider.value_changed.connect(preview_scene.set_zoom)
 
 	eye_offset_slider.value_changed.connect(_update_character)
 	eyebrow_offset_slider.value_changed.connect(_update_character)

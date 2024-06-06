@@ -8,7 +8,8 @@ extends Node
 @export var icon_viewport: SubViewport
 @export var icon_cam: Camera3D
 
-@export var zoom_holder: Node3D
+@export var zoom_holder_face: Node3D
+@export var zoom_holder_body: Node3D
 @export var unzoom_holder: Node3D
 
 @export var character_spawn_position: Marker3D
@@ -17,15 +18,17 @@ var spawned_character: Character
 var callback: Callable
 
 var rotation_value: int = 180
-var zoom_value: int
 
 var getting_icons: bool
+var zoom_target: Vector3
+var zoom_value: float
 
 
 func make_ready():
 	preview_cam.make_current()
 
 	_spawn_character(NPCResource.new())
+	zoom_target = zoom_holder_face.position
 
 
 func on_process(_delta):	
@@ -41,8 +44,14 @@ func _set_rotation(value: float):
 	rotation_value = value
 
 
-func _set_zoom(value := 0.0):
-	preview_cam.position = zoom_holder.position.lerp(unzoom_holder.position, value)
+func set_zoom(value := 0.0):
+	zoom_value = value
+	preview_cam.position = zoom_target.lerp(unzoom_holder.position, zoom_value)
+
+
+func set_zoom_target(value := 0.0):
+	zoom_target = zoom_holder_face.position.lerp(zoom_holder_body.position, value)
+	preview_cam.position = zoom_target.lerp(unzoom_holder.position, zoom_value)
 
 
 func _spawn_character(character_resource: NPCResource):
@@ -62,7 +71,7 @@ func _exit_tree():
 
 func create_icon(_character_resource: NPCResource) -> Texture2D:
 	_edit_character(_character_resource)
-	_set_zoom(1)
+	set_zoom(1)
 	
 	icon_cam.current = true
 	icon_viewport.render_target_update_mode = 1

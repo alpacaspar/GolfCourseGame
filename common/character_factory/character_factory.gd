@@ -15,6 +15,7 @@ extends Node
 @export var eyeshadow_textures: Array[CompressedTexture2DArray]
 @export var eyeliner_textures: Array[CompressedTexture2DArray]
 @export var eyebrow_piercing_textures: Array[CompressedTexture2DArray]
+@export var empty_map: CompressedTexture2DArray
 
 @export_subgroup("Face Meshes")
 @export var ear_meshes: Array[Mesh] = []
@@ -70,10 +71,12 @@ func spawn_character(resource: NPCResource) -> Character:
 	var glasses_index = resource.glasses_index if resource.glasses_index >= 0 else glasses_textures.get_layers() - 1
 	face_material.set("shader_parameter/GlassesIndex", glasses_index )
 
-	face_material.set("shader_parameter/EyeShadow", eyeshadow_textures[resource.eyeshadow_index])
-	face_material.set("shader_parameter/Eyeliner", eyeliner_textures[resource.eyeliner_index])
-
-	face_material.set("shader_parameter/EyebrowPiercings", eyebrow_piercing_textures[resource.eyebrow_piercing_index])
+	var eyeshadow = eyeshadow_textures[resource.eyeshadow_index] if resource.eyeshadow_index > -1 else empty_map
+	face_material.set("shader_parameter/EyeShadow", eyeshadow)
+	var eyeliner = eyeliner_textures[resource.eyeliner_index] if resource.eyeliner_index > -1 else empty_map
+	face_material.set("shader_parameter/Eyeliner", eyeliner)
+	var eyebrow_piercing = eyebrow_piercing_textures[resource.eyebrow_piercing_index] if resource.eyebrow_piercing_index > -1 else empty_map
+	face_material.set("shader_parameter/EyebrowPiercings", eyebrow_piercing)
 
 	# Face Colors
 	face_material.set("shader_parameter/EyebrowColor", hair_colors[resource.eyebrow_color_index])
@@ -139,15 +142,18 @@ func spawn_character(resource: NPCResource) -> Character:
 		clothing_material.set("shader_parameter/PantsNormal", pants.normal)
 		if pants.show_cuffs:
 			character.left_folded_pants_mesh_instance.visible = true
+			character.left_folded_pants_mesh_instance.material_override.albedo_color = pants_colors[resource.pants_color_index]
 			character.right_folded_pants_mesh_instance.visible = true
+			character.right_folded_pants_mesh_instance.material_override.albedo_color = pants_colors[resource.pants_color_index]
 		else:
 			character.left_folded_pants_mesh_instance.visible = false
 			character.right_folded_pants_mesh_instance.visible = false
 	else:
 		character.skirt_mesh_instance.visible = true
-		clothing_material.set("shader_parameter/PantsAlbedo", null)
-		clothing_material.set("shader_parameter/PantsRoughness", null)
-		clothing_material.set("shader_parameter/PantsNormal", null)
+		clothing_material.set("shader_parameter/PantsAlbedo", pants.albedo)
+		clothing_material.set("shader_parameter/PantsRoughness", pants.roughness)
+		clothing_material.set("shader_parameter/PantsNormal", pants.normal)
+		clothing_material.set("shader_parameter/PantsTint", Color.WHITE)
 		character.skirt_mesh_instance.material_override.albedo_color = pants_colors[resource.pants_color_index]
 
 	# Shoes stuff
@@ -199,7 +205,7 @@ func spawn_character(resource: NPCResource) -> Character:
 		character.ear_mesh_instance.material_overlay = earring_meshes[resource.earring_index].material
 
 	character.nose_mesh_instance.mesh = nose_meshes[resource.nose_index]
-	if resource.nose_piercing_index >= 0:
+	if resource.nose_piercing_index > -1:
 		character.nose_mesh_instance.material_overlay = nose_piercing_datas[resource.nose_piercing_index].material
 	else:
 		character.nose_mesh_instance.material_overlay = null

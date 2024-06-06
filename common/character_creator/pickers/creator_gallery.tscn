@@ -30,13 +30,13 @@ theme_override_constants/separation = 0
 [node name="ReferenceRect2" type="ReferenceRect" parent="HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_stretch_ratio = 0.4
+size_flags_stretch_ratio = 0.2
 
 [node name="GalleryNode" type="ScrollContainer" parent="HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-size_flags_stretch_ratio = 13.5
+size_flags_stretch_ratio = 10.0
 horizontal_scroll_mode = 0
 vertical_scroll_mode = 3
 
@@ -44,7 +44,7 @@ vertical_scroll_mode = 3
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-size_flags_stretch_ratio = 20.0
+size_flags_stretch_ratio = 10.0
 theme_override_constants/h_separation = 30
 theme_override_constants/v_separation = 30
 columns = 4

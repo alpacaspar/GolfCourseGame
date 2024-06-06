@@ -74,12 +74,15 @@ extends Control
 @export var ear_icons: Array[Texture] = []
 @export var beard_icons: Array[Texture] = []
 @export var piercing_icons: Array[Texture] = []
+@export var blush_icons: Array[Texture] = []
 @export var earring_icons: Array[Texture] = []
 @export var wrist_icons: Array[Texture] = []
+@export var empty_icon: Texture
 
 @export_group("Preview Stuff")
 @export var preview: TextureRect
 @export var zoom_slider: ScrollBar
+@export var zoom_target_slider: ScrollBar
 @export var rotation_slider: ScrollBar
 
 var edited_resource: NPCResource
@@ -96,7 +99,8 @@ func _ready():
 
 	rotation_slider.value_changed.connect(_set_rotation_value)
 	rotation_slider.value_changed.connect(preview_scene._set_rotation)
-	zoom_slider.value_changed.connect(preview_scene._set_zoom)
+	zoom_slider.value_changed.connect(preview_scene.set_zoom)
+	zoom_target_slider.value_changed.connect(preview_scene.set_zoom_target)
 
 	# Colors
 	for picker in skin_color_option_pickers:
@@ -124,7 +128,7 @@ func _ready():
 	await hair_option_picker.add_empty(hair_icons[hair_icons.size() - 1], _update_character)
 	await _set_external_icon_button_connections(hair_icons, CharacterFactory.hair_meshes, hair_option_picker)
 
-	await beards_option_picker.add_empty(null, _update_character)
+	await beards_option_picker.add_empty(empty_icon, _update_character)
 	await _set_resource_button_connections(CharacterFactory.beard_textures, beards_option_picker)
 
 	# await piercings_option_picker.add_empty(null, _update_character)
@@ -137,20 +141,24 @@ func _ready():
 	await _set_texture_button_connections(CharacterFactory.eye_textures, eyes_option_picker)
 	await _set_texture_button_connections_color_override(CharacterFactory.eyebrow_textures, eyebrows_option_picker)
 	await _set_texture_button_connections(CharacterFactory.mouth_textures, mouths_option_picker)
+
+	await eyeshadow_option_picker.add_empty(empty_icon, _update_character)
 	await _set_single_texture_button_connections(CharacterFactory.eyeshadow_textures, eyeshadow_option_picker)
+	await eyeliner_option_picker.add_empty(empty_icon, _update_character)
 	await _set_single_texture_button_connections(CharacterFactory.eyeliner_textures, eyeliner_option_picker)
+	await eyebrow_piercings_option_picker.add_empty(empty_icon, _update_character)
 	await _set_single_texture_button_connections(CharacterFactory.eyebrow_piercing_textures, eyebrow_piercings_option_picker)
 
 	await nose_piercings_option_picker.add_empty(nose_icons[0], _update_character)
 	await _set_resource_button_connections(CharacterFactory.nose_piercing_datas, nose_piercings_option_picker)
 
-	await blush_option_picker.add_empty(null, _update_character)
-	await _set_external_icon_button_connections(CharacterFactory.blush_textures, CharacterFactory.blush_textures, blush_option_picker)
+	await blush_option_picker.add_empty(empty_icon, _update_character)
+	await _set_external_icon_button_connections(blush_icons, CharacterFactory.blush_textures, blush_option_picker)
 
-	await mustaches_option_picker.add_empty(null, _update_character)
+	await mustaches_option_picker.add_empty(empty_icon, _update_character)
 	await _set_texture_button_connections_color_override(CharacterFactory.mustache_textures, mustaches_option_picker)
 	
-	await glasses_option_picker.add_empty(null, _update_character)
+	await glasses_option_picker.add_empty(empty_icon, _update_character)
 	await _set_texture_button_connections(CharacterFactory.glasses_textures, glasses_option_picker)
 
 	# Clothing data option picker
@@ -159,9 +167,9 @@ func _ready():
 	await _set_resource_button_connections(CharacterFactory.sock_datas, sock_option_picker)
 	await _set_resource_button_connections(CharacterFactory.shoes_datas, shoes_option_picker)
 
-	await belt_option_picker.add_empty(null, _update_character)
+	await belt_option_picker.add_empty(empty_icon, _update_character)
 	await _set_resource_button_connections(CharacterFactory.belt_datas, belt_option_picker)
-	await wrists_option_picker.add_empty(null, _update_character)
+	await wrists_option_picker.add_empty(empty_icon, _update_character)
 	await _set_resource_button_connections(CharacterFactory.wrists_datas, wrists_option_picker)
 
 	# Offset Buttons

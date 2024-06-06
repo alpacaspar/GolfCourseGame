@@ -14,7 +14,6 @@ func _change_tab():
 	for button in button_group.get_buttons():
 		if button.button_pressed:
 			current_tab = x
-			print(x)
 			return
 		
 		x += 1

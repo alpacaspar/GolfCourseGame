@@ -19,6 +19,7 @@ resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("1_pfevk")
 shader_parameter/ShirtTint = Color(0.196078, 0.811765, 0.996078, 1)
+shader_parameter/SocksTint = Color(1, 1, 1, 1)
 shader_parameter/PantsTint = Color(0.462745, 0.462745, 0.462745, 1)
 shader_parameter/ShoesTint = Color(1, 0.47451, 0.454902, 1)
 shader_parameter/ShirtAlbedo = ExtResource("5_ypctw")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=308 format=3 uid="uid://cdh3hkt0sfd8y"]
+[gd_scene load_steps=304 format=3 uid="uid://cdh3hkt0sfd8y"]
 
 [ext_resource type="Script" path="res://common/character_factory/character_factory.gd" id="1_i4r0e"]
 [ext_resource type="ArrayMesh" uid="uid://ctvdng4wa44ne" path="res://entities/character/head/character_ears_1.res" id="2_r6hdl"]
@@ -24,12 +24,10 @@
 [ext_resource type="ArrayMesh" uid="uid://cam0r2lojd0i0" path="res://entities/character/head/character_hair_long.res" id="11_2rrxp"]
 [ext_resource type="CompressedTexture2DArray" uid="uid://c3qdb21aoogl3" path="res://entities/character/head/facial_details/makeup_eyeliner_sheet.svg" id="11_61e7o"]
 [ext_resource type="Texture2D" uid="uid://c7lfgw0gfqvjv" path="res://common/character_creator/icons/beard/beard_full.png" id="11_bi51s"]
-[ext_resource type="CompressedTexture2DArray" uid="uid://ip7i3a6eo2g1" path="res://entities/character/head/facial_details/makeup_eyeshadowsoftbig_sheet.png" id="11_jv0df"]
 [ext_resource type="ArrayMesh" uid="uid://bd7sg4j0vwvlv" path="res://entities/character/head/earrings/character_earring_hoop_v2.res" id="11_x0aaa"]
 [ext_resource type="ArrayMesh" uid="uid://p1x8smwx255r" path="res://entities/character/head/earrings/character_earring_hoop_v3.res" id="12_1fn15"]
 [ext_resource type="Texture2D" uid="uid://dwjk7ler30365" path="res://entities/character/head/facial_details/beards_full_roughness.png" id="12_08228"]
 [ext_resource type="ArrayMesh" uid="uid://511lk7cedpkn" path="res://entities/character/head/character_hair_pony.res" id="12_pfcll"]
-[ext_resource type="CompressedTexture2DArray" uid="uid://dy64xnf2p7vhy" path="res://entities/character/head/facial_details/makeup_eyeshadowsoftbig_sheet.svg" id="12_yb6kc"]
 [ext_resource type="CompressedTexture2DArray" uid="uid://djs7imqrempbd" path="res://entities/character/head/facial_details/makeup_eyeshadowsoftsmall_sheet.svg" id="13_as6bc"]
 [ext_resource type="Script" path="res://common/character_creator/resources/beard_holder.gd" id="13_ja8tc"]
 [ext_resource type="ArrayMesh" uid="uid://bxvvyfaj2gjm0" path="res://entities/character/head/character_hair_preppy.res" id="13_jky7t"]
@@ -69,6 +67,7 @@
 [ext_resource type="CompressedTexture2DArray" uid="uid://cwrwjiecowt3n" path="res://entities/character/head/character_mouth_textures.svg" id="24_mj7xl"]
 [ext_resource type="Texture2D" uid="uid://b5ehet5778ubg" path="res://entities/character/head/facial_details/beards_mediumstubble_roughness.png" id="25_4h37o"]
 [ext_resource type="PackedScene" uid="uid://ck84hpbuds8v8" path="res://entities/character/character.tscn" id="25_gqjrl"]
+[ext_resource type="CompressedTexture2DArray" uid="uid://ip7i3a6eo2g1" path="res://entities/character/head/facial_details/makeup_eyeshadowsoftbig_sheet.png" id="29_ib0wg"]
 [ext_resource type="Texture2D" uid="uid://07dcwpxauv8l" path="res://common/character_creator/icons/jewelry/earring_hoop.png" id="38_djnb1"]
 [ext_resource type="Script" path="res://common/character_creator/resources/nose_piercing_holder.gd" id="38_k5138"]
 [ext_resource type="Script" path="res://common/character_creator/resources/earring_data_resource.gd" id="44_hig72"]
@@ -85,7 +84,6 @@
 [ext_resource type="Texture2D" uid="uid://bj76ms3mptfmn" path="res://entities/character/clothing/clothing_polostriped_albedo.png" id="59_43401"]
 [ext_resource type="Texture2D" uid="uid://bgk5v5ntyypjk" path="res://common/character_creator/icons/jewelry/earring_stud.png" id="59_knf26"]
 [ext_resource type="Texture2D" uid="uid://qqiuplvm7up2" path="res://common/character_creator/icons/tops/polostriped_top.png" id="60_qbmpi"]
-[ext_resource type="Material" uid="uid://de8adauskroos" path="res://entities/character/head/facial_details/piercing_earringmesh_material.tres" id="60_sctul"]
 [ext_resource type="Texture2D" uid="uid://1jqcpw8ofw6u" path="res://entities/character/clothing/clothing_polostriped_normal.png" id="61_3m5sq"]
 [ext_resource type="Texture2D" uid="uid://c4iis8evwhv3b" path="res://common/character_creator/icons/jewelry/piercing_nose.png" id="61_hax4q"]
 [ext_resource type="Texture2D" uid="uid://bnbqbjjgorpex" path="res://entities/character/clothing/clothing_polostriped_roughness.png" id="62_5qfxa"]
@@ -103,6 +101,7 @@
 [ext_resource type="Texture2D" uid="uid://uvgevo1rpt43" path="res://entities/character/clothing/clothing_shirtshortprint_normal.png" id="73_hl46n"]
 [ext_resource type="Texture2D" uid="uid://n1dl210su2by" path="res://entities/character/clothing/clothing_shirtshortprint_roughness.png" id="74_mrebm"]
 [ext_resource type="Texture2D" uid="uid://b1xcfdusiin1a" path="res://entities/character/clothing/clothing_tshirt_albedo.png" id="75_ircuu"]
+[ext_resource type="Material" uid="uid://dctx1bvqgxac3" path="res://entities/character/head/facial_details/piercing_studearring_material.tres" id="76_l03vb"]
 [ext_resource type="ArrayMesh" uid="uid://56b0hru0fbli" path="res://entities/character/clothing/clothing_tshirt_collar.res" id="76_xqp7p"]
 [ext_resource type="Texture2D" uid="uid://b8u3jxju08jaq" path="res://common/character_creator/icons/tops/tshirt_top.png" id="77_m3783"]
 [ext_resource type="Texture2D" uid="uid://cfedc2vow4n07" path="res://entities/character/clothing/clothing_tshirt_normal.png" id="78_s8c36"]
@@ -175,10 +174,7 @@
 [ext_resource type="Texture2D" uid="uid://c80vfnmcr18dh" path="res://common/character_creator/icons/pants/pantalon_shorts.png" id="145_5gncd"]
 [ext_resource type="Texture2D" uid="uid://dfkgqqg1vyppa" path="res://entities/character/clothing/clothing_pantalonshorts_normal.png" id="146_kd4a2"]
 [ext_resource type="Texture2D" uid="uid://bpkhjlbib10p8" path="res://entities/character/clothing/clothing_pantalonshorts_roughness.png" id="147_5opbe"]
-[ext_resource type="Texture2D" uid="uid://dc55vapdse4bo" path="res://entities/character/clothing/clothing_skirt_albedo.png" id="148_sxyek"]
 [ext_resource type="Texture2D" uid="uid://djagkrv5nxsxc" path="res://common/character_creator/icons/pants/Skirt.png" id="149_prsls"]
-[ext_resource type="Texture2D" uid="uid://cb7lbcr3bx88i" path="res://entities/character/clothing/clothing_skirt_normal.png" id="150_vdswd"]
-[ext_resource type="Texture2D" uid="uid://dqcxlil4meiuv" path="res://entities/character/clothing/clothing_skirt_roughness.png" id="151_7yb8g"]
 [ext_resource type="Texture2D" uid="uid://dr3dbge8070f7" path="res://entities/character/clothing/socks/sock_ankle_albedo.png" id="152_80mkr"]
 [ext_resource type="Texture2D" uid="uid://c0n00ffwjnfvk" path="res://common/character_creator/icons/socks/sock_ankle.png" id="153_5jjb1"]
 [ext_resource type="Texture2D" uid="uid://crro6adw6oq4j" path="res://entities/character/clothing/socks/sock_ankle_roughness.png" id="154_2d72u"]
@@ -313,7 +309,7 @@ material = ExtResource("58_2takk")
 script = ExtResource("44_hig72")
 icon = ExtResource("59_knf26")
 meshes = Array[Mesh]([])
-material = ExtResource("60_sctul")
+material = ExtResource("76_l03vb")
 
 [sub_resource type="Resource" id="Resource_q0ure"]
 script = ExtResource("38_k5138")
@@ -553,9 +549,9 @@ is_skirt = true
 can_pick_color = true
 name = "skirt"
 icon = ExtResource("149_prsls")
-albedo = ExtResource("148_sxyek")
-roughness = ExtResource("151_7yb8g")
-normal = ExtResource("150_vdswd")
+albedo = ExtResource("140_cny5i")
+roughness = ExtResource("143_24vnl")
+normal = ExtResource("142_wfeui")
 
 [sub_resource type="Resource" id="Resource_s8unw"]
 script = ExtResource("155_ab7rj")
@@ -729,9 +725,10 @@ glasses_textures = ExtResource("5_5rvxa")
 mustache_textures = ExtResource("5_tr34a")
 blush_textures = Array[Texture]([ExtResource("6_ttfjd"), ExtResource("7_wvsx6"), ExtResource("8_ji7g3")])
 beard_textures = Array[ExtResource("13_ja8tc")]([SubResource("Resource_6utfm"), SubResource("Resource_r70no"), SubResource("Resource_kcawy"), SubResource("Resource_emafp"), SubResource("Resource_ldvq7")])
-eyeshadow_textures = Array[CompressedTexture2DArray]([ExtResource("10_3x8iu"), ExtResource("9_3ccqo"), ExtResource("10_x4f3u"), ExtResource("11_jv0df"), ExtResource("12_yb6kc"), ExtResource("13_as6bc")])
-eyeliner_textures = Array[CompressedTexture2DArray]([ExtResource("10_3x8iu"), ExtResource("6_f705o"), ExtResource("11_61e7o")])
-eyebrow_piercing_textures = Array[CompressedTexture2DArray]([ExtResource("10_3x8iu"), ExtResource("16_ofr7k"), ExtResource("17_grs16")])
+eyeshadow_textures = Array[CompressedTexture2DArray]([ExtResource("9_3ccqo"), ExtResource("10_x4f3u"), ExtResource("29_ib0wg"), ExtResource("13_as6bc")])
+eyeliner_textures = Array[CompressedTexture2DArray]([ExtResource("6_f705o"), ExtResource("11_61e7o")])
+eyebrow_piercing_textures = Array[CompressedTexture2DArray]([ExtResource("16_ofr7k"), ExtResource("17_grs16")])
+empty_map = ExtResource("10_3x8iu")
 ear_meshes = Array[Mesh]([ExtResource("2_r6hdl"), ExtResource("3_wcwmv"), ExtResource("4_ujpgv"), ExtResource("5_tdhg7"), ExtResource("6_gepix")])
 hair_meshes = Array[Mesh]([ExtResource("7_we6f7"), ExtResource("8_44eej"), ExtResource("9_4fntv"), ExtResource("10_0bh4e"), ExtResource("11_2rrxp"), ExtResource("12_pfcll"), ExtResource("13_jky7t"), ExtResource("17_itvmc"), ExtResource("18_07lqu")])
 nose_meshes = Array[Mesh]([ExtResource("14_elv4t"), ExtResource("15_urki0"), ExtResource("16_2jtp3"), ExtResource("17_3tgyj")])
