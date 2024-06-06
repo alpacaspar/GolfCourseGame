@@ -21,6 +21,7 @@ InputManager="*res://common/input/input_manager.gd"
 WwiseRuntimeManager="*res://addons/Wwise/runtime/wwise_runtime_manager.gd"
 BattleManager="*res://common/battle/battle_manager.tscn"
 ToolAnchor="*res://main/tool_anchor.gd"
+AudioManager="*res://common/audio/audio_manager.gd"
 
 [dotnet]
 

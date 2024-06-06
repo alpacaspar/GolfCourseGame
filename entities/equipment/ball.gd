@@ -27,6 +27,8 @@ func _on_body_entered(body: Node3D):
 
 	if body.has_method("try_take_damage"):
 		body.try_take_damage(self, last_user.team, last_user.golfer_resource.power)
+	
+	AudioManager.try_set_switch(self, body, AudioManager.SWITCH_GROUP_BALL)
 
 
 func hit(originator: Unit):
