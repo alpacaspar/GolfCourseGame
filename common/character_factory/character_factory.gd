@@ -150,10 +150,14 @@ func spawn_character(resource: NPCResource) -> Character:
 			character.right_folded_pants_mesh_instance.visible = false
 	else:
 		character.skirt_mesh_instance.visible = true
+		character.left_folded_pants_mesh_instance.visible = false
+		character.right_folded_pants_mesh_instance.visible = false
+		
 		clothing_material.set("shader_parameter/PantsAlbedo", pants.albedo)
 		clothing_material.set("shader_parameter/PantsRoughness", pants.roughness)
 		clothing_material.set("shader_parameter/PantsNormal", pants.normal)
 		clothing_material.set("shader_parameter/PantsTint", Color.WHITE)
+		
 		character.skirt_mesh_instance.material_override.albedo_color = pants_colors[resource.pants_color_index]
 
 	# Shoes stuff

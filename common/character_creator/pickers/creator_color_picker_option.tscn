@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://uv618k0m73pa"]
 
-[ext_resource type="Theme" uid="uid://bw2a7mna652cl" path="res://common/character_creator/resources/new_character_creator_theme.tres" id="1_8hspp"]
+[ext_resource type="Theme" uid="uid://dr801tm3gbq04" path="res://common/character_creator/resources/new_character_creator_theme.tres" id="1_8hspp"]
 [ext_resource type="Script" path="res://common/character_creator/pickers/creator_color_picker_button.gd" id="1_ytaqp"]
 [ext_resource type="ButtonGroup" uid="uid://gxcp7q5ddcrd" path="res://common/character_creator/button_groups/creator_window_button_group.tres" id="2_5lrcu"]
 [ext_resource type="Texture2D" uid="uid://dfspa0f55imyc" path="res://icon.svg" id="3_5lgqr"]
