@@ -10,6 +10,8 @@
 [ext_resource type="Material" uid="uid://d0o8jgo78vcup" path="res://entities/character/head/character_hair_material.tres" id="9_n0h6m"]
 [ext_resource type="Script" path="res://entities/character/ak_locomotion.gd" id="12_3afj3"]
 [ext_resource type="Script" path="res://entities/equipment/equipment_slot.gd" id="12_gskdx"]
+[ext_resource type="Terrain3DStorage" uid="uid://d2cg7f8to0uep" path="res://entities/terrain/terrain_3d_storage.res" id="15_3imhx"]
+[ext_resource type="Terrain3DTextureList" uid="uid://dsih680v02hr7" path="res://entities/terrain/terrain_3d_texture_list.tres" id="16_g13ak"]
 
 [sub_resource type="Animation" id="Animation_ai1wp"]
 length = 0.001
@@ -1515,7 +1517,9 @@ script = ExtResource("12_gskdx")
 
 [node name="AnimationSoundEvents" type="Node3D" parent="."]
 script = ExtResource("12_3afj3")
-curve = SubResource("Curve_khq3e")
+footstep_volume_curve = SubResource("Curve_khq3e")
+terrain3d_storage = ExtResource("15_3imhx")
+terrain3d_texture_list = ExtResource("16_g13ak")
 
 [node name="ActivityTimer" type="Timer" parent="AnimationSoundEvents"]
 one_shot = true
