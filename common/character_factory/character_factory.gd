@@ -34,8 +34,6 @@ extends Node
 @export var eyeliner_colors: Array[Color] = []
 @export var blush_colors: Array[Color] = []
 
-@export var glasses_colors: Array[Color] = []
-
 @export_group("Clothing")
 @export_subgroup("Clothing Datas")
 @export var shirt_datas: Array[ShirtsClothingResource] = []
@@ -157,7 +155,7 @@ func spawn_character(resource: NPCResource) -> Character:
 		clothing_material.set("shader_parameter/PantsRoughness", pants.roughness)
 		clothing_material.set("shader_parameter/PantsNormal", pants.normal)
 		clothing_material.set("shader_parameter/PantsTint", Color.WHITE)
-		
+
 		character.skirt_mesh_instance.material_override.albedo_color = pants_colors[resource.pants_color_index]
 
 	# Shoes stuff

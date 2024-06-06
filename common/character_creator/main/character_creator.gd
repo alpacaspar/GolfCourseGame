@@ -36,8 +36,6 @@ extends Control
 @export var eyeliner_color_option_picker: CreatorColorPicker
 @export var blush_color_option_picker: CreatorColorPicker
 
-@export var glasses_color_option_picker: CreatorColorPicker
-
 @export_subgroup("Finetune Buttons")
 @export var eye_buttons: FinetineButtons
 @export var eye_range: FinetuneRanges
@@ -114,7 +112,6 @@ func _ready():
 	await _set_color_button_connections(CharacterFactory.eyeshadow_colors, eyeshadow_color_option_picker)
 	await _set_color_button_connections(CharacterFactory.eyeliner_colors, eyeliner_color_option_picker)
 	await _set_color_button_connections(CharacterFactory.blush_colors, blush_color_option_picker)
-	await _set_color_button_connections(CharacterFactory.glasses_colors, glasses_color_option_picker)
 	
 	await _set_color_button_connections(CharacterFactory.shirt_colors, shirt_color_option_picker)
 	await _set_color_button_connections(CharacterFactory.pants_colors, pants_color_option_picker)
@@ -219,7 +216,6 @@ func _update_character(_value = 0):
 	edited_resource.eyeshadow_color_index = eyeshadow_color_option_picker.get_current_index()
 	edited_resource.eyeliner_color_index = eyeliner_color_option_picker.get_current_index()
 	edited_resource.blush_color_index = blush_color_option_picker.get_current_index()
-	edited_resource.glasses_color_index = glasses_color_option_picker.get_current_index()
 
 	# Body Stuff
 	edited_resource.shirt_index = shirt_option_picker.get_current_index()

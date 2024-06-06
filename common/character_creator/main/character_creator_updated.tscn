@@ -1,4 +1,4 @@
-[gd_scene load_steps=89 format=3 uid="uid://c75huqds1lmet"]
+[gd_scene load_steps=90 format=3 uid="uid://c75huqds1lmet"]
 
 [ext_resource type="Theme" uid="uid://dr801tm3gbq04" path="res://common/character_creator/resources/new_character_creator_theme.tres" id="1_amotn"]
 [ext_resource type="Script" path="res://common/character_creator/main/character_creator.gd" id="2_fmr2t"]
@@ -16,7 +16,6 @@
 [ext_resource type="Texture2D" uid="uid://dbc7ls1vk7x67" path="res://common/character_creator/icons/hair/bob_kapsel.png" id="6_s251f"]
 [ext_resource type="Texture2D" uid="uid://dp0kqc36fy1xm" path="res://common/character_creator/icons/ears/ears_3.png" id="7_mede7"]
 [ext_resource type="Texture2D" uid="uid://iragapsmrq0p" path="res://common/character_creator/icons/hair/buzz_cut.png" id="7_o25f1"]
-[ext_resource type="Texture2D" uid="uid://dfspa0f55imyc" path="res://icon.svg" id="8_4h4o2"]
 [ext_resource type="Texture2D" uid="uid://bdsneyjc1rgw7" path="res://common/character_creator/icons/ears/ears_4.png" id="8_07sdn"]
 [ext_resource type="Texture2D" uid="uid://d2hnpox72vxhh" path="res://common/character_creator/icons/hair/caspar_kapsel.png" id="8_aptni"]
 [ext_resource type="Script" path="res://common/character_creator/tools/external_tabs_handler.gd" id="8_g1j11"]
@@ -72,6 +71,7 @@
 [ext_resource type="Texture2D" uid="uid://cvau13bg15dtf" path="res://common/character_creator/icons/head.svg" id="50_fhbxd"]
 [ext_resource type="Texture2D" uid="uid://ckumeprvfsvuy" path="res://common/character_creator/icons/character_turn_left.svg" id="51_4u1rc"]
 [ext_resource type="Texture2D" uid="uid://v5q6jtimfeke" path="res://common/character_creator/icons/body.svg" id="51_md7jv"]
+[ext_resource type="Texture2D" uid="uid://bcr5qm35c4wqy" path="res://common/character_creator/resources/Blue_BG.jpg" id="53_76a01"]
 [ext_resource type="Texture2D" uid="uid://bjig0ewl4351f" path="res://common/character_creator/icons/makeup.svg" id="56_ovg12"]
 [ext_resource type="Texture2D" uid="uid://bjpe86d253612" path="res://common/character_creator/icons/glasses.svg" id="57_ipuyg"]
 [ext_resource type="Texture2D" uid="uid://twlbf53xjobb" path="res://common/character_creator/icons/beard.svg" id="58_k7jpt"]
@@ -123,7 +123,10 @@ font = ExtResource("41_ukr78")
 font_size = 48
 font_color = Color(0, 0, 0, 1)
 
-[node name="CharacterEditor" type="Control" node_paths=PackedStringArray("eyes_option_picker", "eyebrows_option_picker", "noses_option_picker", "ears_option_picker", "mouths_option_picker", "hair_option_picker", "eyeshadow_option_picker", "eyeliner_option_picker", "blush_option_picker", "glasses_option_picker", "mustaches_option_picker", "beards_option_picker", "nose_piercings_option_picker", "eyebrow_piercings_option_picker", "earrings_option_picker", "skin_color_option_pickers", "eyebrow_color_option_picker", "hair_color_option_picker", "mustache_color_option_picker", "beard_color_option_picker", "lip_color_option_picker", "eyeshadow_color_option_picker", "eyeliner_color_option_picker", "blush_color_option_picker", "glasses_color_option_picker", "eye_buttons", "eyebrow_buttons", "mouth_buttons", "glasses_buttons", "mustache_buttons", "shirt_option_picker", "pants_option_picker", "sock_option_picker", "shoes_option_picker", "belt_option_picker", "wrists_option_picker", "shirt_color_option_picker", "pants_color_option_picker", "sock_color_option_picker", "shoes_color_option_picker", "name_field", "preview", "zoom_slider", "zoom_target_slider", "rotation_slider")]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yqugs"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[node name="CharacterEditor" type="Control" node_paths=PackedStringArray("eyes_option_picker", "eyebrows_option_picker", "noses_option_picker", "ears_option_picker", "mouths_option_picker", "hair_option_picker", "eyeshadow_option_picker", "eyeliner_option_picker", "blush_option_picker", "glasses_option_picker", "mustaches_option_picker", "beards_option_picker", "nose_piercings_option_picker", "eyebrow_piercings_option_picker", "earrings_option_picker", "skin_color_option_pickers", "eyebrow_color_option_picker", "hair_color_option_picker", "mustache_color_option_picker", "beard_color_option_picker", "lip_color_option_picker", "eyeshadow_color_option_picker", "eyeliner_color_option_picker", "blush_color_option_picker", "eye_buttons", "eyebrow_buttons", "mouth_buttons", "glasses_buttons", "mustache_buttons", "shirt_option_picker", "pants_option_picker", "sock_option_picker", "shoes_option_picker", "belt_option_picker", "wrists_option_picker", "shirt_color_option_picker", "pants_color_option_picker", "sock_color_option_picker", "shoes_color_option_picker", "name_field", "preview", "zoom_slider", "zoom_target_slider", "rotation_slider")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -157,7 +160,6 @@ lip_color_option_picker = NodePath("Spacer/VBoxContainer2/HBoxContainer2/WhereTh
 eyeshadow_color_option_picker = NodePath("Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/MakeupOptions/ScrollContainer/VBoxContainer/ColorOptionPicker3")
 eyeliner_color_option_picker = NodePath("Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/MakeupOptions/ScrollContainer/VBoxContainer/ColorOptionPicker2")
 blush_color_option_picker = NodePath("Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/MakeupOptions/ScrollContainer/VBoxContainer/ColorOptionPicker")
-glasses_color_option_picker = NodePath("Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/GlassesOptions/ColorOptionPicker")
 eye_buttons = NodePath("Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/EyeOptions/Buttons")
 eye_range = SubResource("Resource_uplhe")
 eyebrow_buttons = NodePath("Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/EyebrowOptions/Buttons2")
@@ -188,7 +190,7 @@ blush_icons = Array[Texture]([ExtResource("30_j1yn8"), ExtResource("31_1vtg3"), 
 earring_icons = Array[Texture]([ExtResource("28_wqgcf"), ExtResource("29_1wcng"), ExtResource("30_pa571"), ExtResource("31_q6tmn"), ExtResource("32_0hqwg")])
 wrist_icons = Array[Texture]([ExtResource("34_mftp0"), ExtResource("35_mwl8u"), ExtResource("36_ijucv"), ExtResource("37_7wji2"), ExtResource("38_mpu6x"), ExtResource("39_oncpk"), ExtResource("40_qotnk")])
 empty_icon = ExtResource("45_r1hef")
-preview = NodePath("Spacer/VBoxContainer2/HBoxContainer2/PreviewContainer/ReferenceRect/TextureRect")
+preview = NodePath("Spacer/VBoxContainer2/HBoxContainer2/PreviewContainer/ReferenceRect/CenterContainer/PreviewTexture")
 zoom_slider = NodePath("Spacer/VBoxContainer2/HBoxContainer2/ZoomSliderHolder/HBoxContainer/MarginContainer/ReferenceRect2")
 zoom_target_slider = NodePath("Spacer/VBoxContainer2/HBoxContainer2/ZoomSliderHolder/HBoxContainer/ReferenceRect/ReferenceRect4/HBoxContainer/ReferenceRect2")
 rotation_slider = NodePath("Spacer/VBoxContainer2/HBoxContainer2/PreviewContainer/HBoxContainer/VBoxContainer/HScrollBar")
@@ -406,11 +408,22 @@ size_flags_vertical = 3
 size_flags_stretch_ratio = 0.02
 theme = ExtResource("1_amotn")
 
-[node name="TextureRect" type="TextureRect" parent="Spacer/VBoxContainer2/HBoxContainer2/PreviewContainer/ReferenceRect"]
+[node name="CenterContainer" type="PanelContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/PreviewContainer/ReferenceRect"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_yqugs")
+
+[node name="Background" type="TextureRect" parent="Spacer/VBoxContainer2/HBoxContainer2/PreviewContainer/ReferenceRect/CenterContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("1_amotn")
-texture = ExtResource("8_4h4o2")
+texture = ExtResource("53_76a01")
+expand_mode = 4
+
+[node name="PreviewTexture" type="TextureRect" parent="Spacer/VBoxContainer2/HBoxContainer2/PreviewContainer/ReferenceRect/CenterContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_amotn")
 
 [node name="ReferenceRect2" type="ReferenceRect" parent="Spacer/VBoxContainer2/HBoxContainer2/PreviewContainer/ReferenceRect"]
 layout_mode = 2
@@ -1378,10 +1391,6 @@ size_flags_stretch_ratio = 0.04
 
 [node name="GlassesOptions" type="VBoxContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup"]
 visible = false
-layout_mode = 2
-theme = ExtResource("1_amotn")
-
-[node name="ColorOptionPicker" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/GlassesOptions" instance=ExtResource("16_sn6bk")]
 layout_mode = 2
 theme = ExtResource("1_amotn")
 

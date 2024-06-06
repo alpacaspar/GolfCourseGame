@@ -36,8 +36,6 @@ extends Resource
 @export var eyeliner_color_index: int = 0
 @export var blush_color_index: int = 0
 
-@export var glasses_color_index: int = 0
-
 @export_subgroup("Offset Values")
 @export var eye_values: FinetuneValues = FinetuneValues.new()
 @export var eyebrow_values: FinetuneValues = FinetuneValues.new()
