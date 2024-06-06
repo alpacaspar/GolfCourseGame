@@ -6,9 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://vbfrlsnl7km6" path="res://entities/character/clothing/belt/belt_black_roughness.png" id="4_0h20r"]
 
 [resource]
-transparency = 1
 albedo_texture = ExtResource("1_4svx6")
-metallic = 1.0
 metallic_texture = ExtResource("2_sriyt")
 roughness_texture = ExtResource("4_0h20r")
 normal_enabled = true

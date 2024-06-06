@@ -140,7 +140,7 @@ func _ready():
 	# Build in icons
 	await _set_texture_button_connections(CharacterFactory.eye_textures, eyes_option_picker)
 	await _set_texture_button_connections_color_override(CharacterFactory.eyebrow_textures, eyebrows_option_picker)
-	await _set_texture_button_connections(CharacterFactory.mouth_textures, mouths_option_picker)
+	await _set_texture_button_connections(CharacterFactory.mouth_textures, mouths_option_picker, 1)
 
 	await eyeshadow_option_picker.add_empty(empty_icon, _update_character)
 	await _set_single_texture_button_connections(CharacterFactory.eyeshadow_textures, eyeshadow_option_picker)
@@ -156,10 +156,10 @@ func _ready():
 	await _set_external_icon_button_connections(blush_icons, CharacterFactory.blush_textures, blush_option_picker)
 
 	await mustaches_option_picker.add_empty(empty_icon, _update_character)
-	await _set_texture_button_connections_color_override(CharacterFactory.mustache_textures, mustaches_option_picker)
+	await _set_texture_button_connections_color_override(CharacterFactory.mustache_textures, mustaches_option_picker, 2)
 	
 	await glasses_option_picker.add_empty(empty_icon, _update_character)
-	await _set_texture_button_connections(CharacterFactory.glasses_textures, glasses_option_picker)
+	await _set_texture_button_connections(CharacterFactory.glasses_textures, glasses_option_picker, 1)
 
 	# Clothing data option picker
 	await _set_resource_button_connections(CharacterFactory.shirt_datas, shirt_option_picker)
@@ -261,17 +261,29 @@ func _set_external_icon_button_connections(icon_collection, collection, picker: 
 		i += 1
 
 
-func _set_texture_button_connections(collection, picker: CreatorGallery):
+func _set_texture_button_connections(collection, picker: CreatorGallery, remove_last_count: int = 0):
+	var last: int = collection.get_layers() - 1 - remove_last_count
+	var index: int = 0
 	for option in collection.get_layers() - 1:
 		var texture = ImageTexture.create_from_image(collection.get_layer_data(option))
 		picker.add_button(texture, _update_character)
 
+		index += 1
+		if index >= last:
+			return
 
-func _set_texture_button_connections_color_override(collection, picker: CreatorGallery):
+
+func _set_texture_button_connections_color_override(collection, picker: CreatorGallery, remove_last_count: int = 0):
+	var last: int = collection.get_layers() - 1 - remove_last_count
+	var index: int = 0
 	for option in collection.get_layers() - 1:
 		var image = collection.get_layer_data(option)
 		image.adjust_bcs(0, 1, 1)
 		picker.add_button(ImageTexture.create_from_image(image), _update_character)
+
+		index += 1
+		if index >= last:
+			return
 
 
 func _set_single_texture_button_connections(collection, picker: CreatorGallery):

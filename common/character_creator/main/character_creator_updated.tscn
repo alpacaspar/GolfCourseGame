@@ -960,13 +960,11 @@ layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 7.0
 theme = ExtResource("1_amotn")
-current_tab = 9
 tabs_visible = false
 script = ExtResource("8_g1j11")
 button_group = ExtResource("15_gsruc")
 
 [node name="EyeOptions" type="VBoxContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup"]
-visible = false
 layout_mode = 2
 theme = ExtResource("1_amotn")
 
@@ -983,6 +981,9 @@ theme = ExtResource("1_amotn")
 [node name="Buttons" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/EyeOptions" instance=ExtResource("24_qcc4a")]
 layout_mode = 2
 theme = ExtResource("1_amotn")
+vertical_step = 0.025
+horizontal_step = 0.025
+scaling_step = 0.1
 
 [node name="EyebrowOptions" type="VBoxContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup"]
 visible = false
@@ -1001,6 +1002,9 @@ theme = ExtResource("1_amotn")
 [node name="Buttons2" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/EyebrowOptions" instance=ExtResource("24_qcc4a")]
 layout_mode = 2
 theme = ExtResource("1_amotn")
+vertical_step = 0.025
+horizontal_step = 0.025
+scaling_step = 0.1
 
 [node name="MouthOptions" type="VBoxContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup"]
 visible = false
@@ -1023,10 +1027,10 @@ theme = ExtResource("1_amotn")
 script = ExtResource("63_jpa6f")
 up_button = NodePath("HBoxContainer3/HBoxContainer2/Button")
 down_button = NodePath("HBoxContainer3/HBoxContainer2/Button2")
-vertical_step = 0.05
+vertical_step = 0.025
 scale_up_button = NodePath("HBoxContainer3/HBoxContainer4/Button")
 scale_down_button = NodePath("HBoxContainer3/HBoxContainer4/Button2")
-scaling_step = 0.02
+scaling_step = 0.1
 
 [node name="ReferenceRect2" type="ReferenceRect" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/MouthOptions/Buttons"]
 layout_mode = 2
@@ -1393,10 +1397,10 @@ theme = ExtResource("1_amotn")
 script = ExtResource("63_jpa6f")
 up_button = NodePath("HBoxContainer3/HBoxContainer2/Button2")
 down_button = NodePath("HBoxContainer3/HBoxContainer2/Button")
-vertical_step = 0.05
+vertical_step = 0.025
 scale_up_button = NodePath("HBoxContainer3/HBoxContainer4/Button")
 scale_down_button = NodePath("HBoxContainer3/HBoxContainer4/Button2")
-scaling_step = 0.02
+scaling_step = 0.1
 
 [node name="ReferenceRect2" type="ReferenceRect" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/GlassesOptions/Buttons"]
 layout_mode = 2
@@ -1657,10 +1661,10 @@ theme = ExtResource("1_amotn")
 script = ExtResource("63_jpa6f")
 up_button = NodePath("HBoxContainer3/HBoxContainer2/Button")
 down_button = NodePath("HBoxContainer3/HBoxContainer2/Button2")
-vertical_step = 0.05
+vertical_step = 0.025
 scale_up_button = NodePath("HBoxContainer3/HBoxContainer4/Button")
 scale_down_button = NodePath("HBoxContainer3/HBoxContainer4/Button2")
-scaling_step = 0.02
+scaling_step = 0.1
 
 [node name="ReferenceRect2" type="ReferenceRect" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/FacialHairOptions/ScrollContainer/VBoxContainer/Buttons"]
 layout_mode = 2
@@ -1798,6 +1802,7 @@ size_flags_stretch_ratio = 0.2
 theme = ExtResource("1_amotn")
 
 [node name="PiercingOptions" type="VBoxContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup"]
+visible = false
 layout_mode = 2
 theme = ExtResource("1_amotn")
 
@@ -2206,16 +2211,16 @@ size_flags_stretch_ratio = 0.1
 theme = ExtResource("1_amotn")
 
 [node name="TextureRect" type="TextureRect" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
 offset_left = 2.0
-offset_top = -223.0
-offset_right = 284.0
+offset_top = -307.0
+offset_right = 456.0
 offset_bottom = 76.0
 grow_vertical = 0
+mouse_filter = 2
 texture = ExtResource("68_panll")
 expand_mode = 4
 stretch_mode = 5

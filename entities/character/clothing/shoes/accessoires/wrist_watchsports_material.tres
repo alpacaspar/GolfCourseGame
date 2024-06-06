@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://decblas02u06c" path="res://entities/character/clothing/shoes/accessoires/wrist_watchsports_roughness.png" id="4_aivpw"]
 
 [resource]
-transparency = 1
 albedo_texture = ExtResource("1_61khx")
 metallic = 1.0
 metallic_texture = ExtResource("2_guncy")
