@@ -22,7 +22,7 @@ character_spawn_position = NodePath("CharacterPosition")
 [node name="CharacterFactory" parent="." instance=ExtResource("2_6ccju")]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.650721, 0.759317, 0, -0.759317, 0.650721, 0.0183923, 1.57691, 1.07868)
+transform = Transform3D(1, 0, 0, 0, 0.999725, -0.0234373, 0, 0.0234373, 0.999725, 0.0183923, 1.07488, 1.83958)
 
 [node name="IconViewport" type="SubViewport" parent="."]
 transparent_bg = true
