@@ -22,7 +22,7 @@ func hit(originator: Unit):
         target_position = target.global_position
         average_velocity = target.velocity_buffer.average_velocity
     else:
-        target_position = last_user.global_position + last_user.controller.basis.z * last_user.role.max_drive_range
+        target_position = last_user.global_position + last_user.controller.global_basis.z * last_user.role.max_drive_range
 
     # If _calculate_intersection_time() fails, a 0 is returned, in that case the prediction will default to the target's current position.
     var predicted_target_position := target_position + average_velocity * _calculate_intersection_time(global_position, target_position, average_velocity)

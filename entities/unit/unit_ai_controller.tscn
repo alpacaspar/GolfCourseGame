@@ -24,6 +24,7 @@
 script = ExtResource("1_4m1b1")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+path_height_offset = 0.3
 
 [node name="BehaviourTree" type="Node" parent="."]
 script = ExtResource("2_sbpf6")
@@ -31,7 +32,7 @@ script = ExtResource("2_sbpf6")
 [node name="DecoratorSensorRadius" type="Node" parent="BehaviourTree"]
 script = ExtResource("4_urqn6")
 radius = 300.0
-sensor_filter = 6
+sensor_filter = 12
 exclude_self = true
 sensor_collision_mask = 2
 
