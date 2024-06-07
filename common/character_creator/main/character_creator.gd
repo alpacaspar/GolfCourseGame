@@ -131,7 +131,7 @@ func _ready():
 	# await piercings_option_picker.add_empty(null, _update_character)
 	# await _set_external_icon_button_connections(piercing_icons, CharacterFactory.earring_meshes, piercings_option_picker)
 
-	await earrings_option_picker.add_empty(ear_icons[0], _update_character)
+	await earrings_option_picker.add_empty(empty_icon, _update_character)
 	await _set_resource_button_connections(CharacterFactory.earring_meshes, earrings_option_picker)
 
 	# Build in icons
@@ -146,7 +146,7 @@ func _ready():
 	await eyebrow_piercings_option_picker.add_empty(empty_icon, _update_character)
 	await _set_single_texture_button_connections(CharacterFactory.eyebrow_piercing_textures, eyebrow_piercings_option_picker)
 
-	await nose_piercings_option_picker.add_empty(nose_icons[0], _update_character)
+	await nose_piercings_option_picker.add_empty(empty_icon, _update_character)
 	await _set_resource_button_connections(CharacterFactory.nose_piercing_datas, nose_piercings_option_picker)
 
 	await blush_option_picker.add_empty(empty_icon, _update_character)
