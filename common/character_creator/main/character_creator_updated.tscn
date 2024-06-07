@@ -567,13 +567,11 @@ layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 8.27
 theme = ExtResource("1_amotn")
-current_tab = 1
 tabs_visible = false
 script = ExtResource("8_g1j11")
 button_group = ExtResource("5_snfil")
 
 [node name="FaceOptions" type="VBoxContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody"]
-visible = false
 layout_mode = 2
 theme = ExtResource("1_amotn")
 
@@ -968,13 +966,11 @@ layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 7.0
 theme = ExtResource("1_amotn")
-current_tab = 8
 tabs_visible = false
 script = ExtResource("8_g1j11")
 button_group = ExtResource("15_gsruc")
 
 [node name="EyeOptions" type="VBoxContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup"]
-visible = false
 layout_mode = 2
 theme = ExtResource("1_amotn")
 
@@ -1396,7 +1392,7 @@ layout_mode = 2
 size_flags_stretch_ratio = 6.0
 theme = ExtResource("1_amotn")
 
-[node name="Buttons" type="VBoxContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/GlassesOptions" node_paths=PackedStringArray("up_button", "down_button", "scale_up_button", "scale_down_button")]
+[node name="Buttons" type="VBoxContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/GlassesOptions" node_paths=PackedStringArray("up_button", "down_button")]
 layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("1_amotn")
@@ -1404,9 +1400,6 @@ script = ExtResource("63_jpa6f")
 up_button = NodePath("HBoxContainer3/HBoxContainer2/Button2")
 down_button = NodePath("HBoxContainer3/HBoxContainer2/Button")
 vertical_step = 0.025
-scale_up_button = NodePath("HBoxContainer3/HBoxContainer4/Button")
-scale_down_button = NodePath("HBoxContainer3/HBoxContainer4/Button2")
-scaling_step = 0.1
 
 [node name="ReferenceRect2" type="ReferenceRect" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/GlassesOptions/Buttons"]
 layout_mode = 2
@@ -1423,7 +1416,6 @@ theme = ExtResource("1_amotn")
 [node name="ReferenceRect" type="ReferenceRect" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/GlassesOptions/Buttons/HBoxContainer3"]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_stretch_ratio = 0.71
 theme = ExtResource("1_amotn")
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/GlassesOptions/Buttons/HBoxContainer3"]
@@ -1479,62 +1471,6 @@ flip_v = true
 [node name="ReferenceRect3" type="ReferenceRect" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/GlassesOptions/Buttons/HBoxContainer3"]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_stretch_ratio = 0.1
-theme = ExtResource("1_amotn")
-
-[node name="HBoxContainer4" type="HBoxContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/GlassesOptions/Buttons/HBoxContainer3"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme = ExtResource("1_amotn")
-theme_override_constants/separation = 0
-
-[node name="Button" type="Button" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/GlassesOptions/Buttons/HBoxContainer3/HBoxContainer4"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme = ExtResource("1_amotn")
-
-[node name="TextureRect" type="TextureRect" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/GlassesOptions/Buttons/HBoxContainer3/HBoxContainer4/Button"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 10.0
-offset_top = 6.0
-offset_right = -11.0
-offset_bottom = -7.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = ExtResource("1_amotn")
-texture = ExtResource("3_k7we3")
-expand_mode = 2
-stretch_mode = 5
-
-[node name="Button2" type="Button" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/GlassesOptions/Buttons/HBoxContainer3/HBoxContainer4"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme = ExtResource("1_amotn")
-
-[node name="TextureRect" type="TextureRect" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/GlassesOptions/Buttons/HBoxContainer3/HBoxContainer4/Button2"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 11.0
-offset_top = 6.0
-offset_right = -11.0
-offset_bottom = -7.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = ExtResource("1_amotn")
-texture = ExtResource("4_jxcwy")
-expand_mode = 2
-stretch_mode = 5
-
-[node name="ReferenceRect5" type="ReferenceRect" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/GlassesOptions/Buttons/HBoxContainer3"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 0.71
 theme = ExtResource("1_amotn")
 
 [node name="ReferenceRect" type="ReferenceRect" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/GlassesOptions/Buttons"]
@@ -1544,6 +1480,7 @@ size_flags_stretch_ratio = 0.2
 theme = ExtResource("1_amotn")
 
 [node name="FacialHairOptions" type="VBoxContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup"]
+visible = false
 layout_mode = 2
 theme = ExtResource("1_amotn")
 
@@ -1961,6 +1898,7 @@ size_flags_vertical = 3
 size_flags_stretch_ratio = 0.04
 
 [node name="BodyOptions" type="VBoxContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody"]
+visible = false
 layout_mode = 2
 theme = ExtResource("1_amotn")
 
@@ -2123,13 +2061,11 @@ layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 7.0
 theme = ExtResource("1_amotn")
-current_tab = 2
 tabs_visible = false
 script = ExtResource("8_g1j11")
 button_group = ExtResource("29_8hw7x")
 
 [node name="ShirtOptions" type="VBoxContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/BodyOptionsTabGroup"]
-visible = false
 layout_mode = 2
 theme = ExtResource("1_amotn")
 
@@ -2157,6 +2093,7 @@ size_flags_stretch_ratio = 7.0
 theme = ExtResource("1_amotn")
 
 [node name="FootwearOptions" type="VBoxContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/BodyOptionsTabGroup"]
+visible = false
 layout_mode = 2
 theme = ExtResource("1_amotn")
 
