@@ -47,3 +47,7 @@ func set_button_index(index: int):
 	var offset = 1 if includes_empty else 0
 	for button in button_group.get_buttons():
 		button.button_pressed = button_group.get_buttons().find(button) == index + offset
+
+
+func get_option_count() -> int:
+	return button_group.get_buttons().size() - 1

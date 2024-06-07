@@ -54,3 +54,7 @@ func set_button_index(index: int):
 
 func _update_tracker():
 	tracker.index = get_current_index()
+
+
+func get_option_count() -> int:
+	return button_group.get_buttons().size() - 1

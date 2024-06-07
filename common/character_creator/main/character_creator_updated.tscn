@@ -126,7 +126,7 @@ font_color = Color(0, 0, 0, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yqugs"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
-[node name="CharacterEditor" type="Control" node_paths=PackedStringArray("eyes_option_picker", "eyebrows_option_picker", "noses_option_picker", "ears_option_picker", "mouths_option_picker", "hair_option_picker", "eyeshadow_option_picker", "eyeliner_option_picker", "blush_option_picker", "glasses_option_picker", "mustaches_option_picker", "beards_option_picker", "nose_piercings_option_picker", "eyebrow_piercings_option_picker", "earrings_option_picker", "skin_color_option_pickers", "eyebrow_color_option_picker", "hair_color_option_picker", "mustache_color_option_picker", "beard_color_option_picker", "lip_color_option_picker", "eyeshadow_color_option_picker", "eyeliner_color_option_picker", "blush_color_option_picker", "eye_buttons", "eyebrow_buttons", "mouth_buttons", "glasses_buttons", "mustache_buttons", "shirt_option_picker", "pants_option_picker", "sock_option_picker", "shoes_option_picker", "belt_option_picker", "wrists_option_picker", "shirt_color_option_picker", "pants_color_option_picker", "sock_color_option_picker", "shoes_color_option_picker", "name_field", "preview", "zoom_slider", "zoom_target_slider", "rotation_slider")]
+[node name="CharacterEditor" type="Control" node_paths=PackedStringArray("eyes_option_picker", "eyebrows_option_picker", "noses_option_picker", "ears_option_picker", "mouths_option_picker", "hair_option_picker", "eyeshadow_option_picker", "eyeliner_option_picker", "blush_option_picker", "glasses_option_picker", "mustaches_option_picker", "beards_option_picker", "nose_piercings_option_picker", "eyebrow_piercings_option_picker", "earrings_option_picker", "skin_color_option_pickers", "eyebrow_color_option_picker", "hair_color_option_picker", "mustache_color_option_picker", "beard_color_option_picker", "lip_color_option_picker", "eyeshadow_color_option_picker", "eyeliner_color_option_picker", "blush_color_option_picker", "eye_buttons", "eyebrow_buttons", "mouth_buttons", "glasses_buttons", "mustache_buttons", "shirt_option_picker", "pants_option_picker", "sock_option_picker", "shoes_option_picker", "belt_option_picker", "wrists_option_picker", "shirt_color_option_picker", "pants_color_option_picker", "sock_color_option_picker", "shoes_color_option_picker", "name_field", "randomize_button", "reset_button", "preview", "zoom_slider", "zoom_target_slider", "rotation_slider")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -181,6 +181,8 @@ pants_color_option_picker = NodePath("Spacer/VBoxContainer2/HBoxContainer2/Where
 sock_color_option_picker = NodePath("Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/BodyOptionsTabGroup/FootwearOptions/ColorOptionPicker")
 shoes_color_option_picker = NodePath("Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/BodyOptionsTabGroup/FootwearOptions/ColorOptionPicker2")
 name_field = NodePath("Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/BodyOptionsTabGroup/Naming/LineEdit")
+randomize_button = NodePath("Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/BodyOptionsTabGroup/Naming/HBoxContainer/Button")
+reset_button = NodePath("Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/BodyOptionsTabGroup/Naming/HBoxContainer/Button2")
 hair_icons = Array[Texture]([ExtResource("7_o25f1"), ExtResource("8_aptni"), ExtResource("9_igdo4"), ExtResource("10_x3yrl"), ExtResource("11_ppy87"), ExtResource("12_i24fy"), ExtResource("13_lcfea"), ExtResource("5_tgl5y"), ExtResource("6_s251f"), ExtResource("5_ina4w")])
 nose_icons = Array[Texture]([ExtResource("14_6uwex"), ExtResource("15_sjc8k"), ExtResource("16_vw5m5"), ExtResource("17_dau6g")])
 ear_icons = Array[Texture]([ExtResource("5_sqx8j"), ExtResource("6_rqkat"), ExtResource("7_mede7"), ExtResource("8_07sdn"), ExtResource("9_y81nd")])
@@ -567,11 +569,13 @@ layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 8.27
 theme = ExtResource("1_amotn")
+current_tab = 1
 tabs_visible = false
 script = ExtResource("8_g1j11")
 button_group = ExtResource("5_snfil")
 
 [node name="FaceOptions" type="VBoxContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody"]
+visible = false
 layout_mode = 2
 theme = ExtResource("1_amotn")
 
@@ -1898,7 +1902,6 @@ size_flags_vertical = 3
 size_flags_stretch_ratio = 0.04
 
 [node name="BodyOptions" type="VBoxContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody"]
-visible = false
 layout_mode = 2
 theme = ExtResource("1_amotn")
 
@@ -2061,11 +2064,13 @@ layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 7.0
 theme = ExtResource("1_amotn")
+current_tab = 4
 tabs_visible = false
 script = ExtResource("8_g1j11")
 button_group = ExtResource("29_8hw7x")
 
 [node name="ShirtOptions" type="VBoxContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/BodyOptionsTabGroup"]
+visible = false
 layout_mode = 2
 theme = ExtResource("1_amotn")
 
@@ -2225,13 +2230,52 @@ size_flags_vertical = 3
 size_flags_stretch_ratio = 0.04
 
 [node name="Naming" type="VBoxContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/BodyOptionsTabGroup"]
-visible = false
 layout_mode = 2
 theme = ExtResource("1_amotn")
 
+[node name="ReferenceRect2" type="ReferenceRect" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/BodyOptionsTabGroup/Naming"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.04
+
 [node name="LineEdit" type="LineEdit" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/BodyOptionsTabGroup/Naming"]
 layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.1
 theme = ExtResource("1_amotn")
+placeholder_text = "Name..."
+
+[node name="ReferenceRect" type="ReferenceRect" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/BodyOptionsTabGroup/Naming"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/BodyOptionsTabGroup/Naming"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.2
+
+[node name="ReferenceRect" type="ReferenceRect" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/BodyOptionsTabGroup/Naming/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Button" type="Button" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/BodyOptionsTabGroup/Naming/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Randomize!"
+
+[node name="ReferenceRect3" type="ReferenceRect" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/BodyOptionsTabGroup/Naming/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.1
+
+[node name="Button2" type="Button" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/BodyOptionsTabGroup/Naming/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Reset"
+
+[node name="ReferenceRect2" type="ReferenceRect" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/BodyOptionsTabGroup/Naming/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
 
 [node name="ReferenceRect3" type="ReferenceRect" parent="Spacer/VBoxContainer2"]
 layout_mode = 2

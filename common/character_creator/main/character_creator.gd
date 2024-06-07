@@ -65,6 +65,8 @@ extends Control
 
 @export_group("Extra Options")
 @export var name_field: LineEdit
+@export var randomize_button: Button
+@export var reset_button: Button
 
 @export_group("Icons")
 @export var hair_icons: Array[Texture] = []
@@ -99,6 +101,9 @@ func _ready():
 	rotation_slider.value_changed.connect(preview_scene._set_rotation)
 	zoom_slider.value_changed.connect(preview_scene.set_zoom)
 	zoom_target_slider.value_changed.connect(preview_scene.set_zoom_target)
+
+	randomize_button.pressed.connect(_randomize)
+	reset_button.pressed.connect(_reset)
 
 	# Colors
 	for picker in skin_color_option_pickers:
@@ -296,3 +301,138 @@ func _set_resource_button_connections(collection, picker: CreatorGallery):
 
 func _set_rotation_value(_value):
 	rotation_slider.value = _value
+
+
+func _randomize():
+	var rng = RandomNumberGenerator.new()
+
+	# Face stuff
+	skin_color_tracker.index = rng.randi_range(0, CharacterFactory.skin_colors.size() - 1)
+
+	eyes_option_picker.set_button_index(rng.randi_range(0, eyes_option_picker.get_option_count()))
+	eyebrows_option_picker.set_button_index(rng.randi_range(0, eyebrows_option_picker.get_option_count()))
+	mouths_option_picker.set_button_index(rng.randi_range(0, mouths_option_picker.get_option_count()))
+	noses_option_picker.set_button_index(rng.randi_range(0, noses_option_picker.get_option_count()))
+	ears_option_picker.set_button_index(rng.randi_range(0, ears_option_picker.get_option_count()))
+	hair_option_picker.set_button_index(rng.randi_range(0, hair_option_picker.get_option_count()))
+
+	eyeshadow_option_picker.set_button_index(rng.randi_range(0, eyeshadow_option_picker.get_option_count()))
+	eyeliner_option_picker.set_button_index(rng.randi_range(0, eyeliner_option_picker.get_option_count()))
+	blush_option_picker.set_button_index(rng.randi_range(0, blush_option_picker.get_option_count()))
+	glasses_option_picker.set_button_index(rng.randi_range(0, glasses_option_picker.get_option_count()))
+	nose_piercings_option_picker.set_button_index(rng.randi_range(0, nose_piercings_option_picker.get_option_count()))
+	eyebrow_piercings_option_picker.set_button_index(rng.randi_range(0, eyebrow_piercings_option_picker.get_option_count()))
+	earrings_option_picker.set_button_index(rng.randi_range(0, earrings_option_picker.get_option_count()))
+
+	mustaches_option_picker.set_button_index(rng.randi_range(0, mustaches_option_picker.get_option_count()))
+	beards_option_picker.set_button_index(rng.randi_range(0, beards_option_picker.get_option_count()))
+
+	eyebrow_color_option_picker.set_button_index(rng.randi_range(0, eyebrow_color_option_picker.get_option_count()))
+	hair_color_option_picker.set_button_index(rng.randi_range(0, hair_color_option_picker.get_option_count()))
+	hair_color_option_picker.set_button_index(rng.randi_range(0, hair_color_option_picker.get_option_count()))
+	mustache_color_option_picker.set_button_index(rng.randi_range(0, mustache_color_option_picker.get_option_count()))
+	beard_color_option_picker.set_button_index(rng.randi_range(0, beard_color_option_picker.get_option_count()))
+
+	lip_color_option_picker.set_button_index(rng.randi_range(0, lip_color_option_picker.get_option_count()))
+	eyeshadow_color_option_picker.set_button_index(rng.randi_range(0, eyeshadow_color_option_picker.get_option_count()))
+	eyeliner_color_option_picker.set_button_index(rng.randi_range(0, eyeliner_color_option_picker.get_option_count()))
+	blush_color_option_picker.set_button_index(rng.randi_range(0, blush_color_option_picker.get_option_count()))
+
+	# Body Stuff
+	shirt_option_picker.set_button_index(rng.randi_range(0, shirt_option_picker.get_option_count()))
+	pants_option_picker.set_button_index(rng.randi_range(0, pants_option_picker.get_option_count()))
+	sock_option_picker.set_button_index(rng.randi_range(0, sock_option_picker.get_option_count()))
+	shoes_option_picker.set_button_index(rng.randi_range(0, shoes_option_picker.get_option_count()))
+	belt_option_picker.set_button_index(rng.randi_range(0, belt_option_picker.get_option_count()))
+	wrists_option_picker.set_button_index(rng.randi_range(0, wrists_option_picker.get_option_count()))
+
+	shirt_color_option_picker.set_button_index(rng.randi_range(0, shirt_color_option_picker.get_option_count()))
+	pants_color_option_picker.set_button_index(rng.randi_range(0, pants_color_option_picker.get_option_count()))
+	sock_color_option_picker.set_button_index(rng.randi_range(0, sock_color_option_picker.get_option_count()))
+	shoes_color_option_picker.set_button_index(rng.randi_range(0, shoes_color_option_picker.get_option_count()))
+
+	# eye_buttons.vertical_current = rng.randf_range(eye_buttons.vertical_range.x, eye_buttons.vertical_range.y)
+	# eye_buttons.horizontal_current = rng.randf_range(eye_buttons.horizontal_range.x, eye_buttons.horizontal_range.y)
+	# eye_buttons.rotation_current = rng.randf_range(eye_buttons.rotation_range.x, eye_buttons.rotation_range.y)
+	# eye_buttons.scale_current = rng.randf_range(eye_buttons.scale_range.x, eye_buttons.scale_range.y)
+
+	# eyebrow_buttons.vertical_current = rng.randf_range(eyebrow_buttons.vertical_range.x, eyebrow_buttons.vertical_range.y)
+	# eyebrow_buttons.horizontal_current = rng.randf_range(eyebrow_buttons.horizontal_range.x, eyebrow_buttons.horizontal_range.y)
+	# eyebrow_buttons.rotation_current = rng.randf_range(eyebrow_buttons.rotation_range.x, eyebrow_buttons.rotation_range.y)
+	# eyebrow_buttons.scale_current = rng.randf_range(eyebrow_buttons.scale_range.x, eyebrow_buttons.scale_range.y)
+
+	# mouth_buttons.vertical_current = rng.randf_range(mouth_buttons.vertical_range.x, mouth_buttons.vertical_range.y)
+	# mouth_buttons.scale_current = rng.randf_range(mouth_buttons.scale_range.x, mouth_buttons.scale_range.y)
+
+	# mustache_buttons.vertical_current = rng.randf_range(mustache_buttons.vertical_range.x, mustache_buttons.vertical_range.y)
+	# mustache_buttons.scale_current = rng.randf_range(mustache_buttons.scale_range.x, mustache_buttons.scale_range.y)
+
+	# glasses_buttons.vertical_current = rng.randf_range(glasses_buttons.vertical_range.x, glasses_buttons.vertical_range.y)
+
+	_update_character()
+
+
+func _reset():
+	skin_color_tracker.index = 0
+
+	eyes_option_picker.set_button_index(0)
+	eyebrows_option_picker.set_button_index(0)
+	mouths_option_picker.set_button_index(0)
+	noses_option_picker.set_button_index(0)
+	ears_option_picker.set_button_index(0)
+	hair_option_picker.set_button_index(0)
+
+	eyeshadow_option_picker.set_button_index(-1)
+	eyeliner_option_picker.set_button_index(-1)
+	blush_option_picker.set_button_index(-1)
+	glasses_option_picker.set_button_index(-1)
+	nose_piercings_option_picker.set_button_index(-1)
+	eyebrow_piercings_option_picker.set_button_index(-1)
+	earrings_option_picker.set_button_index(-1)
+
+	mustaches_option_picker.set_button_index(-1)
+	beards_option_picker.set_button_index(-1)
+
+	eyebrow_color_option_picker.set_button_index(0)
+	hair_color_option_picker.set_button_index(0)
+	hair_color_option_picker.set_button_index(0)
+	mustache_color_option_picker.set_button_index(0)
+	beard_color_option_picker.set_button_index(0)
+
+	lip_color_option_picker.set_button_index(0)
+	eyeshadow_color_option_picker.set_button_index(0)
+	eyeliner_color_option_picker.set_button_index(0)
+	blush_color_option_picker.set_button_index(0)
+
+	# Body Stuff
+	shirt_option_picker.set_button_index(0)
+	pants_option_picker.set_button_index(0)
+	sock_option_picker.set_button_index(0)
+	shoes_option_picker.set_button_index(0)
+	belt_option_picker.set_button_index(-1)
+	wrists_option_picker.set_button_index(-1)
+
+	shirt_color_option_picker.set_button_index(0)
+	pants_color_option_picker.set_button_index(0)
+	sock_color_option_picker.set_button_index(0)
+	shoes_color_option_picker.set_button_index(0)
+
+	eye_buttons.vertical_current = 0
+	eye_buttons.horizontal_current = 0
+	eye_buttons.rotation_current = 0
+	eye_buttons.scale_current = 1
+
+	eyebrow_buttons.vertical_current = 0
+	eyebrow_buttons.horizontal_current = 0
+	eyebrow_buttons.rotation_current = 0
+	eyebrow_buttons.scale_current = 1
+
+	mouth_buttons.vertical_current = 0
+	mouth_buttons.scale_current = 1
+
+	mustache_buttons.vertical_current = 0
+	mustache_buttons.scale_current = 1
+
+	glasses_buttons.vertical_current = 0
+
+	_update_character()
