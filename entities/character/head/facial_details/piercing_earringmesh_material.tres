@@ -6,9 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://1q8goscjnyto" path="res://entities/character/head/facial_details/piercing_earringmesh_roughness.png" id="4_5yvrt"]
 
 [resource]
-transparency = 1
 albedo_texture = ExtResource("1_i1ny1")
-metallic = 1.0
+metallic = 0.85
 metallic_texture = ExtResource("2_2b82m")
 roughness_texture = ExtResource("4_5yvrt")
 normal_enabled = true

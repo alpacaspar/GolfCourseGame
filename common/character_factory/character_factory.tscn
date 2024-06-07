@@ -1,4 +1,4 @@
-[gd_scene load_steps=304 format=3 uid="uid://cdh3hkt0sfd8y"]
+[gd_scene load_steps=305 format=3 uid="uid://cdh3hkt0sfd8y"]
 
 [ext_resource type="Script" path="res://common/character_factory/character_factory.gd" id="1_i4r0e"]
 [ext_resource type="ArrayMesh" uid="uid://ctvdng4wa44ne" path="res://entities/character/head/character_ears_1.res" id="2_r6hdl"]
@@ -74,6 +74,7 @@
 [ext_resource type="Texture2D" uid="uid://c2ak3414hwm5h" path="res://common/character_creator/icons/jewelry/earring_pearl.png" id="45_680aa"]
 [ext_resource type="Texture2D" uid="uid://bkvacbcu1yw5u" path="res://common/character_creator/icons/jewelry/earring_tear.png" id="51_73ro4"]
 [ext_resource type="Texture2D" uid="uid://bsm4olkjvft4u" path="res://entities/character/clothing/clothing_polo_color.png" id="53_3exwe"]
+[ext_resource type="Material" uid="uid://de8adauskroos" path="res://entities/character/head/facial_details/piercing_earringmesh_material.tres" id="54_2rrir"]
 [ext_resource type="ArrayMesh" uid="uid://ce7l6dfgo1rs0" path="res://entities/character/clothing/clothing_shirt_collar.res" id="54_rcxgv"]
 [ext_resource type="Texture2D" uid="uid://d2ufhdbdow7ov" path="res://common/character_creator/icons/tops/polo_top.png" id="55_uos3d"]
 [ext_resource type="Texture2D" uid="uid://d38oic36tcw6a" path="res://entities/character/clothing/clothing_polo_normal.png" id="56_4olxk"]
@@ -288,16 +289,19 @@ roughness = ExtResource("25_4h37o")
 script = ExtResource("44_hig72")
 icon = ExtResource("38_djnb1")
 meshes = Array[Mesh]([ExtResource("10_0xbwj"), ExtResource("11_x0aaa"), ExtResource("12_1fn15"), ExtResource("13_oq8ra"), ExtResource("14_8nu28")])
+material = ExtResource("54_2rrir")
 
 [sub_resource type="Resource" id="Resource_w1y4c"]
 script = ExtResource("44_hig72")
 icon = ExtResource("45_680aa")
 meshes = Array[Mesh]([ExtResource("15_da6xe"), ExtResource("16_fm231"), ExtResource("17_uvjdm"), ExtResource("18_shak0"), ExtResource("19_g40vu")])
+material = ExtResource("54_2rrir")
 
 [sub_resource type="Resource" id="Resource_hmr62"]
 script = ExtResource("44_hig72")
 icon = ExtResource("51_73ro4")
 meshes = Array[Mesh]([ExtResource("20_3p7pv"), ExtResource("21_swbw3"), ExtResource("22_7db7x"), ExtResource("23_f0dkv"), ExtResource("24_dvcg3")])
+material = ExtResource("54_2rrir")
 
 [sub_resource type="Resource" id="Resource_xv8kt"]
 script = ExtResource("44_hig72")
