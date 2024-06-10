@@ -66,8 +66,6 @@ script = ExtResource("7_emtuh")
 
 [node name="ActionAimAtTarget" type="Node" parent="BehaviourTree/DecoratorSensorRadius/DecoratorFilterUtility/Selector/ConditionDistanceLess/Selector/ConditionEntityInGroup/Selector/ConditionCooldown/Sequence"]
 script = ExtResource("10_6xjrr")
-angle_threshold = 5.0
-aim_rotation_delta = 10.0
 
 [node name="ActionAttack" type="Node" parent="BehaviourTree/DecoratorSensorRadius/DecoratorFilterUtility/Selector/ConditionDistanceLess/Selector/ConditionEntityInGroup/Selector/ConditionCooldown/Sequence"]
 script = ExtResource("11_cyakl")
@@ -77,8 +75,6 @@ script = ExtResource("8_vp1rp")
 
 [node name="ActionAimAtTarget" type="Node" parent="BehaviourTree/DecoratorSensorRadius/DecoratorFilterUtility/Selector/ConditionDistanceLess/Selector/ConditionEntityInGroup/Selector/Parallel"]
 script = ExtResource("10_6xjrr")
-angle_threshold = 5.0
-aim_rotation_delta = 10.0
 
 [node name="ActionCombatPositioning" type="Node" parent="BehaviourTree/DecoratorSensorRadius/DecoratorFilterUtility/Selector/ConditionDistanceLess/Selector/ConditionEntityInGroup/Selector/Parallel"]
 script = ExtResource("8_4yc2b")
@@ -110,8 +106,6 @@ script = ExtResource("7_emtuh")
 
 [node name="ActionAimAtTarget" type="Node" parent="BehaviourTree/DecoratorSensorRadius/DecoratorFilterUtility/Selector/ConditionDistanceLess/Selector/Sequence"]
 script = ExtResource("10_6xjrr")
-angle_threshold = 5.0
-aim_rotation_delta = 10.0
 
 [node name="ActionAttack" type="Node" parent="BehaviourTree/DecoratorSensorRadius/DecoratorFilterUtility/Selector/ConditionDistanceLess/Selector/Sequence"]
 script = ExtResource("11_cyakl")

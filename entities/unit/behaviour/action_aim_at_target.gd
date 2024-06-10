@@ -2,8 +2,8 @@ extends BTAction
 
 
 ## The threshold at which the unit is considered to be facing the target, in degrees.
-@export var angle_threshold := 1.0
-@export var aim_rotation_delta := 1.0
+@export var angle_threshold := 5.0
+@export var aim_rotation_delta := 10.0
 
 
 func _tick(blackboard: Dictionary, delta: float) -> int:
