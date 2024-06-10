@@ -5,13 +5,13 @@ Event	ID	Name			Wwise Object Path	Notes
 	460794023	play_treeLeaves_rustling			\Ambience\Ambience\play_treeLeaves_rustling	
 	563870990	play_wind_gust			\Ambience\Ambience\play_wind_gust	
 	924169741	play_int_ball_hit			\Interactible\Interactible\play_int_ball_hit	
-	1057566954	temp_event			\Ambience\Ambience\temp_event	
 	2037286166	stop_mus_battle			\Music\stop_mus_battle	
 	2351148374	play_plr_damage_hit			\Player\Player\play_plr_damage_hit	
 	2372980991	play_npc_damage_hit			\NPC\NPC\play_npc_damage_hit	The length of the delay of the "Reset Playlist" action should be as long as the impact of the sfx lasts
 	3408384243	play_plr_swing			\Player\Player\play_plr_swing	
 	3735612561	play_plr_footstep			\Player\Player\play_plr_footstep	
 	3866133272	play_npc_footstep			\NPC\NPC\play_npc_footstep	
+	4037565531	temporary_event			\Ambience\Ambience\temporary_event	
 	4117275841	stop_treeLeaves_rustling			\Ambience\Ambience\stop_treeLeaves_rustling	
 
 Switch Group	ID	Name			Wwise Object Path	Notes
@@ -45,6 +45,7 @@ State	ID	Name	State Group			Notes
 Game Parameter	ID	Name			Wwise Object Path	Notes
 	511984960	footstep_volume			\SFX\Universal\footstep_volume	
 	855296609	wind_intensity			\SFX\Ambience\wind_intensity	
+	3095779176	tree_amount			\SFX\Ambience\tree_amount	
 
 Effect plug-ins	ID	Name	Type				Notes
 	660343269	Meter (Custom)	Wwise Meter			
@@ -60,7 +61,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	263840221	sfx_uni_plr_club_swing_iron_01	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\SFX\Player\sfx_uni_plr_club_swing_iron_01_818F3B66.wem		\Actor-Mixer Hierarchy\Player\Player\plr_swing_golfclub\sfx_uni_plr_club_swing_iron_01		51712
 	264017571	sfx_uni_plr_footstep_walk_grass_03	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\SFX\Player\sfx_uni_plr_footstep_walk_grass_03_E317E58D.wem		\Actor-Mixer Hierarchy\Player\Player\plr_footstep\plr_footstep_grass\plr_footstep_walk\sfx_uni_plr_footstep_walk_grass_03		29428
 	366905958	mus_battle_segment_a2	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\MUS\Battle\mus_battle_segment_a2_FBC78EF0.wem		\Interactive Music Hierarchy\In-Game Music\Battle_Test_Switch\First_Playlist_Test\mus_battle_segment_a2\mus_battle_segment_a2		1567960
-	387933196	sfx_uni_amb_treeLeaves_rustling_mid	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\SFX\Ambience\sfx_uni_amb_treeLeaves_rustling_mid_033C4B21.wem		\Actor-Mixer Hierarchy\Ambience\Ambience\treeLeaves_rustling\sfx_uni_amb_treeLeaves_rustling_mid		8890740
+	387933196	sfx_uni_amb_treeLeaves_rustling_mid	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\SFX\Ambience\sfx_uni_amb_treeLeaves_rustling_mid_033C4B21.wem		\Actor-Mixer Hierarchy\Ambience\Ambience\treeLeaves_rustling_intensity\treeLeaves_amount\sfx_uni_amb_treeLeaves_rustling_mid		8890740
 	450464591	EFX SD Wind Soft Whistling Gusts 05	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\EFX SD Wind Soft Whistling Gusts 05_FBC78EF0.wem		\Actor-Mixer Hierarchy\Ambience\Ambience\EFX SD Wind Soft Whistling Gusts 05	test	23065784
 	457778012	sfx_uni_plr_club_swing_iron_07	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\SFX\Player\sfx_uni_plr_club_swing_iron_07_818F3B66.wem		\Actor-Mixer Hierarchy\Player\Player\plr_swing_golfclub\sfx_uni_plr_club_swing_iron_07		40844
 	466523718	mus_battle_segment_e2	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\MUS\Battle\mus_battle_segment_e2_FBC78EF0.wem		\Interactive Music Hierarchy\In-Game Music\Battle_Test_Switch\First_Playlist_Test\mus_battle_segment_e2\mus_battle_segment_e2		2878680

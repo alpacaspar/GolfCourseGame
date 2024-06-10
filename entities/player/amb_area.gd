@@ -53,21 +53,22 @@ func play_animal():
 
 
 func _event_callback(_data):
-    # Callbacks are done from the sound engine's main thread. 
-    # Gather all the information you need and return immediately.
+	# Callbacks are done from the sound engine's main thread. 
+	# Gather all the information you need and return immediately.
 	Thread.set_thread_safety_checks_enabled(false)
 	play_windgust()
 
 
 func _on_body_entered(body: Node3D):
 	if body.get_parent().is_in_group("leaves"):
-		on_object_entered("play_treeLeaves_rustling", child_trees, leaves, leaves_loc, body)
+		on_object_entered("play_treeLeaves_rustling", child_trees, leaves, leaves_loc, "tree_amount", body)
 	if body.get_parent().is_in_group("bush"):
-		on_object_entered("event_name", child_bushes, bushes, bushes_loc, body)
+		on_object_entered("event_name", child_bushes, bushes, bushes_loc, "bush_amount", body)
 
 
-func on_object_entered(play_event_name: String, child_object: Node3D, objects_array: Array, objects_location_array: Array[Transform3D], body: Node3D):
+func on_object_entered(play_event_name: String, child_object: Node3D, objects_array: Array, objects_location_array: Array[Transform3D], rtpc_amount: String, body: Node3D):
 	objects_array.append(body) # add object to respective array
+	Wwise.set_rtpc_value(rtpc_amount, objects_array.size(), child_object)
 	objects_location_array.append(body.global_transform) # add position of object to respective array
 	Wwise.set_multiple_positions_3d(child_object, objects_location_array, objects_array.size(), AkUtils.TYPE_MULTI_DIRECTIONS) # set 3d positions with the afformentioned arrays
 	if objects_array.size() == 1:
@@ -76,12 +77,12 @@ func on_object_entered(play_event_name: String, child_object: Node3D, objects_ar
 
 func _on_body_exited(body: Node3D):
 	if body.get_parent().is_in_group("leaves"):
-		on_object_exited("stop_treeLeaves_rustling", child_trees, leaves, leaves_loc, body)
+		on_object_exited("stop_treeLeaves_rustling", child_trees, leaves, leaves_loc, "tree_amount", body)
 	if body.get_parent().is_in_group("bush"):
-		on_object_exited("event_name", child_bushes, bushes, bushes_loc, body)
+		on_object_exited("event_name", child_bushes, bushes, bushes_loc, "bush_amount", body)
 
 
-func on_object_exited(stop_event_name: String, child_object: Node3D, objects_array: Array, objects_location_array: Array[Transform3D], body: Node3D):
+func on_object_exited(stop_event_name: String, child_object: Node3D, objects_array: Array, objects_location_array: Array[Transform3D], rtpc_amount: String, body: Node3D):
 	var location = objects_array.find(body) # creating location variable to remove the location from the location array
 	if objects_array.size() == 1: # if before removing the body from the arrays there's only 1 item left we know it should play the stop event
 		Wwise.post_event(stop_event_name, child_object)
@@ -89,3 +90,4 @@ func on_object_exited(stop_event_name: String, child_object: Node3D, objects_arr
 		Wwise.set_multiple_positions_3d(child_object, objects_location_array, objects_array.size(), AkUtils.TYPE_MULTI_DIRECTIONS)
 	objects_location_array.remove_at(location) # removes the 3d position at the location of the exited body 
 	objects_array.erase(body) # removes the body from the array
+	Wwise.set_rtpc_value(rtpc_amount, objects_array.size(), child_object)

@@ -1,50 +1,25 @@
 Event	ID	Name			Wwise Object Path	Notes
 	40897922	play_ambience_bed			\Ambience\Ambience\play_ambience_bed	
 	78360149	Stinger			\Music\Stinger	
-	93216633	play_x_debug_short_sound			\Debug\Debug\play_x_debug_short_sound	
 	353794020	play_mus_battle			\Music\play_mus_battle	
 	460794023	play_treeLeaves_rustling			\Ambience\Ambience\play_treeLeaves_rustling	
 	563870990	play_wind_gust			\Ambience\Ambience\play_wind_gust	
 	924169741	play_int_ball_hit			\Interactible\Interactible\play_int_ball_hit	
-	1057566954	temp_event			\Ambience\Ambience\temp_event	
 	2037286166	stop_mus_battle			\Music\stop_mus_battle	
 	2351148374	play_plr_damage_hit			\Player\Player\play_plr_damage_hit	
 	2372980991	play_npc_damage_hit			\NPC\NPC\play_npc_damage_hit	The length of the delay of the "Reset Playlist" action should be as long as the impact of the sfx lasts
 	3408384243	play_plr_swing			\Player\Player\play_plr_swing	
-	3502184788	play_x_debug_distance			\Debug\Debug\play_x_debug_distance	
-	3634679436	play_x_debug_continuous_sound			\Debug\Debug\play_x_debug_continuous_sound	
 	3735612561	play_plr_footstep			\Player\Player\play_plr_footstep	
 	3866133272	play_npc_footstep			\NPC\NPC\play_npc_footstep	
+	4037565531	temporary_event			\Ambience\Ambience\temporary_event	
 	4117275841	stop_treeLeaves_rustling			\Ambience\Ambience\stop_treeLeaves_rustling	
 
 Switch Group	ID	Name			Wwise Object Path	Notes
-	1611159812	debug_distance			\Debug\debug_distance	
 	1625036798	plr_footstep_surface			\Player\plr_footstep_surface	
 	1829899313	int_collision_surface			\Interactible\int_collision_surface	
 	2218818815	plr_footstep_intention			\Player\plr_footstep_intention	
 
 Switch	ID	Name	Switch Group			Notes
-	1131221074	distance_090	debug_distance			
-	1131221079	distance_095	debug_distance			
-	1147998656	distance_085	debug_distance			
-	1147998661	distance_080	debug_distance			
-	1164776376	distance_070	debug_distance			
-	1164776381	distance_075	debug_distance			
-	1181406900	distance_100	debug_distance			
-	1181553963	distance_060	debug_distance			
-	1181553966	distance_065	debug_distance			
-	1198331547	distance_055	debug_distance			
-	1198331550	distance_050	debug_distance			
-	1215109233	distance_040	debug_distance			
-	1215109236	distance_045	debug_distance			
-	1231886817	distance_035	debug_distance			
-	1231886820	distance_030	debug_distance			
-	1248664402	distance_025	debug_distance			
-	1248664407	distance_020	debug_distance			
-	1265441994	distance_010	debug_distance			
-	1265441999	distance_015	debug_distance			
-	1282219704	distance_005	debug_distance			
-	1282219709	distance_000	debug_distance			
 	803837735	sand	plr_footstep_surface			
 	2058049674	wood	plr_footstep_surface			
 	2185786256	gravel	plr_footstep_surface			
@@ -70,58 +45,38 @@ State	ID	Name	State Group			Notes
 Game Parameter	ID	Name			Wwise Object Path	Notes
 	511984960	footstep_volume			\SFX\Universal\footstep_volume	
 	855296609	wind_intensity			\SFX\Ambience\wind_intensity	
-	1611159812	debug_distance			\Debug\debug_distance	
+	3095779176	tree_amount			\SFX\Ambience\tree_amount	
 
 Effect plug-ins	ID	Name	Type				Notes
 	660343269	Meter (Custom)	Wwise Meter			
-	904732365	Gain (Custom)	Wwise Gain			
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	39461927	sfx_uni_plr_footstep_walk_grass_06	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\SFX\Player\sfx_uni_plr_footstep_walk_grass_06_D27E9F1B.wem		\Actor-Mixer Hierarchy\Player\Player\plr_footstep\plr_footstep_grass\plr_footstep_walk\sfx_uni_plr_footstep_walk_grass_06		29398
 	74631228	sfx_uni_plr_club_swing_iron_03	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\SFX\Player\sfx_uni_plr_club_swing_iron_03_818F3B66.wem		\Actor-Mixer Hierarchy\Player\Player\plr_swing_golfclub\sfx_uni_plr_club_swing_iron_03		42630
-	118680041	x_debug_100	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\Voices\English(US)\x_debug_100_81E2D1CA.wem		\Actor-Mixer Hierarchy\Debug\Debug\x_debug_distance\x_debug_100	100	65374
 	139831637	sfx_uni_plr_club_swing_iron_02	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\SFX\Player\sfx_uni_plr_club_swing_iron_02_818F3B66.wem		\Actor-Mixer Hierarchy\Player\Player\plr_swing_golfclub\sfx_uni_plr_club_swing_iron_02		49038
-	148261551	x_debug_060	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\Voices\English(US)\x_debug_060_79351DC7.wem		\Actor-Mixer Hierarchy\Debug\Debug\x_debug_distance\x_debug_060	60	59060
+	182380042	x_debug_010	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\Voices\English(US)\x_debug_010_9DA631E0.wem		\Actor-Mixer Hierarchy\Ambience\Ambience\treeLeaves_rustling_intensity\debug_amount\x_debug_010	10	51602
 	185686888	sfx_uni_plr_club_swing_iron_04	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\SFX\Player\sfx_uni_plr_club_swing_iron_04_818F3B66.wem		\Actor-Mixer Hierarchy\Player\Player\plr_swing_golfclub\sfx_uni_plr_club_swing_iron_04		45094
-	198311684	x_debug_095	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\Voices\English(US)\x_debug_095_23FDDA3B.wem		\Actor-Mixer Hierarchy\Debug\Debug\x_debug_distance\x_debug_095	95	70752
 	202595236	mus_battle_segment_b2	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\MUS\Battle\mus_battle_segment_b2_FBC78EF0.wem		\Interactive Music Hierarchy\In-Game Music\Battle_Test_Switch\First_Playlist_Test\mus_battle_segment_b2\mus_battle_segment_b2		1567960
-	218542945	x_debug_055	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\Voices\English(US)\x_debug_055_0345FFBB.wem		\Actor-Mixer Hierarchy\Debug\Debug\x_debug_distance\x_debug_055	55	67654
 	220825176	mus_battle_segment_e1	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\MUS\Battle\mus_battle_segment_e1_FBC78EF0.wem		\Interactive Music Hierarchy\In-Game Music\Battle_Test_Switch\First_Playlist_Test\mus_battle_segment_e1\mus_battle_segment_e1		2878680
-	242391902	x_debug_030	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\Voices\English(US)\x_debug_030_6FAD11A2.wem		\Actor-Mixer Hierarchy\Debug\Debug\x_debug_distance\x_debug_030	30	49948
 	263840221	sfx_uni_plr_club_swing_iron_01	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\SFX\Player\sfx_uni_plr_club_swing_iron_01_818F3B66.wem		\Actor-Mixer Hierarchy\Player\Player\plr_swing_golfclub\sfx_uni_plr_club_swing_iron_01		51712
 	264017571	sfx_uni_plr_footstep_walk_grass_03	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\SFX\Player\sfx_uni_plr_footstep_walk_grass_03_E317E58D.wem		\Actor-Mixer Hierarchy\Player\Player\plr_footstep\plr_footstep_grass\plr_footstep_walk\sfx_uni_plr_footstep_walk_grass_03		29428
 	366905958	mus_battle_segment_a2	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\MUS\Battle\mus_battle_segment_a2_FBC78EF0.wem		\Interactive Music Hierarchy\In-Game Music\Battle_Test_Switch\First_Playlist_Test\mus_battle_segment_a2\mus_battle_segment_a2		1567960
-	387933196	sfx_uni_amb_treeLeaves_rustling_mid	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\SFX\Ambience\sfx_uni_amb_treeLeaves_rustling_mid_033C4B21.wem		\Actor-Mixer Hierarchy\Ambience\Ambience\treeLeaves_rustling\sfx_uni_amb_treeLeaves_rustling_mid		8890740
-	410123160	x_debug_000	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\Voices\English(US)\x_debug_000_D8FF21CD.wem		\Actor-Mixer Hierarchy\Debug\Debug\x_debug_distance\x_debug_000	0	54704
-	435315871	x_debug_continuous_sound	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\x_debug_continuous_sound_DB182E5B.wem		\Actor-Mixer Hierarchy\Debug\Debug\x_debug_continuous_sound		3733576
+	381733230	x_debug_015	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\Voices\English(US)\x_debug_015_659A8106.wem		\Actor-Mixer Hierarchy\Ambience\Ambience\treeLeaves_rustling_intensity\debug_amount\x_debug_015	15	57720
+	410123159	x_debug_000	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\Voices\English(US)\x_debug_000_D1304328.wem		\Actor-Mixer Hierarchy\Ambience\Ambience\treeLeaves_rustling_intensity\debug_amount\x_debug_000	0	54704
 	450464591	EFX SD Wind Soft Whistling Gusts 05	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\EFX SD Wind Soft Whistling Gusts 05_FBC78EF0.wem		\Actor-Mixer Hierarchy\Ambience\Ambience\EFX SD Wind Soft Whistling Gusts 05	test	23065784
 	457778012	sfx_uni_plr_club_swing_iron_07	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\SFX\Player\sfx_uni_plr_club_swing_iron_07_818F3B66.wem		\Actor-Mixer Hierarchy\Player\Player\plr_swing_golfclub\sfx_uni_plr_club_swing_iron_07		40844
-	462026170	x_debug_040	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\Voices\English(US)\x_debug_040_0C8E896C.wem		\Actor-Mixer Hierarchy\Debug\Debug\x_debug_distance\x_debug_040	40	52680
 	466523718	mus_battle_segment_e2	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\MUS\Battle\mus_battle_segment_e2_FBC78EF0.wem		\Interactive Music Hierarchy\In-Game Music\Battle_Test_Switch\First_Playlist_Test\mus_battle_segment_e2\mus_battle_segment_e2		2878680
-	473477782	x_debug_075	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\Voices\English(US)\x_debug_075_CD70EBD0.wem		\Actor-Mixer Hierarchy\Debug\Debug\x_debug_distance\x_debug_075	75	77258
-	537761228	x_debug_090	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\Voices\English(US)\x_debug_090_8C9DFC48.wem		\Actor-Mixer Hierarchy\Debug\Debug\x_debug_distance\x_debug_090	90	55096
 	556231829	sfx_uni_amb_wind_gust_02	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\SFX\Ambience\sfx_uni_amb_wind_gust_02_818F3B66.wem		\Actor-Mixer Hierarchy\Ambience\Ambience\wind_gust\sfx_uni_amb_wind_gust_02		1653260
-	563463161	x_debug_045	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\Voices\English(US)\x_debug_045_1487DF12.wem		\Actor-Mixer Hierarchy\Debug\Debug\x_debug_distance\x_debug_045	45	69696
 	567544787	sfx_uni_plr_footstep_walk_grass_04	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\SFX\Player\sfx_uni_plr_footstep_walk_grass_04_7148611A.wem		\Actor-Mixer Hierarchy\Player\Player\plr_footstep\plr_footstep_grass\plr_footstep_walk\sfx_uni_plr_footstep_walk_grass_04		29216
-	581031924	x_debug_010	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\Voices\English(US)\x_debug_010_312EDF86.wem		\Actor-Mixer Hierarchy\Debug\Debug\x_debug_distance\x_debug_010	10	51602
-	615271321	x_debug_035	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\Voices\English(US)\x_debug_035_541BF739.wem		\Actor-Mixer Hierarchy\Debug\Debug\x_debug_distance\x_debug_035	35	66570
-	670193730	x_debug_020	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\Voices\English(US)\x_debug_020_254BA722.wem		\Actor-Mixer Hierarchy\Debug\Debug\x_debug_distance\x_debug_020	20	55110
-	675582720	x_debug_070	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\Voices\English(US)\x_debug_070_566FD26F.wem		\Actor-Mixer Hierarchy\Debug\Debug\x_debug_distance\x_debug_070	70	61186
+	678685818	x_debug_005	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\Voices\English(US)\x_debug_005_2D743D08.wem		\Actor-Mixer Hierarchy\Ambience\Ambience\treeLeaves_rustling_intensity\debug_amount\x_debug_005	5	51264
 	686307647	sfx_uni_plr_club_swing_iron_05	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\SFX\Player\sfx_uni_plr_club_swing_iron_05_818F3B66.wem		\Actor-Mixer Hierarchy\Player\Player\plr_swing_golfclub\sfx_uni_plr_club_swing_iron_05		46712
 	695809357	sfx_uni_amb_wind_gust_03	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\SFX\Ambience\sfx_uni_amb_wind_gust_03_818F3B66.wem		\Actor-Mixer Hierarchy\Ambience\Ambience\wind_gust\sfx_uni_amb_wind_gust_03		2050460
 	703704545	sfx_uni_plr_club_swing_iron_06	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\SFX\Player\sfx_uni_plr_club_swing_iron_06_818F3B66.wem		\Actor-Mixer Hierarchy\Player\Player\plr_swing_golfclub\sfx_uni_plr_club_swing_iron_06		47072
 	754155897	sfx_uni_plr_club_swing_iron_08	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\SFX\Player\sfx_uni_plr_club_swing_iron_08_818F3B66.wem		\Actor-Mixer Hierarchy\Player\Player\plr_swing_golfclub\sfx_uni_plr_club_swing_iron_08		45398
-	756909046	x_debug_015	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\Voices\English(US)\x_debug_015_8165BBC3.wem		\Actor-Mixer Hierarchy\Debug\Debug\x_debug_distance\x_debug_015	15	57720
-	769985241	x_debug_065	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\Voices\English(US)\x_debug_065_B64B9849.wem		\Actor-Mixer Hierarchy\Debug\Debug\x_debug_distance\x_debug_065	65	74280
-	831443501	x_debug_050	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\Voices\English(US)\x_debug_050_C2F2850A.wem		\Actor-Mixer Hierarchy\Debug\Debug\x_debug_distance\x_debug_050	50	52362
 	848141468	mus_battle_segment_d2	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\MUS\Battle\mus_battle_segment_d2_FBC78EF0.wem		\Interactive Music Hierarchy\In-Game Music\Battle_Test_Switch\First_Playlist_Test\mus_battle_segment_d2\mus_battle_segment_d2		2878680
 	854753717	mus_battle_segment_d1	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\MUS\Battle\mus_battle_segment_d1_FBC78EF0.wem		\Interactive Music Hierarchy\In-Game Music\Battle_Test_Switch\First_Playlist_Test\mus_battle_segment_d1\mus_battle_segment_d1		2878680
-	866386948	x_debug_025	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\Voices\English(US)\x_debug_025_A5CDF058.wem		\Actor-Mixer Hierarchy\Debug\Debug\x_debug_distance\x_debug_025	25	70778
 	882077841	sfx_uni_plr_footstep_walk_grass_05	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\SFX\Player\sfx_uni_plr_footstep_walk_grass_05_434F675B.wem		\Actor-Mixer Hierarchy\Player\Player\plr_footstep\plr_footstep_grass\plr_footstep_walk\sfx_uni_plr_footstep_walk_grass_05		28914
 	894733475	mus_battle_segment_b1	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\MUS\Battle\mus_battle_segment_b1_FBC78EF0.wem		\Interactive Music Hierarchy\In-Game Music\Battle_Test_Switch\First_Playlist_Test\mus_battle_segment_b1\mus_battle_segment_b1		1567960
-	924864582	x_debug_080	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\Voices\English(US)\x_debug_080_EDF8564D.wem		\Actor-Mixer Hierarchy\Debug\Debug\x_debug_distance\x_debug_080	80	49080
-	934108238	x_debug_005	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\Voices\English(US)\x_debug_005_5F049832.wem		\Actor-Mixer Hierarchy\Debug\Debug\x_debug_distance\x_debug_005	5	51264
-	935693697	x_debug_085	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\Voices\English(US)\x_debug_085_E1D6B929.wem		\Actor-Mixer Hierarchy\Debug\Debug\x_debug_distance\x_debug_085	85	65762
 	939711944	sfx_uni_amb_wind_gust_04	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\SFX\Ambience\sfx_uni_amb_wind_gust_044_818F3B66.wem		\Actor-Mixer Hierarchy\Ambience\Ambience\wind_gust\sfx_uni_amb_wind_gust_04		1304160
 	941241740	mus_battle_segment_c1	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\MUS\Battle\mus_battle_segment_c1_FBC78EF0.wem		\Interactive Music Hierarchy\In-Game Music\Battle_Test_Switch\First_Playlist_Test\mus_battle_segment_c1\mus_battle_segment_c1		2878680
 	977714337	mus_battle_segment_c2	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\MUS\Battle\mus_battle_segment_c2_FBC78EF0.wem		\Interactive Music Hierarchy\In-Game Music\Battle_Test_Switch\First_Playlist_Test\mus_battle_segment_c2\mus_battle_segment_c2		2878680
