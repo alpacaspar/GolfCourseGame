@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="ScreenGroup" load_steps=3 format=3 uid="uid://e0fuwey40y8r"]
+
+[ext_resource type="Resource" uid="uid://t6n0f6ffpcpc" path="res://entities/user_interface/team_picker_screen.tres" id="1_lt6ra"]
+[ext_resource type="Script" path="res://common/ui_screens/control_screen_group.gd" id="2_3s4qi"]
+
+[resource]
+script = ExtResource("2_3s4qi")
+screens = Array[Resource("res://common/ui_screens/control_screen.gd")]([ExtResource("1_lt6ra")])

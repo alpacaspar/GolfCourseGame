@@ -1,0 +1,46 @@
+[gd_scene load_steps=5 format=3 uid="uid://dxyox1qnigoe6"]
+
+[ext_resource type="Script" path="res://common/battle/ui/unit_icon/unit_battle_icon.gd" id="1_kdddj"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_gms7n"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cn3dl"]
+bg_color = Color(0, 0, 0, 0.490196)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_obb04"]
+bg_color = Color(0.223529, 0.819608, 0.466667, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+corner_detail = 1
+anti_aliasing = false
+
+[node name="UnitBattleIcon" type="Control"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_kdddj")
+
+[node name="UnitPortrait" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("PlaceholderTexture2D_gms7n")
+
+[node name="StaminaBar" type="ProgressBar" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -4.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/background = SubResource("StyleBoxFlat_cn3dl")
+theme_override_styles/fill = SubResource("StyleBoxFlat_obb04")
+value = 100.0
+show_percentage = false
