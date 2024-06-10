@@ -15,6 +15,6 @@ attack_speed = 1.5
 max_drive_range = 10.0
 max_drive_angle = 45.0
 max_ball_search_range = 10.0
-max_unit_search_range = 50.0
+max_unit_search_range = 100.0
 primary_equipment = ExtResource("1_qteap")
 descriptive_letter = "I"
