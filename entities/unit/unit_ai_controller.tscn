@@ -59,7 +59,6 @@ script = ExtResource("3_kkrbg")
 [node name="ConditionCooldown" type="Node" parent="BehaviourTree/DecoratorSensorRadius/DecoratorFilterUtility/Selector/ConditionDistanceLess/Selector/ConditionEntityInGroup/Selector"]
 script = ExtResource("9_weibh")
 cooldown_time = 2.0
-cooldown_on_ready = true
 
 [node name="Sequence" type="Node" parent="BehaviourTree/DecoratorSensorRadius/DecoratorFilterUtility/Selector/ConditionDistanceLess/Selector/ConditionEntityInGroup/Selector/ConditionCooldown"]
 script = ExtResource("7_emtuh")
@@ -110,5 +109,10 @@ script = ExtResource("10_6xjrr")
 [node name="ActionAttack" type="Node" parent="BehaviourTree/DecoratorSensorRadius/DecoratorFilterUtility/Selector/ConditionDistanceLess/Selector/Sequence"]
 script = ExtResource("11_cyakl")
 
-[node name="ActionMoveTo" type="Node" parent="BehaviourTree/DecoratorSensorRadius/DecoratorFilterUtility/Selector"]
+[node name="ConditionDistanceMore" type="Node" parent="BehaviourTree/DecoratorSensorRadius/DecoratorFilterUtility/Selector"]
+script = ExtResource("6_ntxke")
+range_threshold = 5.0
+invert = true
+
+[node name="ActionMoveTo" type="Node" parent="BehaviourTree/DecoratorSensorRadius/DecoratorFilterUtility/Selector/ConditionDistanceMore"]
 script = ExtResource("13_wo51f")

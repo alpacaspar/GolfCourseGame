@@ -15,7 +15,7 @@ func _tick(blackboard: Dictionary, delta: float) -> int:
 		return FAILURE
 
 	unit.controller.set_movement_target(blackboard["entities"].front().global_position)
-
+	
 	if navigation_agent.is_navigation_finished():
 		unit.controller.set_velocity(Vector3.ZERO)
 		return SUCCESS
@@ -30,4 +30,4 @@ func _tick(blackboard: Dictionary, delta: float) -> int:
 	var angle := atan2(real_velocity.x, real_velocity.z)
 	unit.controller.global_rotation.y = rotate_toward(unit.controller.global_rotation.y, angle, AIM_ROTATION_DELTA * delta)
 
-	return SUCCESS
+	return RUNNING
