@@ -1,9 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://ca8onp5rc6dj7"]
+[gd_scene load_steps=3 format=3 uid="uid://ca8onp5rc6dj7"]
 
 [ext_resource type="PackedScene" uid="uid://dxyox1qnigoe6" path="res://common/battle/ui/unit_battle_icon.tscn" id="1_i3hhf"]
-[ext_resource type="Script" path="res://common/ui_screens/screen.gd" id="2_fmb8y"]
-[ext_resource type="Resource" uid="uid://e0fuwey40y8r" path="res://entities/user_interface/general_gui_screen_group.tres" id="2_kbx8s"]
-[ext_resource type="Resource" uid="uid://t6n0f6ffpcpc" path="res://entities/user_interface/team_picker_screen.tres" id="3_n67c1"]
 [ext_resource type="PackedScene" uid="uid://ybo6yif82wwi" path="res://common/team_selector/team_picker.tscn" id="3_qrbiu"]
 
 [node name="UserInterface" type="Control"]
@@ -45,8 +42,6 @@ size_flags_vertical = 8
 
 [node name="UnitBattleIcon" parent="BattleUI/MarginContainer/HBoxContainer/Team1Container" instance=ExtResource("1_i3hhf")]
 layout_mode = 2
-screen_group = ExtResource("2_kbx8s")
-screen = ExtResource("3_n67c1")
 
 [node name="Team2Container" type="HBoxContainer" parent="BattleUI/MarginContainer/HBoxContainer"]
 layout_mode = 2
@@ -54,16 +49,5 @@ size_flags_horizontal = 3
 size_flags_vertical = 8
 alignment = 2
 
-[node name="TeamPickerScreen" type="Control" parent="."]
-visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("2_fmb8y")
-control_screen = ExtResource("3_n67c1")
-
-[node name="TeamPicker" parent="TeamPickerScreen" instance=ExtResource("3_qrbiu")]
+[node name="TeamPicker" parent="." instance=ExtResource("3_qrbiu")]
 layout_mode = 1
