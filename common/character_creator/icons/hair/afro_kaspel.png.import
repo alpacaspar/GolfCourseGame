@@ -3,19 +3,20 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://datjifkujw538"
-path="res://.godot/imported/afro_kaspel.png-eceb37b06fdc5ef9908ad5046754cf06.ctex"
+path.bptc="res://.godot/imported/afro_kaspel.png-eceb37b06fdc5ef9908ad5046754cf06.bptc.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
 }
 
 [deps]
 
 source_file="res://common/character_creator/icons/hair/afro_kaspel.png"
-dest_files=["res://.godot/imported/afro_kaspel.png-eceb37b06fdc5ef9908ad5046754cf06.ctex"]
+dest_files=["res://.godot/imported/afro_kaspel.png-eceb37b06fdc5ef9908ad5046754cf06.bptc.ctex"]
 
 [params]
 
-compress/mode=0
+compress/mode=2
 compress/high_quality=true
 compress/lossy_quality=0.7
 compress/hdr_compression=1

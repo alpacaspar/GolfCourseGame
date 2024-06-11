@@ -3,19 +3,20 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://d1t7dndu7n5lp"
-path="res://.godot/imported/tshirtbland_top.png-6c3fda23b6a9fd9fcbdac274b039bf34.ctex"
+path.bptc="res://.godot/imported/tshirtbland_top.png-6c3fda23b6a9fd9fcbdac274b039bf34.bptc.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
 }
 
 [deps]
 
 source_file="res://common/character_creator/icons/tops/tshirtbland_top.png"
-dest_files=["res://.godot/imported/tshirtbland_top.png-6c3fda23b6a9fd9fcbdac274b039bf34.ctex"]
+dest_files=["res://.godot/imported/tshirtbland_top.png-6c3fda23b6a9fd9fcbdac274b039bf34.bptc.ctex"]
 
 [params]
 
-compress/mode=0
+compress/mode=2
 compress/high_quality=true
 compress/lossy_quality=0.7
 compress/hdr_compression=1

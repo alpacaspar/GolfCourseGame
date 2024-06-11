@@ -3,20 +3,21 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cb8em0jcvyo2n"
-path="res://.godot/imported/belts_black.png-228bb0d203f3bb0974b21390a27219fb.ctex"
+path.bptc="res://.godot/imported/belts_black.png-228bb0d203f3bb0974b21390a27219fb.bptc.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
 }
 
 [deps]
 
 source_file="res://common/character_creator/icons/belts/belts_black.png"
-dest_files=["res://.godot/imported/belts_black.png-228bb0d203f3bb0974b21390a27219fb.ctex"]
+dest_files=["res://.godot/imported/belts_black.png-228bb0d203f3bb0974b21390a27219fb.bptc.ctex"]
 
 [params]
 
-compress/mode=0
-compress/high_quality=false
+compress/mode=2
+compress/high_quality=true
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0

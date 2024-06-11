@@ -3,19 +3,20 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://d34pmkc6o7t22"
-path="res://.godot/imported/tshirtcroptop_top.png-ae35916573ecf916fecd52174391f57f.ctex"
+path.bptc="res://.godot/imported/tshirtcroptop_top.png-ae35916573ecf916fecd52174391f57f.bptc.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
 }
 
 [deps]
 
 source_file="res://common/character_creator/icons/tops/tshirtcroptop_top.png"
-dest_files=["res://.godot/imported/tshirtcroptop_top.png-ae35916573ecf916fecd52174391f57f.ctex"]
+dest_files=["res://.godot/imported/tshirtcroptop_top.png-ae35916573ecf916fecd52174391f57f.bptc.ctex"]
 
 [params]
 
-compress/mode=0
+compress/mode=2
 compress/high_quality=true
 compress/lossy_quality=0.7
 compress/hdr_compression=1

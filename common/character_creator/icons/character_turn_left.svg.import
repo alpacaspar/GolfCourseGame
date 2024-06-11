@@ -3,20 +3,21 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ckumeprvfsvuy"
-path="res://.godot/imported/character_turn_left.svg-a0bbf2fa8fd02ff009a7a2030c5934cc.ctex"
+path.bptc="res://.godot/imported/character_turn_left.svg-a0bbf2fa8fd02ff009a7a2030c5934cc.bptc.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
 }
 
 [deps]
 
 source_file="res://common/character_creator/icons/character_turn_left.svg"
-dest_files=["res://.godot/imported/character_turn_left.svg-a0bbf2fa8fd02ff009a7a2030c5934cc.ctex"]
+dest_files=["res://.godot/imported/character_turn_left.svg-a0bbf2fa8fd02ff009a7a2030c5934cc.bptc.ctex"]
 
 [params]
 
-compress/mode=0
-compress/high_quality=false
+compress/mode=2
+compress/high_quality=true
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0

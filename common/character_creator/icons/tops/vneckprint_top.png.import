@@ -3,19 +3,20 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cre204crubqbj"
-path="res://.godot/imported/vneckprint_top.png-35d109f6b364393b9dc1b061a6dcdf33.ctex"
+path.bptc="res://.godot/imported/vneckprint_top.png-35d109f6b364393b9dc1b061a6dcdf33.bptc.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
 }
 
 [deps]
 
 source_file="res://common/character_creator/icons/tops/vneckprint_top.png"
-dest_files=["res://.godot/imported/vneckprint_top.png-35d109f6b364393b9dc1b061a6dcdf33.ctex"]
+dest_files=["res://.godot/imported/vneckprint_top.png-35d109f6b364393b9dc1b061a6dcdf33.bptc.ctex"]
 
 [params]
 
-compress/mode=0
+compress/mode=2
 compress/high_quality=true
 compress/lossy_quality=0.7
 compress/hdr_compression=1
