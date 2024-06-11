@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=3 uid="uid://gv5jf3ljibf6"]
+
+[ext_resource type="Script" path="res://entities/battles/battle.gd" id="1_wks84"]
+[ext_resource type="Resource" uid="uid://6gcjg525wbuu" path="res://entities/teams/garl_team.tres" id="2_t33f7"]
+
+[sub_resource type="Curve3D" id="Curve3D_g5mua"]
+_data = {
+"points": PackedVector3Array(0.914339, 1.27717, -10.7188, 0, 0, 10.719, 8.642, 6, -100.675, -0.078, 0, -13.411, 0.078, 0, 13.411, 23.6963, 1.90735e-06, -21.9435, 1.47888, 0.873091, -11.6118, -1.47888, -0.873091, 11.6118, 18.4174, -1.41887, 13.1782, 0, 0, 0, -1.468, 0, 11.725, 22.6987, -5.40214, 45.508),
+"tilts": PackedFloat32Array(0, -0.1, 0, 0)
+}
+point_count = 4
+
+[node name="Battle" type="Node3D" node_paths=PackedStringArray("camera_path_track")]
+script = ExtResource("1_wks84")
+battle_name = "First Battle"
+rival_team = ExtResource("2_t33f7")
+camera_path_track = NodePath("HolePath3D/PathFollow3D")
+
+[node name="TeeArea" type="Marker3D" parent="."]
+transform = Transform3D(0.985482, 0, 0.16978, 0, 1, 0, -0.16978, 0, 0.985482, 524.474, -4.20163, 455.885)
+
+[node name="Camera3D" type="Camera3D" parent="TeeArea"]
+transform = Transform3D(0.866025, 0.0695864, 0.495134, 0, 0.990268, -0.139173, -0.5, 0.120527, 0.857597, 4.4902, -0.767924, 7.77753)
+
+[node name="GreenArea" type="Marker3D" parent="."]
+transform = Transform3D(-0.992367, 0, -0.123324, 0, 1, 0, 0.123324, 0, -0.992367, 540.233, -3.37651, 570.24)
+
+[node name="Camera3D" type="Camera3D" parent="GreenArea"]
+transform = Transform3D(0.795596, 0.109819, 0.59579, -0.0360206, 0.990268, -0.134431, -0.604755, 0.0854919, 0.791809, 5.36212, -1.20988, 7.12634)
+
+[node name="HolePath3D" type="Path3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 512.304, 5.26087, 516.943)
+curve = SubResource("Curve3D_g5mua")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="HolePath3D"]
+transform = Transform3D(-0.983076, -0.0110101, -0.182759, -0.0247694, 0.997003, 0.0731771, 0.181404, 0.0764668, -0.980425, 9.9322, 5.48329, -91.0706)
+progress = 9.71623
+loop = false
+
+[node name="Camera3D" type="Camera3D" parent="HolePath3D/PathFollow3D"]

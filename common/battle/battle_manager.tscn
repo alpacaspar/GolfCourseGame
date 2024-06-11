@@ -1,13 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://ddeblsxvk8l78"]
+[gd_scene load_steps=7 format=3 uid="uid://ddeblsxvk8l78"]
 
 [ext_resource type="Script" path="res://common/battle/battle_manager.gd" id="1_rtlo2"]
 [ext_resource type="PackedScene" uid="uid://owr2kkadbbw2" path="res://common/battle/team.tscn" id="2_ahsqc"]
+[ext_resource type="Resource" uid="uid://itxyr8k36uoy" path="res://entities/teams/player_team.tres" id="2_bqpfe"]
 [ext_resource type="PackedScene" uid="uid://s18mlviu254u" path="res://entities/unit/unit.tscn" id="3_3qjoj"]
 [ext_resource type="PackedScene" uid="uid://bmbpmw618ddnf" path="res://entities/unit/unit_ai_controller.tscn" id="3_iavnn"]
 [ext_resource type="PackedScene" uid="uid://ewg7npthvni2" path="res://entities/unit/unit_player_controller.tscn" id="4_gqv0y"]
 
 [node name="BattleManager" type="Node"]
 script = ExtResource("1_rtlo2")
+player_team = ExtResource("2_bqpfe")
 team_scene = ExtResource("2_ahsqc")
 unit_scene = ExtResource("3_3qjoj")
 unit_ai_controller = ExtResource("3_iavnn")
