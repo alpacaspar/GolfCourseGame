@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://dfngbhbqlhm0q"]
+
+[ext_resource type="Texture2D" uid="uid://tr87q2fecax8" path="res://entities/character/gary/gary_face_albedo.png" id="1_qrw2x"]
+[ext_resource type="Texture2D" uid="uid://1k12a7nowvwt" path="res://entities/character/gary/gary_face_roughness.png" id="2_77q1u"]
+
+[resource]
+transparency = 1
+albedo_texture = ExtResource("1_qrw2x")
+roughness_texture = ExtResource("2_77q1u")

@@ -1,0 +1,57 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://dvv07cgikq8ia"
+path="res://.godot/imported/gary_mesh.glb-ca3230d7220f4d6bafa30ea51b9bfaf7.scn"
+
+[deps]
+
+source_file="res://entities/character/gary/gary_mesh.glb"
+dest_files=["res://.godot/imported/gary_mesh.glb-ca3230d7220f4d6bafa30ea51b9bfaf7.scn"]
+
+[params]
+
+nodes/root_type=""
+nodes/root_name=""
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+meshes/force_disable_compression=false
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+animation/trimming=false
+animation/remove_immutable_tracks=true
+import_script/path=""
+_subresources={
+"materials": {
+"AssecoiresMAT": {
+"use_external/enabled": true,
+"use_external/path": "res://entities/character/gary/gary_belt_material.tres"
+},
+"BodyMAT": {
+"use_external/enabled": true,
+"use_external/path": "res://entities/character/gary/gary_body_material.tres"
+},
+"FacePlaneMAT": {
+"use_external/enabled": true,
+"use_external/path": "res://entities/character/gary/gary_face_material.tres"
+},
+"HairMAT": {
+"use_external/enabled": true,
+"use_external/path": "res://entities/character/gary/gary_hair_material.tres"
+},
+"NoseEarsMAT": {
+"use_external/enabled": true,
+"use_external/path": "res://entities/character/gary/gary_noseears_material.tres"
+}
+}
+}
+gltf/naming_version=1
+gltf/embedded_image_handling=1
