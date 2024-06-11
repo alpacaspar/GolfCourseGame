@@ -22,16 +22,18 @@ func _ready():
 	for i: int in range(TEAM_MEMBER_COUNT):
 		var icon = icon_ps.instantiate()
 		team_icon_holder.add_child(icon)
-		team_icons.append(icon)
 		icon.callback = Callable(_button_signal)
 
 		if i == 0:
 			icon.set_values(inventory.player)
 			icon.can_click = false
+			continue
 		elif inventory.units.size() - 1 > i:
 			icon.set_values(inventory.units[i])
 		else:
 			icon.set_empty()
+		
+		team_icons.append(icon)
 
 	for golfer: GolferResource in inventory.get_non_team_golfers():
 		var icon = icon_ps.instantiate()
