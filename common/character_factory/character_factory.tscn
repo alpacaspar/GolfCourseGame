@@ -29,8 +29,8 @@
 [ext_resource type="Texture2D" uid="uid://dwjk7ler30365" path="res://entities/character/head/facial_details/beards_full_roughness.png" id="12_08228"]
 [ext_resource type="ArrayMesh" uid="uid://511lk7cedpkn" path="res://entities/character/head/character_hair_pony.res" id="12_pfcll"]
 [ext_resource type="CompressedTexture2DArray" uid="uid://djs7imqrempbd" path="res://entities/character/head/facial_details/makeup_eyeshadowsoftsmall_sheet.svg" id="13_as6bc"]
-[ext_resource type="Script" path="res://common/character_creator/resources/beard_holder.gd" id="13_ja8tc"]
 [ext_resource type="ArrayMesh" uid="uid://bxvvyfaj2gjm0" path="res://entities/character/head/character_hair_preppy.res" id="13_jky7t"]
+[ext_resource type="Script" path="res://common/character_creator/resources/beard_data_resource.gd" id="13_ojj6j"]
 [ext_resource type="ArrayMesh" uid="uid://bs7qmb1huxprg" path="res://entities/character/head/earrings/character_earring_hoop_v4.res" id="13_oq8ra"]
 [ext_resource type="ArrayMesh" uid="uid://do4nmmxm5s1p5" path="res://entities/character/head/earrings/character_earring_hoop_v5.res" id="14_8nu28"]
 [ext_resource type="ArrayMesh" uid="uid://cwa6wglrdhvcw" path="res://entities/character/head/character_nose_1.res" id="14_elv4t"]
@@ -69,7 +69,7 @@
 [ext_resource type="PackedScene" uid="uid://ck84hpbuds8v8" path="res://entities/character/character.tscn" id="25_gqjrl"]
 [ext_resource type="CompressedTexture2DArray" uid="uid://ip7i3a6eo2g1" path="res://entities/character/head/facial_details/makeup_eyeshadowsoftbig_sheet.png" id="29_ib0wg"]
 [ext_resource type="Texture2D" uid="uid://07dcwpxauv8l" path="res://common/character_creator/icons/jewelry/earring_hoop.png" id="38_djnb1"]
-[ext_resource type="Script" path="res://common/character_creator/resources/nose_piercing_holder.gd" id="38_k5138"]
+[ext_resource type="Script" path="res://common/character_creator/resources/nose_piercing_data_resource.gd" id="38_k5138"]
 [ext_resource type="Script" path="res://common/character_creator/resources/earring_data_resource.gd" id="44_hig72"]
 [ext_resource type="Texture2D" uid="uid://c2ak3414hwm5h" path="res://common/character_creator/icons/jewelry/earring_pearl.png" id="45_680aa"]
 [ext_resource type="Texture2D" uid="uid://bkvacbcu1yw5u" path="res://common/character_creator/icons/jewelry/earring_tear.png" id="51_73ro4"]
@@ -251,35 +251,35 @@
 [ext_resource type="Material" uid="uid://dqqjxkfpgxkof" path="res://entities/character/clothing/shoes/accessoires/wrist_watchsports_material.tres" id="224_r8nth"]
 
 [sub_resource type="Resource" id="Resource_6utfm"]
-script = ExtResource("13_ja8tc")
+script = ExtResource("13_ojj6j")
 name = ""
 icon = ExtResource("11_bi51s")
 albedo = ExtResource("10_0n0ij")
 roughness = ExtResource("12_08228")
 
 [sub_resource type="Resource" id="Resource_r70no"]
-script = ExtResource("13_ja8tc")
+script = ExtResource("13_ojj6j")
 name = ""
 icon = ExtResource("15_n77ey")
 albedo = ExtResource("14_xvsdl")
 roughness = ExtResource("16_gik5l")
 
 [sub_resource type="Resource" id="Resource_kcawy"]
-script = ExtResource("13_ja8tc")
+script = ExtResource("13_ojj6j")
 name = ""
 icon = ExtResource("18_13l0i")
 albedo = ExtResource("17_xekei")
 roughness = ExtResource("19_x1e8x")
 
 [sub_resource type="Resource" id="Resource_emafp"]
-script = ExtResource("13_ja8tc")
+script = ExtResource("13_ojj6j")
 name = ""
 icon = ExtResource("21_xhcm5")
 albedo = ExtResource("20_r7b8l")
 roughness = ExtResource("22_dknni")
 
 [sub_resource type="Resource" id="Resource_ldvq7"]
-script = ExtResource("13_ja8tc")
+script = ExtResource("13_ojj6j")
 name = ""
 icon = ExtResource("24_8och1")
 albedo = ExtResource("23_qlqxb")
@@ -728,7 +728,7 @@ mouth_textures = ExtResource("24_mj7xl")
 glasses_textures = ExtResource("5_5rvxa")
 mustache_textures = ExtResource("5_tr34a")
 blush_textures = Array[Texture]([ExtResource("6_ttfjd"), ExtResource("7_wvsx6"), ExtResource("8_ji7g3")])
-beard_textures = Array[ExtResource("13_ja8tc")]([SubResource("Resource_6utfm"), SubResource("Resource_r70no"), SubResource("Resource_kcawy"), SubResource("Resource_emafp"), SubResource("Resource_ldvq7")])
+beard_textures = Array[ExtResource("13_ojj6j")]([SubResource("Resource_6utfm"), SubResource("Resource_r70no"), SubResource("Resource_kcawy"), SubResource("Resource_emafp"), SubResource("Resource_ldvq7")])
 eyeshadow_textures = Array[CompressedTexture2DArray]([ExtResource("9_3ccqo"), ExtResource("10_x4f3u"), ExtResource("29_ib0wg"), ExtResource("13_as6bc")])
 eyeliner_textures = Array[CompressedTexture2DArray]([ExtResource("6_f705o"), ExtResource("11_61e7o")])
 eyebrow_piercing_textures = Array[CompressedTexture2DArray]([ExtResource("16_ofr7k"), ExtResource("17_grs16")])

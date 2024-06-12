@@ -1,11 +1,10 @@
-[gd_scene load_steps=90 format=3 uid="uid://c75huqds1lmet"]
+[gd_scene load_steps=89 format=3 uid="uid://c75huqds1lmet"]
 
 [ext_resource type="Theme" uid="uid://dr801tm3gbq04" path="res://common/character_creator/resources/new_character_creator_theme.tres" id="1_amotn"]
 [ext_resource type="Script" path="res://common/character_creator/main/character_creator.gd" id="2_fmr2t"]
 [ext_resource type="ButtonGroup" uid="uid://gxcp7q5ddcrd" path="res://common/character_creator/button_groups/creator_window_button_group.tres" id="3_3tjqc"]
 [ext_resource type="Texture2D" uid="uid://bomv5ke20rhsb" path="res://common/character_creator/icons/extras/zoom-in.png" id="3_k7we3"]
 [ext_resource type="Texture2D" uid="uid://dnvt7megsoqwc" path="res://common/character_creator/icons/Eye.svg" id="4_12phg"]
-[ext_resource type="Script" path="res://common/character_creator/tools/rescale_handler.gd" id="4_jtx3q"]
 [ext_resource type="Texture2D" uid="uid://dbicohqe3hgws" path="res://common/character_creator/icons/extras/magnifying-glass.png" id="4_jxcwy"]
 [ext_resource type="Script" path="res://common/character_creator/resources/finetune_button_range.gd" id="4_wuhbt"]
 [ext_resource type="Texture2D" uid="uid://dxnitaicy6j38" path="res://common/character_creator/icons/hair/bald_kapsel.png" id="5_ina4w"]
@@ -267,7 +266,6 @@ theme = ExtResource("1_amotn")
 text = "Tidalcrest Country Club"
 label_settings = SubResource("LabelSettings_00xxw")
 vertical_alignment = 1
-script = ExtResource("4_jtx3q")
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="Spacer/VBoxContainer2"]
 layout_mode = 2
@@ -569,13 +567,11 @@ layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 8.27
 theme = ExtResource("1_amotn")
-current_tab = 1
 tabs_visible = false
 script = ExtResource("8_g1j11")
 button_group = ExtResource("5_snfil")
 
 [node name="FaceOptions" type="VBoxContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody"]
-visible = false
 layout_mode = 2
 theme = ExtResource("1_amotn")
 
@@ -1902,6 +1898,7 @@ size_flags_vertical = 3
 size_flags_stretch_ratio = 0.04
 
 [node name="BodyOptions" type="VBoxContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody"]
+visible = false
 layout_mode = 2
 theme = ExtResource("1_amotn")
 
@@ -2064,13 +2061,11 @@ layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 7.0
 theme = ExtResource("1_amotn")
-current_tab = 4
 tabs_visible = false
 script = ExtResource("8_g1j11")
 button_group = ExtResource("29_8hw7x")
 
 [node name="ShirtOptions" type="VBoxContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/BodyOptionsTabGroup"]
-visible = false
 layout_mode = 2
 theme = ExtResource("1_amotn")
 
@@ -2230,6 +2225,7 @@ size_flags_vertical = 3
 size_flags_stretch_ratio = 0.04
 
 [node name="Naming" type="VBoxContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/BodyOptionsTabGroup"]
+visible = false
 layout_mode = 2
 theme = ExtResource("1_amotn")
 
