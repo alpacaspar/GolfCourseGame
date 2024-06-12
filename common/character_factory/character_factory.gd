@@ -62,16 +62,16 @@ func spawn_character(resource: NPCResource) -> Character:
 	face_material.set("shader_parameter/MouthIndex", resource.mouth_index)
 	face_material.set("shader_parameter/EyebrowIndex", resource.eyebrow_index)
 
-	var mustache_index = resource.mustache_index if resource.mustache_index >= 0 else mustache_textures.get_layers() - 1
+	var mustache_index := resource.mustache_index if resource.mustache_index >= 0 else mustache_textures.get_layers() - 1
 	face_material.set("shader_parameter/MoustacheIndex", mustache_index)
-	var glasses_index = resource.glasses_index if resource.glasses_index >= 0 else glasses_textures.get_layers() - 1
+	var glasses_index := resource.glasses_index if resource.glasses_index >= 0 else glasses_textures.get_layers() - 1
 	face_material.set("shader_parameter/GlassesIndex", glasses_index )
 
-	var eyeshadow = eyeshadow_textures[resource.eyeshadow_index] if resource.eyeshadow_index > -1 else empty_map
+	var eyeshadow := eyeshadow_textures[resource.eyeshadow_index] if resource.eyeshadow_index > -1 else empty_map
 	face_material.set("shader_parameter/EyeShadow", eyeshadow)
-	var eyeliner = eyeliner_textures[resource.eyeliner_index] if resource.eyeliner_index > -1 else empty_map
+	var eyeliner := eyeliner_textures[resource.eyeliner_index] if resource.eyeliner_index > -1 else empty_map
 	face_material.set("shader_parameter/Eyeliner", eyeliner)
-	var eyebrow_piercing = eyebrow_piercing_textures[resource.eyebrow_piercing_index] if resource.eyebrow_piercing_index > -1 else empty_map
+	var eyebrow_piercing := eyebrow_piercing_textures[resource.eyebrow_piercing_index] if resource.eyebrow_piercing_index > -1 else empty_map
 	face_material.set("shader_parameter/EyebrowPiercings", eyebrow_piercing)
 
 	# Face Colors
@@ -103,12 +103,12 @@ func spawn_character(resource: NPCResource) -> Character:
 	# Head Stuff
 	head_material.set("shader_parameter/SkinColor", skin_colors[resource.skin_color_index])
 
-	var beard_data = BeardDataHolder.new() if resource.beard_index < 0 else beard_textures[resource.beard_index]
+	var beard_data := BeardDataHolder.new() if resource.beard_index < 0 else beard_textures[resource.beard_index]
 	head_material.set("shader_parameter/Beards", beard_data.albedo)
 	head_material.set("shader_parameter/BeardRoughness", beard_data.roughness)
 	head_material.set("shader_parameter/BeardColor", hair_colors[resource.beard_color_index])
 
-	var blush_data = null if resource.blush_index < 0 else blush_textures[resource.blush_index]
+	var blush_data := null if resource.blush_index < 0 else blush_textures[resource.blush_index]
 	head_material.set("shader_parameter/Blush", blush_data)
 	head_material.set("shader_parameter/BlushColor", blush_colors[resource.blush_color_index])
 
@@ -210,7 +210,7 @@ func spawn_character(resource: NPCResource) -> Character:
 	else:
 		character.nose_mesh_instance.material_overlay = null
 	
-	var hair_mesh = hair_meshes[resource.hair_index] if resource.hair_index >= 0 else null
+	var hair_mesh := hair_meshes[resource.hair_index] if resource.hair_index >= 0 else null
 	character.hair_mesh_instance.mesh = hair_mesh
 
 	# Setting Skin & Hair colors

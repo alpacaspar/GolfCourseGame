@@ -6,7 +6,7 @@ extends Control
 @export var npc_customizer_button_prefab: PackedScene
 @export var button_holder: Control
 
-var includes_empty: bool = false
+var includes_empty := false
 var button_group: ButtonGroup
 
 
@@ -15,7 +15,7 @@ func _ready():
 
 	
 func add_empty(texture: Texture, button_callback):
-	var button = npc_customizer_button_prefab.instantiate() as NPCCustomizerOption
+	var button := npc_customizer_button_prefab.instantiate() as NPCCustomizerOption
 	button_holder.add_child(button)
 
 	button.button.pressed.connect(button_callback)
@@ -26,7 +26,7 @@ func add_empty(texture: Texture, button_callback):
 
 
 func add_button(texture: Texture, button_callback):
-	var button = npc_customizer_button_prefab.instantiate() as NPCCustomizerOption
+	var button := npc_customizer_button_prefab.instantiate() as NPCCustomizerOption
 	button_holder.add_child(button)
 
 	button.button.pressed.connect(button_callback)
@@ -35,8 +35,8 @@ func add_button(texture: Texture, button_callback):
 
 
 func get_current_index() -> int:
-	var offset = 1 if includes_empty else 0
-	for button in button_group.get_buttons():
+	var offset := 1 if includes_empty else 0
+	for button: BaseButton in button_group.get_buttons():
 		if button.button_pressed:
 			return button_group.get_buttons().find(button) - offset
 	
@@ -44,8 +44,8 @@ func get_current_index() -> int:
 
 
 func set_button_index(index: int):
-	var offset = 1 if includes_empty else 0
-	for button in button_group.get_buttons():
+	var offset := 1 if includes_empty else 0
+	for button: BaseButton in button_group.get_buttons():
 		button.button_pressed = button_group.get_buttons().find(button) == index + offset
 
 

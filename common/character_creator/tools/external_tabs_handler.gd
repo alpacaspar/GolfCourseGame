@@ -5,13 +5,13 @@ extends TabContainer
 
 
 func _ready():
-	for button in button_group.get_buttons():
+	for button: BaseButton in button_group.get_buttons():
 		button.pressed.connect(_change_tab)
 
 
 func _change_tab():
-	var x: int = 0
-	for button in button_group.get_buttons():
+	var x := 0
+	for button: BaseButton in button_group.get_buttons():
 		if button.button_pressed:
 			current_tab = x
 			return

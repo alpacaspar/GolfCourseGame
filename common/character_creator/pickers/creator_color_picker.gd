@@ -25,7 +25,7 @@ func _process(_delta):
 
 
 func add_button(color: Color, button_callback):
-	var button = color_button_prefab.instantiate() as CreatorColorPickerOption
+	var button := color_button_prefab.instantiate() as CreatorColorPickerOption
 	button_holder.add_child(button)
 
 	if tracker != null:
@@ -34,13 +34,13 @@ func add_button(color: Color, button_callback):
 
 	button.button.button_group = button_group
 	
-	var image = load("res://addons/npc_editor/ui/solid_white.png").duplicate()
+	var image: Image = load("res://addons/npc_editor/ui/solid_white.png").duplicate()
 	image.fill(color)
 	button.texture.texture = ImageTexture.create_from_image(image)
 
 
 func get_current_index() -> int:
-	for button in button_group.get_buttons():
+	for button: BaseButton in button_group.get_buttons():
 		if button.button_pressed:
 			return button_group.get_buttons().find(button)
 	
@@ -48,7 +48,7 @@ func get_current_index() -> int:
 
 
 func set_button_index(index: int):
-	for button in button_group.get_buttons():
+	for button: BaseButton in button_group.get_buttons():
 		button.button_pressed = button_group.get_buttons().find(button) == index
 
 

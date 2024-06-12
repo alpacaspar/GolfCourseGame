@@ -65,7 +65,7 @@ func set_values(ranges: FinetuneRanges, callback):
 
 
 func get_values() -> FinetuneValues:
-	var result = FinetuneValues.new()
+	var result := FinetuneValues.new()
 
 	result.vertical = vertical_current
 	result.horizontal = horizontal_current

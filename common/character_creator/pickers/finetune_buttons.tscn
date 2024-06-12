@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://daduc6vljvtkd"]
 
 [ext_resource type="Theme" uid="uid://pq6ete4ie6a8" path="res://common/character_creator/resources/character_creator_theme.tres" id="1_7160r"]
-[ext_resource type="Script" path="res://common/character_creator/pickers/finetine_buttons.gd" id="1_rwyyh"]
+[ext_resource type="Script" path="res://common/character_creator/pickers/finetune_buttons.gd" id="1_rwyyh"]
 [ext_resource type="Texture2D" uid="uid://byb87wlds3nnr" path="res://common/character_creator/icons/extras/right-arrow.png" id="2_2v7ad"]
 [ext_resource type="Texture2D" uid="uid://cxqeblj4g32jp" path="res://common/character_creator/icons/extras/arrow-down-sign-to-navigate.png" id="3_cd760"]
 [ext_resource type="Texture2D" uid="uid://joyadv5e1bqp" path="res://common/character_creator/icons/extras/rotate-right.png" id="4_12cc1"]
