@@ -2,9 +2,9 @@
 
 [ext_resource type="PackedScene" uid="uid://b3yo3dem2wtkt" path="res://entities/player/player.tscn" id="1_56dmc"]
 [ext_resource type="Script" path="res://testing/audio_test_level.gd" id="1_cxuja"]
-[ext_resource type="Texture2D" uid="uid://blpc24it64q8a" path="res://entities/terrain/fairway.png" id="3_62ool"]
-[ext_resource type="Texture2D" uid="uid://dfyfubpegolkx" path="res://entities/terrain/rough.png" id="4_5a5pl"]
-[ext_resource type="Texture2D" uid="uid://d4i22ctyaeq1k" path="res://entities/terrain/bunker.png" id="5_kcfmm"]
+[ext_resource type="Texture2D" uid="uid://xupxcv5spmpv" path="res://entities/terrain/grass_fairway_albedo.png" id="3_62ool"]
+[ext_resource type="Texture2D" uid="uid://ctdnwln07vtw" path="res://entities/terrain/grass_rough_albedo.png" id="4_5a5pl"]
+[ext_resource type="Texture2D" uid="uid://bt8ixcshftcqj" path="res://entities/terrain/bunker_albedo.png" id="5_kcfmm"]
 [ext_resource type="Script" path="res://common/audio/ak_mus_callback.gd" id="7_l1cn0"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_15fs0"]
