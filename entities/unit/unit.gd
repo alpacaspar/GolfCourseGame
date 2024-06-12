@@ -30,14 +30,14 @@ var is_blocking := false
 var attack_tween: Tween
 
 var move_speed: float:
-    get:
-        if is_attacking:
-            return 0.0
+	get:
+		if is_attacking:
+			return 0.0
 
-        if is_blocking:
-            return role.block_move_speed
-        
-        return role.move_speed
+		if is_blocking:
+			return role.block_move_speed
+		
+		return role.move_speed
 
 
 func _ready():
@@ -45,8 +45,8 @@ func _ready():
 
 
 func _physics_process(_delta: float):
-    if not attack_tween == null and attack_tween.is_running():
-        move_and_slide()
+	if not attack_tween == null and attack_tween.is_running():
+		move_and_slide()
 
 
 func _on_battle_manager_battle_started():
@@ -81,11 +81,11 @@ func perform_attack():
 	animation_tree.set(ATTACK_ONESHOT_ANIM_PARAMETER, AnimationNodeOneShot.ONE_SHOT_REQUEST_FADE_OUT)
 	animation_tree.set(ATTACK_ONESHOT_ANIM_PARAMETER, AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
 
-    var target_velocity := controller.global_basis.z * role.move_speed
-    target_velocity.y = velocity.y
-    attack_tween = create_tween()
-    attack_tween.tween_interval(0.4)
-    attack_tween.tween_property(self, "velocity", target_velocity, 0.5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUART)
+	var target_velocity := controller.global_basis.z * role.move_speed
+	target_velocity.y = velocity.y
+	attack_tween = create_tween()
+	attack_tween.tween_interval(0.4)
+	attack_tween.tween_property(self, "velocity", target_velocity, 0.5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUART)
 
 
 func perform_block():
@@ -108,10 +108,13 @@ func is_exhausted() -> bool:
 	return golfer_resource.stamina <= 0
 
 
-func try_take_damage(attack_origin: Node3D, damage: int) -> bool:
+func try_take_damage(attack_origin: Node3D, team_origin: Team, damage: int) -> bool:
+	if team == team_origin:
+		return false
+
 	var direction_to_attacker: Vector3 = global_position.direction_to(Vector3(attack_origin.global_position.x, global_position.y, attack_origin.global_position.z))
 	var angle := global_basis.z.angle_to(direction_to_attacker)
-	if is_blocking and rad_to_deg(angle) < 30.0:
+	if is_blocking and rad_to_deg(angle) < 60.0:
 		return false
 
 	golfer_resource.stamina -= damage

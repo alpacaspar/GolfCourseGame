@@ -12,7 +12,7 @@ var last_velocity := Vector3.ZERO
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 
-func _physics_process(delta):
+func _physics_process(_delta: float):
 	last_velocity = linear_velocity
 
 
@@ -26,7 +26,7 @@ func _on_body_entered(body: Node3D):
 		return
 
 	if body.has_method("try_take_damage"):
-		body.try_take_damage(self, last_user.golfer_resource.power)
+		body.try_take_damage(self, last_user.team, last_user.golfer_resource.power)
 
 
 func hit(originator: Unit):
@@ -65,7 +65,12 @@ func hit(originator: Unit):
 
 func _find_target() -> Node3D:
 	var space_state := last_user.get_world_3d().direct_space_state
-	var query := _get_query(last_user, last_user.role.max_drive_range)
+
+	var excluded_shapes: Array[RID] = []
+	for unit: Unit in last_user.team.get_active_units():
+		excluded_shapes.append(unit.get_rid())
+
+	var query := _get_query(last_user, last_user.role.max_drive_range, excluded_shapes)
 
 	var intersections: Array[Dictionary] = space_state.intersect_shape(query)
 
@@ -93,7 +98,7 @@ func _find_target() -> Node3D:
 	return target
 
 
-func _get_query(request_node: CollisionObject3D, radius: float) -> PhysicsShapeQueryParameters3D:
+func _get_query(request_node: CollisionObject3D, radius: float, excluded_shapes: Array[RID]) -> PhysicsShapeQueryParameters3D:
 	var shape_rid := PhysicsServer3D.sphere_shape_create()
 	PhysicsServer3D.shape_set_data(shape_rid, radius)
 
@@ -101,7 +106,7 @@ func _get_query(request_node: CollisionObject3D, radius: float) -> PhysicsShapeQ
 	params.shape_rid = shape_rid
 	params.transform = request_node.global_transform
 	params.collision_mask = sensor_collision_mask
-	params.exclude = [request_node.get_rid()]
+	params.exclude = excluded_shapes
 
 	return params
 
@@ -138,7 +143,7 @@ func _calculate_launch_angle(v: float, g: float, x: float, y: float) -> float:
 	elif discriminant == 0:
 		return atan2(v**2 / (g * x), x)
 
-	var t1 := atan((v**2 + sqrt(discriminant)) / (g * x))
-	var t2 := atan((v**2 - sqrt(discriminant)) / (g * x))
+	var t1 := atan((v*v + sqrt(discriminant)) / (g * x))
+	var t2 := atan((v*v - sqrt(discriminant)) / (g * x))
 
 	return min(t1, t2)

@@ -17,7 +17,7 @@ func _on_body_entered(body: Node3D):
 		return
 	
 	if body.is_in_group("unit"):
-		body.try_take_damage(owning_unit, owning_unit.golfer_resource.power)
+		body.try_take_damage(owning_unit, owning_unit.team, owning_unit.golfer_resource.power)
 
 
 func _on_area_entered(area: Area3D):

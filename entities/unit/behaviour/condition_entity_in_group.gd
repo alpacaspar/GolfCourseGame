@@ -5,4 +5,4 @@ extends BTCondition
 
 
 func _check_condition(blackboard: Dictionary) -> bool:
-    return blackboard["entities"].front().is_in_group(group)
+	return blackboard["entities"].front().is_in_group(group)
