@@ -85,7 +85,7 @@ extends Control
 @export var zoom_target_slider: ScrollBar
 @export var rotation_slider: ScrollBar
 
-var edited_resource: NPCResource
+var edited_resource: NPCResource = NPCResource.new()
 var preview_scene: PreviewSpawner
 
 
@@ -95,12 +95,9 @@ func _ready():
 	preview_scene.make_ready()
 	preview_scene.callback = Callable(_set_preview)
 	
-	edited_resource = NPCResource.new()
-
-	rotation_slider.value_changed.connect(_set_rotation_value)
-	rotation_slider.value_changed.connect(preview_scene._set_rotation)
 	zoom_slider.value_changed.connect(preview_scene.set_zoom)
 	zoom_target_slider.value_changed.connect(preview_scene.set_zoom_target)
+	rotation_slider.value_changed.connect(preview_scene._set_rotation)
 
 	randomize_button.pressed.connect(_randomize)
 	reset_button.pressed.connect(_reset)
@@ -124,26 +121,15 @@ func _ready():
 	await _set_color_button_connections(CharacterFactory.shirt_colors, shoes_color_option_picker)
 
 	# External Icons
-	await _set_external_icon_button_connections(nose_icons, CharacterFactory.nose_meshes, noses_option_picker)
-	await _set_external_icon_button_connections(ear_icons, CharacterFactory.ear_meshes, ears_option_picker)
-
 	await hair_option_picker.add_empty(hair_icons[hair_icons.size() - 1], _update_character)
 	await _set_external_icon_button_connections(hair_icons, CharacterFactory.hair_meshes, hair_option_picker)
 
-	await beards_option_picker.add_empty(empty_icon, _update_character)
-	await _set_resource_button_connections(CharacterFactory.beard_textures, beards_option_picker)
+	await blush_option_picker.add_empty(empty_icon, _update_character)
+	await _set_external_icon_button_connections(blush_icons, CharacterFactory.blush_textures, blush_option_picker)
+	await _set_external_icon_button_connections(nose_icons, CharacterFactory.nose_meshes, noses_option_picker)
+	await _set_external_icon_button_connections(ear_icons, CharacterFactory.ear_meshes, ears_option_picker)
 
-	# await piercings_option_picker.add_empty(null, _update_character)
-	# await _set_external_icon_button_connections(piercing_icons, CharacterFactory.earring_meshes, piercings_option_picker)
-
-	await earrings_option_picker.add_empty(empty_icon, _update_character)
-	await _set_resource_button_connections(CharacterFactory.earring_meshes, earrings_option_picker)
-
-	# Build in icons
-	await _set_texture_button_connections(CharacterFactory.eye_textures, eyes_option_picker)
-	await _set_texture_button_connections_color_override(CharacterFactory.eyebrow_textures, eyebrows_option_picker)
-	await _set_texture_button_connections(CharacterFactory.mouth_textures, mouths_option_picker, 1)
-
+	# Textures
 	await eyeshadow_option_picker.add_empty(empty_icon, _update_character)
 	await _set_single_texture_button_connections(CharacterFactory.eyeshadow_textures, eyeshadow_option_picker)
 	await eyeliner_option_picker.add_empty(empty_icon, _update_character)
@@ -151,23 +137,27 @@ func _ready():
 	await eyebrow_piercings_option_picker.add_empty(empty_icon, _update_character)
 	await _set_single_texture_button_connections(CharacterFactory.eyebrow_piercing_textures, eyebrow_piercings_option_picker)
 
-	await nose_piercings_option_picker.add_empty(empty_icon, _update_character)
-	await _set_resource_button_connections(CharacterFactory.nose_piercing_datas, nose_piercings_option_picker)
-
-	await blush_option_picker.add_empty(empty_icon, _update_character)
-	await _set_external_icon_button_connections(blush_icons, CharacterFactory.blush_textures, blush_option_picker)
+	await glasses_option_picker.add_empty(empty_icon, _update_character)
+	await _set_texture_button_connections(CharacterFactory.glasses_textures, glasses_option_picker, 1)
+	await _set_texture_button_connections(CharacterFactory.eye_textures, eyes_option_picker)
+	await _set_texture_button_connections(CharacterFactory.mouth_textures, mouths_option_picker, 1)
 
 	await mustaches_option_picker.add_empty(empty_icon, _update_character)
 	await _set_texture_button_connections_color_override(CharacterFactory.mustache_textures, mustaches_option_picker, 2)
-	
-	await glasses_option_picker.add_empty(empty_icon, _update_character)
-	await _set_texture_button_connections(CharacterFactory.glasses_textures, glasses_option_picker, 1)
+	await _set_texture_button_connections_color_override(CharacterFactory.eyebrow_textures, eyebrows_option_picker)
 
-	# Clothing data option picker
+	# Build in icons
 	await _set_resource_button_connections(CharacterFactory.shirt_datas, shirt_option_picker)
 	await _set_resource_button_connections(CharacterFactory.pants_datas, pants_option_picker)
 	await _set_resource_button_connections(CharacterFactory.sock_datas, sock_option_picker)
 	await _set_resource_button_connections(CharacterFactory.shoes_datas, shoes_option_picker)
+
+	await beards_option_picker.add_empty(empty_icon, _update_character)
+	await _set_resource_button_connections(CharacterFactory.beard_textures, beards_option_picker)
+	await earrings_option_picker.add_empty(empty_icon, _update_character)
+	await _set_resource_button_connections(CharacterFactory.earring_meshes, earrings_option_picker)
+	await nose_piercings_option_picker.add_empty(empty_icon, _update_character)
+	await _set_resource_button_connections(CharacterFactory.nose_piercing_datas, nose_piercings_option_picker)
 
 	await belt_option_picker.add_empty(empty_icon, _update_character)
 	await _set_resource_button_connections(CharacterFactory.belt_datas, belt_option_picker)
@@ -299,10 +289,6 @@ func _set_resource_button_connections(collection, picker: CreatorGallery):
 		picker.add_button(option.icon, _update_character)
 
 
-func _set_rotation_value(_value):
-	rotation_slider.value = _value
-
-
 func _randomize():
 	var rng = RandomNumberGenerator.new()
 
@@ -380,8 +366,8 @@ func _reset():
 	mouths_option_picker.set_button_index(0)
 	noses_option_picker.set_button_index(0)
 	ears_option_picker.set_button_index(0)
-	hair_option_picker.set_button_index(0)
 
+	hair_option_picker.set_button_index(-1)
 	eyeshadow_option_picker.set_button_index(-1)
 	eyeliner_option_picker.set_button_index(-1)
 	blush_option_picker.set_button_index(-1)

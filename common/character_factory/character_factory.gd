@@ -51,12 +51,10 @@ extends Node
 @export var character_base: PackedScene
 
 
-# TODO: Make character will all things
 func spawn_character(resource: NPCResource) -> Character:
 	var character := character_base.instantiate() as Character
 	var face_material: Material = character.face_mesh_instance.material_override
 	var head_material: Material = character.head_mesh_instance.material_override
-	var body_material: Material = character.body_mesh_instance.material_override
 	var clothing_material: ShaderMaterial = character.body_mesh_instance.material_overlay
 
 	# Face details
@@ -215,8 +213,7 @@ func spawn_character(resource: NPCResource) -> Character:
 	var hair_mesh = hair_meshes[resource.hair_index] if resource.hair_index >= 0 else null
 	character.hair_mesh_instance.mesh = hair_mesh
 
-	# Setting Skin & Hair colors // Currently doesnt work
-	body_material.set("albedo_color", skin_colors[resource.skin_color_index])
+	# Setting Skin & Hair colors
 	character.hair_mesh_instance.material_override.set("albedo_color", hair_colors[resource.hair_color_index])
 	character.ear_mesh_instance.material_override.set("albedo_color", skin_colors[resource.skin_color_index])
 	character.nose_mesh_instance.material_override.set("albedo_color", skin_colors[resource.skin_color_index])

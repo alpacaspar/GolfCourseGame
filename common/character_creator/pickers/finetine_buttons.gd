@@ -51,17 +51,17 @@ func set_values(ranges: FinetuneRanges, callback):
 		rotate_right_button.pressed.connect(_rotate_right)
 		rotate_right_button.pressed.connect(callback)
 	
-	up_button.pressed.connect(_up)
-	up_button.pressed.connect(callback)
-	down_button.pressed.connect(_down)
-	down_button.pressed.connect(callback)
-
 	if scale_up_button != null:
 		scale_up_button.pressed.connect(_scale_up)
 		scale_up_button.pressed.connect(callback)
 	if scale_down_button != null:
 		scale_down_button.pressed.connect(_scale_down)
 		scale_down_button.pressed.connect(callback)
+		
+	up_button.pressed.connect(_up)
+	up_button.pressed.connect(callback)
+	down_button.pressed.connect(_down)
+	down_button.pressed.connect(callback)
 
 
 func get_values() -> FinetuneValues:

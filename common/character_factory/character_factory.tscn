@@ -69,7 +69,6 @@
 [ext_resource type="PackedScene" uid="uid://ck84hpbuds8v8" path="res://entities/character/character.tscn" id="25_gqjrl"]
 [ext_resource type="CompressedTexture2DArray" uid="uid://ip7i3a6eo2g1" path="res://entities/character/head/facial_details/makeup_eyeshadowsoftbig_sheet.png" id="29_ib0wg"]
 [ext_resource type="Texture2D" uid="uid://07dcwpxauv8l" path="res://common/character_creator/icons/jewelry/earring_hoop.png" id="38_djnb1"]
-[ext_resource type="Script" path="res://common/character_creator/resources/nose_piercing_data_resource.gd" id="38_k5138"]
 [ext_resource type="Script" path="res://common/character_creator/resources/earring_data_resource.gd" id="44_hig72"]
 [ext_resource type="Texture2D" uid="uid://c2ak3414hwm5h" path="res://common/character_creator/icons/jewelry/earring_pearl.png" id="45_680aa"]
 [ext_resource type="Texture2D" uid="uid://bkvacbcu1yw5u" path="res://common/character_creator/icons/jewelry/earring_tear.png" id="51_73ro4"]
@@ -106,6 +105,7 @@
 [ext_resource type="ArrayMesh" uid="uid://56b0hru0fbli" path="res://entities/character/clothing/clothing_tshirt_collar.res" id="76_xqp7p"]
 [ext_resource type="Texture2D" uid="uid://b8u3jxju08jaq" path="res://common/character_creator/icons/tops/tshirt_top.png" id="77_m3783"]
 [ext_resource type="Texture2D" uid="uid://cfedc2vow4n07" path="res://entities/character/clothing/clothing_tshirt_normal.png" id="78_s8c36"]
+[ext_resource type="Script" path="res://common/character_creator/resources/nose_piercing_data_resource.gd" id="79_hd28r"]
 [ext_resource type="Texture2D" uid="uid://dtv820rsh681j" path="res://entities/character/clothing/clothing_tshirt_rougness.png" id="79_jwb1g"]
 [ext_resource type="Texture2D" uid="uid://dy8nu4jvwre0y" path="res://entities/character/clothing/clothing_tshirtbland_albedo.png" id="80_136qf"]
 [ext_resource type="Texture2D" uid="uid://d1t7dndu7n5lp" path="res://common/character_creator/icons/tops/tshirtbland_top.png" id="81_wkyc8"]
@@ -316,7 +316,7 @@ meshes = Array[Mesh]([])
 material = ExtResource("76_l03vb")
 
 [sub_resource type="Resource" id="Resource_q0ure"]
-script = ExtResource("38_k5138")
+script = ExtResource("79_hd28r")
 icon = ExtResource("61_hax4q")
 material = ExtResource("62_aq6tv")
 
@@ -737,7 +737,7 @@ ear_meshes = Array[Mesh]([ExtResource("2_r6hdl"), ExtResource("3_wcwmv"), ExtRes
 hair_meshes = Array[Mesh]([ExtResource("7_we6f7"), ExtResource("8_44eej"), ExtResource("9_4fntv"), ExtResource("10_0bh4e"), ExtResource("11_2rrxp"), ExtResource("12_pfcll"), ExtResource("13_jky7t"), ExtResource("17_itvmc"), ExtResource("18_07lqu")])
 nose_meshes = Array[Mesh]([ExtResource("14_elv4t"), ExtResource("15_urki0"), ExtResource("16_2jtp3"), ExtResource("17_3tgyj")])
 earring_meshes = Array[ExtResource("44_hig72")]([SubResource("Resource_oawyl"), SubResource("Resource_w1y4c"), SubResource("Resource_hmr62"), SubResource("Resource_xv8kt"), SubResource("Resource_vvxey")])
-nose_piercing_datas = Array[ExtResource("38_k5138")]([SubResource("Resource_q0ure")])
+nose_piercing_datas = Array[ExtResource("79_hd28r")]([SubResource("Resource_q0ure")])
 skin_colors = Array[Color]([Color(0.964706, 0.929412, 0.894118, 1), Color(0.972549, 0.894118, 0.796078, 1), Color(0.839216, 0.741176, 0.584314, 1), Color(0.933333, 0.752941, 0.65098, 1), Color(0.823529, 0.619608, 0.478431, 1), Color(0.678431, 0.427451, 0.231373, 1), Color(0.596078, 0.34902, 0.211765, 1), Color(0.513726, 0.356863, 0.258824, 1), Color(0.380392, 0.254902, 0.203922, 1), Color(0.227451, 0.192157, 0.164706, 1)])
 hair_colors = Array[Color]([Color(0.764706, 0.639216, 0.356863, 1), Color(0.74902, 0.462745, 0.239216, 1), Color(0.282353, 0.0901961, 0.0705882, 1), Color(0.462745, 0.290196, 0.176471, 1), Color(0.309804, 0.219608, 0.172549, 1), Color(0.905882, 0.898039, 0.901961, 1), Color(0.0745098, 0.0588235, 0.0431373, 1), Color(0.478431, 0.470588, 0.47451, 1), Color(0.211765, 0.611765, 0.317647, 1), Color(0.992157, 0.643137, 0.729412, 1), Color(0.294118, 0.929412, 0.882353, 1)])
 lip_colors = Array[Color]([Color(0.792157, 0.0235294, 0.0235294, 1), Color(0.360784, 0, 0.0666667, 1), Color(0.882353, 0.184314, 0.388235, 1), Color(0.768627, 0.376471, 0.364706, 1), Color(0.364706, 0.203922, 0.113725, 1)])
