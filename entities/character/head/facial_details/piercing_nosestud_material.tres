@@ -1,15 +1,15 @@
 [gd_resource type="StandardMaterial3D" load_steps=5 format=3 uid="uid://d330kagxsmide"]
 
-[ext_resource type="Texture2D" uid="uid://cqxb3fylwhlj0" path="res://entities/character/head/facial_details/piercing_diamondearring_albedo.png" id="1_cs0ei"]
-[ext_resource type="Texture2D" uid="uid://rlt08qyfg3kc" path="res://entities/character/head/facial_details/piercing_diamondearring_metallic.png" id="2_x8jq3"]
-[ext_resource type="Texture2D" uid="uid://db4wye6c16n8k" path="res://entities/character/head/facial_details/piercing_diamondearring_normal.png" id="3_egswa"]
-[ext_resource type="Texture2D" uid="uid://bmaaxs2chqo3p" path="res://entities/character/head/facial_details/piercing_diamondearring_roughness.png" id="4_ik25e"]
+[ext_resource type="Texture2D" uid="uid://ca512tdueihif" path="res://entities/character/head/facial_details/piercing_nosestud_albedo.png" id="1_feo5m"]
+[ext_resource type="Texture2D" uid="uid://fgv27fpxoacg" path="res://entities/character/head/facial_details/piercing_nosestud_metallic.png" id="2_x7q2j"]
+[ext_resource type="Texture2D" uid="uid://ng7eku736jyt" path="res://entities/character/head/facial_details/piercing_nosestud_normal.png" id="3_mo2lh"]
+[ext_resource type="Texture2D" uid="uid://c0inp84xdx3u0" path="res://entities/character/head/facial_details/piercing_nosestud_roughness.png" id="4_kpttf"]
 
 [resource]
 transparency = 1
-albedo_texture = ExtResource("1_cs0ei")
+albedo_texture = ExtResource("1_feo5m")
 metallic = 1.0
-metallic_texture = ExtResource("2_x8jq3")
-roughness_texture = ExtResource("4_ik25e")
+metallic_texture = ExtResource("2_x7q2j")
+roughness_texture = ExtResource("4_kpttf")
 normal_enabled = true
-normal_texture = ExtResource("3_egswa")
+normal_texture = ExtResource("3_mo2lh")

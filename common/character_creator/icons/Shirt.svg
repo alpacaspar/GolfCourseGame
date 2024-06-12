@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   version="1.1"
+   id="svg1"
+   width="128"
+   height="128"
+   viewBox="0 0 128 128"
+   sodipodi:docname="Shirt.svg"
+   xml:space="preserve"
+   inkscape:export-filename="..\..\Godot\GolfCourseGame\common\character_creator\icons\Pants.svg"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
+   inkscape:version="1.3.2 (091e20e, 2023-11-25, custom)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"><defs
+     id="defs1"><linearGradient
+       id="swatch53"
+       inkscape:swatch="solid"><stop
+         style="stop-color:#ff6981;stop-opacity:1;"
+         offset="0"
+         id="stop53" /></linearGradient></defs><sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#999999"
+     borderopacity="1"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="4.274853"
+     inkscape:cx="44.679899"
+     inkscape:cy="79.651863"
+     inkscape:window-width="2560"
+     inkscape:window-height="1351"
+     inkscape:window-x="1911"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg1" /><path
+     style="display:inline;fill:none;fill-opacity:1;stroke:#000000;stroke-width:4.99374;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+     d="M 95.306881,107.31313 92.703536,65.058871 100.1798,75.60575 115.1991,64.45809 c 0,0 -13.08348,-21.761273 -16.621369,-26.300438 C 95.039868,33.618501 89.626724,32.923708 89.626724,32.923708 86.272903,27.18694 76.44583,20.68683 76.44583,20.68683 c -6.041748,3.304074 -12.445845,3.398481 -12.445845,3.398481 0,0 -6.404083,-0.09439 -12.44582,-3.398481 0,0 -9.827073,6.50011 -13.180893,12.236878 0,0 -5.413157,0.694793 -8.951027,5.233944 -3.537883,4.539165 -16.62134,26.300438 -16.62134,26.300438 L 27.820193,75.60575 35.29646,65.058871 32.693115,107.31313 h 31.306882 z"
+     id="path20"
+     sodipodi:nodetypes="ccccscccccscccccc"
+     inkscape:label="Shirt" /></svg>

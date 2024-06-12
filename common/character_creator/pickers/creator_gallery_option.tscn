@@ -1,0 +1,103 @@
+[gd_scene load_steps=9 format=3 uid="uid://bj1d4jmao707v"]
+
+[ext_resource type="Theme" uid="uid://bw2a7mna652cl" path="res://common/character_creator/resources/new_character_creator_theme.tres" id="1_ihfr3"]
+[ext_resource type="Script" path="res://addons/npc_editor/ui/npc_customizer_option.gd" id="1_kecmg"]
+[ext_resource type="Texture2D" uid="uid://dfspa0f55imyc" path="res://icon.svg" id="2_rmiw8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p3dka"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 7
+border_width_top = 7
+border_width_right = 7
+border_width_bottom = 7
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+corner_detail = 1
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5fbmd"]
+bg_color = Color(1, 1, 1, 0.196078)
+border_width_left = 7
+border_width_top = 7
+border_width_right = 7
+border_width_bottom = 7
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+corner_detail = 1
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i7ung"]
+bg_color = Color(0, 0, 0, 0)
+border_width_left = 7
+border_width_top = 7
+border_width_right = 7
+border_width_bottom = 7
+border_color = Color(0.196078, 0.196078, 0.196078, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+corner_detail = 1
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4200x"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uy5yc"]
+
+[node name="NPCCustomizerGalleryOption" type="PanelContainer" node_paths=PackedStringArray("button", "texture")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -21.0
+offset_right = 20.0
+offset_bottom = 19.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_ihfr3")
+script = ExtResource("1_kecmg")
+button = NodePath("Button")
+texture = NodePath("Texture")
+
+[node name="Texture" type="TextureRect" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+theme = ExtResource("1_ihfr3")
+texture = ExtResource("2_rmiw8")
+expand_mode = 5
+stretch_mode = 5
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_ihfr3")
+theme_override_styles/normal = SubResource("StyleBoxFlat_p3dka")
+theme_override_styles/hover = SubResource("StyleBoxFlat_5fbmd")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_i7ung")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_4200x")
+theme_override_styles/focus = SubResource("StyleBoxFlat_uy5yc")
+toggle_mode = true

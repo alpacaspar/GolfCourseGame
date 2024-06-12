@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   version="1.1"
+   id="svg1"
+   width="128"
+   height="128"
+   viewBox="0 0 128 128"
+   sodipodi:docname="Pants.svg"
+   xml:space="preserve"
+   inkscape:export-filename="..\..\Godot\GolfCourseGame\common\character_creator\icons\Nose.svg"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
+   inkscape:version="1.3.2 (091e20e, 2023-11-25, custom)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"><defs
+     id="defs1"><linearGradient
+       id="swatch53"
+       inkscape:swatch="solid"><stop
+         style="stop-color:#ff6981;stop-opacity:1;"
+         offset="0"
+         id="stop53" /></linearGradient></defs><sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#999999"
+     borderopacity="1"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="4.274853"
+     inkscape:cx="33.451443"
+     inkscape:cy="52.2825"
+     inkscape:window-width="2560"
+     inkscape:window-height="1351"
+     inkscape:window-x="1911"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg1" /><path
+     style="display:inline;fill:none;fill-opacity:1;stroke:#000000;stroke-width:4.00622;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+     d="m 89.663059,12.813285 c 0,0 0.605874,14.351594 -1.552545,18.365498 0,0 0.946671,1.817616 0.795207,3.597363 l -6.588858,80.240184 -11.473703,0.17039 -5.566449,-69.997146 -1.276714,-0.01894 -1.276707,0.01894 -5.566449,69.997146 -11.4737,-0.17039 -6.588857,-80.240184 C 38.942815,32.996399 39.889491,31.178783 39.889491,31.178783 37.731072,27.164879 38.33694,12.813285 38.33694,12.813285 Z"
+     id="path21"
+     sodipodi:nodetypes="ccccccccccccc"
+     inkscape:label="Pants" /></svg>

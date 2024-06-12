@@ -9,15 +9,20 @@ signal secondary_animation_event
 
 @export_group("Appearance")
 @export var ear_mesh_instance: MeshInstance3D
+@export var earring_mesh_instance: MeshInstance3D
 @export var nose_mesh_instance: MeshInstance3D
 @export var hair_mesh_instance: MeshInstance3D
+@export var wrist_mesh_instance: MeshInstance3D
+@export var belt_mesh_instance: MeshInstance3D
+@export var skirt_mesh_instance: MeshInstance3D
 
 @export var face_mesh_instance: MeshInstance3D
+@export var head_mesh_instance: MeshInstance3D
 @export var body_mesh_instance: MeshInstance3D
 
 @export var collar_mesh_instance: MeshInstance3D
-
-@export var preview_mesh: MeshInstance3D
+@export var left_folded_pants_mesh_instance: MeshInstance3D
+@export var right_folded_pants_mesh_instance: MeshInstance3D
 
 @export_group("Gameplay")
 @export var animation_tree: AnimationTree

@@ -1,56 +1,57 @@
 class_name NPCResource
 extends Resource
 
-
 @export var name: String
 
-@export var eye_index: int
-@export var eyebrow_index: int
-@export var nose_index: int
-@export var ear_index: int
-@export var mouth_index: int
-@export var hair_index: int
+@export_group("Face options")
+@export var eye_index: int = 0
+@export var eyebrow_index: int = 0
+@export var nose_index: int = 0
+@export var ear_index: int = 0
+@export var mouth_index: int = 0
+@export var hair_index: int = 0
 
-@export var accessory_index: int
-@export var shirt_index: int
-@export var pants_index: int
+@export var eyeshadow_index: int = 0
+@export var eyeliner_index: int = 0
+@export var blush_index: int = 0
 
-@export var hair_color_index: int
-@export var skin_color_index: int
-@export var shirt_color_index: int
-@export var pants_color_index: int
+@export var glasses_index: int = 0
 
-@export var eye_offset: float
-@export var eyebrow_offset: float
-@export var mouth_offset: float
-@export var mouth_size: float
+@export var mustache_index: int = 0
+@export var beard_index: int = 0
 
-@export var icon: Texture2D
+@export var nose_piercing_index: int = 0
+@export var eyebrow_piercing_index: int = 0
+@export var earring_index: int = 0
 
+@export_subgroup("Colors")
+@export var skin_color_index: int = 0
+@export var eyebrow_color_index: int = 0
+@export var hair_color_index: int = 0
+@export var mustache_color_index: int = 0
+@export var beard_color_index: int = 0
 
-func _init(_name := "", 
-    _eye_index := 0, _eyebrow_index := 0, _nose_index := 0, _ear_index := 0, _mouth_index := 0, _hair_index := 0, _accessory_index := 0, _shirt_index := 0, _pants_index := 0,
-    _hair_color_index := 0, _skin_color_index := 0, _shirt_color_index := 0, _pants_color_index := 0,
-    _eye_offset := 0, _eyebrow_offset := 0, _mouth_offset := 0, _mouth_size:= 0, _icon: Texture2D = null):
-    name = _name
-    
-    eye_index = _eye_index
-    eyebrow_index = _eyebrow_index
-    nose_index = _nose_index
-    ear_index = _ear_index
-    mouth_index = _mouth_index
-    hair_index = _hair_index
-    accessory_index = _accessory_index
-    shirt_index = _shirt_index
-    pants_index = _pants_index
+@export var lip_color_index: int = 0
+@export var eyeshadow_color_index: int = 0
+@export var eyeliner_color_index: int = 0
+@export var blush_color_index: int = 0
 
-    hair_color_index = _hair_color_index
-    skin_color_index = _skin_color_index
-    shirt_color_index = _shirt_color_index
-    pants_color_index = _pants_color_index
+@export_subgroup("Offset Values")
+@export var eye_values: FinetuneValues = FinetuneValues.new()
+@export var eyebrow_values: FinetuneValues = FinetuneValues.new()
+@export var mouth_values: FinetuneValues = FinetuneValues.new()
+@export var mustache_values: FinetuneValues = FinetuneValues.new()
+@export var glasses_values: FinetuneValues = FinetuneValues.new()
 
-    eye_offset = _eye_offset
-    eyebrow_offset = _eyebrow_offset
-    mouth_offset = _mouth_offset
-    mouth_size = _mouth_size
-    icon = _icon
+@export_group("Body options")
+@export var shirt_index: int = 0
+@export var pants_index: int = 0
+@export var sock_index: int = 0
+@export var shoe_index: int = 0
+@export var belt_index: int = 0
+@export var wrist_index: int = 0
+
+@export var shirt_color_index: int = 0
+@export var pants_color_index: int = 0
+@export var sock_color_index: int = 0
+@export var shoes_color_index: int = 0

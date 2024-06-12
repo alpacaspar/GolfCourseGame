@@ -1,0 +1,49 @@
+[gd_scene load_steps=3 format=3 uid="uid://cck5rfjeh8d3d"]
+
+[ext_resource type="Script" path="res://common/character_creator/pickers/creator_color_picker.gd" id="1_x8fxh"]
+[ext_resource type="PackedScene" uid="uid://uv618k0m73pa" path="res://common/character_creator/pickers/creator_color_picker_option.tscn" id="2_h61b4"]
+
+[node name="ColorOptionPicker" type="VBoxContainer" node_paths=PackedStringArray("button_holder")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -507.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 0
+script = ExtResource("1_x8fxh")
+color_button_prefab = ExtResource("2_h61b4")
+button_holder = NodePath("HBoxContainer/HBoxContainer")
+
+[node name="ReferenceRect2" type="ReferenceRect" parent="."]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.05
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 0
+
+[node name="ReferenceRect4" type="ReferenceRect" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 10.0
+theme_override_constants/separation = 0
+
+[node name="ReferenceRect3" type="ReferenceRect" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.2
+
+[node name="ReferenceRect" type="ReferenceRect" parent="."]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.05

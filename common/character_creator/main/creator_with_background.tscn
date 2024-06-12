@@ -1,0 +1,36 @@
+[gd_scene load_steps=20 format=3 uid="uid://0c1svuww682y"]
+
+[ext_resource type="PackedScene" uid="uid://di1ol523f6hnn" path="res://common/character_creator/main/character_creator.tscn" id="1_gopom"]
+[ext_resource type="Texture2D" uid="uid://drkx2fvxykkrs" path="res://common/character_creator/icons/noses/nose_1.png" id="2_p0tqx"]
+[ext_resource type="PackedScene" uid="uid://dbssg6p52li32" path="res://entities/terrain/terrain.tscn" id="2_uk66u"]
+[ext_resource type="Texture2D" uid="uid://bdh257ltncw5s" path="res://common/character_creator/icons/noses/nose_2.png" id="3_bssv1"]
+[ext_resource type="Texture2D" uid="uid://dwlpxn6m5q0ra" path="res://common/character_creator/icons/noses/nose_3.png" id="4_kbvdq"]
+[ext_resource type="Texture2D" uid="uid://cugihvts28yb3" path="res://common/character_creator/icons/noses/nose_4.png" id="5_7dopk"]
+[ext_resource type="Texture2D" uid="uid://f0ahnrgrc62" path="res://common/character_creator/icons/ears/ears_1.png" id="6_8tmo8"]
+[ext_resource type="Texture2D" uid="uid://bdgbkubhjn5cg" path="res://common/character_creator/icons/ears/ears_2.png" id="7_4cgyo"]
+[ext_resource type="Texture2D" uid="uid://dp0kqc36fy1xm" path="res://common/character_creator/icons/ears/ears_3.png" id="8_ij16e"]
+[ext_resource type="Texture2D" uid="uid://bdsneyjc1rgw7" path="res://common/character_creator/icons/ears/ears_4.png" id="9_ubdie"]
+[ext_resource type="Texture2D" uid="uid://jxbicme5dndu" path="res://common/character_creator/icons/ears/ears_5.png" id="10_hsq48"]
+[ext_resource type="Texture2D" uid="uid://iragapsmrq0p" path="res://common/character_creator/icons/hair/buzz_cut.png" id="11_k4xg3"]
+[ext_resource type="Texture2D" uid="uid://d2hnpox72vxhh" path="res://common/character_creator/icons/hair/caspar_kapsel.png" id="12_qlnb7"]
+[ext_resource type="Texture2D" uid="uid://bwxvxrnp2e03b" path="res://common/character_creator/icons/hair/charlie_kapsel.png" id="13_r17fv"]
+[ext_resource type="Texture2D" uid="uid://beslfxwcmf6tu" path="res://common/character_creator/icons/hair/comb_over.png" id="14_4d1l6"]
+[ext_resource type="Texture2D" uid="uid://52hexens8345" path="res://common/character_creator/icons/hair/long_hair.png" id="15_rtcw4"]
+[ext_resource type="Texture2D" uid="uid://dfpywv5257gde" path="res://common/character_creator/icons/hair/pony_tail.png" id="16_aoy4r"]
+[ext_resource type="Texture2D" uid="uid://drxdwx8vnqjoj" path="res://common/character_creator/icons/hair/preppy_kapsel.png" id="17_hopel"]
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_hg08u"]
+resource_name = "Editor Window"
+
+[node name="Node" type="Node"]
+
+[node name="CharacterEditor" parent="." instance=ExtResource("1_gopom")]
+nose_icons = Array[Texture]([ExtResource("2_p0tqx"), ExtResource("3_bssv1"), ExtResource("4_kbvdq"), ExtResource("5_7dopk")])
+ear_icons = Array[Texture]([ExtResource("6_8tmo8"), ExtResource("7_4cgyo"), ExtResource("8_ij16e"), ExtResource("9_ubdie"), ExtResource("10_hsq48")])
+hair_icons = Array[Texture]([ExtResource("11_k4xg3"), ExtResource("12_qlnb7"), ExtResource("13_r17fv"), ExtResource("14_4d1l6"), ExtResource("15_rtcw4"), ExtResource("16_aoy4r"), ExtResource("17_hopel")])
+window_button_group = SubResource("ButtonGroup_hg08u")
+
+[node name="golf_terrain" parent="." instance=ExtResource("2_uk66u")]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.830635, 0.556818, 0, -0.556818, 0.830635, 173.622, 9.12752, 656.057)

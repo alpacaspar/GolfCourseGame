@@ -1,4 +1,4 @@
-[gd_resource type="VisualShader" load_steps=136 format=3 uid="uid://dkcbfqu6cc34g"]
+[gd_resource type="VisualShader" load_steps=135 format=3 uid="uid://dkcbfqu6cc34g"]
 
 [sub_resource type="VisualShaderNodeFloatOp" id="VisualShaderNodeFloatOp_61sos"]
 
@@ -153,6 +153,8 @@ default_value_enabled = true
 
 [sub_resource type="VisualShaderNodeTexture2DArrayParameter" id="VisualShaderNodeTexture2DArrayParameter_1cm4c"]
 parameter_name = "EyeShadow"
+texture_type = 1
+color_default = 2
 texture_repeat = 2
 
 [sub_resource type="VisualShaderNodeVectorCompose" id="VisualShaderNodeVectorCompose_rrygc"]
@@ -167,8 +169,6 @@ operator = 6
 [sub_resource type="VisualShaderNodeMix" id="VisualShaderNodeMix_antos"]
 default_input_values = [0, Quaternion(0, 0, 0, 0), 1, Quaternion(1, 1, 1, 1), 2, 0.5]
 op_type = 6
-
-[sub_resource type="VisualShaderNodeVectorCompose" id="VisualShaderNodeVectorCompose_tsbsv"]
 
 [sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_u2vc8"]
 default_input_values = [0, Quaternion(0, 0, 0, 0), 1, Quaternion(0, 0, 0, 0)]
@@ -185,6 +185,7 @@ source = 1
 
 [sub_resource type="VisualShaderNodeTexture2DArrayParameter" id="VisualShaderNodeTexture2DArrayParameter_tb2iw"]
 parameter_name = "Eyeliner"
+color_default = 2
 texture_repeat = 2
 
 [sub_resource type="VisualShaderNodeColorParameter" id="VisualShaderNodeColorParameter_svuxd"]
@@ -543,11 +544,11 @@ uniform float EyeSize = 1;
 uniform vec2 EyePosition = vec2(0.000000, 0.000000);
 uniform float EyeAngle : hint_range(-180, 180) = 0;
 uniform uint EyeIndex = 0;
-uniform sampler2DArray EyeShadow : repeat_disable;
+uniform sampler2DArray EyeShadow : source_color, hint_default_transparent, repeat_disable;
 uniform vec4 EyelinerColor : source_color = vec4(1.000000, 1.000000, 1.000000, 1.000000);
-uniform sampler2DArray Eyeliner : repeat_disable;
 uniform uint EyeBlinkIndex = 14;
 uniform float BlinkOffset : hint_range(0, 1) = 0;
+uniform sampler2DArray Eyeliner : hint_default_transparent, repeat_disable;
 uniform sampler2DArray Eyes : hint_default_transparent, filter_linear, repeat_disable;
 uniform vec4 EyebrowColor : source_color = vec4(0.000000, 0.000000, 0.000000, 1.000000);
 uniform float EyebrowSize = 1;
@@ -710,20 +711,6 @@ void fragment() {
 	vec4 n_out149p0 = EyelinerColor;
 
 
-	vec4 n_out147p0;
-// Texture2DArray:147
-	n_out147p0 = texture(Eyeliner, n_out6p0);
-	float n_out147p4 = n_out147p0.a;
-
-
-// VectorOp:150
-	vec4 n_out150p0 = n_out149p0 * n_out147p0;
-
-
-// Mix:155
-	vec4 n_out155p0 = mix(n_out145p0, n_out150p0, n_out147p4);
-
-
 // UIntParameter:50
 	uint n_out50p0 = EyeBlinkIndex;
 
@@ -768,6 +755,20 @@ void fragment() {
 
 // VectorCompose:151
 	vec3 n_out151p0 = vec3(n_out136p1, n_out136p2, n_out55p0);
+
+
+	vec4 n_out147p0;
+// Texture2DArray:147
+	n_out147p0 = texture(Eyeliner, n_out151p0);
+	float n_out147p4 = n_out147p0.a;
+
+
+// VectorOp:150
+	vec4 n_out150p0 = n_out149p0 * n_out147p0;
+
+
+// Mix:155
+	vec4 n_out155p0 = mix(n_out145p0, n_out150p0, n_out147p4);
 
 
 	vec4 n_out5p0;
@@ -1172,7 +1173,6 @@ void fragment() {
 
 }
 "
-graph_offset = Vector2(-384.171, -64.0113)
 nodes/fragment/0/position = Vector2(1960, 600)
 nodes/fragment/4/node = SubResource("VisualShaderNodeTexture2DArrayParameter_0msa2")
 nodes/fragment/4/position = Vector2(-1660, -1660)
@@ -1339,15 +1339,13 @@ nodes/fragment/137/position = Vector2(-2600, -2400)
 nodes/fragment/138/node = SubResource("VisualShaderNodeFloatParameter_e6vpw")
 nodes/fragment/138/position = Vector2(-2880, -2620)
 nodes/fragment/139/node = SubResource("VisualShaderNodeTexture2DArrayParameter_1cm4c")
-nodes/fragment/139/position = Vector2(-1700, -2860)
+nodes/fragment/139/position = Vector2(-1940, -3000)
 nodes/fragment/140/node = SubResource("VisualShaderNodeTexture2DArray_ebk51")
 nodes/fragment/140/position = Vector2(-1360, -3000)
 nodes/fragment/141/node = SubResource("VisualShaderNodeFloatOp_sao6i")
 nodes/fragment/141/position = Vector2(-620, -2000)
 nodes/fragment/142/node = SubResource("VisualShaderNodeMix_antos")
 nodes/fragment/142/position = Vector2(-120, -1920)
-nodes/fragment/143/node = SubResource("VisualShaderNodeVectorCompose_tsbsv")
-nodes/fragment/143/position = Vector2(-1540, -3200)
 nodes/fragment/145/node = SubResource("VisualShaderNodeVectorOp_u2vc8")
 nodes/fragment/145/position = Vector2(-1000, -3040)
 nodes/fragment/146/node = SubResource("VisualShaderNodeColorParameter_a7xrt")
@@ -1355,7 +1353,7 @@ nodes/fragment/146/position = Vector2(-1360, -3200)
 nodes/fragment/147/node = SubResource("VisualShaderNodeTexture2DArray_8p41r")
 nodes/fragment/147/position = Vector2(-1220, -2320)
 nodes/fragment/148/node = SubResource("VisualShaderNodeTexture2DArrayParameter_tb2iw")
-nodes/fragment/148/position = Vector2(-1700, -2200)
+nodes/fragment/148/position = Vector2(-1640, -2220)
 nodes/fragment/149/node = SubResource("VisualShaderNodeColorParameter_svuxd")
 nodes/fragment/149/position = Vector2(-1220, -2520)
 nodes/fragment/150/node = SubResource("VisualShaderNodeVectorOp_dbkgu")
@@ -1444,4 +1442,4 @@ nodes/fragment/194/node = SubResource("VisualShaderNodeFloatFunc_gigwb")
 nodes/fragment/194/position = Vector2(580, 120)
 nodes/fragment/195/node = SubResource("VisualShaderNodeFloatFunc_oky52")
 nodes/fragment/195/position = Vector2(760, 120)
-nodes/fragment/connections = PackedInt32Array(4, 0, 5, 2, 13, 0, 11, 2, 14, 0, 11, 0, 26, 0, 24, 2, 23, 0, 24, 0, 25, 0, 23, 2, 21, 0, 32, 0, 12, 0, 14, 2, 57, 0, 53, 1, 58, 0, 53, 0, 56, 0, 59, 0, 59, 0, 55, 2, 50, 0, 55, 0, 7, 0, 55, 1, 53, 0, 56, 0, 51, 0, 68, 0, 67, 0, 68, 1, 68, 0, 58, 0, 74, 0, 75, 0, 75, 0, 76, 0, 79, 0, 80, 0, 80, 0, 81, 0, 11, 0, 87, 1, 88, 0, 87, 0, 76, 0, 89, 0, 49, 0, 96, 0, 98, 0, 74, 0, 96, 0, 98, 0, 99, 0, 100, 1, 100, 0, 98, 1, 91, 1, 101, 0, 102, 0, 101, 1, 101, 0, 89, 1, 91, 2, 104, 1, 75, 1, 104, 0, 104, 0, 77, 1, 89, 0, 77, 0, 105, 1, 107, 1, 108, 0, 83, 1, 105, 2, 108, 1, 109, 0, 110, 0, 110, 0, 79, 0, 111, 0, 112, 1, 112, 0, 110, 1, 95, 0, 113, 1, 113, 0, 100, 0, 32, 0, 115, 0, 114, 0, 115, 1, 115, 1, 23, 0, 116, 0, 117, 0, 115, 2, 23, 1, 120, 0, 32, 1, 117, 0, 120, 1, 35, 0, 121, 0, 121, 0, 114, 1, 24, 0, 122, 0, 125, 0, 124, 1, 122, 0, 126, 1, 126, 0, 127, 0, 127, 0, 124, 0, 127, 0, 123, 2, 124, 0, 123, 1, 24, 0, 123, 0, 16, 0, 109, 0, 129, 0, 128, 1, 130, 0, 14, 0, 130, 1, 14, 1, 131, 0, 129, 0, 83, 0, 132, 0, 132, 0, 128, 0, 128, 0, 133, 0, 133, 0, 130, 0, 77, 0, 134, 0, 137, 0, 135, 1, 138, 0, 137, 0, 135, 0, 136, 0, 134, 0, 135, 0, 136, 1, 6, 0, 136, 2, 6, 1, 139, 0, 140, 2, 5, 0, 142, 1, 5, 4, 142, 2, 140, 0, 145, 1, 146, 0, 145, 0, 148, 0, 147, 2, 147, 0, 150, 1, 149, 0, 150, 0, 55, 0, 151, 2, 151, 0, 5, 0, 147, 4, 155, 2, 150, 0, 155, 1, 145, 0, 155, 0, 155, 0, 142, 0, 7, 0, 6, 2, 6, 0, 147, 0, 6, 0, 140, 0, 136, 1, 151, 0, 136, 2, 151, 1, 156, 0, 157, 2, 14, 0, 157, 0, 157, 0, 159, 1, 157, 4, 159, 2, 87, 0, 159, 0, 159, 0, 18, 1, 171, 0, 172, 2, 168, 0, 172, 0, 170, 0, 168, 2, 167, 0, 160, 0, 160, 0, 169, 0, 162, 0, 169, 1, 169, 1, 168, 0, 164, 0, 163, 0, 169, 2, 168, 1, 161, 0, 160, 1, 163, 0, 161, 1, 166, 0, 165, 0, 165, 0, 162, 1, 172, 0, 173, 0, 174, 0, 173, 1, 123, 0, 175, 0, 173, 4, 175, 2, 173, 0, 175, 1, 175, 0, 27, 1, 176, 0, 27, 2, 5, 4, 141, 1, 11, 4, 158, 0, 157, 4, 158, 1, 158, 0, 18, 2, 158, 0, 19, 1, 176, 0, 28, 1, 28, 0, 0, 1, 140, 4, 154, 0, 147, 4, 154, 1, 154, 0, 141, 0, 24, 4, 176, 0, 173, 4, 176, 1, 81, 0, 107, 0, 107, 0, 83, 0, 80, 1, 108, 0, 142, 0, 18, 0, 141, 0, 19, 0, 184, 0, 183, 2, 177, 0, 181, 0, 178, 0, 179, 0, 179, 0, 181, 1, 181, 1, 182, 0, 181, 2, 182, 1, 180, 0, 182, 2, 182, 0, 183, 0, 18, 0, 185, 0, 185, 0, 27, 0, 19, 0, 186, 0, 186, 0, 28, 0, 187, 0, 188, 2, 182, 0, 188, 0, 190, 0, 185, 2, 183, 0, 191, 1, 191, 0, 185, 1, 183, 4, 190, 1, 190, 0, 186, 1, 183, 4, 191, 2, 188, 0, 192, 1, 193, 0, 192, 0, 192, 0, 191, 0, 192, 4, 190, 0, 194, 0, 195, 0, 27, 0, 0, 0, 195, 0, 0, 3, 188, 4, 194, 0)
+nodes/fragment/connections = PackedInt32Array(4, 0, 5, 2, 13, 0, 11, 2, 14, 0, 11, 0, 26, 0, 24, 2, 23, 0, 24, 0, 25, 0, 23, 2, 21, 0, 32, 0, 12, 0, 14, 2, 57, 0, 53, 1, 58, 0, 53, 0, 56, 0, 59, 0, 59, 0, 55, 2, 50, 0, 55, 0, 7, 0, 55, 1, 53, 0, 56, 0, 51, 0, 68, 0, 67, 0, 68, 1, 68, 0, 58, 0, 74, 0, 75, 0, 75, 0, 76, 0, 79, 0, 80, 0, 80, 0, 81, 0, 11, 0, 87, 1, 88, 0, 87, 0, 76, 0, 89, 0, 49, 0, 96, 0, 98, 0, 74, 0, 96, 0, 98, 0, 99, 0, 100, 1, 100, 0, 98, 1, 91, 1, 101, 0, 102, 0, 101, 1, 101, 0, 89, 1, 91, 2, 104, 1, 75, 1, 104, 0, 104, 0, 77, 1, 89, 0, 77, 0, 105, 1, 107, 1, 108, 0, 83, 1, 105, 2, 108, 1, 109, 0, 110, 0, 110, 0, 79, 0, 111, 0, 112, 1, 112, 0, 110, 1, 95, 0, 113, 1, 113, 0, 100, 0, 32, 0, 115, 0, 114, 0, 115, 1, 115, 1, 23, 0, 116, 0, 117, 0, 115, 2, 23, 1, 120, 0, 32, 1, 117, 0, 120, 1, 35, 0, 121, 0, 121, 0, 114, 1, 24, 0, 122, 0, 125, 0, 124, 1, 122, 0, 126, 1, 126, 0, 127, 0, 127, 0, 124, 0, 127, 0, 123, 2, 124, 0, 123, 1, 24, 0, 123, 0, 16, 0, 109, 0, 129, 0, 128, 1, 130, 0, 14, 0, 130, 1, 14, 1, 131, 0, 129, 0, 83, 0, 132, 0, 132, 0, 128, 0, 128, 0, 133, 0, 133, 0, 130, 0, 77, 0, 134, 0, 137, 0, 135, 1, 138, 0, 137, 0, 135, 0, 136, 0, 134, 0, 135, 0, 136, 1, 6, 0, 136, 2, 6, 1, 139, 0, 140, 2, 5, 0, 142, 1, 5, 4, 142, 2, 140, 0, 145, 1, 146, 0, 145, 0, 148, 0, 147, 2, 147, 0, 150, 1, 149, 0, 150, 0, 55, 0, 151, 2, 151, 0, 5, 0, 147, 4, 155, 2, 150, 0, 155, 1, 145, 0, 155, 0, 155, 0, 142, 0, 7, 0, 6, 2, 6, 0, 140, 0, 136, 1, 151, 0, 136, 2, 151, 1, 156, 0, 157, 2, 14, 0, 157, 0, 157, 0, 159, 1, 157, 4, 159, 2, 87, 0, 159, 0, 159, 0, 18, 1, 171, 0, 172, 2, 168, 0, 172, 0, 170, 0, 168, 2, 167, 0, 160, 0, 160, 0, 169, 0, 162, 0, 169, 1, 169, 1, 168, 0, 164, 0, 163, 0, 169, 2, 168, 1, 161, 0, 160, 1, 163, 0, 161, 1, 166, 0, 165, 0, 165, 0, 162, 1, 172, 0, 173, 0, 174, 0, 173, 1, 123, 0, 175, 0, 173, 4, 175, 2, 173, 0, 175, 1, 175, 0, 27, 1, 176, 0, 27, 2, 5, 4, 141, 1, 11, 4, 158, 0, 157, 4, 158, 1, 158, 0, 18, 2, 158, 0, 19, 1, 176, 0, 28, 1, 28, 0, 0, 1, 140, 4, 154, 0, 147, 4, 154, 1, 154, 0, 141, 0, 24, 4, 176, 0, 173, 4, 176, 1, 81, 0, 107, 0, 107, 0, 83, 0, 80, 1, 108, 0, 142, 0, 18, 0, 141, 0, 19, 0, 184, 0, 183, 2, 177, 0, 181, 0, 178, 0, 179, 0, 179, 0, 181, 1, 181, 1, 182, 0, 181, 2, 182, 1, 180, 0, 182, 2, 182, 0, 183, 0, 18, 0, 185, 0, 185, 0, 27, 0, 19, 0, 186, 0, 186, 0, 28, 0, 187, 0, 188, 2, 182, 0, 188, 0, 190, 0, 185, 2, 183, 0, 191, 1, 191, 0, 185, 1, 183, 4, 190, 1, 190, 0, 186, 1, 183, 4, 191, 2, 188, 0, 192, 1, 193, 0, 192, 0, 192, 0, 191, 0, 192, 4, 190, 0, 194, 0, 195, 0, 27, 0, 0, 0, 195, 0, 0, 3, 188, 4, 194, 0, 151, 0, 147, 0)

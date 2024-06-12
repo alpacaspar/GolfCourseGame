@@ -1,28 +1,25 @@
-[gd_scene load_steps=5 format=3 uid="uid://5fowc4q08ld3"]
+[gd_scene load_steps=4 format=3 uid="uid://5fowc4q08ld3"]
 
 [ext_resource type="Script" path="res://addons/npc_editor/ui/npc_customizer_option.gd" id="1_320y7"]
+[ext_resource type="Theme" uid="uid://pq6ete4ie6a8" path="res://common/character_creator/resources/character_creator_theme.tres" id="1_manhe"]
 [ext_resource type="Texture2D" uid="uid://dfspa0f55imyc" path="res://icon.svg" id="2_vhrb1"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gk0x3"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_527lu"]
-bg_color = Color(0.6, 0.6, 0.6, 0.196078)
-
 [node name="NPCCustomizerOption" type="PanelContainer" node_paths=PackedStringArray("button", "texture")]
-custom_minimum_size = Vector2(72, 0)
+custom_minimum_size = Vector2(72, 72)
+theme = ExtResource("1_manhe")
 script = ExtResource("1_320y7")
 button = NodePath("Button")
 texture = NodePath("Texture")
 
+[node name="Button" type="Button" parent="."]
+layout_mode = 2
+theme = ExtResource("1_manhe")
+toggle_mode = true
+
 [node name="Texture" type="TextureRect" parent="."]
 layout_mode = 2
+mouse_filter = 2
+theme = ExtResource("1_manhe")
 texture = ExtResource("2_vhrb1")
 expand_mode = 3
 stretch_mode = 5
-
-[node name="Button" type="Button" parent="."]
-layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxFlat_gk0x3")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_527lu")
-toggle_mode = true

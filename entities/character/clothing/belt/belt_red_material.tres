@@ -1,0 +1,14 @@
+[gd_resource type="StandardMaterial3D" load_steps=5 format=3 uid="uid://c7adqces7uohw"]
+
+[ext_resource type="Texture2D" uid="uid://pw7n2lw8ak1a" path="res://entities/character/clothing/belt/belt_red_albedo.png" id="1_2fe7g"]
+[ext_resource type="Texture2D" uid="uid://cojvybdxyhg20" path="res://entities/character/clothing/belt/belt_brown_metallic.png" id="2_8yhlm"]
+[ext_resource type="Texture2D" uid="uid://c7km3ooiaobt1" path="res://entities/character/clothing/belt/belt_brown_normal.png" id="3_022ex"]
+[ext_resource type="Texture2D" uid="uid://ciehmshwq4vcf" path="res://entities/character/clothing/belt/belt_brown_roughness.png" id="4_f3ljq"]
+
+[resource]
+albedo_texture = ExtResource("1_2fe7g")
+metallic = 1.0
+metallic_texture = ExtResource("2_8yhlm")
+roughness_texture = ExtResource("4_f3ljq")
+normal_enabled = true
+normal_texture = ExtResource("3_022ex")

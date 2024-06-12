@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cyjadjw7eauej"
-path.s3tc="res://.godot/imported/piercing_earringmesh_albedo.png-754e69da62b9a7f32352c5b04038a1a2.s3tc.ctex"
+path.bptc="res://.godot/imported/piercing_earringmesh_albedo.png-754e69da62b9a7f32352c5b04038a1a2.bptc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -12,12 +12,12 @@ metadata={
 [deps]
 
 source_file="res://entities/character/head/facial_details/piercing_earringmesh_albedo.png"
-dest_files=["res://.godot/imported/piercing_earringmesh_albedo.png-754e69da62b9a7f32352c5b04038a1a2.s3tc.ctex"]
+dest_files=["res://.godot/imported/piercing_earringmesh_albedo.png-754e69da62b9a7f32352c5b04038a1a2.bptc.ctex"]
 
 [params]
 
 compress/mode=2
-compress/high_quality=false
+compress/high_quality=true
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0

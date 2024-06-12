@@ -1,8 +1,8 @@
 [gd_resource type="ShaderMaterial" load_steps=15 format=3 uid="uid://btb23i348d3pn"]
 
 [ext_resource type="Shader" uid="uid://dn8hcmbi0cime" path="res://entities/character/clothing/character_clothing_shader.tres" id="1_pfevk"]
-[ext_resource type="Texture2D" uid="uid://dyt5mfqtaght8" path="res://entities/character/clothing/clothing_pants_albedo.png" id="2_jelyw"]
-[ext_resource type="Texture2D" uid="uid://2mqcciu3x6ri" path="res://entities/character/clothing/clothing_pants_normal.png" id="3_aeuyf"]
+[ext_resource type="Texture2D" uid="uid://dckilkspi1mel" path="res://entities/character/clothing/clothing_pantalonrolledpants_roughness.png" id="2_ld6ou"]
+[ext_resource type="Texture2D" uid="uid://57dgr5brjseb" path="res://entities/character/clothing/clothing_pantalonrolledpants_normal.png" id="3_gs8fi"]
 [ext_resource type="Texture2D" uid="uid://cmmqgcweqbbeo" path="res://entities/character/clothing/clothing_pants_roughness.png" id="4_3dtb8"]
 [ext_resource type="Texture2D" uid="uid://cxf28ttjgg2se" path="res://entities/character/clothing/clothing_shirt_color.png" id="5_ypctw"]
 [ext_resource type="Texture2D" uid="uid://dev6qgd7ybesl" path="res://entities/character/clothing/clothing_shirt_normal.png" id="6_bfjd0"]
@@ -12,26 +12,27 @@
 [ext_resource type="Texture2D" uid="uid://ses0a2ccav7a" path="res://entities/character/clothing/shoes/shoes_allstars_colormask.png" id="9_rrucs"]
 [ext_resource type="Texture2D" uid="uid://bjupnamcegtfd" path="res://entities/character/clothing/shoes/shoes_allstars_metallic.png" id="10_x4gwc"]
 [ext_resource type="Texture2D" uid="uid://hp6su3p07mq4" path="res://entities/character/clothing/shoes/shoes_allstars_normal.png" id="11_lm8tm"]
-[ext_resource type="Texture2D" uid="uid://dr3dbge8070f7" path="res://entities/character/clothing/socks/sock_ankle_albedo.png" id="13_3kw7c"]
-[ext_resource type="Texture2D" uid="uid://crro6adw6oq4j" path="res://entities/character/clothing/socks/sock_ankle_roughness.png" id="14_xiy57"]
+[ext_resource type="Texture2D" uid="uid://wuoyr6jbka8v" path="res://entities/character/clothing/socks/sock_happy_albedo.png" id="13_axkhe"]
+[ext_resource type="Texture2D" uid="uid://dhdmilklcx30o" path="res://entities/character/clothing/socks/sock_happy_roughness.png" id="14_xqhfg"]
 
 [resource]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("1_pfevk")
 shader_parameter/ShirtTint = Color(0.196078, 0.811765, 0.996078, 1)
+shader_parameter/SocksTint = Color(1, 1, 1, 1)
 shader_parameter/PantsTint = Color(0.462745, 0.462745, 0.462745, 1)
 shader_parameter/ShoesTint = Color(1, 0.47451, 0.454902, 1)
 shader_parameter/ShirtAlbedo = ExtResource("5_ypctw")
-shader_parameter/SocksAlbedo = ExtResource("13_3kw7c")
-shader_parameter/PantsAlbedo = ExtResource("2_jelyw")
+shader_parameter/SocksAlbedo = ExtResource("13_axkhe")
+shader_parameter/PantsAlbedo = ExtResource("2_ld6ou")
 shader_parameter/ShoesAlbedo = ExtResource("8_weey4")
 shader_parameter/ShoesColorMask = ExtResource("9_rrucs")
 shader_parameter/ShoesMetallic = ExtResource("10_x4gwc")
 shader_parameter/ShirtRoughness = ExtResource("7_fwpx7")
-shader_parameter/SocksRoughness = ExtResource("14_xiy57")
+shader_parameter/SocksRoughness = ExtResource("14_xqhfg")
 shader_parameter/PantsRoughness = ExtResource("4_3dtb8")
 shader_parameter/ShoesRoughness = ExtResource("8_bmsd8")
 shader_parameter/ShoesNormal = ExtResource("11_lm8tm")
-shader_parameter/PantsNormal = ExtResource("3_aeuyf")
+shader_parameter/PantsNormal = ExtResource("3_gs8fi")
 shader_parameter/ShirtNormal = ExtResource("6_bfjd0")
