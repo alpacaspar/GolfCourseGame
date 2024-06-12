@@ -103,7 +103,7 @@ func _ready():
 	reset_button.pressed.connect(_reset)
 
 	# Colors
-	for picker in skin_color_option_pickers:
+	for picker: CreatorColorPicker in skin_color_option_pickers:
 		await _set_color_button_connections(CharacterFactory.skin_colors, picker)
 	
 	await _set_color_button_connections(CharacterFactory.hair_colors, hair_color_option_picker)
@@ -174,7 +174,7 @@ func _ready():
 	_update_character()
 
 
-func _process(delta):
+func _process(delta: float):
 	preview_scene.on_process(delta)
 
 
@@ -254,9 +254,9 @@ func _set_external_icon_button_connections(icon_collection, collection, picker: 
 
 func _set_texture_button_connections(collection, picker: CreatorGallery, remove_last_count: int = 0):
 	var last: int = collection.get_layers() - 1 - remove_last_count
-	var index: int = 0
-	for option in collection.get_layers() - 1:
-		var texture = ImageTexture.create_from_image(collection.get_layer_data(option))
+	var index := 0
+	for option: int in collection.get_layers() - 1:
+		var texture := ImageTexture.create_from_image(collection.get_layer_data(option))
 		picker.add_button(texture, _update_character)
 
 		index += 1
@@ -267,8 +267,8 @@ func _set_texture_button_connections(collection, picker: CreatorGallery, remove_
 func _set_texture_button_connections_color_override(collection, picker: CreatorGallery, remove_last_count: int = 0):
 	var last: int = collection.get_layers() - 1 - remove_last_count
 	var index: int = 0
-	for option in collection.get_layers() - 1:
-		var image = collection.get_layer_data(option)
+	for option: int in collection.get_layers() - 1:
+		var image: Image = collection.get_layer_data(option)
 		image.adjust_bcs(0, 1, 1)
 		picker.add_button(ImageTexture.create_from_image(image), _update_character)
 
@@ -279,7 +279,7 @@ func _set_texture_button_connections_color_override(collection, picker: CreatorG
 
 func _set_single_texture_button_connections(collection, picker: CreatorGallery):
 	for option in collection:
-		var image = option.get_layer_data(0)
+		var image: Image = option.get_layer_data(0)
 		image.adjust_bcs(0, 1, 1)
 		picker.add_button(ImageTexture.create_from_image(image), _update_character)
 
@@ -290,7 +290,7 @@ func _set_resource_button_connections(collection, picker: CreatorGallery):
 
 
 func _randomize():
-	var rng = RandomNumberGenerator.new()
+	var rng := RandomNumberGenerator.new()
 
 	# Face stuff
 	skin_color_tracker.index = rng.randi_range(0, CharacterFactory.skin_colors.size() - 1)
