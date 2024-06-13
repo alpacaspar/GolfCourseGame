@@ -1,7 +1,15 @@
+@tool
 class_name NPCResource
 extends Resource
 
 @export var name: String
+
+@export var icon := Texture2D.new()
+@export var refresh_icon := false:
+	set(value):
+		if refresh_icon != value:
+			refresh_icon = value
+			_update_icon()
 
 @export_group("Face options")
 @export var eye_index: int = 0
@@ -11,18 +19,18 @@ extends Resource
 @export var mouth_index: int = 0
 @export var hair_index: int = 0
 
-@export var eyeshadow_index: int = 0
-@export var eyeliner_index: int = 0
-@export var blush_index: int = 0
+@export var eyeshadow_index: int = -1
+@export var eyeliner_index: int = -1
+@export var blush_index: int = -1
 
-@export var glasses_index: int = 0
+@export var glasses_index: int = 10
 
-@export var mustache_index: int = 0
-@export var beard_index: int = 0
+@export var mustache_index: int = -1
+@export var beard_index: int = -1
 
-@export var nose_piercing_index: int = 0
-@export var eyebrow_piercing_index: int = 0
-@export var earring_index: int = 0
+@export var nose_piercing_index: int = -1
+@export var eyebrow_piercing_index: int = -1
+@export var earring_index: int = -1
 
 @export_subgroup("Colors")
 @export var skin_color_index: int = 0
@@ -55,3 +63,16 @@ extends Resource
 @export var pants_color_index: int = 0
 @export var sock_color_index: int = 0
 @export var shoes_color_index: int = 0
+
+
+func _update_icon():
+	if CharacterFactory.get_child_count() > 0:
+		CharacterFactory.get_child(0).queue_free()
+
+	var preview_scene := load("res://addons/npc_editor/preview_scene.tscn").instantiate() as PreviewSpawner
+	CharacterFactory.add_child(preview_scene)
+	preview_scene.make_ready()
+	icon = await preview_scene.create_icon(self)
+
+	if not refresh_icon:
+		preview_scene.queue_free()

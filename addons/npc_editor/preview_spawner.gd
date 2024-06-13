@@ -67,3 +67,16 @@ func _edit_character(character_resource: NPCResource):
 
 func _exit_tree():
 	spawned_character.queue_free()
+
+
+func create_icon(_character_resource: NPCResource) -> Texture2D:
+	_edit_character(_character_resource)
+	set_zoom(1)
+	
+	icon_cam.current = true
+	icon_viewport.render_target_update_mode = 1
+	await RenderingServer.frame_post_draw
+	var image = icon_viewport.get_texture().get_image()
+	
+	preview_cam.current = true
+	return ImageTexture.create_from_image(image)
