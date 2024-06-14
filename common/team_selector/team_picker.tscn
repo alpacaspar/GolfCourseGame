@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://c5rxv5qq7egp0" path="res://common/team_selector/unit_icon.tscn" id="1_mqurp"]
 [ext_resource type="Script" path="res://common/team_selector/team_picker_manager.gd" id="1_shhya"]
-[ext_resource type="Resource" uid="uid://v65qcsucqgh" path="res://entities/teams/player_golfer_inventory.tres" id="2_bxjl3"]
+[ext_resource type="Resource" uid="uid://dgr40w467j67e" path="res://entities/teams/player_team_resource.tres" id="2_bxjl3"]
 [ext_resource type="Script" path="res://common/team_selector/golfer_info_references.gd" id="7_b30yh"]
 
 [node name="TeamPicker" type="Control" node_paths=PackedStringArray("team_icon_holder", "bench_icon_holder", "continue_button", "info_holder")]

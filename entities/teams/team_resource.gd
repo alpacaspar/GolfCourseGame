@@ -2,7 +2,7 @@ class_name TeamResource
 extends Resource
 
 
-@export var leader: RivalResource
+@export var leader: GolferResource
 @export var units: Array[GolferResource] = []
 
 

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="TeamResource" load_steps=5 format=3 uid="uid://cloas2dggkma5"]
+
+[ext_resource type="Script" path="res://entities/teams/team_resource.gd" id="1_ngfar"]
+[ext_resource type="Resource" uid="uid://cl2ibsbkn1dcm" path="res://entities/golfers/wiljam_forgest_golfer.tres" id="1_rwvcq"]
+[ext_resource type="Resource" uid="uid://djvegej5fpjao" path="res://entities/golfers/barl_jonnes_golfer.tres" id="3_wjlwn"]
+[ext_resource type="Resource" uid="uid://bulc3utlqt2ng" path="res://entities/golfers/choper_snippledorf_golfer.tres" id="4_auoco"]
+
+[resource]
+script = ExtResource("1_ngfar")
+leader = ExtResource("1_rwvcq")
+units = Array[Resource("res://entities/golfers/golfer_resource.gd")]([ExtResource("3_wjlwn"), ExtResource("4_auoco")])
