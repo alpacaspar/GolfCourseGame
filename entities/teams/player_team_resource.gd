@@ -4,7 +4,7 @@ extends TeamResource
 
 @export var benched_golfers: Array[GolferResource] = []
 
-var player: PlayerRivalResource:
+var player: GolferResource:
 	get: return leader
 	set(value): leader = value
 

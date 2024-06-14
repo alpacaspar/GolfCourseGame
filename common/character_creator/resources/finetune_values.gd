@@ -2,7 +2,7 @@ class_name FinetuneValues
 extends Resource
 
 
-var vertical: float = 0
-var horizontal: float = 0
-var rotation: float = 0
-var scale: float = 0
+@export var vertical: float = 0
+@export var horizontal: float = 0
+@export var rotation: float = 0
+@export var scale: float = 1

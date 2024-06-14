@@ -85,7 +85,8 @@ extends Control
 @export var zoom_target_slider: ScrollBar
 @export var rotation_slider: ScrollBar
 
-var edited_resource: NPCResource = NPCResource.new()
+@export var edited_resource: NPCResource
+
 var preview_scene: PreviewSpawner
 
 

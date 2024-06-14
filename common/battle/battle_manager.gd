@@ -49,9 +49,9 @@ func start_battle(hole: Hole, team1: TeamResource, team2: TeamResource):
 	Wwise.post_event("play_mus_battle", self)
 
 
-func end_battle(winning_rival: RivalResource):
+func end_battle(winning_team: TeamResource):
 	battle_active = false
-	on_battle_ended.emit(winning_rival)
+	on_battle_ended.emit(winning_team)
 
 	Wwise.post_event("stop_mus_battle", self)
 
@@ -88,18 +88,18 @@ func _instantiate_team(team_resource: TeamResource, origin: Node3D):
 	var unit_instance: Unit
 	var controller_instance: Node
 
-	for unit: GolferResource in team_resource.get_composition():
+	for golfer: GolferResource in team_resource.get_composition():
 		unit_instance = unit_scene.instantiate()
 		team_instance.add_child(unit_instance)
 		team_instance.units.append(unit_instance)
 
-		if unit is PlayerRivalResource:
+		if golfer.has_meta("is_player"):
 			controller_instance = unit_player_controller.instantiate()
 		else:
 			controller_instance = unit_ai_controller.instantiate()
 		unit_instance.controller = controller_instance
 		
-		unit_instance.setup(unit, team_instance)
+		unit_instance.setup(golfer, team_instance)
 		unit_instance.add_child(controller_instance)
 
 		unit_instance.global_transform.origin = spawnpoints.pop_back()

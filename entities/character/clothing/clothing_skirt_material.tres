@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://dqcxlil4meiuv" path="res://entities/character/clothing/clothing_skirt_roughness.png" id="3_nf4mn"]
 
 [resource]
+albedo_color = Color(0.584314, 0.47451, 0.670588, 1)
 albedo_texture = ExtResource("1_bda1k")
 roughness_texture = ExtResource("3_nf4mn")
 normal_enabled = true

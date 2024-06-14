@@ -1,21 +1,17 @@
-[gd_resource type="ShaderMaterial" load_steps=7 format=3 uid="uid://bgo8uqe2x7t62"]
+[gd_resource type="ShaderMaterial" load_steps=5 format=3 uid="uid://bgo8uqe2x7t62"]
 
 [ext_resource type="Texture2D" uid="uid://bp57odrenl76a" path="res://entities/character/body/character_body_albedo.png" id="1_bxum2"]
 [ext_resource type="Shader" uid="uid://btvu1sjexjgs7" path="res://entities/character/body/character_body_shader.tres" id="1_irf5s"]
 [ext_resource type="Texture2D" uid="uid://btogy4mao6lyv" path="res://entities/character/body/character_body_roughness.png" id="2_eml3e"]
-[ext_resource type="Texture2D" uid="uid://dwjk7ler30365" path="res://entities/character/head/facial_details/beards_full_roughness.png" id="3_as8ud"]
-[ext_resource type="Texture2D" uid="uid://beujm3w77d3rt" path="res://entities/character/head/facial_details/makeup_blush1_texture.png" id="3_flh8l"]
-[ext_resource type="Texture2D" uid="uid://bmmv6te6di8mx" path="res://entities/character/head/facial_details/beards_full_albedo.png" id="4_2g2oi"]
+[ext_resource type="Texture2D" uid="uid://djoejxbgb07fk" path="res://entities/character/head/facial_details/makeup_blush2_texture.png" id="3_g5j5d"]
 
 [resource]
 render_priority = 0
 shader = ExtResource("1_irf5s")
-shader_parameter/SkinColor = Color(0.964706, 0.929412, 0.894118, 1)
+shader_parameter/SkinColor = Color(0.678431, 0.427451, 0.231373, 1)
 shader_parameter/BlushColor = Color(0.705882, 0.376471, 0.290196, 1)
 shader_parameter/BeardColor = Color(0.764706, 0.639216, 0.356863, 1)
 shader_parameter/Roughness = 0.0
 shader_parameter/Albedo = ExtResource("1_bxum2")
-shader_parameter/Blush = ExtResource("3_flh8l")
-shader_parameter/Beards = ExtResource("4_2g2oi")
-shader_parameter/BeardRoughness = ExtResource("3_as8ud")
+shader_parameter/Blush = ExtResource("3_g5j5d")
 shader_parameter/BodyRoughness = ExtResource("2_eml3e")
