@@ -1,13 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://drle7k8jydi38"]
+[gd_scene load_steps=4 format=3 uid="uid://drle7k8jydi38"]
 
-[ext_resource type="PackedScene" uid="uid://dixhhv1bgajy0" path="res://main/golf_course.tscn" id="1_0paj6"]
-[ext_resource type="PackedScene" uid="uid://ca8onp5rc6dj7" path="res://entities/user_interface/user_interface.tscn" id="2_6u3u6"]
+[ext_resource type="Script" path="res://main/game.gd" id="1_aqgq5"]
+[ext_resource type="Resource" uid="uid://dr8wom2vtctfx" path="res://common/scene_loader/scene_loader.tres" id="2_4x1bv"]
+[ext_resource type="PackedScene" uid="uid://c75huqds1lmet" path="res://common/character_creator/main/character_creator_updated.tscn" id="3_js08x"]
 
 [node name="Game" type="Node"]
-
-[node name="GolfCourse" parent="." instance=ExtResource("1_0paj6")]
-
-[node name="UserInterface" parent="." instance=ExtResource("2_6u3u6")]
+script = ExtResource("1_aqgq5")
+scene_loader = ExtResource("2_4x1bv")
+default_scenes = Array[PackedScene]([ExtResource("3_js08x")])
 
 [node name="InitAkBank" type="AkBank" parent="."]
 bank = {
