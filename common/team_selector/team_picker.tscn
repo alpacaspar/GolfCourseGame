@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://ybo6yif82wwi"]
+[gd_scene load_steps=6 format=3 uid="uid://ybo6yif82wwi"]
 
 [ext_resource type="PackedScene" uid="uid://c5rxv5qq7egp0" path="res://common/team_selector/unit_icon.tscn" id="1_mqurp"]
 [ext_resource type="Script" path="res://common/team_selector/team_picker_manager.gd" id="1_shhya"]
 [ext_resource type="Resource" uid="uid://dgr40w467j67e" path="res://entities/teams/player_team_resource.tres" id="2_bxjl3"]
+[ext_resource type="Resource" uid="uid://dyp4fn1guw3dm" path="res://entities/user_interface/general_ui_view_group.res" id="4_ofs0l"]
 [ext_resource type="Script" path="res://common/team_selector/golfer_info_references.gd" id="7_b30yh"]
 
 [node name="TeamPicker" type="Control" node_paths=PackedStringArray("team_icon_holder", "bench_icon_holder", "continue_button", "info_holder")]
@@ -19,6 +20,7 @@ team_icon_holder = NodePath("PanelContainer/HBoxContainer")
 bench_icon_holder = NodePath("PanelContainer2/ScrollContainer/GridContainer")
 continue_button = NodePath("Button")
 info_holder = NodePath("PanelContainer3")
+view_group = ExtResource("4_ofs0l")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 1

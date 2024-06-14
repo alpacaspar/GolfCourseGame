@@ -89,9 +89,6 @@ func _instantiate_team(team_resource: TeamResource, origin: Node3D):
 	current_battle.add_child(team_instance)
 	teams.append(team_instance)
 
-	for unit: GolferResource in team_resource.units:
-		print(unit.npc_resource.name)
-
 	var spawnpoints := _get_spawnpoints(team_resource.size(), origin, SPAWN_SPACING)
 
 	var unit_instance: Unit
@@ -110,8 +107,6 @@ func _instantiate_team(team_resource: TeamResource, origin: Node3D):
 		
 		unit_instance.setup(golfer, team_instance)
 		unit_instance.add_child(controller_instance)
-
-		print("unit instance, ", unit_instance)
 
 		unit_instance.global_position = spawnpoints.pop_back()
 		unit_instance.global_rotation.y = origin.global_rotation.y

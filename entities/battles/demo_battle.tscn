@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://gv5jf3ljibf6"]
 
 [ext_resource type="Script" path="res://entities/battles/battle.gd" id="1_wks84"]
-[ext_resource type="Resource" uid="uid://6gcjg525wbuu" path="res://entities/teams/garl_team.tres" id="2_t33f7"]
+[ext_resource type="Resource" uid="uid://cloas2dggkma5" path="res://entities/teams/wiljam_forgest_team.tres" id="2_t33f7"]
 
 [sub_resource type="Curve3D" id="Curve3D_g5mua"]
 _data = {
