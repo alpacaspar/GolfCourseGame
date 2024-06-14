@@ -76,7 +76,7 @@ func create_icon(_character_resource: NPCResource) -> Texture2D:
 	icon_cam.current = true
 	icon_viewport.render_target_update_mode = 1
 	await RenderingServer.frame_post_draw
-	var image = icon_viewport.get_texture().get_image()
+	var image := icon_viewport.get_texture().get_image()
 	
 	preview_cam.current = true
 	return ImageTexture.create_from_image(image)
