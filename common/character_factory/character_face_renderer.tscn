@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://bkgq2yuo3x0yv"]
+
+[ext_resource type="Material" uid="uid://dclhlui6th110" path="res://entities/character/head/character_face_factory_material.tres" id="1_d1a7d"]
+
+[node name="FaceViewport" type="SubViewport"]
+transparent_bg = true
+size = Vector2i(1024, 1024)
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = ExtResource("1_d1a7d")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
