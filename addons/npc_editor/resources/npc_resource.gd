@@ -72,7 +72,12 @@ func _update_icon():
 
 	var preview_scene := load("res://addons/npc_editor/preview_scene.tscn").instantiate() as PreviewSpawner
 	CharacterFactory.add_child(preview_scene)
-	preview_scene.make_ready()
+
+	var character: Character = CharacterFactory.create_character(self)
+	CharacterFactory.refresh_character(character)
+	CharacterFactory.start_character_creation(character)
+
+	preview_scene.show_character(character)
 	icon = await preview_scene.create_icon(self)
 
 	if not refresh_icon:

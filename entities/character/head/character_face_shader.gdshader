@@ -18,5 +18,4 @@ void fragment() {
 	
 	ALBEDO = result.rgb;
 	ALPHA = result.a;
-	ALPHA_SCISSOR_THRESHOLD = 0.1;
 }

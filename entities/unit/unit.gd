@@ -45,7 +45,10 @@ func setup(new_golfer: GolferResource, assigned_team: Team):
     controller.unit = self
     controller.process_mode = PROCESS_MODE_DISABLED
 
-    character = CharacterFactory.spawn_character(golfer_resource.npc_resource)
+    character = CharacterFactory.create_character(golfer_resource.npc_resource)
+    CharacterFactory.start_character_creation(character)
+    CharacterFactory.refresh_character(character)
+    CharacterFactory.end_character_creation(character)
     visuals.add_child(character)
 
     role_action = golfer_resource.role.primary_action.instantiate()

@@ -94,11 +94,18 @@ extends Control
 
 var preview_scene: PreviewSpawner
 
+var current_character: Character
+
 
 func _ready():
 	preview_scene = preload("res://addons/npc_editor/preview_scene.tscn").instantiate() as PreviewSpawner
 	add_child(preview_scene)
-	preview_scene.make_ready()
+	
+	current_character = CharacterFactory.create_character(edited_resource)
+	CharacterFactory.start_character_creation(current_character)
+	CharacterFactory.refresh_character(current_character)
+
+	preview_scene.show_character(current_character)
 	preview_scene.callback = Callable(_set_preview)
 	
 	zoom_slider.value_changed.connect(preview_scene.set_zoom)
@@ -239,7 +246,7 @@ func _update_character(_value = 0):
 	edited_resource.glasses_values = glasses_buttons.get_values()
 	edited_resource.mustache_values = mustache_buttons.get_values()
 
-	preview_scene._edit_character(edited_resource)
+	CharacterFactory.refresh_character(preview_scene.current_character)
 
 
 func _set_preview(_texture):
