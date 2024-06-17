@@ -46,9 +46,6 @@ func setup(new_golfer: GolferResource, assigned_team: Team):
     controller.process_mode = PROCESS_MODE_DISABLED
 
     character = CharacterFactory.create_character(golfer_resource.npc_resource)
-    CharacterFactory.start_character_creation(character)
-    CharacterFactory.refresh_character(character)
-    CharacterFactory.end_character_creation(character)
     visuals.add_child(character)
 
     role_action = golfer_resource.role.primary_action.instantiate()
@@ -62,6 +59,10 @@ func setup(new_golfer: GolferResource, assigned_team: Team):
 
     animation_tree = character.animation_tree
     character.animation_tree.tree_root = golfer_resource.role.animation_blend_tree
+
+    CharacterFactory.start_character_creation(character)
+    CharacterFactory.refresh_character(character)
+    await CharacterFactory.end_character_creation(character)
 
 
 func perform_action():

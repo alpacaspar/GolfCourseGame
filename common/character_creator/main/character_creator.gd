@@ -246,7 +246,7 @@ func _update_character(_value = 0):
 	edited_resource.glasses_values = glasses_buttons.get_values()
 	edited_resource.mustache_values = mustache_buttons.get_values()
 
-	CharacterFactory.refresh_character(preview_scene.current_character)
+	CharacterFactory.refresh_character(current_character)
 
 
 func _set_preview(_texture):
@@ -440,4 +440,6 @@ func _reset():
 
 func _finish():
 	edited_resource.icon = await preview_scene.create_icon(edited_resource)
+	await CharacterFactory.end_character_creation(current_character)
+	
 	scene_loader.load_scenes(next_scenes)

@@ -71,17 +71,13 @@ func start_character_creation(character: Character):
 	character.face_mesh_instance.material_override.albedo_texture = active_face_renderers[character].get_texture()
 
 
+## End the character creation process and apply the face texture to the character.
+## Use [code]await[/code] if the character is destroyed after this function.
 func end_character_creation(character: Character):
+	character.face_mesh_instance.material_override = face_default_material.duplicate()
+
 	var face_texture := await _create_face_texture(active_face_renderers[character])
 	var face_blink_texture := await _create_face_blink_texture(active_face_renderers[character])
-
-	for instance in active_face_renderers.keys():
-		if not instance or not is_instance_valid(instance):
-			active_face_renderers[instance].queue_free()
-			active_face_renderers.erase(instance)
-			continue
-
-	character.face_mesh_instance.material_override = face_default_material.duplicate()
 
 	character.face_mesh_instance.material_override.set("shader_parameter/face", face_texture)
 	character.face_mesh_instance.material_override.set("shader_parameter/face_blink", face_blink_texture)
@@ -89,6 +85,11 @@ func end_character_creation(character: Character):
 
 	active_face_renderers[character].queue_free()
 	active_face_renderers.erase(character)
+
+	for instance in active_face_renderers.keys():
+		if not instance or not is_instance_valid(instance):
+			active_face_renderers[instance].queue_free()
+			active_face_renderers.erase(instance)
 
 
 func refresh_character(character: Character):
@@ -268,6 +269,7 @@ func refresh_character(character: Character):
 
 
 func _create_face_texture(face_renderer: SubViewport) -> Texture2D:
+	face_renderer.render_target_update_mode = SubViewport.UPDATE_ONCE
 	await RenderingServer.frame_post_draw
 	var image := face_renderer.get_texture().get_image()
 	
@@ -275,6 +277,6 @@ func _create_face_texture(face_renderer: SubViewport) -> Texture2D:
 
 
 func _create_face_blink_texture(face_renderer: SubViewport) -> Texture2D:
-	face_renderer.get_child(0).set("shader_parameter/EyeIndex", eye_blink_index)
+	face_renderer.get_child(0).material.set("shader_parameter/EyeIndex", eye_blink_index)
 
 	return await _create_face_texture(face_renderer)
