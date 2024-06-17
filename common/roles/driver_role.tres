@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Role" load_steps=3 format=3 uid="uid://bmxft8a33krck"]
 
-[ext_resource type="PackedScene" uid="uid://cpsugccd3bxr5" path="res://entities/equipment/club_driver.tscn" id="1_iv4da"]
+[ext_resource type="PackedScene" uid="uid://di0ci6uykiih8" path="res://entities/equipment/club_driver.tscn" id="1_iv4da"]
 [ext_resource type="Script" path="res://common/roles/role.gd" id="4_avgv3"]
 
 [resource]

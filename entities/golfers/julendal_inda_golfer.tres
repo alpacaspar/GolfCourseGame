@@ -1,11 +1,11 @@
-[gd_resource type="Resource" script_class="GolferResource" load_steps=4 format=3 uid="uid://dt4v13xkatb3r"]
+[gd_resource type="Resource" script_class="GolferResource" load_steps=4 format=3 uid="uid://40t8c6rr6bba"]
 
-[ext_resource type="Resource" uid="uid://0iitwk7ngn1x" path="res://common/npc_resources/julendal_inda.tres" id="1_u0aea"]
-[ext_resource type="Resource" uid="uid://n2wwvf3uab1k" path="res://common/roles/driver/driver_role.tres" id="2_msi4u"]
+[ext_resource type="Resource" uid="uid://bsqih0ydadoom" path="res://common/npc_resources/choper_snippledorf.tres" id="1_n40hs"]
+[ext_resource type="Resource" uid="uid://brlyd0ki64nvw" path="res://common/roles/iron_role.tres" id="2_2gwgy"]
 [ext_resource type="Script" path="res://entities/golfers/golfer_resource.gd" id="3_bq067"]
 
 [resource]
 script = ExtResource("3_bq067")
 level = 1
-role = ExtResource("2_msi4u")
-npc_resource = ExtResource("1_u0aea")
+role = ExtResource("2_2gwgy")
+npc_resource = ExtResource("1_n40hs")

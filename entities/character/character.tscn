@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://entities/character/character.gd" id="1_deigj"]
 [ext_resource type="AnimationLibrary" uid="uid://cteindhxey6qa" path="res://entities/character/animations/character_anim_library.res" id="2_od26b"]
 [ext_resource type="AnimationNodeBlendTree" uid="uid://b6g776vm2kvrn" path="res://entities/character/animations/character_animation_blend_tree.tres" id="3_1oxqe"]
-[ext_resource type="Material" uid="uid://df0m2c02rn35c" path="res://entities/character/body/character_body_material.tres" id="3_ashim"]
+[ext_resource type="Material" uid="uid://bgo8uqe2x7t62" path="res://entities/character/body/character_body_material.tres" id="3_ashim"]
 [ext_resource type="Material" uid="uid://btb23i348d3pn" path="res://entities/character/clothing/character_clothing_material.tres" id="4_2eedj"]
 [ext_resource type="Material" uid="uid://n65btp0wlcfs" path="res://entities/character/head/character_noseears_material.tres" id="6_m3ku2"]
 [ext_resource type="Texture2D" uid="uid://daq8u7aq4jv2n" path="res://entities/character/clothing/shoes/shoes_allstars_albedo.png" id="7_6shoc"]
