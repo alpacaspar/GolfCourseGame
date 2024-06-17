@@ -80,5 +80,7 @@ func _update_icon():
 	preview_scene.show_character(character)
 	icon = await preview_scene.create_icon(self)
 
+	await CharacterFactory.end_character_creation(character)
+
 	if not refresh_icon:
 		preview_scene.queue_free()

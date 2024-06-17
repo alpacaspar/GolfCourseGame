@@ -63,13 +63,16 @@ func set_zoom_target(value := 0.0):
 	preview_cam.position = zoom_target.lerp(unzoom_holder.position, zoom_value)
 
 
-func create_icon(_character_resource: NPCResource) -> Texture2D:
+func create_icon(character_resource: NPCResource) -> Texture2D:
 	set_zoom(1)
 	
 	icon_cam.current = true
+	
 	await RenderingServer.frame_post_draw
+	icon_viewport.render_target_update_mode = SubViewport.UPDATE_ONCE
+	await RenderingServer.frame_post_draw
+	
 	var image := icon_viewport.get_texture().get_image()
 	
 	preview_cam.current = true
 	return ImageTexture.create_from_image(image)
-	print_debug("Icon created")
