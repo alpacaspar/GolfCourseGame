@@ -2,6 +2,9 @@ class_name GolferResource
 extends Resource
 
 
+signal on_stamina_changed(stamina: int)
+
+
 @export var level := 1
 @export var role := Role.new()
 
@@ -37,7 +40,11 @@ func get_power() -> int:
 
 
 func set_stamina(new_stamina: int):
+	if new_stamina == stamina:
+		return
+
 	stamina = max(new_stamina, 0)
+	on_stamina_changed.emit(stamina)
 
 
 func set_bond(new_bond: int):

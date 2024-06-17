@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Battle" load_steps=4 format=3 uid="uid://x37wj7fbhrl6"]
+
+[ext_resource type="PackedScene" uid="uid://gv5jf3ljibf6" path="res://entities/battles/demo_battle.tscn" id="1_24qve"]
+[ext_resource type="Resource" uid="uid://6gcjg525wbuu" path="res://entities/teams/garl_team.tres" id="2_7s043"]
+[ext_resource type="Script" path="res://entities/battles/battle.gd" id="3_b5amq"]
+
+[resource]
+script = ExtResource("3_b5amq")
+name = "The first battle"
+battle_scene = ExtResource("1_24qve")
+rival_team = ExtResource("2_7s043")

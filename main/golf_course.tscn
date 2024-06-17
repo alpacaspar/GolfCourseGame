@@ -1,10 +1,7 @@
-[gd_scene load_steps=16 format=3 uid="uid://dixhhv1bgajy0"]
+[gd_scene load_steps=12 format=3 uid="uid://dixhhv1bgajy0"]
 
 [ext_resource type="Material" uid="uid://gnoi7qwmsv7q" path="res://entities/environment/water_material.tres" id="2_lfi1o"]
 [ext_resource type="PackedScene" uid="uid://dbssg6p52li32" path="res://entities/terrain/terrain.tscn" id="2_ucwcg"]
-[ext_resource type="Script" path="res://entities/hole/hole.gd" id="3_exqrc"]
-[ext_resource type="Resource" uid="uid://dgr40w467j67e" path="res://entities/teams/player_team_resource.tres" id="4_vsg6a"]
-[ext_resource type="Resource" uid="uid://cloas2dggkma5" path="res://entities/teams/wiljam_forgest_team.tres" id="5_1ohsd"]
 [ext_resource type="PackedScene" uid="uid://75rvfsq67s7b" path="res://entities/environment/palm_tree.tscn" id="6_7ctve"]
 [ext_resource type="PackedScene" uid="uid://c7c7cr6gjg8ua" path="res://entities/environment/oak_tree.tscn" id="7_t6kx5"]
 
@@ -34,13 +31,6 @@ material = ExtResource("2_lfi1o")
 size = Vector2(4000, 4000)
 center_offset = Vector3(500, 0, 500)
 
-[sub_resource type="Curve3D" id="Curve3D_g5mua"]
-_data = {
-"points": PackedVector3Array(0.914339, 1.27717, -10.7188, 0, 0, 10.719, 8.642, 6, -100.675, -0.078, 0, -13.411, 0.078, 0, 13.411, 23.6963, 1.90735e-06, -21.9435, 1.47888, 0.873091, -11.6118, -1.47888, -0.873091, 11.6118, 18.4174, -1.41887, 13.1782, 0, 0, 0, -1.468, 0, 11.725, 22.6987, -5.40214, 45.508),
-"tilts": PackedFloat32Array(0, -0.1, 0, 0)
-}
-point_count = 4
-
 [sub_resource type="PlaneMesh" id="PlaneMesh_rvmyo"]
 material = ExtResource("2_lfi1o")
 size = Vector2(50, 50)
@@ -58,7 +48,7 @@ environment = SubResource("Environment_7gkud")
 transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
 shadow_enabled = true
 
-[node name="golf_terrain" parent="." instance=ExtResource("2_ucwcg")]
+[node name="Terrain" parent="." instance=ExtResource("2_ucwcg")]
 
 [node name="FallbackCamera3D" type="Camera3D" parent="."]
 transform = Transform3D(0.729184, 0.060832, 0.681609, 0, 0.996041, -0.0888943, -0.684318, 0.0648203, 0.726297, 554.577, -1.725, 566.86)
@@ -76,35 +66,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -40, 0)
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ocean"]
 mesh = SubResource("PlaneMesh_cj3i1")
 
-[node name="Hole01" type="Node3D" parent="." node_paths=PackedStringArray("camera_path_track")]
+[node name="Hole01" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 512.304, -1.90735e-06, 516.943)
-script = ExtResource("3_exqrc")
-test_player = ExtResource("4_vsg6a")
-test_rival = ExtResource("5_1ohsd")
-camera_path_track = NodePath("HolePath3D/PathFollow3D")
-
-[node name="TeeArea" type="Marker3D" parent="Hole01"]
-transform = Transform3D(0.985482, 0, 0.16978, 0, 1, 0, -0.16978, 0, 0.985482, 12.1696, -4.20163, -61.0583)
-
-[node name="Camera3D" type="Camera3D" parent="Hole01/TeeArea"]
-transform = Transform3D(0.866025, 0.0695864, 0.495134, 0, 0.990268, -0.139173, -0.5, 0.120527, 0.857597, 4.4902, -0.767924, 7.77753)
-
-[node name="GreenArea" type="Marker3D" parent="Hole01"]
-transform = Transform3D(-0.992367, 0, -0.123324, 0, 1, 0, 0.123324, 0, -0.992367, 27.9291, -3.37651, 53.2966)
-
-[node name="Camera3D" type="Camera3D" parent="Hole01/GreenArea"]
-transform = Transform3D(0.795596, 0.109819, 0.59579, -0.0360206, 0.990268, -0.134431, -0.604755, 0.0854919, 0.791809, 5.36212, -1.20988, 7.12634)
-
-[node name="HolePath3D" type="Path3D" parent="Hole01"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.26087, 0)
-curve = SubResource("Curve3D_g5mua")
-
-[node name="PathFollow3D" type="PathFollow3D" parent="Hole01/HolePath3D"]
-transform = Transform3D(-0.983077, -0.0110102, -0.182759, -0.0247695, 0.997004, 0.0731771, 0.181404, 0.0764669, -0.980425, 9.9322, 5.48329, -91.0706)
-progress = 9.71623
-loop = false
-
-[node name="Camera3D" type="Camera3D" parent="Hole01/HolePath3D/PathFollow3D"]
 
 [node name="Pond" type="Node3D" parent="Hole01"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.785, -6.5, -8.478)
@@ -119,41 +82,43 @@ mesh = SubResource("PlaneMesh_rvmyo")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.0166, 0, -1.07825)
 shape = SubResource("CylinderShape3D_aawpb")
 
-[node name="PalmTree" parent="Hole01" instance=ExtResource("6_7ctve")]
+[node name="Trees" type="Node3D" parent="Hole01"]
+
+[node name="PalmTree" parent="Hole01/Trees" instance=ExtResource("6_7ctve")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45.89, -3.05763, 74.3802)
 
-[node name="PalmTree2" parent="Hole01" instance=ExtResource("6_7ctve")]
+[node name="PalmTree2" parent="Hole01/Trees" instance=ExtResource("6_7ctve")]
 transform = Transform3D(0.603152, 0, 0.797626, -0.084496, 0.994373, 0.0638945, -0.793138, -0.105934, 0.599759, 42.9161, -3.13448, 79.9261)
 
-[node name="PalmTree3" parent="Hole01" instance=ExtResource("6_7ctve")]
+[node name="PalmTree3" parent="Hole01/Trees" instance=ExtResource("6_7ctve")]
 transform = Transform3D(-0.88186, -0.110102, 0.458477, -0.0677153, 0.991849, 0.107942, -0.466624, 0.0641439, -0.882127, 38.4835, -4.03969, 80.9162)
 
-[node name="PalmTree4" parent="Hole01" instance=ExtResource("6_7ctve")]
+[node name="PalmTree4" parent="Hole01/Trees" instance=ExtResource("6_7ctve")]
 transform = Transform3D(-0.787755, -0.118361, 0.604511, -0.0666506, 0.991983, 0.107373, -0.612373, 0.0442927, -0.789328, 14.6087, -6.24586, 70.1333)
 
-[node name="PalmTree5" parent="Hole01" instance=ExtResource("6_7ctve")]
+[node name="PalmTree5" parent="Hole01/Trees" instance=ExtResource("6_7ctve")]
 transform = Transform3D(-0.911966, -0.0599604, -0.40586, -0.0826716, 0.995828, 0.0386425, 0.40185, 0.0687937, -0.913118, 10.043, -6.24586, 66.2043)
 
-[node name="OakTree" parent="Hole01" instance=ExtResource("7_t6kx5")]
+[node name="OakTree" parent="Hole01/Trees" instance=ExtResource("7_t6kx5")]
 transform = Transform3D(0.384617, 0, 1.03057, 0, 1.1, 0, -1.03057, 0, 0.384617, 51.7821, -2.99292, -1.96497)
 
-[node name="OakTree2" parent="Hole01" instance=ExtResource("7_t6kx5")]
+[node name="OakTree2" parent="Hole01/Trees" instance=ExtResource("7_t6kx5")]
 transform = Transform3D(-0.397917, -0.14237, 0.906308, -0.0572343, 0.989814, 0.130359, -0.915635, 0, -0.402012, 48.4566, -2.75123, 7.77759)
 
-[node name="OakTree3" parent="Hole01" instance=ExtResource("7_t6kx5")]
+[node name="OakTree3" parent="Hole01/Trees" instance=ExtResource("7_t6kx5")]
 transform = Transform3D(-0.74167, -0.115562, 0.660735, -0.112753, 0.99251, 0.0470245, -0.661221, -0.0396236, -0.749144, 47.4125, -2.02929, 16.5463)
 
-[node name="OakTree4" parent="Hole01" instance=ExtResource("7_t6kx5")]
+[node name="OakTree4" parent="Hole01/Trees" instance=ExtResource("7_t6kx5")]
 transform = Transform3D(0.881221, 0, 0.472705, 0, 1, 0, -0.472705, 0, 0.881221, 53.2753, -0.551824, 21.955)
 
-[node name="OakTree5" parent="Hole01" instance=ExtResource("7_t6kx5")]
+[node name="OakTree5" parent="Hole01/Trees" instance=ExtResource("7_t6kx5")]
 transform = Transform3D(0.533954, 0, -0.845514, -0.158999, 0.982159, -0.10041, 0.830429, 0.18805, 0.524428, 46.2482, -2.57795, 25.3049)
 
-[node name="OakTree6" parent="Hole01" instance=ExtResource("7_t6kx5")]
+[node name="OakTree6" parent="Hole01/Trees" instance=ExtResource("7_t6kx5")]
 transform = Transform3D(0.796868, -0.10713, -0.594579, 0.0751212, 0.994085, -0.0784332, 0.599465, 0.0178354, 0.800203, 52.4432, -1.93679, 36.6321)
 
-[node name="OakTree7" parent="Hole01" instance=ExtResource("7_t6kx5")]
+[node name="OakTree7" parent="Hole01/Trees" instance=ExtResource("7_t6kx5")]
 transform = Transform3D(0.704956, 0, 0.709251, 0, 1, 0, -0.709251, 0, 0.704956, 52.2055, -2.61462, 50.8704)
 
-[node name="OakTree8" parent="Hole01" instance=ExtResource("7_t6kx5")]
+[node name="OakTree8" parent="Hole01/Trees" instance=ExtResource("7_t6kx5")]
 transform = Transform3D(-0.635351, 0, 0.772224, -0.0233535, 0.999543, -0.0192142, -0.77187, -0.0302419, -0.63506, 43.9865, -4.58071, 38.2152)

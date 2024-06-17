@@ -1,10 +1,9 @@
-extends Control
+extends View
 
 
 const TEAM_MEMBER_COUNT := 5
 
 @export var inventory: PlayerTeamResource
-@export var golfers: Array[GolferResource]
 @export var icon_ps: PackedScene
 
 @export var team_icon_holder: Control
@@ -20,28 +19,35 @@ var selected_icon: UnitIcon = null
 func _ready():
 	continue_button.pressed.connect(_continue)
 
-	for golfer in golfers:
-		inventory.add_to_bench(golfer)
-
-	for x in TEAM_MEMBER_COUNT:
+	for i: int in range(TEAM_MEMBER_COUNT):
 		var icon = icon_ps.instantiate()
 		team_icon_holder.add_child(icon)
-		team_icons.append(icon)
 		icon.callback = Callable(_button_signal)
 
-		if x == 0:
+		if i == 0:
 			icon.set_values(inventory.player)
 			icon.can_click = false
-		elif inventory.team.size() - 1 > x:
-			icon.set_values(inventory.team[x])
+			continue
+		elif inventory.units.size() - 1 > i:
+			icon.set_values(inventory.units[i])
 		else:
 			icon.set_empty()
+		
+		team_icons.append(icon)
 
-	for golfer in inventory.get_non_team_golfers():
+	for golfer: GolferResource in inventory.get_non_team_golfers():
 		var icon = icon_ps.instantiate()
 		bench_icon_holder.add_child(icon)
 		icon.set_values(golfer)
 		icon.callback = Callable(_button_signal)
+
+
+func _open():
+	visible = true
+
+
+func _close():
+	visible = false
 
 
 func _button_signal(icon: UnitIcon, event: InputEvent):
@@ -96,9 +102,9 @@ func transfer_golfer(from_icon: UnitIcon, to_icon: UnitIcon, golfer: GolferResou
 
 func _continue():
 	var picked_golfers: Array[GolferResource] = []
-	for icon in team_icons:
+	for icon: UnitIcon in team_icons:
 		if icon.current_golfer != null:
 			picked_golfers.append(icon.current_golfer)
 
-	inventory.team = picked_golfers
-	visible = false
+	inventory.units = picked_golfers
+	view_group.pop_view()

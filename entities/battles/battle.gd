@@ -1,23 +1,13 @@
-class_name Hole
-extends Node
+extends Node3D
 
 
-@onready var tee_area: Node3D = $TeeArea
-@onready var green: Node3D = $GreenArea
-
-# TODO: Use interaction through rival instead.
-@export var test_player: TeamResource
-@export var test_rival: TeamResource
-
+@export var battle_name: String
+@export var rival_team: TeamResource
 
 @export var camera_path_track: PathFollow3D
 
-var sequence_camera: Camera3D
-
-
-# TODO: Remove this.
-func _ready():
-	BattleManager.start_battle(self, test_player, test_rival)
+@onready var tee_area: Node3D = $TeeArea
+@onready var green: Node3D = $GreenArea
 
 
 # TODO: Play sequence instead.

@@ -1,4 +1,4 @@
-[gd_scene load_steps=90 format=3 uid="uid://c75huqds1lmet"]
+[gd_scene load_steps=93 format=3 uid="uid://c75huqds1lmet"]
 
 [ext_resource type="Theme" uid="uid://dr801tm3gbq04" path="res://common/character_creator/resources/new_character_creator_theme.tres" id="1_amotn"]
 [ext_resource type="Script" path="res://common/character_creator/main/character_creator.gd" id="2_fmr2t"]
@@ -68,6 +68,9 @@
 [ext_resource type="Texture2D" uid="uid://oec438gjjduq" path="res://common/character_creator/icons/cross.svg" id="45_r1hef"]
 [ext_resource type="Texture2D" uid="uid://bfmm1vjn5y8te" path="res://common/character_creator/resources/country_club_card_bg.png" id="46_ceht0"]
 [ext_resource type="Resource" uid="uid://3jchwothfd4v" path="res://common/npc_resources/player_npc_resource.tres" id="46_o6t6a"]
+[ext_resource type="Resource" uid="uid://dr8wom2vtctfx" path="res://common/scene_loader/scene_loader.tres" id="47_s7xp0"]
+[ext_resource type="PackedScene" uid="uid://dixhhv1bgajy0" path="res://main/golf_course.tscn" id="48_juggc"]
+[ext_resource type="PackedScene" uid="uid://ca8onp5rc6dj7" path="res://entities/user_interface/user_interface.tscn" id="49_1galm"]
 [ext_resource type="Texture2D" uid="uid://cvau13bg15dtf" path="res://common/character_creator/icons/head.svg" id="50_fhbxd"]
 [ext_resource type="Texture2D" uid="uid://ckumeprvfsvuy" path="res://common/character_creator/icons/character_turn_left.svg" id="51_4u1rc"]
 [ext_resource type="Texture2D" uid="uid://v5q6jtimfeke" path="res://common/character_creator/icons/body.svg" id="51_md7jv"]
@@ -126,7 +129,7 @@ font_color = Color(0, 0, 0, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yqugs"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
-[node name="CharacterEditor" type="Control" node_paths=PackedStringArray("eyes_option_picker", "eyebrows_option_picker", "noses_option_picker", "ears_option_picker", "mouths_option_picker", "hair_option_picker", "eyeshadow_option_picker", "eyeliner_option_picker", "blush_option_picker", "glasses_option_picker", "mustaches_option_picker", "beards_option_picker", "nose_piercings_option_picker", "eyebrow_piercings_option_picker", "earrings_option_picker", "skin_color_option_pickers", "eyebrow_color_option_picker", "hair_color_option_picker", "mustache_color_option_picker", "beard_color_option_picker", "lip_color_option_picker", "eyeshadow_color_option_picker", "eyeliner_color_option_picker", "blush_color_option_picker", "eye_buttons", "eyebrow_buttons", "mouth_buttons", "glasses_buttons", "mustache_buttons", "shirt_option_picker", "pants_option_picker", "sock_option_picker", "shoes_option_picker", "belt_option_picker", "wrists_option_picker", "shirt_color_option_picker", "pants_color_option_picker", "sock_color_option_picker", "shoes_color_option_picker", "name_field", "randomize_button", "reset_button", "preview", "zoom_slider", "zoom_target_slider", "rotation_slider")]
+[node name="CharacterEditor" type="Control" node_paths=PackedStringArray("eyes_option_picker", "eyebrows_option_picker", "noses_option_picker", "ears_option_picker", "mouths_option_picker", "hair_option_picker", "eyeshadow_option_picker", "eyeliner_option_picker", "blush_option_picker", "glasses_option_picker", "mustaches_option_picker", "beards_option_picker", "nose_piercings_option_picker", "eyebrow_piercings_option_picker", "earrings_option_picker", "skin_color_option_pickers", "eyebrow_color_option_picker", "hair_color_option_picker", "mustache_color_option_picker", "beard_color_option_picker", "lip_color_option_picker", "eyeshadow_color_option_picker", "eyeliner_color_option_picker", "blush_color_option_picker", "eye_buttons", "eyebrow_buttons", "mouth_buttons", "glasses_buttons", "mustache_buttons", "shirt_option_picker", "pants_option_picker", "sock_option_picker", "shoes_option_picker", "belt_option_picker", "wrists_option_picker", "shirt_color_option_picker", "pants_color_option_picker", "sock_color_option_picker", "shoes_color_option_picker", "name_field", "randomize_button", "reset_button", "preview", "zoom_slider", "zoom_target_slider", "rotation_slider", "finish_button")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -181,8 +184,8 @@ pants_color_option_picker = NodePath("Spacer/VBoxContainer2/HBoxContainer2/Where
 sock_color_option_picker = NodePath("Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/BodyOptionsTabGroup/FootwearOptions/ColorOptionPicker")
 shoes_color_option_picker = NodePath("Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/BodyOptionsTabGroup/FootwearOptions/ColorOptionPicker2")
 name_field = NodePath("Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/BodyOptionsTabGroup/Naming/LineEdit")
-randomize_button = NodePath("Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/BodyOptionsTabGroup/Naming/HBoxContainer/Button")
-reset_button = NodePath("Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/BodyOptionsTabGroup/Naming/HBoxContainer/Button2")
+randomize_button = NodePath("Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/BodyOptionsTabGroup/Naming/HBoxContainer/RandomizeButton")
+reset_button = NodePath("Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/BodyOptionsTabGroup/Naming/HBoxContainer/ResetButton")
 hair_icons = Array[Texture]([ExtResource("7_o25f1"), ExtResource("8_aptni"), ExtResource("9_igdo4"), ExtResource("10_x3yrl"), ExtResource("11_ppy87"), ExtResource("12_i24fy"), ExtResource("13_lcfea"), ExtResource("5_tgl5y"), ExtResource("6_s251f"), ExtResource("5_ina4w")])
 nose_icons = Array[Texture]([ExtResource("14_6uwex"), ExtResource("15_sjc8k"), ExtResource("16_vw5m5"), ExtResource("17_dau6g")])
 ear_icons = Array[Texture]([ExtResource("5_sqx8j"), ExtResource("6_rqkat"), ExtResource("7_mede7"), ExtResource("8_07sdn"), ExtResource("9_y81nd")])
@@ -197,6 +200,9 @@ zoom_slider = NodePath("Spacer/VBoxContainer2/HBoxContainer2/ZoomSliderHolder/HB
 zoom_target_slider = NodePath("Spacer/VBoxContainer2/HBoxContainer2/ZoomSliderHolder/HBoxContainer/ReferenceRect/ReferenceRect4/HBoxContainer/ReferenceRect2")
 rotation_slider = NodePath("Spacer/VBoxContainer2/HBoxContainer2/PreviewContainer/HBoxContainer/VBoxContainer/HScrollBar")
 edited_resource = ExtResource("46_o6t6a")
+finish_button = NodePath("Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/BodyOptionsTabGroup/Naming/HBoxContainer/FinishButton")
+scene_loader = ExtResource("47_s7xp0")
+next_scenes = Array[PackedScene]([ExtResource("48_juggc"), ExtResource("49_1galm")])
 
 [node name="Background" type="TextureRect" parent="."]
 layout_mode = 1
@@ -2256,7 +2262,7 @@ size_flags_stretch_ratio = 0.2
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Button" type="Button" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/BodyOptionsTabGroup/Naming/HBoxContainer"]
+[node name="RandomizeButton" type="Button" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/BodyOptionsTabGroup/Naming/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Randomize!"
@@ -2266,12 +2272,21 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.1
 
-[node name="Button2" type="Button" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/BodyOptionsTabGroup/Naming/HBoxContainer"]
+[node name="ResetButton" type="Button" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/BodyOptionsTabGroup/Naming/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Reset"
 
 [node name="ReferenceRect2" type="ReferenceRect" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/BodyOptionsTabGroup/Naming/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="FinishButton" type="Button" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/BodyOptionsTabGroup/Naming/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Finish!"
+
+[node name="ReferenceRect4" type="ReferenceRect" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/BodyOptionsTabGroup/Naming/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 

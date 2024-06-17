@@ -87,6 +87,11 @@ extends Control
 
 @export var edited_resource: NPCResource
 
+@export_group("Finish Settings")
+@export var finish_button: Button
+@export var scene_loader: Resource
+@export var next_scenes: Array[PackedScene] = []
+
 var preview_scene: PreviewSpawner
 
 
@@ -102,6 +107,7 @@ func _ready():
 
 	randomize_button.pressed.connect(_randomize)
 	reset_button.pressed.connect(_reset)
+	finish_button.pressed.connect(_finish)
 
 	# Colors
 	for picker: CreatorColorPicker in skin_color_option_pickers:
@@ -423,3 +429,8 @@ func _reset():
 	glasses_buttons.vertical_current = 0
 
 	_update_character()
+
+
+func _finish():
+	edited_resource.icon = await preview_scene.create_icon(edited_resource)
+	scene_loader.load_scenes(next_scenes)

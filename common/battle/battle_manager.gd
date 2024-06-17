@@ -1,11 +1,14 @@
 extends Node
 
 
+signal on_battle_setup(teams: Array[Team])
 signal on_battle_started
 signal on_battle_ended(winning_team: TeamResource)
 
 const SPAWN_SPACING = 2.0
 const SPAWN_HEIGHT_OFFSET = -0.2
+
+@export var player_team: PlayerTeamResource
 
 @export_subgroup("Composition")
 @export var team_scene: PackedScene
@@ -15,6 +18,7 @@ const SPAWN_HEIGHT_OFFSET = -0.2
 @export var unit_ai_controller: PackedScene
 @export var unit_player_controller: PackedScene
 
+var current_battle: Node3D
 var teams: Array[Team] = []
 
 var battle_active := false
@@ -34,13 +38,16 @@ func _process(_delta: float):
 		end_battle(teams.front().leader.golfer_resource)
 
 
-func start_battle(hole: Hole, team1: TeamResource, team2: TeamResource):
-	teams.clear()
+func start_battle(battle: PackedScene):
+	current_battle = battle.instantiate()
+	add_child(current_battle)
 
-	_instantiate_team(team1, hole.tee_area)
-	_instantiate_team(team2, hole.green)
+	_instantiate_team(player_team, current_battle.tee_area)
+	_instantiate_team(current_battle.rival_team, current_battle.green)
 
-	await hole.play_intro_sequence()
+	on_battle_setup.emit(teams)
+
+	await current_battle.play_intro_sequence()
 
 	battle_active = true
 	on_battle_started.emit()
@@ -80,7 +87,7 @@ func get_units_of_role(my_team: Team, role: Role) -> Array[Unit]:
 
 func _instantiate_team(team_resource: TeamResource, origin: Node3D):
 	var team_instance := team_scene.instantiate()
-	self.add_child(team_instance)
+	current_battle.add_child(team_instance)
 	teams.append(team_instance)
 
 	var spawnpoints := _get_spawnpoints(team_resource.size(), origin, SPAWN_SPACING)
@@ -102,7 +109,7 @@ func _instantiate_team(team_resource: TeamResource, origin: Node3D):
 		unit_instance.setup(golfer, team_instance)
 		unit_instance.add_child(controller_instance)
 
-		unit_instance.global_transform.origin = spawnpoints.pop_back()
+		unit_instance.global_position = spawnpoints.pop_back()
 		unit_instance.global_rotation.y = origin.global_rotation.y
 
 	team_instance.leader = unit_instance
@@ -117,7 +124,7 @@ func _get_spawnpoints(amount: int, origin_node: Node3D, spacing: float) -> Array
 	var cross_direction := direction.cross(Vector3.UP)
 
 	var half_amount := ceili(amount * 0.5)
-	for i: int in range(-half_amount, half_amount - 1):
+	for i: int in range(-half_amount, half_amount):
 		var offset: Vector3 = position + cross_direction * (i * spacing)
 		offset.y = get_ground_level(origin_node, offset)
 		

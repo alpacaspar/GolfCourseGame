@@ -1,0 +1,130 @@
+[gd_scene load_steps=7 format=3 uid="uid://ca8onp5rc6dj7"]
+
+[ext_resource type="Script" path="res://entities/user_interface/battle_view.gd" id="1_7kkeb"]
+[ext_resource type="PackedScene" uid="uid://dxyox1qnigoe6" path="res://common/battle/ui/unit_battle_icon.tscn" id="1_i3hhf"]
+[ext_resource type="Script" path="res://entities/user_interface/placeholder_dialogue_view.gd" id="3_ohxjm"]
+[ext_resource type="PackedScene" uid="uid://ybo6yif82wwi" path="res://common/team_selector/team_picker.tscn" id="3_qrbiu"]
+[ext_resource type="PackedScene" uid="uid://gv5jf3ljibf6" path="res://entities/battles/demo_battle.tscn" id="4_inskm"]
+[ext_resource type="Resource" uid="uid://dyp4fn1guw3dm" path="res://entities/user_interface/general_ui_view_group.res" id="4_tdfao"]
+
+[node name="UserInterface" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BattleUI" type="Control" parent="." node_paths=PackedStringArray("team_one_container", "team_two_container")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7kkeb")
+team_one_container = NodePath("HBoxContainer/Team1Container")
+team_two_container = NodePath("HBoxContainer/Team2Container")
+unit_battle_icon_scene = ExtResource("1_i3hhf")
+view_group = ExtResource("4_tdfao")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BattleUI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.9
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 4.31195
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Team1Container" type="HBoxContainer" parent="BattleUI/HBoxContainer"]
+layout_mode = 2
+
+[node name="Separator" type="Control" parent="BattleUI/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Team2Container" type="HBoxContainer" parent="BattleUI/HBoxContainer"]
+layout_mode = 2
+alignment = 2
+
+[node name="TeamPicker" parent="." instance=ExtResource("3_qrbiu")]
+visible = false
+layout_mode = 1
+
+[node name="DialoguePlaceholder" type="Control" parent="." node_paths=PackedStringArray("team_picker_view")]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_ohxjm")
+team_picker_view = NodePath("../TeamPicker")
+battle_to_start = ExtResource("4_inskm")
+view_group = ExtResource("4_tdfao")
+
+[node name="MarginContainer" type="MarginContainer" parent="DialoguePlaceholder"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.75
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="HBoxContainer" type="HBoxContainer" parent="DialoguePlaceholder/MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="DialogueBackground" type="ColorRect" parent="DialoguePlaceholder/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+color = Color(0, 0, 0, 0.498039)
+
+[node name="MarginContainer" type="MarginContainer" parent="DialoguePlaceholder/MarginContainer/HBoxContainer/DialogueBackground"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialoguePlaceholder/MarginContainer/HBoxContainer/DialogueBackground/MarginContainer"]
+layout_mode = 2
+text = "Looks like another rookie has hit the course! What an honor to be your first rival, I'll make sure to go easy on ya, hehe.
+I know you're eager to get started, so go ahead and pick your team for this battle!"
+scroll_active = false
+
+[node name="ChoiceBackground" type="ColorRect" parent="DialoguePlaceholder/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+color = Color(0, 0, 0, 0.498039)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DialoguePlaceholder/MarginContainer/HBoxContainer/ChoiceBackground"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AssembleTeamButton" type="Button" parent="DialoguePlaceholder/MarginContainer/HBoxContainer/ChoiceBackground/VBoxContainer"]
+layout_mode = 2
+text = "Manage team"
+
+[node name="StartBattleButton" type="Button" parent="DialoguePlaceholder/MarginContainer/HBoxContainer/ChoiceBackground/VBoxContainer"]
+layout_mode = 2
+text = "Start battle!"
+
+[connection signal="pressed" from="DialoguePlaceholder/MarginContainer/HBoxContainer/ChoiceBackground/VBoxContainer/AssembleTeamButton" to="DialoguePlaceholder" method="_on_accept_button_pressed"]
+[connection signal="pressed" from="DialoguePlaceholder/MarginContainer/HBoxContainer/ChoiceBackground/VBoxContainer/StartBattleButton" to="DialoguePlaceholder" method="_on_start_battle_button_pressed"]
