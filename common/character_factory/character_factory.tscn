@@ -1,4 +1,4 @@
-[gd_scene load_steps=305 format=3 uid="uid://cdh3hkt0sfd8y"]
+[gd_scene load_steps=308 format=3 uid="uid://cdh3hkt0sfd8y"]
 
 [ext_resource type="Script" path="res://common/character_factory/character_factory.gd" id="1_i4r0e"]
 [ext_resource type="ArrayMesh" uid="uid://ctvdng4wa44ne" path="res://entities/character/head/character_ears_1.res" id="2_r6hdl"]
@@ -249,6 +249,8 @@
 [ext_resource type="Material" uid="uid://dkwkt1vga0yfv" path="res://entities/character/clothing/shoes/accessoires/wrist_watchmetal_material.tres" id="222_3yg2d"]
 [ext_resource type="Texture2D" uid="uid://cjo2ykyxhtkl3" path="res://common/character_creator/icons/jewelry/watch_sports.png" id="223_mx3po"]
 [ext_resource type="Material" uid="uid://dqqjxkfpgxkof" path="res://entities/character/clothing/shoes/accessoires/wrist_watchsports_material.tres" id="224_r8nth"]
+[ext_resource type="Material" uid="uid://b235u7giumrls" path="res://entities/character/head/character_face_material.tres" id="250_kkcxs"]
+[ext_resource type="PackedScene" uid="uid://caaw3imku1ad8" path="res://common/character_factory/face_render_viewport.tscn" id="251_k2jil"]
 
 [sub_resource type="Resource" id="Resource_6utfm"]
 script = ExtResource("13_ojj6j")
@@ -720,6 +722,10 @@ material = ExtResource("224_r8nth")
 name = "sports watch"
 icon = ExtResource("223_mx3po")
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0cjna"]
+resource_local_to_scene = true
+transparency = 1
+
 [node name="CharacterFactory" type="Node"]
 script = ExtResource("1_i4r0e")
 eye_textures = ExtResource("22_rt4sy")
@@ -753,3 +759,6 @@ wrists_datas = Array[ExtResource("210_vslt5")]([SubResource("Resource_eh288"), S
 shirt_colors = Array[Color]([Color(0.956863, 0.956863, 0.956863, 1), Color(1, 0.207843, 0.207843, 1), Color(1, 0.556863, 0, 1), Color(1, 0.941176, 0, 1), Color(0.235294, 0.886275, 0.219608, 1), Color(0.0745098, 0.607843, 0.286275, 1), Color(0.196078, 0.811765, 0.996078, 1), Color(0.145098, 0.203922, 0.941176, 1), Color(0.968627, 0.113725, 0.47451, 1), Color(1, 0.72549, 1, 1), Color(0.682353, 0.54902, 0.32549, 1), Color(0.407843, 0.407843, 0.407843, 1), Color(0.0941176, 0.0941176, 0.0941176, 1)])
 pants_colors = Array[Color]([Color(0.180392, 0.223529, 0.34902, 1), Color(0.278431, 0.309804, 0.25098, 1), Color(0.603922, 0.611765, 0.643137, 1), Color(0.964706, 0.858824, 0.603922, 1), Color(0.168627, 0.168627, 0.168627, 1), Color(0.552941, 0.290196, 0.290196, 1), Color(0.878431, 0.862745, 0.85098, 1), Color(0.282353, 0.160784, 0.027451, 1), Color(0.584314, 0.47451, 0.670588, 1)])
 character_base = ExtResource("25_gqjrl")
+face_edit_material = SubResource("StandardMaterial3D_0cjna")
+face_default_material = ExtResource("250_kkcxs")
+face_renderer_scene = ExtResource("251_k2jil")

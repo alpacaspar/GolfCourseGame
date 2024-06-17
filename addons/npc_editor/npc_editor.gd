@@ -12,7 +12,7 @@ func _enter_tree():
 	preview_scene = preload("res://addons/npc_editor/preview_scene.tscn").instantiate()
 	add_child(preview_scene)
 
-	preview_scene.make_ready()
+	preview_scene.show_character()
 	dock.make_ready(preview_scene)
 	
 	add_control_to_dock(DOCK_SLOT_RIGHT_UL, dock)

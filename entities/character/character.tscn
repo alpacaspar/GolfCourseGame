@@ -7,7 +7,7 @@
 [ext_resource type="Material" uid="uid://btb23i348d3pn" path="res://entities/character/clothing/character_clothing_material.tres" id="4_2eedj"]
 [ext_resource type="Material" uid="uid://n65btp0wlcfs" path="res://entities/character/head/character_noseears_material.tres" id="6_m3ku2"]
 [ext_resource type="Material" uid="uid://p00w260lvywo" path="res://entities/character/clothing/clothing_skirt_material.tres" id="8_1ps1d"]
-[ext_resource type="Material" uid="uid://dclhlui6th110" path="res://entities/character/head/character_face_material.tres" id="8_67ytv"]
+[ext_resource type="Material" uid="uid://b235u7giumrls" path="res://entities/character/head/character_face_material.tres" id="8_67ytv"]
 [ext_resource type="Material" uid="uid://d0o8jgo78vcup" path="res://entities/character/head/character_hair_material.tres" id="9_n0h6m"]
 [ext_resource type="Script" path="res://entities/character/ak_locomotion.gd" id="12_3afj3"]
 [ext_resource type="Script" path="res://entities/equipment/equipment_slot.gd" id="12_gskdx"]
@@ -1319,15 +1319,18 @@ bones/21/rotation = Quaternion(0, 1, 0, 0)
 bones/21/scale = Vector3(1, 1, 1)
 
 [node name="Belt" type="MeshInstance3D" parent="Armature/GeneralSkeleton"]
+cast_shadow = 0
 mesh = SubResource("ArrayMesh_dw6io")
 skin = SubResource("Skin_846u7")
 
 [node name="WristAccessory" type="MeshInstance3D" parent="Armature/GeneralSkeleton"]
+cast_shadow = 0
 mesh = SubResource("ArrayMesh_0p2f7")
 skin = SubResource("Skin_846u7")
 
 [node name="Collar" type="MeshInstance3D" parent="Armature/GeneralSkeleton"]
 material_override = ExtResource("4_2eedj")
+cast_shadow = 0
 mesh = SubResource("ArrayMesh_i2wkn")
 skin = SubResource("Skin_846u7")
 
@@ -1338,6 +1341,7 @@ skin = SubResource("Skin_846u7")
 
 [node name="Face" type="MeshInstance3D" parent="Armature/GeneralSkeleton"]
 material_override = ExtResource("8_67ytv")
+cast_shadow = 0
 mesh = SubResource("ArrayMesh_memxy")
 skin = SubResource("Skin_846u7")
 
@@ -1347,6 +1351,7 @@ mesh = SubResource("ArrayMesh_3i1m7")
 skin = SubResource("Skin_846u7")
 
 [node name="Earrings" type="MeshInstance3D" parent="Armature/GeneralSkeleton"]
+cast_shadow = 0
 mesh = SubResource("ArrayMesh_dvqj8")
 skin = SubResource("Skin_846u7")
 
@@ -1357,11 +1362,13 @@ skin = SubResource("Skin_846u7")
 
 [node name="PantCuffLeft" type="MeshInstance3D" parent="Armature/GeneralSkeleton"]
 material_override = SubResource("StandardMaterial3D_d4b0u")
+cast_shadow = 0
 mesh = SubResource("ArrayMesh_0inxs")
 skin = SubResource("Skin_846u7")
 
 [node name="PantCuffRight" type="MeshInstance3D" parent="Armature/GeneralSkeleton"]
 material_override = SubResource("StandardMaterial3D_d4b0u")
+cast_shadow = 0
 mesh = SubResource("ArrayMesh_tpuv1")
 skin = SubResource("Skin_846u7")
 

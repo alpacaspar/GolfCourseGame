@@ -66,13 +66,21 @@ extends Resource
 
 
 func _update_icon():
-	if CharacterFactory.get_child_count() > 0:
-		CharacterFactory.get_child(0).queue_free()
+	for child: Node in CharacterFactory.get_children():
+		if child is PreviewSpawner:
+			child.queue_free()
 
 	var preview_scene := load("res://addons/npc_editor/preview_scene.tscn").instantiate() as PreviewSpawner
 	CharacterFactory.add_child(preview_scene)
-	preview_scene.make_ready()
+
+	var character: Character = CharacterFactory.create_character(self)
+	CharacterFactory.refresh_character(character)
+	CharacterFactory.start_character_creation(character)
+
+	preview_scene.show_character(character)
 	icon = await preview_scene.create_icon(self)
+
+	await CharacterFactory.end_character_creation(character)
 
 	if not refresh_icon:
 		preview_scene.queue_free()

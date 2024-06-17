@@ -49,55 +49,104 @@ extends Node
 
 @export_group("Extra")
 @export var character_base: PackedScene
+@export var eye_blink_index := 14
+
+@export var face_edit_material: Material
+@export var face_default_material: Material
+@export var face_renderer_scene: PackedScene
+
+var active_face_renderers: Dictionary = {}
 
 
-func spawn_character(resource: NPCResource) -> Character:
+func create_character(resource: NPCResource) -> Character:
 	var character := character_base.instantiate() as Character
-	var face_material: Material = character.face_mesh_instance.material_override
+	character.set_npc(resource)
+	return character
+
+
+func start_character_creation(character: Character):
+	refresh_character(character)
+
+	character.face_mesh_instance.material_override = face_edit_material.duplicate()
+	character.face_mesh_instance.material_override.albedo_texture = active_face_renderers[character].get_texture()
+
+
+## End the character creation process and apply the face texture to the character.
+## Use [code]await[/code] if the character is destroyed after this function.
+func end_character_creation(character: Character):
+	character.face_mesh_instance.material_override = face_default_material.duplicate()
+
+	var face_texture := await _create_face_texture(active_face_renderers[character])
+	var face_blink_texture := await _create_face_blink_texture(active_face_renderers[character])
+
+	character.face_mesh_instance.material_override.set("shader_parameter/face", face_texture)
+	character.face_mesh_instance.material_override.set("shader_parameter/face_blink", face_blink_texture)
+	character.face_mesh_instance.material_override.set("shader_parameter/blink_offset", randf())
+
+	active_face_renderers[character].queue_free()
+	active_face_renderers.erase(character)
+
+	for instance in active_face_renderers.keys():
+		if not instance or not is_instance_valid(instance):
+			active_face_renderers[instance].queue_free()
+			active_face_renderers.erase(instance)
+
+
+func refresh_character(character: Character):
+	var resource: NPCResource = character.npc
+
+	if not active_face_renderers.has(character):
+		var instance: SubViewport = face_renderer_scene.instantiate()
+		add_child(instance)
+		active_face_renderers[character] = instance
+
+	var face_renderer: SubViewport = active_face_renderers[character]
+
+	var face_renderer_material: Material = face_renderer.get_child(0).material
 	var head_material: Material = character.head_mesh_instance.material_override
 	var clothing_material: ShaderMaterial = character.body_mesh_instance.material_overlay
 
 	# Face details
-	face_material.set("shader_parameter/EyeIndex", resource.eye_index)
-	face_material.set("shader_parameter/MouthIndex", resource.mouth_index)
-	face_material.set("shader_parameter/EyebrowIndex", resource.eyebrow_index)
+	face_renderer_material.set("shader_parameter/EyeIndex", resource.eye_index)
+	face_renderer_material.set("shader_parameter/MouthIndex", resource.mouth_index)
+	face_renderer_material.set("shader_parameter/EyebrowIndex", resource.eyebrow_index)
 
 	var mustache_index := resource.mustache_index if resource.mustache_index >= 0 else mustache_textures.get_layers() - 1
-	face_material.set("shader_parameter/MoustacheIndex", mustache_index)
+	face_renderer_material.set("shader_parameter/MoustacheIndex", mustache_index)
 	var glasses_index := resource.glasses_index if resource.glasses_index >= 0 else glasses_textures.get_layers() - 1
-	face_material.set("shader_parameter/GlassesIndex", glasses_index )
+	face_renderer_material.set("shader_parameter/GlassesIndex", glasses_index )
 
 	var eyeshadow := eyeshadow_textures[resource.eyeshadow_index] if resource.eyeshadow_index > -1 else empty_map
-	face_material.set("shader_parameter/EyeShadow", eyeshadow)
+	face_renderer_material.set("shader_parameter/EyeShadow", eyeshadow)
 	var eyeliner := eyeliner_textures[resource.eyeliner_index] if resource.eyeliner_index > -1 else empty_map
-	face_material.set("shader_parameter/Eyeliner", eyeliner)
+	face_renderer_material.set("shader_parameter/Eyeliner", eyeliner)
 	var eyebrow_piercing := eyebrow_piercing_textures[resource.eyebrow_piercing_index] if resource.eyebrow_piercing_index > -1 else empty_map
-	face_material.set("shader_parameter/EyebrowPiercings", eyebrow_piercing)
+	face_renderer_material.set("shader_parameter/EyebrowPiercings", eyebrow_piercing)
 
 	# Face Colors
-	face_material.set("shader_parameter/EyebrowColor", hair_colors[resource.eyebrow_color_index])
-	face_material.set("shader_parameter/EyeShadowColor", eyeshadow_colors[resource.eyeshadow_color_index])
-	face_material.set("shader_parameter/EyelinerColor", eyeliner_colors[resource.eyeliner_color_index])
-	face_material.set("shader_parameter/LipColor", lip_colors[resource.lip_color_index])
-	face_material.set("shader_parameter/MoustacheColor", hair_colors[resource.mustache_color_index])
+	face_renderer_material.set("shader_parameter/EyebrowColor", hair_colors[resource.eyebrow_color_index])
+	face_renderer_material.set("shader_parameter/EyeShadowColor", eyeshadow_colors[resource.eyeshadow_color_index])
+	face_renderer_material.set("shader_parameter/EyelinerColor", eyeliner_colors[resource.eyeliner_color_index])
+	face_renderer_material.set("shader_parameter/LipColor", lip_colors[resource.lip_color_index])
+	face_renderer_material.set("shader_parameter/MoustacheColor", hair_colors[resource.mustache_color_index])
 	#face_material.set("shader_parameter/GlassesColor", glasses_colors[resource.glasses_color_index])
 
 	# Face Offsets
-	face_material.set("shader_parameter/EyePosition", Vector2(resource.eye_values.horizontal, resource.eye_values.vertical))
-	face_material.set("shader_parameter/EyeSize", resource.eye_values.scale)
-	face_material.set("shader_parameter/EyeAngle", resource.eye_values.rotation)
+	face_renderer_material.set("shader_parameter/EyePosition", Vector2(resource.eye_values.horizontal, resource.eye_values.vertical))
+	face_renderer_material.set("shader_parameter/EyeSize", resource.eye_values.scale)
+	face_renderer_material.set("shader_parameter/EyeAngle", resource.eye_values.rotation)
 	
-	face_material.set("shader_parameter/EyebrowPosition", Vector2(resource.eyebrow_values.horizontal, resource.eyebrow_values.vertical))
-	face_material.set("shader_parameter/EyebrowSize", resource.eyebrow_values.scale)
-	face_material.set("shader_parameter/EyebrowAngle", resource.eyebrow_values.rotation)
+	face_renderer_material.set("shader_parameter/EyebrowPosition", Vector2(resource.eyebrow_values.horizontal, resource.eyebrow_values.vertical))
+	face_renderer_material.set("shader_parameter/EyebrowSize", resource.eyebrow_values.scale)
+	face_renderer_material.set("shader_parameter/EyebrowAngle", resource.eyebrow_values.rotation)
 
-	face_material.set("shader_parameter/MouthPosition", resource.mouth_values.vertical)
-	face_material.set("shader_parameter/MouthSize", resource.mouth_values.scale)
+	face_renderer_material.set("shader_parameter/MouthPosition", resource.mouth_values.vertical)
+	face_renderer_material.set("shader_parameter/MouthSize", resource.mouth_values.scale)
 
-	face_material.set("shader_parameter/MoustachePosition", resource.mustache_values.vertical)
-	face_material.set("shader_parameter/MoustacheSize", resource.mustache_values.scale)
+	face_renderer_material.set("shader_parameter/MoustachePosition", resource.mustache_values.vertical)
+	face_renderer_material.set("shader_parameter/MoustacheSize", resource.mustache_values.scale)
 
-	face_material.set("shader_parameter/GlassesPosition", Vector2(0, resource.glasses_values.vertical))
+	face_renderer_material.set("shader_parameter/GlassesPosition", Vector2(0, resource.glasses_values.vertical))
 	# face_material.set("shader_parameter/GlassesSize", resource.glasses_values.scale)
   
 	# Head Stuff
@@ -218,4 +267,16 @@ func spawn_character(resource: NPCResource) -> Character:
 	character.ear_mesh_instance.material_override.set("albedo_color", skin_colors[resource.skin_color_index])
 	character.nose_mesh_instance.material_override.set("albedo_color", skin_colors[resource.skin_color_index])
 
-	return character
+
+func _create_face_texture(face_renderer: SubViewport) -> Texture2D:
+	face_renderer.render_target_update_mode = SubViewport.UPDATE_ONCE
+	await RenderingServer.frame_post_draw
+	var image := face_renderer.get_texture().get_image()
+	
+	return ImageTexture.create_from_image(image)
+
+
+func _create_face_blink_texture(face_renderer: SubViewport) -> Texture2D:
+	face_renderer.get_child(0).material.set("shader_parameter/EyeIndex", eye_blink_index)
+
+	return await _create_face_texture(face_renderer)

@@ -30,6 +30,13 @@ signal secondary_animation_event
 @export var right_hand_marker: Marker3D
 @export var left_hand_marker: Marker3D
 
+var npc: NPCResource:
+    set = set_npc
+
+
+func set_npc(value: NPCResource):
+    npc = value
+
 
 func call_primary_animation_event():
     primary_animation_event.emit()
