@@ -22,5 +22,5 @@ func _on_accept_button_pressed():
 
 
 func _on_start_battle_button_pressed():
-	BattleManager.start_battle(battle_to_start)
 	view_group.pop_view()
+	BattleManager.start_battle(battle_to_start)

@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://ca8onp5rc6dj7"]
+[gd_scene load_steps=7 format=3 uid="uid://ca8onp5rc6dj7"]
 
+[ext_resource type="Script" path="res://entities/user_interface/battle_view.gd" id="1_7kkeb"]
 [ext_resource type="PackedScene" uid="uid://dxyox1qnigoe6" path="res://common/battle/ui/unit_battle_icon.tscn" id="1_i3hhf"]
 [ext_resource type="Script" path="res://entities/user_interface/placeholder_dialogue_view.gd" id="3_ohxjm"]
 [ext_resource type="PackedScene" uid="uid://ybo6yif82wwi" path="res://common/team_selector/team_picker.tscn" id="3_qrbiu"]
@@ -14,43 +15,38 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="BattleUI" type="Control" parent="."]
-visible = false
+[node name="BattleUI" type="Control" parent="." node_paths=PackedStringArray("team_one_container", "team_two_container")]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_7kkeb")
+team_one_container = NodePath("HBoxContainer/Team1Container")
+team_two_container = NodePath("HBoxContainer/Team2Container")
+unit_battle_icon_scene = ExtResource("1_i3hhf")
+view_group = ExtResource("4_tdfao")
 
-[node name="MarginContainer" type="MarginContainer" parent="BattleUI"]
+[node name="HBoxContainer" type="HBoxContainer" parent="BattleUI"]
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = -1
+anchor_top = 0.9
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = 4.31195
 grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 8
-theme_override_constants/margin_top = 8
-theme_override_constants/margin_right = 8
-theme_override_constants/margin_bottom = 8
+grow_vertical = 0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="BattleUI/MarginContainer"]
+[node name="Team1Container" type="HBoxContainer" parent="BattleUI/HBoxContainer"]
 layout_mode = 2
-alignment = 1
 
-[node name="Team1Container" type="HBoxContainer" parent="BattleUI/MarginContainer/HBoxContainer"]
+[node name="Separator" type="Control" parent="BattleUI/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_vertical = 8
 
-[node name="UnitBattleIcon" parent="BattleUI/MarginContainer/HBoxContainer/Team1Container" instance=ExtResource("1_i3hhf")]
+[node name="Team2Container" type="HBoxContainer" parent="BattleUI/HBoxContainer"]
 layout_mode = 2
-
-[node name="Team2Container" type="HBoxContainer" parent="BattleUI/MarginContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 8
 alignment = 2
 
 [node name="TeamPicker" parent="." instance=ExtResource("3_qrbiu")]
@@ -58,6 +54,7 @@ visible = false
 layout_mode = 1
 
 [node name="DialoguePlaceholder" type="Control" parent="." node_paths=PackedStringArray("team_picker_view")]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

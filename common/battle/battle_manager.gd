@@ -1,6 +1,7 @@
 extends Node
 
 
+signal on_battle_setup(teams: Array[Team])
 signal on_battle_started
 signal on_battle_ended(winning_team: TeamResource)
 
@@ -38,13 +39,13 @@ func _process(_delta: float):
 
 
 func start_battle(battle: PackedScene):
-	# TODO: Remove battle scene from scene.
-
 	current_battle = battle.instantiate()
 	add_child(current_battle)
 
 	_instantiate_team(player_team, current_battle.tee_area)
 	_instantiate_team(current_battle.rival_team, current_battle.green)
+
+	on_battle_setup.emit(teams)
 
 	await current_battle.play_intro_sequence()
 
