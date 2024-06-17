@@ -11,6 +11,7 @@ var unit: Unit
 func _ready():
 	navigation_agent.velocity_computed.connect(_on_velocity_computed)
 
+	behaviour_tree.blackboard.merge(unit.role.get_behaviour_settings())
 	behaviour_tree.blackboard["unit"] = unit
 
 

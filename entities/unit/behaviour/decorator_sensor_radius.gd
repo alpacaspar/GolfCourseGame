@@ -1,6 +1,8 @@
 extends BTDecorator
 
 
+@export var blackboard_value: StringName
+@export var override := false
 @export var radius := 10.0
 @export_flags("All:1", "Teammates:2", "Opponents:4", "Ball:8") var sensor_filter := 0
 @export var exclude_self := false
@@ -14,7 +16,7 @@ func _decorate(blackboard: Dictionary):
 	var team: Team = unit.team
 
 	var space_state := unit.get_world_3d().direct_space_state
-	var query := _get_query(unit)
+	var query := _get_query(unit, radius if override else blackboard[blackboard_value])
 
 	var intersections: Array[Dictionary] = space_state.intersect_shape(query)
 
@@ -34,9 +36,9 @@ func _decorate(blackboard: Dictionary):
 	PhysicsServer3D.free_rid(query.shape_rid)
 
 
-func _get_query(requesting_node: PhysicsBody3D) -> PhysicsShapeQueryParameters3D:
+func _get_query(requesting_node: PhysicsBody3D, query_radius: float) -> PhysicsShapeQueryParameters3D:
 	var shape_rid := PhysicsServer3D.sphere_shape_create()
-	PhysicsServer3D.shape_set_data(shape_rid, radius)
+	PhysicsServer3D.shape_set_data(shape_rid, query_radius)
 
 	var params := PhysicsShapeQueryParameters3D.new()
 	params.shape_rid = shape_rid

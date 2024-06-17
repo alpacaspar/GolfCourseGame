@@ -10,7 +10,10 @@ extends Resource
 
 @export_group("Behaviour")
 @export var move_speed := 3.0
+@export var max_search_range := 300.0
+
 @export var block_move_speed := 2.0
+
 @export var attack_range := 3.0
 @export var attack_speed := 3.0
 
@@ -26,3 +29,17 @@ extends Resource
 
 @export_group("UI")
 @export var descriptive_letter: String = ""
+
+
+func get_behaviour_settings() -> Dictionary:
+	return {
+		"move_speed": move_speed,
+		"max_search_range": max_search_range,
+		"block_move_speed": block_move_speed,
+		"attack_range": attack_range,
+		"attack_speed": attack_speed,
+		"max_drive_range": max_drive_range,
+		"max_drive_angle": max_drive_angle,
+		"max_ball_search_range": max_ball_search_range,
+		"max_unit_search_range": max_unit_search_range,
+	}

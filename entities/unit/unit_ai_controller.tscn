@@ -38,6 +38,7 @@ script = ExtResource("3_kkrbg")
 
 [node name="DecoratorSensorRadiusAttackRange" type="Node" parent="BehaviourTree/Selector"]
 script = ExtResource("4_urqn6")
+blackboard_value = &"attack_range"
 radius = 5.0
 sensor_filter = 12
 exclude_self = true
@@ -111,15 +112,16 @@ script = ExtResource("10_6xjrr")
 [node name="ActionAttack" type="Node" parent="BehaviourTree/Selector/DecoratorSensorRadiusAttackRange/ConditionIsNotEmpty/Selector/Sequence"]
 script = ExtResource("11_cyakl")
 
-[node name="DecoratorSensorRadiusMoveRange" type="Node" parent="BehaviourTree/Selector"]
+[node name="DecoratorSensorRadiusSearchRange" type="Node" parent="BehaviourTree/Selector"]
 script = ExtResource("4_urqn6")
+blackboard_value = &"max_search_range"
 radius = 300.0
 sensor_filter = 12
 exclude_self = true
 sensor_collision_mask = 2
 
-[node name="DecoratorFilterUtility" type="Node" parent="BehaviourTree/Selector/DecoratorSensorRadiusMoveRange"]
+[node name="DecoratorFilterUtility" type="Node" parent="BehaviourTree/Selector/DecoratorSensorRadiusSearchRange"]
 script = ExtResource("4_3sa3n")
 
-[node name="ActionMoveTo" type="Node" parent="BehaviourTree/Selector/DecoratorSensorRadiusMoveRange/DecoratorFilterUtility"]
+[node name="ActionMoveTo" type="Node" parent="BehaviourTree/Selector/DecoratorSensorRadiusSearchRange/DecoratorFilterUtility"]
 script = ExtResource("13_wo51f")
