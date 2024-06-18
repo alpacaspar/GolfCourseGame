@@ -6,6 +6,8 @@ extends Node3D
 
 @export var camera_path_track: PathFollow3D
 
+@export var ball_spawnpoints: Array[Marker3D] = []
+
 @onready var tee_area: Node3D = $TeeArea
 @onready var green: Node3D = $GreenArea
 

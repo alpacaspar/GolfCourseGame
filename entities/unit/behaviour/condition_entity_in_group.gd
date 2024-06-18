@@ -1,8 +1,9 @@
 extends BTCondition
 
 
+@export var input_array: StringName = "entities"
 @export var group: StringName
 
 
 func _check_condition(blackboard: Dictionary) -> bool:
-	return blackboard["entities"].front().is_in_group(group)
+	return blackboard[input_array].front().is_in_group(group)

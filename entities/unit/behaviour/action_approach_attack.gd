@@ -5,20 +5,20 @@ const AIM_ROTATION_DELTA = 10.0
 
 
 @export var input_array: StringName = "entities"
+@export var opponent_array: StringName = "entities"
 
 
 func _tick(blackboard: Dictionary, delta: float) -> int:
 	var unit: Unit = blackboard["unit"]
 	var navigation_agent: NavigationAgent3D = unit.controller.navigation_agent
 
-	if not blackboard.has(input_array):
-		return FAILURE
+	var target: Node3D = blackboard[input_array].front()
+	var opponent: Node3D = blackboard[opponent_array].front()
 
-	if blackboard[input_array].is_empty():
-		return FAILURE
+	var direction_to_target: Vector3 = target.global_position.direction_to(Vector3(opponent.global_position.x, target.global_position.y, opponent.global_position.z))
 
-	unit.controller.set_movement_target(blackboard[input_array].front().global_position)
-	
+	unit.controller.set_movement_target(target.global_position - direction_to_target * blackboard["attack_range"])
+
 	if navigation_agent.is_navigation_finished():
 		unit.controller.set_velocity(Vector3.ZERO)
 		return SUCCESS
@@ -32,5 +32,6 @@ func _tick(blackboard: Dictionary, delta: float) -> int:
 
 	var angle := atan2(real_velocity.x, real_velocity.z)
 	unit.controller.global_rotation.y = rotate_toward(unit.controller.global_rotation.y, angle, AIM_ROTATION_DELTA * delta)
+
 
 	return RUNNING

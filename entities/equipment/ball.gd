@@ -78,6 +78,7 @@ func _find_target() -> Node3D:
 		var collider: Node3D = intersections[i]["collider"]
 		if not collider.is_in_group("unit"):
 			intersections.remove_at(i)
+			continue
 
 		var direction_to_ball := last_user.global_position.direction_to(global_position)
 		var direction_to_collider := last_user.global_position.direction_to(collider.global_position)

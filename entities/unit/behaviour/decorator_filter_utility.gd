@@ -1,8 +1,11 @@
 extends BTDecorator
 
 
+@export var input_array: StringName = "entities"
+
+
 func _decorate(blackboard: Dictionary):
-	var entities: Array[Node3D] = blackboard["entities"]
+	var entities: Array[Node3D] = blackboard[input_array]
 	var unit: Unit = blackboard["unit"]
 
 	var best_utility := INF

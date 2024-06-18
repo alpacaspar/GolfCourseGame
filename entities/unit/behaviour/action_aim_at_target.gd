@@ -1,6 +1,8 @@
 extends BTAction
 
 
+@export var input_array: StringName = "entities"
+
 ## The threshold at which the unit is considered to be facing the target, in degrees.
 @export var angle_threshold := 5.0
 @export var aim_rotation_delta := 10.0
@@ -8,7 +10,7 @@ extends BTAction
 
 func _tick(blackboard: Dictionary, delta: float) -> int:
 	var unit: Unit = blackboard["unit"]
-	var target: Node3D = blackboard["entities"].front()
+	var target: Node3D = blackboard[input_array].front()
 	
 	if not target or not is_instance_valid(target):
 		return FAILURE

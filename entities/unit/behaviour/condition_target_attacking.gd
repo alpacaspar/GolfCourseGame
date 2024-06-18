@@ -1,13 +1,14 @@
 extends BTCondition
 
 
+@export var input_array: StringName = "entities"
 ## Threshold for when the attack is considered to be directed at the unit in degrees.
 @export_range(0, 180) var attack_angle_threshold := 45.0
 
 
 func _check_condition(blackboard: Dictionary) -> bool:
     var unit: Unit = blackboard["unit"]
-    var target: Node3D = blackboard["entities"].front()
+    var target: Node3D = blackboard[input_array].front()
 
     if not target.is_attacking:
         return false

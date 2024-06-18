@@ -10,13 +10,16 @@ const SPAWN_HEIGHT_OFFSET = -0.2
 
 @export var player_team: PlayerTeamResource
 
-@export_subgroup("Composition")
+@export_group("Composition")
 @export var team_scene: PackedScene
 
-@export_subgroup("Units")
+@export_group("Units")
 @export var unit_scene: PackedScene
 @export var unit_ai_controller: PackedScene
 @export var unit_player_controller: PackedScene
+
+@export_group("Battle Resources")
+@export var ball_scene: PackedScene
 
 var current_battle: Node3D
 var teams: Array[Team] = []
@@ -49,6 +52,8 @@ func start_battle(battle: PackedScene):
 	await _instantiate_team(current_battle.rival_team, current_battle.green, character_factory)
 
 	character_factory.queue_free()
+
+	_instantiate_battle_resources(current_battle)
 
 	on_battle_setup.emit(teams)
 
@@ -119,6 +124,13 @@ func _instantiate_team(team_resource: TeamResource, origin: Node3D, character_fa
 		unit_instance.global_rotation.y = origin.global_rotation.y
 
 	team_instance.leader = unit_instance
+
+
+func _instantiate_battle_resources(battle: Node3D):
+	for spawnpoint: Node3D in battle.ball_spawnpoints:
+		var ball_instance := ball_scene.instantiate()
+		battle.add_child(ball_instance)
+		ball_instance.global_position = spawnpoint.global_position
 
 
 func _get_spawnpoints(amount: int, origin_node: Node3D, spacing: float) -> Array[Vector3]:
