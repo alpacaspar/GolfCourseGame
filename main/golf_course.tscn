@@ -1,8 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://dixhhv1bgajy0"]
+[gd_scene load_steps=12 format=3 uid="uid://dixhhv1bgajy0"]
 
 [ext_resource type="Material" uid="uid://gnoi7qwmsv7q" path="res://entities/environment/water_material.tres" id="2_lfi1o"]
 [ext_resource type="PackedScene" uid="uid://dbssg6p52li32" path="res://entities/terrain/terrain.tscn" id="2_ucwcg"]
-[ext_resource type="PackedScene" uid="uid://gv5jf3ljibf6" path="res://entities/battles/demo_battle.tscn" id="5_dvfnw"]
 [ext_resource type="PackedScene" uid="uid://75rvfsq67s7b" path="res://entities/environment/palm_tree.tscn" id="6_7ctve"]
 [ext_resource type="PackedScene" uid="uid://c7c7cr6gjg8ua" path="res://entities/environment/oak_tree.tscn" id="7_t6kx5"]
 
@@ -123,10 +122,3 @@ transform = Transform3D(0.704956, 0, 0.709251, 0, 1, 0, -0.709251, 0, 0.704956, 
 
 [node name="OakTree8" parent="Hole01/Trees" instance=ExtResource("7_t6kx5")]
 transform = Transform3D(-0.635351, 0, 0.772224, -0.0233535, 0.999543, -0.0192142, -0.77187, -0.0302419, -0.63506, 43.9865, -4.58071, 38.2152)
-
-[node name="Battle" parent="." instance=ExtResource("5_dvfnw")]
-
-[node name="PathFollow3D" parent="Battle/HolePath3D" index="0"]
-transform = Transform3D(-0.983076, -0.0110101, -0.182759, -0.0247694, 0.997003, 0.0731771, 0.181404, 0.0764668, -0.980425, 9.9322, 5.48329, -91.0706)
-
-[editable path="Battle"]
