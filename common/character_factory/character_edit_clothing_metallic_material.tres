@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://dxjfjf02w005h"]
+
+[ext_resource type="Shader" uid="uid://btr3hlst6so7e" path="res://common/character_factory/character_edit_clothing_metallic_shader.tres" id="1_2e8r3"]
+[ext_resource type="Texture2D" uid="uid://bjupnamcegtfd" path="res://entities/character/clothing/shoes/shoes_allstars_metallic.png" id="2_6hvy6"]
+
+[resource]
+resource_local_to_scene = true
+shader = ExtResource("1_2e8r3")
+shader_parameter/ShoesMetallic = ExtResource("2_6hvy6")

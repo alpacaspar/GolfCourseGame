@@ -53,9 +53,11 @@ extends Node
 
 @export var face_edit_material: Material
 @export var face_default_material: Material
-@export var face_renderer_scene: PackedScene
+@export var clothing_edit_material: Material
+@export var clothing_default_material: Material
+@export var character_texture_renderer_scene: PackedScene
 
-var active_face_renderers: Dictionary = {}
+var active_texture_renderers: Dictionary = {}
 
 
 func create_character(resource: NPCResource) -> Character:
@@ -68,7 +70,15 @@ func start_character_creation(character: Character):
 	refresh_character(character)
 
 	character.face_mesh_instance.material_override = face_edit_material.duplicate()
-	character.face_mesh_instance.material_override.albedo_texture = active_face_renderers[character].get_texture()
+	character.face_mesh_instance.material_override.albedo_texture = active_texture_renderers[character].get_raw_face_texture()
+
+	var clothing_material: Material = clothing_edit_material.duplicate()
+	clothing_material.albedo_texture = active_texture_renderers[character].get_raw_clothing_albedo_texture()
+	clothing_material.roughness_texture = active_texture_renderers[character].get_raw_clothing_roughness_texture()
+	clothing_material.normal_texture = active_texture_renderers[character].get_raw_clothing_normal_texture()
+	clothing_material.metallic_texture = active_texture_renderers[character].get_raw_clothing_metallic_texture()
+
+	character.set_clothing_material(clothing_material)
 
 
 ## End the character creation process and apply the face texture to the character.
@@ -76,35 +86,48 @@ func start_character_creation(character: Character):
 func end_character_creation(character: Character):
 	character.face_mesh_instance.material_override = face_default_material.duplicate()
 
-	var face_texture := await _create_face_texture(active_face_renderers[character])
-	var face_blink_texture := await _create_face_blink_texture(active_face_renderers[character])
+	var face_texture:Texture2D = await active_texture_renderers[character].create_face_texture()
+	var face_blink_texture := await _create_face_blink_texture(active_texture_renderers[character])
 
 	character.face_mesh_instance.material_override.set("shader_parameter/face", face_texture)
 	character.face_mesh_instance.material_override.set("shader_parameter/face_blink", face_blink_texture)
 	character.face_mesh_instance.material_override.set("shader_parameter/blink_offset", randf())
 
-	active_face_renderers[character].queue_free()
-	active_face_renderers.erase(character)
+	var clothing_albedo_texture:Texture2D = await active_texture_renderers[character].create_clothing_albedo_texture()
+	var clothing_normal_texture:Texture2D = await active_texture_renderers[character].create_clothing_normal_texture()
+	var clothing_roughness_texture:Texture2D = await active_texture_renderers[character].create_clothing_roughness_texture()
+	var clothing_metallic_texture:Texture2D = await active_texture_renderers[character].create_clothing_metallic_texture()
 
-	for instance in active_face_renderers.keys():
+	var clothing_material: Material = clothing_default_material.duplicate()
+
+	clothing_material.albedo_texture = clothing_albedo_texture
+	clothing_material.normal_texture = clothing_normal_texture
+	clothing_material.roughness_texture = clothing_roughness_texture
+	clothing_material.metallic_texture = clothing_metallic_texture
+
+	character.set_clothing_material(clothing_material)
+
+	active_texture_renderers[character].queue_free()
+	active_texture_renderers.erase(character)
+
+	for instance in active_texture_renderers.keys():
 		if not instance or not is_instance_valid(instance):
-			active_face_renderers[instance].queue_free()
-			active_face_renderers.erase(instance)
+			active_texture_renderers[instance].queue_free()
+			active_texture_renderers.erase(instance)
 
 
 func refresh_character(character: Character):
 	var resource: NPCResource = character.npc
 
-	if not active_face_renderers.has(character):
-		var instance: SubViewport = face_renderer_scene.instantiate()
+	if not active_texture_renderers.has(character):
+		var instance: Node = character_texture_renderer_scene.instantiate()
 		add_child(instance)
-		active_face_renderers[character] = instance
+		active_texture_renderers[character] = instance
 
-	var face_renderer: SubViewport = active_face_renderers[character]
+	var texture_renderer: Node = active_texture_renderers[character]
 
-	var face_renderer_material: Material = face_renderer.get_child(0).material
+	var face_renderer_material: Material = texture_renderer.face_edit_material
 	var head_material: Material = character.head_mesh_instance.material_override
-	var clothing_material: ShaderMaterial = character.body_mesh_instance.material_overlay
 
 	# Face details
 	face_renderer_material.set("shader_parameter/EyeIndex", resource.eye_index)
@@ -161,35 +184,40 @@ func refresh_character(character: Character):
 	head_material.set("shader_parameter/Blush", blush_data)
 	head_material.set("shader_parameter/BlushColor", blush_colors[resource.blush_color_index])
 
+	var clothing_albedo_material: ShaderMaterial = texture_renderer.clothing_edit_albedo_material
+	var clothing_normal_material: ShaderMaterial = texture_renderer.clothing_edit_normal_material
+	var clothing_roughness_material: ShaderMaterial = texture_renderer.clothing_edit_roughness_material
+	var clothing_metallic_material: ShaderMaterial = texture_renderer.clothing_edit_metallic_material
+
 	# Shirt stuff
 	var shirt := shirt_datas[resource.shirt_index]
 	character.collar_mesh_instance.mesh = shirt.collar
 	if shirt.can_pick_color:
-		clothing_material.set("shader_parameter/ShirtTint", shirt_colors[resource.shirt_color_index])
+		clothing_albedo_material.set("shader_parameter/ShirtTint", shirt_colors[resource.shirt_color_index])
 	else:
-		clothing_material.set("shader_parameter/ShirtTint", Color.WHITE)
+		clothing_albedo_material.set("shader_parameter/ShirtTint", Color.WHITE)
 
-	clothing_material.set("shader_parameter/ShirtAlbedo", shirt.albedo)
-	clothing_material.set("shader_parameter/ShirtRoughness", shirt.roughness)
-	clothing_material.set("shader_parameter/ShirtNormal", shirt.normal)
+	clothing_albedo_material.set("shader_parameter/ShirtAlbedo", shirt.albedo)
+	clothing_roughness_material.set("shader_parameter/ShirtRoughness", shirt.roughness)
+	clothing_normal_material.set("shader_parameter/ShirtNormal", shirt.normal)
 
 	# Pants stuff
 	var pants := pants_datas[resource.pants_index]
 	if !pants.is_skirt:
 		character.skirt_mesh_instance.visible = false
 		if pants.can_pick_color:
-			clothing_material.set("shader_parameter/PantsTint", pants_colors[resource.pants_color_index])
+			clothing_albedo_material.set("shader_parameter/PantsTint", pants_colors[resource.pants_color_index])
 		else:
-			clothing_material.set("shader_parameter/PantsTint", Color.WHITE)
+			clothing_albedo_material.set("shader_parameter/PantsTint", Color.WHITE)
 		
-		clothing_material.set("shader_parameter/PantsAlbedo", pants.albedo)
-		clothing_material.set("shader_parameter/PantsRoughness", pants.roughness)
-		clothing_material.set("shader_parameter/PantsNormal", pants.normal)
+		clothing_albedo_material.set("shader_parameter/PantsAlbedo", pants.albedo)
+		clothing_roughness_material.set("shader_parameter/PantsRoughness", pants.roughness)
+		clothing_normal_material.set("shader_parameter/PantsNormal", pants.normal)
 		if pants.show_cuffs:
 			character.left_folded_pants_mesh_instance.visible = true
-			character.left_folded_pants_mesh_instance.material_override.albedo_color = pants_colors[resource.pants_color_index]
+			#character.left_folded_pants_mesh_instance.material_override.albedo_color = pants_colors[resource.pants_color_index]
 			character.right_folded_pants_mesh_instance.visible = true
-			character.right_folded_pants_mesh_instance.material_override.albedo_color = pants_colors[resource.pants_color_index]
+			#character.right_folded_pants_mesh_instance.material_override.albedo_color = pants_colors[resource.pants_color_index]
 		else:
 			character.left_folded_pants_mesh_instance.visible = false
 			character.right_folded_pants_mesh_instance.visible = false
@@ -198,30 +226,30 @@ func refresh_character(character: Character):
 		character.left_folded_pants_mesh_instance.visible = false
 		character.right_folded_pants_mesh_instance.visible = false
 		
-		clothing_material.set("shader_parameter/PantsAlbedo", pants.albedo)
-		clothing_material.set("shader_parameter/PantsRoughness", pants.roughness)
-		clothing_material.set("shader_parameter/PantsNormal", pants.normal)
-		clothing_material.set("shader_parameter/PantsTint", Color.WHITE)
+		clothing_albedo_material.set("shader_parameter/PantsAlbedo", pants.albedo)
+		clothing_roughness_material.set("shader_parameter/PantsRoughness", pants.roughness)
+		clothing_normal_material.set("shader_parameter/PantsNormal", pants.normal)
+		clothing_albedo_material.set("shader_parameter/PantsTint", Color.WHITE)
 
 		character.skirt_mesh_instance.material_override.albedo_color = pants_colors[resource.pants_color_index]
 
 	# Shoes stuff
 	var shoes := shoes_datas[resource.shoe_index]
-	clothing_material.set("shader_parameter/ShoesTint", shirt_colors[resource.shoes_color_index])
-	clothing_material.set("shader_parameter/ShoesAlbedo", shoes.albedo)
-	clothing_material.set("shader_parameter/ShoesRoughness", shoes.roughness)
-	clothing_material.set("shader_parameter/ShoesNormal", shoes.normal)
-	clothing_material.set("shader_parameter/ShoesMetallic", shoes.metallic)
-	clothing_material.set("shader_parameter/ShoesColorMask", shoes.color_mask)
+	clothing_albedo_material.set("shader_parameter/ShoesTint", shirt_colors[resource.shoes_color_index])
+	clothing_albedo_material.set("shader_parameter/ShoesAlbedo", shoes.albedo)
+	clothing_roughness_material.set("shader_parameter/ShoesRoughness", shoes.roughness)
+	clothing_normal_material.set("shader_parameter/ShoesNormal", shoes.normal)
+	clothing_metallic_material.set("shader_parameter/ShoesMetallic", shoes.metallic)
+	clothing_albedo_material.set("shader_parameter/ShoesColorMask", shoes.color_mask)
 
 	# Sock stuff
 	var socks := sock_datas[resource.sock_index]
 	if socks.can_pick_color:
-		clothing_material.set("shader_parameter/SocksTint", shirt_colors[resource.sock_color_index])
+		clothing_albedo_material.set("shader_parameter/SocksTint", shirt_colors[resource.sock_color_index])
 	else:
-		clothing_material.set("shader_parameter/SocksTint", Color.WHITE)
-	clothing_material.set("shader_parameter/SocksAlbedo", socks.albedo)
-	clothing_material.set("shader_parameter/SocksRoughness", socks.roughness)
+		clothing_albedo_material.set("shader_parameter/SocksTint", Color.WHITE)
+	clothing_albedo_material.set("shader_parameter/SocksAlbedo", socks.albedo)
+	clothing_roughness_material.set("shader_parameter/SocksRoughness", socks.roughness)
 
 	# Setting Wrist meshes
 	if resource.wrist_index > -1:
@@ -268,15 +296,7 @@ func refresh_character(character: Character):
 	character.nose_mesh_instance.material_override.set("albedo_color", skin_colors[resource.skin_color_index])
 
 
-func _create_face_texture(face_renderer: SubViewport) -> Texture2D:
-	face_renderer.render_target_update_mode = SubViewport.UPDATE_ONCE
-	await RenderingServer.frame_post_draw
-	var image := face_renderer.get_texture().get_image()
-	
-	return ImageTexture.create_from_image(image)
+func _create_face_blink_texture(face_renderer: Node) -> Texture2D:
+	face_renderer.face_edit_material.set("shader_parameter/EyeIndex", eye_blink_index)
 
-
-func _create_face_blink_texture(face_renderer: SubViewport) -> Texture2D:
-	face_renderer.get_child(0).material.set("shader_parameter/EyeIndex", eye_blink_index)
-
-	return await _create_face_texture(face_renderer)
+	return await face_renderer.create_face_texture()

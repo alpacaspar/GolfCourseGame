@@ -1,0 +1,48 @@
+[gd_resource type="VisualShader" load_steps=4 format=3 uid="uid://btr3hlst6so7e"]
+
+[sub_resource type="VisualShaderNodeTexture2DParameter" id="VisualShaderNodeTexture2DParameter_t7uos"]
+parameter_name = "ShoesMetallic"
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_lliwl"]
+expanded_output_ports = [0]
+source = 5
+
+[sub_resource type="VisualShaderNodeMix" id="VisualShaderNodeMix_6yd7x"]
+
+[resource]
+code = "shader_type canvas_item;
+render_mode blend_mix;
+
+uniform sampler2D ShoesMetallic;
+
+
+
+void fragment() {
+	vec4 n_out36p0;
+// Texture2D:36
+	n_out36p0 = texture(ShoesMetallic, UV);
+	float n_out36p4 = n_out36p0.a;
+
+
+// Mix:57
+	float n_in57p0 = 0.00000;
+	float n_out57p0 = mix(n_in57p0, n_out36p0.x, n_out36p4);
+
+
+// Output:0
+	COLOR.rgb = vec3(n_out57p0);
+
+
+}
+"
+graph_offset = Vector2(3015.53, 106.514)
+mode = 1
+flags/light_only = false
+nodes/fragment/0/position = Vector2(2000, 40)
+nodes/fragment/35/node = SubResource("VisualShaderNodeTexture2DParameter_t7uos")
+nodes/fragment/35/position = Vector2(1120, 40)
+nodes/fragment/36/node = SubResource("VisualShaderNodeTexture_lliwl")
+nodes/fragment/36/position = Vector2(1460, 40)
+nodes/fragment/57/node = SubResource("VisualShaderNodeMix_6yd7x")
+nodes/fragment/57/position = Vector2(1740, 40)
+nodes/fragment/connections = PackedInt32Array(35, 0, 36, 2, 36, 0, 57, 1, 36, 4, 57, 2, 57, 0, 0, 0)

@@ -1,0 +1,13 @@
+[gd_resource type="ShaderMaterial" load_steps=5 format=3 uid="uid://1xydbe0nu0fm"]
+
+[ext_resource type="Shader" uid="uid://d2h04oaiah10a" path="res://common/character_factory/character_edit_clothing_normal_shader.tres" id="1_fi4v8"]
+[ext_resource type="Texture2D" uid="uid://20c2xtrqx6lm" path="res://entities/character/clothing/clothing_pantalonpants_normal.png" id="2_kayl8"]
+[ext_resource type="Texture2D" uid="uid://c3w51nrsdejqe" path="res://entities/character/clothing/clothing_tshirtbland_normal.png" id="3_0kerl"]
+[ext_resource type="Texture2D" uid="uid://hp6su3p07mq4" path="res://entities/character/clothing/shoes/shoes_allstars_normal.png" id="4_hx7bc"]
+
+[resource]
+resource_local_to_scene = true
+shader = ExtResource("1_fi4v8")
+shader_parameter/ShirtNormal = ExtResource("3_0kerl")
+shader_parameter/ShoesNormal = ExtResource("4_hx7bc")
+shader_parameter/PantsNormal = ExtResource("2_kayl8")
