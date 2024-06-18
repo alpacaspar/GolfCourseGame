@@ -215,9 +215,7 @@ func refresh_character(character: Character):
 		clothing_normal_material.set("shader_parameter/PantsNormal", pants.normal)
 		if pants.show_cuffs:
 			character.left_folded_pants_mesh_instance.visible = true
-			#character.left_folded_pants_mesh_instance.material_override.albedo_color = pants_colors[resource.pants_color_index]
 			character.right_folded_pants_mesh_instance.visible = true
-			#character.right_folded_pants_mesh_instance.material_override.albedo_color = pants_colors[resource.pants_color_index]
 		else:
 			character.left_folded_pants_mesh_instance.visible = false
 			character.right_folded_pants_mesh_instance.visible = false
