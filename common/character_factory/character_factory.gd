@@ -63,6 +63,12 @@ var active_texture_renderers: Dictionary = {}
 func create_character(resource: NPCResource) -> Character:
 	var character := character_base.instantiate() as Character
 	character.set_npc(resource)
+
+	if not active_texture_renderers.has(character):
+		var instance: Node = character_texture_renderer_scene.instantiate()
+		add_child(instance)
+		active_texture_renderers[character] = instance
+
 	return character
 
 
@@ -110,7 +116,7 @@ func end_character_creation(character: Character):
 	active_texture_renderers[character].queue_free()
 	active_texture_renderers.erase(character)
 
-	for instance in active_texture_renderers.keys():
+	for instance: Node in active_texture_renderers.keys():
 		if not instance or not is_instance_valid(instance):
 			active_texture_renderers[instance].queue_free()
 			active_texture_renderers.erase(instance)
@@ -118,11 +124,6 @@ func end_character_creation(character: Character):
 
 func refresh_character(character: Character):
 	var resource: NPCResource = character.npc
-
-	if not active_texture_renderers.has(character):
-		var instance: Node = character_texture_renderer_scene.instantiate()
-		add_child(instance)
-		active_texture_renderers[character] = instance
 
 	var texture_renderer: Node = active_texture_renderers[character]
 
