@@ -16,6 +16,7 @@ func play_footstep():
 	# TODO: Implement NPC vs PLR detection
 	var character_type: String = "plr" # temporary
 	set_associated_switch(character_type, _get_terrain_material_name(global_position))
+	Wwise.set_switch(character_type + "_footstep_intention", "run", self)
 	Wwise.post_event("play_" + character_type + "_footstep", self)
 	start_activity_timer()
 
