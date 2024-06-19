@@ -7,6 +7,8 @@ extends View
 
 func _ready():
 	view_group.push_view(self)
+	Wwise.register_game_obj(AudioManager, AudioManager.get_name())
+	Wwise.post_event("play_mus_manager", AudioManager)
 
 
 func _open():

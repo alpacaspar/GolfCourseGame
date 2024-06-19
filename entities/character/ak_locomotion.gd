@@ -1,6 +1,8 @@
 extends Node3D
 
+const MOVE_BLEND_PARAMETER: StringName = "parameters/MoveBlend/blend_amount"
 
+@export var character: Character
 @export_group("footsteps")
 @export var footstep_volume_curve: Curve
 @export var terrain3d_storage: Terrain3DStorage
@@ -15,8 +17,22 @@ func play_footstep():
 	Wwise.set_3d_position(self, global_transform)
 	# TODO: Implement NPC vs PLR detection
 	var character_type: String = "plr" # temporary
+	if character.npc.has_meta("is_player"):
+		character_type = "plr"
+	else:
+		character_type = "npc"
 	set_associated_switch(character_type, _get_terrain_material_name(global_position))
-	Wwise.set_switch(character_type + "_footstep_intention", "run", self)
+	
+	var intention_type: String = ""
+	var move_blend: float = character.animation_tree.get(MOVE_BLEND_PARAMETER)
+	print(move_blend)
+	if move_blend < 0.5:
+		intention_type = "walk"
+	elif move_blend > 0.5:
+		intention_type = "run"
+	
+	
+	Wwise.set_switch(character_type + "_footstep_intention", intention_type, self)
 	Wwise.post_event("play_" + character_type + "_footstep", self)
 	start_activity_timer()
 
