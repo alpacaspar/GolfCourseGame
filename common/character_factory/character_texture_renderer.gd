@@ -60,6 +60,7 @@ func create_clothing_albedo_texture() -> Texture2D:
 func create_clothing_normal_texture() -> Texture2D:
 	return await _create_texture_from_viewport(clothing_edit_normal_viewport)
 
+
 func create_clothing_roughness_texture() -> Texture2D:
 	return await _create_texture_from_viewport(clothing_edit_roughness_viewport)
 
