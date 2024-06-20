@@ -1,4 +1,4 @@
-[gd_resource type="VisualShader" load_steps=29 format=3 uid="uid://dn8hcmbi0cime"]
+[gd_resource type="VisualShader" load_steps=29 format=3 uid="uid://brhddkh8r5th8"]
 
 [ext_resource type="Texture2D" uid="uid://b1xcfdusiin1a" path="res://entities/character/clothing/clothing_tshirt_albedo.png" id="1_ohnuw"]
 [ext_resource type="Texture2D" uid="uid://dyt5mfqtaght8" path="res://entities/character/clothing/clothing_pants_albedo.png" id="2_t6ae3"]

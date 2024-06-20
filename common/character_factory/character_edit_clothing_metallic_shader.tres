@@ -1,4 +1,4 @@
-[gd_resource type="VisualShader" load_steps=4 format=3 uid="uid://btr3hlst6so7e"]
+[gd_resource type="VisualShader" load_steps=4 format=3 uid="uid://di1r5sx7ur63m"]
 
 [sub_resource type="VisualShaderNodeTexture2DParameter" id="VisualShaderNodeTexture2DParameter_t7uos"]
 parameter_name = "ShoesMetallic"

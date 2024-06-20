@@ -1,6 +1,6 @@
-[gd_resource type="ShaderMaterial" load_steps=6 format=3 uid="uid://cfr4hw7iqnsdg"]
+[gd_resource type="ShaderMaterial" load_steps=6 format=3 uid="uid://cdmgugd4a8qvd"]
 
-[ext_resource type="Shader" uid="uid://cmanm8a30wq7i" path="res://common/character_factory/character_edit_clothing_roughness_shader.tres" id="1_islbp"]
+[ext_resource type="Shader" uid="uid://dl5adk8da6irb" path="res://common/character_factory/character_edit_clothing_roughness_shader.tres" id="1_islbp"]
 [ext_resource type="Texture2D" uid="uid://dckilkspi1mel" path="res://entities/character/clothing/clothing_pantalonrolledpants_roughness.png" id="2_smo3q"]
 [ext_resource type="Texture2D" uid="uid://ds2t8206jrt1u" path="res://entities/character/clothing/clothing_tshirtbland_roughness.png" id="3_uk22j"]
 [ext_resource type="Texture2D" uid="uid://je6kmo5u5nsu" path="res://entities/character/clothing/shoes/shoes_allstars_roughness.png" id="4_p6l6q"]

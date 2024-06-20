@@ -1,4 +1,4 @@
-[gd_resource type="VisualShader" load_steps=17 format=3 uid="uid://cmanm8a30wq7i"]
+[gd_resource type="VisualShader" load_steps=17 format=3 uid="uid://dl5adk8da6irb"]
 
 [ext_resource type="Texture2D" uid="uid://cmmqgcweqbbeo" path="res://entities/character/clothing/clothing_pants_roughness.png" id="2_fnxh3"]
 [ext_resource type="Texture2D" uid="uid://dtv820rsh681j" path="res://entities/character/clothing/clothing_tshirt_rougness.png" id="4_725pm"]

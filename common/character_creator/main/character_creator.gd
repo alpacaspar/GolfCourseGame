@@ -97,13 +97,18 @@ var preview_scene: PreviewSpawner
 var current_character: Character
 
 
+var character_factory: Node
+
 func _ready():
 	preview_scene = preload("res://addons/npc_editor/preview_scene.tscn").instantiate() as PreviewSpawner
 	add_child(preview_scene)
 	
-	current_character = CharacterFactory.create_character(edited_resource)
-	CharacterFactory.start_character_creation(current_character)
-	CharacterFactory.refresh_character(current_character)
+	character_factory = preload("res://common/character_factory/character_factory.tscn").instantiate()
+	add_child(character_factory)
+
+	current_character = character_factory.create_character(edited_resource)
+	character_factory.start_character_creation(current_character)
+	character_factory.refresh_character(current_character)
 
 	preview_scene.show_character(current_character)
 	preview_scene.callback = Callable(_set_preview)
@@ -118,65 +123,65 @@ func _ready():
 
 	# Colors
 	for picker: CreatorColorPicker in skin_color_option_pickers:
-		await _set_color_button_connections(CharacterFactory.skin_colors, picker)
+		await _set_color_button_connections(character_factory.skin_colors, picker)
 	
-	await _set_color_button_connections(CharacterFactory.hair_colors, hair_color_option_picker)
-	await _set_color_button_connections(CharacterFactory.hair_colors, eyebrow_color_option_picker)
-	await _set_color_button_connections(CharacterFactory.hair_colors, mustache_color_option_picker)
-	await _set_color_button_connections(CharacterFactory.hair_colors, beard_color_option_picker)
-	await _set_color_button_connections(CharacterFactory.lip_colors, lip_color_option_picker)
-	await _set_color_button_connections(CharacterFactory.eyeshadow_colors, eyeshadow_color_option_picker)
-	await _set_color_button_connections(CharacterFactory.eyeliner_colors, eyeliner_color_option_picker)
-	await _set_color_button_connections(CharacterFactory.blush_colors, blush_color_option_picker)
+	await _set_color_button_connections(character_factory.hair_colors, hair_color_option_picker)
+	await _set_color_button_connections(character_factory.hair_colors, eyebrow_color_option_picker)
+	await _set_color_button_connections(character_factory.hair_colors, mustache_color_option_picker)
+	await _set_color_button_connections(character_factory.hair_colors, beard_color_option_picker)
+	await _set_color_button_connections(character_factory.lip_colors, lip_color_option_picker)
+	await _set_color_button_connections(character_factory.eyeshadow_colors, eyeshadow_color_option_picker)
+	await _set_color_button_connections(character_factory.eyeliner_colors, eyeliner_color_option_picker)
+	await _set_color_button_connections(character_factory.blush_colors, blush_color_option_picker)
 	
-	await _set_color_button_connections(CharacterFactory.shirt_colors, shirt_color_option_picker)
-	await _set_color_button_connections(CharacterFactory.pants_colors, pants_color_option_picker)
-	await _set_color_button_connections(CharacterFactory.shirt_colors, sock_color_option_picker)
-	await _set_color_button_connections(CharacterFactory.shirt_colors, shoes_color_option_picker)
+	await _set_color_button_connections(character_factory.shirt_colors, shirt_color_option_picker)
+	await _set_color_button_connections(character_factory.pants_colors, pants_color_option_picker)
+	await _set_color_button_connections(character_factory.shirt_colors, sock_color_option_picker)
+	await _set_color_button_connections(character_factory.shirt_colors, shoes_color_option_picker)
 
 	# External Icons
 	await hair_option_picker.add_empty(hair_icons[hair_icons.size() - 1], _update_character)
-	await _set_external_icon_button_connections(hair_icons, CharacterFactory.hair_meshes, hair_option_picker)
+	await _set_external_icon_button_connections(hair_icons, character_factory.hair_meshes, hair_option_picker)
 
 	await blush_option_picker.add_empty(empty_icon, _update_character)
-	await _set_external_icon_button_connections(blush_icons, CharacterFactory.blush_textures, blush_option_picker)
-	await _set_external_icon_button_connections(nose_icons, CharacterFactory.nose_meshes, noses_option_picker)
-	await _set_external_icon_button_connections(ear_icons, CharacterFactory.ear_meshes, ears_option_picker)
+	await _set_external_icon_button_connections(blush_icons, character_factory.blush_textures, blush_option_picker)
+	await _set_external_icon_button_connections(nose_icons, character_factory.nose_meshes, noses_option_picker)
+	await _set_external_icon_button_connections(ear_icons, character_factory.ear_meshes, ears_option_picker)
 
 	# Textures
 	await eyeshadow_option_picker.add_empty(empty_icon, _update_character)
-	await _set_single_texture_button_connections(CharacterFactory.eyeshadow_textures, eyeshadow_option_picker)
+	await _set_single_texture_button_connections(character_factory.eyeshadow_textures, eyeshadow_option_picker)
 	await eyeliner_option_picker.add_empty(empty_icon, _update_character)
-	await _set_single_texture_button_connections(CharacterFactory.eyeliner_textures, eyeliner_option_picker)
+	await _set_single_texture_button_connections(character_factory.eyeliner_textures, eyeliner_option_picker)
 	await eyebrow_piercings_option_picker.add_empty(empty_icon, _update_character)
-	await _set_single_texture_button_connections(CharacterFactory.eyebrow_piercing_textures, eyebrow_piercings_option_picker)
+	await _set_single_texture_button_connections(character_factory.eyebrow_piercing_textures, eyebrow_piercings_option_picker)
 
 	await glasses_option_picker.add_empty(empty_icon, _update_character)
-	await _set_texture_button_connections(CharacterFactory.glasses_textures, glasses_option_picker, 1)
-	await _set_texture_button_connections(CharacterFactory.eye_textures, eyes_option_picker)
-	await _set_texture_button_connections(CharacterFactory.mouth_textures, mouths_option_picker, 1)
+	await _set_texture_button_connections(character_factory.glasses_textures, glasses_option_picker, 1)
+	await _set_texture_button_connections(character_factory.eye_textures, eyes_option_picker)
+	await _set_texture_button_connections(character_factory.mouth_textures, mouths_option_picker, 1)
 
 	await mustaches_option_picker.add_empty(empty_icon, _update_character)
-	await _set_texture_button_connections_color_override(CharacterFactory.mustache_textures, mustaches_option_picker, 2)
-	await _set_texture_button_connections_color_override(CharacterFactory.eyebrow_textures, eyebrows_option_picker)
+	await _set_texture_button_connections_color_override(character_factory.mustache_textures, mustaches_option_picker, 2)
+	await _set_texture_button_connections_color_override(character_factory.eyebrow_textures, eyebrows_option_picker)
 
 	# Build in icons
-	await _set_resource_button_connections(CharacterFactory.shirt_datas, shirt_option_picker)
-	await _set_resource_button_connections(CharacterFactory.pants_datas, pants_option_picker)
-	await _set_resource_button_connections(CharacterFactory.sock_datas, sock_option_picker)
-	await _set_resource_button_connections(CharacterFactory.shoes_datas, shoes_option_picker)
+	await _set_resource_button_connections(character_factory.shirt_datas, shirt_option_picker)
+	await _set_resource_button_connections(character_factory.pants_datas, pants_option_picker)
+	await _set_resource_button_connections(character_factory.sock_datas, sock_option_picker)
+	await _set_resource_button_connections(character_factory.shoes_datas, shoes_option_picker)
 
 	await beards_option_picker.add_empty(empty_icon, _update_character)
-	await _set_resource_button_connections(CharacterFactory.beard_textures, beards_option_picker)
+	await _set_resource_button_connections(character_factory.beard_textures, beards_option_picker)
 	await earrings_option_picker.add_empty(empty_icon, _update_character)
-	await _set_resource_button_connections(CharacterFactory.earring_meshes, earrings_option_picker)
+	await _set_resource_button_connections(character_factory.earring_meshes, earrings_option_picker)
 	await nose_piercings_option_picker.add_empty(empty_icon, _update_character)
-	await _set_resource_button_connections(CharacterFactory.nose_piercing_datas, nose_piercings_option_picker)
+	await _set_resource_button_connections(character_factory.nose_piercing_datas, nose_piercings_option_picker)
 
 	await belt_option_picker.add_empty(empty_icon, _update_character)
-	await _set_resource_button_connections(CharacterFactory.belt_datas, belt_option_picker)
+	await _set_resource_button_connections(character_factory.belt_datas, belt_option_picker)
 	await wrists_option_picker.add_empty(empty_icon, _update_character)
-	await _set_resource_button_connections(CharacterFactory.wrists_datas, wrists_option_picker)
+	await _set_resource_button_connections(character_factory.wrists_datas, wrists_option_picker)
 
 	# Offset Buttons
 	eye_buttons.set_values(eye_range, _update_character)
@@ -246,7 +251,7 @@ func _update_character(_value = 0):
 	edited_resource.glasses_values = glasses_buttons.get_values()
 	edited_resource.mustache_values = mustache_buttons.get_values()
 
-	CharacterFactory.refresh_character(current_character)
+	character_factory.refresh_character(current_character)
 
 
 func _set_preview(_texture):
@@ -307,7 +312,7 @@ func _randomize():
 	var rng := RandomNumberGenerator.new()
 
 	# Face stuff
-	skin_color_tracker.index = rng.randi_range(0, CharacterFactory.skin_colors.size() - 1)
+	skin_color_tracker.index = rng.randi_range(0, character_factory.skin_colors.size() - 1)
 
 	eyes_option_picker.set_button_index(rng.randi_range(0, eyes_option_picker.get_option_count()))
 	eyebrows_option_picker.set_button_index(rng.randi_range(0, eyebrows_option_picker.get_option_count()))
@@ -440,6 +445,6 @@ func _reset():
 
 func _finish():
 	edited_resource.icon = await preview_scene.create_icon(edited_resource)
-	await CharacterFactory.end_character_creation(current_character)
+	await character_factory.end_character_creation(current_character)
 	
 	scene_loader.load_scenes(next_scenes)

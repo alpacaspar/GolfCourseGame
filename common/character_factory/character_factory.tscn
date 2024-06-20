@@ -1,6 +1,6 @@
 [gd_scene load_steps=310 format=3 uid="uid://cdh3hkt0sfd8y"]
 
-[ext_resource type="Script" path="res://common/character_factory/character_factory.gd" id="1_i4r0e"]
+[ext_resource type="Script" path="res://common/character_factory/character_factory.gd" id="1_rilck"]
 [ext_resource type="ArrayMesh" uid="uid://ctvdng4wa44ne" path="res://entities/character/head/character_ears_1.res" id="2_r6hdl"]
 [ext_resource type="ArrayMesh" uid="uid://efm4pg1rf18p" path="res://entities/character/head/character_ears_2.res" id="3_wcwmv"]
 [ext_resource type="ArrayMesh" uid="uid://ckm45vryptgty" path="res://entities/character/head/character_ears_3.res" id="4_ujpgv"]
@@ -250,9 +250,9 @@
 [ext_resource type="Texture2D" uid="uid://cjo2ykyxhtkl3" path="res://common/character_creator/icons/jewelry/watch_sports.png" id="223_mx3po"]
 [ext_resource type="Material" uid="uid://dqqjxkfpgxkof" path="res://entities/character/clothing/shoes/accessoires/wrist_watchsports_material.tres" id="224_r8nth"]
 [ext_resource type="Material" uid="uid://b235u7giumrls" path="res://entities/character/head/character_face_material.tres" id="250_kkcxs"]
-[ext_resource type="PackedScene" uid="uid://8w8ec4ia5f57" path="res://common/character_factory/character_texture_renderer.tscn" id="251_8bxo0"]
-[ext_resource type="Material" uid="uid://fet1ssg0k803" path="res://common/character_factory/character_edit_clothing_combined_material.tres" id="251_thg2k"]
-[ext_resource type="Material" uid="uid://dnh2iktdx6b47" path="res://entities/character/clothing/character_clothing_material.tres" id="252_27kdk"]
+[ext_resource type="PackedScene" path="res://common/character_factory/character_texture_renderer.tscn" id="251_8bxo0"]
+[ext_resource type="Material" uid="uid://lxwbur2qih6t" path="res://common/character_factory/character_edit_clothing_combined_material.tres" id="251_thg2k"]
+[ext_resource type="Material" uid="uid://btb23i348d3pn" path="res://entities/character/clothing/character_clothing_material.tres" id="252_27kdk"]
 
 [sub_resource type="Resource" id="Resource_6utfm"]
 script = ExtResource("13_ojj6j")
@@ -729,7 +729,7 @@ resource_local_to_scene = true
 transparency = 1
 
 [node name="CharacterFactory" type="Node"]
-script = ExtResource("1_i4r0e")
+script = ExtResource("1_rilck")
 eye_textures = ExtResource("22_rt4sy")
 eyebrow_textures = ExtResource("23_2orqr")
 mouth_textures = ExtResource("24_mj7xl")
