@@ -42,7 +42,7 @@ func start_battle(battle: PackedScene):
 	current_battle = battle.instantiate()
 	add_child(current_battle)
 
-	var character_factory = load("res://common/character_factory/character_factory.tscn").instantiate()
+	var character_factory: Node = load("res://common/character_factory/character_factory.tscn").instantiate()
 	add_child(character_factory)
 
 	await _instantiate_team(player_team, current_battle.tee_area, character_factory)

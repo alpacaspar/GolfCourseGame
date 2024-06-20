@@ -51,6 +51,10 @@ var npc: NPCResource:
 	set = set_npc
 
 
+func _ready():
+	animation_tree.set("parameters/IdleSeek/seek_request", randf())
+
+
 func set_npc(value: NPCResource):
 	npc = value
 

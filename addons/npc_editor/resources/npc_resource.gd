@@ -66,22 +66,28 @@ extends Resource
 
 
 func _update_icon():
-	pass
-	# for child: Node in CharacterFactory.get_children():
-	# 	if child is PreviewSpawner:
-	# 		child.queue_free()
+	if not refresh_icon:
+		for child: Node in ToolAnchor.get_children():
+			child.queue_free()
+		return
 
-	# var preview_scene := load("res://addons/npc_editor/preview_scene.tscn").instantiate() as PreviewSpawner
-	# CharacterFactory.add_child(preview_scene)
+	var character_factory: Node = load("res://common/character_factory/character_factory.tscn").instantiate()
+	ToolAnchor.add_child(character_factory)
 
-	# var character: Character = CharacterFactory.create_character(self)
-	# CharacterFactory.refresh_character(character)
-	# CharacterFactory.start_character_creation(character)
+	var preview_scene := load("res://addons/npc_editor/preview_scene.tscn").instantiate() as PreviewSpawner
+	character_factory.add_child(preview_scene)
 
-	# preview_scene.show_character(character)
-	# icon = await preview_scene.create_icon(self)
+	var character: Character = character_factory.create_character(self)
+	character_factory.refresh_character(character)
+	character_factory.start_character_creation(character)
 
-	# await CharacterFactory.end_character_creation(character)
+	preview_scene.show_character(character)
+	icon = await preview_scene.create_icon(self)
 
-	# if not refresh_icon:
-	# 	preview_scene.queue_free()
+	await character_factory.end_character_creation(character)
+
+	## After the await the boolean might have changed, so we need to check again.
+	if not refresh_icon:
+		for child: Node in ToolAnchor.get_children():
+			child.queue_free()
+		return

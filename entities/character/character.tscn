@@ -4,7 +4,7 @@
 [ext_resource type="AnimationLibrary" uid="uid://cteindhxey6qa" path="res://entities/character/animations/character_anim_library.res" id="2_od26b"]
 [ext_resource type="AnimationNodeBlendTree" uid="uid://d117ky0nrc8gi" path="res://common/roles/driver/driver_animation_blend_tree.tres" id="3_5tnl4"]
 [ext_resource type="Material" uid="uid://bgo8uqe2x7t62" path="res://entities/character/body/character_body_material.tres" id="3_ashim"]
-[ext_resource type="Shader" uid="uid://dn8hcmbi0cime" path="res://common/character_factory/character_edit_clothing_albedo_shader.tres" id="4_td84t"]
+[ext_resource type="Shader" uid="uid://brhddkh8r5th8" path="res://common/character_factory/character_edit_clothing_albedo_shader.tres" id="4_td84t"]
 [ext_resource type="Texture2D" uid="uid://dckilkspi1mel" path="res://entities/character/clothing/clothing_pantalonrolledpants_roughness.png" id="5_gtcbv"]
 [ext_resource type="Texture2D" uid="uid://cxf28ttjgg2se" path="res://entities/character/clothing/clothing_shirt_color.png" id="6_kwgdh"]
 [ext_resource type="Material" uid="uid://n65btp0wlcfs" path="res://entities/character/head/character_noseears_material.tres" id="6_m3ku2"]
@@ -1181,6 +1181,7 @@ parameters/DropSpeed/scale = 2.0
 parameters/HitOneShot/active = false
 parameters/HitOneShot/internal_active = false
 parameters/HitOneShot/request = 0
+parameters/IdleSeek/seek_request = -1.0
 parameters/MoveBlend/blend_amount = 0.0
 parameters/RunSpeed/scale = 2.0
 parameters/Transition/current_state = "input"
