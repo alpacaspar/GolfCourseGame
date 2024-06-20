@@ -42,8 +42,13 @@ func start_battle(battle: PackedScene):
 	current_battle = battle.instantiate()
 	add_child(current_battle)
 
-	_instantiate_team(player_team, current_battle.tee_area)
-	_instantiate_team(current_battle.rival_team, current_battle.green)
+	var character_factory = load("res://common/character_factory/character_factory.tscn").instantiate()
+	add_child(character_factory)
+
+	await _instantiate_team(player_team, current_battle.tee_area, character_factory)
+	await _instantiate_team(current_battle.rival_team, current_battle.green, character_factory)
+
+	character_factory.queue_free()
 
 	on_battle_setup.emit(teams)
 
@@ -85,7 +90,7 @@ func get_units_of_role(my_team: Team, role: Role) -> Array[Unit]:
 	return my_team.get_active_units().filter(func(unit: Unit) -> bool: return unit.role == role)
 
 
-func _instantiate_team(team_resource: TeamResource, origin: Node3D):
+func _instantiate_team(team_resource: TeamResource, origin: Node3D, character_factory: Node):
 	var team_instance := team_scene.instantiate()
 	current_battle.add_child(team_instance)
 	teams.append(team_instance)
@@ -106,7 +111,7 @@ func _instantiate_team(team_resource: TeamResource, origin: Node3D):
 			controller_instance = unit_ai_controller.instantiate()
 		unit_instance.controller = controller_instance
 		
-		unit_instance.setup(golfer, team_instance)
+		await unit_instance.setup(golfer, team_instance, character_factory)
 		unit_instance.add_child(controller_instance)
 
 		unit_instance.global_position = spawnpoints.pop_back()
