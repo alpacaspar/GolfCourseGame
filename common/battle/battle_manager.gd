@@ -65,14 +65,14 @@ func start_battle(battle: PackedScene):
 	battle_active = true
 	on_battle_started.emit()
 
-	Wwise.post_event("play_mus_battle_main", self)
+	Wwise.post_event("play_mus_battle_main", AudioManager)
 
 
 func end_battle(winning_team: TeamResource):
 	battle_active = false
 	on_battle_ended.emit(winning_team)
-
-	Wwise.post_event("play_mus_battle_finish", self)
+	Wwise.register_game_obj(AudioManager, AudioManager.get_name())
+	Wwise.post_event("play_mus_battle_finish", AudioManager)
 
 
 func get_opponent_teams(my_team: Team) -> Array[Team]:
