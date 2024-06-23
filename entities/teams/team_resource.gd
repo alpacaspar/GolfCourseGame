@@ -7,7 +7,7 @@ extends Resource
 
 
 func get_composition() -> Array:
-    return units + [leader]
+    return [leader] + units
 
 
 func size() -> int:
