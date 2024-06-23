@@ -1,11 +1,13 @@
-[gd_resource type="Resource" script_class="TeamResource" load_steps=5 format=3 uid="uid://cloas2dggkma5"]
+[gd_resource type="Resource" script_class="TeamResource" load_steps=7 format=3 uid="uid://cloas2dggkma5"]
 
 [ext_resource type="Script" path="res://entities/teams/team_resource.gd" id="1_ngfar"]
 [ext_resource type="Resource" uid="uid://cl2ibsbkn1dcm" path="res://entities/golfers/wiljam_forgest_golfer.tres" id="1_rwvcq"]
 [ext_resource type="Resource" uid="uid://djvegej5fpjao" path="res://entities/golfers/barl_jonnes_golfer.tres" id="3_wjlwn"]
 [ext_resource type="Resource" uid="uid://bulc3utlqt2ng" path="res://entities/golfers/choper_snippledorf_golfer.tres" id="4_auoco"]
+[ext_resource type="Resource" uid="uid://j16831lxpqlq" path="res://entities/golfers/geoff_baw_golfer.tres" id="5_6b42v"]
+[ext_resource type="Resource" uid="uid://wtv4wlpm67a" path="res://entities/golfers/holli_nonne_golfer.tres" id="6_jjur6"]
 
 [resource]
 script = ExtResource("1_ngfar")
 leader = ExtResource("1_rwvcq")
-units = Array[Resource("res://entities/golfers/golfer_resource.gd")]([ExtResource("3_wjlwn"), ExtResource("4_auoco")])
+units = Array[Resource("res://entities/golfers/golfer_resource.gd")]([ExtResource("3_wjlwn"), ExtResource("4_auoco"), ExtResource("5_6b42v"), ExtResource("6_jjur6")])
