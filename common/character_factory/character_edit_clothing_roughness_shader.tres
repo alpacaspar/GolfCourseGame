@@ -1,0 +1,157 @@
+[gd_resource type="VisualShader" load_steps=17 format=3 uid="uid://dl5adk8da6irb"]
+
+[ext_resource type="Texture2D" uid="uid://cmmqgcweqbbeo" path="res://entities/character/clothing/clothing_pants_roughness.png" id="2_fnxh3"]
+[ext_resource type="Texture2D" uid="uid://dtv820rsh681j" path="res://entities/character/clothing/clothing_tshirt_rougness.png" id="4_725pm"]
+
+[sub_resource type="VisualShaderNodeTexture2DParameter" id="VisualShaderNodeTexture2DParameter_5lmac"]
+parameter_name = "ShirtRoughness"
+
+[sub_resource type="VisualShaderNodeTexture2DParameter" id="VisualShaderNodeTexture2DParameter_dw4hh"]
+parameter_name = "PantsRoughness"
+
+[sub_resource type="VisualShaderNodeMix" id="VisualShaderNodeMix_eirpb"]
+default_input_values = [0, Quaternion(0, 0, 0, 0), 1, Quaternion(1, 1, 1, 1), 2, 0.5]
+op_type = 6
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_fccrl"]
+expanded_output_ports = [0]
+source = 5
+texture = ExtResource("2_fnxh3")
+
+[sub_resource type="VisualShaderNodeTexture2DParameter" id="VisualShaderNodeTexture2DParameter_yjlgi"]
+parameter_name = "ShoesRoughness"
+
+[sub_resource type="VisualShaderNodeMix" id="VisualShaderNodeMix_eigya"]
+default_input_values = [0, Quaternion(0, 0, 0, 0), 1, Quaternion(1, 1, 1, 1), 2, 0.5]
+op_type = 6
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_lto22"]
+expanded_output_ports = [0]
+source = 5
+texture = ExtResource("4_725pm")
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_8ui5h"]
+expanded_output_ports = [0]
+source = 5
+texture = ExtResource("2_fnxh3")
+
+[sub_resource type="VisualShaderNodeTexture2DParameter" id="VisualShaderNodeTexture2DParameter_8wmog"]
+parameter_name = "SocksRoughness"
+
+[sub_resource type="VisualShaderNodeMix" id="VisualShaderNodeMix_ivg8t"]
+default_input_values = [0, Quaternion(0, 0, 0, 0), 1, Quaternion(1, 1, 1, 1), 2, 0.5]
+op_type = 6
+
+[sub_resource type="VisualShaderNodeFloatOp" id="VisualShaderNodeFloatOp_f2kid"]
+operator = 6
+
+[sub_resource type="VisualShaderNodeFloatOp" id="VisualShaderNodeFloatOp_2ys3l"]
+operator = 6
+
+[sub_resource type="VisualShaderNodeFloatOp" id="VisualShaderNodeFloatOp_xhgt8"]
+operator = 6
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_71nsv"]
+expanded_output_ports = [0]
+source = 5
+texture = ExtResource("2_fnxh3")
+
+[resource]
+code = "shader_type canvas_item;
+render_mode blend_mix;
+
+uniform sampler2D ShirtRoughness;
+uniform sampler2D SocksRoughness;
+uniform sampler2D PantsRoughness;
+uniform sampler2D ShoesRoughness;
+
+
+
+void fragment() {
+	vec4 n_out4p0;
+// Texture2D:4
+	n_out4p0 = texture(ShirtRoughness, UV);
+	float n_out4p4 = n_out4p0.a;
+
+
+	vec4 n_out47p0;
+// Texture2D:47
+	n_out47p0 = texture(SocksRoughness, UV);
+	float n_out47p4 = n_out47p0.a;
+
+
+// Mix:49
+	vec4 n_out49p0 = mix(n_out4p0, n_out47p0, n_out47p4);
+
+
+	vec4 n_out7p0;
+// Texture2D:7
+	n_out7p0 = texture(PantsRoughness, UV);
+	float n_out7p4 = n_out7p0.a;
+
+
+// Mix:16
+	vec4 n_out16p0 = mix(n_out49p0, n_out7p0, n_out7p4);
+
+
+	vec4 n_out26p0;
+// Texture2D:26
+	n_out26p0 = texture(ShoesRoughness, UV);
+	float n_out26p4 = n_out26p0.a;
+
+
+// Mix:28
+	vec4 n_out28p0 = mix(n_out16p0, n_out26p0, n_out26p4);
+
+
+// FloatOp:50
+	float n_out50p0 = max(n_out4p4, n_out47p4);
+
+
+// FloatOp:51
+	float n_out51p0 = max(n_out7p4, n_out26p4);
+
+
+// FloatOp:52
+	float n_out52p0 = max(n_out50p0, n_out51p0);
+
+
+// Output:0
+	COLOR.rgb = vec3(n_out28p0.xyz);
+	COLOR.a = n_out52p0;
+
+
+}
+"
+mode = 1
+flags/light_only = false
+nodes/fragment/0/position = Vector2(60, 520)
+nodes/fragment/4/node = SubResource("VisualShaderNodeTexture_lto22")
+nodes/fragment/4/position = Vector2(-1400, -60)
+nodes/fragment/7/node = SubResource("VisualShaderNodeTexture_71nsv")
+nodes/fragment/7/position = Vector2(-1400, 540)
+nodes/fragment/14/node = SubResource("VisualShaderNodeTexture2DParameter_5lmac")
+nodes/fragment/14/position = Vector2(-1800, -60)
+nodes/fragment/15/node = SubResource("VisualShaderNodeTexture2DParameter_dw4hh")
+nodes/fragment/15/position = Vector2(-1800, 540)
+nodes/fragment/16/node = SubResource("VisualShaderNodeMix_eirpb")
+nodes/fragment/16/position = Vector2(-820, 540)
+nodes/fragment/26/node = SubResource("VisualShaderNodeTexture_fccrl")
+nodes/fragment/26/position = Vector2(-1400, 840)
+nodes/fragment/27/node = SubResource("VisualShaderNodeTexture2DParameter_yjlgi")
+nodes/fragment/27/position = Vector2(-1800, 840)
+nodes/fragment/28/node = SubResource("VisualShaderNodeMix_eigya")
+nodes/fragment/28/position = Vector2(-600, 620)
+nodes/fragment/47/node = SubResource("VisualShaderNodeTexture_8ui5h")
+nodes/fragment/47/position = Vector2(-1400, 240)
+nodes/fragment/48/node = SubResource("VisualShaderNodeTexture2DParameter_8wmog")
+nodes/fragment/48/position = Vector2(-1800, 240)
+nodes/fragment/49/node = SubResource("VisualShaderNodeMix_ivg8t")
+nodes/fragment/49/position = Vector2(-1040, 180)
+nodes/fragment/50/node = SubResource("VisualShaderNodeFloatOp_f2kid")
+nodes/fragment/50/position = Vector2(-812.439, 78.8016)
+nodes/fragment/51/node = SubResource("VisualShaderNodeFloatOp_2ys3l")
+nodes/fragment/51/position = Vector2(-760, 780)
+nodes/fragment/52/node = SubResource("VisualShaderNodeFloatOp_xhgt8")
+nodes/fragment/52/position = Vector2(-295.773, 319.855)
+nodes/fragment/connections = PackedInt32Array(14, 0, 4, 2, 15, 0, 7, 2, 7, 0, 16, 1, 7, 4, 16, 2, 27, 0, 26, 2, 16, 0, 28, 0, 26, 0, 28, 1, 26, 4, 28, 2, 48, 0, 47, 2, 47, 0, 49, 1, 4, 0, 49, 0, 47, 4, 49, 2, 49, 0, 16, 0, 28, 0, 0, 0, 4, 4, 50, 0, 47, 4, 50, 1, 7, 4, 51, 0, 26, 4, 51, 1, 50, 0, 52, 0, 51, 0, 52, 1, 52, 0, 0, 1)

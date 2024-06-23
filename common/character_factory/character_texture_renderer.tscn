@@ -1,0 +1,69 @@
+[gd_scene load_steps=7 format=3 uid="uid://8w8ec4ia5f57"]
+
+[ext_resource type="Script" path="res://common/character_factory/character_texture_renderer.gd" id="1_l4mq2"]
+[ext_resource type="Material" uid="uid://bgnci5jd4gw76" path="res://common/character_factory/character_edit_face_material.tres" id="1_sg6ct"]
+[ext_resource type="Material" uid="uid://cqtfyxw3hacus" path="res://common/character_factory/character_edit_clothing_albedo_material.tres" id="2_yefol"]
+[ext_resource type="Material" uid="uid://1xydbe0nu0fm" path="res://common/character_factory/character_edit_clothing_normal_material.tres" id="4_iodo4"]
+[ext_resource type="Material" uid="uid://dxjfjf02w005h" path="res://common/character_factory/character_edit_clothing_metallic_material.tres" id="5_h22nf"]
+[ext_resource type="Material" uid="uid://cfr4hw7iqnsdg" path="res://common/character_factory/character_edit_clothing_roughness_material.tres" id="6_8ocma"]
+
+[node name="CharacterTextureRenderer" type="Node"]
+script = ExtResource("1_l4mq2")
+
+[node name="FaceViewport" type="SubViewport" parent="."]
+transparent_bg = true
+
+[node name="ColorRect" type="ColorRect" parent="FaceViewport"]
+material = ExtResource("1_sg6ct")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ClothingAlbedoViewport" type="SubViewport" parent="."]
+transparent_bg = true
+size = Vector2i(2048, 2048)
+
+[node name="ColorRect" type="ColorRect" parent="ClothingAlbedoViewport"]
+material = ExtResource("2_yefol")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ClothingNormalViewport" type="SubViewport" parent="."]
+size = Vector2i(2048, 2048)
+
+[node name="ColorRect" type="ColorRect" parent="ClothingNormalViewport"]
+material = ExtResource("4_iodo4")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ClothingRoughnessViewport" type="SubViewport" parent="."]
+transparent_bg = true
+size = Vector2i(2048, 2048)
+
+[node name="ColorRect" type="ColorRect" parent="ClothingRoughnessViewport"]
+material = ExtResource("6_8ocma")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ClothingMetallicViewport" type="SubViewport" parent="."]
+transparent_bg = true
+size = Vector2i(2048, 2048)
+
+[node name="ColorRect" type="ColorRect" parent="ClothingMetallicViewport"]
+material = ExtResource("5_h22nf")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

@@ -1,4 +1,4 @@
-[gd_resource type="AnimationNodeBlendTree" load_steps=11 format=3 uid="uid://d117ky0nrc8gi"]
+[gd_resource type="AnimationNodeBlendTree" load_steps=12 format=3 uid="uid://d117ky0nrc8gi"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_girx0"]
 animation = &"character/character_ball_drop"
@@ -20,7 +20,10 @@ fadeout_time = 0.5
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_vfsqt"]
 animation = &"character/character_idle"
 
+[sub_resource type="AnimationNodeTimeSeek" id="AnimationNodeTimeSeek_4anxg"]
+
 [sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_oi70o"]
+sync = true
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ouaox"]
 resource_local_to_scene = true
@@ -42,7 +45,7 @@ input_2/reset = true
 
 [resource]
 resource_local_to_scene = true
-graph_offset = Vector2(-703, 252)
+graph_offset = Vector2(-798.344, 117.246)
 nodes/BallDrop/node = SubResource("AnimationNodeAnimation_girx0")
 nodes/BallDrop/position = Vector2(-300, 420)
 nodes/Drive/node = SubResource("AnimationNodeAnimation_hswjh")
@@ -54,14 +57,16 @@ nodes/Hit/position = Vector2(280, 380)
 nodes/HitOneShot/node = SubResource("AnimationNodeOneShot_k0vrh")
 nodes/HitOneShot/position = Vector2(560, 120)
 nodes/Idle/node = SubResource("AnimationNodeAnimation_vfsqt")
-nodes/Idle/position = Vector2(-280, 120)
+nodes/Idle/position = Vector2(-460, 120)
+nodes/IdleSeek/node = SubResource("AnimationNodeTimeSeek_4anxg")
+nodes/IdleSeek/position = Vector2(-200, 120)
 nodes/MoveBlend/node = SubResource("AnimationNodeBlend2_oi70o")
 nodes/MoveBlend/position = Vector2(20, 120)
 nodes/Run/node = SubResource("AnimationNodeAnimation_ouaox")
-nodes/Run/position = Vector2(-420, 260)
+nodes/Run/position = Vector2(-460, 260)
 nodes/RunSpeed/node = SubResource("AnimationNodeTimeScale_0wre6")
 nodes/RunSpeed/position = Vector2(-180, 260)
 nodes/Transition/node = SubResource("AnimationNodeTransition_2rlm5")
 nodes/Transition/position = Vector2(360, 120)
 nodes/output/position = Vector2(760, 120)
-node_connections = [&"DropSpeed", 0, &"BallDrop", &"HitOneShot", 0, &"Transition", &"HitOneShot", 1, &"Hit", &"MoveBlend", 0, &"Idle", &"MoveBlend", 1, &"RunSpeed", &"RunSpeed", 0, &"Run", &"Transition", 0, &"MoveBlend", &"Transition", 1, &"DropSpeed", &"Transition", 2, &"Drive", &"output", 0, &"HitOneShot"]
+node_connections = [&"DropSpeed", 0, &"BallDrop", &"HitOneShot", 0, &"Transition", &"HitOneShot", 1, &"Hit", &"IdleSeek", 0, &"Idle", &"MoveBlend", 0, &"IdleSeek", &"MoveBlend", 1, &"RunSpeed", &"RunSpeed", 0, &"Run", &"Transition", 0, &"MoveBlend", &"Transition", 1, &"DropSpeed", &"Transition", 2, &"Drive", &"output", 0, &"HitOneShot"]

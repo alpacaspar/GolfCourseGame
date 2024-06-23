@@ -1,14 +1,19 @@
-[gd_scene load_steps=47 format=3 uid="uid://ck84hpbuds8v8"]
+[gd_scene load_steps=53 format=3 uid="uid://ck84hpbuds8v8"]
 
 [ext_resource type="Script" path="res://entities/character/character.gd" id="1_deigj"]
 [ext_resource type="AnimationLibrary" uid="uid://cteindhxey6qa" path="res://entities/character/animations/character_anim_library.res" id="2_od26b"]
 [ext_resource type="AnimationNodeBlendTree" uid="uid://d117ky0nrc8gi" path="res://common/roles/driver/driver_animation_blend_tree.tres" id="3_5tnl4"]
 [ext_resource type="Material" uid="uid://bgo8uqe2x7t62" path="res://entities/character/body/character_body_material.tres" id="3_ashim"]
-[ext_resource type="Material" uid="uid://btb23i348d3pn" path="res://entities/character/clothing/character_clothing_material.tres" id="4_2eedj"]
+[ext_resource type="Shader" uid="uid://brhddkh8r5th8" path="res://common/character_factory/character_edit_clothing_albedo_shader.tres" id="4_td84t"]
+[ext_resource type="Texture2D" uid="uid://dckilkspi1mel" path="res://entities/character/clothing/clothing_pantalonrolledpants_roughness.png" id="5_gtcbv"]
+[ext_resource type="Texture2D" uid="uid://cxf28ttjgg2se" path="res://entities/character/clothing/clothing_shirt_color.png" id="6_kwgdh"]
 [ext_resource type="Material" uid="uid://n65btp0wlcfs" path="res://entities/character/head/character_noseears_material.tres" id="6_m3ku2"]
+[ext_resource type="Texture2D" uid="uid://daq8u7aq4jv2n" path="res://entities/character/clothing/shoes/shoes_allstars_albedo.png" id="7_6shoc"]
 [ext_resource type="Material" uid="uid://p00w260lvywo" path="res://entities/character/clothing/clothing_skirt_material.tres" id="8_1ps1d"]
 [ext_resource type="Material" uid="uid://b235u7giumrls" path="res://entities/character/head/character_face_material.tres" id="8_67ytv"]
+[ext_resource type="Texture2D" uid="uid://ses0a2ccav7a" path="res://entities/character/clothing/shoes/shoes_allstars_colormask.png" id="8_xlvqp"]
 [ext_resource type="Material" uid="uid://d0o8jgo78vcup" path="res://entities/character/head/character_hair_material.tres" id="9_n0h6m"]
+[ext_resource type="Texture2D" uid="uid://wuoyr6jbka8v" path="res://entities/character/clothing/socks/sock_happy_albedo.png" id="9_sb2qt"]
 [ext_resource type="Script" path="res://entities/character/ak_locomotion.gd" id="12_3afj3"]
 [ext_resource type="Script" path="res://entities/equipment/equipment_slot.gd" id="12_gskdx"]
 
@@ -620,6 +625,19 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lv4py"]
+resource_local_to_scene = true
+shader = ExtResource("4_td84t")
+shader_parameter/ShirtTint = Color(0.196078, 0.811765, 0.996078, 1)
+shader_parameter/SocksTint = Color(1, 1, 1, 1)
+shader_parameter/PantsTint = Color(0.462745, 0.462745, 0.462745, 1)
+shader_parameter/ShoesTint = Color(1, 0.47451, 0.454902, 1)
+shader_parameter/ShirtAlbedo = ExtResource("6_kwgdh")
+shader_parameter/SocksAlbedo = ExtResource("9_sb2qt")
+shader_parameter/PantsAlbedo = ExtResource("5_gtcbv")
+shader_parameter/ShoesAlbedo = ExtResource("7_6shoc")
+shader_parameter/ShoesColorMask = ExtResource("8_xlvqp")
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vqwjy"]
 resource_name = "BodyMAT"
 cull_mode = 2
@@ -1114,7 +1132,7 @@ blend_shape_mode = 0
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[node name="BaseCharacter" type="Node3D" node_paths=PackedStringArray("ear_mesh_instance", "earring_mesh_instance", "nose_mesh_instance", "hair_mesh_instance", "wrist_mesh_instance", "belt_mesh_instance", "skirt_mesh_instance", "face_mesh_instance", "head_mesh_instance", "body_mesh_instance", "collar_mesh_instance", "left_folded_pants_mesh_instance", "right_folded_pants_mesh_instance", "animation_tree", "animation_player", "right_hand_marker", "left_hand_marker")]
+[node name="BaseCharacter" type="Node3D" node_paths=PackedStringArray("ear_mesh_instance", "earring_mesh_instance", "nose_mesh_instance", "hair_mesh_instance", "wrist_mesh_instance", "belt_mesh_instance", "skirt_mesh_instance", "face_mesh_instance", "collar_mesh_instance", "left_folded_pants_mesh_instance", "right_folded_pants_mesh_instance", "body_mesh_instance", "head_mesh_instance", "left_upper_leg_mesh_instance", "left_bottom_leg_mesh_instance", "left_foot_mesh_instance", "left_upper_arm_mesh_instance", "left_lower_arm_mesh_instance", "left_hand_mesh_instance", "right_upper_leg_mesh_instance", "right_bottom_leg_mesh_instance", "right_foot_mesh_instance", "right_upper_arm_mesh_instance", "right_lower_arm_mesh_instance", "right_hand_mesh_instance", "animation_tree", "animation_player", "right_hand_marker", "left_hand_marker")]
 script = ExtResource("1_deigj")
 ear_mesh_instance = NodePath("Armature/GeneralSkeleton/Ears")
 earring_mesh_instance = NodePath("Armature/GeneralSkeleton/Earrings")
@@ -1124,11 +1142,23 @@ wrist_mesh_instance = NodePath("Armature/GeneralSkeleton/WristAccessory")
 belt_mesh_instance = NodePath("Armature/GeneralSkeleton/Belt")
 skirt_mesh_instance = NodePath("Armature/GeneralSkeleton/Skirt")
 face_mesh_instance = NodePath("Armature/GeneralSkeleton/Face")
-head_mesh_instance = NodePath("Armature/GeneralSkeleton/Head")
-body_mesh_instance = NodePath("Armature/GeneralSkeleton/Body")
 collar_mesh_instance = NodePath("Armature/GeneralSkeleton/Collar")
 left_folded_pants_mesh_instance = NodePath("Armature/GeneralSkeleton/PantCuffLeft")
 right_folded_pants_mesh_instance = NodePath("Armature/GeneralSkeleton/PantCuffRight")
+body_mesh_instance = NodePath("Armature/GeneralSkeleton/Body")
+head_mesh_instance = NodePath("Armature/GeneralSkeleton/Head")
+left_upper_leg_mesh_instance = NodePath("Armature/GeneralSkeleton/LeftUpperLeg")
+left_bottom_leg_mesh_instance = NodePath("Armature/GeneralSkeleton/LeftBottomLeg")
+left_foot_mesh_instance = NodePath("Armature/GeneralSkeleton/LeftFoot")
+left_upper_arm_mesh_instance = NodePath("Armature/GeneralSkeleton/LeftUpperArm")
+left_lower_arm_mesh_instance = NodePath("Armature/GeneralSkeleton/LeftLowerArm")
+left_hand_mesh_instance = NodePath("Armature/GeneralSkeleton/LeftHand")
+right_upper_leg_mesh_instance = NodePath("Armature/GeneralSkeleton/RightUpperLeg")
+right_bottom_leg_mesh_instance = NodePath("Armature/GeneralSkeleton/RightBottomLeg")
+right_foot_mesh_instance = NodePath("Armature/GeneralSkeleton/RightFoot")
+right_upper_arm_mesh_instance = NodePath("Armature/GeneralSkeleton/RightUpperArm")
+right_lower_arm_mesh_instance = NodePath("Armature/GeneralSkeleton/RightLowerArm")
+right_hand_mesh_instance = NodePath("Armature/GeneralSkeleton/RightHand")
 animation_tree = NodePath("AnimationTree")
 animation_player = NodePath("AnimationPlayer")
 right_hand_marker = NodePath("Armature/GeneralSkeleton/RightHandBoneAttachment3D/RightHandMarker")
@@ -1151,6 +1181,7 @@ parameters/DropSpeed/scale = 2.0
 parameters/HitOneShot/active = false
 parameters/HitOneShot/internal_active = false
 parameters/HitOneShot/request = 0
+parameters/IdleSeek/seek_request = -1.0
 parameters/MoveBlend/blend_amount = 0.0
 parameters/RunSpeed/scale = 2.0
 parameters/Transition/current_state = "input"
@@ -1174,56 +1205,56 @@ bones/1/name = "Hips"
 bones/1/parent = 0
 bones/1/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.11891e-15, -1.82404, -61.1957)
 bones/1/enabled = true
-bones/1/position = Vector3(-1.04935e-09, -1.82404, -61.1957)
+bones/1/position = Vector3(-1.04935e-09, -1.82404, -61.1958)
 bones/1/rotation = Quaternion(0, 0, 0, 1)
 bones/1/scale = Vector3(1, 1, 1)
 bones/2/name = "Spine"
 bones/2/parent = 1
 bones/2/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.12151e-07, 0.122365, -16.2563)
 bones/2/enabled = true
-bones/2/position = Vector3(-7.04259e-07, 0.122365, -16.2563)
+bones/2/position = Vector3(-7.0426e-07, 0.122365, -16.2563)
 bones/2/rotation = Quaternion(0, 0, 0, 1)
 bones/2/scale = Vector3(1, 1, 1)
 bones/3/name = "Chest"
 bones/3/parent = 2
 bones/3/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.0435e-07, 0.350855, -10.8765)
 bones/3/enabled = true
-bones/3/position = Vector3(-4.83036e-07, 0.350855, -10.8765)
+bones/3/position = Vector3(-4.83037e-07, 0.350856, -10.8765)
 bones/3/rotation = Quaternion(0, 0, 0, 1)
 bones/3/scale = Vector3(1, 1, 1)
 bones/4/name = "Neck"
 bones/4/parent = 3
 bones/4/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.96825e-07, -0.175366, -18.811)
 bones/4/enabled = true
-bones/4/position = Vector3(-8.06586e-07, -0.175366, -18.8111)
+bones/4/position = Vector3(-8.06587e-07, -0.175366, -18.8111)
 bones/4/rotation = Quaternion(0, 0, 0, 1)
 bones/4/scale = Vector3(1, 1, 1)
 bones/5/name = "Head"
 bones/5/parent = 4
 bones/5/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.71054e-07, -0.0787728, -4.05387)
 bones/5/enabled = true
-bones/5/position = Vector3(-1.75601e-07, -0.0787727, -4.05387)
+bones/5/position = Vector3(-1.75602e-07, -0.0787728, -4.05387)
 bones/5/rotation = Quaternion(0, 0, 0, 1)
 bones/5/scale = Vector3(1, 1, 1)
 bones/6/name = "LeftShoulder"
 bones/6/parent = 3
 bones/6/rest = Transform3D(0, 1, 0, 0, 0, 1, 1, 0, 0, 6.96061, -0.116663, -17.8402)
 bones/6/enabled = true
-bones/6/position = Vector3(6.9606, -0.116663, -17.8402)
+bones/6/position = Vector3(6.96061, -0.116663, -17.8402)
 bones/6/rotation = Quaternion(0.5, 0.5, 0.5, -0.5)
 bones/6/scale = Vector3(1, 1, 1)
 bones/7/name = "LeftUpperArm"
 bones/7/parent = 6
 bones/7/rest = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 5.38586, 3.74026, 0.498444)
 bones/7/enabled = true
-bones/7/position = Vector3(5.38587, 3.74026, 0.498444)
+bones/7/position = Vector3(5.38588, 3.74027, 0.498444)
 bones/7/rotation = Quaternion(0, 1, 0, 0)
 bones/7/scale = Vector3(1, 1, 1)
 bones/8/name = "LeftLowerArm"
 bones/8/parent = 7
 bones/8/rest = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, -20.678, 14.1597, -6.85758e-06)
 bones/8/enabled = true
-bones/8/position = Vector3(-20.678, 14.1597, -5.4919e-06)
+bones/8/position = Vector3(-20.678, 14.1597, -5.49191e-06)
 bones/8/rotation = Quaternion(0, -0.707107, 0, 0.707107)
 bones/8/scale = Vector3(1, 1, 1)
 bones/9/name = "LeftHand"
@@ -1237,14 +1268,14 @@ bones/10/name = "RightShoulder"
 bones/10/parent = 3
 bones/10/rest = Transform3D(0, -1, 0, 0, 0, 1, -1, 0, 0, -6.96061, -0.116662, -17.8405)
 bones/10/enabled = true
-bones/10/position = Vector3(-6.96062, -0.116662, -17.8405)
+bones/10/position = Vector3(-6.96063, -0.116662, -17.8405)
 bones/10/rotation = Quaternion(0.5, -0.5, -0.5, -0.5)
 bones/10/scale = Vector3(1, 1, 1)
 bones/11/name = "RightUpperArm"
 bones/11/parent = 10
 bones/11/rest = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, -5.38599, 3.74029, 0.498441)
 bones/11/enabled = true
-bones/11/position = Vector3(-5.386, 3.7403, 0.498438)
+bones/11/position = Vector3(-5.38601, 3.7403, 0.498439)
 bones/11/rotation = Quaternion(0, 1, 0, 0)
 bones/11/scale = Vector3(1, 1, 1)
 bones/12/name = "RightLowerArm"
@@ -1265,7 +1296,7 @@ bones/14/name = "LeftUpperLeg"
 bones/14/parent = 1
 bones/14/rest = Transform3D(-1, 0, 0, 0, -1, 0, 0, 0, 1, 7.25968, 0.331448, 3.66991)
 bones/14/enabled = true
-bones/14/position = Vector3(7.25969, 0.331364, 3.66991)
+bones/14/position = Vector3(7.2597, 0.331364, 3.66991)
 bones/14/rotation = Quaternion(0, 0, 1, 0)
 bones/14/scale = Vector3(1, 1, 1)
 bones/15/name = "LeftLowerLeg"
@@ -1279,42 +1310,42 @@ bones/16/name = "LeftFoot"
 bones/16/parent = 15
 bones/16/rest = Transform3D(-1, 0, 0, 0, 0, -1, 0, -1, 0, 0.0122351, -0.00162, -22.0144)
 bones/16/enabled = true
-bones/16/position = Vector3(0.0122298, -0.00182383, -22.0145)
+bones/16/position = Vector3(0.0122299, -0.00182383, -22.0145)
 bones/16/rotation = Quaternion(0, 0.707107, -0.707107, 0)
 bones/16/scale = Vector3(1, 1, 1)
 bones/17/name = "LeftToes"
 bones/17/parent = 16
 bones/17/rest = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, -0.191887, 2.36486, 6.48753)
 bones/17/enabled = true
-bones/17/position = Vector3(-0.192173, 2.36492, 6.48755)
+bones/17/position = Vector3(-0.192174, 2.36492, 6.48756)
 bones/17/rotation = Quaternion(0, 1, 0, 0)
 bones/17/scale = Vector3(1, 1, 1)
 bones/18/name = "RightUpperLeg"
 bones/18/parent = 1
 bones/18/rest = Transform3D(-1, 0, 0, 0, -1, 0, 0, 0, 1, -7.25968, 0.331385, 3.66993)
 bones/18/enabled = true
-bones/18/position = Vector3(-7.25969, 0.331475, 3.66993)
+bones/18/position = Vector3(-7.2597, 0.331475, 3.66993)
 bones/18/rotation = Quaternion(0, 0, 1, 0)
 bones/18/scale = Vector3(1, 1, 1)
 bones/19/name = "RightLowerLeg"
 bones/19/parent = 18
 bones/19/rest = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, -1.33845e-06, 0.0124626, 24.9095)
 bones/19/enabled = true
-bones/19/position = Vector3(-2.3029e-06, 0.0124404, 24.9096)
+bones/19/position = Vector3(-2.30291e-06, 0.0124404, 24.9096)
 bones/19/rotation = Quaternion(0, 1, 0, 0)
 bones/19/scale = Vector3(1, 1, 1)
 bones/20/name = "RightFoot"
 bones/20/parent = 19
 bones/20/rest = Transform3D(-1, 0, 0, 0, 0, -1, 0, -1, 0, 1.64571e-06, 0.0110715, -22.0145)
 bones/20/enabled = true
-bones/20/position = Vector3(9.52264e-07, 0.0110138, -22.0145)
+bones/20/position = Vector3(9.52266e-07, 0.0110138, -22.0145)
 bones/20/rotation = Quaternion(0, 0.707107, -0.707107, 0)
 bones/20/scale = Vector3(1, 1, 1)
 bones/21/name = "RightToes"
 bones/21/parent = 20
 bones/21/rest = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 0.198619, 2.36873, 6.48593)
 bones/21/enabled = true
-bones/21/position = Vector3(0.198627, 2.36875, 6.48593)
+bones/21/position = Vector3(0.198627, 2.36875, 6.48594)
 bones/21/rotation = Quaternion(0, 1, 0, 0)
 bones/21/scale = Vector3(1, 1, 1)
 
@@ -1329,7 +1360,7 @@ mesh = SubResource("ArrayMesh_0p2f7")
 skin = SubResource("Skin_846u7")
 
 [node name="Collar" type="MeshInstance3D" parent="Armature/GeneralSkeleton"]
-material_override = ExtResource("4_2eedj")
+material_override = SubResource("ShaderMaterial_lv4py")
 cast_shadow = 0
 mesh = SubResource("ArrayMesh_i2wkn")
 skin = SubResource("Skin_846u7")
@@ -1380,103 +1411,103 @@ skin = SubResource("Skin_846u7")
 [node name="Body" type="MeshInstance3D" parent="Armature/GeneralSkeleton"]
 transform = Transform3D(1, 0, 0, 0, 1, 1.42109e-14, 0, -1.42109e-14, 1, 0, 0, 0)
 material_override = ExtResource("3_ashim")
-material_overlay = ExtResource("4_2eedj")
+material_overlay = SubResource("ShaderMaterial_lv4py")
 mesh = SubResource("ArrayMesh_mkkdk")
 skin = SubResource("Skin_846u7")
 
 [node name="Head" type="MeshInstance3D" parent="Armature/GeneralSkeleton"]
 transform = Transform3D(1, 0, 0, 0, 1, 1.42109e-14, 0, -1.42109e-14, 1, 0, 0, 0)
 material_override = ExtResource("3_ashim")
-material_overlay = ExtResource("4_2eedj")
+material_overlay = SubResource("ShaderMaterial_lv4py")
 mesh = SubResource("ArrayMesh_eler1")
 skin = SubResource("Skin_846u7")
 
 [node name="LeftBottomLeg" type="MeshInstance3D" parent="Armature/GeneralSkeleton"]
 transform = Transform3D(1, 0, 0, 0, 1, 1.42109e-14, 0, -1.42109e-14, 1, 0, 0, 0)
 material_override = ExtResource("3_ashim")
-material_overlay = ExtResource("4_2eedj")
+material_overlay = SubResource("ShaderMaterial_lv4py")
 mesh = SubResource("ArrayMesh_csooj")
 skin = SubResource("Skin_846u7")
 
 [node name="LeftFoot" type="MeshInstance3D" parent="Armature/GeneralSkeleton"]
 transform = Transform3D(1, 0, 0, 0, 1, 1.42109e-14, 0, -1.42109e-14, 1, 0, 0, 0)
 material_override = ExtResource("3_ashim")
-material_overlay = ExtResource("4_2eedj")
+material_overlay = SubResource("ShaderMaterial_lv4py")
 mesh = SubResource("ArrayMesh_px42l")
 skin = SubResource("Skin_846u7")
 
 [node name="LeftHand" type="MeshInstance3D" parent="Armature/GeneralSkeleton"]
 transform = Transform3D(1, 0, 0, 0, 1, 1.42109e-14, 0, -1.42109e-14, 1, 0, 0, 0)
 material_override = ExtResource("3_ashim")
-material_overlay = ExtResource("4_2eedj")
+material_overlay = SubResource("ShaderMaterial_lv4py")
 mesh = SubResource("ArrayMesh_0gubg")
 skin = SubResource("Skin_846u7")
 
 [node name="LeftLowerArm" type="MeshInstance3D" parent="Armature/GeneralSkeleton"]
 transform = Transform3D(1, 0, 0, 0, 1, 1.42109e-14, 0, -1.42109e-14, 1, 0, 0, 0)
 material_override = ExtResource("3_ashim")
-material_overlay = ExtResource("4_2eedj")
+material_overlay = SubResource("ShaderMaterial_lv4py")
 mesh = SubResource("ArrayMesh_41yqd")
 skin = SubResource("Skin_846u7")
 
 [node name="LeftUpperArm" type="MeshInstance3D" parent="Armature/GeneralSkeleton"]
 transform = Transform3D(1, 0, 0, 0, 1, 1.42109e-14, 0, -1.42109e-14, 1, 0, 0, 0)
 material_override = ExtResource("3_ashim")
-material_overlay = ExtResource("4_2eedj")
+material_overlay = SubResource("ShaderMaterial_lv4py")
 mesh = SubResource("ArrayMesh_wvbq0")
 skin = SubResource("Skin_846u7")
 
 [node name="LeftUpperLeg" type="MeshInstance3D" parent="Armature/GeneralSkeleton"]
 transform = Transform3D(1, 0, 0, 0, 1, 1.42109e-14, 0, -1.42109e-14, 1, 0, 0, 0)
 material_override = ExtResource("3_ashim")
-material_overlay = ExtResource("4_2eedj")
+material_overlay = SubResource("ShaderMaterial_lv4py")
 mesh = SubResource("ArrayMesh_48752")
 skin = SubResource("Skin_846u7")
 
 [node name="RightBottomLeg" type="MeshInstance3D" parent="Armature/GeneralSkeleton"]
 transform = Transform3D(1, 0, 0, 0, 1, 1.42109e-14, 0, -1.42109e-14, 1, 0, 0, 0)
 material_override = ExtResource("3_ashim")
-material_overlay = ExtResource("4_2eedj")
+material_overlay = SubResource("ShaderMaterial_lv4py")
 mesh = SubResource("ArrayMesh_17ous")
 skin = SubResource("Skin_846u7")
 
 [node name="RightFoot" type="MeshInstance3D" parent="Armature/GeneralSkeleton"]
 transform = Transform3D(1, 0, 0, 0, 1, 1.42109e-14, 0, -1.42109e-14, 1, 0, 0, 0)
 material_override = ExtResource("3_ashim")
-material_overlay = ExtResource("4_2eedj")
+material_overlay = SubResource("ShaderMaterial_lv4py")
 mesh = SubResource("ArrayMesh_sdu32")
 skin = SubResource("Skin_846u7")
 
 [node name="RightHand" type="MeshInstance3D" parent="Armature/GeneralSkeleton"]
 transform = Transform3D(1, 0, 0, 0, 1, 1.42109e-14, 0, -1.42109e-14, 1, 0, 0, 0)
 material_override = ExtResource("3_ashim")
-material_overlay = ExtResource("4_2eedj")
+material_overlay = SubResource("ShaderMaterial_lv4py")
 mesh = SubResource("ArrayMesh_8xngc")
 skin = SubResource("Skin_846u7")
 
 [node name="RightLowerArm" type="MeshInstance3D" parent="Armature/GeneralSkeleton"]
 transform = Transform3D(1, 0, 0, 0, 1, 1.42109e-14, 0, -1.42109e-14, 1, 0, 0, 0)
 material_override = ExtResource("3_ashim")
-material_overlay = ExtResource("4_2eedj")
+material_overlay = SubResource("ShaderMaterial_lv4py")
 mesh = SubResource("ArrayMesh_82nfy")
 skin = SubResource("Skin_846u7")
 
 [node name="RightUpperArm" type="MeshInstance3D" parent="Armature/GeneralSkeleton"]
 transform = Transform3D(1, 0, 0, 0, 1, 1.42109e-14, 0, -1.42109e-14, 1, 0, 0, 0)
 material_override = ExtResource("3_ashim")
-material_overlay = ExtResource("4_2eedj")
+material_overlay = SubResource("ShaderMaterial_lv4py")
 mesh = SubResource("ArrayMesh_lmypq")
 skin = SubResource("Skin_846u7")
 
 [node name="RightUpperLeg" type="MeshInstance3D" parent="Armature/GeneralSkeleton"]
 transform = Transform3D(1, 0, 0, 0, 1, 1.42109e-14, 0, -1.42109e-14, 1, 0, 0, 0)
 material_override = ExtResource("3_ashim")
-material_overlay = ExtResource("4_2eedj")
+material_overlay = SubResource("ShaderMaterial_lv4py")
 mesh = SubResource("ArrayMesh_kd2o6")
 skin = SubResource("Skin_846u7")
 
 [node name="LeftHandBoneAttachment3D2" type="BoneAttachment3D" parent="Armature/GeneralSkeleton"]
-transform = Transform3D(0.200136, 0.973286, 0.112519, -0.0622121, 0.127235, -0.98992, -0.977791, 0.191119, 0.0860144, 30.9526, 4.28238, -58.2031)
+transform = Transform3D(0.205532, 0.971265, 0.120005, -0.0930062, 0.141453, -0.985566, -0.974221, 0.191404, 0.119407, 30.1755, 5.30907, -58.2159)
 bone_name = "LeftHand"
 bone_idx = 9
 
