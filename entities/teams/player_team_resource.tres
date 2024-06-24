@@ -1,14 +1,19 @@
-[gd_resource type="Resource" script_class="PlayerTeamResource" load_steps=7 format=3 uid="uid://dgr40w467j67e"]
+[gd_resource type="Resource" script_class="PlayerTeamResource" load_steps=12 format=3 uid="uid://dgr40w467j67e"]
 
 [ext_resource type="Script" path="res://entities/teams/player_team_resource.gd" id="1_71x33"]
 [ext_resource type="Resource" uid="uid://dt4v13xkatb3r" path="res://entities/golfers/julendal_inda_golfer.tres" id="1_374ta"]
 [ext_resource type="Resource" uid="uid://dsa7o5wqvhhy3" path="res://entities/golfers/albie_tross_golfer.tres" id="2_p1bd0"]
-[ext_resource type="Resource" uid="uid://be5btobfgn7h5" path="res://entities/golfers/mat_cheplay_golfer.tres" id="3_dko6w"]
 [ext_resource type="Resource" uid="uid://cdmqjmxoqtsrc" path="res://entities/golfers/player_golfer.tres" id="3_q67tw"]
 [ext_resource type="Resource" uid="uid://btrmf25yra44p" path="res://entities/golfers/debbie_egal_golfer.tres" id="4_x0j8b"]
+[ext_resource type="Resource" uid="uid://bxol6dd0etp8" path="res://entities/golfers/sammy_rugh_golfer.tres" id="5_o65y1"]
+[ext_resource type="Resource" uid="uid://bulc3utlqt2ng" path="res://entities/golfers/choper_snippledorf_golfer.tres" id="6_88w6t"]
+[ext_resource type="Resource" uid="uid://dubeoobylf23f" path="res://entities/golfers/bill_ogey_golfer.tres" id="7_wj1df"]
+[ext_resource type="Resource" uid="uid://cqf0ecpn5687l" path="res://entities/golfers/dover_mulligan_golfer.tres" id="8_uasgn"]
+[ext_resource type="Resource" uid="uid://ctvuy0adlmrll" path="res://entities/golfers/carrie_condor_golfer.tres" id="9_20jmk"]
+[ext_resource type="Resource" uid="uid://bw68whlh01v47" path="res://entities/golfers/bubba_shrimp_golfer.tres" id="10_qqtsf"]
 
 [resource]
 script = ExtResource("1_71x33")
-benched_golfers = Array[Resource("res://entities/golfers/golfer_resource.gd")]([ExtResource("1_374ta"), ExtResource("2_p1bd0"), ExtResource("3_dko6w"), ExtResource("4_x0j8b")])
+benched_golfers = Array[Resource("res://entities/golfers/golfer_resource.gd")]([ExtResource("1_374ta"), ExtResource("2_p1bd0"), ExtResource("4_x0j8b"), ExtResource("5_o65y1"), ExtResource("6_88w6t"), ExtResource("7_wj1df"), ExtResource("8_uasgn"), ExtResource("10_qqtsf"), ExtResource("9_20jmk")])
 leader = ExtResource("3_q67tw")
 units = Array[Resource("res://entities/golfers/golfer_resource.gd")]([])
