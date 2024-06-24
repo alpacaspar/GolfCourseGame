@@ -11,9 +11,12 @@ sky_material = SubResource("PanoramaSkyMaterial_ccoeb")
 [resource]
 background_mode = 2
 sky = SubResource("Sky_dt2yq")
+ambient_light_source = 2
+ambient_light_color = Color(0.6, 0.572549, 0.403922, 1)
+reflected_light_source = 2
 tonemap_mode = 2
 fog_enabled = true
-fog_light_color = Color(0.372549, 0.784314, 0.992157, 1)
-fog_density = 0.0005
+fog_density = 0.001
+fog_aerial_perspective = 1.0
 fog_sky_affect = 0.0
 adjustment_contrast = 1.05
