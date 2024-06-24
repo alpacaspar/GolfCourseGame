@@ -153,6 +153,7 @@ beards_option_picker = NodePath("Spacer/VBoxContainer2/HBoxContainer2/WhereTheFu
 nose_piercings_option_picker = NodePath("Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/PiercingOptions/ScrollContainer/VBoxContainer/CreatorGallery")
 eyebrow_piercings_option_picker = NodePath("Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/PiercingOptions/ScrollContainer/VBoxContainer/CreatorGallery3")
 earrings_option_picker = NodePath("Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/PiercingOptions/ScrollContainer/VBoxContainer/CreatorGallery2")
+gallery_button_sound = "play_ui_click_secondary"
 skin_color_tracker = ExtResource("22_4oapn")
 skin_color_option_pickers = [NodePath("Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/EyeOptions/ColorOptionPicker"), NodePath("Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/EarOptions/ColorOptionPicker"), NodePath("Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/NoseOptions/ColorOptionPicker")]
 eyebrow_color_option_picker = NodePath("Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/EyebrowOptions/ColorOptionPicker")
@@ -163,6 +164,7 @@ lip_color_option_picker = NodePath("Spacer/VBoxContainer2/HBoxContainer2/WhereTh
 eyeshadow_color_option_picker = NodePath("Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/MakeupOptions/ScrollContainer/VBoxContainer/ColorOptionPicker3")
 eyeliner_color_option_picker = NodePath("Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/MakeupOptions/ScrollContainer/VBoxContainer/ColorOptionPicker2")
 blush_color_option_picker = NodePath("Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/MakeupOptions/ScrollContainer/VBoxContainer/ColorOptionPicker")
+color_button_sound = "play_ui_click_secondary"
 eye_buttons = NodePath("Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/EyeOptions/Buttons")
 eye_range = SubResource("Resource_uplhe")
 eyebrow_buttons = NodePath("Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/EyebrowOptions/Buttons2")
@@ -173,6 +175,8 @@ glasses_buttons = NodePath("Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHapp
 glasses_range = SubResource("Resource_1dj7s")
 mustache_buttons = NodePath("Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/FacialHairOptions/ScrollContainer/VBoxContainer/Buttons")
 mustache_range = SubResource("Resource_jidrq")
+finetune_button_increase_sound = "play_ui_click_increase"
+finetune_button_decrease_sound = "play_ui_click_reduce"
 shirt_option_picker = NodePath("Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/BodyOptionsTabGroup/ShirtOptions/ShirtGallery")
 pants_option_picker = NodePath("Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/BodyOptionsTabGroup/PantsOptions/PantsGallery")
 sock_option_picker = NodePath("Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/BodyOptionsTabGroup/FootwearOptions/SockGallery")
@@ -186,6 +190,7 @@ shoes_color_option_picker = NodePath("Spacer/VBoxContainer2/HBoxContainer2/Where
 name_field = NodePath("Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/BodyOptionsTabGroup/Naming/LineEdit")
 randomize_button = NodePath("Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/BodyOptionsTabGroup/Naming/HBoxContainer/RandomizeButton")
 reset_button = NodePath("Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/BodyOptionsTabGroup/Naming/HBoxContainer/ResetButton")
+general_button_sound = "play_ui_click_primary"
 hair_icons = Array[Texture]([ExtResource("7_o25f1"), ExtResource("8_aptni"), ExtResource("9_igdo4"), ExtResource("10_x3yrl"), ExtResource("11_ppy87"), ExtResource("12_i24fy"), ExtResource("13_lcfea"), ExtResource("5_tgl5y"), ExtResource("6_s251f"), ExtResource("5_ina4w")])
 nose_icons = Array[Texture]([ExtResource("14_6uwex"), ExtResource("15_sjc8k"), ExtResource("16_vw5m5"), ExtResource("17_dau6g")])
 ear_icons = Array[Texture]([ExtResource("5_sqx8j"), ExtResource("6_rqkat"), ExtResource("7_mede7"), ExtResource("8_07sdn"), ExtResource("9_y81nd")])
@@ -526,7 +531,7 @@ size_flags_horizontal = 3
 size_flags_stretch_ratio = 4.03
 theme = ExtResource("1_amotn")
 
-[node name="Button" type="Button" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBodyButtons"]
+[node name="Button" type="Button" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBodyButtons" groups=["general_buttons"]]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("1_amotn")
@@ -551,7 +556,7 @@ size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.05
 theme = ExtResource("1_amotn")
 
-[node name="Button2" type="Button" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBodyButtons"]
+[node name="Button2" type="Button" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBodyButtons" groups=["general_buttons"]]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("1_amotn")
@@ -606,7 +611,7 @@ size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.2
 theme = ExtResource("1_amotn")
 
-[node name="Button" type="Button" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/ButtonHolder/FaceButtons"]
+[node name="Button" type="Button" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/ButtonHolder/FaceButtons" groups=["general_buttons"]]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("1_amotn")
@@ -631,7 +636,7 @@ size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.1
 theme = ExtResource("1_amotn")
 
-[node name="Button2" type="Button" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/ButtonHolder/FaceButtons"]
+[node name="Button2" type="Button" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/ButtonHolder/FaceButtons" groups=["general_buttons"]]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("1_amotn")
@@ -656,7 +661,7 @@ size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.1
 theme = ExtResource("1_amotn")
 
-[node name="Button3" type="Button" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/ButtonHolder/FaceButtons"]
+[node name="Button3" type="Button" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/ButtonHolder/FaceButtons" groups=["general_buttons"]]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("1_amotn")
@@ -681,7 +686,7 @@ size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.1
 theme = ExtResource("1_amotn")
 
-[node name="Button4" type="Button" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/ButtonHolder/FaceButtons"]
+[node name="Button4" type="Button" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/ButtonHolder/FaceButtons" groups=["general_buttons"]]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("1_amotn")
@@ -706,7 +711,7 @@ size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.1
 theme = ExtResource("1_amotn")
 
-[node name="Button5" type="Button" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/ButtonHolder/FaceButtons"]
+[node name="Button5" type="Button" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/ButtonHolder/FaceButtons" groups=["general_buttons"]]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("1_amotn")
@@ -731,7 +736,7 @@ size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.1
 theme = ExtResource("1_amotn")
 
-[node name="Button6" type="Button" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/ButtonHolder/FaceButtons"]
+[node name="Button6" type="Button" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/ButtonHolder/FaceButtons" groups=["general_buttons"]]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("1_amotn")
@@ -756,7 +761,7 @@ size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.1
 theme = ExtResource("1_amotn")
 
-[node name="Button11" type="Button" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/ButtonHolder/FaceButtons"]
+[node name="Button11" type="Button" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/ButtonHolder/FaceButtons" groups=["general_buttons"]]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("1_amotn")
@@ -781,7 +786,7 @@ size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.1
 theme = ExtResource("1_amotn")
 
-[node name="Button12" type="Button" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/ButtonHolder/FaceButtons"]
+[node name="Button12" type="Button" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/ButtonHolder/FaceButtons" groups=["general_buttons"]]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("1_amotn")
@@ -806,7 +811,7 @@ size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.1
 theme = ExtResource("1_amotn")
 
-[node name="Button13" type="Button" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/ButtonHolder/FaceButtons"]
+[node name="Button13" type="Button" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/ButtonHolder/FaceButtons" groups=["general_buttons"]]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("1_amotn")
@@ -831,7 +836,7 @@ size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.1
 theme = ExtResource("1_amotn")
 
-[node name="Button14" type="Button" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/ButtonHolder/FaceButtons"]
+[node name="Button14" type="Button" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/ButtonHolder/FaceButtons" groups=["general_buttons"]]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("1_amotn")
@@ -857,7 +862,7 @@ size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.1
 theme = ExtResource("1_amotn")
 
-[node name="Button7" type="Button" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/ButtonHolder/FaceButtons"]
+[node name="Button7" type="Button" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/ButtonHolder/FaceButtons" groups=["general_buttons"]]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 3
@@ -884,7 +889,7 @@ size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.1
 theme = ExtResource("1_amotn")
 
-[node name="Button8" type="Button" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/ButtonHolder/FaceButtons"]
+[node name="Button8" type="Button" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/ButtonHolder/FaceButtons" groups=["general_buttons"]]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 3
@@ -911,7 +916,7 @@ size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.1
 theme = ExtResource("1_amotn")
 
-[node name="Button9" type="Button" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/ButtonHolder/FaceButtons"]
+[node name="Button9" type="Button" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/ButtonHolder/FaceButtons" groups=["general_buttons"]]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 3
@@ -937,7 +942,7 @@ size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.1
 theme = ExtResource("1_amotn")
 
-[node name="Button10" type="Button" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/ButtonHolder/FaceButtons"]
+[node name="Button10" type="Button" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/ButtonHolder/FaceButtons" groups=["general_buttons"]]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 3
@@ -1071,7 +1076,7 @@ size_flags_vertical = 3
 theme = ExtResource("1_amotn")
 theme_override_constants/separation = 0
 
-[node name="Button" type="Button" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/MouthOptions/Buttons/HBoxContainer3/HBoxContainer2"]
+[node name="Button" type="Button" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/MouthOptions/Buttons/HBoxContainer3/HBoxContainer2" groups=["increase_buttons"]]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("1_amotn")
@@ -1092,7 +1097,7 @@ texture = ExtResource("64_g7ufw")
 expand_mode = 2
 stretch_mode = 5
 
-[node name="Button2" type="Button" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/MouthOptions/Buttons/HBoxContainer3/HBoxContainer2"]
+[node name="Button2" type="Button" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/MouthOptions/Buttons/HBoxContainer3/HBoxContainer2" groups=["decrease_buttons"]]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("1_amotn")
@@ -1127,7 +1132,7 @@ size_flags_vertical = 3
 theme = ExtResource("1_amotn")
 theme_override_constants/separation = 0
 
-[node name="Button" type="Button" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/MouthOptions/Buttons/HBoxContainer3/HBoxContainer4"]
+[node name="Button" type="Button" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/MouthOptions/Buttons/HBoxContainer3/HBoxContainer4" groups=["increase_buttons"]]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("1_amotn")
@@ -1148,7 +1153,7 @@ texture = ExtResource("3_k7we3")
 expand_mode = 2
 stretch_mode = 5
 
-[node name="Button2" type="Button" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/MouthOptions/Buttons/HBoxContainer3/HBoxContainer4"]
+[node name="Button2" type="Button" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/MouthOptions/Buttons/HBoxContainer3/HBoxContainer4" groups=["decrease_buttons"]]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("1_amotn")
@@ -1433,7 +1438,7 @@ size_flags_vertical = 3
 theme = ExtResource("1_amotn")
 theme_override_constants/separation = 0
 
-[node name="Button" type="Button" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/GlassesOptions/Buttons/HBoxContainer3/HBoxContainer2"]
+[node name="Button" type="Button" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/GlassesOptions/Buttons/HBoxContainer3/HBoxContainer2" groups=["increase_buttons"]]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("1_amotn")
@@ -1454,7 +1459,7 @@ texture = ExtResource("64_g7ufw")
 expand_mode = 2
 stretch_mode = 5
 
-[node name="Button2" type="Button" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/GlassesOptions/Buttons/HBoxContainer3/HBoxContainer2"]
+[node name="Button2" type="Button" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/GlassesOptions/Buttons/HBoxContainer3/HBoxContainer2" groups=["decrease_buttons"]]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("1_amotn")
@@ -1586,7 +1591,7 @@ size_flags_vertical = 3
 theme = ExtResource("1_amotn")
 theme_override_constants/separation = 0
 
-[node name="Button" type="Button" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/FacialHairOptions/ScrollContainer/VBoxContainer/Buttons/HBoxContainer3/HBoxContainer2"]
+[node name="Button" type="Button" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/FacialHairOptions/ScrollContainer/VBoxContainer/Buttons/HBoxContainer3/HBoxContainer2" groups=["increase_buttons"]]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("1_amotn")
@@ -1607,7 +1612,7 @@ texture = ExtResource("64_g7ufw")
 expand_mode = 2
 stretch_mode = 5
 
-[node name="Button2" type="Button" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/FacialHairOptions/ScrollContainer/VBoxContainer/Buttons/HBoxContainer3/HBoxContainer2"]
+[node name="Button2" type="Button" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/FacialHairOptions/ScrollContainer/VBoxContainer/Buttons/HBoxContainer3/HBoxContainer2" groups=["decrease_buttons"]]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("1_amotn")
@@ -1642,7 +1647,7 @@ size_flags_vertical = 3
 theme = ExtResource("1_amotn")
 theme_override_constants/separation = 0
 
-[node name="Button" type="Button" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/FacialHairOptions/ScrollContainer/VBoxContainer/Buttons/HBoxContainer3/HBoxContainer4"]
+[node name="Button" type="Button" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/FacialHairOptions/ScrollContainer/VBoxContainer/Buttons/HBoxContainer3/HBoxContainer4" groups=["increase_buttons"]]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("1_amotn")
@@ -1663,7 +1668,7 @@ texture = ExtResource("3_k7we3")
 expand_mode = 2
 stretch_mode = 5
 
-[node name="Button2" type="Button" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/FacialHairOptions/ScrollContainer/VBoxContainer/Buttons/HBoxContainer3/HBoxContainer4"]
+[node name="Button2" type="Button" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/FacialHairOptions/ScrollContainer/VBoxContainer/Buttons/HBoxContainer3/HBoxContainer4" groups=["decrease_buttons"]]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("1_amotn")
@@ -1933,7 +1938,7 @@ size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.2
 theme = ExtResource("1_amotn")
 
-[node name="Button" type="Button" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/ButtonHolder/BodyButtons"]
+[node name="Button" type="Button" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/ButtonHolder/BodyButtons" groups=["general_buttons"]]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("1_amotn")
@@ -1958,7 +1963,7 @@ size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.1
 theme = ExtResource("1_amotn")
 
-[node name="Button2" type="Button" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/ButtonHolder/BodyButtons"]
+[node name="Button2" type="Button" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/ButtonHolder/BodyButtons" groups=["general_buttons"]]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("1_amotn")
@@ -1983,7 +1988,7 @@ size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.1
 theme = ExtResource("1_amotn")
 
-[node name="Button3" type="Button" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/ButtonHolder/BodyButtons"]
+[node name="Button3" type="Button" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/ButtonHolder/BodyButtons" groups=["general_buttons"]]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("1_amotn")
@@ -2008,7 +2013,7 @@ size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.1
 theme = ExtResource("1_amotn")
 
-[node name="Button4" type="Button" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/ButtonHolder/BodyButtons"]
+[node name="Button4" type="Button" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/ButtonHolder/BodyButtons" groups=["general_buttons"]]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("1_amotn")
@@ -2033,7 +2038,7 @@ size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.1
 theme = ExtResource("1_amotn")
 
-[node name="Button5" type="Button" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/ButtonHolder/BodyButtons"]
+[node name="Button5" type="Button" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/ButtonHolder/BodyButtons" groups=["general_buttons"]]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("1_amotn")
@@ -2318,4 +2323,4 @@ texture = ExtResource("68_panll")
 expand_mode = 4
 stretch_mode = 5
 
-[node name="AkListener3D" type="AkListener3D" parent="."]
+[node name="AkListener2D" type="AkListener2D" parent="."]

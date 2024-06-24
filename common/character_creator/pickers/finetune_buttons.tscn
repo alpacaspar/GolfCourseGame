@@ -16,17 +16,17 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 3
 script = ExtResource("1_rwyyh")
-up_button = NodePath("HBoxContainer3/HBoxContainer2/Button2")
-down_button = NodePath("HBoxContainer3/HBoxContainer2/Button")
+up_button = NodePath("HBoxContainer3/HBoxContainer2/UpButton")
+down_button = NodePath("HBoxContainer3/HBoxContainer2/DownButton")
 vertical_step = 0.05
-left_button = NodePath("HBoxContainer3/HBoxContainer/Button")
-right_button = NodePath("HBoxContainer3/HBoxContainer/Button2")
+left_button = NodePath("HBoxContainer3/HBoxContainer/LeftButton")
+right_button = NodePath("HBoxContainer3/HBoxContainer/RightButton")
 horizontal_step = 0.05
-rotate_left_button = NodePath("HBoxContainer3/HBoxContainer3/Button")
-rotate_right_button = NodePath("HBoxContainer3/HBoxContainer3/Button2")
+rotate_left_button = NodePath("HBoxContainer3/HBoxContainer3/RotateLeftButton")
+rotate_right_button = NodePath("HBoxContainer3/HBoxContainer3/RotateRightButton")
 rotation_step = 5.0
-scale_up_button = NodePath("HBoxContainer3/HBoxContainer4/Button")
-scale_down_button = NodePath("HBoxContainer3/HBoxContainer4/Button2")
+scale_up_button = NodePath("HBoxContainer3/HBoxContainer4/ScaleUpButton")
+scale_down_button = NodePath("HBoxContainer3/HBoxContainer4/ScaleDownButton")
 scaling_step = 0.02
 
 [node name="ReferenceRect2" type="ReferenceRect" parent="."]
@@ -50,11 +50,11 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/separation = 0
 
-[node name="Button" type="Button" parent="HBoxContainer3/HBoxContainer"]
+[node name="LeftButton" type="Button" parent="HBoxContainer3/HBoxContainer" groups=["increase_buttons"]]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer3/HBoxContainer/Button"]
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer3/HBoxContainer/LeftButton"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -71,11 +71,11 @@ expand_mode = 2
 stretch_mode = 5
 flip_h = true
 
-[node name="Button2" type="Button" parent="HBoxContainer3/HBoxContainer"]
+[node name="RightButton" type="Button" parent="HBoxContainer3/HBoxContainer" groups=["decrease_buttons"]]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer3/HBoxContainer/Button2"]
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer3/HBoxContainer/RightButton"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -102,11 +102,11 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/separation = 0
 
-[node name="Button" type="Button" parent="HBoxContainer3/HBoxContainer2"]
+[node name="DownButton" type="Button" parent="HBoxContainer3/HBoxContainer2" groups=["decrease_buttons"]]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer3/HBoxContainer2/Button"]
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer3/HBoxContainer2/DownButton"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -122,11 +122,11 @@ texture = ExtResource("3_cd760")
 expand_mode = 2
 stretch_mode = 5
 
-[node name="Button2" type="Button" parent="HBoxContainer3/HBoxContainer2"]
+[node name="UpButton" type="Button" parent="HBoxContainer3/HBoxContainer2" groups=["increase_buttons"]]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer3/HBoxContainer2/Button2"]
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer3/HBoxContainer2/UpButton"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -154,11 +154,11 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/separation = 0
 
-[node name="Button" type="Button" parent="HBoxContainer3/HBoxContainer3"]
+[node name="RotateLeftButton" type="Button" parent="HBoxContainer3/HBoxContainer3" groups=["increase_buttons"]]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer3/HBoxContainer3/Button"]
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer3/HBoxContainer3/RotateLeftButton"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -175,11 +175,11 @@ expand_mode = 2
 stretch_mode = 5
 flip_h = true
 
-[node name="Button2" type="Button" parent="HBoxContainer3/HBoxContainer3"]
+[node name="RotateRightButton" type="Button" parent="HBoxContainer3/HBoxContainer3" groups=["decrease_buttons"]]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer3/HBoxContainer3/Button2"]
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer3/HBoxContainer3/RotateRightButton"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -206,11 +206,11 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/separation = 0
 
-[node name="Button" type="Button" parent="HBoxContainer3/HBoxContainer4"]
+[node name="ScaleUpButton" type="Button" parent="HBoxContainer3/HBoxContainer4" groups=["increase_buttons"]]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer3/HBoxContainer4/Button"]
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer3/HBoxContainer4/ScaleUpButton"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -226,11 +226,11 @@ texture = ExtResource("5_il5vh")
 expand_mode = 2
 stretch_mode = 5
 
-[node name="Button2" type="Button" parent="HBoxContainer3/HBoxContainer4"]
+[node name="ScaleDownButton" type="Button" parent="HBoxContainer3/HBoxContainer4" groups=["decrease_buttons"]]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer3/HBoxContainer4/Button2"]
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer3/HBoxContainer4/ScaleDownButton"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
