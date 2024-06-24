@@ -90,7 +90,7 @@ extends Control
 @export_group("Finish Settings")
 @export var finish_button: Button
 @export var scene_loader: Resource
-@export var next_scenes: Array[PackedScene] = []
+@export var next_scenes: Array[SceneReference] = []
 
 var preview_scene: PreviewSpawner
 

@@ -1,13 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://drle7k8jydi38"]
+[gd_scene load_steps=5 format=3 uid="uid://drle7k8jydi38"]
 
 [ext_resource type="Script" path="res://main/game.gd" id="1_aqgq5"]
 [ext_resource type="Resource" uid="uid://dr8wom2vtctfx" path="res://common/scene_loader/scene_loader.tres" id="2_4x1bv"]
-[ext_resource type="PackedScene" uid="uid://c75huqds1lmet" path="res://common/character_creator/main/character_creator_updated.tscn" id="3_js08x"]
+[ext_resource type="Script" path="res://common/scene_loader/scene_reference.gd" id="3_80pg2"]
+
+[sub_resource type="Resource" id="Resource_6s112"]
+script = ExtResource("3_80pg2")
+scene_path = "res://common/character_creator/main/character_creator_updated.tscn"
 
 [node name="Game" type="Node"]
 script = ExtResource("1_aqgq5")
 scene_loader = ExtResource("2_4x1bv")
-default_scenes = Array[PackedScene]([ExtResource("3_js08x")])
+default_scenes = Array[ExtResource("3_80pg2")]([SubResource("Resource_6s112")])
 
 [node name="InitAkBank" type="AkBank" parent="."]
 bank = {

@@ -1,4 +1,4 @@
-[gd_scene load_steps=93 format=3 uid="uid://c75huqds1lmet"]
+[gd_scene load_steps=94 format=3 uid="uid://c75huqds1lmet"]
 
 [ext_resource type="Theme" uid="uid://dr801tm3gbq04" path="res://common/character_creator/resources/new_character_creator_theme.tres" id="1_amotn"]
 [ext_resource type="Script" path="res://common/character_creator/main/character_creator.gd" id="2_fmr2t"]
@@ -69,8 +69,7 @@
 [ext_resource type="Texture2D" uid="uid://bfmm1vjn5y8te" path="res://common/character_creator/resources/country_club_card_bg.png" id="46_ceht0"]
 [ext_resource type="Resource" uid="uid://3jchwothfd4v" path="res://common/npc_resources/player_npc_resource.tres" id="46_o6t6a"]
 [ext_resource type="Resource" uid="uid://dr8wom2vtctfx" path="res://common/scene_loader/scene_loader.tres" id="47_s7xp0"]
-[ext_resource type="PackedScene" uid="uid://dixhhv1bgajy0" path="res://main/golf_course.tscn" id="48_juggc"]
-[ext_resource type="PackedScene" uid="uid://ca8onp5rc6dj7" path="res://entities/user_interface/user_interface.tscn" id="49_1galm"]
+[ext_resource type="Script" path="res://common/scene_loader/scene_reference.gd" id="48_u8ir0"]
 [ext_resource type="Texture2D" uid="uid://cvau13bg15dtf" path="res://common/character_creator/icons/head.svg" id="50_fhbxd"]
 [ext_resource type="Texture2D" uid="uid://ckumeprvfsvuy" path="res://common/character_creator/icons/character_turn_left.svg" id="51_4u1rc"]
 [ext_resource type="Texture2D" uid="uid://v5q6jtimfeke" path="res://common/character_creator/icons/body.svg" id="51_md7jv"]
@@ -120,6 +119,14 @@ vertical_min_max = Vector2(-1, 1)
 horizontal_min_max = Vector2(-1, 1)
 rotation_min_max = Vector2(-45, 45)
 scale_min_max = Vector2(0.5, 1.5)
+
+[sub_resource type="Resource" id="Resource_53okx"]
+script = ExtResource("48_u8ir0")
+scene_path = "res://main/golf_course.tscn"
+
+[sub_resource type="Resource" id="Resource_w7l7s"]
+script = ExtResource("48_u8ir0")
+scene_path = "res://entities/user_interface/user_interface.tscn"
 
 [sub_resource type="LabelSettings" id="LabelSettings_00xxw"]
 font = ExtResource("41_ukr78")
@@ -202,7 +209,7 @@ rotation_slider = NodePath("Spacer/VBoxContainer2/HBoxContainer2/PreviewContaine
 edited_resource = ExtResource("46_o6t6a")
 finish_button = NodePath("Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/BodyOptionsTabGroup/Naming/HBoxContainer/FinishButton")
 scene_loader = ExtResource("47_s7xp0")
-next_scenes = Array[PackedScene]([ExtResource("48_juggc"), ExtResource("49_1galm")])
+next_scenes = Array[ExtResource("48_u8ir0")]([SubResource("Resource_53okx"), SubResource("Resource_w7l7s")])
 
 [node name="Background" type="TextureRect" parent="."]
 layout_mode = 1
