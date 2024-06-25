@@ -32,7 +32,7 @@ import_script/path=""
 _subresources={
 "animations": {
 "Armature|mixamo_com|Layer0": {
-"save_to_file/enabled": true,
+"save_to_file/enabled": false,
 "save_to_file/keep_custom_tracks": "",
 "save_to_file/path": "res://entities/character/animations/character_swing_anim.res",
 "settings/loop_mode": 0,
