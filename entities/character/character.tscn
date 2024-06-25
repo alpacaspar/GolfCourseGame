@@ -1,17 +1,13 @@
-[gd_scene load_steps=53 format=3 uid="uid://ck84hpbuds8v8"]
+[gd_scene load_steps=46 format=3 uid="uid://ck84hpbuds8v8"]
 
 [ext_resource type="Script" path="res://entities/character/character.gd" id="1_deigj"]
 [ext_resource type="AnimationLibrary" uid="uid://cteindhxey6qa" path="res://entities/character/animations/character_anim_library.res" id="2_od26b"]
 [ext_resource type="AnimationNodeBlendTree" uid="uid://b6g776vm2kvrn" path="res://entities/character/animations/character_animation_blend_tree.tres" id="3_1oxqe"]
 [ext_resource type="Material" uid="uid://bgo8uqe2x7t62" path="res://entities/character/body/character_body_material.tres" id="3_ashim"]
-[ext_resource type="Material" uid="uid://btb23i348d3pn" path="res://entities/character/clothing/character_clothing_material.tres" id="4_2eedj"]
 [ext_resource type="Material" uid="uid://n65btp0wlcfs" path="res://entities/character/head/character_noseears_material.tres" id="6_m3ku2"]
-[ext_resource type="Texture2D" uid="uid://daq8u7aq4jv2n" path="res://entities/character/clothing/shoes/shoes_allstars_albedo.png" id="7_6shoc"]
 [ext_resource type="Material" uid="uid://p00w260lvywo" path="res://entities/character/clothing/clothing_skirt_material.tres" id="8_1ps1d"]
 [ext_resource type="Material" uid="uid://b235u7giumrls" path="res://entities/character/head/character_face_material.tres" id="8_67ytv"]
-[ext_resource type="Texture2D" uid="uid://ses0a2ccav7a" path="res://entities/character/clothing/shoes/shoes_allstars_colormask.png" id="8_xlvqp"]
 [ext_resource type="Material" uid="uid://d0o8jgo78vcup" path="res://entities/character/head/character_hair_material.tres" id="9_n0h6m"]
-[ext_resource type="Texture2D" uid="uid://wuoyr6jbka8v" path="res://entities/character/clothing/socks/sock_happy_albedo.png" id="9_sb2qt"]
 [ext_resource type="Script" path="res://entities/character/ak_locomotion.gd" id="12_3afj3"]
 [ext_resource type="Script" path="res://entities/equipment/equipment_slot.gd" id="12_gskdx"]
 
@@ -644,19 +640,6 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_lv4py"]
-resource_local_to_scene = true
-shader = ExtResource("4_td84t")
-shader_parameter/ShirtTint = Color(0.196078, 0.811765, 0.996078, 1)
-shader_parameter/SocksTint = Color(1, 1, 1, 1)
-shader_parameter/PantsTint = Color(0.462745, 0.462745, 0.462745, 1)
-shader_parameter/ShoesTint = Color(1, 0.47451, 0.454902, 1)
-shader_parameter/ShirtAlbedo = ExtResource("6_kwgdh")
-shader_parameter/SocksAlbedo = ExtResource("9_sb2qt")
-shader_parameter/PantsAlbedo = ExtResource("5_gtcbv")
-shader_parameter/ShoesAlbedo = ExtResource("7_6shoc")
-shader_parameter/ShoesColorMask = ExtResource("8_xlvqp")
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vqwjy"]
 resource_name = "BodyMAT"
 cull_mode = 2
@@ -1203,7 +1186,6 @@ parameters/BlockBlend/blend_amount = 0.0
 parameters/HitOneShot/active = false
 parameters/HitOneShot/internal_active = false
 parameters/HitOneShot/request = 0
-parameters/IdleSeek/seek_request = -1.0
 parameters/MoveBlend/blend_amount = 0.0
 parameters/RunSpeed/scale = 2.0
 parameters/TimeScale/scale = 1.0
@@ -1380,7 +1362,6 @@ mesh = SubResource("ArrayMesh_0p2f7")
 skin = SubResource("Skin_846u7")
 
 [node name="Collar" type="MeshInstance3D" parent="Armature/GeneralSkeleton"]
-material_override = SubResource("ShaderMaterial_lv4py")
 cast_shadow = 0
 mesh = SubResource("ArrayMesh_i2wkn")
 skin = SubResource("Skin_846u7")
@@ -1431,98 +1412,84 @@ skin = SubResource("Skin_846u7")
 [node name="Body" type="MeshInstance3D" parent="Armature/GeneralSkeleton"]
 transform = Transform3D(1, 0, 0, 0, 1, 1.42109e-14, 0, -1.42109e-14, 1, 0, 0, 0)
 material_override = ExtResource("3_ashim")
-material_overlay = SubResource("ShaderMaterial_lv4py")
 mesh = SubResource("ArrayMesh_mkkdk")
 skin = SubResource("Skin_846u7")
 
 [node name="Head" type="MeshInstance3D" parent="Armature/GeneralSkeleton"]
 transform = Transform3D(1, 0, 0, 0, 1, 1.42109e-14, 0, -1.42109e-14, 1, 0, 0, 0)
 material_override = ExtResource("3_ashim")
-material_overlay = SubResource("ShaderMaterial_lv4py")
 mesh = SubResource("ArrayMesh_eler1")
 skin = SubResource("Skin_846u7")
 
 [node name="LeftBottomLeg" type="MeshInstance3D" parent="Armature/GeneralSkeleton"]
 transform = Transform3D(1, 0, 0, 0, 1, 1.42109e-14, 0, -1.42109e-14, 1, 0, 0, 0)
 material_override = ExtResource("3_ashim")
-material_overlay = SubResource("ShaderMaterial_lv4py")
 mesh = SubResource("ArrayMesh_csooj")
 skin = SubResource("Skin_846u7")
 
 [node name="LeftFoot" type="MeshInstance3D" parent="Armature/GeneralSkeleton"]
 transform = Transform3D(1, 0, 0, 0, 1, 1.42109e-14, 0, -1.42109e-14, 1, 0, 0, 0)
 material_override = ExtResource("3_ashim")
-material_overlay = SubResource("ShaderMaterial_lv4py")
 mesh = SubResource("ArrayMesh_px42l")
 skin = SubResource("Skin_846u7")
 
 [node name="LeftHand" type="MeshInstance3D" parent="Armature/GeneralSkeleton"]
 transform = Transform3D(1, 0, 0, 0, 1, 1.42109e-14, 0, -1.42109e-14, 1, 0, 0, 0)
 material_override = ExtResource("3_ashim")
-material_overlay = SubResource("ShaderMaterial_lv4py")
 mesh = SubResource("ArrayMesh_0gubg")
 skin = SubResource("Skin_846u7")
 
 [node name="LeftLowerArm" type="MeshInstance3D" parent="Armature/GeneralSkeleton"]
 transform = Transform3D(1, 0, 0, 0, 1, 1.42109e-14, 0, -1.42109e-14, 1, 0, 0, 0)
 material_override = ExtResource("3_ashim")
-material_overlay = SubResource("ShaderMaterial_lv4py")
 mesh = SubResource("ArrayMesh_41yqd")
 skin = SubResource("Skin_846u7")
 
 [node name="LeftUpperArm" type="MeshInstance3D" parent="Armature/GeneralSkeleton"]
 transform = Transform3D(1, 0, 0, 0, 1, 1.42109e-14, 0, -1.42109e-14, 1, 0, 0, 0)
 material_override = ExtResource("3_ashim")
-material_overlay = SubResource("ShaderMaterial_lv4py")
 mesh = SubResource("ArrayMesh_wvbq0")
 skin = SubResource("Skin_846u7")
 
 [node name="LeftUpperLeg" type="MeshInstance3D" parent="Armature/GeneralSkeleton"]
 transform = Transform3D(1, 0, 0, 0, 1, 1.42109e-14, 0, -1.42109e-14, 1, 0, 0, 0)
 material_override = ExtResource("3_ashim")
-material_overlay = SubResource("ShaderMaterial_lv4py")
 mesh = SubResource("ArrayMesh_48752")
 skin = SubResource("Skin_846u7")
 
 [node name="RightBottomLeg" type="MeshInstance3D" parent="Armature/GeneralSkeleton"]
 transform = Transform3D(1, 0, 0, 0, 1, 1.42109e-14, 0, -1.42109e-14, 1, 0, 0, 0)
 material_override = ExtResource("3_ashim")
-material_overlay = SubResource("ShaderMaterial_lv4py")
 mesh = SubResource("ArrayMesh_17ous")
 skin = SubResource("Skin_846u7")
 
 [node name="RightFoot" type="MeshInstance3D" parent="Armature/GeneralSkeleton"]
 transform = Transform3D(1, 0, 0, 0, 1, 1.42109e-14, 0, -1.42109e-14, 1, 0, 0, 0)
 material_override = ExtResource("3_ashim")
-material_overlay = SubResource("ShaderMaterial_lv4py")
 mesh = SubResource("ArrayMesh_sdu32")
 skin = SubResource("Skin_846u7")
 
 [node name="RightHand" type="MeshInstance3D" parent="Armature/GeneralSkeleton"]
 transform = Transform3D(1, 0, 0, 0, 1, 1.42109e-14, 0, -1.42109e-14, 1, 0, 0, 0)
 material_override = ExtResource("3_ashim")
-material_overlay = SubResource("ShaderMaterial_lv4py")
 mesh = SubResource("ArrayMesh_8xngc")
 skin = SubResource("Skin_846u7")
 
 [node name="RightLowerArm" type="MeshInstance3D" parent="Armature/GeneralSkeleton"]
 transform = Transform3D(1, 0, 0, 0, 1, 1.42109e-14, 0, -1.42109e-14, 1, 0, 0, 0)
 material_override = ExtResource("3_ashim")
-material_overlay = SubResource("ShaderMaterial_lv4py")
 mesh = SubResource("ArrayMesh_82nfy")
 skin = SubResource("Skin_846u7")
 
 [node name="RightUpperArm" type="MeshInstance3D" parent="Armature/GeneralSkeleton"]
 transform = Transform3D(1, 0, 0, 0, 1, 1.42109e-14, 0, -1.42109e-14, 1, 0, 0, 0)
 material_override = ExtResource("3_ashim")
-material_overlay = SubResource("ShaderMaterial_lv4py")
 mesh = SubResource("ArrayMesh_lmypq")
 skin = SubResource("Skin_846u7")
 
 [node name="RightUpperLeg" type="MeshInstance3D" parent="Armature/GeneralSkeleton"]
 transform = Transform3D(1, 0, 0, 0, 1, 1.42109e-14, 0, -1.42109e-14, 1, 0, 0, 0)
 material_override = ExtResource("3_ashim")
-material_overlay = SubResource("ShaderMaterial_lv4py")
 mesh = SubResource("ArrayMesh_kd2o6")
 skin = SubResource("Skin_846u7")
 

@@ -40,7 +40,6 @@ animation = &"character/run"
 
 [resource]
 resource_local_to_scene = true
-graph_offset = Vector2(-447.269, 224.3)
 nodes/Attack/node = SubResource("AnimationNodeAnimation_bhjs0")
 nodes/Attack/position = Vector2(-260, 440)
 nodes/AttackOneShot/node = SubResource("AnimationNodeOneShot_4puyu")
