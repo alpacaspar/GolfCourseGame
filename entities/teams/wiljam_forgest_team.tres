@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="TeamResource" load_steps=7 format=3 uid="uid://cloas2dggkma5"]
 
 [ext_resource type="Script" path="res://entities/teams/team_resource.gd" id="1_ngfar"]
-[ext_resource type="Resource" uid="uid://cl2ibsbkn1dcm" path="res://entities/golfers/wiljam_forgest_golfer.tres" id="1_rwvcq"]
-[ext_resource type="Resource" uid="uid://djvegej5fpjao" path="res://entities/golfers/barl_jonnes_golfer.tres" id="3_wjlwn"]
+[ext_resource type="Resource" uid="uid://g23p4op3geld" path="res://entities/golfers/wiljam_forgest_golfer.tres" id="1_rwvcq"]
+[ext_resource type="Resource" uid="uid://cdd2ve6pfeodv" path="res://entities/golfers/barl_jonnes_golfer.tres" id="3_wjlwn"]
 [ext_resource type="Resource" uid="uid://be5btobfgn7h5" path="res://entities/golfers/mat_cheplay_golfer.tres" id="4_bh5an"]
 [ext_resource type="Resource" uid="uid://j16831lxpqlq" path="res://entities/golfers/geoff_baw_golfer.tres" id="5_6b42v"]
 [ext_resource type="Resource" uid="uid://wtv4wlpm67a" path="res://entities/golfers/holli_nonne_golfer.tres" id="6_jjur6"]
