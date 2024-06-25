@@ -2,6 +2,8 @@ class_name Team
 extends Node
 
 
+var team_resource: TeamResource
+
 var leader: Unit
 var units: Array[Unit]
 

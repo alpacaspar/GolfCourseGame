@@ -92,6 +92,7 @@ func get_units_of_role(my_team: Team, role: Role) -> Array[Unit]:
 
 func _instantiate_team(team_resource: TeamResource, origin: Node3D, character_factory: Node):
 	var team_instance := team_scene.instantiate()
+	team_instance.team_resource = team_resource
 	current_battle.add_child(team_instance)
 	teams.append(team_instance)
 

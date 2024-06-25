@@ -295,6 +295,23 @@ func refresh_character(character: Character):
 	character.nose_mesh_instance.material_override.set("albedo_color", skin_colors[resource.skin_color_index])
 
 
+func override_shirt(character: Character, resource_override: NPCResource):
+	var clothing_albedo_material: ShaderMaterial = active_texture_renderers[character].clothing_edit_albedo_material
+	var clothing_normal_material: ShaderMaterial = active_texture_renderers[character].clothing_edit_normal_material
+	var clothing_roughness_material: ShaderMaterial = active_texture_renderers[character].clothing_edit_roughness_material
+
+	var shirt := shirt_datas[resource_override.shirt_index]
+	character.collar_mesh_instance.mesh = shirt.collar
+	if shirt.can_pick_color:
+		clothing_albedo_material.set("shader_parameter/ShirtTint", shirt_colors[resource_override.shirt_color_index])
+	else:
+		clothing_albedo_material.set("shader_parameter/ShirtTint", Color.WHITE)
+	
+	clothing_albedo_material.set("shader_parameter/ShirtAlbedo", shirt.albedo)
+	clothing_roughness_material.set("shader_parameter/ShirtRoughness", shirt.roughness)
+	clothing_normal_material.set("shader_parameter/ShirtNormal", shirt.normal)
+
+
 func _create_face_blink_texture(face_renderer: Node) -> Texture2D:
 	face_renderer.face_edit_material.set("shader_parameter/EyeIndex", eye_blink_index)
 
