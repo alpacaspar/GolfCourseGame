@@ -5,7 +5,7 @@ extends BTDecorator
 @export var output_array: StringName = "entities"
 
 @export_group("Radius")
-@export var radius_value: StringName
+@export var radius_blackboard_key: StringName
 @export var override := false
 @export var radius_override := 10.0
 
@@ -22,7 +22,7 @@ func _decorate(blackboard: Dictionary):
 	var team: Team = unit.team
 
 	var space_state := unit.get_world_3d().direct_space_state
-	var query := _get_query(unit, radius_override if override else blackboard[radius_value])
+	var query := _get_query(unit, radius_override if override else blackboard[radius_blackboard_key])
 
 	var intersections: Array[Dictionary] = space_state.intersect_shape(query)
 
