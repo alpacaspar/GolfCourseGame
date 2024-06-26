@@ -1,21 +1,19 @@
 class_name Wait
-extends BTLeaf
+extends BTAction
 
 
-@export var wait_time := 1.0
+@export var min_wait_time := 1.0
+@export var max_wait_time := 2.0
+
 ## Skip the first wait period.
 @export var skip_first := false
 
-@export_group("Random")
-@export var random := false
-@export var random_range := Vector2(0.0, 1.0)
-
-var current_time: float = 0.0
+var wait_time := 0.0
+var current_time := 0.0
 
 
 func _ready():
-    if random:
-        _randomize()
+    wait_time = randf_range(min_wait_time, max_wait_time)
 
     if skip_first:
         current_time = wait_time
@@ -26,13 +24,8 @@ func _tick(_blackboard: Dictionary, delta: float) -> int:
 
     if current_time >= wait_time:
         current_time = 0.0
-        if random:
-            _randomize()
+        wait_time = randf_range(min_wait_time, max_wait_time)
 
         return SUCCESS
 
     return RUNNING
-
-
-func _randomize():
-    wait_time = randf_range(random_range.x, random_range.y)

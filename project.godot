@@ -93,7 +93,7 @@ move_down={
 
 [layer_names]
 
-3d_physics/layer_2="character"
+3d_physics/layer_2="entity"
 3d_physics/layer_3="interactable"
 3d_physics/layer_8="audio"
 

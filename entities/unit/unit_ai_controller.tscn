@@ -1,19 +1,158 @@
-[gd_scene load_steps=6 format=3 uid="uid://bmbpmw618ddnf"]
+[gd_scene load_steps=20 format=3 uid="uid://bmbpmw618ddnf"]
 
 [ext_resource type="Script" path="res://entities/unit/unit_ai_controller.gd" id="1_4m1b1"]
-[ext_resource type="Resource" uid="uid://3odoff5r71oh" path="res://common/roles/iron/iron_role.tres" id="2_vs06k"]
-[ext_resource type="PackedScene" uid="uid://c4s6x5nj8m700" path="res://common/roles/iron/iron_behaviour_tree.tscn" id="3_ofhrt"]
-[ext_resource type="Resource" uid="uid://n2wwvf3uab1k" path="res://common/roles/driver/driver_role.tres" id="4_1cu8x"]
-[ext_resource type="PackedScene" uid="uid://bfxkelwfpo0dm" path="res://common/roles/driver/driver_behaviour_tree.tscn" id="5_p0e7b"]
+[ext_resource type="Script" path="res://common/behaviour_tree/behaviour_tree.gd" id="2_sbpf6"]
+[ext_resource type="Script" path="res://common/behaviour_tree/bt_selector.gd" id="3_kkrbg"]
+[ext_resource type="Script" path="res://entities/unit/behaviour/decorator_sensor_radius.gd" id="4_urqn6"]
+[ext_resource type="Script" path="res://common/behaviour_tree/condiiton_is_empty.gd" id="5_rthak"]
+[ext_resource type="Script" path="res://entities/unit/behaviour/decorator_filter_any_attacking.gd" id="6_iep1p"]
+[ext_resource type="Script" path="res://common/behaviour_tree/bt_sequence.gd" id="7_emtuh"]
+[ext_resource type="Script" path="res://common/behaviour_tree/bt_parallel.gd" id="8_vp1rp"]
+[ext_resource type="Script" path="res://entities/unit/behaviour/action_aim_towards.gd" id="9_37vsh"]
+[ext_resource type="Script" path="res://common/behaviour_tree/bt_cooldown.gd" id="9_weibh"]
+[ext_resource type="Script" path="res://entities/unit/behaviour/action_attack.gd" id="11_cyakl"]
+[ext_resource type="Script" path="res://entities/unit/behaviour/condition_random_chance.gd" id="12_0mpp3"]
+[ext_resource type="Script" path="res://entities/unit/behaviour/action_block.gd" id="13_8rkjp"]
+[ext_resource type="Script" path="res://entities/unit/behaviour/decorator_distance_to.gd" id="14_nvi7d"]
+[ext_resource type="Script" path="res://entities/unit/behaviour/condition_compare.gd" id="15_avq6n"]
+[ext_resource type="Script" path="res://common/behaviour_tree/bt_wait.gd" id="15_iasuv"]
+[ext_resource type="Script" path="res://entities/unit/behaviour/action_move_to.gd" id="16_q51rm"]
+[ext_resource type="Script" path="res://entities/unit/behaviour/action_approach_attack.gd" id="17_xw8o5"]
+[ext_resource type="Script" path="res://entities/unit/behaviour/decorator_filter_closest.gd" id="19_ey1em"]
 
 [node name="Controller" type="Node3D"]
 script = ExtResource("1_4m1b1")
-behaviour_tree_scene = {
-ExtResource("2_vs06k"): ExtResource("3_ofhrt"),
-ExtResource("4_1cu8x"): ExtResource("5_p0e7b")
-}
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
-path_desired_distance = 0.5
-target_desired_distance = 0.5
-path_height_offset = 0.5
+path_height_offset = 0.3
+avoidance_enabled = true
+neighbor_distance = 2.0
+max_neighbors = 2
+
+[node name="BehaviourTree" type="Node" parent="."]
+script = ExtResource("2_sbpf6")
+
+[node name="Selector" type="Node" parent="BehaviourTree"]
+script = ExtResource("3_kkrbg")
+
+[node name="ConditionBlockProbability" type="Node" parent="BehaviourTree/Selector"]
+script = ExtResource("12_0mpp3")
+blackboard_key = &"block_chance"
+
+[node name="DecoratorSensorRadiusBlock" type="Node" parent="BehaviourTree/Selector/ConditionBlockProbability"]
+script = ExtResource("4_urqn6")
+radius_blackboard_key = &"attack_detection_range"
+sensor_filter = 4
+sensor_collision_mask = 2
+
+[node name="DecoratorFilterAnyAttacking" type="Node" parent="BehaviourTree/Selector/ConditionBlockProbability/DecoratorSensorRadiusBlock"]
+script = ExtResource("6_iep1p")
+
+[node name="ConditionIsNotEmpty" type="Node" parent="BehaviourTree/Selector/ConditionBlockProbability/DecoratorSensorRadiusBlock/DecoratorFilterAnyAttacking"]
+script = ExtResource("5_rthak")
+blackboard_key = &"entities"
+invert = true
+
+[node name="Parallel" type="Node" parent="BehaviourTree/Selector/ConditionBlockProbability/DecoratorSensorRadiusBlock/DecoratorFilterAnyAttacking/ConditionIsNotEmpty"]
+script = ExtResource("8_vp1rp")
+
+[node name="ActionAimTowards" type="Node" parent="BehaviourTree/Selector/ConditionBlockProbability/DecoratorSensorRadiusBlock/DecoratorFilterAnyAttacking/ConditionIsNotEmpty/Parallel"]
+script = ExtResource("9_37vsh")
+
+[node name="Sequence" type="Node" parent="BehaviourTree/Selector/ConditionBlockProbability/DecoratorSensorRadiusBlock/DecoratorFilterAnyAttacking/ConditionIsNotEmpty/Parallel"]
+script = ExtResource("7_emtuh")
+
+[node name="ActionBlock" type="Node" parent="BehaviourTree/Selector/ConditionBlockProbability/DecoratorSensorRadiusBlock/DecoratorFilterAnyAttacking/ConditionIsNotEmpty/Parallel/Sequence"]
+script = ExtResource("13_8rkjp")
+
+[node name="Wait" type="Node" parent="BehaviourTree/Selector/ConditionBlockProbability/DecoratorSensorRadiusBlock/DecoratorFilterAnyAttacking/ConditionIsNotEmpty/Parallel/Sequence"]
+script = ExtResource("15_iasuv")
+
+[node name="ConditionBallUseProbability" type="Node" parent="BehaviourTree/Selector"]
+script = ExtResource("12_0mpp3")
+blackboard_key = &"ball_use_probability"
+
+[node name="DecoratorSensorRadiusBalls" type="Node" parent="BehaviourTree/Selector/ConditionBallUseProbability"]
+script = ExtResource("4_urqn6")
+output_array = &"balls"
+radius_blackboard_key = &"max_ball_search_range"
+sensor_filter = 8
+sensor_collision_mask = 2
+
+[node name="DecoratorFilterClosest" type="Node" parent="BehaviourTree/Selector/ConditionBallUseProbability/DecoratorSensorRadiusBalls"]
+script = ExtResource("19_ey1em")
+input_array = &"balls"
+
+[node name="ConditionIsNotEmpty" type="Node" parent="BehaviourTree/Selector/ConditionBallUseProbability/DecoratorSensorRadiusBalls/DecoratorFilterClosest"]
+script = ExtResource("5_rthak")
+blackboard_key = &"balls"
+invert = true
+
+[node name="DecoratorDistanceTo" type="Node" parent="BehaviourTree/Selector/ConditionBallUseProbability/DecoratorSensorRadiusBalls/DecoratorFilterClosest/ConditionIsNotEmpty"]
+script = ExtResource("14_nvi7d")
+blackboard_key = &"balls"
+output_key = &"ball_distance"
+square_distance = true
+
+[node name="DecoratorSensorRadiusOpponents" type="Node" parent="BehaviourTree/Selector/ConditionBallUseProbability/DecoratorSensorRadiusBalls/DecoratorFilterClosest/ConditionIsNotEmpty/DecoratorDistanceTo"]
+script = ExtResource("4_urqn6")
+radius_blackboard_key = &"max_search_range"
+sensor_filter = 4
+sensor_collision_mask = 2
+
+[node name="DecoratorFilterClosest" type="Node" parent="BehaviourTree/Selector/ConditionBallUseProbability/DecoratorSensorRadiusBalls/DecoratorFilterClosest/ConditionIsNotEmpty/DecoratorDistanceTo/DecoratorSensorRadiusOpponents"]
+script = ExtResource("19_ey1em")
+
+[node name="DecoratorDistanceTo" type="Node" parent="BehaviourTree/Selector/ConditionBallUseProbability/DecoratorSensorRadiusBalls/DecoratorFilterClosest/ConditionIsNotEmpty/DecoratorDistanceTo/DecoratorSensorRadiusOpponents/DecoratorFilterClosest"]
+script = ExtResource("14_nvi7d")
+blackboard_key = &"entities"
+output_key = &"entity_distance"
+square_distance = true
+
+[node name="ConditionLessThan" type="Node" parent="BehaviourTree/Selector/ConditionBallUseProbability/DecoratorSensorRadiusBalls/DecoratorFilterClosest/ConditionIsNotEmpty/DecoratorDistanceTo/DecoratorSensorRadiusOpponents/DecoratorFilterClosest/DecoratorDistanceTo"]
+script = ExtResource("15_avq6n")
+a = &"ball_distance"
+b = &"entity_distance"
+operation = 1
+
+[node name="Sequence" type="Node" parent="BehaviourTree/Selector/ConditionBallUseProbability/DecoratorSensorRadiusBalls/DecoratorFilterClosest/ConditionIsNotEmpty/DecoratorDistanceTo/DecoratorSensorRadiusOpponents/DecoratorFilterClosest/DecoratorDistanceTo/ConditionLessThan"]
+script = ExtResource("7_emtuh")
+
+[node name="ActionMoveTo" type="Node" parent="BehaviourTree/Selector/ConditionBallUseProbability/DecoratorSensorRadiusBalls/DecoratorFilterClosest/ConditionIsNotEmpty/DecoratorDistanceTo/DecoratorSensorRadiusOpponents/DecoratorFilterClosest/DecoratorDistanceTo/ConditionLessThan/Sequence"]
+script = ExtResource("16_q51rm")
+input_array = &"balls"
+
+[node name="ActionApproachAttack" type="Node" parent="BehaviourTree/Selector/ConditionBallUseProbability/DecoratorSensorRadiusBalls/DecoratorFilterClosest/ConditionIsNotEmpty/DecoratorDistanceTo/DecoratorSensorRadiusOpponents/DecoratorFilterClosest/DecoratorDistanceTo/ConditionLessThan/Sequence"]
+script = ExtResource("17_xw8o5")
+input_array = &"balls"
+
+[node name="ActionAimTowards" type="Node" parent="BehaviourTree/Selector/ConditionBallUseProbability/DecoratorSensorRadiusBalls/DecoratorFilterClosest/ConditionIsNotEmpty/DecoratorDistanceTo/DecoratorSensorRadiusOpponents/DecoratorFilterClosest/DecoratorDistanceTo/ConditionLessThan/Sequence"]
+script = ExtResource("9_37vsh")
+
+[node name="ActionAttack" type="Node" parent="BehaviourTree/Selector/ConditionBallUseProbability/DecoratorSensorRadiusBalls/DecoratorFilterClosest/ConditionIsNotEmpty/DecoratorDistanceTo/DecoratorSensorRadiusOpponents/DecoratorFilterClosest/DecoratorDistanceTo/ConditionLessThan/Sequence"]
+script = ExtResource("11_cyakl")
+
+[node name="ConditionAttackCooldown" type="Node" parent="BehaviourTree/Selector"]
+script = ExtResource("9_weibh")
+cooldown_time = 2.0
+
+[node name="DecoratorSensorRadius" type="Node" parent="BehaviourTree/Selector/ConditionAttackCooldown"]
+script = ExtResource("4_urqn6")
+radius_blackboard_key = &"max_search_range"
+sensor_filter = 4
+sensor_collision_mask = 2
+
+[node name="DecoratorFilterClosest" type="Node" parent="BehaviourTree/Selector/ConditionAttackCooldown/DecoratorSensorRadius"]
+script = ExtResource("19_ey1em")
+
+[node name="Sequence" type="Node" parent="BehaviourTree/Selector/ConditionAttackCooldown/DecoratorSensorRadius/DecoratorFilterClosest"]
+script = ExtResource("7_emtuh")
+
+[node name="ActionMoveTo" type="Node" parent="BehaviourTree/Selector/ConditionAttackCooldown/DecoratorSensorRadius/DecoratorFilterClosest/Sequence"]
+script = ExtResource("16_q51rm")
+
+[node name="ActionAimTowards" type="Node" parent="BehaviourTree/Selector/ConditionAttackCooldown/DecoratorSensorRadius/DecoratorFilterClosest/Sequence"]
+script = ExtResource("9_37vsh")
+
+[node name="ActionAttack" type="Node" parent="BehaviourTree/Selector/ConditionAttackCooldown/DecoratorSensorRadius/DecoratorFilterClosest/Sequence"]
+script = ExtResource("11_cyakl")

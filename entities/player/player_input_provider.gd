@@ -3,7 +3,10 @@ extends InputProvider
 
 
 signal on_look(input_delta: Vector2)
-signal on_interact()
+signal on_interact_pressed
+signal on_interact_released
+signal on_cancel_pressed
+signal on_cancel_released
 
 @export var camera: Camera3D
 
@@ -28,4 +31,13 @@ func _on_process():
 	move = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 
 	if Input.is_action_just_pressed("interact"):
-		on_interact.emit()
+		on_interact_pressed.emit()
+
+	if Input.is_action_just_released("interact"):
+		on_interact_released.emit()
+
+	if Input.is_action_just_pressed("cancel"):
+		on_cancel_pressed.emit()
+
+	if Input.is_action_just_released("cancel"):
+		on_cancel_released.emit()

@@ -1,12 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://s18mlviu254u"]
+[gd_scene load_steps=5 format=3 uid="uid://s18mlviu254u"]
 
 [ext_resource type="Script" path="res://entities/unit/unit.gd" id="1_msadw"]
 [ext_resource type="Script" path="res://entities/unit/unit_animator.gd" id="2_ho2eb"]
+[ext_resource type="Script" path="res://entities/unit/velocity_buffer.gd" id="3_mpjgy"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_yo62r"]
 radius = 0.3
 
-[node name="Unit" type="CharacterBody3D"]
+[node name="Unit" type="CharacterBody3D" groups=["unit"]]
 collision_layer = 2
 collision_mask = 3
 script = ExtResource("1_msadw")
@@ -15,6 +16,9 @@ script = ExtResource("1_msadw")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_yo62r")
 
-[node name="Visuals" type="Node3D" parent="." node_paths=PackedStringArray("body")]
+[node name="CharacterContainer" type="Node3D" parent="." node_paths=PackedStringArray("unit")]
 script = ExtResource("2_ho2eb")
-body = NodePath("..")
+unit = NodePath("..")
+
+[node name="VelocityBuffer" type="Node" parent="."]
+script = ExtResource("3_mpjgy")

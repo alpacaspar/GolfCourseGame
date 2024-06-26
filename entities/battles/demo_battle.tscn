@@ -10,11 +10,12 @@ _data = {
 }
 point_count = 4
 
-[node name="Battle" type="Node3D" node_paths=PackedStringArray("camera_path_track")]
+[node name="Battle" type="Node3D" node_paths=PackedStringArray("camera_path_track", "ball_spawnpoints")]
 script = ExtResource("1_wks84")
 battle_name = "First Battle"
 rival_team = ExtResource("2_t33f7")
 camera_path_track = NodePath("HolePath3D/PathFollow3D")
+ball_spawnpoints = [NodePath("BallSpawnpoint"), NodePath("BallSpawnpoint2"), NodePath("BallSpawnpoint3")]
 
 [node name="TeeArea" type="Marker3D" parent="."]
 transform = Transform3D(0.985482, 0, 0.16978, 0, 1, 0, -0.16978, 0, 0.985482, 524.474, -4.20163, 455.885)
@@ -38,3 +39,12 @@ progress = 9.71623
 loop = false
 
 [node name="Camera3D" type="Camera3D" parent="HolePath3D/PathFollow3D"]
+
+[node name="BallSpawnpoint" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 543.496, -3.76436, 509.163)
+
+[node name="BallSpawnpoint2" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 527.425, -3.76436, 526.927)
+
+[node name="BallSpawnpoint3" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 529.972, -3.76436, 496.568)

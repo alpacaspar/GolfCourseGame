@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="Role" load_steps=3 format=3 uid="uid://brlyd0ki64nvw"]
+
+[ext_resource type="PackedScene" uid="uid://pyxcqseoy2w4" path="res://entities/equipment/club_iron.tscn" id="1_qteap"]
+[ext_resource type="Script" path="res://common/roles/role.gd" id="4_jtkam"]
+
+[resource]
+script = ExtResource("4_jtkam")
+display_name = "Ironnaut"
+base_stamina = 100
+base_power = 10
+move_speed = 5.0
+max_search_range = 300.0
+block_chance = 0.5
+attack_detection_range = 3.0
+block_move_speed = 2.0
+attack_range = 5.0
+attack_speed = 1.5
+ball_use_probability = 0.2
+max_drive_range = 10.0
+max_drive_angle = 45.0
+max_ball_search_range = 10.0
+max_unit_search_range = 100.0
+primary_equipment = ExtResource("1_qteap")
+descriptive_letter = "I"

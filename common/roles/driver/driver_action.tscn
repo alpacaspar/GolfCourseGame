@@ -1,8 +1,0 @@
-[gd_scene load_steps=3 format=3 uid="uid://df1aj4awrkd6t"]
-
-[ext_resource type="Script" path="res://common/roles/driver/driver_action.gd" id="1_ttyyc"]
-[ext_resource type="PackedScene" uid="uid://c10ogrcbcp16x" path="res://entities/equipment/ball.tscn" id="2_engry"]
-
-[node name="RoleAction" type="Node"]
-script = ExtResource("1_ttyyc")
-golf_ball = ExtResource("2_engry")

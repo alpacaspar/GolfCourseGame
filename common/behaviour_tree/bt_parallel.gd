@@ -9,4 +9,7 @@ func _tick(blackboard: Dictionary, delta: float) -> int:
 	for node: BTNode in child_nodes:
 		result = node._tick(blackboard, delta)
 
+		if result == FAILURE:
+			return FAILURE
+
 	return result

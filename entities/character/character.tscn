@@ -1,19 +1,13 @@
-[gd_scene load_steps=53 format=3 uid="uid://ck84hpbuds8v8"]
+[gd_scene load_steps=46 format=3 uid="uid://ck84hpbuds8v8"]
 
 [ext_resource type="Script" path="res://entities/character/character.gd" id="1_deigj"]
 [ext_resource type="AnimationLibrary" uid="uid://cteindhxey6qa" path="res://entities/character/animations/character_anim_library.res" id="2_od26b"]
-[ext_resource type="AnimationNodeBlendTree" uid="uid://d117ky0nrc8gi" path="res://common/roles/driver/driver_animation_blend_tree.tres" id="3_5tnl4"]
+[ext_resource type="AnimationNodeBlendTree" uid="uid://b6g776vm2kvrn" path="res://entities/character/animations/character_animation_blend_tree.tres" id="3_1oxqe"]
 [ext_resource type="Material" uid="uid://bgo8uqe2x7t62" path="res://entities/character/body/character_body_material.tres" id="3_ashim"]
-[ext_resource type="Shader" uid="uid://brhddkh8r5th8" path="res://common/character_factory/character_edit_clothing_albedo_shader.tres" id="4_td84t"]
-[ext_resource type="Texture2D" uid="uid://dckilkspi1mel" path="res://entities/character/clothing/clothing_pantalonrolledpants_roughness.png" id="5_gtcbv"]
-[ext_resource type="Texture2D" uid="uid://cxf28ttjgg2se" path="res://entities/character/clothing/clothing_shirt_color.png" id="6_kwgdh"]
 [ext_resource type="Material" uid="uid://n65btp0wlcfs" path="res://entities/character/head/character_noseears_material.tres" id="6_m3ku2"]
-[ext_resource type="Texture2D" uid="uid://daq8u7aq4jv2n" path="res://entities/character/clothing/shoes/shoes_allstars_albedo.png" id="7_6shoc"]
 [ext_resource type="Material" uid="uid://p00w260lvywo" path="res://entities/character/clothing/clothing_skirt_material.tres" id="8_1ps1d"]
 [ext_resource type="Material" uid="uid://b235u7giumrls" path="res://entities/character/head/character_face_material.tres" id="8_67ytv"]
-[ext_resource type="Texture2D" uid="uid://ses0a2ccav7a" path="res://entities/character/clothing/shoes/shoes_allstars_colormask.png" id="8_xlvqp"]
 [ext_resource type="Material" uid="uid://d0o8jgo78vcup" path="res://entities/character/head/character_hair_material.tres" id="9_n0h6m"]
-[ext_resource type="Texture2D" uid="uid://wuoyr6jbka8v" path="res://entities/character/clothing/socks/sock_happy_albedo.png" id="9_sb2qt"]
 [ext_resource type="Script" path="res://entities/character/ak_locomotion.gd" id="12_3afj3"]
 [ext_resource type="Script" path="res://entities/equipment/equipment_slot.gd" id="12_gskdx"]
 
@@ -502,6 +496,27 @@ tracks/68/path = NodePath("Armature/GeneralSkeleton/RightHandBoneAttachment3D")
 tracks/68/interp = 1
 tracks/68/loop_wrap = true
 tracks/68/keys = PackedFloat32Array(0, 1, 1, 1, 1)
+tracks/69/type = "position_3d"
+tracks/69/imported = false
+tracks/69/enabled = true
+tracks/69/path = NodePath("Armature/GeneralSkeleton/LeftHandBoneAttachment3D")
+tracks/69/interp = 1
+tracks/69/loop_wrap = true
+tracks/69/keys = PackedFloat32Array(0, 1, 37.152, -0.969028, -62.0192)
+tracks/70/type = "rotation_3d"
+tracks/70/imported = false
+tracks/70/enabled = true
+tracks/70/path = NodePath("Armature/GeneralSkeleton/LeftHandBoneAttachment3D")
+tracks/70/interp = 1
+tracks/70/loop_wrap = true
+tracks/70/keys = PackedFloat32Array(0, 1, 0.5, 0.5, -0.5, 0.5)
+tracks/71/type = "scale_3d"
+tracks/71/imported = false
+tracks/71/enabled = true
+tracks/71/path = NodePath("Armature/GeneralSkeleton/LeftHandBoneAttachment3D")
+tracks/71/interp = 1
+tracks/71/loop_wrap = true
+tracks/71/keys = PackedFloat32Array(0, 1, 1, 1, 1)
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_b3t27"]
 _data = {
@@ -624,19 +639,6 @@ _surfaces = [{
 "vertex_data": PackedByteArray(14, 129, 187, 62, 228, 58, 33, 63, 210, 181, 171, 60, 124, 98, 192, 62, 9, 230, 34, 63, 156, 237, 157, 60, 232, 136, 186, 62, 183, 88, 39, 63, 120, 27, 164, 60, 159, 125, 181, 62, 73, 159, 37, 63, 243, 150, 178, 60, 160, 195, 196, 62, 125, 99, 36, 63, 59, 32, 86, 60, 131, 8, 191, 62, 137, 224, 40, 63, 236, 97, 95, 60, 197, 242, 171, 62, 194, 87, 34, 63, 228, 218, 97, 60, 131, 62, 178, 62, 62, 12, 30, 63, 111, 134, 88, 60, 161, 159, 182, 62, 124, 142, 31, 63, 108, 143, 158, 60, 94, 114, 176, 62, 131, 228, 35, 63, 181, 194, 164, 60, 11, 129, 187, 62, 213, 35, 33, 63, 153, 193, 29, 189, 159, 125, 181, 62, 124, 135, 37, 63, 3, 7, 34, 189, 232, 136, 186, 62, 67, 66, 39, 63, 248, 28, 27, 189, 125, 98, 192, 62, 62, 208, 34, 63, 131, 46, 23, 189, 134, 8, 191, 62, 4, 207, 40, 63, 91, 50, 1, 189, 160, 195, 196, 62, 126, 82, 36, 63, 220, 16, 252, 188, 200, 242, 171, 62, 61, 70, 34, 63, 216, 147, 0, 189, 98, 114, 176, 62, 15, 206, 35, 63, 54, 201, 26, 189, 165, 159, 182, 62, 178, 120, 31, 63, 120, 221, 22, 189, 132, 62, 178, 62, 60, 251, 29, 63, 75, 221, 250, 188, 163, 66, 169, 62, 6, 104, 33, 63, 118, 246, 78, 59, 194, 135, 168, 62, 105, 35, 33, 63, 193, 200, 15, 188, 250, 240, 174, 62, 60, 226, 28, 63, 100, 44, 14, 188, 192, 162, 175, 62, 151, 35, 29, 63, 242, 17, 60, 59, 163, 66, 169, 62, 197, 94, 33, 63, 206, 191, 169, 188, 191, 162, 175, 62, 162, 26, 29, 63, 172, 197, 165, 188, 194, 135, 168, 62, 105, 35, 33, 63, 193, 200, 15, 188, 250, 240, 174, 62, 60, 226, 28, 63, 100, 44, 14, 188, 97, 95, 199, 62, 37, 59, 37, 63, 166, 79, 167, 188, 165, 184, 193, 62, 192, 190, 41, 63, 236, 85, 171, 188, 135, 115, 194, 62, 93, 3, 42, 63, 41, 37, 19, 188, 41, 17, 200, 62, 125, 124, 37, 63, 69, 110, 17, 188, 99, 95, 199, 62, 27, 68, 37, 63, 250, 195, 47, 59, 166, 184, 193, 62, 3, 200, 41, 63, 175, 71, 66, 59, 159, 125, 181, 62, 73, 159, 37, 63, 243, 150, 178, 60, 159, 125, 181, 62, 99, 147, 37, 63, 9, 119, 17, 188, 197, 242, 171, 62, 194, 87, 34, 63, 228, 218, 97, 60, 94, 114, 176, 62, 131, 228, 35, 63, 181, 194, 164, 60, 131, 62, 178, 62, 62, 12, 30, 63, 111, 134, 88, 60, 11, 129, 187, 62, 91, 47, 33, 63, 85, 205, 15, 188, 14, 129, 187, 62, 228, 58, 33, 63, 210, 181, 171, 60, 161, 159, 182, 62, 124, 142, 31, 63, 108, 143, 158, 60, 159, 125, 181, 62, 124, 135, 37, 63, 3, 7, 34, 189, 98, 114, 176, 62, 15, 206, 35, 63, 54, 201, 26, 189, 200, 242, 171, 62, 61, 70, 34, 63, 216, 147, 0, 189, 166, 184, 193, 62, 3, 200, 41, 63, 175, 71, 66, 59, 135, 115, 194, 62, 93, 3, 42, 63, 41, 37, 19, 188, 131, 8, 191, 62, 137, 224, 40, 63, 236, 97, 95, 60, 165, 184, 193, 62, 192, 190, 41, 63, 236, 85, 171, 188, 134, 8, 191, 62, 4, 207, 40, 63, 91, 50, 1, 189, 232, 136, 186, 62, 67, 66, 39, 63, 248, 28, 27, 189, 194, 135, 168, 62, 105, 35, 33, 63, 193, 200, 15, 188, 163, 66, 169, 62, 6, 104, 33, 63, 118, 246, 78, 59, 163, 66, 169, 62, 197, 94, 33, 63, 206, 191, 169, 188, 232, 136, 186, 62, 183, 88, 39, 63, 120, 27, 164, 60, 191, 162, 175, 62, 162, 26, 29, 63, 172, 197, 165, 188, 132, 62, 178, 62, 60, 251, 29, 63, 75, 221, 250, 188, 250, 240, 174, 62, 60, 226, 28, 63, 100, 44, 14, 188, 160, 195, 196, 62, 126, 82, 36, 63, 220, 16, 252, 188, 97, 95, 199, 62, 37, 59, 37, 63, 166, 79, 167, 188, 41, 17, 200, 62, 125, 124, 37, 63, 69, 110, 17, 188, 160, 195, 196, 62, 125, 99, 36, 63, 59, 32, 86, 60, 124, 98, 192, 62, 9, 230, 34, 63, 156, 237, 157, 60, 165, 159, 182, 62, 178, 120, 31, 63, 120, 221, 22, 189, 11, 129, 187, 62, 213, 35, 33, 63, 153, 193, 29, 189, 99, 95, 199, 62, 27, 68, 37, 63, 250, 195, 47, 59, 192, 162, 175, 62, 151, 35, 29, 63, 242, 17, 60, 59, 125, 98, 192, 62, 62, 208, 34, 63, 131, 46, 23, 189, 131, 8, 191, 62, 137, 224, 40, 63, 236, 97, 95, 60, 131, 8, 191, 62, 137, 224, 40, 63, 236, 97, 95, 60, 131, 8, 191, 62, 137, 224, 40, 63, 236, 97, 95, 60, 200, 242, 171, 62, 61, 70, 34, 63, 216, 147, 0, 189, 200, 242, 171, 62, 61, 70, 34, 63, 216, 147, 0, 189, 194, 135, 168, 62, 105, 35, 33, 63, 193, 200, 15, 188, 250, 240, 174, 62, 60, 226, 28, 63, 100, 44, 14, 188, 250, 240, 174, 62, 60, 226, 28, 63, 100, 44, 14, 188, 192, 162, 175, 62, 151, 35, 29, 63, 242, 17, 60, 59, 192, 162, 175, 62, 151, 35, 29, 63, 242, 17, 60, 59, 194, 135, 168, 62, 105, 35, 33, 63, 193, 200, 15, 188, 194, 135, 168, 62, 105, 35, 33, 63, 193, 200, 15, 188, 250, 240, 174, 62, 60, 226, 28, 63, 100, 44, 14, 188, 97, 95, 199, 62, 37, 59, 37, 63, 166, 79, 167, 188, 97, 95, 199, 62, 37, 59, 37, 63, 166, 79, 167, 188, 97, 95, 199, 62, 37, 59, 37, 63, 166, 79, 167, 188, 159, 125, 181, 62, 73, 159, 37, 63, 243, 150, 178, 60, 159, 125, 181, 62, 73, 159, 37, 63, 243, 150, 178, 60, 159, 125, 181, 62, 73, 159, 37, 63, 243, 150, 178, 60, 160, 195, 196, 62, 125, 99, 36, 63, 59, 32, 86, 60, 160, 195, 196, 62, 125, 99, 36, 63, 59, 32, 86, 60, 200, 242, 171, 62, 61, 70, 34, 63, 216, 147, 0, 189, 132, 62, 178, 62, 60, 251, 29, 63, 75, 221, 250, 188, 194, 135, 168, 62, 105, 35, 33, 63, 193, 200, 15, 188, 250, 240, 174, 62, 60, 226, 28, 63, 100, 44, 14, 188, 192, 162, 175, 62, 151, 35, 29, 63, 242, 17, 60, 59, 192, 162, 175, 62, 151, 35, 29, 63, 242, 17, 60, 59, 97, 95, 199, 62, 37, 59, 37, 63, 166, 79, 167, 188, 165, 184, 193, 62, 192, 190, 41, 63, 236, 85, 171, 188, 165, 184, 193, 62, 192, 190, 41, 63, 236, 85, 171, 188, 94, 114, 176, 62, 131, 228, 35, 63, 181, 194, 164, 60, 232, 136, 186, 62, 67, 66, 39, 63, 248, 28, 27, 189, 250, 240, 174, 62, 60, 226, 28, 63, 100, 44, 14, 188, 12, 131, 65, 124, 31, 182, 72, 153, 167, 155, 112, 142, 86, 180, 154, 152, 178, 155, 121, 142, 65, 181, 228, 152, 12, 131, 65, 124, 31, 182, 72, 153, 108, 174, 221, 155, 236, 178, 97, 152, 108, 174, 221, 155, 212, 179, 127, 152, 8, 86, 99, 95, 137, 183, 91, 154, 8, 86, 99, 95, 163, 183, 190, 154, 62, 105, 248, 107, 96, 183, 33, 154, 50, 105, 240, 107, 224, 182, 181, 153, 224, 250, 5, 3, 62, 178, 82, 155, 224, 250, 5, 3, 62, 178, 82, 155, 114, 242, 27, 228, 119, 177, 228, 154, 123, 242, 40, 228, 227, 176, 112, 154, 179, 228, 117, 209, 171, 176, 48, 154, 179, 228, 117, 209, 109, 176, 189, 153, 45, 33, 226, 41, 97, 180, 4, 156, 241, 20, 171, 22, 24, 179, 177, 155, 233, 20, 157, 22, 239, 179, 240, 155, 45, 33, 226, 41, 36, 181, 16, 156, 8, 70, 59, 84, 109, 183, 33, 155, 35, 55, 47, 73, 196, 182, 153, 155, 35, 55, 47, 73, 89, 183, 82, 155, 255, 69, 52, 84, 117, 183, 25, 155, 38, 44, 16, 58, 139, 181, 11, 156, 44, 44, 25, 58, 53, 182, 227, 155, 35, 55, 47, 73, 72, 182, 236, 155, 35, 55, 47, 73, 196, 182, 153, 155, 103, 217, 36, 193, 127, 176, 15, 153, 109, 217, 45, 193, 98, 176, 126, 153, 15, 207, 56, 177, 165, 176, 216, 152, 15, 207, 56, 177, 28, 177, 127, 152, 236, 190, 242, 166, 7, 178, 99, 152, 227, 190, 235, 166, 242, 177, 100, 152, 181, 75, 39, 204, 59, 52, 14, 166, 181, 75, 39, 204, 59, 52, 14, 166, 180, 75, 39, 204, 59, 52, 14, 166, 180, 75, 39, 204, 59, 52, 14, 166, 215, 179, 74, 52, 249, 209, 84, 222, 215, 179, 74, 52, 249, 209, 84, 222, 215, 179, 74, 52, 249, 209, 84, 222, 215, 179, 74, 52, 249, 209, 84, 222, 180, 75, 39, 204, 59, 52, 14, 166, 180, 75, 39, 204, 59, 52, 14, 166, 180, 75, 39, 204, 59, 52, 14, 166, 181, 75, 39, 204, 59, 52, 14, 166, 181, 75, 39, 204, 59, 52, 14, 166, 181, 75, 39, 204, 59, 52, 14, 166, 181, 75, 39, 204, 59, 52, 14, 166, 181, 75, 39, 204, 59, 52, 14, 166, 181, 75, 39, 204, 59, 52, 14, 166, 180, 75, 39, 204, 59, 52, 14, 166, 180, 75, 39, 204, 59, 52, 14, 166, 180, 75, 39, 204, 59, 52, 14, 166, 181, 75, 39, 204, 59, 52, 14, 166, 215, 179, 74, 52, 249, 209, 84, 222, 215, 179, 74, 52, 249, 209, 84, 222, 215, 179, 74, 52, 249, 209, 84, 222, 215, 179, 74, 52, 249, 209, 84, 222, 215, 179, 74, 52, 249, 209, 84, 222, 215, 179, 74, 52, 249, 209, 84, 222, 215, 179, 74, 52, 249, 209, 84, 222, 215, 179, 74, 52, 249, 209, 84, 222, 215, 179, 74, 52, 249, 209, 84, 222, 215, 179, 74, 52, 249, 209, 84, 222, 215, 179, 74, 52, 249, 209, 84, 222, 215, 179, 74, 52, 249, 209, 84, 222, 215, 179, 74, 52, 249, 209, 84, 222, 255, 117, 107, 115, 212, 179, 127, 152, 230, 75, 176, 204, 212, 179, 127, 152, 252, 182, 85, 84, 212, 179, 127, 152, 126, 76, 238, 13, 97, 180, 4, 156, 165, 76, 98, 206, 97, 180, 4, 156, 255, 90, 60, 98, 196, 182, 153, 155, 152, 90, 228, 97, 89, 183, 82, 155, 1, 62, 169, 185, 89, 183, 82, 155, 79, 67, 155, 191, 117, 183, 25, 155, 12, 180, 171, 57, 117, 183, 25, 155, 226, 168, 62, 31, 72, 182, 236, 155, 196, 32, 175, 40, 72, 182, 236, 155, 124, 28, 240, 33, 196, 182, 153, 155, 54, 179, 65, 52, 127, 176, 15, 153, 140, 16, 156, 14, 127, 176, 15, 153, 166, 86, 177, 223, 127, 176, 15, 153, 156, 150, 246, 124, 31, 182, 72, 153, 64, 86, 66, 95, 31, 182, 72, 153, 15, 52, 25, 165, 31, 182, 72, 153, 212, 161, 150, 82, 236, 178, 97, 152, 193, 202, 82, 174, 236, 178, 97, 152, 78, 250, 10, 3, 97, 180, 4, 156, 241, 11, 66, 7, 36, 181, 16, 156, 42, 75, 165, 87, 196, 182, 153, 155, 241, 61, 240, 94, 89, 183, 82, 155, 1, 149, 72, 75, 117, 183, 25, 155, 152, 54, 153, 104, 117, 183, 25, 155, 93, 242, 66, 227, 127, 176, 15, 153, 5, 203, 103, 174, 98, 176, 126, 153, 166, 232, 118, 214, 98, 176, 126, 153, 207, 91, 239, 98, 224, 182, 181, 153, 120, 240, 208, 224, 119, 177, 228, 154, 151, 70, 121, 84, 89, 183, 82, 155)
 }]
 blend_shape_mode = 0
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_lv4py"]
-resource_local_to_scene = true
-shader = ExtResource("4_td84t")
-shader_parameter/ShirtTint = Color(0.196078, 0.811765, 0.996078, 1)
-shader_parameter/SocksTint = Color(1, 1, 1, 1)
-shader_parameter/PantsTint = Color(0.462745, 0.462745, 0.462745, 1)
-shader_parameter/ShoesTint = Color(1, 0.47451, 0.454902, 1)
-shader_parameter/ShirtAlbedo = ExtResource("6_kwgdh")
-shader_parameter/SocksAlbedo = ExtResource("9_sb2qt")
-shader_parameter/PantsAlbedo = ExtResource("5_gtcbv")
-shader_parameter/ShoesAlbedo = ExtResource("7_6shoc")
-shader_parameter/ShoesColorMask = ExtResource("8_xlvqp")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vqwjy"]
 resource_name = "BodyMAT"
@@ -1162,7 +1164,7 @@ right_hand_mesh_instance = NodePath("Armature/GeneralSkeleton/RightHand")
 animation_tree = NodePath("AnimationTree")
 animation_player = NodePath("AnimationPlayer")
 right_hand_marker = NodePath("Armature/GeneralSkeleton/RightHandBoneAttachment3D/RightHandMarker")
-left_hand_marker = NodePath("Armature/GeneralSkeleton/LeftHandBoneAttachment3D2/LeftHandMarker")
+left_hand_marker = NodePath("Armature/GeneralSkeleton/LeftHandBoneAttachment3D/LeftHandMarker")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -1175,18 +1177,18 @@ libraries = {
 "": SubResource("AnimationLibrary_b3t27"),
 "character": ExtResource("2_od26b")
 }
-tree_root = ExtResource("3_5tnl4")
+tree_root = ExtResource("3_1oxqe")
 anim_player = NodePath("../AnimationPlayer")
-parameters/DropSpeed/scale = 2.0
+parameters/AttackOneShot/active = false
+parameters/AttackOneShot/internal_active = false
+parameters/AttackOneShot/request = 0
+parameters/BlockBlend/blend_amount = 0.0
 parameters/HitOneShot/active = false
 parameters/HitOneShot/internal_active = false
 parameters/HitOneShot/request = 0
-parameters/IdleSeek/seek_request = -1.0
 parameters/MoveBlend/blend_amount = 0.0
 parameters/RunSpeed/scale = 2.0
-parameters/Transition/current_state = "input"
-parameters/Transition/transition_request = ""
-parameters/Transition/current_index = 0
+parameters/TimeScale/scale = 1.0
 
 [node name="Armature" type="Node3D" parent="."]
 transform = Transform3D(0.01, 0, 0, 0, -1.19209e-09, -0.01, 0, 0.01, -1.19209e-09, 0, 0, 0)
@@ -1360,7 +1362,6 @@ mesh = SubResource("ArrayMesh_0p2f7")
 skin = SubResource("Skin_846u7")
 
 [node name="Collar" type="MeshInstance3D" parent="Armature/GeneralSkeleton"]
-material_override = SubResource("ShaderMaterial_lv4py")
 cast_shadow = 0
 mesh = SubResource("ArrayMesh_i2wkn")
 skin = SubResource("Skin_846u7")
@@ -1411,107 +1412,93 @@ skin = SubResource("Skin_846u7")
 [node name="Body" type="MeshInstance3D" parent="Armature/GeneralSkeleton"]
 transform = Transform3D(1, 0, 0, 0, 1, 1.42109e-14, 0, -1.42109e-14, 1, 0, 0, 0)
 material_override = ExtResource("3_ashim")
-material_overlay = SubResource("ShaderMaterial_lv4py")
 mesh = SubResource("ArrayMesh_mkkdk")
 skin = SubResource("Skin_846u7")
 
 [node name="Head" type="MeshInstance3D" parent="Armature/GeneralSkeleton"]
 transform = Transform3D(1, 0, 0, 0, 1, 1.42109e-14, 0, -1.42109e-14, 1, 0, 0, 0)
 material_override = ExtResource("3_ashim")
-material_overlay = SubResource("ShaderMaterial_lv4py")
 mesh = SubResource("ArrayMesh_eler1")
 skin = SubResource("Skin_846u7")
 
 [node name="LeftBottomLeg" type="MeshInstance3D" parent="Armature/GeneralSkeleton"]
 transform = Transform3D(1, 0, 0, 0, 1, 1.42109e-14, 0, -1.42109e-14, 1, 0, 0, 0)
 material_override = ExtResource("3_ashim")
-material_overlay = SubResource("ShaderMaterial_lv4py")
 mesh = SubResource("ArrayMesh_csooj")
 skin = SubResource("Skin_846u7")
 
 [node name="LeftFoot" type="MeshInstance3D" parent="Armature/GeneralSkeleton"]
 transform = Transform3D(1, 0, 0, 0, 1, 1.42109e-14, 0, -1.42109e-14, 1, 0, 0, 0)
 material_override = ExtResource("3_ashim")
-material_overlay = SubResource("ShaderMaterial_lv4py")
 mesh = SubResource("ArrayMesh_px42l")
 skin = SubResource("Skin_846u7")
 
 [node name="LeftHand" type="MeshInstance3D" parent="Armature/GeneralSkeleton"]
 transform = Transform3D(1, 0, 0, 0, 1, 1.42109e-14, 0, -1.42109e-14, 1, 0, 0, 0)
 material_override = ExtResource("3_ashim")
-material_overlay = SubResource("ShaderMaterial_lv4py")
 mesh = SubResource("ArrayMesh_0gubg")
 skin = SubResource("Skin_846u7")
 
 [node name="LeftLowerArm" type="MeshInstance3D" parent="Armature/GeneralSkeleton"]
 transform = Transform3D(1, 0, 0, 0, 1, 1.42109e-14, 0, -1.42109e-14, 1, 0, 0, 0)
 material_override = ExtResource("3_ashim")
-material_overlay = SubResource("ShaderMaterial_lv4py")
 mesh = SubResource("ArrayMesh_41yqd")
 skin = SubResource("Skin_846u7")
 
 [node name="LeftUpperArm" type="MeshInstance3D" parent="Armature/GeneralSkeleton"]
 transform = Transform3D(1, 0, 0, 0, 1, 1.42109e-14, 0, -1.42109e-14, 1, 0, 0, 0)
 material_override = ExtResource("3_ashim")
-material_overlay = SubResource("ShaderMaterial_lv4py")
 mesh = SubResource("ArrayMesh_wvbq0")
 skin = SubResource("Skin_846u7")
 
 [node name="LeftUpperLeg" type="MeshInstance3D" parent="Armature/GeneralSkeleton"]
 transform = Transform3D(1, 0, 0, 0, 1, 1.42109e-14, 0, -1.42109e-14, 1, 0, 0, 0)
 material_override = ExtResource("3_ashim")
-material_overlay = SubResource("ShaderMaterial_lv4py")
 mesh = SubResource("ArrayMesh_48752")
 skin = SubResource("Skin_846u7")
 
 [node name="RightBottomLeg" type="MeshInstance3D" parent="Armature/GeneralSkeleton"]
 transform = Transform3D(1, 0, 0, 0, 1, 1.42109e-14, 0, -1.42109e-14, 1, 0, 0, 0)
 material_override = ExtResource("3_ashim")
-material_overlay = SubResource("ShaderMaterial_lv4py")
 mesh = SubResource("ArrayMesh_17ous")
 skin = SubResource("Skin_846u7")
 
 [node name="RightFoot" type="MeshInstance3D" parent="Armature/GeneralSkeleton"]
 transform = Transform3D(1, 0, 0, 0, 1, 1.42109e-14, 0, -1.42109e-14, 1, 0, 0, 0)
 material_override = ExtResource("3_ashim")
-material_overlay = SubResource("ShaderMaterial_lv4py")
 mesh = SubResource("ArrayMesh_sdu32")
 skin = SubResource("Skin_846u7")
 
 [node name="RightHand" type="MeshInstance3D" parent="Armature/GeneralSkeleton"]
 transform = Transform3D(1, 0, 0, 0, 1, 1.42109e-14, 0, -1.42109e-14, 1, 0, 0, 0)
 material_override = ExtResource("3_ashim")
-material_overlay = SubResource("ShaderMaterial_lv4py")
 mesh = SubResource("ArrayMesh_8xngc")
 skin = SubResource("Skin_846u7")
 
 [node name="RightLowerArm" type="MeshInstance3D" parent="Armature/GeneralSkeleton"]
 transform = Transform3D(1, 0, 0, 0, 1, 1.42109e-14, 0, -1.42109e-14, 1, 0, 0, 0)
 material_override = ExtResource("3_ashim")
-material_overlay = SubResource("ShaderMaterial_lv4py")
 mesh = SubResource("ArrayMesh_82nfy")
 skin = SubResource("Skin_846u7")
 
 [node name="RightUpperArm" type="MeshInstance3D" parent="Armature/GeneralSkeleton"]
 transform = Transform3D(1, 0, 0, 0, 1, 1.42109e-14, 0, -1.42109e-14, 1, 0, 0, 0)
 material_override = ExtResource("3_ashim")
-material_overlay = SubResource("ShaderMaterial_lv4py")
 mesh = SubResource("ArrayMesh_lmypq")
 skin = SubResource("Skin_846u7")
 
 [node name="RightUpperLeg" type="MeshInstance3D" parent="Armature/GeneralSkeleton"]
 transform = Transform3D(1, 0, 0, 0, 1, 1.42109e-14, 0, -1.42109e-14, 1, 0, 0, 0)
 material_override = ExtResource("3_ashim")
-material_overlay = SubResource("ShaderMaterial_lv4py")
 mesh = SubResource("ArrayMesh_kd2o6")
 skin = SubResource("Skin_846u7")
 
-[node name="LeftHandBoneAttachment3D2" type="BoneAttachment3D" parent="Armature/GeneralSkeleton"]
-transform = Transform3D(0.205532, 0.971265, 0.120005, -0.0930062, 0.141453, -0.985566, -0.974221, 0.191404, 0.119407, 30.1755, 5.30907, -58.2159)
+[node name="LeftHandBoneAttachment3D" type="BoneAttachment3D" parent="Armature/GeneralSkeleton"]
+transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, 37.152, -0.969028, -62.0192)
 bone_name = "LeftHand"
 bone_idx = 9
 
-[node name="LeftHandMarker" type="Marker3D" parent="Armature/GeneralSkeleton/LeftHandBoneAttachment3D2"]
+[node name="LeftHandMarker" type="Marker3D" parent="Armature/GeneralSkeleton/LeftHandBoneAttachment3D"]
 transform = Transform3D(100, -4.09782e-06, -2.98023e-06, 4.09782e-06, 100, -1.49012e-06, 2.98023e-06, 1.49012e-06, 100, -4, 4, 0)
 
 [node name="RightHandBoneAttachment3D" type="BoneAttachment3D" parent="Armature/GeneralSkeleton"]

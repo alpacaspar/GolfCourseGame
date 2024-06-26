@@ -1,0 +1,66 @@
+[gd_resource type="AnimationNodeBlendTree" load_steps=12 format=3 uid="uid://b6g776vm2kvrn"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_bhjs0"]
+resource_local_to_scene = true
+animation = &"character/swing"
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_4puyu"]
+filters = ["%GeneralSkeleton:Chest", "%GeneralSkeleton:Head", "%GeneralSkeleton:Hips", "%GeneralSkeleton:LeftFoot", "%GeneralSkeleton:LeftHand", "%GeneralSkeleton:LeftLowerArm", "%GeneralSkeleton:LeftLowerLeg", "%GeneralSkeleton:LeftShoulder", "%GeneralSkeleton:LeftToes", "%GeneralSkeleton:LeftUpperArm", "%GeneralSkeleton:LeftUpperLeg", "%GeneralSkeleton:Neck", "%GeneralSkeleton:RightFoot", "%GeneralSkeleton:RightHand", "%GeneralSkeleton:RightLowerArm", "%GeneralSkeleton:RightLowerLeg", "%GeneralSkeleton:RightShoulder", "%GeneralSkeleton:RightToes", "%GeneralSkeleton:RightUpperArm", "%GeneralSkeleton:RightUpperLeg", "%GeneralSkeleton:Root", "%GeneralSkeleton:Spine", ".", "AnimationSoundEvents"]
+fadein_time = 0.5
+fadeout_time = 0.5
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_qpgxk"]
+animation = &"character/block"
+
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_qabqb"]
+filter_enabled = true
+filters = ["%GeneralSkeleton:Head", "%GeneralSkeleton:LeftHand", "%GeneralSkeleton:LeftLowerArm", "%GeneralSkeleton:LeftShoulder", "%GeneralSkeleton:LeftUpperArm", "%GeneralSkeleton:Neck", "%GeneralSkeleton:RightHand", "%GeneralSkeleton:RightLowerArm", "%GeneralSkeleton:RightShoulder", "%GeneralSkeleton:RightUpperArm", "%GeneralSkeleton:Root", ".", "AnimationSoundEvents"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_lanlo"]
+animation = &"character/hit"
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_k0vrh"]
+filter_enabled = true
+filters = ["%GeneralSkeleton:Chest", "%GeneralSkeleton:Head", "%GeneralSkeleton:Hips", "%GeneralSkeleton:LeftShoulder", "%GeneralSkeleton:LeftUpperArm", "%GeneralSkeleton:LeftUpperLeg", "%GeneralSkeleton:Neck", "%GeneralSkeleton:RightShoulder", "%GeneralSkeleton:RightUpperArm", "%GeneralSkeleton:RightUpperLeg", "%GeneralSkeleton:Root", "%GeneralSkeleton:Spine"]
+fadein_time = 0.2
+fadeout_time = 0.5
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_vfsqt"]
+animation = &"character/idle"
+
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_oi70o"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ouaox"]
+resource_local_to_scene = true
+animation = &"character/run"
+
+[sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_0wre6"]
+
+[sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_70msi"]
+
+[resource]
+resource_local_to_scene = true
+nodes/Attack/node = SubResource("AnimationNodeAnimation_bhjs0")
+nodes/Attack/position = Vector2(-260, 440)
+nodes/AttackOneShot/node = SubResource("AnimationNodeOneShot_4puyu")
+nodes/AttackOneShot/position = Vector2(220, 120)
+nodes/Block/node = SubResource("AnimationNodeAnimation_qpgxk")
+nodes/Block/position = Vector2(220, 420)
+nodes/BlockBlend/node = SubResource("AnimationNodeBlend2_qabqb")
+nodes/BlockBlend/position = Vector2(500, 120)
+nodes/Hit/node = SubResource("AnimationNodeAnimation_lanlo")
+nodes/Hit/position = Vector2(500, 420)
+nodes/HitOneShot/node = SubResource("AnimationNodeOneShot_k0vrh")
+nodes/HitOneShot/position = Vector2(760, 120)
+nodes/Idle/node = SubResource("AnimationNodeAnimation_vfsqt")
+nodes/Idle/position = Vector2(-540, 120)
+nodes/MoveBlend/node = SubResource("AnimationNodeBlend2_oi70o")
+nodes/MoveBlend/position = Vector2(-60, 120)
+nodes/Run/node = SubResource("AnimationNodeAnimation_ouaox")
+nodes/Run/position = Vector2(-720, 440)
+nodes/RunSpeed/node = SubResource("AnimationNodeTimeScale_0wre6")
+nodes/RunSpeed/position = Vector2(-540, 440)
+nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_70msi")
+nodes/TimeScale/position = Vector2(-60, 440)
+nodes/output/position = Vector2(960, 120)
+node_connections = [&"AttackOneShot", 0, &"MoveBlend", &"AttackOneShot", 1, &"TimeScale", &"BlockBlend", 0, &"AttackOneShot", &"BlockBlend", 1, &"Block", &"HitOneShot", 0, &"BlockBlend", &"HitOneShot", 1, &"Hit", &"MoveBlend", 0, &"Idle", &"MoveBlend", 1, &"RunSpeed", &"RunSpeed", 0, &"Run", &"TimeScale", 0, &"Attack", &"output", 0, &"HitOneShot"]

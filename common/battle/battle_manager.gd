@@ -10,13 +10,16 @@ const SPAWN_HEIGHT_OFFSET = -0.2
 
 @export var player_team: PlayerTeamResource
 
-@export_subgroup("Composition")
+@export_group("Composition")
 @export var team_scene: PackedScene
 
-@export_subgroup("Units")
+@export_group("Units")
 @export var unit_scene: PackedScene
 @export var unit_ai_controller: PackedScene
 @export var unit_player_controller: PackedScene
+
+@export_group("Battle Resources")
+@export var ball_scene: PackedScene
 
 var current_battle: Node3D
 var teams: Array[Team] = []
@@ -33,7 +36,7 @@ func _process(_delta: float):
 			# TODO: replace destructor with a proper cleanup function.
 			teams.erase(team)
 			team.queue_free()
-	
+
 	if teams.size() == 1:
 		end_battle(teams.front().leader.golfer_resource)
 
@@ -49,6 +52,8 @@ func start_battle(battle: PackedScene):
 	await _instantiate_team(current_battle.rival_team, current_battle.green, character_factory)
 
 	character_factory.queue_free()
+
+	_instantiate_battle_resources(current_battle)
 
 	on_battle_setup.emit(teams)
 
@@ -121,6 +126,13 @@ func _instantiate_team(team_resource: TeamResource, origin: Node3D, character_fa
 	team_instance.leader = unit_instance
 
 
+func _instantiate_battle_resources(battle: Node3D):
+	for spawnpoint: Node3D in battle.ball_spawnpoints:
+		var ball_instance := ball_scene.instantiate()
+		battle.add_child(ball_instance)
+		ball_instance.global_position = spawnpoint.global_position
+
+
 func _get_spawnpoints(amount: int, origin_node: Node3D, spacing: float) -> Array[Vector3]:
 	var position := origin_node.global_position
 	var direction := origin_node.global_transform.basis.z
@@ -128,10 +140,10 @@ func _get_spawnpoints(amount: int, origin_node: Node3D, spacing: float) -> Array
 	var result: Array[Vector3] = []
 
 	var cross_direction := direction.cross(Vector3.UP)
+	var start_position: Vector3 = position - cross_direction * (spacing * (amount - 1) / 2.0)
 
-	var half_amount := ceili(amount * 0.5)
-	for i: int in range(-half_amount, half_amount):
-		var offset: Vector3 = position + cross_direction * (i * spacing)
+	for i: int in range(amount):
+		var offset: Vector3 = start_position + cross_direction * (spacing * i)
 		offset.y = get_ground_level(origin_node, offset)
 		
 		result.append(offset)
