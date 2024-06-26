@@ -1,27 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://dixhhv1bgajy0"]
+[gd_scene load_steps=10 format=3 uid="uid://dixhhv1bgajy0"]
 
+[ext_resource type="Environment" uid="uid://tv3hyeebwrbl" path="res://entities/environment/golf_course_world_environment.tres" id="1_onwgf"]
 [ext_resource type="Material" uid="uid://gnoi7qwmsv7q" path="res://entities/environment/water_material.tres" id="2_lfi1o"]
 [ext_resource type="PackedScene" uid="uid://dbssg6p52li32" path="res://entities/terrain/terrain.tscn" id="2_ucwcg"]
 [ext_resource type="PackedScene" uid="uid://75rvfsq67s7b" path="res://entities/environment/palm_tree.tscn" id="6_7ctve"]
 [ext_resource type="PackedScene" uid="uid://c7c7cr6gjg8ua" path="res://entities/environment/oak_tree.tscn" id="7_t6kx5"]
-
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_en4cg"]
-sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
-ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
-
-[sub_resource type="Sky" id="Sky_b5a0i"]
-sky_material = SubResource("ProceduralSkyMaterial_en4cg")
-
-[sub_resource type="Environment" id="Environment_7gkud"]
-background_mode = 2
-sky = SubResource("Sky_b5a0i")
-tonemap_mode = 2
-glow_enabled = true
-fog_enabled = true
-fog_light_color = Color(0.447059, 0.564706, 0.662745, 1)
-fog_light_energy = 2.0
-fog_density = 0.0002
-fog_sky_affect = 0.0
 
 [sub_resource type="BoxMesh" id="BoxMesh_hwxfc"]
 size = Vector3(120, 20, 40)
@@ -42,7 +25,7 @@ radius = 22.0
 [node name="GolfCourse" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_7gkud")
+environment = ExtResource("1_onwgf")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
