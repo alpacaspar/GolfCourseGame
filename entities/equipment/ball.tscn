@@ -2,15 +2,12 @@
 
 [ext_resource type="Script" path="res://entities/equipment/ball.gd" id="1_g0o8n"]
 [ext_resource type="Script" path="res://entities/equipment/ball_hit_area.gd" id="2_fa55c"]
+[ext_resource type="PackedScene" uid="uid://b771mmcnthaam" path="res://entities/equipment/golfball_mesh.glb" id="2_ow3w0"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_jxd0j"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_34yrj"]
 radius = 0.1
-
-[sub_resource type="SphereMesh" id="SphereMesh_ykwa8"]
-radius = 0.1
-height = 0.2
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_b7nbg"]
 radius = 1.0
@@ -28,8 +25,7 @@ script = ExtResource("1_g0o8n")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_34yrj")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource("SphereMesh_ykwa8")
+[node name="golfball_mesh" parent="." instance=ExtResource("2_ow3w0")]
 
 [node name="Area3D" type="Area3D" parent="." groups=["ball"]]
 collision_layer = 2
