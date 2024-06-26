@@ -1188,6 +1188,9 @@ parameters/HitOneShot/internal_active = false
 parameters/HitOneShot/request = 0
 parameters/MoveBlend/blend_amount = 0.0
 parameters/RunSpeed/scale = 2.0
+parameters/StaminaTransition/current_state = "default"
+parameters/StaminaTransition/transition_request = ""
+parameters/StaminaTransition/current_index = 0
 parameters/TimeScale/scale = 1.0
 
 [node name="Armature" type="Node3D" parent="."]

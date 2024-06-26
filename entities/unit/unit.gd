@@ -3,6 +3,7 @@ extends CharacterBody3D
 
 
 const ATTACK_ONESHOT_ANIM_PARAMETER: StringName = "parameters/AttackOneShot/request"
+const KNOCKOUT_ONESHOT_ANIM_PARAMETER: StringName = "parameters/StaminaTransition/transition_request"
 const BLOCK_BLEND_ANIM_PARAMETER = "parameters/BlockBlend/blend_amount"
 const BLOCK_TIME_SEEK_ANIM_PARAMETER = "parameters/BlockTimeSeek/seek_request"
 const BLOCK_TWEEN_DURATION = 0.2
@@ -10,6 +11,7 @@ const HIT_ONE_SHOT_ANIM_PARAMETER: StringName = "parameters/HitOneShot/request"
 
 @onready var character_container: Node = $CharacterContainer
 @onready var velocity_buffer: Node = $VelocityBuffer
+@onready var collision_shape: CollisionShape3D = $CollisionShape3D
 
 var team: Team
 
@@ -129,4 +131,14 @@ func try_take_damage(attack_origin: Node3D, team_origin: Team, damage: int) -> b
 
 
 func _exhaust():
-	queue_free()
+	animation_tree.set(KNOCKOUT_ONESHOT_ANIM_PARAMETER, "knocked_out")
+	call_deferred("disable_unit")
+
+
+func disable_unit():
+	controller.process_mode = PROCESS_MODE_DISABLED
+	collision_shape.disabled = true
+
+	await get_tree().create_timer(3.0).timeout
+
+	process_mode = PROCESS_MODE_DISABLED
