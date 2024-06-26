@@ -25,7 +25,6 @@ func play_footstep():
 	
 	var intention_type: String = ""
 	var move_blend: float = character.animation_tree.get(MOVE_BLEND_PARAMETER)
-	print(move_blend)
 	if move_blend < 0.5:
 		intention_type = "walk"
 	elif move_blend > 0.5:
