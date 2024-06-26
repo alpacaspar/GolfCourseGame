@@ -19,6 +19,7 @@ extends Resource
 @export var attack_range := 3.0
 @export var attack_speed := 3.0
 
+@export_range(0, 1) var ball_use_probability := 0.2
 @export_range(0, 360) var max_drive_range := 10.0
 @export_range(0, 360) var max_drive_angle := 20.0
 
@@ -42,6 +43,7 @@ func get_behaviour_settings() -> Dictionary:
 		"attack_range": attack_range,
 		"attack_speed": attack_speed,
 		"attack_detection_range": attack_detection_range,
+		"ball_use_probability": ball_use_probability,
 		"max_drive_range": max_drive_range,
 		"max_drive_angle": max_drive_angle,
 		"max_ball_search_range": max_ball_search_range,

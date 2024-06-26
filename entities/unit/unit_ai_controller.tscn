@@ -68,68 +68,68 @@ script = ExtResource("13_8rkjp")
 [node name="Wait" type="Node" parent="BehaviourTree/Selector/ConditionBlockProbability/DecoratorSensorRadiusBlock/DecoratorFilterAnyAttacking/ConditionIsNotEmpty/Parallel/Sequence"]
 script = ExtResource("15_iasuv")
 
-[node name="ConditionUseBallProbability" type="Node" parent="BehaviourTree/Selector"]
+[node name="ConditionBallUseProbability" type="Node" parent="BehaviourTree/Selector"]
 script = ExtResource("12_0mpp3")
-override = true
+blackboard_key = &"ball_use_probability"
 
-[node name="DecoratorSensorRadiusBalls" type="Node" parent="BehaviourTree/Selector/ConditionUseBallProbability"]
+[node name="DecoratorSensorRadiusBalls" type="Node" parent="BehaviourTree/Selector/ConditionBallUseProbability"]
 script = ExtResource("4_urqn6")
 output_array = &"balls"
 radius_blackboard_key = &"max_ball_search_range"
 sensor_filter = 8
 sensor_collision_mask = 2
 
-[node name="DecoratorFilterClosest" type="Node" parent="BehaviourTree/Selector/ConditionUseBallProbability/DecoratorSensorRadiusBalls"]
+[node name="DecoratorFilterClosest" type="Node" parent="BehaviourTree/Selector/ConditionBallUseProbability/DecoratorSensorRadiusBalls"]
 script = ExtResource("19_ey1em")
 input_array = &"balls"
 
-[node name="ConditionIsNotEmpty" type="Node" parent="BehaviourTree/Selector/ConditionUseBallProbability/DecoratorSensorRadiusBalls/DecoratorFilterClosest"]
+[node name="ConditionIsNotEmpty" type="Node" parent="BehaviourTree/Selector/ConditionBallUseProbability/DecoratorSensorRadiusBalls/DecoratorFilterClosest"]
 script = ExtResource("5_rthak")
 blackboard_key = &"balls"
 invert = true
 
-[node name="DecoratorDistanceTo" type="Node" parent="BehaviourTree/Selector/ConditionUseBallProbability/DecoratorSensorRadiusBalls/DecoratorFilterClosest/ConditionIsNotEmpty"]
+[node name="DecoratorDistanceTo" type="Node" parent="BehaviourTree/Selector/ConditionBallUseProbability/DecoratorSensorRadiusBalls/DecoratorFilterClosest/ConditionIsNotEmpty"]
 script = ExtResource("14_nvi7d")
 blackboard_key = &"balls"
 output_key = &"ball_distance"
 square_distance = true
 
-[node name="DecoratorSensorRadiusOpponents" type="Node" parent="BehaviourTree/Selector/ConditionUseBallProbability/DecoratorSensorRadiusBalls/DecoratorFilterClosest/ConditionIsNotEmpty/DecoratorDistanceTo"]
+[node name="DecoratorSensorRadiusOpponents" type="Node" parent="BehaviourTree/Selector/ConditionBallUseProbability/DecoratorSensorRadiusBalls/DecoratorFilterClosest/ConditionIsNotEmpty/DecoratorDistanceTo"]
 script = ExtResource("4_urqn6")
 radius_blackboard_key = &"max_search_range"
 sensor_filter = 4
 sensor_collision_mask = 2
 
-[node name="DecoratorFilterClosest" type="Node" parent="BehaviourTree/Selector/ConditionUseBallProbability/DecoratorSensorRadiusBalls/DecoratorFilterClosest/ConditionIsNotEmpty/DecoratorDistanceTo/DecoratorSensorRadiusOpponents"]
+[node name="DecoratorFilterClosest" type="Node" parent="BehaviourTree/Selector/ConditionBallUseProbability/DecoratorSensorRadiusBalls/DecoratorFilterClosest/ConditionIsNotEmpty/DecoratorDistanceTo/DecoratorSensorRadiusOpponents"]
 script = ExtResource("19_ey1em")
 
-[node name="DecoratorDistanceTo" type="Node" parent="BehaviourTree/Selector/ConditionUseBallProbability/DecoratorSensorRadiusBalls/DecoratorFilterClosest/ConditionIsNotEmpty/DecoratorDistanceTo/DecoratorSensorRadiusOpponents/DecoratorFilterClosest"]
+[node name="DecoratorDistanceTo" type="Node" parent="BehaviourTree/Selector/ConditionBallUseProbability/DecoratorSensorRadiusBalls/DecoratorFilterClosest/ConditionIsNotEmpty/DecoratorDistanceTo/DecoratorSensorRadiusOpponents/DecoratorFilterClosest"]
 script = ExtResource("14_nvi7d")
 blackboard_key = &"entities"
 output_key = &"entity_distance"
 square_distance = true
 
-[node name="ConditionLessThan" type="Node" parent="BehaviourTree/Selector/ConditionUseBallProbability/DecoratorSensorRadiusBalls/DecoratorFilterClosest/ConditionIsNotEmpty/DecoratorDistanceTo/DecoratorSensorRadiusOpponents/DecoratorFilterClosest/DecoratorDistanceTo"]
+[node name="ConditionLessThan" type="Node" parent="BehaviourTree/Selector/ConditionBallUseProbability/DecoratorSensorRadiusBalls/DecoratorFilterClosest/ConditionIsNotEmpty/DecoratorDistanceTo/DecoratorSensorRadiusOpponents/DecoratorFilterClosest/DecoratorDistanceTo"]
 script = ExtResource("15_lujur")
 a = &"ball_distance"
 b = &"entity_distance"
 operation = 1
 
-[node name="Sequence" type="Node" parent="BehaviourTree/Selector/ConditionUseBallProbability/DecoratorSensorRadiusBalls/DecoratorFilterClosest/ConditionIsNotEmpty/DecoratorDistanceTo/DecoratorSensorRadiusOpponents/DecoratorFilterClosest/DecoratorDistanceTo/ConditionLessThan"]
+[node name="Sequence" type="Node" parent="BehaviourTree/Selector/ConditionBallUseProbability/DecoratorSensorRadiusBalls/DecoratorFilterClosest/ConditionIsNotEmpty/DecoratorDistanceTo/DecoratorSensorRadiusOpponents/DecoratorFilterClosest/DecoratorDistanceTo/ConditionLessThan"]
 script = ExtResource("7_emtuh")
 
-[node name="ActionMoveTo" type="Node" parent="BehaviourTree/Selector/ConditionUseBallProbability/DecoratorSensorRadiusBalls/DecoratorFilterClosest/ConditionIsNotEmpty/DecoratorDistanceTo/DecoratorSensorRadiusOpponents/DecoratorFilterClosest/DecoratorDistanceTo/ConditionLessThan/Sequence"]
+[node name="ActionMoveTo" type="Node" parent="BehaviourTree/Selector/ConditionBallUseProbability/DecoratorSensorRadiusBalls/DecoratorFilterClosest/ConditionIsNotEmpty/DecoratorDistanceTo/DecoratorSensorRadiusOpponents/DecoratorFilterClosest/DecoratorDistanceTo/ConditionLessThan/Sequence"]
 script = ExtResource("16_q51rm")
 input_array = &"balls"
 
-[node name="ActionPositionEnter" type="Node" parent="BehaviourTree/Selector/ConditionUseBallProbability/DecoratorSensorRadiusBalls/DecoratorFilterClosest/ConditionIsNotEmpty/DecoratorDistanceTo/DecoratorSensorRadiusOpponents/DecoratorFilterClosest/DecoratorDistanceTo/ConditionLessThan/Sequence"]
+[node name="ActionApproachAttack" type="Node" parent="BehaviourTree/Selector/ConditionBallUseProbability/DecoratorSensorRadiusBalls/DecoratorFilterClosest/ConditionIsNotEmpty/DecoratorDistanceTo/DecoratorSensorRadiusOpponents/DecoratorFilterClosest/DecoratorDistanceTo/ConditionLessThan/Sequence"]
 script = ExtResource("17_xw8o5")
 input_array = &"balls"
 
-[node name="ActionAimTowards" type="Node" parent="BehaviourTree/Selector/ConditionUseBallProbability/DecoratorSensorRadiusBalls/DecoratorFilterClosest/ConditionIsNotEmpty/DecoratorDistanceTo/DecoratorSensorRadiusOpponents/DecoratorFilterClosest/DecoratorDistanceTo/ConditionLessThan/Sequence"]
+[node name="ActionAimTowards" type="Node" parent="BehaviourTree/Selector/ConditionBallUseProbability/DecoratorSensorRadiusBalls/DecoratorFilterClosest/ConditionIsNotEmpty/DecoratorDistanceTo/DecoratorSensorRadiusOpponents/DecoratorFilterClosest/DecoratorDistanceTo/ConditionLessThan/Sequence"]
 script = ExtResource("9_37vsh")
 
-[node name="ActionAttack" type="Node" parent="BehaviourTree/Selector/ConditionUseBallProbability/DecoratorSensorRadiusBalls/DecoratorFilterClosest/ConditionIsNotEmpty/DecoratorDistanceTo/DecoratorSensorRadiusOpponents/DecoratorFilterClosest/DecoratorDistanceTo/ConditionLessThan/Sequence"]
+[node name="ActionAttack" type="Node" parent="BehaviourTree/Selector/ConditionBallUseProbability/DecoratorSensorRadiusBalls/DecoratorFilterClosest/ConditionIsNotEmpty/DecoratorDistanceTo/DecoratorSensorRadiusOpponents/DecoratorFilterClosest/DecoratorDistanceTo/ConditionLessThan/Sequence"]
 script = ExtResource("11_cyakl")
 
 [node name="ConditionAttackCooldown" type="Node" parent="BehaviourTree/Selector"]
