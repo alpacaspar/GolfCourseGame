@@ -14,8 +14,8 @@
 [ext_resource type="Script" path="res://entities/unit/behaviour/condition_random_chance.gd" id="12_0mpp3"]
 [ext_resource type="Script" path="res://entities/unit/behaviour/action_block.gd" id="13_8rkjp"]
 [ext_resource type="Script" path="res://entities/unit/behaviour/decorator_distance_to.gd" id="14_nvi7d"]
+[ext_resource type="Script" path="res://entities/unit/behaviour/condition_compare.gd" id="15_avq6n"]
 [ext_resource type="Script" path="res://common/behaviour_tree/bt_wait.gd" id="15_iasuv"]
-[ext_resource type="Script" path="res://entities/unit/behaviour/condition_less_than.gd" id="15_lujur"]
 [ext_resource type="Script" path="res://entities/unit/behaviour/action_move_to.gd" id="16_q51rm"]
 [ext_resource type="Script" path="res://entities/unit/behaviour/action_approach_attack.gd" id="17_xw8o5"]
 [ext_resource type="Script" path="res://entities/unit/behaviour/decorator_filter_closest.gd" id="19_ey1em"]
@@ -110,7 +110,7 @@ output_key = &"entity_distance"
 square_distance = true
 
 [node name="ConditionLessThan" type="Node" parent="BehaviourTree/Selector/ConditionBallUseProbability/DecoratorSensorRadiusBalls/DecoratorFilterClosest/ConditionIsNotEmpty/DecoratorDistanceTo/DecoratorSensorRadiusOpponents/DecoratorFilterClosest/DecoratorDistanceTo"]
-script = ExtResource("15_lujur")
+script = ExtResource("15_avq6n")
 a = &"ball_distance"
 b = &"entity_distance"
 operation = 1

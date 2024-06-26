@@ -37,8 +37,8 @@ func _process(_delta: float):
 			teams.erase(team)
 			team.queue_free()
 
-		if teams.size() == 1:
-			end_battle(teams.front().leader.golfer_resource)
+	if teams.size() == 1:
+		end_battle(teams.front().leader.golfer_resource)
 
 
 func start_battle(battle: PackedScene):
