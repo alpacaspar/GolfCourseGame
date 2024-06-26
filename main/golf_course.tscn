@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dixhhv1bgajy0"]
+[gd_scene load_steps=10 format=3 uid="uid://dixhhv1bgajy0"]
 
 [ext_resource type="Environment" uid="uid://tv3hyeebwrbl" path="res://entities/environment/golf_course_world_environment.tres" id="1_onwgf"]
 [ext_resource type="Material" uid="uid://gnoi7qwmsv7q" path="res://entities/environment/water_material.tres" id="2_lfi1o"]
