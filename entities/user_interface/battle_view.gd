@@ -19,7 +19,7 @@ func _close():
 	visible = false
 
 
-func _on_battle_started(teams: Array[Team]):
+func _on_battle_started(teams: Array[Team], _battle: Battle):
 	for child: Control in team_one_container.get_children():
 		child.queue_free()
 	
