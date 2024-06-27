@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://ca8onp5rc6dj7"]
+[gd_scene load_steps=9 format=3 uid="uid://ca8onp5rc6dj7"]
 
 [ext_resource type="Script" path="res://entities/user_interface/battle_view.gd" id="1_7kkeb"]
 [ext_resource type="PackedScene" uid="uid://dxyox1qnigoe6" path="res://common/battle/ui/unit_battle_icon.tscn" id="1_i3hhf"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://gv5jf3ljibf6" path="res://entities/battles/demo_battle.tscn" id="4_inskm"]
 [ext_resource type="Resource" uid="uid://dyp4fn1guw3dm" path="res://entities/user_interface/general_ui_view_group.res" id="4_tdfao"]
 [ext_resource type="PackedScene" uid="uid://b3ew3hvnc8j52" path="res://entities/user_interface/battle_over_view.tscn" id="7_3tp8u"]
+[ext_resource type="Theme" uid="uid://dr801tm3gbq04" path="res://common/character_creator/resources/new_character_creator_theme.tres" id="8_1rhmc"]
 
 [node name="UserInterface" type="Control"]
 layout_mode = 3
@@ -126,10 +127,12 @@ grow_vertical = 2
 
 [node name="AssembleTeamButton" type="Button" parent="DialoguePlaceholder/MarginContainer/HBoxContainer/ChoiceBackground/VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("8_1rhmc")
 text = "Manage team"
 
 [node name="StartBattleButton" type="Button" parent="DialoguePlaceholder/MarginContainer/HBoxContainer/ChoiceBackground/VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("8_1rhmc")
 text = "Start battle!"
 
 [node name="BattleOverView" parent="." instance=ExtResource("7_3tp8u")]
