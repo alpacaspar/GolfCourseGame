@@ -45,6 +45,8 @@ func start_battle(battle: PackedScene):
 	current_battle = battle.instantiate()
 	add_child(current_battle)
 
+	InputManager.toggle_mouse_lock(true)
+
 	var character_factory: Node = load("res://common/character_factory/character_factory.tscn").instantiate()
 	add_child(character_factory)
 
