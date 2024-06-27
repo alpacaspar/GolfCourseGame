@@ -32,6 +32,7 @@ func _on_body_entered(body: Node3D):
 		body.try_take_damage(self, last_user.team, last_user.golfer_resource.power)
 	
 		AudioManager.try_set_switch(self, body, "int_ball_collision_type")
+		Wwise.set_3d_position(self, global_transform)
 		Wwise.post_event("play_int_ball_hit", self)
 
 
@@ -69,6 +70,7 @@ func hit(originator: Unit):
 	apply_impulse(launch_force)
 	
 	Wwise.set_switch("int_ball_collision_type", "golfclub", self)
+	Wwise.set_3d_position(self, global_transform)
 	Wwise.post_event("play_int_ball_hit", self)
 
 

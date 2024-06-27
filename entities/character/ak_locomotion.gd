@@ -12,8 +12,10 @@ const MOVE_BLEND_PARAMETER: StringName = "parameters/MoveBlend/blend_amount"
 @onready var decay_timer: Timer = $DecayTimer
 
 
-func play_footstep():
+func _ready():
 	Wwise.register_game_obj(self, get_name())
+
+func play_footstep():
 	Wwise.set_3d_position(self, global_transform)
 	# TODO: Implement NPC vs PLR detection
 	var character_type: String = "plr" # temporary
@@ -42,7 +44,11 @@ func set_associated_switch(character_type: String, texture_name: String):
 		Wwise.set_switch(character_type + "_footstep_surface", "grass", self)
 	if texture_name == "Bunker":
 		Wwise.set_switch(character_type + "_footstep_surface", "sand", self)
-	
+
+
+func play_knockout():
+	Wwise.set_3d_position(self, global_transform)
+	Wwise.post_event("play_plr_knockout", self)
 
 
 func start_activity_timer():
@@ -55,7 +61,6 @@ func start_activity_timer():
 
 
 func play_swing():
-	Wwise.register_game_obj(self, get_name())
 	Wwise.set_3d_position(self, global_transform)
 	Wwise.post_event("play_plr_swing", self)
 
