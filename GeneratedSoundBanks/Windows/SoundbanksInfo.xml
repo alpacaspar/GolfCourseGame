@@ -9,7 +9,7 @@
 	</RootPaths>
 	<DialogueEvents/>
 	<SoundBanks>
-		<SoundBank Id="56103612" Type="User" Language="English(US)" Hash="{71C14D36-D654-ABF5-8C1B-375C983FD990}">
+		<SoundBank Id="56103612" Type="User" Language="English(US)" Hash="{58E61721-FEED-C11A-2102-621BCE4249B5}">
 			<ShortName>debug_soundbank</ShortName>
 			<Path>English(US)/debug_soundbank.bnk</Path>
 			<Media>
@@ -89,14 +89,6 @@
 					<ShortName>x_debug_025.wav</ShortName>
 					<CachePath>Voices/English(US)/x_debug_025_A5CDF058.wem</CachePath>
 				</File>
-				<File Id="924864582" Language="English(US)" Streaming="false" Location="Memory">
-					<ShortName>x_debug_080.wav</ShortName>
-					<CachePath>Voices/English(US)/x_debug_080_EDF8564D.wem</CachePath>
-				</File>
-				<File Id="934108238" Language="English(US)" Streaming="false" Location="Memory">
-					<ShortName>x_debug_005.wav</ShortName>
-					<CachePath>Voices/English(US)/x_debug_005_5F049832.wem</CachePath>
-				</File>
 				<File Id="935693697" Language="English(US)" Streaming="false" Location="Memory">
 					<ShortName>x_debug_085.wav</ShortName>
 					<CachePath>Voices/English(US)/x_debug_085_E1D6B929.wem</CachePath>
@@ -114,12 +106,6 @@
 							<SwitchValue GroupType="Switch" GroupId="1611159812" Id="1164776381"/>
 							<MediaRefs>
 								<MediaRef Id="473477782"/>
-							</MediaRefs>
-						</SwitchContainer>
-						<SwitchContainer>
-							<SwitchValue GroupType="Switch" GroupId="1611159812" Id="1282219704"/>
-							<MediaRefs>
-								<MediaRef Id="934108238"/>
 							</MediaRefs>
 						</SwitchContainer>
 						<SwitchContainer>
@@ -192,12 +178,6 @@
 							<SwitchValue GroupType="Switch" GroupId="1611159812" Id="1181406900"/>
 							<MediaRefs>
 								<MediaRef Id="118680041"/>
-							</MediaRefs>
-						</SwitchContainer>
-						<SwitchContainer>
-							<SwitchValue GroupType="Switch" GroupId="1611159812" Id="1147998661"/>
-							<MediaRefs>
-								<MediaRef Id="924864582"/>
 							</MediaRefs>
 						</SwitchContainer>
 						<SwitchContainer>
@@ -335,6 +315,17 @@
 				</StateGroup>
 			</StateGroups>
 			<SwitchGroups>
+				<SwitchGroup Id="174688308" Name="int_ball_collision_type">
+					<Switches>
+						<Switch Id="803837735" Name="sand"/>
+						<Switch Id="1304109583" Name="unit"/>
+						<Switch Id="2058049674" Name="wood"/>
+						<Switch Id="2185786256" Name="gravel"/>
+						<Switch Id="2553113501" Name="golfclub"/>
+						<Switch Id="2830102203" Name="pavement"/>
+						<Switch Id="4248645337" Name="grass"/>
+					</Switches>
+				</SwitchGroup>
 				<SwitchGroup Id="1611159812" Name="debug_distance">
 					<GameParameterRef Id="1611159812"/>
 					<Switches>
@@ -374,15 +365,6 @@
 					<Switches>
 						<Switch Id="712161704" Name="run"/>
 						<Switch Id="2108779966" Name="walk"/>
-					</Switches>
-				</SwitchGroup>
-				<SwitchGroup Id="1829899313" Name="int_collision_surface">
-					<Switches>
-						<Switch Id="803837735" Name="sand"/>
-						<Switch Id="2058049674" Name="wood"/>
-						<Switch Id="2185786256" Name="gravel"/>
-						<Switch Id="2830102203" Name="pavement"/>
-						<Switch Id="4248645337" Name="grass"/>
 					</Switches>
 				</SwitchGroup>
 				<SwitchGroup Id="2218818815" Name="plr_footstep_intention">
@@ -530,7 +512,7 @@
 				</AcousticTexture>
 			</AcousticTextures>
 		</SoundBank>
-		<SoundBank Id="1472650531" Type="User" Language="English(US)" Hash="{6A256D44-40D1-F3A2-0350-26688C027624}">
+		<SoundBank Id="1472650531" Type="User" Language="English(US)" Hash="{697D47FC-F2F5-6EE6-2692-88CB302F836E}">
 			<ShortName>in_game_soundbank</ShortName>
 			<Path>English(US)/in_game_soundbank.bnk</Path>
 			<Media>
@@ -561,6 +543,10 @@
 				<File Id="66399029" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>SFX\Player\sfx_uni_plr_walk_gravel_08.wav</ShortName>
 					<CachePath>SFX/SFX/Player/sfx_uni_plr_walk_gravel_08_818F3B66.wem</CachePath>
+				</File>
+				<File Id="72777894" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>SFX\UI\sfx_uni_ui_click_secondary.wav</ShortName>
+					<CachePath>SFX/SFX/UI/sfx_uni_ui_click_secondary_818F3B66.wem</CachePath>
 				</File>
 				<File Id="72898724" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>SFX\Player\sfx_uni_plr_run_sand_01.wav</ShortName>
@@ -770,6 +756,10 @@
 					<ShortName>SFX\Player\sfx_uni_plr_run_wood_06.wav</ShortName>
 					<CachePath>SFX/SFX/Player/sfx_uni_plr_run_wood_06_818F3B66.wem</CachePath>
 				</File>
+				<File Id="341559941" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>SFX\UI\sfx_uni_ui_click_increase.wav</ShortName>
+					<CachePath>SFX/SFX/UI/sfx_uni_ui_click_increase_818F3B66.wem</CachePath>
+				</File>
 				<File Id="342771424" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>SFX\NPC\sfx_uni_npc_run_sand_10.wav</ShortName>
 					<CachePath>SFX/SFX/NPC/sfx_uni_npc_run_sand_10_818F3B66.wem</CachePath>
@@ -934,6 +924,10 @@
 					<ShortName>SFX\NPC\sfx_uni_npc_walk_wood_02.wav</ShortName>
 					<CachePath>SFX/SFX/NPC/sfx_uni_npc_walk_wood_02_818F3B66.wem</CachePath>
 				</File>
+				<File Id="500516080" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>SFX\UI\sfx_uni_ui_click_randomize.wav</ShortName>
+					<CachePath>SFX/SFX/UI/sfx_uni_ui_click_randomize_818F3B66.wem</CachePath>
+				</File>
 				<File Id="512186784" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>SFX\Player\sfx_uni_plr_walk_gravel_03.wav</ShortName>
 					<CachePath>SFX/SFX/Player/sfx_uni_plr_walk_gravel_03_818F3B66.wem</CachePath>
@@ -945,10 +939,6 @@
 				<File Id="521286661" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>SFX\NPC\sfx_uni_npc_walk_grass_06.wav</ShortName>
 					<CachePath>SFX/SFX/NPC/sfx_uni_npc_walk_grass_06_818F3B66.wem</CachePath>
-				</File>
-				<File Id="525177948" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>SFX\Player\sfx_uni_plr_walk_grass_01.wav</ShortName>
-					<CachePath>SFX/SFX/Player/sfx_uni_plr_walk_grass_01_818F3B66.wem</CachePath>
 				</File>
 				<File Id="543358888" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>SFX\NPC\sfx_uni_npc_walk_grass_04.wav</ShortName>
@@ -989,6 +979,10 @@
 				<File Id="587133166" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>SFX\NPC\sfx_uni_npc_run_pavement_09.wav</ShortName>
 					<CachePath>SFX/SFX/NPC/sfx_uni_npc_run_pavement_09_818F3B66.wem</CachePath>
+				</File>
+				<File Id="609059247" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>SFX\UI\sfx_uni_ui_unclick_release.wav</ShortName>
+					<CachePath>SFX/SFX/UI/sfx_uni_ui_unclick_release_818F3B66.wem</CachePath>
 				</File>
 				<File Id="612773785" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>SFX\Player\sfx_uni_plr_walk_gravel_04.wav</ShortName>
@@ -1094,6 +1088,10 @@
 					<ShortName>SFX\Player\sfx_uni_plr_walk_pavement_02.wav</ShortName>
 					<CachePath>SFX/SFX/Player/sfx_uni_plr_walk_pavement_02_818F3B66.wem</CachePath>
 				</File>
+				<File Id="724835285" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>SFX\UI\sfx_uni_ui_click_reduce.wav</ShortName>
+					<CachePath>SFX/SFX/UI/sfx_uni_ui_click_reduce_818F3B66.wem</CachePath>
+				</File>
 				<File Id="726816241" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>SFX\Player\sfx_uni_plr_run_sand_05.wav</ShortName>
 					<CachePath>SFX/SFX/Player/sfx_uni_plr_run_sand_05_818F3B66.wem</CachePath>
@@ -1121,6 +1119,14 @@
 				<File Id="746712427" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>SFX\NPC\sfx_uni_npc_run_gravel_10.wav</ShortName>
 					<CachePath>SFX/SFX/NPC/sfx_uni_npc_run_gravel_10_818F3B66.wem</CachePath>
+				</File>
+				<File Id="751039905" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>SFX\UI\sfx_uni_ui_click_primary.wav</ShortName>
+					<CachePath>SFX/SFX/UI/sfx_uni_ui_click_primary_818F3B66.wem</CachePath>
+				</File>
+				<File Id="753981234" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>SFX\UI\sfx_uni_ui_click_reset.wav</ShortName>
+					<CachePath>SFX/SFX/UI/sfx_uni_ui_click_reset_818F3B66.wem</CachePath>
 				</File>
 				<File Id="754155897" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>SFX\Player\sfx_uni_plr_club_swing_iron_08.wav</ShortName>
@@ -1214,6 +1220,10 @@
 					<ShortName>SFX\NPC\sfx_uni_npc_walk_grass_02.wav</ShortName>
 					<CachePath>SFX/SFX/NPC/sfx_uni_npc_walk_grass_02_818F3B66.wem</CachePath>
 				</File>
+				<File Id="889914403" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>SFX\UI\sfx_uni_ui_click_hold.wav</ShortName>
+					<CachePath>SFX/SFX/UI/sfx_uni_ui_click_hold_818F3B66.wem</CachePath>
+				</File>
 				<File Id="894442681" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>SFX\NPC\sfx_uni_npc_walk_pavement_01.wav</ShortName>
 					<CachePath>SFX/SFX/NPC/sfx_uni_npc_walk_pavement_01_818F3B66.wem</CachePath>
@@ -1237,6 +1247,10 @@
 				<File Id="916012339" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>SFX\Player\sfx_uni_plr_walk_grass_02.wav</ShortName>
 					<CachePath>SFX/SFX/Player/sfx_uni_plr_walk_grass_02_818F3B66.wem</CachePath>
+				</File>
+				<File Id="924864582" Language="English(US)" Streaming="false" Location="Memory">
+					<ShortName>x_debug_080.wav</ShortName>
+					<CachePath>Voices/English(US)/x_debug_080_EDF8564D.wem</CachePath>
 				</File>
 				<File Id="934108238" Language="English(US)" Streaming="false" Location="Memory">
 					<ShortName>x_debug_005.wav</ShortName>
@@ -1372,7 +1386,20 @@
 					</MediaRefs>
 				</Event>
 				<Event Id="924169741" Name="play_int_ball_hit">
-					<SwitchContainers/>
+					<SwitchContainers>
+						<SwitchContainer>
+							<SwitchValue GroupType="Switch" GroupId="174688308" Id="2553113501"/>
+							<MediaRefs>
+								<MediaRef Id="934108238"/>
+							</MediaRefs>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="Switch" GroupId="174688308" Id="1304109583"/>
+							<MediaRefs>
+								<MediaRef Id="924864582"/>
+							</MediaRefs>
+						</SwitchContainer>
+					</SwitchContainers>
 				</Event>
 				<Event Id="1540042386" Name="play_mus_battle_finish">
 					<MediaRefs>
@@ -1700,7 +1727,6 @@
 									<MediaRefs>
 										<MediaRef Id="266015594"/>
 										<MediaRef Id="431604747"/>
-										<MediaRef Id="525177948"/>
 										<MediaRef Id="817053833"/>
 										<MediaRef Id="842820490"/>
 										<MediaRef Id="916012339"/>
@@ -1767,6 +1793,46 @@
 						</Custom>
 					</PluginRefs>
 				</Event>
+				<Event Id="3132575655" Name="play_ui_click_hold">
+					<MediaRefs>
+						<MediaRef Id="889914403"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="538507952" Name="play_ui_click_increase">
+					<MediaRefs>
+						<MediaRef Id="341559941"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="1386151314" Name="play_ui_click_primary">
+					<MediaRefs>
+						<MediaRef Id="751039905"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="3204576333" Name="play_ui_click_randomize">
+					<MediaRefs>
+						<MediaRef Id="500516080"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="3028660562" Name="play_ui_click_reduce">
+					<MediaRefs>
+						<MediaRef Id="724835285"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="274290669" Name="play_ui_click_reset">
+					<MediaRefs>
+						<MediaRef Id="753981234"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="320147726" Name="play_ui_click_secondary">
+					<MediaRefs>
+						<MediaRef Id="72777894"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="2102308692" Name="play_ui_unclick_release">
+					<MediaRefs>
+						<MediaRef Id="609059247"/>
+					</MediaRefs>
+				</Event>
 				<Event Id="563870990" Name="play_wind_gust">
 					<MediaRefs>
 						<MediaRef Id="556231829"/>
@@ -1792,7 +1858,6 @@
 			<GameParameters>
 				<GameParameter Id="511984960" Name="footstep_volume"/>
 				<GameParameter Id="855296609" Name="wind_intensity"/>
-				<GameParameter Id="1611159812" Name="debug_distance"/>
 				<GameParameter Id="3095779176" Name="tree_amount"/>
 			</GameParameters>
 			<StateGroups>
@@ -1806,30 +1871,15 @@
 				</StateGroup>
 			</StateGroups>
 			<SwitchGroups>
-				<SwitchGroup Id="1611159812" Name="debug_distance">
-					<GameParameterRef Id="1611159812"/>
+				<SwitchGroup Id="174688308" Name="int_ball_collision_type">
 					<Switches>
-						<Switch Id="1131221074" Name="distance_090"/>
-						<Switch Id="1131221079" Name="distance_095"/>
-						<Switch Id="1147998656" Name="distance_085"/>
-						<Switch Id="1147998661" Name="distance_080"/>
-						<Switch Id="1164776376" Name="distance_070"/>
-						<Switch Id="1164776381" Name="distance_075"/>
-						<Switch Id="1181406900" Name="distance_100"/>
-						<Switch Id="1181553963" Name="distance_060"/>
-						<Switch Id="1181553966" Name="distance_065"/>
-						<Switch Id="1198331547" Name="distance_055"/>
-						<Switch Id="1198331550" Name="distance_050"/>
-						<Switch Id="1215109233" Name="distance_040"/>
-						<Switch Id="1215109236" Name="distance_045"/>
-						<Switch Id="1231886817" Name="distance_035"/>
-						<Switch Id="1231886820" Name="distance_030"/>
-						<Switch Id="1248664402" Name="distance_025"/>
-						<Switch Id="1248664407" Name="distance_020"/>
-						<Switch Id="1265441994" Name="distance_010"/>
-						<Switch Id="1265441999" Name="distance_015"/>
-						<Switch Id="1282219704" Name="distance_005"/>
-						<Switch Id="1282219709" Name="distance_000"/>
+						<Switch Id="803837735" Name="sand"/>
+						<Switch Id="1304109583" Name="unit"/>
+						<Switch Id="2058049674" Name="wood"/>
+						<Switch Id="2185786256" Name="gravel"/>
+						<Switch Id="2553113501" Name="golfclub"/>
+						<Switch Id="2830102203" Name="pavement"/>
+						<Switch Id="4248645337" Name="grass"/>
 					</Switches>
 				</SwitchGroup>
 				<SwitchGroup Id="1625036798" Name="plr_footstep_surface">
@@ -1845,15 +1895,6 @@
 					<Switches>
 						<Switch Id="712161704" Name="run"/>
 						<Switch Id="2108779966" Name="walk"/>
-					</Switches>
-				</SwitchGroup>
-				<SwitchGroup Id="1829899313" Name="int_collision_surface">
-					<Switches>
-						<Switch Id="803837735" Name="sand"/>
-						<Switch Id="2058049674" Name="wood"/>
-						<Switch Id="2185786256" Name="gravel"/>
-						<Switch Id="2830102203" Name="pavement"/>
-						<Switch Id="4248645337" Name="grass"/>
 					</Switches>
 				</SwitchGroup>
 				<SwitchGroup Id="2218818815" Name="plr_footstep_intention">
@@ -1874,5 +1915,5 @@
 			</SwitchGroups>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{B59EE598-D059-1ED9-1554-BE76C51562F4}</FileHash>
+	<FileHash>{5142132D-9C7A-FD75-3A00-FECD63F7CD99}</FileHash>
 </SoundBanksInfo>

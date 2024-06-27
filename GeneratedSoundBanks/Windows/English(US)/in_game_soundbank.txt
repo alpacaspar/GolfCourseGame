@@ -1,15 +1,23 @@
 Event	ID	Name			Wwise Object Path	Notes
 	40897922	play_ambience_bed			\Ambience\Ambience\play_ambience_bed	
 	78360149	Stinger			\Music\Stinger	
+	274290669	play_ui_click_reset			\UI\UI\play_ui_click_reset	
+	320147726	play_ui_click_secondary			\UI\UI\play_ui_click_secondary	
 	460794023	play_treeLeaves_rustling			\Ambience\Ambience\play_treeLeaves_rustling	
 	469868902	play_mus_creator			\Music\play_mus_creator	
+	538507952	play_ui_click_increase			\UI\UI\play_ui_click_increase	
 	563870990	play_wind_gust			\Ambience\Ambience\play_wind_gust	
 	924169741	play_int_ball_hit			\Interactible\Interactible\play_int_ball_hit	
+	1386151314	play_ui_click_primary			\UI\UI\play_ui_click_primary	
 	1540042386	play_mus_battle_finish			\Music\play_mus_battle_finish	
 	2037286166	stop_mus_battle			\Music\stop_mus_battle	
+	2102308692	play_ui_unclick_release			\UI\UI\play_ui_unclick_release	
 	2351148374	play_plr_damage_hit			\Player\Player\play_plr_damage_hit	
 	2372980991	play_npc_damage_hit			\NPC\NPC\play_npc_damage_hit	The length of the delay of the "Reset Playlist" action should be as long as the impact of the sfx lasts
+	3028660562	play_ui_click_reduce			\UI\UI\play_ui_click_reduce	
+	3132575655	play_ui_click_hold			\UI\UI\play_ui_click_hold	
 	3189784343	play_mus_battle_intro			\Music\play_mus_battle_intro	
+	3204576333	play_ui_click_randomize			\UI\UI\play_ui_click_randomize	
 	3408384243	play_plr_swing			\Player\Player\play_plr_swing	
 	3436960487	play_mus_manager			\Music\play_mus_manager	
 	3735612561	play_plr_footstep			\Player\Player\play_plr_footstep	
@@ -19,35 +27,20 @@ Event	ID	Name			Wwise Object Path	Notes
 	4117275841	stop_treeLeaves_rustling			\Ambience\Ambience\stop_treeLeaves_rustling	
 
 Switch Group	ID	Name			Wwise Object Path	Notes
-	1611159812	debug_distance			\Debug\debug_distance	
+	174688308	int_ball_collision_type			\Interactible\int_ball_collision_type	
 	1625036798	plr_footstep_surface			\Player\plr_footstep_surface	
 	1720825930	npc_footstep_intention			\NPC\npc_footstep_intention	
-	1829899313	int_collision_surface			\Interactible\int_collision_surface	
 	2218818815	plr_footstep_intention			\Player\plr_footstep_intention	
 	3379231435	npc_footstep_surface			\NPC\npc_footstep_surface	
 
 Switch	ID	Name	Switch Group			Notes
-	1131221074	distance_090	debug_distance			
-	1131221079	distance_095	debug_distance			
-	1147998656	distance_085	debug_distance			
-	1147998661	distance_080	debug_distance			
-	1164776376	distance_070	debug_distance			
-	1164776381	distance_075	debug_distance			
-	1181406900	distance_100	debug_distance			
-	1181553963	distance_060	debug_distance			
-	1181553966	distance_065	debug_distance			
-	1198331547	distance_055	debug_distance			
-	1198331550	distance_050	debug_distance			
-	1215109233	distance_040	debug_distance			
-	1215109236	distance_045	debug_distance			
-	1231886817	distance_035	debug_distance			
-	1231886820	distance_030	debug_distance			
-	1248664402	distance_025	debug_distance			
-	1248664407	distance_020	debug_distance			
-	1265441994	distance_010	debug_distance			
-	1265441999	distance_015	debug_distance			
-	1282219704	distance_005	debug_distance			
-	1282219709	distance_000	debug_distance			
+	803837735	sand	int_ball_collision_type			
+	1304109583	unit	int_ball_collision_type			
+	2058049674	wood	int_ball_collision_type			
+	2185786256	gravel	int_ball_collision_type			
+	2553113501	golfclub	int_ball_collision_type			
+	2830102203	pavement	int_ball_collision_type			
+	4248645337	grass	int_ball_collision_type			
 	803837735	sand	plr_footstep_surface			
 	2058049674	wood	plr_footstep_surface			
 	2185786256	gravel	plr_footstep_surface			
@@ -55,11 +48,6 @@ Switch	ID	Name	Switch Group			Notes
 	4248645337	grass	plr_footstep_surface			
 	712161704	run	npc_footstep_intention			
 	2108779966	walk	npc_footstep_intention			
-	803837735	sand	int_collision_surface			
-	2058049674	wood	int_collision_surface			
-	2185786256	gravel	int_collision_surface			
-	2830102203	pavement	int_collision_surface			
-	4248645337	grass	int_collision_surface			
 	712161704	run	plr_footstep_intention			
 	2108779966	walk	plr_footstep_intention			
 	803837735	sand	npc_footstep_surface			
@@ -80,7 +68,6 @@ State	ID	Name	State Group			Notes
 Game Parameter	ID	Name			Wwise Object Path	Notes
 	511984960	footstep_volume			\SFX\Universal\footstep_volume	
 	855296609	wind_intensity			\SFX\Ambience\wind_intensity	
-	1611159812	debug_distance			\Debug\debug_distance	
 	3095779176	tree_amount			\SFX\Ambience\tree_amount	
 
 Effect plug-ins	ID	Name	Type				Notes
@@ -95,6 +82,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	31387213	sfx_uni_npc_walk_pavement_04	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\SFX\NPC\sfx_uni_npc_walk_pavement_04_818F3B66.wem		\Actor-Mixer Hierarchy\NPC\NPC\npc_footstep\npc_footstep_pavement\npc_footstep_walk\sfx_uni_npc_walk_pavement_04		129878
 	64465476	sfx_uni_npc_run_gravel_01	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\SFX\NPC\sfx_uni_npc_run_gravel_01_818F3B66.wem		\Actor-Mixer Hierarchy\NPC\NPC\npc_footstep\npc_footstep_gravel\npc_footstep_run\sfx_uni_npc_run_gravel_01		120130
 	66399029	sfx_uni_plr_walk_gravel_08	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\SFX\Player\sfx_uni_plr_walk_gravel_08_818F3B66.wem		\Actor-Mixer Hierarchy\Player\Player\plr_footstep\plr_footstep_gravel\plr_footstep_walk\sfx_uni_plr_walk_gravel_08		129550
+	72777894	sfx_uni_ui_click_secondary	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\SFX\UI\sfx_uni_ui_click_secondary_818F3B66.wem		\Actor-Mixer Hierarchy\UI\UI\sfx_uni_ui_click_secondary		24096
 	72898724	sfx_uni_plr_run_sand_01	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\SFX\Player\sfx_uni_plr_run_sand_01_818F3B66.wem		\Actor-Mixer Hierarchy\Player\Player\plr_footstep\plr_footstep_sand\plr_footstep_run\sfx_uni_plr_run_sand_01		129532
 	74631228	sfx_uni_plr_club_swing_iron_03	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\SFX\Player\sfx_uni_plr_club_swing_iron_03_818F3B66.wem		\Actor-Mixer Hierarchy\Player\Player\plr_swing_golfclub\sfx_uni_plr_club_swing_iron_03		42630
 	76404443	sfx_uni_plr_walk_gravel_06	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\SFX\Player\sfx_uni_plr_walk_gravel_06_818F3B66.wem		\Actor-Mixer Hierarchy\Player\Player\plr_footstep\plr_footstep_gravel\plr_footstep_walk\sfx_uni_plr_walk_gravel_06		129674
@@ -147,6 +135,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	311389333	sfx_uni_npc_run_pavement_10	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\SFX\NPC\sfx_uni_npc_run_pavement_10_818F3B66.wem		\Actor-Mixer Hierarchy\NPC\NPC\npc_footstep\npc_footstep_pavement\npc_footstep_run\sfx_uni_npc_run_pavement_10		120010
 	311698124	sfx_uni_npc_walk_sand_05	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\SFX\NPC\sfx_uni_npc_walk_sand_05_818F3B66.wem		\Actor-Mixer Hierarchy\NPC\NPC\npc_footstep\npc_footstep_sand\npc_footstep_walk\sfx_uni_npc_walk_sand_05		146620
 	330517794	sfx_uni_plr_run_wood_06	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\SFX\Player\sfx_uni_plr_run_wood_06_818F3B66.wem		\Actor-Mixer Hierarchy\Player\Player\plr_footstep\plr_footstep_wood\plr_footstep_run\sfx_uni_plr_run_wood_06		120048
+	341559941	sfx_uni_ui_click_increase	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\SFX\UI\sfx_uni_ui_click_increase_818F3B66.wem		\Actor-Mixer Hierarchy\UI\UI\sfx_uni_ui_click_increase		70936
 	342771424	sfx_uni_npc_run_sand_10	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\SFX\NPC\sfx_uni_npc_run_sand_10_818F3B66.wem		\Actor-Mixer Hierarchy\NPC\NPC\npc_footstep\npc_footstep_sand\npc_footstep_run\sfx_uni_npc_run_sand_10		129484
 	344519046	sfx_uni_plr_run_pavement_10	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\SFX\Player\sfx_uni_plr_run_pavement_10_818F3B66.wem		\Actor-Mixer Hierarchy\Player\Player\plr_footstep\plr_footstep_pavement\plr_footstep_run\sfx_uni_plr_run_pavement_10		120066
 	347975693	sfx_uni_plr_run_pavement_05	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\SFX\Player\sfx_uni_plr_run_pavement_05_818F3B66.wem		\Actor-Mixer Hierarchy\Player\Player\plr_footstep\plr_footstep_pavement\plr_footstep_run\sfx_uni_plr_run_pavement_05		119986
@@ -188,10 +177,10 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	492109416	sfx_uni_plr_run_grass_07	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\SFX\Player\sfx_uni_plr_run_grass_07_818F3B66.wem		\Actor-Mixer Hierarchy\Player\Player\plr_footstep\plr_footstep_grass\plr_footstep_run\sfx_uni_plr_run_grass_07		129776
 	493191462	sfx_uni_npc_walk_gravel_07	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\SFX\NPC\sfx_uni_npc_walk_gravel_07_818F3B66.wem		\Actor-Mixer Hierarchy\NPC\NPC\npc_footstep\npc_footstep_gravel\npc_footstep_walk\sfx_uni_npc_walk_gravel_07		129818
 	497295161	sfx_uni_npc_walk_wood_02	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\SFX\NPC\sfx_uni_npc_walk_wood_02_818F3B66.wem		\Actor-Mixer Hierarchy\NPC\NPC\npc_footstep\npc_footstep_wood\npc_footstep_walk\sfx_uni_npc_walk_wood_02		129702
+	500516080	sfx_uni_ui_click_randomize	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\SFX\UI\sfx_uni_ui_click_randomize_818F3B66.wem		\Actor-Mixer Hierarchy\UI\UI\sfx_uni_ui_click_randomize		123344
 	512186784	sfx_uni_plr_walk_gravel_03	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\SFX\Player\sfx_uni_plr_walk_gravel_03_818F3B66.wem		\Actor-Mixer Hierarchy\Player\Player\plr_footstep\plr_footstep_gravel\plr_footstep_walk\sfx_uni_plr_walk_gravel_03		129740
 	515009155	sfx_uni_plr_walk_gravel_05	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\SFX\Player\sfx_uni_plr_walk_gravel_05_818F3B66.wem		\Actor-Mixer Hierarchy\Player\Player\plr_footstep\plr_footstep_gravel\plr_footstep_walk\sfx_uni_plr_walk_gravel_05		129930
 	521286661	sfx_uni_npc_walk_grass_06	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\SFX\NPC\sfx_uni_npc_walk_grass_06_818F3B66.wem		\Actor-Mixer Hierarchy\NPC\NPC\npc_footstep\npc_footstep_grass\npc_footstep_walk\sfx_uni_npc_walk_grass_06		129902
-	525177948	sfx_uni_plr_walk_grass_01	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\SFX\Player\sfx_uni_plr_walk_grass_01_818F3B66.wem		\Actor-Mixer Hierarchy\Player\Player\plr_footstep\plr_footstep_grass\plr_footstep_walk\sfx_uni_plr_walk_grass_01		129756
 	543358888	sfx_uni_npc_walk_grass_04	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\SFX\NPC\sfx_uni_npc_walk_grass_04_818F3B66.wem		\Actor-Mixer Hierarchy\NPC\NPC\npc_footstep\npc_footstep_grass\npc_footstep_walk\sfx_uni_npc_walk_grass_04		129454
 	543504941	sfx_uni_npc_walk_sand_02	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\SFX\NPC\sfx_uni_npc_walk_sand_02_818F3B66.wem		\Actor-Mixer Hierarchy\NPC\NPC\npc_footstep\npc_footstep_sand\npc_footstep_walk\sfx_uni_npc_walk_sand_02		146512
 	552043775	sfx_uni_plr_run_pavement_03	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\SFX\Player\sfx_uni_plr_run_pavement_03_818F3B66.wem		\Actor-Mixer Hierarchy\Player\Player\plr_footstep\plr_footstep_pavement\plr_footstep_run\sfx_uni_plr_run_pavement_03		120002
@@ -202,6 +191,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	571786434	sfx_uni_plr_run_pavement_06	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\SFX\Player\sfx_uni_plr_run_pavement_06_818F3B66.wem		\Actor-Mixer Hierarchy\Player\Player\plr_footstep\plr_footstep_pavement\plr_footstep_run\sfx_uni_plr_run_pavement_06		120132
 	574730763	sfx_uni_plr_run_gravel_01	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\SFX\Player\sfx_uni_plr_run_gravel_01_818F3B66.wem		\Actor-Mixer Hierarchy\Player\Player\plr_footstep\plr_footstep_gravel\plr_footstep_run\sfx_uni_plr_run_gravel_01		129612
 	587133166	sfx_uni_npc_run_pavement_09	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\SFX\NPC\sfx_uni_npc_run_pavement_09_818F3B66.wem		\Actor-Mixer Hierarchy\NPC\NPC\npc_footstep\npc_footstep_pavement\npc_footstep_run\sfx_uni_npc_run_pavement_09		120016
+	609059247	sfx_uni_ui_unclick_release	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\SFX\UI\sfx_uni_ui_unclick_release_818F3B66.wem		\Actor-Mixer Hierarchy\UI\UI\sfx_uni_ui_unclick_release		24096
 	612773785	sfx_uni_plr_walk_gravel_04	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\SFX\Player\sfx_uni_plr_walk_gravel_04_818F3B66.wem		\Actor-Mixer Hierarchy\Player\Player\plr_footstep\plr_footstep_gravel\plr_footstep_walk\sfx_uni_plr_walk_gravel_04		129700
 	629121136	sfx_uni_npc_run_grass_03	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\SFX\NPC\sfx_uni_npc_run_grass_03_818F3B66.wem		\Actor-Mixer Hierarchy\NPC\NPC\npc_footstep\npc_footstep_grass\npc_footstep_run\sfx_uni_npc_run_grass_03		119734
 	632926042	sfx_uni_npc_run_gravel_05	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\SFX\NPC\sfx_uni_npc_run_gravel_05_818F3B66.wem		\Actor-Mixer Hierarchy\NPC\NPC\npc_footstep\npc_footstep_gravel\npc_footstep_run\sfx_uni_npc_run_gravel_05		120288
@@ -228,6 +218,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	715724157	sfx_uni_plr_run_pavement_04	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\SFX\Player\sfx_uni_plr_run_pavement_04_818F3B66.wem		\Actor-Mixer Hierarchy\Player\Player\plr_footstep\plr_footstep_pavement\plr_footstep_run\sfx_uni_plr_run_pavement_04		120158
 	716630106	sfx_uni_npc_run_wood_08	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\SFX\NPC\sfx_uni_npc_run_wood_08_818F3B66.wem		\Actor-Mixer Hierarchy\NPC\NPC\npc_footstep\npc_footstep_wood\npc_footstep_run\sfx_uni_npc_run_wood_08		120172
 	719455960	sfx_uni_plr_walk_pavement_02	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\SFX\Player\sfx_uni_plr_walk_pavement_02_818F3B66.wem		\Actor-Mixer Hierarchy\Player\Player\plr_footstep\plr_footstep_pavement\plr_footstep_walk\sfx_uni_plr_walk_pavement_02		129664
+	724835285	sfx_uni_ui_click_reduce	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\SFX\UI\sfx_uni_ui_click_reduce_818F3B66.wem		\Actor-Mixer Hierarchy\UI\UI\sfx_uni_ui_click_reduce		71064
 	726816241	sfx_uni_plr_run_sand_05	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\SFX\Player\sfx_uni_plr_run_sand_05_818F3B66.wem		\Actor-Mixer Hierarchy\Player\Player\plr_footstep\plr_footstep_sand\plr_footstep_run\sfx_uni_plr_run_sand_05		130726
 	733182061	sfx_uni_plr_walk_gravel_07	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\SFX\Player\sfx_uni_plr_walk_gravel_07_818F3B66.wem		\Actor-Mixer Hierarchy\Player\Player\plr_footstep\plr_footstep_gravel\plr_footstep_walk\sfx_uni_plr_walk_gravel_07		129644
 	737537280	sfx_uni_npc_walk_grass_03	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\SFX\NPC\sfx_uni_npc_walk_grass_03_818F3B66.wem		\Actor-Mixer Hierarchy\NPC\NPC\npc_footstep\npc_footstep_grass\npc_footstep_walk\sfx_uni_npc_walk_grass_03		132530
@@ -235,6 +226,8 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	741115090	sfx_uni_plr_walk_sand_07	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\SFX\Player\sfx_uni_plr_walk_sand_07_818F3B66.wem		\Actor-Mixer Hierarchy\Player\Player\plr_footstep\plr_footstep_sand\plr_footstep_walk\sfx_uni_plr_walk_sand_07		146618
 	745360937	sfx_uni_plr_walk_wood_07	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\SFX\Player\sfx_uni_plr_walk_wood_07_818F3B66.wem		\Actor-Mixer Hierarchy\Player\Player\plr_footstep\plr_footstep_wood\plr_footstep_walk\sfx_uni_plr_walk_wood_07		129558
 	746712427	sfx_uni_npc_run_gravel_10	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\SFX\NPC\sfx_uni_npc_run_gravel_10_818F3B66.wem		\Actor-Mixer Hierarchy\NPC\NPC\npc_footstep\npc_footstep_gravel\npc_footstep_run\sfx_uni_npc_run_gravel_10		120262
+	751039905	sfx_uni_ui_click_primary	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\SFX\UI\sfx_uni_ui_click_primary_818F3B66.wem		\Actor-Mixer Hierarchy\UI\UI\sfx_uni_ui_click_primary		54120
+	753981234	sfx_uni_ui_click_reset	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\SFX\UI\sfx_uni_ui_click_reset_818F3B66.wem		\Actor-Mixer Hierarchy\UI\UI\sfx_uni_ui_click_reset		112664
 	754155897	sfx_uni_plr_club_swing_iron_08	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\SFX\Player\sfx_uni_plr_club_swing_iron_08_818F3B66.wem		\Actor-Mixer Hierarchy\Player\Player\plr_swing_golfclub\sfx_uni_plr_club_swing_iron_08		45398
 	759648366	sfx_uni_plr_run_gravel_08	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\SFX\Player\sfx_uni_plr_run_gravel_08_818F3B66.wem		\Actor-Mixer Hierarchy\Player\Player\plr_footstep\plr_footstep_gravel\plr_footstep_run\sfx_uni_plr_run_gravel_08		129574
 	767155976	sfx_uni_npc_run_sand_09	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\SFX\NPC\sfx_uni_npc_run_sand_09_818F3B66.wem		\Actor-Mixer Hierarchy\NPC\NPC\npc_footstep\npc_footstep_sand\npc_footstep_run\sfx_uni_npc_run_sand_09		129484
@@ -258,13 +251,15 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	866561107	sfx_uni_npc_walk_gravel_04	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\SFX\NPC\sfx_uni_npc_walk_gravel_04_818F3B66.wem		\Actor-Mixer Hierarchy\NPC\NPC\npc_footstep\npc_footstep_gravel\npc_footstep_walk\sfx_uni_npc_walk_gravel_04		129688
 	867273069	sfx_uni_plr_run_pavement_08	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\SFX\Player\sfx_uni_plr_run_pavement_08_818F3B66.wem		\Actor-Mixer Hierarchy\Player\Player\plr_footstep\plr_footstep_pavement\plr_footstep_run\sfx_uni_plr_run_pavement_08		120062
 	888961366	sfx_uni_npc_walk_grass_02	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\SFX\NPC\sfx_uni_npc_walk_grass_02_818F3B66.wem		\Actor-Mixer Hierarchy\NPC\NPC\npc_footstep\npc_footstep_grass\npc_footstep_walk\sfx_uni_npc_walk_grass_02		131004
+	889914403	sfx_uni_ui_click_hold	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\SFX\UI\sfx_uni_ui_click_hold_818F3B66.wem		\Actor-Mixer Hierarchy\UI\UI\sfx_uni_ui_click_hold		24096
 	894442681	sfx_uni_npc_walk_pavement_01	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\SFX\NPC\sfx_uni_npc_walk_pavement_01_818F3B66.wem		\Actor-Mixer Hierarchy\NPC\NPC\npc_footstep\npc_footstep_pavement\npc_footstep_walk\sfx_uni_npc_walk_pavement_01		129486
 	894733475	mus_battle_segment_b1	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\MUS\Battle\mus_battle_segment_b1_FBC78EF0.wem		\Interactive Music Hierarchy\In-Game Music\Battle_Test_Switch\First_Playlist_Test\mus_battle_segment_b1\mus_battle_segment_b1		1567960
 	905392597	sfx_uni_npc_run_pavement_03	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\SFX\NPC\sfx_uni_npc_run_pavement_03_818F3B66.wem		\Actor-Mixer Hierarchy\NPC\NPC\npc_footstep\npc_footstep_pavement\npc_footstep_run\sfx_uni_npc_run_pavement_03		119970
 	908010083	sfx_uni_npc_run_wood_03	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\SFX\NPC\sfx_uni_npc_run_wood_03_818F3B66.wem		\Actor-Mixer Hierarchy\NPC\NPC\npc_footstep\npc_footstep_wood\npc_footstep_run\sfx_uni_npc_run_wood_03		120046
 	915299870	sfx_uni_plr_walk_pavement_05	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\SFX\Player\sfx_uni_plr_walk_pavement_05_818F3B66.wem		\Actor-Mixer Hierarchy\Player\Player\plr_footstep\plr_footstep_pavement\plr_footstep_walk\sfx_uni_plr_walk_pavement_05		130072
 	916012339	sfx_uni_plr_walk_grass_02	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\SFX\Player\sfx_uni_plr_walk_grass_02_818F3B66.wem		\Actor-Mixer Hierarchy\Player\Player\plr_footstep\plr_footstep_grass\plr_footstep_walk\sfx_uni_plr_walk_grass_02		129456
-	934108238	x_debug_005	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\Voices\English(US)\x_debug_005_5F049832.wem		\Actor-Mixer Hierarchy\Debug\Debug\x_debug_distance\x_debug_005	5	51264
+	924864582	x_debug_080	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\Voices\English(US)\x_debug_080_EDF8564D.wem		\Actor-Mixer Hierarchy\Interactible\Interactible\int_ball_hit\ball_hit_character\x_debug_080	80	49080
+	934108238	x_debug_005	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\Voices\English(US)\x_debug_005_5F049832.wem		\Actor-Mixer Hierarchy\Interactible\Interactible\int_ball_hit\ball_hit_golfclub\x_debug_005	5	51264
 	936847946	sfx_uni_plr_run_grass_01	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\SFX\Player\sfx_uni_plr_run_grass_01_818F3B66.wem		\Actor-Mixer Hierarchy\Player\Player\plr_footstep\plr_footstep_grass\plr_footstep_run\sfx_uni_plr_run_grass_01		129488
 	939711944	sfx_uni_amb_wind_gust_04	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\SFX\Ambience\sfx_uni_amb_wind_gust_044_818F3B66.wem		\Actor-Mixer Hierarchy\Ambience\Ambience\wind_gust\sfx_uni_amb_wind_gust_04		1304160
 	941241740	mus_battle_segment_c1	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\MUS\Battle\mus_battle_segment_c1_FBC78EF0.wem		\Interactive Music Hierarchy\In-Game Music\Battle_Test_Switch\First_Playlist_Test\mus_battle_segment_c1\mus_battle_segment_c1		2878680
