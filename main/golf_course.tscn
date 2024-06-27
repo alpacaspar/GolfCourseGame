@@ -20,7 +20,7 @@ size = Vector2(50, 50)
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_aawpb"]
 height = 40.0
-radius = 22.0
+radius = 20.2385
 
 [node name="GolfCourse" type="Node3D"]
 
@@ -62,7 +62,7 @@ mesh = SubResource("PlaneMesh_rvmyo")
 [node name="StaticBody3D" type="StaticBody3D" parent="Hole01/Pond"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Hole01/Pond/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.0166, 0, -1.07825)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.72397, 0, -2.16107)
 shape = SubResource("CylinderShape3D_aawpb")
 
 [node name="Trees" type="Node3D" parent="Hole01"]

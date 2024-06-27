@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://ca8onp5rc6dj7"]
+[gd_scene load_steps=12 format=3 uid="uid://ca8onp5rc6dj7"]
 
 [ext_resource type="Script" path="res://entities/user_interface/battle_view.gd" id="1_7kkeb"]
 [ext_resource type="PackedScene" uid="uid://dxyox1qnigoe6" path="res://common/battle/ui/unit_battle_icon.tscn" id="1_i3hhf"]
@@ -6,6 +6,11 @@
 [ext_resource type="PackedScene" uid="uid://ybo6yif82wwi" path="res://common/team_selector/team_picker.tscn" id="3_qrbiu"]
 [ext_resource type="PackedScene" uid="uid://gv5jf3ljibf6" path="res://entities/battles/demo_battle.tscn" id="4_inskm"]
 [ext_resource type="Resource" uid="uid://dyp4fn1guw3dm" path="res://entities/user_interface/general_ui_view_group.res" id="4_tdfao"]
+[ext_resource type="PackedScene" uid="uid://b3ew3hvnc8j52" path="res://entities/user_interface/battle_over_view.tscn" id="7_3tp8u"]
+[ext_resource type="Theme" uid="uid://dr801tm3gbq04" path="res://common/character_creator/resources/new_character_creator_theme.tres" id="8_1rhmc"]
+[ext_resource type="FontFile" uid="uid://bggeuglve63i3" path="res://common/character_creator/fonts/AllerDisplay_Std_Rg.ttf" id="8_4mhn6"]
+[ext_resource type="PackedScene" uid="uid://dhujaoqag63if" path="res://entities/user_interface/battle_start_view.tscn" id="9_boom8"]
+[ext_resource type="Script" path="res://entities/user_interface/fade_transition_view.gd" id="11_g1waj"]
 
 [node name="UserInterface" type="Control"]
 layout_mode = 3
@@ -49,6 +54,11 @@ size_flags_horizontal = 3
 layout_mode = 2
 alignment = 2
 
+[node name="Control" type="Control" parent="BattleUI"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
 [node name="TeamPicker" parent="." instance=ExtResource("3_qrbiu")]
 visible = false
 layout_mode = 1
@@ -61,6 +71,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("8_1rhmc")
 script = ExtResource("3_ohxjm")
 team_picker_view = NodePath("../TeamPicker")
 battle_to_start = ExtResource("4_inskm")
@@ -101,6 +112,8 @@ theme_override_constants/margin_bottom = 10
 
 [node name="RichTextLabel" type="RichTextLabel" parent="DialoguePlaceholder/MarginContainer/HBoxContainer/DialogueBackground/MarginContainer"]
 layout_mode = 2
+theme = ExtResource("8_1rhmc")
+theme_override_fonts/normal_font = ExtResource("8_4mhn6")
 text = "Looks like another rookie has hit the course! What an honor to be your first rival, I'll make sure to go easy on ya, hehe.
 I know you're eager to get started, so go ahead and pick your team for this battle!"
 scroll_active = false
@@ -120,11 +133,65 @@ grow_vertical = 2
 
 [node name="AssembleTeamButton" type="Button" parent="DialoguePlaceholder/MarginContainer/HBoxContainer/ChoiceBackground/VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("8_1rhmc")
+theme_override_fonts/font = ExtResource("8_4mhn6")
 text = "Manage team"
 
 [node name="StartBattleButton" type="Button" parent="DialoguePlaceholder/MarginContainer/HBoxContainer/ChoiceBackground/VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("8_1rhmc")
+theme_override_fonts/font = ExtResource("8_4mhn6")
 text = "Start battle!"
+
+[node name="BattleOverView" parent="." instance=ExtResource("7_3tp8u")]
+visible = false
+layout_mode = 1
+
+[node name="BattleStartView" parent="." instance=ExtResource("9_boom8")]
+visible = false
+layout_mode = 1
+
+[node name="FadeTransitionView" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("11_g1waj")
+view_group = ExtResource("4_tdfao")
+
+[node name="ColorRect" type="ColorRect" parent="FadeTransitionView"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="FadeTransitionView"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="Label" type="Label" parent="FadeTransitionView/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+theme = ExtResource("8_1rhmc")
+theme_override_fonts/font = ExtResource("8_4mhn6")
+theme_override_font_sizes/font_size = 24
+text = "Preparing course..."
+horizontal_alignment = 2
+vertical_alignment = 2
 
 [connection signal="pressed" from="DialoguePlaceholder/MarginContainer/HBoxContainer/ChoiceBackground/VBoxContainer/AssembleTeamButton" to="DialoguePlaceholder" method="_on_accept_button_pressed"]
 [connection signal="pressed" from="DialoguePlaceholder/MarginContainer/HBoxContainer/ChoiceBackground/VBoxContainer/StartBattleButton" to="DialoguePlaceholder" method="_on_start_battle_button_pressed"]

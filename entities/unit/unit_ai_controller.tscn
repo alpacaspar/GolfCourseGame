@@ -35,39 +35,6 @@ script = ExtResource("2_sbpf6")
 [node name="Selector" type="Node" parent="BehaviourTree"]
 script = ExtResource("3_kkrbg")
 
-[node name="ConditionBlockProbability" type="Node" parent="BehaviourTree/Selector"]
-script = ExtResource("12_0mpp3")
-blackboard_key = &"block_chance"
-
-[node name="DecoratorSensorRadiusBlock" type="Node" parent="BehaviourTree/Selector/ConditionBlockProbability"]
-script = ExtResource("4_urqn6")
-radius_blackboard_key = &"attack_detection_range"
-sensor_filter = 4
-sensor_collision_mask = 2
-
-[node name="DecoratorFilterAnyAttacking" type="Node" parent="BehaviourTree/Selector/ConditionBlockProbability/DecoratorSensorRadiusBlock"]
-script = ExtResource("6_iep1p")
-
-[node name="ConditionIsNotEmpty" type="Node" parent="BehaviourTree/Selector/ConditionBlockProbability/DecoratorSensorRadiusBlock/DecoratorFilterAnyAttacking"]
-script = ExtResource("5_rthak")
-blackboard_key = &"entities"
-invert = true
-
-[node name="Parallel" type="Node" parent="BehaviourTree/Selector/ConditionBlockProbability/DecoratorSensorRadiusBlock/DecoratorFilterAnyAttacking/ConditionIsNotEmpty"]
-script = ExtResource("8_vp1rp")
-
-[node name="ActionAimTowards" type="Node" parent="BehaviourTree/Selector/ConditionBlockProbability/DecoratorSensorRadiusBlock/DecoratorFilterAnyAttacking/ConditionIsNotEmpty/Parallel"]
-script = ExtResource("9_37vsh")
-
-[node name="Sequence" type="Node" parent="BehaviourTree/Selector/ConditionBlockProbability/DecoratorSensorRadiusBlock/DecoratorFilterAnyAttacking/ConditionIsNotEmpty/Parallel"]
-script = ExtResource("7_emtuh")
-
-[node name="ActionBlock" type="Node" parent="BehaviourTree/Selector/ConditionBlockProbability/DecoratorSensorRadiusBlock/DecoratorFilterAnyAttacking/ConditionIsNotEmpty/Parallel/Sequence"]
-script = ExtResource("13_8rkjp")
-
-[node name="Wait" type="Node" parent="BehaviourTree/Selector/ConditionBlockProbability/DecoratorSensorRadiusBlock/DecoratorFilterAnyAttacking/ConditionIsNotEmpty/Parallel/Sequence"]
-script = ExtResource("15_iasuv")
-
 [node name="ConditionBallUseProbability" type="Node" parent="BehaviourTree/Selector"]
 script = ExtResource("12_0mpp3")
 blackboard_key = &"ball_use_probability"
@@ -134,7 +101,7 @@ script = ExtResource("11_cyakl")
 
 [node name="ConditionAttackCooldown" type="Node" parent="BehaviourTree/Selector"]
 script = ExtResource("9_weibh")
-cooldown_time = 2.0
+cooldown_time = 1.5
 
 [node name="DecoratorSensorRadius" type="Node" parent="BehaviourTree/Selector/ConditionAttackCooldown"]
 script = ExtResource("4_urqn6")
@@ -156,3 +123,36 @@ script = ExtResource("9_37vsh")
 
 [node name="ActionAttack" type="Node" parent="BehaviourTree/Selector/ConditionAttackCooldown/DecoratorSensorRadius/DecoratorFilterClosest/Sequence"]
 script = ExtResource("11_cyakl")
+
+[node name="ConditionBlockProbability" type="Node" parent="BehaviourTree/Selector"]
+script = ExtResource("12_0mpp3")
+blackboard_key = &"block_chance"
+
+[node name="DecoratorSensorRadiusBlock" type="Node" parent="BehaviourTree/Selector/ConditionBlockProbability"]
+script = ExtResource("4_urqn6")
+radius_blackboard_key = &"attack_detection_range"
+sensor_filter = 4
+sensor_collision_mask = 2
+
+[node name="DecoratorFilterAnyAttacking" type="Node" parent="BehaviourTree/Selector/ConditionBlockProbability/DecoratorSensorRadiusBlock"]
+script = ExtResource("6_iep1p")
+
+[node name="ConditionIsNotEmpty" type="Node" parent="BehaviourTree/Selector/ConditionBlockProbability/DecoratorSensorRadiusBlock/DecoratorFilterAnyAttacking"]
+script = ExtResource("5_rthak")
+blackboard_key = &"entities"
+invert = true
+
+[node name="Parallel" type="Node" parent="BehaviourTree/Selector/ConditionBlockProbability/DecoratorSensorRadiusBlock/DecoratorFilterAnyAttacking/ConditionIsNotEmpty"]
+script = ExtResource("8_vp1rp")
+
+[node name="ActionAimTowards" type="Node" parent="BehaviourTree/Selector/ConditionBlockProbability/DecoratorSensorRadiusBlock/DecoratorFilterAnyAttacking/ConditionIsNotEmpty/Parallel"]
+script = ExtResource("9_37vsh")
+
+[node name="Sequence" type="Node" parent="BehaviourTree/Selector/ConditionBlockProbability/DecoratorSensorRadiusBlock/DecoratorFilterAnyAttacking/ConditionIsNotEmpty/Parallel"]
+script = ExtResource("7_emtuh")
+
+[node name="ActionBlock" type="Node" parent="BehaviourTree/Selector/ConditionBlockProbability/DecoratorSensorRadiusBlock/DecoratorFilterAnyAttacking/ConditionIsNotEmpty/Parallel/Sequence"]
+script = ExtResource("13_8rkjp")
+
+[node name="Wait" type="Node" parent="BehaviourTree/Selector/ConditionBlockProbability/DecoratorSensorRadiusBlock/DecoratorFilterAnyAttacking/ConditionIsNotEmpty/Parallel/Sequence"]
+script = ExtResource("15_iasuv")

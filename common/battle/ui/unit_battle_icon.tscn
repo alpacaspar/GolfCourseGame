@@ -1,11 +1,21 @@
-[gd_scene load_steps=5 format=3 uid="uid://dxyox1qnigoe6"]
+[gd_scene load_steps=6 format=3 uid="uid://dxyox1qnigoe6"]
 
 [ext_resource type="Script" path="res://common/battle/ui/unit_icon/unit_battle_icon.gd" id="1_kdddj"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_gms7n"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cn3dl"]
-bg_color = Color(0, 0, 0, 0.490196)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6mhyd"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+corner_detail = 1
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vjrju"]
+bg_color = Color(1, 1, 1, 0)
+draw_center = false
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_obb04"]
 bg_color = Color(0.223529, 0.819608, 0.466667, 1)
@@ -13,8 +23,6 @@ corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
-corner_detail = 1
-anti_aliasing = false
 
 [node name="UnitBattleIcon" type="BoxContainer"]
 anchors_preset = 15
@@ -34,11 +42,35 @@ texture = SubResource("PlaceholderTexture2D_gms7n")
 expand_mode = 3
 stretch_mode = 4
 
-[node name="StaminaBar" type="ProgressBar" parent="."]
+[node name="StaminaBar" type="Control" parent="."]
 custom_minimum_size = Vector2(0, 8)
 layout_mode = 2
+
+[node name="Trail" type="ProgressBar" parent="StaminaBar"]
+custom_minimum_size = Vector2(0, 8)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 8
-theme_override_styles/background = SubResource("StyleBoxFlat_cn3dl")
+theme_override_styles/fill = SubResource("StyleBoxFlat_6mhyd")
+value = 75.0
+show_percentage = false
+
+[node name="Fill" type="ProgressBar" parent="StaminaBar"]
+custom_minimum_size = Vector2(0, 8)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 8
+theme_override_styles/background = SubResource("StyleBoxFlat_vjrju")
 theme_override_styles/fill = SubResource("StyleBoxFlat_obb04")
+value = 50.0
 show_percentage = false

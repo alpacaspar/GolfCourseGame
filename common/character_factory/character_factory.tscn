@@ -250,7 +250,7 @@
 [ext_resource type="Texture2D" uid="uid://cjo2ykyxhtkl3" path="res://common/character_creator/icons/jewelry/watch_sports.png" id="223_mx3po"]
 [ext_resource type="Material" uid="uid://dqqjxkfpgxkof" path="res://entities/character/clothing/shoes/accessoires/wrist_watchsports_material.tres" id="224_r8nth"]
 [ext_resource type="Material" uid="uid://b235u7giumrls" path="res://entities/character/head/character_face_material.tres" id="250_kkcxs"]
-[ext_resource type="PackedScene" path="res://common/character_factory/character_texture_renderer.tscn" id="251_8bxo0"]
+[ext_resource type="PackedScene" uid="uid://8w8ec4ia5f57" path="res://common/character_factory/character_texture_renderer.tscn" id="251_8bxo0"]
 [ext_resource type="Material" uid="uid://lxwbur2qih6t" path="res://common/character_factory/character_edit_clothing_combined_material.tres" id="251_thg2k"]
 [ext_resource type="Material" uid="uid://btb23i348d3pn" path="res://entities/character/clothing/character_clothing_material.tres" id="252_27kdk"]
 

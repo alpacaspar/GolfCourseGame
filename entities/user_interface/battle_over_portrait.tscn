@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://cds7l724odjow"]
+
+[ext_resource type="Script" path="res://entities/user_interface/character_portrait.gd" id="1_3wtt2"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_mtwy4"]
+
+[node name="BareCharacterPortrait" type="BoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+script = ExtResource("1_3wtt2")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = SubResource("PlaceholderTexture2D_mtwy4")
+expand_mode = 2
+stretch_mode = 4

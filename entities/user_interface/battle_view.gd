@@ -8,7 +8,7 @@ extends View
 
 
 func _ready():
-	BattleManager.on_battle_setup.connect(_on_battle_setup)
+	BattleManager.on_battle_started.connect(_on_battle_started)
 
 
 func _open():
@@ -19,7 +19,7 @@ func _close():
 	visible = false
 
 
-func _on_battle_setup(teams: Array[Team]):
+func _on_battle_started(teams: Array[Team], _battle: Battle):
 	for child: Control in team_one_container.get_children():
 		child.queue_free()
 	

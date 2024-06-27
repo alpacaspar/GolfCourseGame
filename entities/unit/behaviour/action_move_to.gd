@@ -12,9 +12,11 @@ func _tick(blackboard: Dictionary, delta: float) -> int:
 	var navigation_agent: NavigationAgent3D = unit.controller.navigation_agent
 
 	if not blackboard.has(input_array):
+		unit.controller.set_velocity(Vector3.ZERO)
 		return FAILURE
 
 	if blackboard[input_array].is_empty():
+		unit.controller.set_velocity(Vector3.ZERO)
 		return FAILURE
 
 	unit.controller.set_movement_target(blackboard[input_array].front().global_position)

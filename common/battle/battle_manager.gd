@@ -1,8 +1,9 @@
 extends Node
 
 
-signal on_battle_setup(teams: Array[Team])
-signal on_battle_started
+signal on_battle_requested
+signal on_battle_setup(teams: Array[Team], battle: Battle)
+signal on_battle_started(teams: Array[Team], battle: Battle)
 signal on_battle_ended(winning_team: TeamResource)
 
 const SPAWN_SPACING = 2.0
@@ -30,7 +31,7 @@ var battle_active := false
 func _process(_delta: float):
 	if not battle_active:
 		return
-
+	
 	for team: Team in teams:
 		if team.get_active_units().is_empty():
 			# TODO: replace destructor with a proper cleanup function.
@@ -38,12 +39,16 @@ func _process(_delta: float):
 			team.queue_free()
 
 	if teams.size() == 1:
-		end_battle(teams.front().leader.golfer_resource)
+		end_battle(teams.front().team_resource)
 
 
 func start_battle(battle: PackedScene):
+	on_battle_requested.emit()
+
 	current_battle = battle.instantiate()
 	add_child(current_battle)
+
+	InputManager.toggle_mouse_lock(true)
 
 	var character_factory: Node = load("res://common/character_factory/character_factory.tscn").instantiate()
 	add_child(character_factory)
@@ -55,7 +60,7 @@ func start_battle(battle: PackedScene):
 
 	_instantiate_battle_resources(current_battle)
 
-	on_battle_setup.emit(teams)
+	on_battle_setup.emit(teams, current_battle)
 	
 	Wwise.register_game_obj(AudioManager, AudioManager.get_name())
 	Wwise.post_event("play_mus_battle_intro", AudioManager)
@@ -63,13 +68,19 @@ func start_battle(battle: PackedScene):
 	await current_battle.play_intro_sequence()
 
 	battle_active = true
-	on_battle_started.emit()
+	on_battle_started.emit(teams, current_battle)
 
 	Wwise.post_event("play_mus_battle_main", AudioManager)
 
 
 func end_battle(winning_team: TeamResource):
 	battle_active = false
+
+	for team: Team in teams:
+		team.queue_free()
+	
+	teams.clear()
+
 	on_battle_ended.emit(winning_team)
 	Wwise.register_game_obj(AudioManager, AudioManager.get_name())
 	Wwise.post_event("play_mus_battle_finish", AudioManager)

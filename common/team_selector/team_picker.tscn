@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://ybo6yif82wwi"]
+[gd_scene load_steps=7 format=3 uid="uid://ybo6yif82wwi"]
 
 [ext_resource type="PackedScene" uid="uid://c5rxv5qq7egp0" path="res://common/team_selector/unit_icon.tscn" id="1_mqurp"]
+[ext_resource type="Theme" uid="uid://dr801tm3gbq04" path="res://common/character_creator/resources/new_character_creator_theme.tres" id="1_n1d0n"]
 [ext_resource type="Script" path="res://common/team_selector/team_picker_manager.gd" id="1_shhya"]
 [ext_resource type="Resource" uid="uid://dgr40w467j67e" path="res://entities/teams/player_team_resource.tres" id="2_bxjl3"]
 [ext_resource type="Resource" uid="uid://dyp4fn1guw3dm" path="res://entities/user_interface/general_ui_view_group.res" id="4_ofs0l"]
@@ -13,6 +14,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_n1d0n")
 script = ExtResource("1_shhya")
 inventory = ExtResource("2_bxjl3")
 icon_ps = ExtResource("1_mqurp")
@@ -48,7 +50,6 @@ grow_horizontal = 2
 [node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer2"]
 layout_mode = 2
 horizontal_scroll_mode = 0
-vertical_scroll_mode = 3
 
 [node name="GridContainer" type="GridContainer" parent="PanelContainer2/ScrollContainer"]
 layout_mode = 2
@@ -276,4 +277,5 @@ offset_right = -14.0
 offset_bottom = -8.0
 grow_horizontal = 0
 grow_vertical = 0
+theme = ExtResource("1_n1d0n")
 text = "Continue"
