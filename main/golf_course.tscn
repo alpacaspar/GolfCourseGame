@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://dixhhv1bgajy0"]
+[gd_scene load_steps=11 format=3 uid="uid://dixhhv1bgajy0"]
 
 [ext_resource type="Environment" uid="uid://tv3hyeebwrbl" path="res://entities/environment/golf_course_world_environment.tres" id="1_onwgf"]
 [ext_resource type="Material" uid="uid://gnoi7qwmsv7q" path="res://entities/environment/water_material.tres" id="2_lfi1o"]
 [ext_resource type="PackedScene" uid="uid://dbssg6p52li32" path="res://entities/terrain/terrain.tscn" id="2_ucwcg"]
 [ext_resource type="PackedScene" uid="uid://75rvfsq67s7b" path="res://entities/environment/palm_tree.tscn" id="6_7ctve"]
+[ext_resource type="PackedScene" uid="uid://gv5jf3ljibf6" path="res://entities/battles/demo_battle.tscn" id="6_b4b0n"]
 [ext_resource type="PackedScene" uid="uid://c7c7cr6gjg8ua" path="res://entities/environment/oak_tree.tscn" id="7_t6kx5"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_hwxfc"]
@@ -20,7 +21,7 @@ size = Vector2(50, 50)
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_aawpb"]
 height = 40.0
-radius = 22.0
+radius = 20.2385
 
 [node name="GolfCourse" type="Node3D"]
 
@@ -62,7 +63,7 @@ mesh = SubResource("PlaneMesh_rvmyo")
 [node name="StaticBody3D" type="StaticBody3D" parent="Hole01/Pond"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Hole01/Pond/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.0166, 0, -1.07825)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.72397, 0, -2.16107)
 shape = SubResource("CylinderShape3D_aawpb")
 
 [node name="Trees" type="Node3D" parent="Hole01"]
