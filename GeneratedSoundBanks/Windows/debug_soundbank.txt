@@ -1,0 +1,33 @@
+Event	ID	Name			Wwise Object Path	Notes
+	78360149	Stinger			\Music\Stinger	
+	469868902	play_mus_creator			\Music\play_mus_creator	
+	1540042386	play_mus_battle_finish			\Music\play_mus_battle_finish	
+	2037286166	stop_mus_battle			\Music\stop_mus_battle	
+	3189784343	play_mus_battle_intro			\Music\play_mus_battle_intro	
+	3436960487	play_mus_manager			\Music\play_mus_manager	
+	4114194068	play_mus_battle_main			\Music\play_mus_battle_main	
+
+State Group	ID	Name			Wwise Object Path	Notes
+	2739846761	Battle_State			\Battle\Battle_State	
+
+State	ID	Name	State Group			Notes
+	461545889	Battle_End	Battle_State			
+	748895195	None	Battle_State			
+	2330123519	Battle_In_Progress	Battle_State			
+	2706291346	Battle_Start	Battle_State			
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	202595236	mus_battle_segment_b2	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\MUS\Battle\mus_battle_segment_b2_949B3AB0.wem		\Interactive Music Hierarchy\In-Game Music\Battle_Test_Switch\First_Playlist_Test\mus_battle_segment_b2\mus_battle_segment_b2		511126
+	218413902	sfx_uni_amb_golfcourse_nature_01	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\SFX\Ambience\sfx_uni_amb_golfcourse_nature_01_949B3AB0.wem		\Actor-Mixer Hierarchy\Ambience\Ambience\sfx_uni_amb_golfcourse_nature_01		4687113
+	220825176	mus_battle_segment_e1	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\MUS\Battle\mus_battle_segment_e1_949B3AB0.wem		\Interactive Music Hierarchy\In-Game Music\Battle_Test_Switch\First_Playlist_Test\mus_battle_segment_e1\mus_battle_segment_e1		934871
+	320956771	mus_battle_intro_segment_a1	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\MUS\Battle\mus_battle_intro_segment_a1_949B3AB0.wem		\Interactive Music Hierarchy\In-Game Music\Battle_Test_Switch\Battle_Intro\mus_battle_intro_segment_a1\mus_battle_intro_segment_a1		1605064
+	366905958	mus_battle_segment_a2	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\MUS\Battle\mus_battle_segment_a2_949B3AB0.wem		\Interactive Music Hierarchy\In-Game Music\Battle_Test_Switch\First_Playlist_Test\mus_battle_segment_a2\mus_battle_segment_a2		513057
+	463012973	mus_creator_segment_a	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\mus_creator_segment_a_949B3AB0.wem		\Interactive Music Hierarchy\Menu Music\Character_Creator\mus_creator_segment_a\mus_creator_segment_a		4782879
+	466523718	mus_battle_segment_e2	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\MUS\Battle\mus_battle_segment_e2_949B3AB0.wem		\Interactive Music Hierarchy\In-Game Music\Battle_Test_Switch\First_Playlist_Test\mus_battle_segment_e2\mus_battle_segment_e2		937212
+	848141468	mus_battle_segment_d2	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\MUS\Battle\mus_battle_segment_d2_949B3AB0.wem		\Interactive Music Hierarchy\In-Game Music\Battle_Test_Switch\First_Playlist_Test\mus_battle_segment_d2\mus_battle_segment_d2		939842
+	854753717	mus_battle_segment_d1	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\MUS\Battle\mus_battle_segment_d1_949B3AB0.wem		\Interactive Music Hierarchy\In-Game Music\Battle_Test_Switch\First_Playlist_Test\mus_battle_segment_d1\mus_battle_segment_d1		938199
+	894733475	mus_battle_segment_b1	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\MUS\Battle\mus_battle_segment_b1_949B3AB0.wem		\Interactive Music Hierarchy\In-Game Music\Battle_Test_Switch\First_Playlist_Test\mus_battle_segment_b1\mus_battle_segment_b1		513906
+	941241740	mus_battle_segment_c1	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\MUS\Battle\mus_battle_segment_c1_949B3AB0.wem		\Interactive Music Hierarchy\In-Game Music\Battle_Test_Switch\First_Playlist_Test\mus_battle_segment_c1\mus_battle_segment_c1		947632
+	977714337	mus_battle_segment_c2	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\MUS\Battle\mus_battle_segment_c2_949B3AB0.wem		\Interactive Music Hierarchy\In-Game Music\Battle_Test_Switch\First_Playlist_Test\mus_battle_segment_c2\mus_battle_segment_c2		958416
+	988561335	mus_battle_segment_a1	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\SFX\MUS\Battle\mus_battle_segment_a1_949B3AB0.wem		\Interactive Music Hierarchy\In-Game Music\Battle_Test_Switch\First_Playlist_Test\mus_battle_segment_a1\mus_battle_segment_a1		568096
+
