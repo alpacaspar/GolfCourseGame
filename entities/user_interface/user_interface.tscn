@@ -114,6 +114,7 @@ theme_override_constants/margin_bottom = 10
 layout_mode = 2
 theme = ExtResource("8_1rhmc")
 theme_override_fonts/normal_font = ExtResource("8_4mhn6")
+theme_override_font_sizes/normal_font_size = 32
 text = "Looks like another rookie has hit the course! What an honor to be your first rival, I'll make sure to go easy on ya, hehe.
 I know you're eager to get started, so go ahead and pick your team for this battle!"
 scroll_active = false
@@ -135,12 +136,14 @@ grow_vertical = 2
 layout_mode = 2
 theme = ExtResource("8_1rhmc")
 theme_override_fonts/font = ExtResource("8_4mhn6")
+theme_override_font_sizes/font_size = 32
 text = "Manage team"
 
 [node name="StartBattleButton" type="Button" parent="DialoguePlaceholder/MarginContainer/HBoxContainer/ChoiceBackground/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("8_1rhmc")
 theme_override_fonts/font = ExtResource("8_4mhn6")
+theme_override_font_sizes/font_size = 32
 text = "Start battle!"
 
 [node name="BattleOverView" parent="." instance=ExtResource("7_3tp8u")]
