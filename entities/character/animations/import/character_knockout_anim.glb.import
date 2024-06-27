@@ -31,7 +31,7 @@ animation/remove_immutable_tracks=true
 import_script/path=""
 _subresources={
 "animations": {
-"Armature|mixamo_com|Layer0": {
+"transform3|Take 001|BaseLayer": {
 "save_to_file/enabled": true,
 "save_to_file/keep_custom_tracks": "",
 "save_to_file/path": "res://entities/character/animations/character_knockout.res",
@@ -1832,7 +1832,7 @@ _subresources={
 }
 },
 "nodes": {
-"PATH:Armature/Skeleton3D": {
+"PATH:Armature/transform3/Skeleton3D": {
 "retarget/bone_map": Resource("res://entities/character/character_bone_map.tres"),
 "retarget/rest_fixer/apply_node_transforms": false
 }
