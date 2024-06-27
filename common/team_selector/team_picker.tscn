@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://ybo6yif82wwi"]
+[gd_scene load_steps=8 format=3 uid="uid://ybo6yif82wwi"]
 
 [ext_resource type="PackedScene" uid="uid://c5rxv5qq7egp0" path="res://common/team_selector/unit_icon.tscn" id="1_mqurp"]
 [ext_resource type="Theme" uid="uid://dr801tm3gbq04" path="res://common/character_creator/resources/new_character_creator_theme.tres" id="1_n1d0n"]
 [ext_resource type="Script" path="res://common/team_selector/team_picker_manager.gd" id="1_shhya"]
 [ext_resource type="Resource" uid="uid://dgr40w467j67e" path="res://entities/teams/player_team_resource.tres" id="2_bxjl3"]
 [ext_resource type="Resource" uid="uid://dyp4fn1guw3dm" path="res://entities/user_interface/general_ui_view_group.res" id="4_ofs0l"]
+[ext_resource type="FontFile" uid="uid://bggeuglve63i3" path="res://common/character_creator/fonts/AllerDisplay_Std_Rg.ttf" id="7_3j6hd"]
 [ext_resource type="Script" path="res://common/team_selector/golfer_info_references.gd" id="7_b30yh"]
 
 [node name="TeamPicker" type="Control" node_paths=PackedStringArray("team_icon_holder", "bench_icon_holder", "continue_button", "info_holder")]
@@ -18,52 +19,47 @@ theme = ExtResource("1_n1d0n")
 script = ExtResource("1_shhya")
 inventory = ExtResource("2_bxjl3")
 icon_ps = ExtResource("1_mqurp")
-team_icon_holder = NodePath("PanelContainer/HBoxContainer")
-bench_icon_holder = NodePath("PanelContainer2/ScrollContainer/GridContainer")
+team_icon_holder = NodePath("VBoxContainer/HBoxContainer")
+bench_icon_holder = NodePath("VBoxContainer/ScrollContainer/GridContainer")
 continue_button = NodePath("Button")
 info_holder = NodePath("PanelContainer3")
 view_group = ExtResource("4_ofs0l")
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_left = 185.0
-offset_top = 45.0
-offset_right = -217.0
-offset_bottom = 195.0
+anchors_preset = -1
+anchor_left = 0.1
+anchor_top = 0.1
+anchor_right = 0.9
+anchor_bottom = 0.9
 grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 64
+alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
 
-[node name="PanelContainer2" type="PanelContainer" parent="."]
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_left = 269.0
-offset_top = 283.0
-offset_right = -283.0
-offset_bottom = 583.0
-grow_horizontal = 2
-
-[node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer2"]
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
 horizontal_scroll_mode = 0
 
-[node name="GridContainer" type="GridContainer" parent="PanelContainer2/ScrollContainer"]
+[node name="GridContainer" type="GridContainer" parent="VBoxContainer/ScrollContainer"]
 layout_mode = 2
-columns = 4
+size_flags_horizontal = 4
+size_flags_vertical = 4
+columns = 5
 
 [node name="PanelContainer3" type="PanelContainer" parent="." node_paths=PackedStringArray("name_label", "stamina_label", "power_label", "experience_label", "level_label", "bond_label", "role_label")]
-visible = false
 layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_left = 919.0
-offset_top = 284.0
-offset_right = -101.0
-offset_bottom = 584.0
+anchors_preset = -1
+anchor_left = 0.7
+anchor_top = 0.1
+anchor_right = 0.9
+anchor_bottom = 0.1
 grow_horizontal = 2
 script = ExtResource("7_b30yh")
 name_label = NodePath("VBoxContainer/HBoxContainer/Label")
@@ -95,6 +91,8 @@ border_color = Color(1, 0, 0, 0)
 [node name="Label" type="Label" parent="PanelContainer3/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("7_3j6hd")
+theme_override_font_sizes/font_size = 32
 text = "Choper Snippledorf"
 autowrap_mode = 2
 
@@ -118,11 +116,15 @@ border_color = Color(1, 0, 0, 0)
 
 [node name="Label" type="Label" parent="PanelContainer3/VBoxContainer/HBoxContainer3"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("7_3j6hd")
+theme_override_font_sizes/font_size = 32
 text = "Stamina:"
 
 [node name="Label2" type="Label" parent="PanelContainer3/VBoxContainer/HBoxContainer3"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("7_3j6hd")
+theme_override_font_sizes/font_size = 32
 text = "0"
 horizontal_alignment = 2
 
@@ -141,11 +143,15 @@ border_color = Color(1, 0, 0, 0)
 
 [node name="Label" type="Label" parent="PanelContainer3/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("7_3j6hd")
+theme_override_font_sizes/font_size = 32
 text = "Power:"
 
 [node name="Label2" type="Label" parent="PanelContainer3/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("7_3j6hd")
+theme_override_font_sizes/font_size = 32
 text = "0"
 horizontal_alignment = 2
 
@@ -164,11 +170,15 @@ border_color = Color(1, 0, 0, 0)
 
 [node name="Label" type="Label" parent="PanelContainer3/VBoxContainer/HBoxContainer8"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("7_3j6hd")
+theme_override_font_sizes/font_size = 32
 text = "Experience:"
 
 [node name="Label2" type="Label" parent="PanelContainer3/VBoxContainer/HBoxContainer8"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("7_3j6hd")
+theme_override_font_sizes/font_size = 32
 text = "0"
 horizontal_alignment = 2
 
@@ -187,11 +197,15 @@ border_color = Color(1, 0, 0, 0)
 
 [node name="Label" type="Label" parent="PanelContainer3/VBoxContainer/HBoxContainer4"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("7_3j6hd")
+theme_override_font_sizes/font_size = 32
 text = "Level:"
 
 [node name="Label2" type="Label" parent="PanelContainer3/VBoxContainer/HBoxContainer4"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("7_3j6hd")
+theme_override_font_sizes/font_size = 32
 text = "0"
 horizontal_alignment = 2
 
@@ -210,11 +224,15 @@ border_color = Color(1, 0, 0, 0)
 
 [node name="Label" type="Label" parent="PanelContainer3/VBoxContainer/HBoxContainer7"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("7_3j6hd")
+theme_override_font_sizes/font_size = 32
 text = "Bond:"
 
 [node name="Label2" type="Label" parent="PanelContainer3/VBoxContainer/HBoxContainer7"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("7_3j6hd")
+theme_override_font_sizes/font_size = 32
 text = "0"
 horizontal_alignment = 2
 
@@ -238,6 +256,8 @@ border_color = Color(1, 0, 0, 0)
 
 [node name="Label" type="Label" parent="PanelContainer3/VBoxContainer/HBoxContainer5"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("7_3j6hd")
+theme_override_font_sizes/font_size = 32
 text = "Role:"
 
 [node name="ReferenceRect" type="ReferenceRect" parent="PanelContainer3/VBoxContainer/HBoxContainer5"]
@@ -256,6 +276,8 @@ border_color = Color(1, 0, 0, 0)
 [node name="Label2" type="Label" parent="PanelContainer3/VBoxContainer/HBoxContainer6"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("7_3j6hd")
+theme_override_font_sizes/font_size = 32
 text = "IronNaught"
 horizontal_alignment = 2
 
@@ -278,4 +300,6 @@ offset_bottom = -8.0
 grow_horizontal = 0
 grow_vertical = 0
 theme = ExtResource("1_n1d0n")
+theme_override_fonts/font = ExtResource("7_3j6hd")
+theme_override_font_sizes/font_size = 32
 text = "Continue"
