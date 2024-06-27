@@ -90,6 +90,11 @@ func perform_attack():
 	attack_tween = create_tween()
 	attack_tween.tween_interval(0.4)
 	attack_tween.tween_property(self, "velocity", target_velocity, 0.5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUART)
+	attack_tween.tween_callback( _on_attack_finished)
+
+
+func _on_attack_finished():
+	set_velocity(Vector3.ZERO)
 
 
 func perform_block():
