@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://bnovr4726jwoi"]
+[gd_scene load_steps=6 format=3 uid="uid://bnovr4726jwoi"]
 
 [ext_resource type="Script" path="res://common/character_creator/pickers/creator_gallery_picker.gd" id="1_c2b4r"]
 [ext_resource type="Theme" uid="uid://pq6ete4ie6a8" path="res://common/character_creator/resources/character_creator_theme.tres" id="1_f2ntw"]
 [ext_resource type="PackedScene" uid="uid://bj1d4jmao707v" path="res://common/character_creator/pickers/creator_gallery_option.tscn" id="2_026b8"]
 [ext_resource type="Theme" uid="uid://dr801tm3gbq04" path="res://common/character_creator/resources/new_character_creator_theme.tres" id="4_i7q3h"]
+[ext_resource type="Texture2D" uid="uid://df6d1hb1w48ly" path="res://common/character_creator/icons/extras/move_down.svg" id="4_u8r14"]
 
 [node name="CreatorGallery" type="VBoxContainer" node_paths=PackedStringArray("button_holder", "slider", "scroll_container")]
 anchors_preset = 15
@@ -13,11 +14,11 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme = ExtResource("4_i7q3h")
 theme_override_constants/separation = 0
 script = ExtResource("1_c2b4r")
 npc_customizer_button_prefab = ExtResource("2_026b8")
 button_holder = NodePath("HBoxContainer/GalleryNode/GridContainer")
-show_slider = null
 slider = NodePath("HBoxContainer/VBoxContainer/VScrollBar")
 scroll_container = NodePath("HBoxContainer/GalleryNode")
 
@@ -76,13 +77,26 @@ layout_mode = 2
 size_flags_vertical = 3
 border_color = Color(1, 1, 1, 0)
 
+[node name="TextureRect2" type="TextureRect" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("4_u8r14")
+expand_mode = 4
+stretch_mode = 5
+flip_v = true
+
 [node name="VScrollBar" type="VScrollBar" parent="HBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 10.0
 theme = ExtResource("4_i7q3h")
-page = 10.0
+max_value = 0.0
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("4_u8r14")
+expand_mode = 4
+stretch_mode = 5
 
 [node name="ReferenceRect6" type="ReferenceRect" parent="HBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(2, 2)
