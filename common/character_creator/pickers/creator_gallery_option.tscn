@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://bj1d4jmao707v"]
 
-[ext_resource type="Theme" uid="uid://bw2a7mna652cl" path="res://common/character_creator/resources/new_character_creator_theme.tres" id="1_ihfr3"]
+[ext_resource type="Theme" uid="uid://dr801tm3gbq04" path="res://common/character_creator/resources/new_character_creator_theme.tres" id="1_ihfr3"]
 [ext_resource type="Script" path="res://addons/npc_editor/ui/npc_customizer_option.gd" id="1_kecmg"]
 [ext_resource type="Texture2D" uid="uid://dfspa0f55imyc" path="res://icon.svg" id="2_rmiw8"]
 
@@ -90,7 +90,7 @@ texture = ExtResource("2_rmiw8")
 expand_mode = 5
 stretch_mode = 5
 
-[node name="Button" type="Button" parent="."]
+[node name="Button" type="Button" parent="." groups=["gallery_option_buttons"]]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3

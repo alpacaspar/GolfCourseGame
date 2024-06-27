@@ -1,9 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://bnovr4726jwoi"]
+[gd_scene load_steps=5 format=3 uid="uid://bnovr4726jwoi"]
 
 [ext_resource type="Script" path="res://common/character_creator/pickers/creator_gallery_picker.gd" id="1_c2b4r"]
+[ext_resource type="Theme" uid="uid://pq6ete4ie6a8" path="res://common/character_creator/resources/character_creator_theme.tres" id="1_f2ntw"]
 [ext_resource type="PackedScene" uid="uid://bj1d4jmao707v" path="res://common/character_creator/pickers/creator_gallery_option.tscn" id="2_026b8"]
+[ext_resource type="Theme" uid="uid://dr801tm3gbq04" path="res://common/character_creator/resources/new_character_creator_theme.tres" id="4_i7q3h"]
 
-[node name="CreatorGallery" type="VBoxContainer" node_paths=PackedStringArray("button_holder")]
+[node name="CreatorGallery" type="VBoxContainer" node_paths=PackedStringArray("button_holder", "slider", "scroll_container")]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -15,22 +17,28 @@ theme_override_constants/separation = 0
 script = ExtResource("1_c2b4r")
 npc_customizer_button_prefab = ExtResource("2_026b8")
 button_holder = NodePath("HBoxContainer/GalleryNode/GridContainer")
+show_slider = null
+slider = NodePath("HBoxContainer/VBoxContainer/VScrollBar")
+scroll_container = NodePath("HBoxContainer/GalleryNode")
 
 [node name="ReferenceRect2" type="ReferenceRect" parent="."]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.04
+theme = ExtResource("1_f2ntw")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme = ExtResource("1_f2ntw")
 theme_override_constants/separation = 0
 
 [node name="ReferenceRect2" type="ReferenceRect" parent="HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.2
+theme = ExtResource("1_f2ntw")
 
 [node name="GalleryNode" type="ScrollContainer" parent="HBoxContainer"]
 layout_mode = 2
@@ -45,21 +53,22 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 10.0
+theme = ExtResource("1_f2ntw")
 theme_override_constants/h_separation = 30
 theme_override_constants/v_separation = 30
 columns = 4
 
 [node name="ReferenceRect3" type="ReferenceRect" parent="HBoxContainer"]
-visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.2
+theme = ExtResource("1_f2ntw")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
-visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.5
+theme = ExtResource("1_f2ntw")
 
 [node name="ReferenceRect5" type="ReferenceRect" parent="HBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(2, 2)
@@ -68,11 +77,11 @@ size_flags_vertical = 3
 border_color = Color(1, 1, 1, 0)
 
 [node name="VScrollBar" type="VScrollBar" parent="HBoxContainer/VBoxContainer"]
-visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 10.0
+theme = ExtResource("4_i7q3h")
 page = 10.0
 
 [node name="ReferenceRect6" type="ReferenceRect" parent="HBoxContainer/VBoxContainer"]
@@ -85,8 +94,10 @@ border_color = Color(1, 1, 1, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.2
+theme = ExtResource("1_f2ntw")
 
 [node name="ReferenceRect" type="ReferenceRect" parent="."]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.04
+theme = ExtResource("1_f2ntw")

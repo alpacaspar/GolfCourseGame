@@ -22,6 +22,7 @@ extends Control
 @export var nose_piercings_option_picker: CreatorGallery
 @export var eyebrow_piercings_option_picker: CreatorGallery
 @export var earrings_option_picker: CreatorGallery
+@export var gallery_button_sound: String
 
 @export_subgroup("Color Picker")
 @export var skin_color_tracker: IndexTracker
@@ -35,6 +36,7 @@ extends Control
 @export var eyeshadow_color_option_picker: CreatorColorPicker
 @export var eyeliner_color_option_picker: CreatorColorPicker
 @export var blush_color_option_picker: CreatorColorPicker
+@export var color_button_sound: String
 
 @export_subgroup("Finetune Buttons")
 @export var eye_buttons: FinetineButtons
@@ -47,6 +49,8 @@ extends Control
 @export var glasses_range: FinetuneRanges
 @export var mustache_buttons: FinetineButtons
 @export var mustache_range: FinetuneRanges
+@export var finetune_button_increase_sound: String
+@export var finetune_button_decrease_sound: String
 
 @export_group("Body Options")
 @export_subgroup("Body Pickers")
@@ -66,7 +70,8 @@ extends Control
 @export_group("Extra Options")
 @export var name_field: LineEdit
 @export var randomize_button: Button
-@export var reset_button: Button
+@export var general_button_sound: String
+@export var slider_sounds: String
 
 @export_group("Icons")
 @export var hair_icons: Array[Texture] = []
@@ -95,16 +100,17 @@ extends Control
 var preview_scene: PreviewSpawner
 
 var current_character: Character
-
-
 var character_factory: Node
 
-func _ready():
+
+func _ready():	
 	preview_scene = preload("res://addons/npc_editor/preview_scene.tscn").instantiate() as PreviewSpawner
 	add_child(preview_scene)
 	
 	character_factory = preload("res://common/character_factory/character_factory.tscn").instantiate()
 	add_child(character_factory)
+	
+	Wwise.register_game_obj(self, get_name())
 
 	current_character = character_factory.create_character(edited_resource)
 	character_factory.start_character_creation(current_character)
@@ -113,12 +119,15 @@ func _ready():
 	preview_scene.show_character(current_character)
 	preview_scene.callback = Callable(_set_preview)
 	
-	zoom_slider.value_changed.connect(preview_scene.set_zoom)
 	zoom_target_slider.value_changed.connect(preview_scene.set_zoom_target)
 	rotation_slider.value_changed.connect(preview_scene._set_rotation)
+	zoom_slider.value_changed.connect(preview_scene.set_zoom)
+
+	zoom_target_slider.value_changed.connect(play_slider_sound)
+	rotation_slider.value_changed.connect(play_slider_sound)
+	zoom_slider.value_changed.connect(play_slider_sound)
 
 	randomize_button.pressed.connect(_randomize)
-	reset_button.pressed.connect(_reset)
 	finish_button.pressed.connect(_finish)
 	
 	Wwise.register_game_obj(AudioManager, AudioManager.get_name())
@@ -194,6 +203,34 @@ func _ready():
 	mustache_buttons.set_values(mustache_range, _update_character)
 
 	_update_character()
+
+	var general_buttons: Array = get_tree().get_nodes_in_group("general_buttons")
+	for inst in general_buttons:
+		inst.pressed.connect(play_general_sound)
+
+	var color_buttons: Array = get_tree().get_nodes_in_group("color_picker_buttons")
+	for inst in color_buttons:
+		inst.pressed.connect(play_colorpicker_sound)
+
+	var gallery_buttons: Array = get_tree().get_nodes_in_group("gallery_option_buttons")
+	for inst in gallery_buttons:
+		inst.pressed.connect(play_gallery_sound)
+	
+	var finetune_buttons: Array = get_tree().get_nodes_in_group("increase_buttons")
+	for inst in finetune_buttons:
+		inst.pressed.connect(play_increase_sound)
+	
+	var finetune_buttons_decrease: Array = get_tree().get_nodes_in_group("decrease_buttons")
+	for inst in finetune_buttons_decrease:
+		inst.pressed.connect(play_decrease_sound)
+
+
+func play_general_sound(): Wwise.post_event(general_button_sound, self)
+func play_colorpicker_sound(): Wwise.post_event(color_button_sound, self)
+func play_gallery_sound(): Wwise.post_event(gallery_button_sound, self)
+func play_increase_sound(): Wwise.post_event(finetune_button_increase_sound, self)
+func play_decrease_sound(): Wwise.post_event(finetune_button_decrease_sound, self)
+func play_slider_sound(_value): Wwise.post_event(slider_sounds, self)
 
 
 func _process(delta: float):
@@ -359,23 +396,23 @@ func _randomize():
 	sock_color_option_picker.set_button_index(rng.randi_range(0, sock_color_option_picker.get_option_count()))
 	shoes_color_option_picker.set_button_index(rng.randi_range(0, shoes_color_option_picker.get_option_count()))
 
-	# eye_buttons.vertical_current = rng.randf_range(eye_buttons.vertical_range.x, eye_buttons.vertical_range.y)
-	# eye_buttons.horizontal_current = rng.randf_range(eye_buttons.horizontal_range.x, eye_buttons.horizontal_range.y)
-	# eye_buttons.rotation_current = rng.randf_range(eye_buttons.rotation_range.x, eye_buttons.rotation_range.y)
-	# eye_buttons.scale_current = rng.randf_range(eye_buttons.scale_range.x, eye_buttons.scale_range.y)
+	eye_buttons.vertical_current = rng.randf_range(eye_buttons.vertical_range.x, eye_buttons.vertical_range.y)
+	eye_buttons.horizontal_current = rng.randf_range(eye_buttons.horizontal_range.x, eye_buttons.horizontal_range.y)
+	eye_buttons.rotation_current = rng.randf_range(eye_buttons.rotation_range.x, eye_buttons.rotation_range.y)
+	eye_buttons.scale_current = rng.randf_range(eye_buttons.scale_range.x, eye_buttons.scale_range.y)
 
-	# eyebrow_buttons.vertical_current = rng.randf_range(eyebrow_buttons.vertical_range.x, eyebrow_buttons.vertical_range.y)
-	# eyebrow_buttons.horizontal_current = rng.randf_range(eyebrow_buttons.horizontal_range.x, eyebrow_buttons.horizontal_range.y)
-	# eyebrow_buttons.rotation_current = rng.randf_range(eyebrow_buttons.rotation_range.x, eyebrow_buttons.rotation_range.y)
-	# eyebrow_buttons.scale_current = rng.randf_range(eyebrow_buttons.scale_range.x, eyebrow_buttons.scale_range.y)
+	eyebrow_buttons.vertical_current = rng.randf_range(eyebrow_buttons.vertical_range.x, eyebrow_buttons.vertical_range.y)
+	eyebrow_buttons.horizontal_current = rng.randf_range(eyebrow_buttons.horizontal_range.x, eyebrow_buttons.horizontal_range.y)
+	eyebrow_buttons.rotation_current = rng.randf_range(eyebrow_buttons.rotation_range.x, eyebrow_buttons.rotation_range.y)
+	eyebrow_buttons.scale_current = rng.randf_range(eyebrow_buttons.scale_range.x, eyebrow_buttons.scale_range.y)
 
-	# mouth_buttons.vertical_current = rng.randf_range(mouth_buttons.vertical_range.x, mouth_buttons.vertical_range.y)
-	# mouth_buttons.scale_current = rng.randf_range(mouth_buttons.scale_range.x, mouth_buttons.scale_range.y)
+	mouth_buttons.vertical_current = rng.randf_range(mouth_buttons.vertical_range.x, mouth_buttons.vertical_range.y)
+	mouth_buttons.scale_current = rng.randf_range(mouth_buttons.scale_range.x, mouth_buttons.scale_range.y)
 
-	# mustache_buttons.vertical_current = rng.randf_range(mustache_buttons.vertical_range.x, mustache_buttons.vertical_range.y)
-	# mustache_buttons.scale_current = rng.randf_range(mustache_buttons.scale_range.x, mustache_buttons.scale_range.y)
+	mustache_buttons.vertical_current = rng.randf_range(mustache_buttons.vertical_range.x, mustache_buttons.vertical_range.y)
+	mustache_buttons.scale_current = rng.randf_range(mustache_buttons.scale_range.x, mustache_buttons.scale_range.y)
 
-	# glasses_buttons.vertical_current = rng.randf_range(glasses_buttons.vertical_range.x, glasses_buttons.vertical_range.y)
+	glasses_buttons.vertical_current = rng.randf_range(glasses_buttons.vertical_range.x, glasses_buttons.vertical_range.y)
 
 	_update_character()
 

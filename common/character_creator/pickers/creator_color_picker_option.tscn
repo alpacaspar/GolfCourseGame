@@ -68,7 +68,7 @@ theme = ExtResource("1_8hspp")
 texture = ExtResource("3_5lgqr")
 expand_mode = 1
 
-[node name="Button3" type="Button" parent="."]
+[node name="Button3" type="Button" parent="." groups=["color_picker_buttons"]]
 clip_contents = true
 layout_mode = 2
 size_flags_horizontal = 3
