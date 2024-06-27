@@ -1,8 +1,8 @@
 extends Node
 
 
-signal on_battle_setup(teams: Array[Team])
-signal on_battle_started
+signal on_battle_setup(teams: Array[Team], battle: Battle)
+signal on_battle_started(teams: Array[Team], battle: Battle)
 signal on_battle_ended(winning_team: TeamResource)
 
 const SPAWN_SPACING = 2.0
@@ -57,7 +57,7 @@ func start_battle(battle: PackedScene):
 
 	_instantiate_battle_resources(current_battle)
 
-	on_battle_setup.emit(teams)
+	on_battle_setup.emit(teams, current_battle)
 	
 	Wwise.register_game_obj(AudioManager, AudioManager.get_name())
 	Wwise.post_event("play_mus_battle_intro", AudioManager)
@@ -65,7 +65,7 @@ func start_battle(battle: PackedScene):
 	await current_battle.play_intro_sequence()
 
 	battle_active = true
-	on_battle_started.emit()
+	on_battle_started.emit(teams, current_battle)
 
 	Wwise.post_event("play_mus_battle_main", AudioManager)
 

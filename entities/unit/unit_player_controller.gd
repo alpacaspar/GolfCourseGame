@@ -74,7 +74,7 @@ func _on_exit():
     input_provider.on_look.disconnect(_on_look)
 
 
-func _on_battle_manager_battle_started():
+func _on_battle_manager_battle_started(_teams: Array[Team], _battle: Battle):
     input_provider._on_enter()
 
 

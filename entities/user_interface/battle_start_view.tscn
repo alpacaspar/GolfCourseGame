@@ -1,0 +1,46 @@
+[gd_scene load_steps=4 format=3 uid="uid://dhujaoqag63if"]
+
+[ext_resource type="Script" path="res://entities/user_interface/battle_start_view.gd" id="1_p3njl"]
+[ext_resource type="Resource" uid="uid://dyp4fn1guw3dm" path="res://entities/user_interface/general_ui_view_group.res" id="3_tf54o"]
+[ext_resource type="FontFile" uid="uid://bggeuglve63i3" path="res://common/character_creator/fonts/AllerDisplay_Std_Rg.ttf" id="4_vg5rr"]
+
+[node name="BattleStartView" type="Control" node_paths=PackedStringArray("label")]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_p3njl")
+label = NodePath("MarginContainer/VBoxContainer/Label")
+view_group = ExtResource("3_tf54o")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = -128
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_vg5rr")
+theme_override_font_sizes/font_size = 32
+horizontal_alignment = 1
+uppercase = true
+
+[node name="ColorRect" type="ColorRect" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 4)
+layout_mode = 2
+size_flags_horizontal = 3

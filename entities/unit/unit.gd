@@ -53,7 +53,7 @@ func _physics_process(_delta: float):
 		move_and_slide()
 
 
-func _on_battle_manager_battle_started():
+func _on_battle_manager_battle_started(_teams: Array[Team], _battle: Battle):
 	controller.process_mode = PROCESS_MODE_INHERIT
 
 

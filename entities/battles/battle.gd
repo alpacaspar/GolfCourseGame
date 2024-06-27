@@ -1,3 +1,4 @@
+class_name Battle
 extends Node3D
 
 
