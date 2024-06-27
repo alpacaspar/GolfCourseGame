@@ -2,7 +2,7 @@
 class_name NPCResource
 extends Resource
 
-@export var name: String
+@export var name: String = ""
 
 @export var icon := Texture2D.new()
 @export var refresh_icon := false:

@@ -9,6 +9,8 @@ const BLOCK_TIME_SEEK_ANIM_PARAMETER = "parameters/BlockTimeSeek/seek_request"
 const BLOCK_TWEEN_DURATION = 0.2
 const HIT_ONE_SHOT_ANIM_PARAMETER: StringName = "parameters/HitOneShot/request"
 
+@export_flags_3d_physics var sensor_collision_mask := 2
+
 @onready var character_container: Node = $CharacterContainer
 @onready var velocity_buffer: Node = $VelocityBuffer
 @onready var collision_shape: CollisionShape3D = $CollisionShape3D
@@ -83,7 +85,7 @@ func perform_attack():
 	animation_tree.set(ATTACK_ONESHOT_ANIM_PARAMETER, AnimationNodeOneShot.ONE_SHOT_REQUEST_FADE_OUT)
 	animation_tree.set(ATTACK_ONESHOT_ANIM_PARAMETER, AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
 
-	var target_velocity := controller.global_basis.z * role.move_speed
+	var target_velocity := _get_attack_direction() * role.move_speed
 	target_velocity.y = velocity.y
 	attack_tween = create_tween()
 	attack_tween.tween_interval(0.4)
@@ -115,7 +117,7 @@ func try_take_damage(attack_origin: Node3D, team_origin: Team, damage: int) -> b
 		return false
 
 	var direction_to_attacker: Vector3 = global_position.direction_to(Vector3(attack_origin.global_position.x, global_position.y, attack_origin.global_position.z))
-	var angle := global_basis.z.angle_to(direction_to_attacker)
+	var angle := controller.global_basis.z.angle_to(direction_to_attacker)
 	if is_blocking and rad_to_deg(angle) < 60.0:
 		return false
 
@@ -142,3 +144,38 @@ func disable_unit():
 	await get_tree().create_timer(3.0).timeout
 
 	process_mode = PROCESS_MODE_DISABLED
+
+
+func _get_query(query_radius: float) -> PhysicsShapeQueryParameters3D:
+	var shape_rid := PhysicsServer3D.sphere_shape_create()
+	PhysicsServer3D.shape_set_data(shape_rid, query_radius)
+
+	var params := PhysicsShapeQueryParameters3D.new()
+	params.shape_rid = shape_rid
+	params.transform = global_transform
+	params.collision_mask = sensor_collision_mask
+
+	params.exclude = [self.get_rid()]
+
+	return params
+
+
+func _get_attack_direction() -> Vector3:
+	var space_state := get_world_3d().direct_space_state
+	var query := _get_query(role.attack_range)
+	var intersections: Array[Dictionary] = space_state.intersect_shape(query)
+
+	var most_forward_dot := -1.0
+	var most_forward_direction := Vector3.ZERO
+
+	for intersection: Dictionary in intersections:
+		var intersected_entity: Node3D = intersection["collider"]
+		if intersected_entity.is_in_group("unit") or intersected_entity.is_in_group("ball"):
+			var direction_to := global_position.direction_to(Vector3(intersected_entity.global_position.x, global_position.y, intersected_entity.global_position.z))
+			var dot := controller.global_basis.z.dot(direction_to)
+
+			if dot > most_forward_dot:
+				most_forward_dot = dot
+				most_forward_direction = direction_to
+	
+	return most_forward_direction

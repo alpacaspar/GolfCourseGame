@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://entities/character/character.gd" id="1_deigj"]
 [ext_resource type="AnimationLibrary" uid="uid://cteindhxey6qa" path="res://entities/character/animations/character_anim_library.res" id="2_od26b"]
-[ext_resource type="AnimationNodeBlendTree" uid="uid://bx4j66ovb31uh" path="res://entities/character/animations/character_animation_blend_tree.tres" id="3_1oxqe"]
+[ext_resource type="AnimationNodeBlendTree" uid="uid://b6g776vm2kvrn" path="res://entities/character/animations/character_animation_blend_tree.tres" id="3_1oxqe"]
 [ext_resource type="Material" uid="uid://bgo8uqe2x7t62" path="res://entities/character/body/character_body_material.tres" id="3_ashim"]
 [ext_resource type="Material" uid="uid://n65btp0wlcfs" path="res://entities/character/head/character_noseears_material.tres" id="6_m3ku2"]
 [ext_resource type="Material" uid="uid://p00w260lvywo" path="res://entities/character/clothing/clothing_skirt_material.tres" id="8_1ps1d"]
