@@ -30,7 +30,7 @@ var battle_active := false
 func _process(_delta: float):
 	if not battle_active:
 		return
-
+	
 	for team: Team in teams:
 		if team.get_active_units().is_empty():
 			# TODO: replace destructor with a proper cleanup function.
@@ -72,6 +72,12 @@ func start_battle(battle: PackedScene):
 
 func end_battle(winning_team: TeamResource):
 	battle_active = false
+
+	for team: Team in teams:
+		team.queue_free()
+	
+	teams.clear()
+
 	on_battle_ended.emit(winning_team)
 	Wwise.register_game_obj(AudioManager, AudioManager.get_name())
 	Wwise.post_event("play_mus_battle_finish", AudioManager)

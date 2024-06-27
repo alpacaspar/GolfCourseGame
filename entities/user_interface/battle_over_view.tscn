@@ -1,0 +1,54 @@
+[gd_scene load_steps=5 format=3 uid="uid://b3ew3hvnc8j52"]
+
+[ext_resource type="Script" path="res://entities/user_interface/battle_over_view.gd" id="1_m8efl"]
+[ext_resource type="PackedScene" uid="uid://cds7l724odjow" path="res://entities/user_interface/battle_over_portrait.tscn" id="2_2b48v"]
+[ext_resource type="Resource" uid="uid://dyp4fn1guw3dm" path="res://entities/user_interface/general_ui_view_group.res" id="2_mqv58"]
+[ext_resource type="FontFile" uid="uid://bggeuglve63i3" path="res://common/character_creator/fonts/AllerDisplay_Std_Rg.ttf" id="3_k8pxu"]
+
+[node name="BattleOverView" type="Control" node_paths=PackedStringArray("winning_team_label", "winning_team_container")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_m8efl")
+winning_team_label = NodePath("MarginContainer/VBoxContainer/WinningTeamLabel")
+winning_team_container = NodePath("MarginContainer/VBoxContainer/WinningTeamHBoxContainer")
+character_portrait_scene = ExtResource("2_2b48v")
+view_group = ExtResource("2_mqv58")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = -128
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="WinningTeamLabel" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_k8pxu")
+theme_override_font_sizes/font_size = 32
+text = "Snippledorf's team wins"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="WinningTeamHBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 128)
+layout_mode = 2
+alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 4)
+layout_mode = 2
+size_flags_horizontal = 3

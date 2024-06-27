@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://ca8onp5rc6dj7"]
+[gd_scene load_steps=8 format=3 uid="uid://ca8onp5rc6dj7"]
 
 [ext_resource type="Script" path="res://entities/user_interface/battle_view.gd" id="1_7kkeb"]
 [ext_resource type="PackedScene" uid="uid://dxyox1qnigoe6" path="res://common/battle/ui/unit_battle_icon.tscn" id="1_i3hhf"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://ybo6yif82wwi" path="res://common/team_selector/team_picker.tscn" id="3_qrbiu"]
 [ext_resource type="PackedScene" uid="uid://gv5jf3ljibf6" path="res://entities/battles/demo_battle.tscn" id="4_inskm"]
 [ext_resource type="Resource" uid="uid://dyp4fn1guw3dm" path="res://entities/user_interface/general_ui_view_group.res" id="4_tdfao"]
+[ext_resource type="PackedScene" uid="uid://b3ew3hvnc8j52" path="res://entities/user_interface/battle_over_view.tscn" id="7_3tp8u"]
 
 [node name="UserInterface" type="Control"]
 layout_mode = 3
@@ -48,6 +49,11 @@ size_flags_horizontal = 3
 [node name="Team2Container" type="HBoxContainer" parent="BattleUI/HBoxContainer"]
 layout_mode = 2
 alignment = 2
+
+[node name="Control" type="Control" parent="BattleUI"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
 [node name="TeamPicker" parent="." instance=ExtResource("3_qrbiu")]
 visible = false
@@ -125,6 +131,10 @@ text = "Manage team"
 [node name="StartBattleButton" type="Button" parent="DialoguePlaceholder/MarginContainer/HBoxContainer/ChoiceBackground/VBoxContainer"]
 layout_mode = 2
 text = "Start battle!"
+
+[node name="BattleOverView" parent="." instance=ExtResource("7_3tp8u")]
+visible = false
+layout_mode = 1
 
 [connection signal="pressed" from="DialoguePlaceholder/MarginContainer/HBoxContainer/ChoiceBackground/VBoxContainer/AssembleTeamButton" to="DialoguePlaceholder" method="_on_accept_button_pressed"]
 [connection signal="pressed" from="DialoguePlaceholder/MarginContainer/HBoxContainer/ChoiceBackground/VBoxContainer/StartBattleButton" to="DialoguePlaceholder" method="_on_start_battle_button_pressed"]
