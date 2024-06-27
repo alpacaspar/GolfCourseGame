@@ -7,7 +7,7 @@ extends Control
 
 var data: GolferResource
 
-var cached_value := 0
+var cached_value := -1
 var tween: Tween
 
 
@@ -30,9 +30,9 @@ func _on_stamina_changed(new_value: int):
 
 
 func _on_tween_finished():
-	if cached_value > 0:
+	if cached_value > -1:
 		create_stamina_tween(cached_value)
-		cached_value = 0
+		cached_value = -1
 
 
 func create_stamina_tween(amount: int):
