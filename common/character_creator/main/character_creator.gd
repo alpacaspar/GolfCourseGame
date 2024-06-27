@@ -109,6 +109,8 @@ func _ready():
 	
 	character_factory = preload("res://common/character_factory/character_factory.tscn").instantiate()
 	add_child(character_factory)
+	
+	Wwise.register_game_obj(self, get_name())
 
 	current_character = character_factory.create_character(edited_resource)
 	character_factory.start_character_creation(current_character)
@@ -201,8 +203,6 @@ func _ready():
 	mustache_buttons.set_values(mustache_range, _update_character)
 
 	_update_character()
-	
-	Wwise.register_game_obj(self, get_name())
 
 	var general_buttons: Array = get_tree().get_nodes_in_group("general_buttons")
 	for inst in general_buttons:

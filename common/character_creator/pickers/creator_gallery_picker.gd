@@ -6,12 +6,35 @@ extends Control
 @export var npc_customizer_button_prefab: PackedScene
 @export var button_holder: Control
 
+@export var show_slider: bool
+@export var slider: ScrollBar
+@export var scroll_container: ScrollContainer
+
 var includes_empty := false
 var button_group: ButtonGroup
 
 
 func _ready():
 	button_group = ButtonGroup.new()
+
+	if slider != null:	
+		if !show_slider:
+			slider.visible = false
+			get_child(1).get_child(2).visible = false
+		
+		slider.value_changed.connect(_scroll)
+
+
+var last_val = 0
+func _process(_delta):
+	if scroll_container == null:
+		return
+	
+	if last_val != scroll_container.scroll_vertical:
+		_scroll(scroll_container.scroll_vertical)
+
+	slider.max_value = button_holder.size.y - scroll_container.size.y
+	last_val = scroll_container.scroll_vertical
 
 	
 func add_empty(texture: Texture, button_callback):
@@ -51,3 +74,8 @@ func set_button_index(index: int):
 
 func get_option_count() -> int:
 	return button_group.get_buttons().size() - 1
+
+
+func _scroll(value := 0):
+	scroll_container.scroll_vertical = value
+	slider.value = value
