@@ -1,4 +1,4 @@
-[gd_scene load_steps=93 format=3 uid="uid://c75huqds1lmet"]
+[gd_scene load_steps=94 format=3 uid="uid://c75huqds1lmet"]
 
 [ext_resource type="Theme" uid="uid://dr801tm3gbq04" path="res://common/character_creator/resources/new_character_creator_theme.tres" id="1_amotn"]
 [ext_resource type="Script" path="res://common/character_creator/main/character_creator.gd" id="2_fmr2t"]
@@ -74,6 +74,7 @@
 [ext_resource type="Texture2D" uid="uid://cvau13bg15dtf" path="res://common/character_creator/icons/head.svg" id="50_fhbxd"]
 [ext_resource type="Texture2D" uid="uid://ckumeprvfsvuy" path="res://common/character_creator/icons/character_turn_left.svg" id="51_4u1rc"]
 [ext_resource type="Texture2D" uid="uid://v5q6jtimfeke" path="res://common/character_creator/icons/body.svg" id="51_md7jv"]
+[ext_resource type="Theme" uid="uid://pq6ete4ie6a8" path="res://common/character_creator/resources/character_creator_theme.tres" id="53_4hs5h"]
 [ext_resource type="Texture2D" uid="uid://bcr5qm35c4wqy" path="res://common/character_creator/resources/Blue_BG.jpg" id="53_76a01"]
 [ext_resource type="Texture2D" uid="uid://bjig0ewl4351f" path="res://common/character_creator/icons/makeup.svg" id="56_ovg12"]
 [ext_resource type="Texture2D" uid="uid://bjpe86d253612" path="res://common/character_creator/icons/glasses.svg" id="57_ipuyg"]
@@ -123,13 +124,13 @@ scale_min_max = Vector2(0.5, 1.5)
 
 [sub_resource type="LabelSettings" id="LabelSettings_00xxw"]
 font = ExtResource("41_ukr78")
-font_size = 48
+font_size = 100
 font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yqugs"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
-[node name="CharacterEditor" type="Control" node_paths=PackedStringArray("eyes_option_picker", "eyebrows_option_picker", "noses_option_picker", "ears_option_picker", "mouths_option_picker", "hair_option_picker", "eyeshadow_option_picker", "eyeliner_option_picker", "blush_option_picker", "glasses_option_picker", "mustaches_option_picker", "beards_option_picker", "nose_piercings_option_picker", "eyebrow_piercings_option_picker", "earrings_option_picker", "skin_color_option_pickers", "eyebrow_color_option_picker", "hair_color_option_picker", "mustache_color_option_picker", "beard_color_option_picker", "lip_color_option_picker", "eyeshadow_color_option_picker", "eyeliner_color_option_picker", "blush_color_option_picker", "eye_buttons", "eyebrow_buttons", "mouth_buttons", "glasses_buttons", "mustache_buttons", "shirt_option_picker", "pants_option_picker", "sock_option_picker", "shoes_option_picker", "belt_option_picker", "wrists_option_picker", "shirt_color_option_picker", "pants_color_option_picker", "sock_color_option_picker", "shoes_color_option_picker", "name_field", "randomize_button", "reset_button", "preview", "zoom_slider", "zoom_target_slider", "rotation_slider", "finish_button")]
+[node name="CharacterEditor" type="Control" node_paths=PackedStringArray("eyes_option_picker", "eyebrows_option_picker", "noses_option_picker", "ears_option_picker", "mouths_option_picker", "hair_option_picker", "eyeshadow_option_picker", "eyeliner_option_picker", "blush_option_picker", "glasses_option_picker", "mustaches_option_picker", "beards_option_picker", "nose_piercings_option_picker", "eyebrow_piercings_option_picker", "earrings_option_picker", "skin_color_option_pickers", "eyebrow_color_option_picker", "hair_color_option_picker", "mustache_color_option_picker", "beard_color_option_picker", "lip_color_option_picker", "eyeshadow_color_option_picker", "eyeliner_color_option_picker", "blush_color_option_picker", "eye_buttons", "eyebrow_buttons", "mouth_buttons", "glasses_buttons", "mustache_buttons", "shirt_option_picker", "pants_option_picker", "sock_option_picker", "shoes_option_picker", "belt_option_picker", "wrists_option_picker", "shirt_color_option_picker", "pants_color_option_picker", "sock_color_option_picker", "shoes_color_option_picker", "name_field", "randomize_button", "preview", "zoom_slider", "zoom_target_slider", "rotation_slider", "finish_button")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -187,10 +188,10 @@ shirt_color_option_picker = NodePath("Spacer/VBoxContainer2/HBoxContainer2/Where
 pants_color_option_picker = NodePath("Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/BodyOptionsTabGroup/PantsOptions/ColorOptionPicker")
 sock_color_option_picker = NodePath("Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/BodyOptionsTabGroup/FootwearOptions/ColorOptionPicker")
 shoes_color_option_picker = NodePath("Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/BodyOptionsTabGroup/FootwearOptions/ColorOptionPicker2")
-name_field = NodePath("Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/BodyOptionsTabGroup/Naming/LineEdit")
+name_field = NodePath("Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBodyButtons/LineEdit")
 randomize_button = NodePath("Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/BodyOptionsTabGroup/Naming/HBoxContainer/RandomizeButton")
-reset_button = NodePath("Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/BodyOptionsTabGroup/Naming/HBoxContainer/ResetButton")
 general_button_sound = "play_ui_click_primary"
+slider_sounds = "play_ui_click_hold"
 hair_icons = Array[Texture]([ExtResource("7_o25f1"), ExtResource("8_aptni"), ExtResource("9_igdo4"), ExtResource("10_x3yrl"), ExtResource("11_ppy87"), ExtResource("12_i24fy"), ExtResource("13_lcfea"), ExtResource("5_tgl5y"), ExtResource("6_s251f"), ExtResource("5_ina4w")])
 nose_icons = Array[Texture]([ExtResource("14_6uwex"), ExtResource("15_sjc8k"), ExtResource("16_vw5m5"), ExtResource("17_dau6g")])
 ear_icons = Array[Texture]([ExtResource("5_sqx8j"), ExtResource("6_rqkat"), ExtResource("7_mede7"), ExtResource("8_07sdn"), ExtResource("9_y81nd")])
@@ -201,7 +202,7 @@ earring_icons = Array[Texture]([ExtResource("28_wqgcf"), ExtResource("29_1wcng")
 wrist_icons = Array[Texture]([ExtResource("34_mftp0"), ExtResource("35_mwl8u"), ExtResource("36_ijucv"), ExtResource("37_7wji2"), ExtResource("38_mpu6x"), ExtResource("39_oncpk"), ExtResource("40_qotnk")])
 empty_icon = ExtResource("45_r1hef")
 preview = NodePath("Spacer/VBoxContainer2/HBoxContainer2/PreviewContainer/ReferenceRect/CenterContainer/PreviewTexture")
-zoom_slider = NodePath("Spacer/VBoxContainer2/HBoxContainer2/ZoomSliderHolder/HBoxContainer/MarginContainer/ReferenceRect2")
+zoom_slider = NodePath("Spacer/VBoxContainer2/HBoxContainer2/ZoomSliderHolder/HBoxContainer/MarginContainer/HBoxContainer/ReferenceRect2")
 zoom_target_slider = NodePath("Spacer/VBoxContainer2/HBoxContainer2/ZoomSliderHolder/HBoxContainer/ReferenceRect/ReferenceRect4/HBoxContainer/ReferenceRect2")
 rotation_slider = NodePath("Spacer/VBoxContainer2/HBoxContainer2/PreviewContainer/HBoxContainer/VBoxContainer/HScrollBar")
 edited_resource = ExtResource("46_o6t6a")
@@ -276,7 +277,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 1
 size_flags_stretch_ratio = 20.0
 theme = ExtResource("1_amotn")
-text = "Tidalcrest Country Club"
+text = "Tidal Crest Country Club Membership Card"
 label_settings = SubResource("LabelSettings_00xxw")
 vertical_alignment = 1
 
@@ -302,23 +303,10 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("1_amotn")
 
-[node name="ReferenceRect3" type="TextureRect" parent="Spacer/VBoxContainer2/HBoxContainer2/ZoomSliderHolder/HBoxContainer/ReferenceRect"]
-layout_mode = 2
-theme = ExtResource("1_amotn")
-texture = ExtResource("3_k7we3")
-expand_mode = 5
-stretch_mode = 4
-flip_h = true
-
 [node name="ReferenceRect4" type="VBoxContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/ZoomSliderHolder/HBoxContainer/ReferenceRect"]
 layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("1_amotn")
-
-[node name="ReferenceRect" type="ReferenceRect" parent="Spacer/VBoxContainer2/HBoxContainer2/ZoomSliderHolder/HBoxContainer/ReferenceRect/ReferenceRect4"]
-layout_mode = 2
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.13
 
 [node name="TextureRect" type="TextureRect" parent="Spacer/VBoxContainer2/HBoxContainer2/ZoomSliderHolder/HBoxContainer/ReferenceRect/ReferenceRect4"]
 layout_mode = 2
@@ -344,6 +332,7 @@ size_flags_stretch_ratio = 0.5
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme = ExtResource("53_4hs5h")
 max_value = 1.0
 step = 0.01
 page = 0.3
@@ -364,32 +353,60 @@ texture = ExtResource("51_md7jv")
 expand_mode = 4
 stretch_mode = 4
 
-[node name="ReferenceRect3" type="ReferenceRect" parent="Spacer/VBoxContainer2/HBoxContainer2/ZoomSliderHolder/HBoxContainer/ReferenceRect/ReferenceRect4"]
+[node name="MarginContainer" type="VBoxContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/ZoomSliderHolder/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_amotn")
+
+[node name="ReferenceRect3" type="TextureRect" parent="Spacer/VBoxContainer2/HBoxContainer2/ZoomSliderHolder/HBoxContainer/MarginContainer"]
+layout_mode = 2
+theme = ExtResource("1_amotn")
+texture = ExtResource("3_k7we3")
+expand_mode = 5
+stretch_mode = 4
+flip_h = true
+
+[node name="ReferenceRect5" type="ReferenceRect" parent="Spacer/VBoxContainer2/HBoxContainer2/ZoomSliderHolder/HBoxContainer/MarginContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-size_flags_stretch_ratio = 0.13
+size_flags_stretch_ratio = 0.05
 
-[node name="TextureRect" type="TextureRect" parent="Spacer/VBoxContainer2/HBoxContainer2/ZoomSliderHolder/HBoxContainer/ReferenceRect"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/ZoomSliderHolder/HBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.04
+
+[node name="ReferenceRect4" type="ReferenceRect" parent="Spacer/VBoxContainer2/HBoxContainer2/ZoomSliderHolder/HBoxContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
+
+[node name="ReferenceRect2" type="VScrollBar" parent="Spacer/VBoxContainer2/HBoxContainer2/ZoomSliderHolder/HBoxContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("53_4hs5h")
+max_value = 1.0
+step = 0.001
+page = 0.3
+
+[node name="ReferenceRect3" type="ReferenceRect" parent="Spacer/VBoxContainer2/HBoxContainer2/ZoomSliderHolder/HBoxContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
+
+[node name="ReferenceRect4" type="ReferenceRect" parent="Spacer/VBoxContainer2/HBoxContainer2/ZoomSliderHolder/HBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.05
+
+[node name="TextureRect" type="TextureRect" parent="Spacer/VBoxContainer2/HBoxContainer2/ZoomSliderHolder/HBoxContainer/MarginContainer"]
 layout_mode = 2
 theme = ExtResource("1_amotn")
 texture = ExtResource("4_jxcwy")
 expand_mode = 5
 stretch_mode = 4
 flip_h = true
-
-[node name="MarginContainer" type="MarginContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/ZoomSliderHolder/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme = ExtResource("1_amotn")
-theme_override_constants/margin_right = 0
-
-[node name="ReferenceRect2" type="VScrollBar" parent="Spacer/VBoxContainer2/HBoxContainer2/ZoomSliderHolder/HBoxContainer/MarginContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme = ExtResource("1_amotn")
-max_value = 1.0
-step = 0.001
-page = 0.3
 
 [node name="ReferenceRect" type="ReferenceRect" parent="Spacer/VBoxContainer2/HBoxContainer2/ZoomSliderHolder"]
 layout_mode = 2
@@ -475,7 +492,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.27
-theme = ExtResource("1_amotn")
+theme = ExtResource("53_4hs5h")
 min_value = 45.0
 max_value = 315.0
 step = 1.0
@@ -525,10 +542,18 @@ layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("1_amotn")
 
+[node name="LineEdit" type="LineEdit" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBodyButtons"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 3.07
+theme = ExtResource("1_amotn")
+placeholder_text = "Name..."
+
 [node name="ReferenceRect" type="ReferenceRect" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBodyButtons"]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_stretch_ratio = 4.03
+size_flags_stretch_ratio = 0.23
 theme = ExtResource("1_amotn")
 
 [node name="Button" type="Button" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBodyButtons" groups=["general_buttons"]]
@@ -2247,13 +2272,6 @@ layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.04
 
-[node name="LineEdit" type="LineEdit" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/BodyOptionsTabGroup/Naming"]
-layout_mode = 2
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.1
-theme = ExtResource("1_amotn")
-placeholder_text = "Name..."
-
 [node name="ReferenceRect" type="ReferenceRect" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/BodyOptionsTabGroup/Naming"]
 layout_mode = 2
 size_flags_vertical = 3
@@ -2271,16 +2289,6 @@ size_flags_horizontal = 3
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Randomize!"
-
-[node name="ReferenceRect3" type="ReferenceRect" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/BodyOptionsTabGroup/Naming/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 0.1
-
-[node name="ResetButton" type="Button" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/BodyOptionsTabGroup/Naming/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Reset"
 
 [node name="ReferenceRect2" type="ReferenceRect" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/BodyOptionsTabGroup/Naming/HBoxContainer"]
 layout_mode = 2

@@ -70,8 +70,8 @@ extends Control
 @export_group("Extra Options")
 @export var name_field: LineEdit
 @export var randomize_button: Button
-@export var reset_button: Button
 @export var general_button_sound: String
+@export var slider_sounds: String
 
 @export_group("Icons")
 @export var hair_icons: Array[Texture] = []
@@ -117,12 +117,15 @@ func _ready():
 	preview_scene.show_character(current_character)
 	preview_scene.callback = Callable(_set_preview)
 	
-	zoom_slider.value_changed.connect(preview_scene.set_zoom)
 	zoom_target_slider.value_changed.connect(preview_scene.set_zoom_target)
 	rotation_slider.value_changed.connect(preview_scene._set_rotation)
+	zoom_slider.value_changed.connect(preview_scene.set_zoom)
+
+	zoom_target_slider.value_changed.connect(play_slider_sound)
+	rotation_slider.value_changed.connect(play_slider_sound)
+	zoom_slider.value_changed.connect(play_slider_sound)
 
 	randomize_button.pressed.connect(_randomize)
-	reset_button.pressed.connect(_reset)
 	finish_button.pressed.connect(_finish)
 	
 	Wwise.register_game_obj(AudioManager, AudioManager.get_name())
@@ -227,6 +230,7 @@ func play_colorpicker_sound(): Wwise.post_event(color_button_sound, self)
 func play_gallery_sound(): Wwise.post_event(gallery_button_sound, self)
 func play_increase_sound(): Wwise.post_event(finetune_button_increase_sound, self)
 func play_decrease_sound(): Wwise.post_event(finetune_button_decrease_sound, self)
+func play_slider_sound(_value): Wwise.post_event(slider_sounds, self)
 
 
 func _process(delta: float):
