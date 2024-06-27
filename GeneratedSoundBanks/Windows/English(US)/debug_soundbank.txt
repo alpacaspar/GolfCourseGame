@@ -52,7 +52,5 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	769985241	x_debug_065	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\Voices\English(US)\x_debug_065_B64B9849.wem		\Actor-Mixer Hierarchy\Debug\Debug\x_debug_distance\x_debug_065	65	74280
 	831443501	x_debug_050	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\Voices\English(US)\x_debug_050_C2F2850A.wem		\Actor-Mixer Hierarchy\Debug\Debug\x_debug_distance\x_debug_050	50	52362
 	866386948	x_debug_025	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\Voices\English(US)\x_debug_025_A5CDF058.wem		\Actor-Mixer Hierarchy\Debug\Debug\x_debug_distance\x_debug_025	25	70778
-	924864582	x_debug_080	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\Voices\English(US)\x_debug_080_EDF8564D.wem		\Actor-Mixer Hierarchy\Debug\Debug\x_debug_distance\x_debug_080	80	49080
-	934108238	x_debug_005	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\Voices\English(US)\x_debug_005_5F049832.wem		\Actor-Mixer Hierarchy\Debug\Debug\x_debug_distance\x_debug_005	5	51264
 	935693697	x_debug_085	C:\Users\maxjo\Perforce\Off_Course\OffCourse_WwiseProject\.cache\Windows\Voices\English(US)\x_debug_085_E1D6B929.wem		\Actor-Mixer Hierarchy\Debug\Debug\x_debug_distance\x_debug_085	85	65762
 

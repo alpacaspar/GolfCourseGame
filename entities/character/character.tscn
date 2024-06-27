@@ -1,8 +1,8 @@
-[gd_scene load_steps=46 format=3 uid="uid://ck84hpbuds8v8"]
+[gd_scene load_steps=48 format=3 uid="uid://ck84hpbuds8v8"]
 
 [ext_resource type="Script" path="res://entities/character/character.gd" id="1_deigj"]
 [ext_resource type="AnimationLibrary" uid="uid://cteindhxey6qa" path="res://entities/character/animations/character_anim_library.res" id="2_od26b"]
-[ext_resource type="AnimationNodeBlendTree" uid="uid://b6g776vm2kvrn" path="res://entities/character/animations/character_animation_blend_tree.tres" id="3_1oxqe"]
+[ext_resource type="AnimationNodeBlendTree" uid="uid://bx4j66ovb31uh" path="res://entities/character/animations/character_animation_blend_tree.tres" id="3_1oxqe"]
 [ext_resource type="Material" uid="uid://bgo8uqe2x7t62" path="res://entities/character/body/character_body_material.tres" id="3_ashim"]
 [ext_resource type="Material" uid="uid://n65btp0wlcfs" path="res://entities/character/head/character_noseears_material.tres" id="6_m3ku2"]
 [ext_resource type="Material" uid="uid://p00w260lvywo" path="res://entities/character/clothing/clothing_skirt_material.tres" id="8_1ps1d"]
@@ -10,6 +10,8 @@
 [ext_resource type="Material" uid="uid://d0o8jgo78vcup" path="res://entities/character/head/character_hair_material.tres" id="9_n0h6m"]
 [ext_resource type="Script" path="res://entities/character/ak_locomotion.gd" id="12_3afj3"]
 [ext_resource type="Script" path="res://entities/equipment/equipment_slot.gd" id="12_gskdx"]
+[ext_resource type="Terrain3DStorage" uid="uid://d2cg7f8to0uep" path="res://entities/terrain/terrain_3d_storage.res" id="15_3imhx"]
+[ext_resource type="Terrain3DTextureList" uid="uid://dsih680v02hr7" path="res://entities/terrain/terrain_3d_texture_list.tres" id="16_g13ak"]
 
 [sub_resource type="Animation" id="Animation_ai1wp"]
 length = 0.001
@@ -1513,9 +1515,12 @@ bone_idx = 13
 transform = Transform3D(100, -4.09782e-06, -2.98023e-06, 4.09782e-06, 100, -1.49012e-06, 2.98023e-06, 1.49012e-06, 100, 4, 4, 0)
 script = ExtResource("12_gskdx")
 
-[node name="AnimationSoundEvents" type="Node3D" parent="."]
+[node name="AnimationSoundEvents" type="Node3D" parent="." node_paths=PackedStringArray("character")]
 script = ExtResource("12_3afj3")
-curve = SubResource("Curve_khq3e")
+character = NodePath("..")
+footstep_volume_curve = SubResource("Curve_khq3e")
+terrain3d_storage = ExtResource("15_3imhx")
+terrain3d_texture_list = ExtResource("16_g13ak")
 
 [node name="ActivityTimer" type="Timer" parent="AnimationSoundEvents"]
 one_shot = true

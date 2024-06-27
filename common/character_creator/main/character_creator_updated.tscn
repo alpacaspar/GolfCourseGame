@@ -2317,3 +2317,5 @@ mouse_filter = 2
 texture = ExtResource("68_panll")
 expand_mode = 4
 stretch_mode = 5
+
+[node name="AkListener3D" type="AkListener3D" parent="."]

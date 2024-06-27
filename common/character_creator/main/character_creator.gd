@@ -120,6 +120,9 @@ func _ready():
 	randomize_button.pressed.connect(_randomize)
 	reset_button.pressed.connect(_reset)
 	finish_button.pressed.connect(_finish)
+	
+	Wwise.register_game_obj(AudioManager, AudioManager.get_name())
+	Wwise.post_event("play_mus_creator", AudioManager)
 
 	# Colors
 	for picker: CreatorColorPicker in skin_color_option_pickers:

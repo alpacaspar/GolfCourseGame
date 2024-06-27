@@ -12,6 +12,9 @@ var last_velocity := Vector3.ZERO
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 
+func _ready():
+	Wwise.register_game_obj(self, get_name())
+
 func _physics_process(_delta: float):
 	last_velocity = linear_velocity
 
@@ -27,6 +30,9 @@ func _on_body_entered(body: Node3D):
 
 	if body.has_method("try_take_damage"):
 		body.try_take_damage(self, last_user.team, last_user.golfer_resource.power)
+	
+		AudioManager.try_set_switch(self, body, "int_ball_collision_type")
+		Wwise.post_event("play_int_ball_hit", self)
 
 
 func hit(originator: Unit):
@@ -61,6 +67,9 @@ func hit(originator: Unit):
 
 	linear_velocity = Vector3.ZERO
 	apply_impulse(launch_force)
+	
+	Wwise.set_switch("int_ball_collision_type", "golfclub", self)
+	Wwise.post_event("play_int_ball_hit", self)
 
 
 func _find_target() -> Node3D:

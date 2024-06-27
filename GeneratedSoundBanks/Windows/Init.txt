@@ -25,14 +25,20 @@ Switch	ID	Name	Switch Group			Notes
 	1282219709	distance_000	debug_distance			
 
 State Group	ID	Name			Wwise Object Path	Notes
+	229901964	Debug_State			\Debug\Debug_State	
 	984691642	InGame			\In-Game\InGame	
+	2276727602	Debug_State_01			\Debug_State\Debug_State_01	
 	2739846761	Battle_State			\Battle\Battle_State	
 
 State	ID	Name	State Group			Notes
+	369960656	Debug_State_1	Debug_State			
+	748895195	None	Debug_State			
 	579523862	Explore	InGame			
 	748895195	None	InGame			
 	2937832959	Battle	InGame			
 	3930136735	Dialogue	InGame			
+	369960656	Debug_State_1	Debug_State_01			
+	748895195	None	Debug_State_01			
 	461545889	Battle_End	Battle_State			
 	748895195	None	Battle_State			
 	2330123519	Battle_In_Progress	Battle_State			

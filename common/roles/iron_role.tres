@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Role" load_steps=3 format=3 uid="uid://brlyd0ki64nvw"]
+[gd_resource type="Resource" script_class="Role" load_steps=3 format=3 uid="uid://ct7ck7en1cxgk"]
 
 [ext_resource type="PackedScene" uid="uid://pyxcqseoy2w4" path="res://entities/equipment/club_iron.tscn" id="1_qteap"]
 [ext_resource type="Script" path="res://common/roles/role.gd" id="4_jtkam"]
