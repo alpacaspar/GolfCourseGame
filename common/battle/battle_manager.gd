@@ -1,6 +1,7 @@
 extends Node
 
 
+signal on_battle_requested
 signal on_battle_setup(teams: Array[Team], battle: Battle)
 signal on_battle_started(teams: Array[Team], battle: Battle)
 signal on_battle_ended(winning_team: TeamResource)
@@ -42,6 +43,8 @@ func _process(_delta: float):
 
 
 func start_battle(battle: PackedScene):
+	on_battle_requested.emit()
+
 	current_battle = battle.instantiate()
 	add_child(current_battle)
 

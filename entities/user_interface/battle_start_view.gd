@@ -35,5 +35,6 @@ func _close():
 
 
 func _on_battle_setup(_teams: Array[Team], battle: Battle):
+	view_group.pop_view()
 	view_group.push_view(self)
 	label.text = battle.battle_name
