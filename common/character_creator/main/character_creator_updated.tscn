@@ -1,4 +1,4 @@
-[gd_scene load_steps=95 format=3 uid="uid://c75huqds1lmet"]
+[gd_scene load_steps=97 format=3 uid="uid://c75huqds1lmet"]
 
 [ext_resource type="Theme" uid="uid://dr801tm3gbq04" path="res://common/character_creator/resources/new_character_creator_theme.tres" id="1_amotn"]
 [ext_resource type="Script" path="res://common/character_creator/main/character_creator.gd" id="2_fmr2t"]
@@ -81,11 +81,13 @@
 [ext_resource type="Texture2D" uid="uid://twlbf53xjobb" path="res://common/character_creator/icons/beard.svg" id="58_k7jpt"]
 [ext_resource type="Texture2D" uid="uid://dn02huk8udhxt" path="res://common/character_creator/icons/piercings.svg" id="59_st1hp"]
 [ext_resource type="Script" path="res://common/character_creator/pickers/finetune_buttons.gd" id="63_jpa6f"]
-[ext_resource type="Texture2D" uid="uid://cxqeblj4g32jp" path="res://common/character_creator/icons/extras/arrow-down-sign-to-navigate.png" id="64_g7ufw"]
 [ext_resource type="Texture2D" uid="uid://dcw1sll8ibpn4" path="res://common/character_creator/icons/star_golf_logo.png" id="68_panll"]
 [ext_resource type="Texture2D" uid="uid://d263nqdotgf41" path="res://common/character_creator/icons/watch.svg" id="72_nilvt"]
 [ext_resource type="Script" path="res://common/character_creator/pickers/creator_gallery_picker.gd" id="78_1h51o"]
 [ext_resource type="PackedScene" uid="uid://bj1d4jmao707v" path="res://common/character_creator/pickers/creator_gallery_option.tscn" id="79_i6qla"]
+[ext_resource type="Texture2D" uid="uid://df6d1hb1w48ly" path="res://common/character_creator/icons/extras/move_down.svg" id="81_fmc4i"]
+[ext_resource type="Texture2D" uid="uid://c2y3wlpweaekp" path="res://common/character_creator/icons/extras/size_increase.svg" id="82_lgbxh"]
+[ext_resource type="Texture2D" uid="uid://bilgndnl1ho62" path="res://common/character_creator/icons/extras/size_decrease.svg" id="83_6akdb"]
 [ext_resource type="Script" path="res://common/character_creator/tools/expanded_scroll_container.gd" id="84_o0ahd"]
 
 [sub_resource type="Resource" id="Resource_uplhe"]
@@ -287,6 +289,8 @@ vertical_alignment = 1
 [node name="FinishButton" type="Button" parent="Spacer/VBoxContainer2/TitleBox"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("41_ukr78")
+theme_override_font_sizes/font_size = 32
 text = "Finish!"
 
 [node name="TitleBox2" type="HBoxContainer" parent="Spacer/VBoxContainer2"]
@@ -540,6 +544,8 @@ offset_bottom = -4.0
 grow_horizontal = 0
 grow_vertical = 0
 size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("41_ukr78")
+theme_override_font_sizes/font_size = 32
 text = "Randomize!"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/PreviewContainer"]
@@ -1188,7 +1194,7 @@ offset_bottom = -7.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_amotn")
-texture = ExtResource("64_g7ufw")
+texture = ExtResource("81_fmc4i")
 expand_mode = 2
 stretch_mode = 5
 
@@ -1209,7 +1215,7 @@ offset_bottom = -7.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_amotn")
-texture = ExtResource("64_g7ufw")
+texture = ExtResource("81_fmc4i")
 expand_mode = 2
 stretch_mode = 5
 flip_v = true
@@ -1244,7 +1250,7 @@ offset_bottom = -7.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_amotn")
-texture = ExtResource("3_k7we3")
+texture = ExtResource("82_lgbxh")
 expand_mode = 2
 stretch_mode = 5
 
@@ -1265,7 +1271,7 @@ offset_bottom = -7.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_amotn")
-texture = ExtResource("4_jxcwy")
+texture = ExtResource("83_6akdb")
 expand_mode = 2
 stretch_mode = 5
 
@@ -1591,7 +1597,7 @@ offset_bottom = -7.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_amotn")
-texture = ExtResource("64_g7ufw")
+texture = ExtResource("81_fmc4i")
 expand_mode = 2
 stretch_mode = 5
 
@@ -1612,7 +1618,7 @@ offset_bottom = -7.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_amotn")
-texture = ExtResource("64_g7ufw")
+texture = ExtResource("81_fmc4i")
 expand_mode = 2
 stretch_mode = 5
 flip_v = true
@@ -1755,7 +1761,7 @@ offset_bottom = -7.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_amotn")
-texture = ExtResource("64_g7ufw")
+texture = ExtResource("81_fmc4i")
 expand_mode = 2
 stretch_mode = 5
 
@@ -1776,7 +1782,7 @@ offset_bottom = -7.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_amotn")
-texture = ExtResource("64_g7ufw")
+texture = ExtResource("81_fmc4i")
 expand_mode = 2
 stretch_mode = 5
 flip_v = true
@@ -1811,7 +1817,7 @@ offset_bottom = -7.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_amotn")
-texture = ExtResource("3_k7we3")
+texture = ExtResource("82_lgbxh")
 expand_mode = 2
 stretch_mode = 5
 
@@ -1832,7 +1838,7 @@ offset_bottom = -7.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_amotn")
-texture = ExtResource("4_jxcwy")
+texture = ExtResource("83_6akdb")
 expand_mode = 2
 stretch_mode = 5
 
