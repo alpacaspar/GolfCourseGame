@@ -1,4 +1,4 @@
-[gd_scene load_steps=95 format=3 uid="uid://c75huqds1lmet"]
+[gd_scene load_steps=97 format=3 uid="uid://c75huqds1lmet"]
 
 [ext_resource type="Theme" uid="uid://dr801tm3gbq04" path="res://common/character_creator/resources/new_character_creator_theme.tres" id="1_amotn"]
 [ext_resource type="Script" path="res://common/character_creator/main/character_creator.gd" id="2_fmr2t"]
@@ -81,11 +81,13 @@
 [ext_resource type="Texture2D" uid="uid://twlbf53xjobb" path="res://common/character_creator/icons/beard.svg" id="58_k7jpt"]
 [ext_resource type="Texture2D" uid="uid://dn02huk8udhxt" path="res://common/character_creator/icons/piercings.svg" id="59_st1hp"]
 [ext_resource type="Script" path="res://common/character_creator/pickers/finetune_buttons.gd" id="63_jpa6f"]
-[ext_resource type="Texture2D" uid="uid://cxqeblj4g32jp" path="res://common/character_creator/icons/extras/arrow-down-sign-to-navigate.png" id="64_g7ufw"]
 [ext_resource type="Texture2D" uid="uid://dcw1sll8ibpn4" path="res://common/character_creator/icons/star_golf_logo.png" id="68_panll"]
 [ext_resource type="Texture2D" uid="uid://d263nqdotgf41" path="res://common/character_creator/icons/watch.svg" id="72_nilvt"]
 [ext_resource type="Script" path="res://common/character_creator/pickers/creator_gallery_picker.gd" id="78_1h51o"]
 [ext_resource type="PackedScene" uid="uid://bj1d4jmao707v" path="res://common/character_creator/pickers/creator_gallery_option.tscn" id="79_i6qla"]
+[ext_resource type="Texture2D" uid="uid://df6d1hb1w48ly" path="res://common/character_creator/icons/extras/move_down.svg" id="81_fmc4i"]
+[ext_resource type="Texture2D" uid="uid://c2y3wlpweaekp" path="res://common/character_creator/icons/extras/size_increase.svg" id="82_lgbxh"]
+[ext_resource type="Texture2D" uid="uid://bilgndnl1ho62" path="res://common/character_creator/icons/extras/size_decrease.svg" id="83_6akdb"]
 [ext_resource type="Script" path="res://common/character_creator/tools/expanded_scroll_container.gd" id="84_o0ahd"]
 
 [sub_resource type="Resource" id="Resource_uplhe"]
@@ -192,7 +194,9 @@ shoes_color_option_picker = NodePath("Spacer/VBoxContainer2/HBoxContainer2/Where
 name_field = NodePath("Spacer/VBoxContainer2/TitleBox2/VBoxContainer/LineEdit")
 randomize_button = NodePath("Spacer/VBoxContainer2/HBoxContainer2/PreviewContainer/ReferenceRect/Control/RandomizeButton")
 general_button_sound = "play_ui_click_primary"
-slider_sounds = "play_ui_click_hold"
+slider_grab_sound = "play_ui_click_hold"
+slider_ungrab_sounds = "play_ui_unclick_release"
+randomize_sound = "play_ui_click_randomize"
 hair_icons = Array[Texture]([ExtResource("7_o25f1"), ExtResource("8_aptni"), ExtResource("9_igdo4"), ExtResource("10_x3yrl"), ExtResource("11_ppy87"), ExtResource("12_i24fy"), ExtResource("13_lcfea"), ExtResource("5_tgl5y"), ExtResource("6_s251f"), ExtResource("5_ina4w")])
 nose_icons = Array[Texture]([ExtResource("14_6uwex"), ExtResource("15_sjc8k"), ExtResource("16_vw5m5"), ExtResource("17_dau6g")])
 ear_icons = Array[Texture]([ExtResource("5_sqx8j"), ExtResource("6_rqkat"), ExtResource("7_mede7"), ExtResource("8_07sdn"), ExtResource("9_y81nd")])
@@ -285,6 +289,8 @@ vertical_alignment = 1
 [node name="FinishButton" type="Button" parent="Spacer/VBoxContainer2/TitleBox"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("41_ukr78")
+theme_override_font_sizes/font_size = 32
 text = "Finish!"
 
 [node name="TitleBox2" type="HBoxContainer" parent="Spacer/VBoxContainer2"]
@@ -389,14 +395,13 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.5
 
-[node name="ReferenceRect2" type="VScrollBar" parent="Spacer/VBoxContainer2/HBoxContainer2/ZoomSliderHolder/HBoxContainer/ReferenceRect/ReferenceRect4/HBoxContainer"]
+[node name="ReferenceRect2" type="VSlider" parent="Spacer/VBoxContainer2/HBoxContainer2/ZoomSliderHolder/HBoxContainer/ReferenceRect/ReferenceRect4/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource("53_4hs5h")
 max_value = 1.0
 step = 0.01
-page = 0.3
 
 [node name="ReferenceRect" type="ReferenceRect" parent="Spacer/VBoxContainer2/HBoxContainer2/ZoomSliderHolder/HBoxContainer/ReferenceRect/ReferenceRect4/HBoxContainer"]
 layout_mode = 2
@@ -442,14 +447,13 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.5
 
-[node name="ReferenceRect2" type="VScrollBar" parent="Spacer/VBoxContainer2/HBoxContainer2/ZoomSliderHolder/HBoxContainer/MarginContainer/HBoxContainer"]
+[node name="ReferenceRect2" type="VSlider" parent="Spacer/VBoxContainer2/HBoxContainer2/ZoomSliderHolder/HBoxContainer/MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource("53_4hs5h")
 max_value = 1.0
 step = 0.001
-page = 0.3
 
 [node name="ReferenceRect3" type="ReferenceRect" parent="Spacer/VBoxContainer2/HBoxContainer2/ZoomSliderHolder/HBoxContainer/MarginContainer/HBoxContainer"]
 layout_mode = 2
@@ -540,6 +544,8 @@ offset_bottom = -4.0
 grow_horizontal = 0
 grow_vertical = 0
 size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("41_ukr78")
+theme_override_font_sizes/font_size = 32
 text = "Randomize!"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/PreviewContainer"]
@@ -567,7 +573,7 @@ size_flags_vertical = 3
 size_flags_stretch_ratio = 0.05
 theme = ExtResource("1_amotn")
 
-[node name="HScrollBar" type="HScrollBar" parent="Spacer/VBoxContainer2/HBoxContainer2/PreviewContainer/HBoxContainer/VBoxContainer"]
+[node name="HScrollBar" type="HSlider" parent="Spacer/VBoxContainer2/HBoxContainer2/PreviewContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -575,8 +581,7 @@ size_flags_stretch_ratio = 0.27
 theme = ExtResource("53_4hs5h")
 min_value = 45.0
 max_value = 315.0
-step = 1.0
-page = 30.0
+page = 1.0
 value = 180.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/PreviewContainer/HBoxContainer/VBoxContainer"]
@@ -677,13 +682,11 @@ layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 8.27
 theme = ExtResource("1_amotn")
-current_tab = 1
 tabs_visible = false
 script = ExtResource("8_g1j11")
 button_group = ExtResource("5_snfil")
 
 [node name="FaceOptions" type="VBoxContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody"]
-visible = false
 layout_mode = 2
 theme = ExtResource("1_amotn")
 
@@ -1078,13 +1081,11 @@ layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 7.0
 theme = ExtResource("1_amotn")
-current_tab = 6
 tabs_visible = false
 script = ExtResource("8_g1j11")
 button_group = ExtResource("15_gsruc")
 
 [node name="EyeOptions" type="VBoxContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup"]
-visible = false
 layout_mode = 2
 theme = ExtResource("1_amotn")
 
@@ -1096,7 +1097,6 @@ tracker = ExtResource("22_4oapn")
 [node name="EyeGallery" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/EyeOptions" instance=ExtResource("14_sq54w")]
 layout_mode = 2
 size_flags_stretch_ratio = 6.0
-theme = ExtResource("1_amotn")
 show_slider = true
 
 [node name="Buttons" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/EyeOptions" instance=ExtResource("24_qcc4a")]
@@ -1118,8 +1118,6 @@ theme = ExtResource("1_amotn")
 [node name="CreatorGallery" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/EyebrowOptions" instance=ExtResource("14_sq54w")]
 layout_mode = 2
 size_flags_stretch_ratio = 6.0
-theme = ExtResource("1_amotn")
-show_slider = false
 
 [node name="Buttons2" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/EyebrowOptions" instance=ExtResource("24_qcc4a")]
 layout_mode = 2
@@ -1140,7 +1138,6 @@ theme = ExtResource("1_amotn")
 [node name="CreatorGallery" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/MouthOptions" instance=ExtResource("14_sq54w")]
 layout_mode = 2
 size_flags_stretch_ratio = 6.0
-theme = ExtResource("1_amotn")
 show_slider = true
 
 [node name="Buttons" type="VBoxContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/MouthOptions" node_paths=PackedStringArray("up_button", "down_button", "scale_up_button", "scale_down_button")]
@@ -1197,7 +1194,7 @@ offset_bottom = -7.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_amotn")
-texture = ExtResource("64_g7ufw")
+texture = ExtResource("81_fmc4i")
 expand_mode = 2
 stretch_mode = 5
 
@@ -1218,7 +1215,7 @@ offset_bottom = -7.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_amotn")
-texture = ExtResource("64_g7ufw")
+texture = ExtResource("81_fmc4i")
 expand_mode = 2
 stretch_mode = 5
 flip_v = true
@@ -1253,7 +1250,7 @@ offset_bottom = -7.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_amotn")
-texture = ExtResource("3_k7we3")
+texture = ExtResource("82_lgbxh")
 expand_mode = 2
 stretch_mode = 5
 
@@ -1274,7 +1271,7 @@ offset_bottom = -7.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_amotn")
-texture = ExtResource("4_jxcwy")
+texture = ExtResource("83_6akdb")
 expand_mode = 2
 stretch_mode = 5
 
@@ -1303,8 +1300,6 @@ tracker = ExtResource("22_4oapn")
 [node name="CreatorGallery" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/EarOptions" instance=ExtResource("14_sq54w")]
 layout_mode = 2
 size_flags_stretch_ratio = 7.0
-theme = ExtResource("1_amotn")
-show_slider = false
 
 [node name="NoseOptions" type="VBoxContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup"]
 visible = false
@@ -1319,8 +1314,6 @@ tracker = ExtResource("22_4oapn")
 [node name="CreatorGallery" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/NoseOptions" instance=ExtResource("14_sq54w")]
 layout_mode = 2
 size_flags_stretch_ratio = 7.0
-theme = ExtResource("1_amotn")
-show_slider = false
 
 [node name="HairOptions" type="VBoxContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup"]
 visible = false
@@ -1334,10 +1327,10 @@ theme = ExtResource("1_amotn")
 [node name="CreatorGallery" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/HairOptions" instance=ExtResource("14_sq54w")]
 layout_mode = 2
 size_flags_stretch_ratio = 7.0
-theme = ExtResource("1_amotn")
 show_slider = true
 
 [node name="MakeupOptions" type="VBoxContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup"]
+visible = false
 layout_mode = 2
 theme = ExtResource("1_amotn")
 
@@ -1355,6 +1348,8 @@ vertical_scroll_mode = 3
 script = ExtResource("84_o0ahd")
 show_slider = true
 slider = NodePath("../VBoxContainer/VScrollBar")
+slider_grab_sound = "play_ui_click_hold"
+slider_ungrab_sounds = "play_ui_unclick_release"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/MakeupOptions/HBoxContainer/ScrollContainer"]
 custom_minimum_size = Vector2(0, 1800)
@@ -1376,7 +1371,6 @@ theme_override_constants/separation = 0
 script = ExtResource("78_1h51o")
 npc_customizer_button_prefab = ExtResource("79_i6qla")
 button_holder = NodePath("HBoxContainer/GridContainer")
-show_slider = false
 
 [node name="ReferenceRect2" type="ReferenceRect" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/MakeupOptions/HBoxContainer/ScrollContainer/VBoxContainer/CreatorGallery"]
 layout_mode = 2
@@ -1426,7 +1420,6 @@ theme_override_constants/separation = 0
 script = ExtResource("78_1h51o")
 npc_customizer_button_prefab = ExtResource("79_i6qla")
 button_holder = NodePath("HBoxContainer/GridContainer")
-show_slider = false
 
 [node name="ReferenceRect2" type="ReferenceRect" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/MakeupOptions/HBoxContainer/ScrollContainer/VBoxContainer/CreatorGallery2"]
 layout_mode = 2
@@ -1476,7 +1469,6 @@ theme_override_constants/separation = 0
 script = ExtResource("78_1h51o")
 npc_customizer_button_prefab = ExtResource("79_i6qla")
 button_holder = NodePath("HBoxContainer/GridContainer")
-show_slider = false
 
 [node name="ReferenceRect2" type="ReferenceRect" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/MakeupOptions/HBoxContainer/ScrollContainer/VBoxContainer/CreatorGallery3"]
 layout_mode = 2
@@ -1553,7 +1545,6 @@ theme = ExtResource("1_amotn")
 [node name="CreatorGallery" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/GlassesOptions" instance=ExtResource("14_sq54w")]
 layout_mode = 2
 size_flags_stretch_ratio = 6.0
-theme = ExtResource("1_amotn")
 show_slider = true
 
 [node name="Buttons" type="VBoxContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/GlassesOptions" node_paths=PackedStringArray("up_button", "down_button")]
@@ -1606,7 +1597,7 @@ offset_bottom = -7.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_amotn")
-texture = ExtResource("64_g7ufw")
+texture = ExtResource("81_fmc4i")
 expand_mode = 2
 stretch_mode = 5
 
@@ -1627,7 +1618,7 @@ offset_bottom = -7.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_amotn")
-texture = ExtResource("64_g7ufw")
+texture = ExtResource("81_fmc4i")
 expand_mode = 2
 stretch_mode = 5
 flip_v = true
@@ -1662,6 +1653,8 @@ vertical_scroll_mode = 3
 script = ExtResource("84_o0ahd")
 show_slider = true
 slider = NodePath("../VBoxContainer/VScrollBar")
+slider_grab_sound = "play_ui_click_hold"
+slider_ungrab_sounds = "play_ui_unclick_release"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/FacialHairOptions/HBoxContainer/ScrollContainer"]
 custom_minimum_size = Vector2(0, 1800)
@@ -1683,7 +1676,6 @@ theme_override_constants/separation = 0
 script = ExtResource("78_1h51o")
 npc_customizer_button_prefab = ExtResource("79_i6qla")
 button_holder = NodePath("HBoxContainer/GridContainer")
-show_slider = false
 
 [node name="ReferenceRect2" type="ReferenceRect" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/FacialHairOptions/HBoxContainer/ScrollContainer/VBoxContainer/CreatorGallery"]
 layout_mode = 2
@@ -1769,7 +1761,7 @@ offset_bottom = -7.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_amotn")
-texture = ExtResource("64_g7ufw")
+texture = ExtResource("81_fmc4i")
 expand_mode = 2
 stretch_mode = 5
 
@@ -1790,7 +1782,7 @@ offset_bottom = -7.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_amotn")
-texture = ExtResource("64_g7ufw")
+texture = ExtResource("81_fmc4i")
 expand_mode = 2
 stretch_mode = 5
 flip_v = true
@@ -1825,7 +1817,7 @@ offset_bottom = -7.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_amotn")
-texture = ExtResource("3_k7we3")
+texture = ExtResource("82_lgbxh")
 expand_mode = 2
 stretch_mode = 5
 
@@ -1846,7 +1838,7 @@ offset_bottom = -7.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_amotn")
-texture = ExtResource("4_jxcwy")
+texture = ExtResource("83_6akdb")
 expand_mode = 2
 stretch_mode = 5
 
@@ -1881,7 +1873,6 @@ theme_override_constants/separation = 0
 script = ExtResource("78_1h51o")
 npc_customizer_button_prefab = ExtResource("79_i6qla")
 button_holder = NodePath("HBoxContainer/GridContainer")
-show_slider = false
 
 [node name="ReferenceRect2" type="ReferenceRect" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/FacialHairOptions/HBoxContainer/ScrollContainer/VBoxContainer/CreatorGallery2"]
 layout_mode = 2
@@ -1969,6 +1960,8 @@ vertical_scroll_mode = 3
 script = ExtResource("84_o0ahd")
 show_slider = true
 slider = NodePath("../VBoxContainer/VScrollBar")
+slider_grab_sound = "play_ui_click_hold"
+slider_ungrab_sounds = "play_ui_unclick_release"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/PiercingOptions/HBoxContainer/ScrollContainer"]
 custom_minimum_size = Vector2(0, 1400)
@@ -1986,7 +1979,6 @@ theme_override_constants/separation = 0
 script = ExtResource("78_1h51o")
 npc_customizer_button_prefab = ExtResource("79_i6qla")
 button_holder = NodePath("HBoxContainer/GridContainer")
-show_slider = false
 
 [node name="ReferenceRect2" type="ReferenceRect" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/PiercingOptions/HBoxContainer/ScrollContainer/VBoxContainer/CreatorGallery"]
 layout_mode = 2
@@ -2032,7 +2024,6 @@ theme_override_constants/separation = 0
 script = ExtResource("78_1h51o")
 npc_customizer_button_prefab = ExtResource("79_i6qla")
 button_holder = NodePath("HBoxContainer/GridContainer")
-show_slider = false
 
 [node name="ReferenceRect2" type="ReferenceRect" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/PiercingOptions/HBoxContainer/ScrollContainer/VBoxContainer/CreatorGallery3"]
 layout_mode = 2
@@ -2079,7 +2070,6 @@ theme_override_constants/separation = 0
 script = ExtResource("78_1h51o")
 npc_customizer_button_prefab = ExtResource("79_i6qla")
 button_holder = NodePath("HBoxContainer/GridContainer")
-show_slider = false
 
 [node name="ReferenceRect2" type="ReferenceRect" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/FaceOptions/FaceOptionsTabGroup/PiercingOptions/HBoxContainer/ScrollContainer/VBoxContainer/CreatorGallery2"]
 layout_mode = 2
@@ -2149,6 +2139,7 @@ size_flags_vertical = 3
 border_color = Color(1, 1, 1, 0)
 
 [node name="BodyOptions" type="VBoxContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody"]
+visible = false
 layout_mode = 2
 theme = ExtResource("1_amotn")
 
@@ -2269,31 +2260,6 @@ texture = ExtResource("72_nilvt")
 expand_mode = 2
 stretch_mode = 5
 
-[node name="ReferenceRect12" type="ReferenceRect" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/ButtonHolder/BodyButtons"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 0.1
-theme = ExtResource("1_amotn")
-
-[node name="Button5" type="Button" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/ButtonHolder/BodyButtons" groups=["general_buttons"]]
-layout_mode = 2
-size_flags_horizontal = 3
-theme = ExtResource("1_amotn")
-toggle_mode = true
-button_group = ExtResource("29_8hw7x")
-
-[node name="TextureRect" type="TextureRect" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/ButtonHolder/BodyButtons/Button5"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = ExtResource("1_amotn")
-texture = ExtResource("13_rfnlh")
-expand_mode = 2
-stretch_mode = 5
-
 [node name="ReferenceRect13" type="ReferenceRect" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/ButtonHolder/BodyButtons"]
 layout_mode = 2
 size_flags_horizontal = 3
@@ -2311,13 +2277,11 @@ layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 7.0
 theme = ExtResource("1_amotn")
-current_tab = 2
 tabs_visible = false
 script = ExtResource("8_g1j11")
 button_group = ExtResource("29_8hw7x")
 
 [node name="ShirtOptions" type="VBoxContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/BodyOptionsTabGroup"]
-visible = false
 layout_mode = 2
 theme = ExtResource("1_amotn")
 
@@ -2328,7 +2292,6 @@ theme = ExtResource("1_amotn")
 [node name="ShirtGallery" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/BodyOptionsTabGroup/ShirtOptions" instance=ExtResource("14_sq54w")]
 layout_mode = 2
 size_flags_stretch_ratio = 7.0
-theme = ExtResource("1_amotn")
 show_slider = true
 
 [node name="PantsOptions" type="VBoxContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/BodyOptionsTabGroup"]
@@ -2343,10 +2306,9 @@ theme = ExtResource("1_amotn")
 [node name="PantsGallery" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/BodyOptionsTabGroup/PantsOptions" instance=ExtResource("14_sq54w")]
 layout_mode = 2
 size_flags_stretch_ratio = 7.0
-theme = ExtResource("1_amotn")
-show_slider = false
 
 [node name="FootwearOptions" type="VBoxContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/BodyOptionsTabGroup"]
+visible = false
 layout_mode = 2
 theme = ExtResource("1_amotn")
 
@@ -2363,6 +2325,8 @@ vertical_scroll_mode = 3
 script = ExtResource("84_o0ahd")
 show_slider = true
 slider = NodePath("../VBoxContainer/VScrollBar")
+slider_grab_sound = "play_ui_click_hold"
+slider_ungrab_sounds = "play_ui_unclick_release"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/BodyOptionsTabGroup/FootwearOptions/HBoxContainer/ScrollContainer"]
 custom_minimum_size = Vector2(0, 1550)
@@ -2384,7 +2348,6 @@ theme_override_constants/separation = 0
 script = ExtResource("78_1h51o")
 npc_customizer_button_prefab = ExtResource("79_i6qla")
 button_holder = NodePath("HBoxContainer/GridContainer")
-show_slider = false
 
 [node name="ReferenceRect2" type="ReferenceRect" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/BodyOptionsTabGroup/FootwearOptions/HBoxContainer/ScrollContainer/VBoxContainer/SockGallery"]
 layout_mode = 2
@@ -2442,7 +2405,6 @@ theme_override_constants/separation = 0
 script = ExtResource("78_1h51o")
 npc_customizer_button_prefab = ExtResource("79_i6qla")
 button_holder = NodePath("HBoxContainer/GridContainer")
-show_slider = false
 
 [node name="ReferenceRect2" type="ReferenceRect" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/BodyOptionsTabGroup/FootwearOptions/HBoxContainer/ScrollContainer/VBoxContainer/ShoesGallery"]
 layout_mode = 2
@@ -2536,6 +2498,8 @@ vertical_scroll_mode = 3
 script = ExtResource("84_o0ahd")
 show_slider = true
 slider = NodePath("../VBoxContainer/VScrollBar")
+slider_grab_sound = "play_ui_click_hold"
+slider_ungrab_sounds = "play_ui_unclick_release"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/BodyOptionsTabGroup/AccesoriesOptions/HBoxContainer/ScrollContainer"]
 custom_minimum_size = Vector2(0, 1300)
@@ -2553,7 +2517,6 @@ theme_override_constants/separation = 0
 script = ExtResource("78_1h51o")
 npc_customizer_button_prefab = ExtResource("79_i6qla")
 button_holder = NodePath("HBoxContainer/GridContainer")
-show_slider = false
 
 [node name="ReferenceRect2" type="ReferenceRect" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/BodyOptionsTabGroup/AccesoriesOptions/HBoxContainer/ScrollContainer/VBoxContainer/BeltGallery"]
 layout_mode = 2
@@ -2600,7 +2563,6 @@ theme_override_constants/separation = 0
 script = ExtResource("78_1h51o")
 npc_customizer_button_prefab = ExtResource("79_i6qla")
 button_holder = NodePath("HBoxContainer/GridContainer")
-show_slider = false
 
 [node name="ReferenceRect2" type="ReferenceRect" parent="Spacer/VBoxContainer2/HBoxContainer2/WhereTheFunHappens/FaceBody/BodyOptions/BodyOptionsTabGroup/AccesoriesOptions/HBoxContainer/ScrollContainer/VBoxContainer/WristGallery"]
 layout_mode = 2

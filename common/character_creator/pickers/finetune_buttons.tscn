@@ -1,12 +1,15 @@
-[gd_scene load_steps=8 format=3 uid="uid://daduc6vljvtkd"]
+[gd_scene load_steps=11 format=3 uid="uid://daduc6vljvtkd"]
 
 [ext_resource type="Theme" uid="uid://pq6ete4ie6a8" path="res://common/character_creator/resources/character_creator_theme.tres" id="1_7160r"]
 [ext_resource type="Script" path="res://common/character_creator/pickers/finetune_buttons.gd" id="1_rwyyh"]
-[ext_resource type="Texture2D" uid="uid://byb87wlds3nnr" path="res://common/character_creator/icons/extras/right-arrow.png" id="2_2v7ad"]
-[ext_resource type="Texture2D" uid="uid://cxqeblj4g32jp" path="res://common/character_creator/icons/extras/arrow-down-sign-to-navigate.png" id="3_cd760"]
-[ext_resource type="Texture2D" uid="uid://joyadv5e1bqp" path="res://common/character_creator/icons/extras/rotate-right.png" id="4_12cc1"]
-[ext_resource type="Texture2D" uid="uid://bomv5ke20rhsb" path="res://common/character_creator/icons/extras/zoom-in.png" id="5_il5vh"]
-[ext_resource type="Texture2D" uid="uid://dbicohqe3hgws" path="res://common/character_creator/icons/extras/magnifying-glass.png" id="6_btvl7"]
+[ext_resource type="Texture2D" uid="uid://d0mova5nqw5ld" path="res://common/character_creator/icons/extras/move_inwards.svg" id="3_fdlcx"]
+[ext_resource type="Texture2D" uid="uid://b124ek57k1bjx" path="res://common/character_creator/icons/extras/move_outwards.svg" id="4_j7flo"]
+[ext_resource type="Texture2D" uid="uid://df6d1hb1w48ly" path="res://common/character_creator/icons/extras/move_down.svg" id="5_6hd8h"]
+[ext_resource type="Texture2D" uid="uid://dw5es6ys8tyve" path="res://common/character_creator/icons/extras/move_up.svg" id="6_oh3lk"]
+[ext_resource type="Texture2D" uid="uid://b8incfqvq4ro7" path="res://common/character_creator/icons/extras/rotate_outward.svg" id="7_8wpf3"]
+[ext_resource type="Texture2D" uid="uid://c2vw5diyv0cx3" path="res://common/character_creator/icons/extras/rotate_inward.svg" id="8_m5ip3"]
+[ext_resource type="Texture2D" uid="uid://c2y3wlpweaekp" path="res://common/character_creator/icons/extras/size_increase.svg" id="9_g1qbc"]
+[ext_resource type="Texture2D" uid="uid://bilgndnl1ho62" path="res://common/character_creator/icons/extras/size_decrease.svg" id="10_dv1hm"]
 
 [node name="Buttons" type="VBoxContainer" node_paths=PackedStringArray("up_button", "down_button", "left_button", "right_button", "rotate_left_button", "rotate_right_button", "scale_up_button", "scale_down_button")]
 anchors_preset = 15
@@ -66,10 +69,9 @@ offset_bottom = -7.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_7160r")
-texture = ExtResource("2_2v7ad")
-expand_mode = 2
+texture = ExtResource("3_fdlcx")
+expand_mode = 4
 stretch_mode = 5
-flip_h = true
 
 [node name="RightButton" type="Button" parent="HBoxContainer3/HBoxContainer" groups=["decrease_buttons"]]
 layout_mode = 2
@@ -87,8 +89,8 @@ offset_bottom = -7.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_7160r")
-texture = ExtResource("2_2v7ad")
-expand_mode = 2
+texture = ExtResource("4_j7flo")
+expand_mode = 4
 stretch_mode = 5
 
 [node name="ReferenceRect2" type="ReferenceRect" parent="HBoxContainer3"]
@@ -118,7 +120,7 @@ offset_bottom = -7.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_7160r")
-texture = ExtResource("3_cd760")
+texture = ExtResource("5_6hd8h")
 expand_mode = 2
 stretch_mode = 5
 
@@ -138,10 +140,9 @@ offset_bottom = -7.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_7160r")
-texture = ExtResource("3_cd760")
+texture = ExtResource("6_oh3lk")
 expand_mode = 2
 stretch_mode = 5
-flip_v = true
 
 [node name="ReferenceRect3" type="ReferenceRect" parent="HBoxContainer3"]
 layout_mode = 2
@@ -170,10 +171,9 @@ offset_bottom = -6.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_7160r")
-texture = ExtResource("4_12cc1")
-expand_mode = 2
+texture = ExtResource("7_8wpf3")
+expand_mode = 4
 stretch_mode = 5
-flip_h = true
 
 [node name="RotateRightButton" type="Button" parent="HBoxContainer3/HBoxContainer3" groups=["decrease_buttons"]]
 layout_mode = 2
@@ -191,8 +191,8 @@ offset_bottom = -6.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_7160r")
-texture = ExtResource("4_12cc1")
-expand_mode = 2
+texture = ExtResource("8_m5ip3")
+expand_mode = 4
 stretch_mode = 5
 
 [node name="ReferenceRect4" type="ReferenceRect" parent="HBoxContainer3"]
@@ -222,7 +222,7 @@ offset_bottom = -7.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_7160r")
-texture = ExtResource("5_il5vh")
+texture = ExtResource("9_g1qbc")
 expand_mode = 2
 stretch_mode = 5
 
@@ -242,7 +242,7 @@ offset_bottom = -7.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_7160r")
-texture = ExtResource("6_btvl7")
+texture = ExtResource("10_dv1hm")
 expand_mode = 2
 stretch_mode = 5
 

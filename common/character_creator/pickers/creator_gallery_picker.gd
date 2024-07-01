@@ -10,6 +10,9 @@ extends Control
 @export var slider: ScrollBar
 @export var scroll_container: ScrollContainer
 
+@export var slider_grab_sound: String
+@export var slider_ungrab_sounds: String
+
 var includes_empty := false
 var button_group: ButtonGroup
 
@@ -17,11 +20,13 @@ var button_group: ButtonGroup
 func _ready():
 	button_group = ButtonGroup.new()
 
-	if slider != null:	
+	if slider != null:
 		if !show_slider:
 			slider.visible = false
 			get_child(1).get_child(2).visible = false
 		
+		# slider.drag_started.connect(play_slider_grab_sound)
+		# slider.drag_ended.connect(play_slider_ungrab_sound)
 		slider.value_changed.connect(_scroll)
 
 
@@ -34,9 +39,10 @@ func _process(_delta):
 		_scroll(scroll_container.scroll_vertical)
 
 	slider.max_value = button_holder.size.y - scroll_container.size.y
+	slider.page = slider.max_value / 5
 	last_val = scroll_container.scroll_vertical
 
-	
+
 func add_empty(texture: Texture, button_callback):
 	var button := npc_customizer_button_prefab.instantiate() as NPCCustomizerOption
 	button_holder.add_child(button)
@@ -79,3 +85,7 @@ func get_option_count() -> int:
 func _scroll(value := 0):
 	scroll_container.scroll_vertical = value
 	slider.value = value
+
+
+func play_slider_grab_sound(): Wwise.post_event(slider_grab_sound, self)
+func play_slider_ungrab_sound(_value): Wwise.post_event(slider_ungrab_sounds, self)

@@ -71,7 +71,9 @@ extends Control
 @export var name_field: LineEdit
 @export var randomize_button: Button
 @export var general_button_sound: String
-@export var slider_sounds: String
+@export var slider_grab_sound: String
+@export var slider_ungrab_sounds: String
+@export var randomize_sound: String
 
 @export_group("Icons")
 @export var hair_icons: Array[Texture] = []
@@ -86,9 +88,9 @@ extends Control
 
 @export_group("Preview Stuff")
 @export var preview: TextureRect
-@export var zoom_slider: ScrollBar
-@export var zoom_target_slider: ScrollBar
-@export var rotation_slider: ScrollBar
+@export var zoom_slider: Slider
+@export var zoom_target_slider: Slider
+@export var rotation_slider: Slider
 
 @export var edited_resource: NPCResource
 
@@ -123,11 +125,15 @@ func _ready():
 	rotation_slider.value_changed.connect(preview_scene._set_rotation)
 	zoom_slider.value_changed.connect(preview_scene.set_zoom)
 
-	zoom_target_slider.value_changed.connect(play_slider_sound)
-	rotation_slider.value_changed.connect(play_slider_sound)
-	zoom_slider.value_changed.connect(play_slider_sound)
+	zoom_target_slider.drag_started.connect(play_slider_grab_sound)
+	zoom_target_slider.drag_ended.connect(play_slider_ungrab_sound)
+	rotation_slider.drag_started.connect(play_slider_grab_sound)
+	rotation_slider.drag_ended.connect(play_slider_ungrab_sound)
+	zoom_slider.drag_started.connect(play_slider_grab_sound)
+	zoom_slider.drag_ended.connect(play_slider_ungrab_sound)
 
 	randomize_button.pressed.connect(_randomize)
+	randomize_button.pressed.connect(play_randomize_sound)
 	finish_button.pressed.connect(_finish)
 	
 	Wwise.register_game_obj(AudioManager, AudioManager.get_name())
@@ -230,7 +236,9 @@ func play_colorpicker_sound(): Wwise.post_event(color_button_sound, self)
 func play_gallery_sound(): Wwise.post_event(gallery_button_sound, self)
 func play_increase_sound(): Wwise.post_event(finetune_button_increase_sound, self)
 func play_decrease_sound(): Wwise.post_event(finetune_button_decrease_sound, self)
-func play_slider_sound(_value): Wwise.post_event(slider_sounds, self)
+func play_randomize_sound(): Wwise.post_event(randomize_sound, self)
+func play_slider_grab_sound(): Wwise.post_event(slider_grab_sound, self)
+func play_slider_ungrab_sound(_value): Wwise.post_event(slider_ungrab_sounds, self)
 
 
 func _process(delta: float):

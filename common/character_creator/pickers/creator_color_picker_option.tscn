@@ -7,38 +7,36 @@
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4785p"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
-border_width_left = 7
-border_width_top = 7
-border_width_right = 7
-border_width_bottom = 7
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
 border_color = Color(0, 0, 0, 1)
 corner_radius_top_left = 20
 corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
-corner_detail = 1
 anti_aliasing = false
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w2gx2"]
 bg_color = Color(0.964706, 0.964706, 0.964706, 0.117647)
-border_width_left = 7
-border_width_top = 7
-border_width_right = 7
-border_width_bottom = 7
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
 border_color = Color(0, 0, 0, 1)
 corner_radius_top_left = 20
 corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
-corner_detail = 1
 anti_aliasing = false
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bop4a"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
-border_width_left = 7
-border_width_top = 7
-border_width_right = 7
-border_width_bottom = 7
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
 border_color = Color(0.196078, 0.196078, 0.196078, 1)
 corner_radius_top_left = 20
 corner_radius_top_right = 20
@@ -47,8 +45,22 @@ corner_radius_bottom_left = 20
 anti_aliasing = false
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eiasg"]
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fw6xv"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
 
 [node name="Control" type="AspectRatioContainer" node_paths=PackedStringArray("button", "texture")]
 anchors_preset = 15
